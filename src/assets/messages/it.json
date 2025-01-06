@@ -1,0 +1,40 @@
+{
+  "HomePage": {
+    "title": "OKOKOKOKOKOKOK",
+    "about": "OKOKOKOKOKOKOK"
+  },
+  "Auth": {
+    "LoginPage": {
+      "title": "OKOKOKOKOKOKOK",
+      "email": "OKOKOKOKOKOKOK",
+      "password": "OKOKOKOKOKOKOK",
+      "login": "OKOKOKOKOKOKOK",
+      "forgotPassword": "OKOKOKOKOKOKOK",
+      "noAccount": "OKOKOKOKOKOKOK",
+      "register": "OKOKOKOKOKOKOK",
+      "rememberMe": "OKOKOKOKOKOKOK"
+    },
+    "RegisterPage": {
+      "title": "OKOKOKOKOKOKOK",
+      "email": "OKOKOKOKOKOKOK",
+      "password": "OKOKOKOKOKOKOK",
+      "confirmPassword": "OKOKOKOKOKOKOK",
+      "register": "OKOKOKOKOKOKOK",
+      "alreadyRegistered": "OKOKOKOKOKOKOK",
+      "login": "OKOKOKOKOKOKOK",
+      "acceptTermsStart": "OKOKOKOKOKOKOK",
+      "acceptTermsEnd": "OKOKOKOKOKOKOK",
+      "selectTitle": "Seleziona un titolo",
+      "mr": "Signore",
+      "mrs": "Signora",
+      "unspecified": "non specificato",
+      "titleName": "Titolo",
+      "phoneRequired": "Il numero di telefono è obbligatorio",
+      "selectCountry": "Seleziona un paese"
+    }
+  },
+  "other": "Altro",
+  "socialMedia": "Mezzi sociali",
+  "advertisement": "Da un annuncio",
+  "friend": "Da un amico"
+}

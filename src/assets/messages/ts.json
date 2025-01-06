@@ -1,0 +1,40 @@
+{
+  "HomePage": {
+    "title": "OKOKOKOKOKOKOK",
+    "about": "OKOKOKOKOKOKOK"
+  },
+  "Auth": {
+    "LoginPage": {
+      "title": "OKOKOKOKOKOKOK",
+      "email": "OKOKOKOKOKOKOK",
+      "password": "OKOKOKOKOKOKOK",
+      "login": "OKOKOKOKOKOKOK",
+      "forgotPassword": "OKOKOKOKOKOKOK",
+      "noAccount": "OKOKOKOKOKOKOK",
+      "register": "OKOKOKOKOKOKOK",
+      "rememberMe": "OKOKOKOKOKOKOK"
+    },
+    "RegisterPage": {
+      "title": "OKOKOKOKOKOKOK",
+      "email": "OKOKOKOKOKOKOK",
+      "password": "OKOKOKOKOKOKOK",
+      "confirmPassword": "OKOKOKOKOKOKOK",
+      "register": "OKOKOKOKOKOKOK",
+      "alreadyRegistered": "OKOKOKOKOKOKOK",
+      "login": "OKOKOKOKOKOKOK",
+      "acceptTermsStart": "OKOKOKOKOKOKOK",
+      "acceptTermsEnd": "OKOKOKOKOKOKOK",
+      "selectTitle": "Hlawula xihloko",
+      "mr": "Nkulukumba",
+      "mrs": "Manana",
+      "unspecified": "leswi nga boxiwangiki",
+      "titleName": "Xirhangi",
+      "phoneRequired": "Nomboro ya riqingho ya laveka",
+      "selectCountry": "Hlawula tiko"
+    }
+  },
+  "other": "Xin'wana",
+  "socialMedia": "Social Media",
+  "advertisement": "Hi xinavetiso",
+  "friend": "Hi munghana"
+}
