@@ -1,6 +1,40 @@
 {
   "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
-  }
+    "title": "Bonjour le monde!",
+    "about": "Aller à la page à propos"
+  },
+  "Auth": {
+    "LoginPage": {
+      "title": "Connectez-vous à votre compte Cyna",
+      "email": "Votre email",
+      "password": "Votre mot de passe",
+      "login": "Se connecter",
+      "forgotPassword": "Mot de passe oublié?",
+      "noAccount": "Vous n'avez pas encore de compte?",
+      "register": "Inscrivez-vous ici",
+      "rememberMe": "Se souvenir de moi"
+    },
+    "RegisterPage": {
+      "title": "S'inscrire",
+      "email": "Votre email",
+      "password": "Un mot de passe sécurisé",
+      "confirmPassword": "Confirmez votre mot de passe sécurisé",
+      "register": "S'inscrire maintenant",
+      "alreadyRegistered": "Vous avez déjà un compte?",
+      "login": "Connectez-vous ici",
+      "acceptTermsStart": "J'accepte les",
+      "acceptTermsEnd": " termes et conditions",
+      "selectTitle": "Sélectionnez un titre",
+      "mr": "Monsieur",
+      "mrs": "Madame",
+      "unspecified": "indéterminé",
+      "titleName": "Titre",
+      "phoneRequired": "Le numéro de téléphone est requis",
+      "selectCountry": "Sélectionnez un pays"
+    }
+  },
+  "other": "Autre",
+  "socialMedia": "Réseaux sociaux",
+  "advertisement": "Par une annonce",
+  "friend": "Par un ami"
 }
