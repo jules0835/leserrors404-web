@@ -38,7 +38,6 @@ export const findAuthUser = async (email) => {
 
   const user = await UserModel.findOne({ email })
 
-  console.log("user", user)
   return user || null
 }
 
