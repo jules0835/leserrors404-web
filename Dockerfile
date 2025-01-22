@@ -13,6 +13,9 @@ RUN npm install
 # Copier tout le reste du projet dans le conteneur
 COPY . .
 
+RUN npm run build
+
+
 # Exposer le port 3000
 EXPOSE 3000
 
