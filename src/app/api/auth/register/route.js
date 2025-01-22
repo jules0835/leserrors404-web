@@ -24,12 +24,8 @@ const userSchema = yup.object().shape({
 })
 
 export async function POST(req) {
-  console.log("new user")
-
   try {
     const requestBody = await req.json()
-
-    console.log(requestBody)
 
     await userSchema.validate(requestBody, { abortEarly: false })
 
