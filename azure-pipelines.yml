@@ -1,0 +1,13 @@
+# Node.js with Vue
+# This pipeline only triggers the specified webhook URL.
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    curl -X GET "https://webhook.machackhub.online/hooks/run-docker-dev?key=LjhfbzfnjN765637jbefhbb7623"
+  displayName: 'Trigger Webhook'
