@@ -1,20 +1,23 @@
-# Utiliser l'image officielle Node.js
+# Étape 1: Utiliser une image de base avec Node.js
 FROM node:18
 
-# Définir le répertoire de travail
+# Étape 2: Définir le répertoire de travail
 WORKDIR /app
 
-# Copier les fichiers de configuration du package (package.json, package-lock.json, etc.)
+# Étape 3: Copier les fichiers package.json et package-lock.json
 COPY package*.json ./
 
-# Installer les dépendances
+# Étape 4: Installer les dépendances
 RUN npm install
 
-# Copier tout le reste du projet dans le conteneur
+# Étape 5: Copier le reste des fichiers de l'application
 COPY . .
 
-# Exposer le port 3000
-EXPOSE 3000
+# Étape 6: Construire le projet Next.js pour la production
+RUN npm run build
 
-# Lancer le serveur
+# Étape 7: Exposer le port que Next.js va utiliser
+EXPOSE 5002
+
+# Étape 8: Lancer l'application Next.js en mode production
 CMD ["npm", "start"]
