@@ -1,3 +1,3 @@
-export default function AdminNavbar({}) {
+export default function AdminNavbar() {
   return <div></div>
 }
