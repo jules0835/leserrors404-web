@@ -3,6 +3,10 @@
     "title": "Bonjour le monde!",
     "about": "Aller à la page à propos"
   },
+  "HomeAdmin": {
+    "title": "Bonjour le monde!",
+    "about": "Aller à la page à propos"
+  },
   "Auth": {
     "LoginPage": {
       "title": "Connectez-vous à votre compte Cyna",
@@ -32,6 +36,29 @@
       "phoneRequired": "Le numéro de téléphone est requis",
       "selectCountry": "Sélectionnez un pays"
     }
+  },
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "logout": "Se déconnecter",
+    "admin": "Admin"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "admin": "Admin",
+    "dashboard": "Dashboard",
+    "account": "Account",
+    "profile": "Profile",
+    "billing": "Billing",
+    "settings": "Settings"
   },
   "other": "Autre",
   "socialMedia": "Réseaux sociaux",

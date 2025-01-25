@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { Link } from "@/i18n/routing"
+import { Link, useRouter } from "@/i18n/routing"
 import logo from "@/assets/images/logo.webp"
 import { useTranslations } from "next-intl"
 import { Formik, Form, Field, ErrorMessage } from "formik"
@@ -8,12 +8,13 @@ import * as Yup from "yup"
 import DButton from "@/components/ui/DButton"
 import { handleCredentialsSignin } from "@/utils/action/handleCredentialSignIn"
 import { useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
+import { redirect, useSearchParams } from "next/navigation"
 
 // eslint-disable-next-line max-lines-per-function
 export default function Login() {
   const t = useTranslations("Auth.LoginPage")
   const { data: session } = useSession()
+  const searchParams = useSearchParams()
   const router = useRouter()
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email(t("invalidEmail")).required(t("requiredEmail")),
@@ -21,6 +22,7 @@ export default function Login() {
       .min(12, t("passwordMinLength"))
       .required(t("requiredPassword")),
   })
+  const redirect = searchParams.get("next") || "/"
 
   if (session) {
     router.push("/")
@@ -47,6 +49,7 @@ export default function Login() {
             initialValues={{ email: "", password: "" }}
             validationSchema={LoginSchema}
             onSubmit={async (values, { setSubmitting }) => {
+              values.redirect = redirect
               const res = await handleCredentialsSignin(values)
 
               if (res.error) {

@@ -1,6 +1,6 @@
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
-import { UserNav } from "@/features/dashboard/UserNav"
+import { UserNav } from "@/features/navigation/header/UserNav"
 
 export default function AdminTopNavbar() {
   return (

@@ -3,7 +3,7 @@
 "use client"
 
 import logo from "@/assets/images/logo.webp"
-import { Link } from "@/i18n/routing"
+import { Link, useRouter } from "@/i18n/routing"
 import Image from "next/image"
 import { useTranslations, useLocale } from "next-intl"
 import { Formik, Form, Field, ErrorMessage } from "formik"
@@ -13,7 +13,6 @@ import axios from "axios"
 import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
 
 export default function Register() {
   const [countries, setCountries] = useState([{ name: "Loading", id: 1 }])
@@ -89,11 +88,10 @@ export default function Register() {
                   .post("/api/auth/register", values)
                   .then(() => {
                     setSubmitting(false)
-                    router.push(`/${currentLocale}/auth/login`)
+                    router.push(`/auth/login`)
                   })
-                  .catch((error) => {
+                  .catch(() => {
                     setSubmitting(false)
-                    setErrorRegisterMessage(error)
                   })
                 setSubmitting(false)
               }}

@@ -8,3 +8,14 @@ export const company = {
 export const defaultProfile = {
   icon: userDefault,
 }
+
+export const webAppSettings = {
+  urls: {
+    home: "/",
+    admin: "/admin",
+    login: "/auth/login",
+    register: "/auth/register",
+    adminDashboard: "/admin",
+  },
+  auth: {},
+}
