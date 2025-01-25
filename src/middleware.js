@@ -5,8 +5,8 @@ import { routing } from "./i18n/routing"
 
 // Middleware pour l'internationalisation
 const intlMiddleware = createMiddleware(routing)
-const protectedRoutes = ["/user", "/admin", "/dashboard", "/settings", "/api"]
-const unprotectedApiRoutes = ["/api/auth"]
+const protectedRoutes = ["/user", "/dashboard", "/settings", "/api"]
+const unprotectedApiRoutes = ["/api/auth", "/admin", "/api/public"]
 // eslint-disable-next-line consistent-return
 const authMiddleware = auth((req) => {
   const currentPath = req.nextUrl.pathname
@@ -38,6 +38,10 @@ export default function middleware(req) {
 
   if (isProtected && !isUnprotectedApi) {
     return authMiddleware(req)
+  }
+
+  if (currentPath.startsWith("/api")) {
+    return NextResponse.next()
   }
 
   return intlMiddleware(req)

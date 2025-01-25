@@ -8,7 +8,7 @@ import Image from "next/image"
 import { useTranslations, useLocale } from "next-intl"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
-import Button from "@/components/ui/Button"
+import DButton from "@/components/ui/DButton"
 import axios from "axios"
 import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
@@ -16,7 +16,8 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function Register() {
-  const [countries, setCountries] = useState([])
+  const [countries, setCountries] = useState([{ name: "Loading", id: 1 }])
+  const [ErrorRegisterMessage, setErrorRegisterMessage] = useState("")
   const t = useTranslations("Auth.RegisterPage")
   const currentLocale = useLocale()
   const router = useRouter()
@@ -45,11 +46,8 @@ export default function Register() {
   ]
 
   useEffect(() => {
-    axios.get("api/public/countries").then((response) => {
-      const sortedCountries = response.data.sort((a, b) =>
-        a.name.common.localeCompare(b.name.common)
-      )
-      setCountries(sortedCountries)
+    axios.get("/api/public/countries").then((response) => {
+      setCountries(response.data || [{ name: "Error", id: 1 }])
     })
   }, [])
 
@@ -91,10 +89,11 @@ export default function Register() {
                   .post("/api/auth/register", values)
                   .then(() => {
                     setSubmitting(false)
-                    router.push(`${currentLocale}/auth/login`)
+                    router.push(`/${currentLocale}/auth/login`)
                   })
-                  .catch(() => {
+                  .catch((error) => {
                     setSubmitting(false)
+                    setErrorRegisterMessage(error)
                   })
                 setSubmitting(false)
               }}
@@ -411,14 +410,18 @@ export default function Register() {
                       className="text-red-600 text-sm mt-1"
                     />
 
-                    <Button
+                    <h5 className="text-red-600 text-sm mt-1">
+                      {ErrorRegisterMessage}
+                    </h5>
+
+                    <DButton
                       type="submit"
                       isMain
                       isSubmit
                       isLoading={isSubmitting}
                     >
                       {t("register")}
-                    </Button>
+                    </DButton>
 
                     <p className="text-sm font-light text-gray-500 mt-5">
                       {t("alreadyRegistered")}{" "}

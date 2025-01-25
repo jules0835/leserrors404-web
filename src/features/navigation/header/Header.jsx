@@ -13,7 +13,7 @@ export default function Header() {
   const pathname = usePathname()
   const { status } = useSession()
 
-  if (pathname.includes("/auth/")) {
+  if (pathname.includes("/auth/") || pathname.includes("/admin")) {
     return null
   }
 

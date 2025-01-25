@@ -5,7 +5,7 @@ import logo from "@/assets/images/logo.webp"
 import { useTranslations } from "next-intl"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
-import Button from "@/components/ui/Button"
+import DButton from "@/components/ui/DButton"
 import { handleCredentialsSignin } from "@/utils/action/handleCredentialSignIn"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
@@ -123,9 +123,9 @@ export default function Login() {
                   </Link>
                 </div>
 
-                <Button isMain isSubmit isLoading={isSubmitting}>
+                <DButton isMain isSubmit isLoading={isSubmitting}>
                   {t("login")}
-                </Button>
+                </DButton>
 
                 <p className="text-sm font-light text-gray-500">
                   {t("noAccount")}{" "}
