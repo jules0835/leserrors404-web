@@ -12,7 +12,7 @@ export default function NavLink() {
     },
     {
       name: "localeSwitcher",
-      icon: <LocaleSwitcher className="text-white " />,
+      icon: <LocaleSwitcher white={true} />,
     },
     {
       name: "menu",

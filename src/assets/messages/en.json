@@ -77,10 +77,55 @@
     "account": "Account",
     "profile": "Profile",
     "billing": "Billing",
-    "settings": "Settings"
+    "settings": "Settings",
+    "salesFront": "Sales Front",
+    "homePage": "Home Page",
+    "signOut": "Sign Out"
   },
-  "friend": "By a friend",
-  "advertisement": "By an ad",
-  "socialMedia": "Social Media",
-  "other": "Other"
+  "Admin": {
+    "SalesFront": {
+      "HomePage": {
+        "title": "Home page settings",
+        "subTitle": "Manage the home page content, carousel, alert and more",
+        "Carousel": {
+          "editPartTitle": "Edit Carousel Part",
+          "editPartDescription": "Modify the details of this carousel part.",
+          "title": "Title",
+          "titlePlaceholder": "Enter the title",
+          "descriptionPlaceholder": "Enter the description",
+          "imageUpload": "Upload Image",
+          "imageLabel": "Select an image",
+          "imagePlaceholder": "Choose an image file",
+          "linkLabel": "Enter the link URL",
+          "cancelButton": "Cancel",
+          "saveButton": "Save",
+          "titleSection": "Carousel",
+          "addSlide": "Add slide",
+          "removeSlide": "Remove slide",
+          "slide": "Slide",
+          "image": "Image",
+          "imageRequired": "Image is required",
+          "titleRequired": "Title is required",
+          "description": "Description",
+          "descriptionRequired": "Description is required",
+          "link": "Link",
+          "linkRequired": "Link is required",
+          "linkInvalid": "Link is invalid",
+          "linkPlaceholder": "https://www.example.com",
+          "save": "Save",
+          "cancel": "Cancel",
+          "remove": "Remove",
+          "add": "Add",
+          "edit": "Edit carousel",
+          "empty": "Carousel Empty, start by adding new pages.",
+          "active": "Active",
+          "inactive": "Inactive",
+          "isActualState": "The carousel is actualy ",
+          "saving": "We are saving the change..."
+        }
+      }
+    }
+  },
+  "DefaultNotFound": "ERROR: Translation not found",
+  "NoSubTitle": ""
 }

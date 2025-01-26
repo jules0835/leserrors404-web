@@ -4,12 +4,12 @@ import { AuthError } from "next-auth"
 
 export async function handleCredentialsSignin({ email, password, redirect }) {
   try {
-    console.log("redirect", redirect)
     await signIn("credentials", {
       email,
       password,
-      redirectTo: redirect || "/amazon",
+      redirectTo: redirect || "/",
     })
+
     return { message: "Sign in successful" }
   } catch (error) {
     if (error instanceof AuthError) {

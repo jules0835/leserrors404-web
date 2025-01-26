@@ -14,7 +14,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 // eslint-disable-next-line max-lines-per-function
 const DropdownMenu = ({ title, options, icon, noChevron }) => (
   <Menu as="div" className="relative inline-block text-left">
-    <MenuButton className="inline-flex w-full justify-center items-center gap-x-1.5 rounded-md text-sm font-semibold text-gray-900 shadow-sm hover:scale-110">
+    <MenuButton className="w-full justify-center items-center gap-x-1.5 rounded-md text-sm font-semibold text-gray-900 shadow-sm hover:scale-110">
       {icon || null}
       {title || null}
       {noChevron ? null : (

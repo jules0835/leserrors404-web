@@ -1,6 +1,7 @@
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
 import { UserNav } from "@/features/navigation/header/UserNav"
+import LocaleSwitcher from "@/features/navigation/header/LocaleSwitcher"
 
 export default function AdminTopNavbar() {
   return (
@@ -13,6 +14,7 @@ export default function AdminTopNavbar() {
       <div className="flex items-center gap-2 px-4 ml-auto" id="right">
         <div className="hidden md:flex">ICI RECHERCHEs ?</div>
         <div>ICI NOTIFICATIONS ?</div>
+        <LocaleSwitcher />
         <UserNav />
       </div>
     </header>

@@ -3,6 +3,7 @@ import "../../styles/globals.css"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
 import { SessionProvider } from "next-auth/react"
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata = {
   title: "Cyna",
@@ -21,6 +22,7 @@ export default async function RootLayout({ children, params: { locale } }) {
             {children}
           </NextIntlClientProvider>
         </SessionProvider>
+        <Toaster />
       </body>
     </html>
   )

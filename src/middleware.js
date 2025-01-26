@@ -31,6 +31,10 @@ const authMiddleware = auth((req) => {
     }
   }
 
+  if (currentPath.includes("/api/")) {
+    return NextResponse.next()
+  }
+
   return intlMiddleware(req)
 })
 
@@ -55,5 +59,5 @@ export default function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/user/:path*", "/", "/(fr|de|it|en|ts)/:path*", "/api/:path*"],
+  matcher: ["/user/:path*", "/", "/(fr|en|ts)/:path*", "/api/:path*"],
 }
