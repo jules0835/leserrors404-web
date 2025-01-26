@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl"
 import { Separator } from "@/components/ui/separator"
 import CarouselEditPartEditor from "@/features/admin/pages/home/CarouselEditPartEditor"
 import { useState } from "react"
+import { webAppSettings } from "@/assets/options/config"
 
 export default function CarouselPartEditor({ part, updatePart, locale }) {
   const [open, setOpen] = useState(false)
@@ -24,6 +25,10 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
       isActive: !part?.isActive,
     })
   }
+  const totalLanguages = Object.keys(webAppSettings.translation.titles).length
+  const completedTranslations = Object.values(part?.titleTrans || {}).filter(
+    (title) => title && title.trim() !== ""
+  ).length
 
   return (
     <div className="flex space-x-4 border border-gray-200 py-2 px-3 rounded-lg">
@@ -42,7 +47,7 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
         className="rounded-lg"
       />
       <div className="space-y-2 flex-grow">
-        <h2>{t("Carousel.partTitle")}</h2>
+        <h2 className="font-semibold">{t("Carousel.partTitle")}</h2>
         <p>
           {part?.titleTrans?.[locale]
             ? part?.titleTrans?.[locale]
@@ -51,11 +56,24 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
       </div>
       <Separator orientation="vertical" />
       <div className="space-y-2 flex-grow">
-        <h2>{t("Carousel.partDescription")}</h2>
+        <h2 className="font-semibold">{t("Carousel.partDescription")}</h2>
         <p>
           {part?.descriptionTrans?.[locale]
             ? part?.descriptionTrans?.[locale]
             : t("Carousel.noDescription")}
+        </p>
+      </div>
+      <Separator orientation="vertical" />
+      <div className="space-y-2 flex-grow">
+        <h2 className="font-semibold">{t("Carousel.partUrl")}</h2>
+        <p>{part?.link ? part?.link : t("Carousel.noUrl")}</p>
+      </div>
+      <Separator orientation="vertical" />
+      <div className="space-y-2 flex-grow">
+        <h2 className="font-semibold">{t("Carousel.partTranslationDone")}</h2>
+        <p>
+          {`${completedTranslations}/${totalLanguages}`}{" "}
+          {t("Carousel.partTranslationAreDone")}
         </p>
       </div>
       <Separator orientation="vertical" />
@@ -67,7 +85,6 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
         >
           {part?.isActive ? t("Carousel.active") : t("Carousel.inactive")}
         </span>
-
         <SettingsToolbar
           deleteAction={deletePart}
           editAction={() => {

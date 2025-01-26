@@ -121,11 +121,36 @@
           "active": "Active",
           "inactive": "Inactive",
           "isActualState": "The carousel is actualy ",
-          "saving": "We are saving the change..."
+          "saving": "We are saving the change...",
+          "partTitle": "Title",
+          "noTitle": "No title configure",
+          "partDescription": "Description",
+          "partUrl": "Button Link",
+          "noUrl": "No link configure",
+          "partTranslationDone": "Translation done",
+          "noDescription": "No description",
+          "partTranslationAreDone": "translation(s) are completed."
         }
       }
     }
   },
   "DefaultNotFound": "ERROR: Translation not found",
-  "NoSubTitle": ""
+  "NoSubTitle": "No subtitle",
+  "HomeAdmin": {
+    "about": "Go to the about page",
+    "title": "Home Admin"
+  },
+  "advertisement": "Avertissement",
+  "friend": "By a friend",
+  "navigation": {
+    "about": "About",
+    "admin": "Admin",
+    "home": "Home",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Log out"
+  },
+  "other": "Other",
+  "socialMedia": "Social Media"
 }

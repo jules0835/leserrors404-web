@@ -42,7 +42,7 @@ export default function CarouselEditPartEditor({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-lg">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>{t("Carousel.editPartTitle")}</DialogTitle>
           <DialogDescription>
