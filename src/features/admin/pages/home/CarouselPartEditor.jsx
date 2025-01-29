@@ -68,7 +68,7 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
       <Separator orientation="vertical" className="mx-4" />
       <div className="flex-1 space-y-2 text-center">
         <h2 className="font-semibold">{t("Carousel.partUrl")}</h2>
-        <p>{part?.link ? part?.link : t("Carousel.noUrl")}</p>
+        <p>{part?.link ? trimString(part?.link, 20) : t("Carousel.noUrl")}</p>
       </div>
       <Separator orientation="vertical" className="mx-4" />
       <div className="flex-1 space-y-2 text-center">
