@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "OKOKOKOKOKOKOK",
-    "about": "OKOKOKOKOKOKOK"
+    "about": "OKOKOKOKOKOKOK",
+    "HomePage": {
+      "carouselButtonMoreInfos": "Più informazioni"
+    }
   },
   "Auth": {
     "LoginPage": {
@@ -12,7 +15,13 @@
       "forgotPassword": "OKOKOKOKOKOKOK",
       "noAccount": "OKOKOKOKOKOKOK",
       "register": "OKOKOKOKOKOKOK",
-      "rememberMe": "OKOKOKOKOKOKOK"
+      "rememberMe": "OKOKOKOKOKOKOK",
+      "invalidCredentials": "E-mail o password non valide",
+      "invalidEmail": "Si prega di inserire un indirizzo email valido",
+      "invalidPassword": "Immettere una password valida",
+      "passwordMinLength": "La password deve essere lunga almeno 12 caratteri",
+      "requiredEmail": "L'e-mail è obbligatoria",
+      "requiredPassword": "È richiesta la password"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -30,11 +39,121 @@
       "unspecified": "non specificato",
       "titleName": "Titolo",
       "phoneRequired": "Il numero di telefono è obbligatorio",
-      "selectCountry": "Seleziona un paese"
+      "selectCountry": "Seleziona un paese",
+      "advertisement": "Da un annuncio",
+      "city": "Città",
+      "cityRequired": "La città è richiesta",
+      "company": "Azienda",
+      "companyRequired": "La società è richiesta",
+      "confirmPasswordRequired": "Conferma che è richiesta la password",
+      "country": "Paese",
+      "countryRequired": "È richiesto il paese",
+      "emailRequired": "L'e-mail è obbligatoria",
+      "firstName": "Nome di battesimo",
+      "firstNameRequired": "È richiesto il nome",
+      "friend": "Un amico",
+      "howDidYouHear": "Dove hai sentito parlare di noi?",
+      "howDidYouHearSelectOption": "Ho sentito parlare di te da",
+      "invalidEmail": "Email non valida",
+      "lastName": "Cognome",
+      "lastNameRequired": "Il cognome è obbligatorio",
+      "other": "Un'altra opzione",
+      "passwordMinLength": "La password deve essere lunga almeno 6 caratteri",
+      "passwordRequired": "È richiesta la password",
+      "passwordsMustMatch": "Le password devono essere identiche",
+      "phone": "Telefono",
+      "postalCode": "Codice Postale",
+      "postalCodeRequired": "È richiesto il codice postale",
+      "socialMedia": "Formare i social media",
+      "termsRequired": "È necessario accettare i termini e le condizioni"
     }
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
   "advertisement": "Da un annuncio",
-  "friend": "Da un amico"
+  "friend": "Da un amico",
+  "NoSubTitle": "Nessun sottotitolo",
+  "Admin": {
+    "SalesFront": {
+      "HomePage": {
+        "Carousel": {
+          "active": "Attivo",
+          "add": "Aggiungere",
+          "addSlide": "Aggiungi diapositiva",
+          "cancel": "Cancellare",
+          "cancelButton": "Cancellare",
+          "description": "Descrizione",
+          "descriptionPlaceholder": "Immettere la descrizione",
+          "descriptionRequired": "È richiesta una descrizione",
+          "edit": "Modifica la giostra",
+          "editPartDescription": "Modifica i dettagli di questa parte della giostra.",
+          "editPartTitle": "Modifica parte carosello",
+          "empty": "Carosello vuoto, inizia aggiungendo nuove pagine.",
+          "image": "Immagine",
+          "imageLabel": "Seleziona un'immagine",
+          "imagePlaceholder": "Scegli un file immagine",
+          "imageRequired": "L'immagine è obbligatoria",
+          "imageUpload": "Carica immagine",
+          "inactive": "Inattivo",
+          "isActualState": "La giostra è in realtà",
+          "link": "Collegamento",
+          "linkInvalid": "Il collegamento non è valido",
+          "linkLabel": "Immettere l'URL del collegamento",
+          "linkPlaceholder": "https://www.example.com",
+          "linkRequired": "Il collegamento è obbligatorio",
+          "noDescription": "Nessuna descrizione",
+          "noTitle": "Nessun titolo configurato",
+          "noUrl": "Nessun collegamento Configura",
+          "partDescription": "Descrizione",
+          "partTitle": "Titolo",
+          "partTranslationAreDone": "La traduzione / i è completata.",
+          "partTranslationDone": "Traduzione fatta",
+          "partUrl": "Collegamento del pulsante",
+          "remove": "Rimuovere",
+          "removeSlide": "Rimuovere la diapositiva",
+          "save": "Salva",
+          "saveButton": "Salva",
+          "saving": "Stiamo salvando il cambiamento...",
+          "slide": "Diapositiva",
+          "title": "Titolo",
+          "titlePlaceholder": "Inserisci il titolo",
+          "titleRequired": "Il titolo è richiesto",
+          "titleSection": "Giostra"
+        },
+        "subTitle": "Gestisci il contenuto della home page, il carosello, gli avvisi e altro ancora",
+        "title": "Impostazioni della home page"
+      }
+    }
+  },
+  "DefaultNotFound": "Errore: traduzione non trovata",
+  "HomeAdmin": {
+    "about": "Vai alla pagina Informazioni",
+    "title": "Amministratore domestico"
+  },
+  "Navigation": {
+    "about": "Di",
+    "account": "Account",
+    "admin": "Amministratore",
+    "billing": "Fatturazione",
+    "contact": "Contatto",
+    "dashboard": "Pannello di controllo",
+    "home": "Casa",
+    "homePage": "Home page",
+    "login": "Login",
+    "logout": "Esci",
+    "profile": "Profilo",
+    "register": "Registro",
+    "salesFront": "Fronte di vendita",
+    "settings": "Impostazioni",
+    "signOut": "Disconnessione"
+  },
+  "navigation": {
+    "about": "Di",
+    "admin": "Ammin",
+    "contact": "Contatto",
+    "home": "Casa",
+    "login": "Login",
+    "logout": "Esci",
+    "register": "Registro"
+  }
 }

@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "OKOKOKOKOKOKOK",
-    "about": "OKOKOKOKOKOKOK"
+    "about": "OKOKOKOKOKOKOK",
+    "HomePage": {
+      "carouselButtonMoreInfos": "Weitere Informationen"
+    }
   },
   "Auth": {
     "LoginPage": {
@@ -12,7 +15,13 @@
       "forgotPassword": "OKOKOKOKOKOKOK",
       "noAccount": "OKOKOKOKOKOKOK",
       "register": "OKOKOKOKOKOKOK",
-      "rememberMe": "OKOKOKOKOKOKOK"
+      "rememberMe": "OKOKOKOKOKOKOK",
+      "invalidCredentials": "Ungültige E-Mail-Adresse oder ungültiges Passwort",
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "invalidPassword": "Bitte geben Sie ein gültiges Passwort ein",
+      "passwordMinLength": "Das Passwort muss mindestens 12 Zeichen lang sein",
+      "requiredEmail": "E -Mail ist erforderlich",
+      "requiredPassword": "Passwort ist erforderlich"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -30,11 +39,121 @@
       "unspecified": "nicht spezifiziert",
       "titleName": "Titel",
       "phoneRequired": "Telefonnummer ist erforderlich",
-      "selectCountry": "Wählen Sie ein Land aus"
+      "selectCountry": "Wählen Sie ein Land aus",
+      "advertisement": "Aus einer Anzeige",
+      "city": "Stadt",
+      "cityRequired": "Stadt ist erforderlich",
+      "company": "Unternehmen",
+      "companyRequired": "Firma ist erforderlich",
+      "confirmPasswordRequired": "Bestätigen Sie das Passwort erforderlich",
+      "country": "Land",
+      "countryRequired": "Land ist erforderlich",
+      "emailRequired": "E-Mail ist erforderlich",
+      "firstName": "Vorname",
+      "firstNameRequired": "Der Vorname ist erforderlich",
+      "friend": "Ein Freund",
+      "howDidYouHear": "Wo hast du von uns gehört?",
+      "howDidYouHearSelectOption": "Ich höre von dir von",
+      "invalidEmail": "Ungültige E -Mail",
+      "lastName": "Nachname",
+      "lastNameRequired": "Nachname ist erforderlich",
+      "other": "Eine andere Option",
+      "passwordMinLength": "Das Passwort muss mindestens 6 Zeichen lang sein",
+      "passwordRequired": "Passwort ist erforderlich",
+      "passwordsMustMatch": "Passwörter müssen übereinstimmen",
+      "phone": "Telefon",
+      "postalCode": "Postleitzahl",
+      "postalCodeRequired": "Postleitzahl ist erforderlich",
+      "socialMedia": "Social Media bilden",
+      "termsRequired": "Sie müssen die Allgemeinen Geschäftsbedingungen akzeptieren"
     }
   },
   "other": "Andere",
   "socialMedia": "Soziale Medien",
   "advertisement": "Durch eine Anzeige",
-  "friend": "Von einem Freund"
+  "friend": "Von einem Freund",
+  "NoSubTitle": "Kein Untertitel",
+  "Admin": {
+    "SalesFront": {
+      "HomePage": {
+        "Carousel": {
+          "active": "Aktiv",
+          "add": "Hinzufügen",
+          "addSlide": "Folie hinzufügen",
+          "cancel": "Stornieren",
+          "cancelButton": "Stornieren",
+          "description": "Beschreibung",
+          "descriptionPlaceholder": "Geben Sie die Beschreibung ein",
+          "descriptionRequired": "Beschreibung ist erforderlich",
+          "edit": "Karussell bearbeiten",
+          "editPartDescription": "Ändern Sie die Details dieses Karussellteils.",
+          "editPartTitle": "Karussellteil bearbeiten",
+          "empty": "Karussell leer, fügen Sie zunächst neue Seiten hinzu.",
+          "image": "Bild",
+          "imageLabel": "Wählen Sie ein Bild aus",
+          "imagePlaceholder": "Wählen Sie eine Bilddatei",
+          "imageRequired": "Bild ist erforderlich",
+          "imageUpload": "Bild hochladen",
+          "inactive": "Inaktiv",
+          "isActualState": "Das Karussell ist tatsächlich",
+          "link": "Link",
+          "linkInvalid": "Link ist ungültig",
+          "linkLabel": "Geben Sie die Link -URL ein",
+          "linkPlaceholder": "https://www.example.com",
+          "linkRequired": "Link ist erforderlich",
+          "noDescription": "Keine Beschreibung",
+          "noTitle": "Kein Titel konfiguriert",
+          "noUrl": "Kein Link konfigurieren",
+          "partDescription": "Beschreibung",
+          "partTitle": "Titel",
+          "partTranslationAreDone": "Übersetzung(en) sind abgeschlossen.",
+          "partTranslationDone": "Übersetzung gemacht",
+          "partUrl": "Knopfverbindung",
+          "remove": "Entfernen",
+          "removeSlide": "Folie entfernen",
+          "save": "Speichern",
+          "saveButton": "Speichern",
+          "saving": "Wir speichern die Änderung...",
+          "slide": "Gleiten",
+          "title": "Titel",
+          "titlePlaceholder": "Geben Sie den Titel ein",
+          "titleRequired": "Titel ist erforderlich",
+          "titleSection": "Karussell"
+        },
+        "subTitle": "Verwalten Sie den Inhalt der Startseite, Karussell, Alarm und mehr",
+        "title": "Homepage -Einstellungen"
+      }
+    }
+  },
+  "DefaultNotFound": "FEHLER: Übersetzung nicht gefunden",
+  "HomeAdmin": {
+    "about": "Gehen Sie zur About Page",
+    "title": "Heimadministrator"
+  },
+  "Navigation": {
+    "about": "Um",
+    "account": "Konto",
+    "admin": "Administrator",
+    "billing": "Abrechnung",
+    "contact": "Kontakt",
+    "dashboard": "Armaturenbrett",
+    "home": "Heim",
+    "homePage": "Startseite",
+    "login": "Login",
+    "logout": "Abmelden",
+    "profile": "Profil",
+    "register": "Registrieren",
+    "salesFront": "Verkaufsfront",
+    "settings": "Einstellungen",
+    "signOut": "Abmelden"
+  },
+  "navigation": {
+    "admin": "Admin",
+    "contact": "Kontakt",
+    "home": "Heim",
+    "login": "Login",
+    "logout": "Abmelden",
+    "about": "Um",
+    "register": "Registrieren"
+  }
 }

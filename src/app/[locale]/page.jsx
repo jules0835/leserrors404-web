@@ -1,13 +1,14 @@
-import { useTranslations } from "next-intl"
-import { Link } from "@/i18n/routing"
+import HomeCarousel from "@/features/home/HomeCarousel"
+import { getHomeCarouselData } from "@/lib/utils"
 
-export default function Home() {
-  const t = useTranslations("HomePage")
+export default async function Home() {
+  const carouselData = await getHomeCarouselData()
 
   return (
     <div>
-      <h1>{t("title")}</h1>
-      <Link href="/about">{t("about")}</Link>
+      {carouselData && (
+        <HomeCarousel initialCarouselData={JSON.stringify(carouselData)} />
+      )}
     </div>
   )
 }

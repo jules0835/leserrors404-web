@@ -1,6 +1,13 @@
 {
   "HomePage": {
     "title": "Bonjour le monde!",
+    "about": "Aller à la page à propos",
+    "HomePage": {
+      "carouselButtonMoreInfos": "Plus d'informations"
+    }
+  },
+  "HomeAdmin": {
+    "title": "Bonjour le monde!",
     "about": "Aller à la page à propos"
   },
   "Auth": {
@@ -12,7 +19,13 @@
       "forgotPassword": "Mot de passe oublié?",
       "noAccount": "Vous n'avez pas encore de compte?",
       "register": "Inscrivez-vous ici",
-      "rememberMe": "Se souvenir de moi"
+      "rememberMe": "Se souvenir de moi",
+      "invalidCredentials": "Email ou mot de passe invalide",
+      "invalidEmail": "S'il vous plaît, mettez une adresse email valide",
+      "invalidPassword": "Veuillez saisir un mot de passe valide",
+      "passwordMinLength": "Le mot de passe doit comporter au moins 12 caractères",
+      "requiredEmail": "L'e-mail est requis",
+      "requiredPassword": "Le mot de passe est requis"
     },
     "RegisterPage": {
       "title": "S'inscrire",
@@ -30,11 +43,117 @@
       "unspecified": "indéterminé",
       "titleName": "Titre",
       "phoneRequired": "Le numéro de téléphone est requis",
-      "selectCountry": "Sélectionnez un pays"
+      "selectCountry": "Sélectionnez un pays",
+      "advertisement": "D'une annonce",
+      "city": "Ville",
+      "cityRequired": "La ville est obligatoire",
+      "company": "Entreprise",
+      "companyRequired": "La société est requise",
+      "confirmPasswordRequired": "Confirmer que le mot de passe est requis",
+      "country": "Pays",
+      "countryRequired": "Le pays est requis",
+      "emailRequired": "Un e-mail est requis",
+      "firstName": "Prénom",
+      "firstNameRequired": "Le prénom est obligatoire",
+      "friend": "Un ami",
+      "howDidYouHear": "Où avez-vous entendu parler de nous?",
+      "howDidYouHearSelectOption": "J'entends parler de toi de",
+      "invalidEmail": "E-mail invalide",
+      "lastName": "Nom de famille",
+      "lastNameRequired": "Le nom de famille est obligatoire",
+      "other": "Une autre possibilité",
+      "passwordMinLength": "Le mot de passe doit comporter au moins 6 caractères",
+      "passwordRequired": "Le mot de passe est requis",
+      "passwordsMustMatch": "Les mots de passe doivent correspondre",
+      "phone": "Téléphone",
+      "postalCode": "Code Postal",
+      "postalCodeRequired": "Le code postal est requis",
+      "socialMedia": "Former les médias sociaux",
+      "termsRequired": "Vous devez accepter les termes et conditions"
     }
+  },
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "logout": "Se déconnecter",
+    "admin": "Admin"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "admin": "Admin",
+    "dashboard": "Dashboard",
+    "account": "Account",
+    "profile": "Profile",
+    "billing": "Billing",
+    "settings": "Settings",
+    "homePage": "Page d'accueil",
+    "salesFront": "Front de vente",
+    "signOut": "Se déconnecter"
   },
   "other": "Autre",
   "socialMedia": "Réseaux sociaux",
   "advertisement": "Par une annonce",
-  "friend": "Par un ami"
+  "friend": "Par un ami",
+  "NoSubTitle": "Pas de sous-titre",
+  "Admin": {
+    "SalesFront": {
+      "HomePage": {
+        "Carousel": {
+          "active": "Actif",
+          "add": "Ajouter",
+          "addSlide": "Ajouter une diapositive",
+          "cancel": "Annuler",
+          "cancelButton": "Annuler",
+          "description": "Description",
+          "descriptionPlaceholder": "Entrez la description",
+          "descriptionRequired": "Description est requise",
+          "edit": "Modifier le carrousel",
+          "editPartDescription": "Modifiez les détails de cette partie de carrousel.",
+          "editPartTitle": "Modifier une partie du carrousel",
+          "empty": "Carrousel vide, commencez par ajouter de nouvelles pages.",
+          "image": "Image",
+          "imageLabel": "Sélectionnez une image",
+          "imagePlaceholder": "Choisissez un fichier image",
+          "imageRequired": "L'image est requise",
+          "imageUpload": "Télécharger une image",
+          "inactive": "Inactif",
+          "isActualState": "Le carrousel est réel",
+          "link": "Lien",
+          "linkInvalid": "Le lien n'est pas valide",
+          "linkLabel": "Entrez l'URL du lien",
+          "linkPlaceholder": "https://www.exemple.com",
+          "linkRequired": "Un lien est requis",
+          "noDescription": "Aucune description",
+          "noTitle": "Aucune configuration de titre",
+          "noUrl": "Aucun lien Configure",
+          "partDescription": "Description",
+          "partTitle": "Titre",
+          "partTranslationAreDone": "Les traductions sont terminées.",
+          "partTranslationDone": "Traduction faite",
+          "partUrl": "Lien de bouton",
+          "remove": "Retirer",
+          "removeSlide": "Retirer la diapositive",
+          "save": "Sauvegarder",
+          "saveButton": "Sauvegarder",
+          "saving": "Nous sauvons la monnaie...",
+          "slide": "Glisser",
+          "title": "Titre",
+          "titlePlaceholder": "Entrez le titre",
+          "titleRequired": "Le titre est requis",
+          "titleSection": "Carrousel"
+        },
+        "subTitle": "Gérer le contenu de la page d'accueil, le carrousel, l'alerte et plus",
+        "title": "Paramètres de la page d'accueil"
+      }
+    }
+  },
+  "DefaultNotFound": "ERREUR : Traduction introuvable"
 }

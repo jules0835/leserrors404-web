@@ -6,14 +6,11 @@ import logo from "@/assets/images/logo.webp"
 import { Search } from "@mui/icons-material"
 import NavLink from "@/features/navigation/header/NavLink"
 import { usePathname } from "next/navigation"
-import { handleSignOut } from "@/utils/action/handleCredentialSignIn"
-import { useSession } from "next-auth/react"
 
 export default function Header() {
   const pathname = usePathname()
-  const { status } = useSession()
 
-  if (pathname.includes("/auth/")) {
+  if (pathname.includes("/auth/") || pathname.includes("/admin")) {
     return null
   }
 
@@ -38,16 +35,6 @@ export default function Header() {
         </div>
 
         <div className="flex items-center space-x-10">
-          {status === "authenticated" && (
-            <div>
-              <button
-                onClick={() => handleSignOut()}
-                className="text-white bg-[#2F1F80] border border-white px-4 py-2 rounded-full hover:bg-white hover:text-[#2F1F80] transition-all"
-              >
-                Sign out
-              </button>
-            </div>
-          )}
           <NavLink />
         </div>
       </div>

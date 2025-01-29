@@ -2,9 +2,13 @@
 import { signIn, signOut } from "@/auth"
 import { AuthError } from "next-auth"
 
-export async function handleCredentialsSignin({ email, password }) {
+export async function handleCredentialsSignin({ email, password, redirect }) {
   try {
-    await signIn("credentials", { email, password, redirectTo: "/" })
+    await signIn("credentials", {
+      email,
+      password,
+      redirectTo: redirect || "/",
+    })
 
     return { message: "Sign in successful" }
   } catch (error) {

@@ -15,13 +15,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        const user = await fetch("/api/auth/user", {
-          method: "POST",
-          body: JSON.stringify(credentials),
-          headers: { "Content-Type": "application/json" },
-        })
+        const userResponse = await fetch(
+          "http://localhost:3000/api/auth/user",
+          {
+            method: "POST",
+            body: JSON.stringify({ credentials }),
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`,
+            },
+          }
+        )
+        const user = await userResponse.json()
 
-        if (!user) {
+        if (!user || !user.email) {
           return null
         }
 
@@ -45,6 +52,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     jwt({ token, user }) {
       if (user) {
         token.id = user.id
+        token.email = user.email
+        token.firstName = user.firstName
+        token.lastName = user.lastName
+        token.image = user.image
+        token.isAdmin = user.isAdmin
       }
 
       return token
@@ -52,6 +64,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     session({ session, token }) {
       if (token?.id) {
         session.user.id = token.id
+        session.user.email = token.email
+        session.user.firstName = token.firstName
+        session.user.lastName = token.lastName
+        session.user.image = token.image
+        session.user.isAdmin = token.isAdmin
       }
 
       return session
