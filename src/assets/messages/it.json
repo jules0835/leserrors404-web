@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "OKOKOKOKOKOKOK",
-    "about": "OKOKOKOKOKOKOK"
+    "about": "OKOKOKOKOKOKOK",
+    "HomePage": {
+      "carouselButtonMoreInfos": "Più informazioni"
+    }
   },
   "Auth": {
     "LoginPage": {

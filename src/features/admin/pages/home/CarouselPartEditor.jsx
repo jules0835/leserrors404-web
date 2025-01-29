@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import CarouselEditPartEditor from "@/features/admin/pages/home/CarouselEditPartEditor"
 import { useState } from "react"
 import { webAppSettings } from "@/assets/options/config"
+import { trimString } from "@/lib/utils"
 
 export default function CarouselPartEditor({ part, updatePart, locale }) {
   const [open, setOpen] = useState(false)
@@ -31,7 +32,7 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
   ).length
 
   return (
-    <div className="flex space-x-4 border border-gray-200 py-2 px-3 rounded-lg">
+    <div className="flex border border-gray-200 py-2 px-3 rounded-lg ">
       <CarouselEditPartEditor
         open={open}
         setOpen={setOpen}
@@ -46,38 +47,39 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
         height={200}
         className="rounded-lg"
       />
-      <div className="space-y-2 flex-grow">
+      <Separator orientation="vertical" className="mx-4" />
+      <div className="flex-1 space-y-2 text-center">
         <h2 className="font-semibold">{t("Carousel.partTitle")}</h2>
         <p>
           {part?.titleTrans?.[locale]
-            ? part?.titleTrans?.[locale]
+            ? trimString(part?.titleTrans?.[locale], 50)
             : t("Carousel.noTitle")}
         </p>
       </div>
-      <Separator orientation="vertical" />
-      <div className="space-y-2 flex-grow">
+      <Separator orientation="vertical" className="mx-4" />
+      <div className="flex-1 space-y-2 text-center">
         <h2 className="font-semibold">{t("Carousel.partDescription")}</h2>
         <p>
           {part?.descriptionTrans?.[locale]
-            ? part?.descriptionTrans?.[locale]
+            ? trimString(part?.descriptionTrans?.[locale], 50)
             : t("Carousel.noDescription")}
         </p>
       </div>
-      <Separator orientation="vertical" />
-      <div className="space-y-2 flex-grow">
+      <Separator orientation="vertical" className="mx-4" />
+      <div className="flex-1 space-y-2 text-center">
         <h2 className="font-semibold">{t("Carousel.partUrl")}</h2>
         <p>{part?.link ? part?.link : t("Carousel.noUrl")}</p>
       </div>
-      <Separator orientation="vertical" />
-      <div className="space-y-2 flex-grow">
+      <Separator orientation="vertical" className="mx-4" />
+      <div className="flex-1 space-y-2 text-center">
         <h2 className="font-semibold">{t("Carousel.partTranslationDone")}</h2>
         <p>
           {`${completedTranslations}/${totalLanguages}`}{" "}
           {t("Carousel.partTranslationAreDone")}
         </p>
       </div>
-      <Separator orientation="vertical" />
-      <div className="flex flex-col items-center justify-center space-y-2">
+      <Separator orientation="vertical" className="mx-4" />
+      <div className="flex flex-col items-center justify-center space-y-2 flex-1 text-center">
         <span
           className={`${
             part?.isActive ? "text-green-500" : "text-orange-500"

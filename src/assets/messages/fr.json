@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "Bonjour le monde!",
-    "about": "Aller à la page à propos"
+    "about": "Aller à la page à propos",
+    "HomePage": {
+      "carouselButtonMoreInfos": "Plus d'informations"
+    }
   },
   "HomeAdmin": {
     "title": "Bonjour le monde!",

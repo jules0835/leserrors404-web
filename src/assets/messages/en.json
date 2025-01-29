@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "Hello world!",
-    "about": "Go to the about page"
+    "about": "Go to the about page",
+    "HomePage": {
+      "carouselButtonMoreInfos": "More informations"
+    }
   },
   "Auth": {
     "LoginPage": {
@@ -129,7 +132,10 @@
           "noUrl": "No link configure",
           "partTranslationDone": "Translation done",
           "noDescription": "No description",
-          "partTranslationAreDone": "translation(s) are completed."
+          "partTranslationAreDone": "translation(s) are completed.",
+          "saveSuccess": "Success",
+          "saved": "Carousel's change saved",
+          "error": "An error occured while saving the change"
         }
       }
     }

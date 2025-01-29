@@ -8,12 +8,11 @@ import CarouselPartEditor from "@/features/admin/pages/home/CarouselPartEditor"
 import CarouselSkeletonEditor from "@/features/admin/pages/home/CarouselSkeletonEditor"
 import { useState } from "react"
 import SettingsToolbar from "@/features/settings/SettingsToolbar"
-import { useToast } from "@/hooks/use-toast"
+import toast from "react-hot-toast"
 
 export default function CarouselEditor() {
   const [carousel, setCarousel] = useState(null)
   const t = useTranslations("Admin.SalesFront.HomePage")
-  const { toast } = useToast()
   const locale = useLocale()
   const { isLoading, error } = useQuery({
     queryKey: ["carousel"],
@@ -33,9 +32,6 @@ export default function CarouselEditor() {
     },
   })
   const saveCarousel = async (updatedCarousel) => {
-    toast({
-      title: t("Carousel.saving"),
-    })
     const response = await fetch(
       `/api/admin/salesfront/pages/home?name=${webAppSettings.salesfront.homepage.carouselId}`,
       {
@@ -60,7 +56,11 @@ export default function CarouselEditor() {
         carouselParts: [...carousel.carouselParts, newPart],
       }
 
-      return saveCarousel(updatedCarousel)
+      return toast.promise(saveCarousel(updatedCarousel), {
+        loading: t("Carousel.saving"),
+        success: t("Carousel.saved"),
+        error: t("Carousel.error"),
+      })
     },
     onSuccess: (data) => {
       setCarousel(data || carousel)
@@ -75,9 +75,16 @@ export default function CarouselEditor() {
       isActive: !carousel.isActive,
     }
 
-    saveCarousel(updatedCarousel).then((data) => {
-      setCarousel(data || updatedCarousel)
-    })
+    toast.promise(
+      saveCarousel(updatedCarousel).then((data) => {
+        setCarousel(data || updatedCarousel)
+      }),
+      {
+        loading: t("Carousel.saving"),
+        success: t("Carousel.saved"),
+        error: t("Carousel.error"),
+      }
+    )
   }
   const updatePart = (updatedPart) => {
     const updatedCarousel = {
@@ -87,9 +94,16 @@ export default function CarouselEditor() {
         .filter((part) => !part.isDeleted),
     }
 
-    saveCarousel(updatedCarousel).then((data) => {
-      setCarousel(data || updatedCarousel)
-    })
+    toast.promise(
+      saveCarousel(updatedCarousel).then((data) => {
+        setCarousel(data || updatedCarousel)
+      }),
+      {
+        loading: t("Carousel.saving"),
+        success: t("Carousel.saved"),
+        error: t("Carousel.error"),
+      }
+    )
   }
 
   return (
