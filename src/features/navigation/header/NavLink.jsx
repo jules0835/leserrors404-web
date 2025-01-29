@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/routing"
-import { ShoppingCart, AccountCircle, Menu } from "@mui/icons-material"
+import { ShoppingCart, Menu } from "@mui/icons-material"
 import LocaleSwitcher from "@/features/navigation/header/LocaleSwitcher"
+import { UserNav } from "@/features/navigation/header/UserNav"
 
 export default function NavLink() {
   const links = [
@@ -10,17 +11,16 @@ export default function NavLink() {
       icon: <ShoppingCart className="text-white hover:scale-110" />,
     },
     {
-      name: "account",
-      href: "/auth/login",
-      icon: <AccountCircle className="text-white hover:scale-110" />,
-    },
-    {
       name: "localeSwitcher",
-      icon: <LocaleSwitcher className="text-white " />,
+      icon: <LocaleSwitcher white={true} />,
     },
     {
       name: "menu",
       icon: <Menu className="text-white  hover:scale-110" />,
+    },
+    {
+      name: "account",
+      icon: <UserNav className="text-white hover:scale-110" />,
     },
   ]
 

@@ -2,11 +2,11 @@
 
 import { defineRouting } from "next-intl/routing"
 import { createSharedPathnamesNavigation } from "next-intl/navigation"
+import { webAppSettings } from "@/assets/options/config"
 
 export const routing = defineRouting({
-  locales: ["en", "de", "ts", "fr", "cn", "es", "it"],
-
-  defaultLocale: "en",
+  locales: webAppSettings.translation.locales,
+  defaultLocale: webAppSettings.translation.defaultLocale,
 })
 
 export const { Link, redirect, usePathname, useRouter } =

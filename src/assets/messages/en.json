@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "Hello world!",
-    "about": "Go to the about page"
+    "about": "Go to the about page",
+    "HomePage": {
+      "carouselButtonMoreInfos": "More informations"
+    }
   },
   "Auth": {
     "LoginPage": {
@@ -65,8 +68,95 @@
       "other": "An other option"
     }
   },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "admin": "Admin",
+    "dashboard": "Dashboard",
+    "account": "Account",
+    "profile": "Profile",
+    "billing": "Billing",
+    "settings": "Settings",
+    "salesFront": "Sales Front",
+    "homePage": "Home Page",
+    "signOut": "Sign Out"
+  },
+  "Admin": {
+    "SalesFront": {
+      "HomePage": {
+        "title": "Home page settings",
+        "subTitle": "Manage the home page content, carousel, alert and more",
+        "Carousel": {
+          "editPartTitle": "Edit Carousel Part",
+          "editPartDescription": "Modify the details of this carousel part.",
+          "title": "Title",
+          "titlePlaceholder": "Enter the title",
+          "descriptionPlaceholder": "Enter the description",
+          "imageUpload": "Upload Image",
+          "imageLabel": "Select an image",
+          "imagePlaceholder": "Choose an image file",
+          "linkLabel": "Enter the link URL",
+          "cancelButton": "Cancel",
+          "saveButton": "Save",
+          "titleSection": "Carousel",
+          "addSlide": "Add slide",
+          "removeSlide": "Remove slide",
+          "slide": "Slide",
+          "image": "Image",
+          "imageRequired": "Image is required",
+          "titleRequired": "Title is required",
+          "description": "Description",
+          "descriptionRequired": "Description is required",
+          "link": "Link",
+          "linkRequired": "Link is required",
+          "linkInvalid": "Link is invalid",
+          "linkPlaceholder": "https://www.example.com",
+          "save": "Save",
+          "cancel": "Cancel",
+          "remove": "Remove",
+          "add": "Add",
+          "edit": "Edit carousel",
+          "empty": "Carousel Empty, start by adding new pages.",
+          "active": "Active",
+          "inactive": "Inactive",
+          "isActualState": "The carousel is actualy ",
+          "saving": "We are saving the change...",
+          "partTitle": "Title",
+          "noTitle": "No title configure",
+          "partDescription": "Description",
+          "partUrl": "Button Link",
+          "noUrl": "No link configure",
+          "partTranslationDone": "Translation done",
+          "noDescription": "No description",
+          "partTranslationAreDone": "translation(s) are completed.",
+          "saveSuccess": "Success",
+          "saved": "Carousel's change saved",
+          "error": "An error occured while saving the change"
+        }
+      }
+    }
+  },
+  "DefaultNotFound": "ERROR: Translation not found",
+  "NoSubTitle": "No subtitle",
+  "HomeAdmin": {
+    "about": "Go to the about page",
+    "title": "Home Admin"
+  },
+  "advertisement": "Avertissement",
   "friend": "By a friend",
-  "advertisement": "By an ad",
-  "socialMedia": "Social Media",
-  "other": "Other"
+  "navigation": {
+    "about": "About",
+    "admin": "Admin",
+    "home": "Home",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Log out"
+  },
+  "other": "Other",
+  "socialMedia": "Social Media"
 }

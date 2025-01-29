@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "OKOKOKOKOKOKOK",
-    "about": "OKOKOKOKOKOKOK"
+    "about": "OKOKOKOKOKOKOK",
+    "HomePage": {
+      "carouselButtonMoreInfos": "Vuxokoxoko byo tala ."
+    }
   },
   "Auth": {
     "LoginPage": {
@@ -12,7 +15,13 @@
       "forgotPassword": "OKOKOKOKOKOKOK",
       "noAccount": "OKOKOKOKOKOKOK",
       "register": "OKOKOKOKOKOKOK",
-      "rememberMe": "OKOKOKOKOKOKOK"
+      "rememberMe": "OKOKOKOKOKOKOK",
+      "invalidCredentials": "Imeyili kumbe phaswedi leyi nga tirhiki",
+      "invalidEmail": "Hi kombela u nghenisa adirese ya email leyi tirhaka .",
+      "invalidPassword": "Hi kombela u nghenisa password leyi tirhaka .",
+      "passwordMinLength": "Phasiwedi yi fanele ku leha kwalomu ka 12 wa swihlawulekisi",
+      "requiredEmail": "Imeyili ya laveka .",
+      "requiredPassword": "Password ya laveka"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -30,11 +39,121 @@
       "unspecified": "leswi nga boxiwangiki",
       "titleName": "Xirhangi",
       "phoneRequired": "Nomboro ya riqingho ya laveka",
-      "selectCountry": "Hlawula tiko"
+      "selectCountry": "Hlawula tiko",
+      "advertisement": "Ku suka eka xinavetiso",
+      "city": "Doroba",
+      "cityRequired": "Doroba ra laveka",
+      "company": "Khamphani",
+      "companyRequired": "Khamphani ya laveka",
+      "confirmPasswordRequired": "Tiyisisa leswaku password ya laveka",
+      "country": "Tiko",
+      "countryRequired": "Tiko ra laveka",
+      "emailRequired": "Imeyili ya laveka .",
+      "firstName": "Vito rosungula",
+      "firstNameRequired": "Vito ro sungula ra laveka .",
+      "friend": "Munghana wa yena .",
+      "howDidYouHear": "Xana u swi twe kwihi hi hina ?",
+      "howDidYouHearSelectOption": "Ndzi twa hi wena ku suka eka",
+      "invalidEmail": "Imeyili leyi nga tirhiki .",
+      "lastName": "Xivongo",
+      "lastNameRequired": "Vito ro hetelela ra laveka",
+      "other": "Nhlawulo wun’wana .",
+      "passwordMinLength": "Phasiwedi yi fanele ku leha kwalomu ka 6 wa swihlawulekisi",
+      "passwordRequired": "Ku laveka phaswedi .",
+      "passwordsMustMatch": "Tiphasiwedi ti fanele ku fambelana",
+      "phone": "Riqingho",
+      "postalCode": "Khodi ya poso",
+      "postalCodeRequired": "Khodi ya poso ya laveka",
+      "socialMedia": "Xivumbeko xa swa mahungu ya swa matirhiselo ya vanhu .",
+      "termsRequired": "U fanele ku amukela Mimpimanyeto na Swipimelo ."
     }
   },
   "other": "Xin'wana",
   "socialMedia": "Social Media",
   "advertisement": "Hi xinavetiso",
-  "friend": "Hi munghana"
+  "friend": "Hi munghana",
+  "NoSubTitle": "Ku hava xihloko lexitsongo",
+  "Admin": {
+    "SalesFront": {
+      "HomePage": {
+        "Carousel": {
+          "active": "Hanya",
+          "add": "Katsa",
+          "addSlide": "Engetela xilayidi .",
+          "cancel": "Khansela",
+          "cancelButton": "Khansela",
+          "description": "Nhlamuselo",
+          "descriptionPlaceholder": "Nghenisa nhlamuselo",
+          "descriptionRequired": "Nhlamuselo ya laveka",
+          "edit": "Hlela carousel",
+          "editPartDescription": "Cinca vuxokoxoko bya xiphemu lexi xa carousel.",
+          "editPartTitle": "Hlela xiphemu xa carousel .",
+          "empty": "Carousel yi nga ri na nchumu, sungula hi ku engetela matluka lamantshwa.",
+          "image": "Xivumbeko",
+          "imageLabel": "Hlawula xifaniso",
+          "imagePlaceholder": "Hlawula fayili ya xifaniso",
+          "imageRequired": "Xifaniso xa laveka .",
+          "imageUpload": "Upload xifaniso .",
+          "inactive": "Ku nga tirhi",
+          "isActualState": "Carousel i ya xiviri .",
+          "link": "Hlanganisa",
+          "linkInvalid": "Link a yi tirhi",
+          "linkLabel": "Nghenisa URL ya xihlanganisi .",
+          "linkPlaceholder": "https://www.xikombiso.com",
+          "linkRequired": "Link ya laveka",
+          "noDescription": "Ku hava nhlamuselo",
+          "noTitle": "Ku hava xihloko xa ku lulamisa .",
+          "noUrl": "Ku hava xihlanganisi xa ku lulamisa .",
+          "partDescription": "Nhlamuselo",
+          "partTitle": "Xirhangi",
+          "partTranslationAreDone": "Vuhundzuluxi(s) byi hetisiwile.",
+          "partTranslationDone": "Vuhundzuluxi byi endliwile .",
+          "partUrl": "Xihlanganisi xa button .",
+          "remove": "Susa",
+          "removeSlide": "Susa xilayidi",
+          "save": "Hlayisa",
+          "saveButton": "Hlayisa",
+          "saving": "Hi hlayisa ku cinca...",
+          "slide": "Rheta",
+          "title": "Xirhangi",
+          "titlePlaceholder": "Nghenisa xihloko",
+          "titleRequired": "Xihloko xa laveka",
+          "titleSection": "Carousel ya xirhendzevutani"
+        },
+        "subTitle": "Lawula nhundzu ya pheji ya le kaya, carousel, alert na swin'wana",
+        "title": "Switirhisiwa swa pheji ya le kaya"
+      }
+    }
+  },
+  "DefaultNotFound": "Xihoxo: Vuhundzuluxi a byi kumekanga .",
+  "HomeAdmin": {
+    "about": "Yana eka tluka ra mayelana",
+    "title": "Mufambisi wa le Kaya"
+  },
+  "Navigation": {
+    "about": "Hi",
+    "account": "Akhawunti",
+    "admin": "Admin .",
+    "billing": "Ku hakela mali",
+    "contact": "Hlanganisa",
+    "dashboard": "Dashboard",
+    "home": "Kaya",
+    "homePage": "Tluka ra le Kaya",
+    "login": "Nghena",
+    "logout": "Logout .",
+    "profile": "Phurofayili",
+    "register": "Tsarisela",
+    "salesFront": "Xiphemu xa le mahlweni xa ku xavisa .",
+    "settings": "Swiyimiso .",
+    "signOut": "Sayina Ku Huma"
+  },
+  "navigation": {
+    "about": "Hi",
+    "admin": "Admin .",
+    "contact": "Hlanganisa",
+    "home": "Kaya",
+    "login": "Nghena",
+    "logout": "Log out .",
+    "register": "Tsarisela"
+  }
 }
