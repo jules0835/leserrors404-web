@@ -6,7 +6,12 @@ import { routing } from "./i18n/routing"
 // Middleware pour l'internationalisation
 const intlMiddleware = createMiddleware(routing)
 const protectedRoutes = ["/dashboard", "/api", "/admin"]
-const unprotectedApiRoutes = ["/api/auth", "/api/public", "/api/auth/user"]
+const unprotectedApiRoutes = [
+  "/api/authentification",
+  "/api/auth",
+  "/api/public",
+  "/en/api/authentification/user",
+]
 // eslint-disable-next-line consistent-return
 const authMiddleware = auth((req) => {
   const currentPath = req.nextUrl.pathname
@@ -31,27 +36,25 @@ const authMiddleware = auth((req) => {
     }
   }
 
-  if (currentPath.includes("/api/")) {
-    return NextResponse.next()
-  }
-
   return intlMiddleware(req)
 })
 
 export default function middleware(req) {
   const currentPath = req.nextUrl.pathname
+  console.log("currentPath", currentPath)
   const isProtected = protectedRoutes.some((route) =>
     currentPath.includes(route)
   )
   const isUnprotectedApi = unprotectedApiRoutes.some((route) =>
-    currentPath.startsWith(route)
+    currentPath.includes(route)
   )
+  const isAuthApi = currentPath.startsWith("/api/auth/")
 
   if (isProtected && !isUnprotectedApi) {
     return authMiddleware(req)
   }
 
-  if (currentPath.startsWith("/api")) {
+  if (isAuthApi) {
     return NextResponse.next()
   }
 
@@ -59,5 +62,5 @@ export default function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/user/:path*", "/", "/(fr|en|de|ts)/:path*", "/api/:path*"],
+  matcher: ["/", "/(fr|en|de|ts)/:path*", "/api/:path*"],
 }

@@ -1,9 +1,13 @@
+/* eslint-disable no-underscore-dangle */
 import {
   findSalesfront,
   createSalesfront,
   updateSalesfront,
 } from "@/db/crud/salesfrontCrud"
 import { webAppSettings } from "@/assets/options/config"
+import { uploadPublicPicture } from "@/utils/database/blobService"
+import { Buffer } from "buffer"
+
 export async function GET(req) {
   const { searchParams } = req.nextUrl
   const name = searchParams.get("name")
@@ -42,8 +46,16 @@ export async function PUT(req) {
     return Response.error("Salesfront settings not found")
   }
 
+  await Promise.all(
+    body.carouselParts.map(async (part) => {
+      if (part.uploadImage) {
+        const imageBuffer = Buffer.from(part.uploadImage, "base64")
+        part.image = await uploadPublicPicture(imageBuffer)
+      }
+    })
+  )
+
   const updatedSalesfrontSettings = await updateSalesfront(
-    // eslint-disable-next-line no-underscore-dangle
     salesfrontSettings._id,
     body
   )

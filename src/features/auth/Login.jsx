@@ -9,9 +9,11 @@ import DButton from "@/components/ui/DButton"
 import { handleCredentialsSignin } from "@/utils/action/handleCredentialSignIn"
 import { useSession } from "next-auth/react"
 import { redirect, useSearchParams } from "next/navigation"
+import { useState } from "react"
 
 // eslint-disable-next-line max-lines-per-function
 export default function Login() {
+  const [error, setError] = useState(null)
   const t = useTranslations("Auth.LoginPage")
   const { data: session } = useSession()
   const searchParams = useSearchParams()
@@ -22,7 +24,7 @@ export default function Login() {
       .min(12, t("passwordMinLength"))
       .required(t("requiredPassword")),
   })
-  const redirect = searchParams.get("next") || "/"
+  const redirectUrl = searchParams.get("next") || "/"
 
   if (session) {
     router.push("/")
@@ -45,15 +47,24 @@ export default function Login() {
             {t("title")}
           </h1>
 
+          {error && (
+            <p className="text-red-600 text-sm font-medium text-center">
+              {error}
+            </p>
+          )}
+
           <Formik
             initialValues={{ email: "", password: "" }}
             validationSchema={LoginSchema}
             onSubmit={async (values, { setSubmitting }) => {
-              values.redirect = redirect
+              values.redirect = redirectUrl
               const res = await handleCredentialsSignin(values)
-
+              console.log(res)
               if (res.error) {
                 setSubmitting(false)
+                setError(res.error)
+              } else {
+                router.push(redirectUrl)
               }
             }}
           >

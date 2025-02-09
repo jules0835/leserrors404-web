@@ -33,6 +33,7 @@ export const salesfrontSchema = new Schema({
       image: { type: String },
       link: { type: String },
       isActive: { type: Boolean, default: true },
+      position: { type: Number, default: 0 },
     },
   ],
 })

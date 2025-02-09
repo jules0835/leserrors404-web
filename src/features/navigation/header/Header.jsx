@@ -1,14 +1,29 @@
 "use client"
 
+import { useEffect } from "react"
 import { Link } from "@/i18n/routing"
 import Image from "next/image"
 import logo from "@/assets/images/logo.webp"
 import { Search } from "@mui/icons-material"
 import NavLink from "@/features/navigation/header/NavLink"
 import { usePathname } from "next/navigation"
+import { useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 export default function Header() {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const reval = searchParams.get("reval")
+  const router = useRouter()
+
+  useEffect(() => {
+    if (reval) {
+      const params = new URLSearchParams(searchParams)
+      params.delete("reval")
+      const newUrl = `${window.location.pathname}?${params.toString()}`
+      window.location.replace(newUrl)
+    }
+  }, [reval, searchParams, router])
 
   if (pathname.includes("/auth/") || pathname.includes("/admin")) {
     return null

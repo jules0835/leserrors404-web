@@ -8,6 +8,9 @@ import { Toaster } from "react-hot-toast"
 export const metadata = {
   title: "Cyna",
   description: "Web App For Cyna",
+  icons: {
+    icon: "/public/favicon.ico",
+  },
 }
 
 export default async function RootLayout({ children, params: { locale } }) {

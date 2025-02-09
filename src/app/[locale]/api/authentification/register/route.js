@@ -3,43 +3,28 @@ import { NextResponse } from "next/server"
 import bcrypt from "bcryptjs"
 import { findUserByEmail, createUser } from "@/db/crud/userCrud"
 import * as yup from "yup"
-
-const userSchema = yup.object().shape({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
-  country: yup.string().required("Country is required"),
-  city: yup.string().required("City is required"),
-  phone: yup.string().required("Phone number is required"),
-  email: yup
-    .string()
-    .email("Invalid email format")
-    .required("Email is required"),
-  password: yup
-    .string()
-    .min(8, "Password must be at least 8 characters long")
-    .required("Password is required"),
-  zipCode: yup.string().required("Zip code is required"),
-  title: yup.number().required("Title is required"),
-  company: yup.string().required("Company is required"),
-})
+import { getRegisterSchema } from "@/utils/validation/user"
+import { getTranslations } from "next-intl/server"
 
 export async function POST(req) {
   try {
+    const { searchParams } = new URL(req.url)
+    const locale = searchParams.get("locale")
+    const t = await getTranslations({ locale, namespace: "Auth.RegisterPage" })
     const requestBody = await req.json()
-
+    const userSchema = getRegisterSchema(t)
     await userSchema.validate(requestBody, { abortEarly: false })
 
     const {
       firstName,
       lastName,
-      country,
-      city,
       phone,
       email,
       password,
-      zipCode,
       title,
       company,
+      howDidYouHear,
+      address: { country, city, zipCode, street },
     } = requestBody
 
     if (await findUserByEmail(email)) {
@@ -57,18 +42,23 @@ export async function POST(req) {
     await createUser({
       firstName,
       lastName,
-      country,
-      city,
       phone,
       email,
       password: hashedPassword,
-      zipCode,
       title,
       company,
+      howDidYouHear,
+      address: {
+        country,
+        city,
+        zipCode,
+        street,
+      },
     })
 
     return NextResponse.json({ success: true }, { status: 201 })
   } catch (error) {
+    console.error(error)
     if (error instanceof yup.ValidationError) {
       const validationErrors = error.inner.map((err) => err.message).join(", ")
 

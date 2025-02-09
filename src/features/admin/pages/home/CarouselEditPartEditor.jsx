@@ -1,4 +1,5 @@
 /* eslint-disable max-lines-per-function */
+"use client"
 import {
   Dialog,
   DialogContent,
@@ -10,7 +11,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useTranslations } from "next-intl"
 import { webAppSettings } from "@/assets/options/config"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { Separator } from "@/components/ui/separator"
 
 export default function CarouselEditPartEditor({
   open,
@@ -20,6 +22,18 @@ export default function CarouselEditPartEditor({
 }) {
   const t = useTranslations("Admin.SalesFront.HomePage")
   const [localPart, setLocalPart] = useState(part)
+  const [imageBase64, setImageBase64] = useState("")
+
+  useEffect(() => {
+    if (localPart.image && typeof localPart.image !== "string") {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImageBase64(reader.result.split(",")[1])
+      }
+      reader.readAsDataURL(localPart.image)
+    }
+  }, [localPart.image])
+
   const handleInputChange = (field, lang, value) => {
     setLocalPart((prev) => ({
       ...prev,
@@ -36,7 +50,13 @@ export default function CarouselEditPartEditor({
     }))
   }
   const handleSave = () => {
-    updatePart(localPart)
+    const updatedPart = { ...localPart }
+
+    if (imageBase64) {
+      updatedPart.uploadImage = imageBase64
+    }
+
+    updatePart(updatedPart)
     setOpen(false)
   }
 
@@ -49,7 +69,36 @@ export default function CarouselEditPartEditor({
             {t("Carousel.editPartDescription")}
           </DialogDescription>
         </DialogHeader>
-        <div className="space-y-4 overflow-y-auto max-h-[70vh]">
+        <div className="space-y-4 overflow-y-auto max-h-[70vh] p-2">
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold">
+              {t("Carousel.imageUpload")}
+            </h3>
+            <label htmlFor="image-upload" className="block text-sm">
+              {t("Carousel.imageLabel")}
+            </label>
+            <Input
+              id="image-upload"
+              type="file"
+              accept="image/*"
+              onChange={(e) => handleFieldChange("image", e.target.files[0])}
+              placeholder={t("Carousel.imagePlaceholder")}
+            />
+          </div>
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold">{t("Carousel.link")}</h3>
+            <label htmlFor="link-input" className="block text-sm">
+              {t("Carousel.linkLabel")}
+            </label>
+            <Input
+              id="link-input"
+              type="url"
+              value={localPart.link || ""}
+              onChange={(e) => handleFieldChange("link", e.target.value)}
+              placeholder={t("Carousel.linkPlaceholder")}
+            />
+          </div>
+          <Separator />
           {Object.entries(webAppSettings.translation.titles).map(
             ([lang, label]) => (
               <div key={lang} className="space-y-2">
@@ -92,33 +141,6 @@ export default function CarouselEditPartEditor({
               </div>
             )
           )}
-          <div className="space-y-2">
-            <h3 className="text-lg font-semibold">
-              {t("Carousel.imageUpload")}
-            </h3>
-            <label htmlFor="image-upload" className="block text-sm">
-              {t("Carousel.imageLabel")}
-            </label>
-            <Input
-              id="image-upload"
-              type="file"
-              onChange={(e) => handleFieldChange("image", e.target.files[0])}
-              placeholder={t("Carousel.imagePlaceholder")}
-            />
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-lg font-semibold">{t("Carousel.link")}</h3>
-            <label htmlFor="link-input" className="block text-sm">
-              {t("Carousel.linkLabel")}
-            </label>
-            <Input
-              id="link-input"
-              type="url"
-              value={localPart.link || ""}
-              onChange={(e) => handleFieldChange("link", e.target.value)}
-              placeholder={t("Carousel.linkPlaceholder")}
-            />
-          </div>
         </div>
         <div className="flex justify-end space-x-2 mt-4">
           <Button variant="outline" onClick={() => setOpen(false)}>

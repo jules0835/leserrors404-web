@@ -21,7 +21,8 @@
       "invalidCredentials": "Invalid email or password",
       "requiredEmail": "Email is required",
       "requiredPassword": "Password is required",
-      "passwordMinLength": "Password must be at least 12 characters long"
+      "passwordMinLength": "Password must be at least 12 characters long",
+      "unknownError": "Something went wrong, please try again or contact support."
     },
     "RegisterPage": {
       "title": "Register",
@@ -43,6 +44,7 @@
       "postalCodeRequired": "Postal code is required",
       "city": "City",
       "cityRequired": "City is required",
+      "street": "Street",
       "emailRequired": "Email is required",
       "passwordMinLength": "Password must be at least 6 characters long",
       "passwordRequired": "Password is required",
@@ -65,7 +67,12 @@
       "friend": "A friend",
       "advertisement": "From an ad",
       "socialMedia": "Form social media",
-      "other": "An other option"
+      "other": "An other option",
+      "successMessage": "You have successfully registered",
+      "successMessage2": "You will receive an email to confirm your registration, please check your inbox and spam folder.",
+      "successMessage3": "Once you have confirmed your registration, you will be able to log in.",
+      "successMessage4": "If you don't receive the email, please contact us.",
+      "errorRegister": "An error occured while register, please verify your information or try again later."
     }
   },
   "Navigation": {
@@ -83,9 +90,100 @@
     "settings": "Settings",
     "salesFront": "Sales Front",
     "homePage": "Home Page",
-    "signOut": "Sign Out"
+    "signOut": "Sign Out",
+    "security": "Security",
+    "users": "Users",
+    "business": "Business",
+    "products": "Products",
+    "orders": "Orders",
+    "coupons": "Coupons",
+    "subscriptions": "Subscriptions",
+    "payments": "Payments",
+    "categories": "Categories",
+    "customers": "Customers"
   },
   "Admin": {
+    "Security": {
+      "Users": {
+        "title": "Users",
+        "subTitle": "Manage users, roles and permissions",
+        "addUser": "Add user",
+        "editUser": "Edit user",
+        "deleteUser": "Delete user",
+        "id": "ID",
+        "email": "Email",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "role": "Role",
+        "actions": "Actions",
+        "edit": "Edit",
+        "delete": "Delete",
+        "noUsers": "No users found",
+        "saving": "We are saving the change...",
+        "saveSuccess": "Success",
+        "saved": "User's change saved",
+        "error": "An error occured while saving the change",
+        "cancel": "Cancel",
+        "save": "Save",
+        "deleteConfirmation": "Are you sure you want to delete this user?",
+        "deleteSuccess": "Success",
+        "deleted": "User deleted",
+        "deleteError": "An error occured while deleting the user",
+        "country": "Country",
+        "city": "City",
+        "zipCode": "Zip Code",
+        "phone": "Phone",
+        "isActive": "Active",
+        "isEmployee": "Employee",
+        "isAdmin": "Admin",
+        "isConfirmed": "Confirmed",
+        "viewUser": "View user",
+        "searchPlaceholder": "Search...",
+        "columns": "Columns",
+        "errorLoadingData": "Error loading data.",
+        "noResults": "No results.",
+        "previous": "Previous",
+        "next": "Next",
+        "yes": "Yes",
+        "no": "No",
+        "unconfirmUser": "Force unconfirm",
+        "confirmUser": "Force confirmation",
+        "desactivateUser": "Desactivate user",
+        "activateUser": "Activate User",
+        "changingUserStatus": "Changing user status to {status}",
+        "active": "active",
+        "inactive": "inactive",
+        "userStatusChanged": "Successfuly changed user status to {status}",
+        "failedToChangeUserStatus": "Failed to change user status !",
+        "UserDetails": {
+          "title": "User details",
+          "subTitle": "Manage user details, roles and permissions",
+          "nothingSelected": "No option selected",
+          "profilePictureAlt": "Profile picture of {firstName} {lastName}",
+          "created": "Created: {date}",
+          "active": "Active",
+          "employee": "Employee",
+          "admin": "Admin",
+          "confirmed": "Confirmed",
+          "firstName": "First Name",
+          "lastName": "Last Name",
+          "email": "Email",
+          "phone": "Phone",
+          "howDidYouHear": "How Did You Hear",
+          "country": "Country",
+          "city": "City",
+          "zipCode": "Zip Code",
+          "street": "Street",
+          "company": "Company",
+          "saveChanges": "Save Changes",
+          "cancel": "Cancel",
+          "edit": "Edit",
+          "savingChanges": "Saving changes...",
+          "changesSavedSuccessfully": "Changes saved successfully",
+          "failedToSaveChanges": "Failed to save changes"
+        }
+      }
+    },
     "SalesFront": {
       "HomePage": {
         "title": "Home page settings",
@@ -135,8 +233,33 @@
           "partTranslationAreDone": "translation(s) are completed.",
           "saveSuccess": "Success",
           "saved": "Carousel's change saved",
-          "error": "An error occured while saving the change"
+          "error": "An error occured while saving the change",
+          "subTitle": "Manage user details, roles and permissions",
+          "howDidYouHear": "Where did you hear about us ?",
+          "friend": "A friend",
+          "advertisement": "From an ad",
+          "socialMedia": "Form social media",
+          "other": "An other option",
+          "nothingSelected": "Nothing selected"
         }
+      }
+    },
+    "Business": {
+      "title": "Business",
+      "Products": {
+        "title": "Products"
+      },
+      "Orders": {
+        "title": "Orders"
+      },
+      "Coupons": {
+        "title": "Coupons"
+      },
+      "Subscriptions": {
+        "title": "Subscriptions"
+      },
+      "Payments": {
+        "title": "Payments"
       }
     }
   },

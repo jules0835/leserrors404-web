@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable new-cap */
 /* eslint-disable max-lines-per-function */
 "use client"
@@ -38,7 +39,7 @@ export default function HomeCarousel({ initialCarouselData }) {
             {carouselData &&
               carouselData.carouselParts?.length > 0 &&
               carouselData.carouselParts.map((part) => (
-                <CarouselItem key={part.partId} className="relative">
+                <CarouselItem key={part._id} className="relative">
                   <Image
                     src={part.image || "/default_large.png"}
                     alt={part.titleTrans[locale]}

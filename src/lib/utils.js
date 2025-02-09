@@ -8,14 +8,20 @@ export function cn(...inputs) {
 
 export function returnPageTitleTranslation(pathname) {
   const path = `/${pathname.split("/").slice(2).join("/")}`
-  const pageTitle = pagesNames.find((page) => page.url === path)
+  const pageTitle = pagesNames.find((page) => {
+    const regex = new RegExp(`^${page.url.replace(/\[Id\]/gi, "[^/]+")}$`, "i")
+    return regex.test(path)
+  })
 
   return pageTitle?.titleKey ?? "DefaultNotFound"
 }
 
 export function returnPageSubTitleTranslation(pathname) {
   const path = `/${pathname.split("/").slice(2).join("/")}`
-  const pageSubTitle = pagesNames.find((page) => page.url === path)
+  const pageSubTitle = pagesNames.find((page) => {
+    const regex = new RegExp(`^${page.url.replace(/\[Id\]/gi, "[^/]+")}$`, "i")
+    return regex.test(path)
+  })
 
   return pageSubTitle?.subTitleKey ?? "NoSubTitle"
 }

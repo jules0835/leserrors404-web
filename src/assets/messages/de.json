@@ -123,6 +123,13 @@
         "subTitle": "Verwalten Sie den Inhalt der Startseite, Karussell, Alarm und mehr",
         "title": "Homepage -Einstellungen"
       }
+    },
+    "Security": {
+      "Users": {
+        "User": {
+          "nothingSelected": "Nichts ausgewählt"
+        }
+      }
     }
   },
   "DefaultNotFound": "FEHLER: Übersetzung nicht gefunden",

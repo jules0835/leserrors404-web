@@ -1,6 +1,7 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
+import log from "@/lib/log"
 
 // eslint-disable-next-line new-cap
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -15,8 +16,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
+        await log.userInfo({
+          message: `User with email ${credentials.email} is attempting to log in`,
+          logKey: "userLoginAttempt",
+          data: { email: credentials.email },
+        })
+
         const userResponse = await fetch(
-          "http://localhost:3000/api/auth/user",
+          "http://localhost:3000/en/api/authentification/user",
           {
             method: "POST",
             body: JSON.stringify({ credentials }),
@@ -26,9 +33,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
           }
         )
+
         const user = await userResponse.json()
 
         if (!user || !user.email) {
+          await log.userError({
+            message: `User with email ${credentials.email} failed to log in`,
+            logKey: "userLoginFailed",
+            isError: true,
+            data: { email: credentials.email },
+          })
           return null
         }
 
@@ -38,8 +52,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         )
 
         if (!isValid) {
+          await log.userError({
+            message: `User with email ${credentials.email} failed to log in`,
+            logKey: "userLoginFailed",
+            isError: true,
+            userId: user._id,
+            data: { email: credentials.email },
+          })
           return null
         }
+
+        await log.userInfo({
+          message: `User with email ${credentials.email} successfully logged in`,
+          logKey: "userLoginSuccess",
+          userId: user._id,
+          data: { email: credentials.email },
+        })
 
         return user
       },

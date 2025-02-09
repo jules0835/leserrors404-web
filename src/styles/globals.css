@@ -104,3 +104,8 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
+
+.PhoneInputInput {
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  outline: none;
+}

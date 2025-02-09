@@ -11,7 +11,12 @@ import { useState } from "react"
 import { webAppSettings } from "@/assets/options/config"
 import { trimString } from "@/lib/utils"
 
-export default function CarouselPartEditor({ part, updatePart, locale }) {
+export default function CarouselPartEditor({
+  part,
+  updatePart,
+  locale,
+  updatePartPosition,
+}) {
   const [open, setOpen] = useState(false)
   const t = useTranslations("Admin.SalesFront.HomePage")
   const deletePart = () => {
@@ -32,7 +37,7 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
   ).length
 
   return (
-    <div className="flex border border-gray-200 py-2 px-3 rounded-lg ">
+    <div className="flex border border-gray-200 py-2 px-3 rounded-lg">
       <CarouselEditPartEditor
         open={open}
         setOpen={setOpen}
@@ -40,13 +45,14 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
         updatePart={updatePart}
         locale={locale}
       />
-      <Image
-        src={part?.image || "/default_large.png"}
-        alt="carousel"
-        width={200}
-        height={200}
-        className="rounded-lg"
-      />
+      <div className="flex-1 relative w-24 h-24">
+        <Image
+          src={part?.image || "/default_large.png"}
+          alt="carousel"
+          className="rounded-xl object-cover"
+          fill
+        />
+      </div>
       <Separator orientation="vertical" className="mx-4" />
       <div className="flex-1 space-y-2 text-center">
         <h2 className="font-semibold">{t("Carousel.partTitle")}</h2>
@@ -95,6 +101,8 @@ export default function CarouselPartEditor({ part, updatePart, locale }) {
           isActive={part?.isActive}
           activationAction={updatePartStatus}
           desactivationAction={updatePartStatus}
+          positionUpAction={() => updatePartPosition("up", part)}
+          positionDownAction={() => updatePartPosition("down", part)}
         />
       </div>
     </div>
