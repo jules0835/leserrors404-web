@@ -246,9 +246,6 @@
     },
     "Business": {
       "title": "Business",
-      "Products": {
-        "title": "Products"
-      },
       "Orders": {
         "title": "Orders"
       },
@@ -260,6 +257,116 @@
       },
       "Payments": {
         "title": "Payments"
+      },
+      "Categories": {
+        "title": "Categories",
+        "noResults": "No results",
+        "errorLoadingData": "Error loading data.",
+        "subTitle": "Manage categories",
+        "searchPlaceholder": "Search...",
+        "columns": "Columns",
+        "isActive": "Active",
+        "yes": "Yes",
+        "no": "No",
+        "previous": "Previous",
+        "next": "Next",
+        "Delete": {
+          "categoryDeleted": "Category deleted",
+          "deletingCategory": "Deleting category",
+          "errorDeletingCategory": "Error deleting category"
+        },
+        "Add": {
+          "adding": "Adding",
+          "dialogDescription": "Fill the form to add a new category",
+          "addingCategory": "Adding category",
+          "dialogTitle": "Add a new category",
+          "label": "Name",
+          "description": "Description",
+          "Stock": "Stock",
+          "picture": "Picture",
+          "imagePlaceholder": "Choose an image file",
+          "categoryAdded": "Category added",
+          "errorAddingCategory": "Error adding category",
+          "add": "Add",
+          "isActive": "Active"
+        },
+        "Edit": {
+          "update": "Update",
+          "updated": "Updated",
+          "updating": "Updating",
+          "errorUpdatingCategory": "Error updating category",
+          "dialogTitle": "Edit category",
+          "dialogDescription": "Fill the form to edit the category"
+        },
+        "Errors": {
+          "labelRequired": "Name is required",
+          "descriptionRequired": "Description is required",
+          "pictureRequired": "Picture is required"
+        },
+        "More": {
+          "deleteCategory": "Delete category",
+          "editCategory": "Edit category",
+          "viewCategory": "View category"
+        }
+      },
+      "Products": {
+        "title": "Products",
+        "noResults": "No results",
+        "errorLoadingData": "Error loading data.",
+        "subTitle": "Manage products",
+        "searchPlaceholder": "Search...",
+        "columns": "Columns",
+        "isActive": "Active",
+        "yes": "Yes",
+        "no": "No",
+        "previous": "Previous",
+        "next": "Next",
+        "Delete": {
+          "productDeleted": "Product deleted",
+          "deletingProduct": "Deleting product",
+          "errorDeletingProduct": "Error deleting product"
+        },
+        "Add": {
+          "adding": "Adding",
+          "dialogDescription": "Fill the form to add a new product",
+          "addingProduct": "Adding product",
+          "characteristics": "Characteristics",
+          "stock": "Stock",
+          "selectPriority": "Select a priority",
+          "selectCategorie": "Select a category",
+          "dialogTitle": "Add a new product",
+          "label": "Name",
+          "description": "Description",
+          "categorie": "Categorie",
+          "Stock": "Stock",
+          "picture": "Picture",
+          "price": "Price",
+          "priority": "Priority",
+          "technicalCaracteristics": "Technical Caracteristics",
+          "imagePlaceholder": "Choose an image file",
+          "productAdded": "Product added",
+          "errorAddingProduct": "Error adding product",
+          "add": "Add",
+          "isActive": "Active"
+        },
+        "Edit": {
+          "update": "Update",
+          "updated": "Updated",
+          "updating": "Updating",
+          "errorUpdatingProduct": "Error updating product",
+          "dialogTitle": "Edit product",
+          "dialogDescription": "Fill the form to edit the product"
+        },
+        "Errors": {
+          "labelRequired": "Name is required",
+          "descriptionRequired": "Description is required",
+          "pictureRequired": "Picture is required"
+        },
+        "More": {
+          "deleteProduct": "Delete product",
+          "editProduct": "Edit product",
+          "viewProduct": "View product"
+        }
       }
     }
   },

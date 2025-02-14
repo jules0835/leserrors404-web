@@ -1,4 +1,5 @@
-import { put } from "@vercel/blob"
+import { put, get } from "@vercel/blob"
+
 
 export async function uploadPublicPicture(file) {
   if (!file) {
@@ -10,4 +11,16 @@ export async function uploadPublicPicture(file) {
   })
 
   return blob.url
+}
+
+// TODO: Add a function to delete a public picture
+export async function deletePublicPicture(url) {
+  return true
+  const blob = await get(url)
+
+  if (!blob) {
+    return
+  }
+
+  await blob.delete()
 }
