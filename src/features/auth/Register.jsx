@@ -3,52 +3,70 @@
 "use client"
 
 import logo from "@/assets/images/logo.webp"
-import { Link, useRouter } from "@/i18n/routing"
+import { Link } from "@/i18n/routing"
 import Image from "next/image"
 import { useTranslations, useLocale } from "next-intl"
 import { Formik, Form, Field, ErrorMessage } from "formik"
-import * as Yup from "yup"
 import DButton from "@/components/ui/DButton"
 import axios from "axios"
 import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { useEffect, useState } from "react"
+import { getRegisterSchema } from "@/features/auth/utils/userValidation"
+import { getHowDidYouHearOptions } from "@/features/auth/utils/register"
+import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead"
 
 export default function Register() {
   const [countries, setCountries] = useState([{ name: "Loading", id: 1 }])
   const [ErrorRegisterMessage, setErrorRegisterMessage] = useState("")
+  const [success, setSuccess] = useState(false)
   const t = useTranslations("Auth.RegisterPage")
   const currentLocale = useLocale()
-  const router = useRouter()
-  const RegisterSchema = Yup.object().shape({
-    firstName: Yup.string().required(t("firstNameRequired")),
-    lastName: Yup.string().required(t("lastNameRequired")),
-    company: Yup.string().required(t("companyRequired")),
-    zipCode: Yup.string().required(t("postalCodeRequired")),
-    city: Yup.string().required(t("cityRequired")),
-    email: Yup.string().email(t("invalidEmail")).required(t("emailRequired")),
-    password: Yup.string()
-      .min(6, t("passwordMinLength"))
-      .required(t("passwordRequired")),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], t("passwordsMustMatch"))
-      .required(t("confirmPasswordRequired")),
-    terms: Yup.bool().oneOf([true], t("termsRequired")),
-    country: Yup.string().required(t("countryRequired")),
-    phone: Yup.number().required(t("phoneRequired")),
-  })
-  const howDidYouHearOptions = [
-    { name: "friend", code: 1, nameTrad: t("friend") },
-    { name: "advertisement", code: 2, nameTrad: t("advertisement") },
-    { name: "socialMedia", code: 3, nameTrad: t("socialMedia") },
-    { name: "other", code: 4, nameTrad: t("other") },
-  ]
+  const validationSchema = getRegisterSchema(t)
+  const howDidYouHearOptions = getHowDidYouHearOptions(t)
 
   useEffect(() => {
     axios.get("/api/public/countries").then((response) => {
       setCountries(response.data || [{ name: "Error", id: 1 }])
     })
   }, [])
+
+  if (success) {
+    return (
+      <div>
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen lg:py-0 bg-[#2F1F80]">
+          <Link
+            className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
+            href="/"
+          >
+            <div className="p-4 rounded-2xl">
+              <Image src={logo} alt="logo" width={132} height={132} />
+            </div>
+          </Link>
+          <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-3xl xl:max-w-4xl xl:p-0">
+            <div className=" sm:p-8">
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                {t("title")}
+              </h1>
+              <div className="flex flex-col space-y-5 items-center justify-center w-full h-96">
+                <MarkEmailReadIcon className="text-9xl text-primary-600" />
+
+                <h1 className="text-3xl font-bold text-gray-900">
+                  {t("successMessage")}
+                </h1>
+                <p>{t("successMessage2")} </p>
+                <p>{t("successMessage3")}</p>
+                <p>{t("successMessage4")}</p>
+              </div>
+              <Link href="/auth/login">
+                <DButton isMain>{t("login")}</DButton>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div>
@@ -72,25 +90,30 @@ export default function Register() {
                 firstName: "",
                 lastName: "",
                 company: "",
-                zipCode: "",
-                city: "",
-                country: "",
                 email: "",
                 password: "",
                 confirmPassword: "",
                 terms: false,
                 phone: "",
-                title: "",
+                title: 1,
+                howDidYouHear: "friend",
+                address: {
+                  country: "",
+                  city: "",
+                  zipCode: "",
+                  street: "",
+                },
               }}
-              validationSchema={RegisterSchema}
+              validationSchema={validationSchema}
               onSubmit={async (values, { setSubmitting }) => {
                 await axios
-                  .post("/api/auth/register", values)
+                  .post(`/api/authentification/register`, values)
                   .then(() => {
                     setSubmitting(false)
-                    router.push(`/auth/login`)
+                    setSuccess(true)
                   })
                   .catch(() => {
+                    setErrorRegisterMessage(t("errorRegister"))
                     setSubmitting(false)
                   })
                 setSubmitting(false)
@@ -146,7 +169,6 @@ export default function Register() {
                           />
                         </div>
                       </div>
-
                       <div className="w-full">
                         <label
                           htmlFor="lastName"
@@ -167,45 +189,72 @@ export default function Register() {
                           className="text-red-600 text-sm mt-1"
                         />
                       </div>
-
-                      <div className="w-full ">
-                        <label
-                          htmlFor="company"
-                          className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                          {t("company")}
-                        </label>
-                        <Field
-                          type="text"
-                          name="company"
-                          id="company"
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                          placeholder="Company"
-                        />
-                        <ErrorMessage
-                          name="company"
-                          component="div"
-                          className="text-red-600 text-sm mt-1"
-                        />
+                      <div className="flex  md:space-x-4 space-x-2">
+                        <div className="w-full ">
+                          <label
+                            htmlFor="company"
+                            className="block mb-2 text-sm font-medium text-gray-900"
+                          >
+                            {t("company")}
+                          </label>
+                          <Field
+                            type="text"
+                            name="company"
+                            id="company"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            placeholder="Company"
+                          />
+                          <ErrorMessage
+                            name="company"
+                            component="div"
+                            className="text-red-600 text-sm mt-1"
+                          />
+                        </div>
+                        <div className="w-full">
+                          <label
+                            htmlFor="address.country"
+                            className="block mb-2 text-sm font-medium text-gray-900"
+                          >
+                            {t("country")}
+                          </label>
+                          <Field
+                            as="select"
+                            name="address.country"
+                            id="address.country"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            value={formik.values.address.country}
+                          >
+                            <option value="">{t("selectCountry")}</option>
+                            {countries?.map((country) => (
+                              <option key={country.id} value={country.name}>
+                                {country.name}
+                              </option>
+                            ))}
+                          </Field>
+                          <ErrorMessage
+                            name="address.country"
+                            component="div"
+                            className="text-red-600 text-sm mt-1"
+                          />
+                        </div>
                       </div>
-
                       <div className="flex  md:space-x-4 space-x-2">
                         <div className="w-full">
                           <label
-                            htmlFor="zipCode"
+                            htmlFor="address.zipCode"
                             className="block mb-2 text-sm font-medium text-gray-900"
                           >
                             {t("postalCode")}
                           </label>
                           <Field
                             type="text"
-                            name="zipCode"
-                            id="zipCode"
+                            name="address.zipCode"
+                            id="address.zipCode"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                             placeholder="Postal Code"
                           />
                           <ErrorMessage
-                            name="zipCode"
+                            name="address.zipCode"
                             component="div"
                             className="text-red-600 text-sm mt-1"
                           />
@@ -213,20 +262,20 @@ export default function Register() {
 
                         <div className="w-full">
                           <label
-                            htmlFor="city"
+                            htmlFor="address.city"
                             className="block mb-2 text-sm font-medium text-gray-900"
                           >
                             {t("city")}
                           </label>
                           <Field
                             type="text"
-                            name="city"
-                            id="city"
+                            name="address.city"
+                            id="address.city"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                             placeholder="City"
                           />
                           <ErrorMessage
-                            name="city"
+                            name="address.city"
                             component="div"
                             className="text-red-600 text-sm mt-1"
                           />
@@ -234,26 +283,20 @@ export default function Register() {
                       </div>
                       <div className="w-full">
                         <label
-                          htmlFor="country"
+                          htmlFor="address.street"
                           className="block mb-2 text-sm font-medium text-gray-900"
                         >
-                          {t("country")}
+                          {t("street")}
                         </label>
                         <Field
-                          as="select"
-                          name="country"
-                          id="country"
+                          type="text"
+                          name="address.street"
+                          id="address.street"
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        >
-                          <option value="">{t("selectCountry")}</option>
-                          {countries?.map((country) => (
-                            <option key={country.id} value={country.name}>
-                              {country.name}
-                            </option>
-                          ))}
-                        </Field>
+                          placeholder="Street"
+                        />
                         <ErrorMessage
-                          name="country"
+                          name="address.street"
                           component="div"
                           className="text-red-600 text-sm mt-1"
                         />
@@ -268,19 +311,20 @@ export default function Register() {
                         >
                           {t("phone")}
                         </label>
-                        <PhoneInput
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 width-auto"
-                          defaultCountry={
-                            currentLocale === "en"
-                              ? "US"
-                              : currentLocale.toUpperCase()
-                          }
-                          value={formik.values.phone}
-                          onChange={(value) =>
-                            formik.setFieldValue("phone", value || "")
-                          }
-                          placeholder={t("phone")}
-                        />
+                        <div className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 width-auto">
+                          <PhoneInput
+                            defaultCountry={
+                              currentLocale === "en"
+                                ? "US"
+                                : currentLocale.toUpperCase()
+                            }
+                            value={formik.values.phone}
+                            onChange={(value) =>
+                              formik.setFieldValue("phone", value || "")
+                            }
+                            placeholder={t("phone")}
+                          />
+                        </div>
                         <ErrorMessage
                           name="phone"
                           component="div"

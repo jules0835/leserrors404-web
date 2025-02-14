@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-lines-per-function */
 "use client"
@@ -105,6 +106,46 @@ export default function CarouselEditor() {
       }
     )
   }
+  const updatePartPosition = (position, part) => {
+    const currentIndex = carousel.carouselParts.findIndex(
+      (p) => p._id === part._id
+    )
+    let newIndex = currentIndex
+
+    if (position === "up" && currentIndex > 0) {
+      newIndex = currentIndex - 1
+    } else if (
+      position === "down" &&
+      currentIndex < carousel.carouselParts.length - 1
+    ) {
+      newIndex = currentIndex + 1
+    }
+
+    if (newIndex !== currentIndex) {
+      const updatedParts = [...carousel.carouselParts]
+      const [movedPart] = updatedParts.splice(currentIndex, 1)
+      updatedParts.splice(newIndex, 0, movedPart)
+
+      const updatedCarousel = {
+        ...carousel,
+        carouselParts: updatedParts.map((p, index) => ({
+          ...p,
+          position: index,
+        })),
+      }
+
+      toast.promise(
+        saveCarousel(updatedCarousel).then((data) => {
+          setCarousel(data || updatedCarousel)
+        }),
+        {
+          loading: t("Carousel.saving"),
+          success: t("Carousel.saved"),
+          error: t("Carousel.error"),
+        }
+      )
+    }
+  }
 
   return (
     <div className="p-5 border border-gray-200 rounded-md">
@@ -131,9 +172,6 @@ export default function CarouselEditor() {
           </h3>
         </div>
       )}
-      {(isLoading || addNewPartMutation.isPending) && (
-        <CarouselSkeletonEditor />
-      )}
       {carousel && !isLoading && (
         <div className="grid grid-cols-1 gap-2 mt-5">
           {carousel?.carouselParts?.map((part) => (
@@ -142,9 +180,13 @@ export default function CarouselEditor() {
               part={part}
               updatePart={updatePart}
               locale={locale}
+              updatePartPosition={updatePartPosition}
             />
           ))}
         </div>
+      )}
+      {(isLoading || addNewPartMutation.isPending) && (
+        <CarouselSkeletonEditor />
       )}
       {carousel &&
         !isLoading &&

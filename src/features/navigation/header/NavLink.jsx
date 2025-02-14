@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/routing"
-import { ShoppingCart, Menu } from "@mui/icons-material"
+import { ShoppingCart } from "@mui/icons-material"
 import LocaleSwitcher from "@/features/navigation/header/LocaleSwitcher"
 import { UserNav } from "@/features/navigation/header/UserNav"
 
@@ -8,15 +8,11 @@ export default function NavLink() {
     {
       name: "cart",
       href: "/user/order/cart",
-      icon: <ShoppingCart className="text-white hover:scale-110" />,
+      icon: <ShoppingCart className="text-white hover:scale-125 scale-110" />,
     },
     {
       name: "localeSwitcher",
       icon: <LocaleSwitcher white={true} />,
-    },
-    {
-      name: "menu",
-      icon: <Menu className="text-white  hover:scale-110" />,
     },
     {
       name: "account",
@@ -35,7 +31,7 @@ export default function NavLink() {
               </div>
             </Link>
           ) : (
-            <div className="flex hover:cursor-pointer transition-all text-3xl items-center">
+            <div className="flex hover:cursor-pointer transition-all ">
               {link.icon}
             </div>
           )}

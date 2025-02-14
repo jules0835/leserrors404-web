@@ -1,3 +1,4 @@
+/* eslint-disable padding-line-between-statements */
 "use client"
 
 import * as React from "react"

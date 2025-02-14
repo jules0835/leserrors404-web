@@ -8,6 +8,9 @@ const nextConfig = {
 
     return config
   },
+  images: {
+    domains: ["fimkppvxvt92ijit.public.blob.vercel-storage.com"],
+  },
 }
 
 export default withNextIntl(nextConfig)

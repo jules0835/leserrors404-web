@@ -6,6 +6,8 @@ import {
   CirclePlus,
   MonitorCheck,
   MonitorX,
+  ArrowBigDown,
+  ArrowBigUp,
 } from "lucide-react"
 import {
   Tooltip,
@@ -23,6 +25,8 @@ export default function SettingsToolbar({
   activationAction,
   desactivationAction,
   isActive,
+  positionUpAction,
+  positionDownAction,
 }) {
   const actions = [
     {
@@ -66,6 +70,18 @@ export default function SettingsToolbar({
       color: "text-orange-500",
       action: desactivationAction,
       condition: isActive,
+    },
+    {
+      type: "positionUp",
+      label: "Position up",
+      icon: ArrowBigUp,
+      action: positionUpAction,
+    },
+    {
+      type: "positionDown",
+      label: "Position down",
+      icon: ArrowBigDown,
+      action: positionDownAction,
     },
   ]
   const visibleActions = actions.filter(

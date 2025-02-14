@@ -1,14 +1,23 @@
 "use server"
 import { signIn, signOut } from "@/auth"
 import { AuthError } from "next-auth"
+import { getTranslations } from "next-intl/server"
+import log from "@/lib/log"
 
 export async function handleCredentialsSignin({ email, password, redirect }) {
+  const t = await getTranslations("Auth.LoginPage")
+
   try {
-    await signIn("credentials", {
+    const result = await signIn("credentials", {
       email,
       password,
-      redirectTo: redirect || "/",
+      redirectTo: redirect ? `${redirect}?reval=1` : "/?reval=1",
+      callbackUrl: redirect ? `${redirect}?reval=1` : "/?reval=1",
     })
+
+    if (result?.error) {
+      return { error: t("invalidCredentials") }
+    }
 
     return { message: "Sign in successful" }
   } catch (error) {
@@ -16,12 +25,19 @@ export async function handleCredentialsSignin({ email, password, redirect }) {
       switch (error.type) {
         case "CredentialsSignin":
           return {
-            message: "Invalid credentials",
+            error: t("invalidCredentials"),
           }
 
         default:
+          log.systemError({
+            logKey: "systemError",
+            message: "Unknown error in handleCredentialsSignin",
+            ErrorMessage: error.message,
+            data: { error, email },
+          })
+
           return {
-            message: "Something went wrong.",
+            error: t("unknownError"),
           }
       }
     }

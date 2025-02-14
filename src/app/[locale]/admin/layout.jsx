@@ -20,7 +20,7 @@ export default function AdminLayout({ children }) {
         <AdminSideNavbar />
         <SidebarInset>
           <AdminTopNavbar />
-          <div className="mx-10">
+          <div className="mx-7 my-2">
             <div>
               <h1 className="text-2xl font-semibold">
                 {t(returnPageTitleTranslation(pathname))}

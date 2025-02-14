@@ -6,7 +6,13 @@ import { routing } from "./i18n/routing"
 // Middleware pour l'internationalisation
 const intlMiddleware = createMiddleware(routing)
 const protectedRoutes = ["/dashboard", "/api", "/admin"]
-const unprotectedApiRoutes = ["/api/auth", "/api/public", "/api/auth/user"]
+const unprotectedApiRoutes = [
+  "/api/authentification",
+  "/api/auth",
+  "/api/public",
+  "/en/api/authentification/user",
+  "/en/api/services/log",
+]
 // eslint-disable-next-line consistent-return
 const authMiddleware = auth((req) => {
   const currentPath = req.nextUrl.pathname
@@ -25,14 +31,14 @@ const authMiddleware = auth((req) => {
     )
   }
 
+  const { isAdmin, userId } = req.auth.user
+  req.headers.set("x-int-auth-userId", userId)
+  req.headers.set("x-int-auth-isAdmin", isAdmin)
+
   if (currentPath.includes("/admin")) {
     if (!req.auth.user.isAdmin) {
       return NextResponse.redirect(new URL(`/${locale}`, req.url))
     }
-  }
-
-  if (currentPath.includes("/api/")) {
-    return NextResponse.next()
   }
 
   return intlMiddleware(req)
@@ -44,14 +50,15 @@ export default function middleware(req) {
     currentPath.includes(route)
   )
   const isUnprotectedApi = unprotectedApiRoutes.some((route) =>
-    currentPath.startsWith(route)
+    currentPath.includes(route)
   )
+  const isAuthApi = currentPath.startsWith("/api/auth/")
 
   if (isProtected && !isUnprotectedApi) {
     return authMiddleware(req)
   }
 
-  if (currentPath.startsWith("/api")) {
+  if (isAuthApi) {
     return NextResponse.next()
   }
 
@@ -59,5 +66,5 @@ export default function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/user/:path*", "/", "/(fr|en|de|ts)/:path*", "/api/:path*"],
+  matcher: ["/", "/(fr|en|de|ts)/:path*", "/api/:path*"],
 }
