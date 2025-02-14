@@ -43,8 +43,4 @@ export const log = {
   systemError: createLogger(logCriticalityKeys.systemError.key),
 }
 
-/**
- * @param {string} level
- * @param {LogData} logData
- * @returns {Promise<void>}
- */
+export default log
