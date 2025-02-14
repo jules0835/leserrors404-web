@@ -3,7 +3,7 @@
 "use client"
 
 import logo from "@/assets/images/logo.webp"
-import { Link, useRouter } from "@/i18n/routing"
+import { Link } from "@/i18n/routing"
 import Image from "next/image"
 import { useTranslations, useLocale } from "next-intl"
 import { Formik, Form, Field, ErrorMessage } from "formik"
@@ -12,7 +12,7 @@ import axios from "axios"
 import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { useEffect, useState } from "react"
-import { getRegisterSchema } from "@/utils/validation/user"
+import { getRegisterSchema } from "@/features/auth/utils/userValidation"
 import { getHowDidYouHearOptions } from "@/features/auth/utils/register"
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead"
 
@@ -22,8 +22,6 @@ export default function Register() {
   const [success, setSuccess] = useState(false)
   const t = useTranslations("Auth.RegisterPage")
   const currentLocale = useLocale()
-  const router = useRouter()
-
   const validationSchema = getRegisterSchema(t)
   const howDidYouHearOptions = getHowDidYouHearOptions(t)
 

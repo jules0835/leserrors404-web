@@ -8,15 +8,18 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { webAppSettings } from "@/assets/options/config"
-import { getEditUserSchema } from "@/utils/validation/user"
+import { getEditUserSchema } from "@/features/auth/utils/userValidation"
 import { getHowDidYouHearOptions } from "@/features/auth/utils/register"
 import { useTranslations } from "next-intl"
 import axios from "axios"
 import toast from "react-hot-toast"
+import { Logs } from "lucide-react"
+import UserLogsDialog from "@/features/admin/security/logs/UserLogsDialog"
 
 export function UserDetailsForm({ user }) {
   const [isEditing, setIsEditing] = useState(false)
   const [newUser, setNewUser] = useState(user)
+  const [logsOpen, setLogsOpen] = useState(false)
   const t = useTranslations("Admin.Security.Users.UserDetails")
   const howDidYouHearOptions = getHowDidYouHearOptions(t)
   const validationSchema = getEditUserSchema(t)
@@ -37,14 +40,15 @@ export function UserDetailsForm({ user }) {
     }
 
     setNewUser(response.data.user)
-    console.log(response.data.user)
+
     setIsEditing(false)
     setSubmitting(false)
   }
   const cancelEdit = () => {
     setIsEditing(false)
+
     if (formikRef.current) {
-      formikRef.current.resetForm({ values: newUser }) // Réinitialiser le formulaire
+      formikRef.current.resetForm({ values: newUser })
     }
   }
 
@@ -56,13 +60,18 @@ export function UserDetailsForm({ user }) {
 
   return (
     <div>
+      <UserLogsDialog
+        userId={user._id}
+        isOpen={logsOpen}
+        onClose={setLogsOpen}
+      />
       <Formik
         initialValues={newUser}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
         innerRef={formikRef}
       >
-        {({ isSubmitting, values, setFieldValue, ...formik }) => (
+        {({ isSubmitting, values, setFieldValue }) => (
           <Form className="space-y-8">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
@@ -80,7 +89,7 @@ export function UserDetailsForm({ user }) {
                   <h2 className="text-xl font-semibold">{`${user.firstName} ${user.lastName}`}</h2>
                   <p className="text-sm text-gray-500">
                     {t("created", {
-                      date: new Date(user.createdAt).toLocaleDateString(),
+                      date: new Date(user.createdAt).toLocaleString("fr-FR"),
                     })}
                   </p>
                 </div>
@@ -130,6 +139,17 @@ export function UserDetailsForm({ user }) {
                     disabled={!isEditing}
                   />
                 </div>
+              </div>
+
+              <div>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setLogsOpen((prev) => !prev)}
+                >
+                  <Logs />
+                  {t("logs")}
+                </Button>
               </div>
             </div>
 

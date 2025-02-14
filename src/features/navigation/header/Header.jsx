@@ -6,9 +6,7 @@ import Image from "next/image"
 import logo from "@/assets/images/logo.webp"
 import { Search } from "@mui/icons-material"
 import NavLink from "@/features/navigation/header/NavLink"
-import { usePathname } from "next/navigation"
-import { useSearchParams } from "next/navigation"
-import { useRouter } from "next/navigation"
+import { useSearchParams, useRouter, usePathname } from "next/navigation"
 
 export default function Header() {
   const pathname = usePathname()

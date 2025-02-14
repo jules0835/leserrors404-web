@@ -4,9 +4,11 @@ import {
   createSalesfront,
   updateSalesfront,
 } from "@/db/crud/salesfrontCrud"
-import { webAppSettings } from "@/assets/options/config"
+import { logKeys, webAppSettings } from "@/assets/options/config"
 import { uploadPublicPicture } from "@/utils/database/blobService"
 import { Buffer } from "buffer"
+import log from "@/lib/log"
+import { getReqIsAdmin, getReqUserId } from "@/features/auth/utils/getAuthParam"
 
 export async function GET(req) {
   const { searchParams } = req.nextUrl
@@ -59,6 +61,14 @@ export async function PUT(req) {
     salesfrontSettings._id,
     body
   )
+
+  log.systemInfo({
+    logKey: logKeys.frontSettingsEdit.key,
+    message: "Salesfront home carousel updated",
+    newData: { updatedSalesfrontSettings },
+    isAdminAction: getReqIsAdmin(req),
+    userId: getReqUserId(req),
+  })
 
   return Response.json(updatedSalesfrontSettings)
 }

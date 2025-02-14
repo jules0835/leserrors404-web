@@ -109,3 +109,17 @@
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
   outline: none;
 }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  100% {
+    transform: rotate(-360deg);
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+}
+
+.spin-animation {
+  animation: spin 1s linear infinite;
+}

@@ -1,7 +1,8 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
-import log from "@/lib/log"
+import { logEvent } from "@/lib/logEvent"
+import { logKeys } from "@/assets/options/config"
 
 // eslint-disable-next-line new-cap
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -16,14 +17,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        await log.userInfo({
+        await logEvent({
+          level: "userInfo",
           message: `User with email ${credentials.email} is attempting to log in`,
-          logKey: "userLoginAttempt",
+          logKey: logKeys.loginAttempt.key,
           data: { email: credentials.email },
         })
 
         const userResponse = await fetch(
-          "http://localhost:3000/en/api/authentification/user",
+          `${process.env.SERVER_URL}/en/api/authentification/user`,
           {
             method: "POST",
             body: JSON.stringify({ credentials }),
@@ -33,16 +35,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
           }
         )
-
         const user = await userResponse.json()
 
         if (!user || !user.email) {
-          await log.userError({
+          await logEvent({
+            level: "userError",
             message: `User with email ${credentials.email} failed to log in`,
-            logKey: "userLoginFailed",
+            logKey: logKeys.loginFailed.key,
             isError: true,
             data: { email: credentials.email },
           })
+
           return null
         }
 
@@ -52,19 +55,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         )
 
         if (!isValid) {
-          await log.userError({
+          await logEvent({
+            level: "userError",
             message: `User with email ${credentials.email} failed to log in`,
-            logKey: "userLoginFailed",
+            logKey: logKeys.loginFailed.key,
             isError: true,
             userId: user._id,
             data: { email: credentials.email },
           })
+
           return null
         }
 
-        await log.userInfo({
+        await logEvent({
+          level: "userInfo",
           message: `User with email ${credentials.email} successfully logged in`,
-          logKey: "userLoginSuccess",
+          logKey: logKeys.loginSuccess.key,
           userId: user._id,
           data: { email: credentials.email },
         })
@@ -80,6 +86,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     jwt({ token, user }) {
       if (user) {
         token.id = user.id
+        token.userId = user._id
         token.email = user.email
         token.firstName = user.firstName
         token.lastName = user.lastName
@@ -91,6 +98,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     session({ session, token }) {
       if (token?.id) {
+        session.user.userId = token.userId
         session.user.id = token.id
         session.user.email = token.email
         session.user.firstName = token.firstName

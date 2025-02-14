@@ -76,7 +76,7 @@
     ],
     "max-lines-per-function": [
       "warn",
-      { "max": 300, "skipBlankLines": true, "skipComments": true }
+      { "max": 350, "skipBlankLines": true, "skipComments": true }
     ],
     "max-nested-callbacks": ["error", 3],
     "max-params": ["error", 3],
@@ -120,7 +120,6 @@
     "no-shadow": "error",
     "no-throw-literal": "error",
     "no-undef-init": "error",
-    "no-underscore-dangle": ["error", { "allowFunctionParams": false }],
     "no-unneeded-ternary": ["error", { "defaultAssignment": false }],
     "no-unused-expressions": ["error", { "enforceForJSX": true }],
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
@@ -164,7 +163,6 @@
     "symbol-description": "error",
     "yoda": "error",
     "line-comment-position": ["error", { "position": "above" }],
-    // recommended rules overwrite
     "indent": "off",
     "linebreak-style": ["error", "unix"],
     "newline-before-return": "error",

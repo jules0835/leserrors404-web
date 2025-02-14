@@ -7,7 +7,7 @@ export const logSchema = new Schema({
   technicalMessage: { type: String, required: false, default: "" },
   isError: { type: Boolean, default: false },
   isAdminAction: { type: Boolean, default: false },
-  deviceType: { type: String, default: "unknown" },
+  deviceType: { type: String, default: "" },
   userId: { type: String, default: null },
   date: { type: Date, default: Date.now },
   data: { type: Object, default: {} },

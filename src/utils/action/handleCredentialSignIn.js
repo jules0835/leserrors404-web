@@ -6,12 +6,13 @@ import log from "@/lib/log"
 
 export async function handleCredentialsSignin({ email, password, redirect }) {
   const t = await getTranslations("Auth.LoginPage")
+
   try {
     const result = await signIn("credentials", {
       email,
       password,
-      redirectTo: `${redirect}?reval=1` || "/?reval=1",
-      callbackUrl: `${redirect}?reval=1` || "/?reval=1",
+      redirectTo: redirect ? `${redirect}?reval=1` : "/?reval=1",
+      callbackUrl: redirect ? `${redirect}?reval=1` : "/?reval=1",
     })
 
     if (result?.error) {
@@ -34,11 +35,13 @@ export async function handleCredentialsSignin({ email, password, redirect }) {
             ErrorMessage: error.message,
             data: { error, email },
           })
+
           return {
             error: t("unknownError"),
           }
       }
     }
+
     throw error
   }
 }

@@ -78,26 +78,19 @@ export const getUsers = async (size = 10, page = 1, query = "") => {
 }
 
 export const changeActiveUserStatus = async (userId, status) => {
-  try {
-    await mwdb()
-    await UserModel.updateOne({ _id: userId }, { isActive: status })
-    const updatedUser = await UserModel.findById(userId).select("-password")
-    return updatedUser
-  } catch (error) {
-    console.error("Failed to change user status:", error)
-  }
+  await mwdb()
+  await UserModel.updateOne({ _id: userId }, { isActive: status })
+  const updatedUser = await UserModel.findById(userId).select("-password")
+
+  return updatedUser
 }
 
 export const changeUserConfirmedStatus = async (userId, status) => {
-  try {
-    await mwdb()
-    await UserModel.updateOne({ _id: userId }, { isConfirmed: status })
-    const updatedUser = await UserModel.findById(userId).select("-password")
+  await mwdb()
+  await UserModel.updateOne({ _id: userId }, { isConfirmed: status })
+  const updatedUser = await UserModel.findById(userId).select("-password")
 
-    return updatedUser
-  } catch (error) {
-    console.error("Failed to change user status:", error)
-  }
+  return updatedUser
 }
 
 export const findUserForAdmin = async (id) => {
@@ -115,13 +108,9 @@ export const findUserForAdmin = async (id) => {
 export const updateUser = async (id, data) => {
   await mwdb()
 
-  try {
-    const user = await UserModel.findOneAndUpdate({ _id: id }, data, {
-      new: true,
-    }).select("-password")
+  const user = await UserModel.findOneAndUpdate({ _id: id }, data, {
+    new: true,
+  }).select("-password")
 
-    return user
-  } catch (error) {
-    console.error("Failed to update user:", error)
-  }
+  return user
 }

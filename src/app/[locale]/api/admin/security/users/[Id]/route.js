@@ -6,9 +6,12 @@ import {
   updateUser,
 } from "@/db/crud/userCrud"
 import * as yup from "yup"
-import { getEditUserSchema } from "@/utils/validation/user"
+import { getEditUserSchema } from "@/features/auth/utils/userValidation"
 import { getTranslations } from "next-intl/server"
 import bcrypt from "bcryptjs"
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
+import { getReqIsAdmin, getReqUserId } from "@/features/auth/utils/getAuthParam"
 
 export async function POST(req, { params }) {
   const { searchParams } = req.nextUrl
@@ -17,6 +20,15 @@ export async function POST(req, { params }) {
   const userId = await params.Id
 
   if (action === null || actionValue === null) {
+    log.systemSecurity({
+      logKey: logKeys.systemInfo.key,
+      message: "Invalid request in /{locale}/api/admin/security/users/[Id]",
+      data: { action, actionValue },
+      isAdminAction: getReqIsAdmin(req),
+      userId: getReqUserId(req),
+      isError: true,
+    })
+
     return Response.json({ error: "Invalid request" }, { status: 400 })
   }
 
@@ -26,9 +38,26 @@ export async function POST(req, { params }) {
         userId,
         actionValue === "true"
       )
+      log.userInfo({
+        logKey: logKeys.userEdit.key,
+        message: `User status changed to ${actionValue} by admin`,
+        newData: { actionValue },
+        data: { userId, actionValue },
+        isAdminAction: getReqIsAdmin(req),
+        userId: getReqUserId(req),
+      })
 
       return Response.json({ success: true, user: updatedUser })
     } catch (error) {
+      log.systemInfo({
+        logKey: logKeys.internalError.key,
+        message: "Failed to change user status",
+        data: { userId, actionValue },
+        isAdminAction: getReqIsAdmin(req),
+        userId: getReqUserId(req),
+        isError: true,
+      })
+
       return Response.json(
         { error: "Failed to change user status" },
         { status: 500 }
@@ -43,14 +72,40 @@ export async function POST(req, { params }) {
         actionValue === "true"
       )
 
+      log.userInfo({
+        logKey: logKeys.userEdit.key,
+        message: `User confirmed status changed to ${actionValue} by admin`,
+        newData: { actionValue },
+        data: { userId, actionValue },
+        isAdminAction: getReqIsAdmin(req),
+        userId: getReqUserId(req),
+      })
+
       return Response.json({ success: true, user: updatedUser })
     } catch (error) {
+      log.systemInfo({
+        logKey: logKeys.internalError.key,
+        message: "Failed to change user confirmed status",
+        data: { userId, actionValue },
+        isAdminAction: getReqIsAdmin(req),
+        userId: getReqUserId(req),
+        isError: true,
+      })
+
       return Response.json(
-        { error: "Failed to change user status" },
+        { error: "Failed to change user confirmed status" },
         { status: 500 }
       )
     }
   }
+
+  log.systemSecurity({
+    logKey: logKeys.systemInfo.key,
+    message: "Invalid request in /{locale}/api/admin/security/users/[Id]",
+    data: { action, actionValue },
+    isAdminAction: getReqIsAdmin(req),
+    userId: getReqUserId(req),
+  })
 
   return Response.json({ error: "Invalid request" }, { status: 400 })
 }
@@ -63,6 +118,15 @@ export async function GET(req, { params }) {
 
     return Response.json({ user })
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.internalError.key,
+      message: "Failed to get user",
+      data: { userId },
+      isAdminAction: getReqIsAdmin(req),
+      userId: getReqUserId(req),
+      isError: true,
+    })
+
     return Response.json({ user: null })
   }
 }
@@ -79,7 +143,6 @@ export async function PUT(req) {
     const userSchema = getEditUserSchema(t)
     await userSchema.validate(requestBody, { abortEarly: false })
 
-    console.log(requestBody)
     const {
       _id,
       firstName,
@@ -96,10 +159,8 @@ export async function PUT(req) {
       isConfirmed,
       howDidYouHear,
     } = requestBody
-
-    console.log(company)
-
     const user = await findUser({ _id })
+
     if (!user) {
       return Response.json(
         {
@@ -136,9 +197,17 @@ export async function PUT(req) {
 
     const updatedUser = await updateUser(_id, updatedData)
 
+    log.userInfo({
+      logKey: logKeys.userEdit.key,
+      message: "User updated by admin",
+      newData: updatedData,
+      data: { userId: _id },
+      isAdminAction: getReqIsAdmin(req),
+      userId: getReqUserId(req),
+    })
+
     return Response.json({ success: true, user: updatedUser })
   } catch (error) {
-    console.error(error)
     if (error instanceof yup.ValidationError) {
       const validationErrors = error.inner.map((err) => err.message).join(", ")
 
@@ -150,6 +219,15 @@ export async function PUT(req) {
         { status: 400 }
       )
     }
+
+    log.systemError({
+      logKey: logKeys.internalError.key,
+      message: "Failed to update user",
+      data: error.message,
+      isAdminAction: getReqIsAdmin(req),
+      userId: getReqUserId(req),
+      isError: true,
+    })
 
     return Response.json(
       { error: "InternalServerError", message: "Something went wrong" },

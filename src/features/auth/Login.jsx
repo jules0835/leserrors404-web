@@ -8,7 +8,7 @@ import * as Yup from "yup"
 import DButton from "@/components/ui/DButton"
 import { handleCredentialsSignin } from "@/utils/action/handleCredentialSignIn"
 import { useSession } from "next-auth/react"
-import { redirect, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation"
 import { useState } from "react"
 
 // eslint-disable-next-line max-lines-per-function
@@ -59,7 +59,7 @@ export default function Login() {
             onSubmit={async (values, { setSubmitting }) => {
               values.redirect = redirectUrl
               const res = await handleCredentialsSignin(values)
-              console.log(res)
+
               if (res.error) {
                 setSubmitting(false)
                 setError(res.error)

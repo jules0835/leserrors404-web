@@ -48,19 +48,10 @@ export default function UsersList() {
   const [sorting, setSorting] = useState([])
   const [columnFilters, setColumnFilters] = useState([])
   const router = useRouter()
-  const {
-    mutate: changeActiveUserStatus,
-    data: updatedActiveUser,
-    isSuccess,
-    error: changeActiveUserStatusError,
-  } = useChangeActiveUserStatus()
-
-  const {
-    mutate: changeConfirmedUserStatus,
-    data: updatedConfirmedUser,
-    isSuccess: isConfirmedSuccess,
-    error: changeConfirmedUserStatusError,
-  } = useChangeConfirmedUserStatus()
+  const { mutate: changeActiveUserStatus, data: updatedActiveUser } =
+    useChangeActiveUserStatus()
+  const { mutate: changeConfirmedUserStatus, data: updatedConfirmedUser } =
+    useChangeConfirmedUserStatus()
 
   React.useEffect(() => {
     if (updatedActiveUser) {

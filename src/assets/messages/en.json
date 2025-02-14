@@ -100,7 +100,8 @@
     "subscriptions": "Subscriptions",
     "payments": "Payments",
     "categories": "Categories",
-    "customers": "Customers"
+    "customers": "Customers",
+    "logs": "Logs"
   },
   "Admin": {
     "Security": {
@@ -180,8 +181,163 @@
           "edit": "Edit",
           "savingChanges": "Saving changes...",
           "changesSavedSuccessfully": "Changes saved successfully",
-          "failedToSaveChanges": "Failed to save changes"
+          "failedToSaveChanges": "Failed to save changes",
+          "advertisement": "From an ad",
+          "socialMedia": "Form social media",
+          "other": "An other option",
+          "friend": "A friend",
+          "logs": "View user logs"
         }
+      },
+      "Logs": {
+        "LogDetails": {
+          "title": "Log details",
+          "subTitle": "View all the details of the log"
+        },
+        "title": "Logs",
+        "subTitle": "View all the logs of the web app",
+        "logLevel": "Log Level",
+        "logKey": "Log Key",
+        "message": "Message",
+        "technicalMessage": "Technical Message",
+        "isError": "Is Error",
+        "isAdminAction": "Is Admin Action",
+        "deviceType": "Device Type",
+        "userId": "User ID",
+        "date": "Date",
+        "data": "Data",
+        "oldData": "Old Data",
+        "newData": "New Data",
+        "searchPlaceholder": "Search...",
+        "columns": "Columns",
+        "previous": "Previous",
+        "next": "Next",
+        "errorLoadingData": "Error loading data.",
+        "noResults": "No results.",
+        "yes": "Yes",
+        "no": "No",
+        "Log": {
+          "CriticalSecurity": {
+            "title": "Critical Security",
+            "description": "Critical security event"
+          },
+          "SettingsEdit": {
+            "title": "Settings Edit",
+            "description": "Settings were edited"
+          },
+          "UserConfirmation": {
+            "title": "User Confirmation",
+            "description": "User confirmed their account"
+          },
+          "NewOrder": {
+            "title": "New Order",
+            "description": "A new order was placed"
+          },
+          "LoginAttempt": {
+            "title": "Login Attempt",
+            "description": "A login attempt was made"
+          },
+          "LoginFailed": {
+            "title": "Login Failed",
+            "description": "A login attempt failed"
+          },
+          "LoginSuccess": {
+            "title": "Login Success",
+            "description": "A login attempt succeeded"
+          },
+          "UserEdit": {
+            "title": "User Edit",
+            "description": "User details were edited"
+          },
+          "UserChangeStatus": {
+            "title": "User Change Status",
+            "description": "User status was changed"
+          },
+          "UserChangeConfirmation": {
+            "title": "User Change Confirmation",
+            "description": "User confirmation status was changed"
+          },
+          "UserChangePassword": {
+            "title": "User Change Password",
+            "description": "User password was changed"
+          },
+          "UserLostPassword": {
+            "title": "User Lost Password",
+            "description": "User lost their password"
+          },
+          "UserResetPassword": {
+            "title": "User Reset Password",
+            "description": "User reset their password"
+          },
+          "UserCreate": {
+            "title": "User Create",
+            "description": "A new user was created"
+          },
+          "Criticality": {
+            "UserInfo": {
+              "title": "User Info",
+              "description": "Informational event related to a user"
+            },
+            "UserError": {
+              "title": "User Error",
+              "description": "Error event related to a user"
+            },
+            "UserSecurity": {
+              "title": "User Security",
+              "description": "Security event related to a user"
+            },
+            "SystemInfo": {
+              "title": "System Info",
+              "description": "Informational event related to the system"
+            },
+            "SystemSecurity": {
+              "title": "System Security",
+              "description": "Security event related to the system"
+            },
+            "SystemError": {
+              "title": "System Error",
+              "description": "Error event related to the system"
+            }
+          },
+          "DatabaseError": {
+            "title": "Database Error",
+            "description": "A database error occurred"
+          },
+          "FrontSettingsEdit": {
+            "title": "Front Settings Edit",
+            "description": "Front settings were edited"
+          },
+          "InternalError": {
+            "title": "Internal Error",
+            "description": "An internal error occurred"
+          },
+          "RegisterAttempt": {
+            "title": "Register Attempt",
+            "description": "A registration attempt was made"
+          },
+          "RegisterFailed": {
+            "title": "Register Failed",
+            "description": "A registration attempt failed"
+          },
+          "RegisterSuccess": {
+            "title": "Register Success",
+            "description": "A registration attempt succeeded"
+          }
+        },
+        "userName": "User",
+        "reLoadingLogs": "Reloading logs...",
+        "LogsReloaded": "Logs reloaded!",
+        "errorLoadingLogs": "Failed to reload logs",
+        "resetFilters": "Filters reset",
+        "logKeys": "Filter by log type",
+        "logDetails": "Details of log",
+        "logDate": "Log date",
+        "logId": "Log Id",
+        "user": "User",
+        "pickDate": "Choose date",
+        "noLogs": "No logs available for this user.",
+        "userLogs": "User Logs",
+        "userLogsDescription": "View the logs for the selected user."
       }
     },
     "SalesFront": {

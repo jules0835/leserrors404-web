@@ -3,8 +3,10 @@ import { NextResponse } from "next/server"
 import bcrypt from "bcryptjs"
 import { findUserByEmail, createUser } from "@/db/crud/userCrud"
 import * as yup from "yup"
-import { getRegisterSchema } from "@/utils/validation/user"
+import { getRegisterSchema } from "@/features/auth/utils/userValidation"
 import { getTranslations } from "next-intl/server"
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
 
 export async function POST(req) {
   try {
@@ -28,6 +30,12 @@ export async function POST(req) {
     } = requestBody
 
     if (await findUserByEmail(email)) {
+      log.userError({
+        message: `User try to register with email ${email} that already exists`,
+        logKey: logKeys.registerFailed.key,
+        data: { email },
+      })
+
       return NextResponse.json(
         {
           error: "UserAlreadyExists",
@@ -38,8 +46,7 @@ export async function POST(req) {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
-
-    await createUser({
+    const newUser = await createUser({
       firstName,
       lastName,
       phone,
@@ -56,9 +63,15 @@ export async function POST(req) {
       },
     })
 
+    log.userInfo({
+      message: `User with email ${email} successfully registered`,
+      logKey: logKeys.registerSuccess.key,
+      data: { email, userId: newUser._id },
+      userId: newUser._id,
+    })
+
     return NextResponse.json({ success: true }, { status: 201 })
   } catch (error) {
-    console.error(error)
     if (error instanceof yup.ValidationError) {
       const validationErrors = error.inner.map((err) => err.message).join(", ")
 
@@ -70,6 +83,14 @@ export async function POST(req) {
         { status: 400 }
       )
     }
+
+    log.systemError({
+      message: "Failed to register user",
+      logKey: logKeys.registerFailed.key,
+      isError: true,
+      technicalMessage: error.message,
+      data: error,
+    })
 
     return NextResponse.json(
       { error: "InternalServerError", message: "Something went wrong" },
