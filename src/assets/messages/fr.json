@@ -25,7 +25,8 @@
       "invalidPassword": "Veuillez saisir un mot de passe valide",
       "passwordMinLength": "Le mot de passe doit comporter au moins 12 caractères",
       "requiredEmail": "L'e-mail est requis",
-      "requiredPassword": "Le mot de passe est requis"
+      "requiredPassword": "Le mot de passe est requis",
+      "unknownError": "Quelque chose s'est mal passé, veuillez réessayer ou contacter le support."
     },
     "RegisterPage": {
       "title": "S'inscrire",
@@ -69,7 +70,13 @@
       "postalCode": "Code Postal",
       "postalCodeRequired": "Le code postal est requis",
       "socialMedia": "Former les médias sociaux",
-      "termsRequired": "Vous devez accepter les termes et conditions"
+      "termsRequired": "Vous devez accepter les termes et conditions",
+      "errorRegister": "Une erreur s'est produite lors de l'enregistrement, veuillez vérifier vos informations ou réessayer plus tard.",
+      "street": "Rue",
+      "successMessage": "Vous vous êtes inscrit avec succès",
+      "successMessage2": "Vous recevrez un e-mail pour confirmer votre inscription, veuillez cocher votre boîte de réception et votre dossier de spam.",
+      "successMessage3": "Une fois que vous avez confirmé votre inscription, vous pourrez vous connecter.",
+      "successMessage4": "Si vous ne recevez pas l'e-mail, veuillez nous contacter."
     }
   },
   "navigation": {
@@ -98,7 +105,16 @@
     "salesFront": "Front de vente",
     "signOut": "Se déconnecter",
     "security": "Sécurité",
-    "users": "Utilisateurs"
+    "users": "Utilisateurs",
+    "business": "Entreprise",
+    "categories": "Catégories",
+    "coupons": "Coupons",
+    "customers": "Clients",
+    "logs": "Bûches",
+    "orders": "Ordres",
+    "payments": "Paiements",
+    "products": "Produits",
+    "subscriptions": "Abonnements"
   },
   "other": "Autre",
   "socialMedia": "Réseaux sociaux",
@@ -153,7 +169,14 @@
           "titleSection": "Carrousel",
           "error": "Une erreur s'est produite lors de la sauvegarde du changement",
           "saveSuccess": "Succès",
-          "saved": "Le changement de carrousel sauvé"
+          "saved": "Le changement de carrousel sauvé",
+          "advertisement": "D'une annonce",
+          "friend": "Un ami",
+          "howDidYouHear": "Où avez-vous entendu parler de nous?",
+          "nothingSelected": "Rien sélectionné",
+          "other": "Une autre option",
+          "socialMedia": "Former les médias sociaux",
+          "subTitle": "Gérer les détails de l'utilisateur, les rôles et les autorisations"
         },
         "subTitle": "Gérer le contenu de la page d'accueil, le carrousel, l'alerte et plus",
         "title": "Paramètres de la page d'accueil"
@@ -183,7 +206,7 @@
         "isActive": "Actif",
         "isAdmin": "Administrer",
         "isConfirmed": "Confirmé",
-        "isEmployee": "Employé",
+        "isSuperAdmin": "Super administrateur",
         "lastName": "Nom de famille",
         "next": "Suivant",
         "no": "Non",
@@ -201,9 +224,239 @@
         "title": "Utilisateurs",
         "viewUser": "Afficher l'utilisateur",
         "yes": "Oui",
-        "zipCode": "Code postal"
+        "zipCode": "Code postal",
+        "User": {
+          "nothingSelected": ""
+        },
+        "UserDetails": {
+          "active": "Actif",
+          "admin": "Administrer",
+          "advertisement": "D'une annonce",
+          "cancel": "Annuler",
+          "changesSavedSuccessfully": "Modifications enregistrées avec succès",
+          "city": "Ville",
+          "company": "Entreprise",
+          "confirmed": "Confirmé",
+          "country": "Pays",
+          "created": "Créé: {Date}",
+          "edit": "Modifier",
+          "email": "E-mail",
+          "failedToSaveChanges": "Échec de l'enregistrement des modifications",
+          "firstName": "Prénom",
+          "friend": "Un ami",
+          "howDidYouHear": "Comment as-tu entendu",
+          "isSuperAdmin": "Super administrateur",
+          "lastName": "Nom de famille",
+          "logs": "Afficher les journaux des utilisateurs",
+          "nothingSelected": "Aucune option sélectionnée",
+          "other": "Une autre option",
+          "phone": "Téléphone",
+          "profilePictureAlt": "Photo de profil de {FirstName} {LastName}",
+          "saveChanges": "Enregistrer les modifications",
+          "savingChanges": "Économie des changements ...",
+          "socialMedia": "Former les médias sociaux",
+          "street": "Rue",
+          "subTitle": "Gérer les détails de l'utilisateur, les rôles et les autorisations",
+          "title": "Coordonnées",
+          "zipCode": "Code postal"
+        },
+        "activateUser": "Activer l'utilisateur",
+        "active": "actif",
+        "changingUserStatus": "Modification de l'état de l'utilisateur en {statut}",
+        "confirmUser": "Confirmation de force",
+        "desactivateUser": "Utilisateur désactivé",
+        "failedToChangeUserStatus": "Échec de la modification de l'état de l'utilisateur!",
+        "inactive": "inactif",
+        "unconfirmUser": "Forcer la non-confirmation",
+        "userStatusChanged": "Réussi à modifier l'état de l'utilisateur en {statut}"
+      },
+      "Logs": {
+        "Log": {
+          "CriticalSecurity": {
+            "description": "Événement de sécurité critique",
+            "title": "Sécurité critique"
+          },
+          "Criticality": {
+            "SystemError": {
+              "description": "Événement d'erreur lié au système",
+              "title": "Erreur système"
+            },
+            "SystemInfo": {
+              "description": "Événement d'information lié au système",
+              "title": "Informations système"
+            },
+            "SystemSecurity": {
+              "description": "Événement de sécurité lié au système",
+              "title": "Sécurité du système"
+            },
+            "UserError": {
+              "description": "Événement d'erreur lié à un utilisateur",
+              "title": "Erreur de l'utilisateur"
+            },
+            "UserInfo": {
+              "description": "Événement d'information lié à un utilisateur",
+              "title": "Informations sur les utilisateurs"
+            },
+            "UserSecurity": {
+              "description": "Événement de sécurité lié à un utilisateur",
+              "title": "Sécurité des utilisateurs"
+            }
+          },
+          "DatabaseError": {
+            "description": "Une erreur de base de données s'est produite",
+            "title": "Erreur de base de données"
+          },
+          "FrontSettingsEdit": {
+            "description": "Les paramètres avant ont été modifiés",
+            "title": "Modifier les paramètres avant"
+          },
+          "InternalError": {
+            "description": "Une erreur interne s'est produite",
+            "title": "Erreur interne"
+          },
+          "LoginAttempt": {
+            "description": "Une tentative de connexion a été faite",
+            "title": "Tentative de connexion"
+          },
+          "LoginFailed": {
+            "description": "Une tentative de connexion a échoué",
+            "title": "La connexion a échoué"
+          },
+          "LoginSuccess": {
+            "description": "Une tentative de connexion a réussi",
+            "title": "Succès de connexion"
+          },
+          "NewOrder": {
+            "description": "Une nouvelle commande a été passée",
+            "title": "Nouvelle commande"
+          },
+          "RegisterAttempt": {
+            "description": "Une tentative d'enregistrement a été faite",
+            "title": "Enregistrer la tentative"
+          },
+          "RegisterFailed": {
+            "description": "Une tentative d'enregistrement a échoué",
+            "title": "Échec de l'enregistrement"
+          },
+          "RegisterSuccess": {
+            "description": "Une tentative d'enregistrement a réussi",
+            "title": "Enregistrer le succès"
+          },
+          "SettingsEdit": {
+            "description": "Les paramètres ont été modifiés",
+            "title": "Modifier les paramètres"
+          },
+          "UserChangeConfirmation": {
+            "description": "Le statut de confirmation de l'utilisateur a été modifié",
+            "title": "Confirmation de changement utilisateur"
+          },
+          "UserChangePassword": {
+            "description": "Le mot de passe de l'utilisateur a été modifié",
+            "title": "Mot de passe de changement d'utilisateur"
+          },
+          "UserChangeStatus": {
+            "description": "Le statut de l'utilisateur a été modifié",
+            "title": "Statut de modification de l'utilisateur"
+          },
+          "UserConfirmation": {
+            "description": "L'utilisateur a confirmé son compte",
+            "title": "Confirmation de l'utilisateur"
+          },
+          "UserCreate": {
+            "description": "Un nouvel utilisateur a été créé",
+            "title": "Création de l'utilisateur"
+          },
+          "UserEdit": {
+            "description": "Les détails de l'utilisateur ont été modifiés",
+            "title": "Modifier"
+          },
+          "UserLostPassword": {
+            "description": "L'utilisateur a perdu son mot de passe",
+            "title": "Mot de passe perdu utilisateur"
+          },
+          "UserResetPassword": {
+            "description": "Réinitialisez l'utilisateur de son mot de passe",
+            "title": "Mot de passe de réinitialisation de l'utilisateur"
+          }
+        },
+        "LogDetails": {
+          "subTitle": "Afficher tous les détails du journal",
+          "title": "Détails du journal"
+        },
+        "LogsReloaded": "Journaux rechargés!",
+        "columns": "Colonnes",
+        "data": "Données",
+        "date": "Date",
+        "deviceType": "Type d'appareil",
+        "errorLoadingData": "Erreur de chargement des données.",
+        "errorLoadingLogs": "Échec de recharger les journaux",
+        "isAdminAction": "Est l'action administrative",
+        "isError": "Est une erreur",
+        "logDate": "Date de journal",
+        "logDetails": "Détails du journal",
+        "logId": "ID du journal",
+        "logKey": "Clé de bord",
+        "logKeys": "Filtre par type de journal",
+        "logLevel": "Niveau de journal",
+        "message": "Message",
+        "newData": "Nouvelles données",
+        "next": "Suivant",
+        "no": "Non",
+        "noLogs": "Aucun journal disponible pour cet utilisateur.",
+        "noResults": "Aucun résultat.",
+        "oldData": "Anciennes données",
+        "pickDate": "Choisir la date",
+        "previous": "Précédent",
+        "reLoadingLogs": "Journaux de rechargement ...",
+        "resetFilters": "Réinitialisation des filtres",
+        "searchPlaceholder": "Recherche...",
+        "subTitle": "Afficher tous les journaux de l'application Web",
+        "technicalMessage": "Message technique",
+        "title": "Bûches",
+        "user": "Utilisateur",
+        "userId": "ID de l'utilisateur",
+        "userLogs": "Journaux utilisateurs",
+        "userLogsDescription": "Affichez les journaux de l'utilisateur sélectionné.",
+        "userName": "Utilisateur",
+        "yes": "Oui"
       }
+    },
+    "Business": {
+      "Coupons": {
+        "title": "Coupons"
+      },
+      "Orders": {
+        "title": "Ordres"
+      },
+      "Payments": {
+        "title": "Paiements"
+      },
+      "Products": {
+        "title": "Produits"
+      },
+      "Subscriptions": {
+        "title": "Abonnements"
+      },
+      "title": "Entreprise"
     }
   },
-  "DefaultNotFound": "ERREUR : Traduction introuvable"
+  "DefaultNotFound": "ERREUR : Traduction introuvable",
+  "Email": {
+    "companyEmail": "Contactez-nous à {email}",
+    "companySignature": "Meilleures salutations, {company}",
+    "farewellMessage": "Nous vous souhaitons une excellente journée!",
+    "greetingWithName": "Bonjour {userName},",
+    "greetingWithoutName": "Bonjour,",
+    "noReplyEmail": "Cet e-mail a été envoyé à partir d'une adresse e-mail sans surveillance. \nVeuillez ne pas répondre à cet e-mail. \nSi vous avez des questions, veuillez nous contacter au {email}",
+    "userEmail": "Vous pouvez me joindre au {email}",
+    "userSignature": "Meilleures salutations, {firstName} {lastName}",
+    "companyMessage": "Nous vous souhaitons une excellente journée!",
+    "otpMessage1": "Vous recevez cet e-mail car vous avez demandé un mot de passe (OTP) unique pour votre compte.",
+    "otpMessage2": "Votre code est:",
+    "otpMessage3": "Veuillez ne partager ce code avec personne. \nNous ne le demanderons jamais. \nSi vous n'avez pas demandé ce code, veuillez ignorer cet e-mail.",
+    "otpMessageTiming": "Ce code expirera en 5 minutes.",
+    "otpWarningMessage": "Veuillez ne partager ce code avec personne. \nNous ne le demanderons jamais. \nSi vous n'avez pas demandé ce code, veuillez ignorer cet e-mail.",
+    "userMessage": "Je vous souhaite une excellente journée!"
+  },
+  "isSuperAdminRequired": "Le super administrateur est-il nécessaire"
 }

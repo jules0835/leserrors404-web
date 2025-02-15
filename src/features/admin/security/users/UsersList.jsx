@@ -82,7 +82,7 @@ export default function UsersList() {
     phone: true,
     email: true,
     isActive: true,
-    isEmployee: true,
+    isSuperAdmin: true,
     isAdmin: true,
     isConfirmed: true,
   })
@@ -175,10 +175,10 @@ export default function UsersList() {
       ),
     },
     {
-      accessorKey: "isEmployee",
-      header: t("isEmployee"),
+      accessorKey: "isSuperAdmin",
+      header: t("isSuperAdmin"),
       cell: ({ row }) => (
-        <div>{row.getValue("isEmployee") ? t("yes") : t("no")}</div>
+        <div>{row.getValue("isSuperAdmin") ? t("yes") : t("no")}</div>
       ),
     },
     {

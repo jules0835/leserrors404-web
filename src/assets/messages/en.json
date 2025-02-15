@@ -135,7 +135,7 @@
         "zipCode": "Zip Code",
         "phone": "Phone",
         "isActive": "Active",
-        "isEmployee": "Employee",
+        "isSuperAdmin": "Super Admin",
         "isAdmin": "Admin",
         "isConfirmed": "Confirmed",
         "viewUser": "View user",
@@ -163,7 +163,7 @@
           "profilePictureAlt": "Profile picture of {firstName} {lastName}",
           "created": "Created: {date}",
           "active": "Active",
-          "employee": "Employee",
+          "isSuperAdmin": "Super Admin",
           "admin": "Admin",
           "confirmed": "Confirmed",
           "firstName": "First Name",
@@ -437,5 +437,23 @@
     "logout": "Log out"
   },
   "other": "Other",
-  "socialMedia": "Social Media"
+  "socialMedia": "Social Media",
+  "isSuperAdminRequired": "Is super admin is required",
+  "Email": {
+    "greetingWithName": "Hello {userName},",
+    "greetingWithoutName": "Hello,",
+    "farewellMessage": "We wish you an excellent day!",
+    "userSignature": "Best regards, {firstName} {lastName}",
+    "companySignature": "Best regards, {company}",
+    "userEmail": "You can reach me at {email}",
+    "companyEmail": "Contact us at {email}",
+    "noReplyEmail": "This email was sent from an unmonitored email address. Please do not reply to this email. If you have any questions, please contact us at {email}",
+    "companyMessage": "We wish you an excellent day!",
+    "userMessage": "I wish you an excellent day!",
+    "otpMessage1": "You are receiving this email because you requested a one-time password (OTP) for your account.",
+    "otpMessage2": "Your code is :",
+    "otpMessage3": "Please do not share this code with anyone. We will never ask for it. If you didn't request this code, please ignore this email.",
+    "otpMessageTiming": "This code will expire in 5 minutes.",
+    "otpWarningMessage": "Please do not share this code with anyone. We will never ask for it. If you didn't request this code, please ignore this email."
+  }
 }

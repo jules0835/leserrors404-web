@@ -21,7 +21,8 @@
       "invalidPassword": "Immettere una password valida",
       "passwordMinLength": "La password deve essere lunga almeno 12 caratteri",
       "requiredEmail": "L'e-mail è obbligatoria",
-      "requiredPassword": "È richiesta la password"
+      "requiredPassword": "È richiesta la password",
+      "unknownError": "Qualcosa è andato storto, riprova o contatta il supporto."
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -65,7 +66,13 @@
       "postalCode": "Codice Postale",
       "postalCodeRequired": "È richiesto il codice postale",
       "socialMedia": "Formare i social media",
-      "termsRequired": "È necessario accettare i termini e le condizioni"
+      "termsRequired": "È necessario accettare i termini e le condizioni",
+      "errorRegister": "Si è verificato un errore durante il registro, verifica le informazioni o riprova più tardi.",
+      "street": "Strada",
+      "successMessage": "Hai registrato con successo",
+      "successMessage2": "Riceverai un'e -mail per confermare la tua registrazione, controlla la cartella della posta in arrivo e dello spam.",
+      "successMessage3": "Dopo aver confermato la registrazione, sarai in grado di accedere.",
+      "successMessage4": "Se non ricevi l'e -mail, contattaci."
     }
   },
   "other": "Altro",
@@ -118,10 +125,277 @@
           "title": "Titolo",
           "titlePlaceholder": "Inserisci il titolo",
           "titleRequired": "Il titolo è richiesto",
-          "titleSection": "Giostra"
+          "titleSection": "Giostra",
+          "advertisement": "Da un annuncio",
+          "error": "Si è verificato un errore durante il salvataggio della modifica",
+          "friend": "Un amico",
+          "howDidYouHear": "Dove hai sentito parlare di noi?",
+          "nothingSelected": "Niente selezionato",
+          "other": "Un'altra opzione",
+          "saveSuccess": "Successo",
+          "saved": "Il cambiamento di Carousel ha salvato",
+          "socialMedia": "Formare i social media",
+          "subTitle": "Gestisci i dettagli, i ruoli e le autorizzazioni dell'utente"
         },
         "subTitle": "Gestisci il contenuto della home page, il carosello, gli avvisi e altro ancora",
         "title": "Impostazioni della home page"
+      }
+    },
+    "Business": {
+      "Coupons": {
+        "title": "Coupon"
+      },
+      "Orders": {
+        "title": "Ordini"
+      },
+      "Payments": {
+        "title": "Pagamenti"
+      },
+      "Products": {
+        "title": "Prodotti"
+      },
+      "Subscriptions": {
+        "title": "Abbonamenti"
+      },
+      "title": "Attività commerciale"
+    },
+    "Security": {
+      "Logs": {
+        "Log": {
+          "CriticalSecurity": {
+            "description": "Evento di sicurezza critico",
+            "title": "Sicurezza critica"
+          },
+          "Criticality": {
+            "SystemError": {
+              "description": "Evento di errore relativo al sistema",
+              "title": "Errore di sistema"
+            },
+            "SystemInfo": {
+              "description": "Evento informativo relativo al sistema",
+              "title": "Informazioni di sistema"
+            },
+            "SystemSecurity": {
+              "description": "Evento di sicurezza relativo al sistema",
+              "title": "Sicurezza del sistema"
+            },
+            "UserError": {
+              "description": "Evento di errore relativo a un utente",
+              "title": "Errore dell'utente"
+            },
+            "UserInfo": {
+              "description": "Evento informativo relativo a un utente",
+              "title": "Informazioni dell'utente"
+            },
+            "UserSecurity": {
+              "description": "Evento di sicurezza relativo a un utente",
+              "title": "Sicurezza dell'utente"
+            }
+          },
+          "DatabaseError": {
+            "description": "Si è verificato un errore di database",
+            "title": "Errore del database"
+          },
+          "FrontSettingsEdit": {
+            "description": "Le impostazioni anteriori sono state modificate",
+            "title": "Impostazioni frontali Modifica"
+          },
+          "InternalError": {
+            "description": "Si è verificato un errore interno",
+            "title": "Errore interno"
+          },
+          "LoginAttempt": {
+            "description": "È stato fatto un tentativo di accesso",
+            "title": "Tentativo di accesso"
+          },
+          "LoginFailed": {
+            "description": "Un tentativo di accesso non è riuscito",
+            "title": "Accesso non riuscito"
+          },
+          "LoginSuccess": {
+            "description": "Un tentativo di accesso è riuscito",
+            "title": "Accedi al successo"
+          },
+          "NewOrder": {
+            "description": "È stato effettuato un nuovo ordine",
+            "title": "Nuovo ordine"
+          },
+          "RegisterAttempt": {
+            "description": "È stato fatto un tentativo di registrazione",
+            "title": "TENTATO DI REGISTRAZIONE"
+          },
+          "RegisterFailed": {
+            "description": "Un tentativo di registrazione non è riuscito",
+            "title": "Registro non riuscito"
+          },
+          "RegisterSuccess": {
+            "description": "Un tentativo di registrazione è riuscito",
+            "title": "Registra il successo"
+          },
+          "SettingsEdit": {
+            "description": "Le impostazioni sono state modificate",
+            "title": "Impostazioni Modifica"
+          },
+          "UserChangeConfirmation": {
+            "description": "Lo stato di conferma dell'utente è stato modificato",
+            "title": "Conferma di modifica dell'utente"
+          },
+          "UserChangePassword": {
+            "description": "La password dell'utente è stata modificata",
+            "title": "La password di modifica dell'utente"
+          },
+          "UserChangeStatus": {
+            "description": "Lo stato dell'utente è stato modificato",
+            "title": "Stato di modifica dell'utente"
+          },
+          "UserConfirmation": {
+            "description": "L'utente ha confermato il proprio account",
+            "title": "Conferma dell'utente"
+          },
+          "UserCreate": {
+            "description": "È stato creato un nuovo utente",
+            "title": "L'utente crea"
+          },
+          "UserEdit": {
+            "description": "I dettagli dell'utente sono stati modificati",
+            "title": "Modifica utente"
+          },
+          "UserLostPassword": {
+            "description": "L'utente ha perso la password",
+            "title": "La password persa dell'utente"
+          },
+          "UserResetPassword": {
+            "description": "L'utente reimposta la password",
+            "title": "Password di reimpostazione dell'utente"
+          }
+        },
+        "LogDetails": {
+          "subTitle": "Visualizza tutti i dettagli del registro",
+          "title": "Dettagli del registro"
+        },
+        "LogsReloaded": "Registri ricaricati!",
+        "columns": "Colonne",
+        "data": "Dati",
+        "date": "Data",
+        "deviceType": "Tipo di dispositivo",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "errorLoadingLogs": "Impossibile ricaricare i registri",
+        "isAdminAction": "È un'azione di amministrazione",
+        "isError": "È un errore",
+        "logDate": "Data del registro",
+        "logDetails": "Dettagli del registro",
+        "logId": "ID log",
+        "logKey": "Chiave di registro",
+        "logKeys": "Filtro per tipo di registro",
+        "logLevel": "Livello di registro",
+        "message": "Messaggio",
+        "newData": "Nuovi dati",
+        "next": "Prossimo",
+        "no": "NO",
+        "noLogs": "Nessun registro disponibile per questo utente.",
+        "noResults": "Nessun risultato.",
+        "oldData": "Vecchi dati",
+        "pickDate": "Scegli la data",
+        "previous": "Precedente",
+        "reLoadingLogs": "Registri di ricarica ...",
+        "resetFilters": "Filtri reset",
+        "searchPlaceholder": "Ricerca...",
+        "subTitle": "Visualizza tutti i registri dell'app Web",
+        "technicalMessage": "Messaggio tecnico",
+        "title": "Tronchi",
+        "user": "Utente",
+        "userId": "ID utente",
+        "userLogs": "Registri utente",
+        "userLogsDescription": "Visualizza i registri per l'utente selezionato.",
+        "userName": "Utente",
+        "yes": "SÌ"
+      },
+      "Users": {
+        "User": {
+          "nothingSelected": ""
+        },
+        "UserDetails": {
+          "active": "Attivo",
+          "admin": "Amministratore",
+          "advertisement": "Da un annuncio",
+          "cancel": "Cancellare",
+          "changesSavedSuccessfully": "Cambiamenti salvati con successo",
+          "city": "Città",
+          "company": "Azienda",
+          "confirmed": "Confermato",
+          "country": "Paese",
+          "created": "Creato: {data}",
+          "edit": "Modificare",
+          "email": "E-mail",
+          "failedToSaveChanges": "Impossibile salvare le modifiche",
+          "firstName": "Nome di battesimo",
+          "friend": "Un amico",
+          "howDidYouHear": "Come hai sentito",
+          "isSuperAdmin": "Super Admin",
+          "lastName": "Cognome",
+          "logs": "Visualizza i registri utente",
+          "nothingSelected": "Nessuna opzione selezionata",
+          "other": "Un'altra opzione",
+          "phone": "Telefono",
+          "profilePictureAlt": "Immagine del profilo di {FirstName} {LastName}",
+          "saveChanges": "Salva le modifiche",
+          "savingChanges": "Salvare le modifiche ...",
+          "socialMedia": "Formare i social media",
+          "street": "Strada",
+          "subTitle": "Gestisci i dettagli, i ruoli e le autorizzazioni dell'utente",
+          "title": "Dettagli dell'utente",
+          "zipCode": "Cap"
+        },
+        "actions": "Azioni",
+        "activateUser": "Attiva l'utente",
+        "active": "attivo",
+        "addUser": "Aggiungi l'utente",
+        "cancel": "Cancellare",
+        "changingUserStatus": "Modifica dello stato dell'utente in {status}",
+        "city": "Città",
+        "columns": "Colonne",
+        "confirmUser": "Conferma della forza",
+        "country": "Paese",
+        "delete": "Eliminare",
+        "deleteConfirmation": "Sei sicuro di voler eliminare questo utente?",
+        "deleteError": "Si è verificato un errore durante l'eliminazione dell'utente",
+        "deleteSuccess": "Successo",
+        "deleteUser": "Elimina l'utente",
+        "deleted": "L'utente eliminato",
+        "desactivateUser": "Desattivare l'utente",
+        "edit": "Modificare",
+        "editUser": "Modifica l'utente",
+        "email": "E-mail",
+        "error": "Si è verificato un errore durante il salvataggio della modifica",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "failedToChangeUserStatus": "Impossibile modificare lo stato dell'utente!",
+        "firstName": "Nome di battesimo",
+        "id": "ID",
+        "inactive": "inattivo",
+        "isActive": "Attivo",
+        "isAdmin": "Amministratore",
+        "isConfirmed": "Confermato",
+        "isSuperAdmin": "Super Admin",
+        "lastName": "Cognome",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato.",
+        "noUsers": "Nessun utente trovato",
+        "phone": "Telefono",
+        "previous": "Precedente",
+        "role": "Ruolo",
+        "save": "Salva",
+        "saveSuccess": "Successo",
+        "saved": "La modifica dell'utente ha salvato",
+        "saving": "Stiamo salvando il cambiamento ...",
+        "searchPlaceholder": "Ricerca...",
+        "subTitle": "Gestisci utenti, ruoli e autorizzazioni",
+        "title": "Utenti",
+        "unconfirmUser": "Forza unconfirm",
+        "userStatusChanged": "Stato utente di successo ha modificato lo stato dell'utente in {status}",
+        "viewUser": "Visualizza l'utente",
+        "yes": "SÌ",
+        "zipCode": "Cap"
       }
     }
   },
@@ -145,7 +419,18 @@
     "register": "Registro",
     "salesFront": "Fronte di vendita",
     "settings": "Impostazioni",
-    "signOut": "Disconnessione"
+    "signOut": "Disconnessione",
+    "business": "Attività commerciale",
+    "categories": "Categorie",
+    "coupons": "Coupon",
+    "customers": "Clienti",
+    "logs": "Tronchi",
+    "orders": "Ordini",
+    "payments": "Pagamenti",
+    "products": "Prodotti",
+    "security": "Sicurezza",
+    "subscriptions": "Abbonamenti",
+    "users": "Utenti"
   },
   "navigation": {
     "about": "Di",
@@ -155,5 +440,16 @@
     "login": "Login",
     "logout": "Esci",
     "register": "Registro"
-  }
+  },
+  "Email": {
+    "companyEmail": "Contattaci a {email}",
+    "companySignature": "Cordiali saluti, {società}",
+    "farewellMessage": "Ti auguriamo una giornata eccellente!",
+    "greetingWithName": "Ciao {nome utente},",
+    "greetingWithoutName": "Ciao,",
+    "noReplyEmail": "Questa e -mail è stata inviata da un indirizzo e -mail non monitorato. \nSi prega di non rispondere a questa e -mail. \nSe hai domande, contattaci su {email}",
+    "userEmail": "Puoi contattarmi a {email}",
+    "userSignature": "Cordiali saluti, {FirstName} {LastName}"
+  },
+  "isSuperAdminRequired": "È richiesto Super Admin"
 }

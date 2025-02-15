@@ -15,7 +15,11 @@ import {
 export const company = {
   name: "Cyna",
   description: "Web App For Cyna",
-  logo: logoCynaNoText,
+  email: "contact@cyna.com",
+}
+
+export const emailConfig = {
+  noReplySender: "Cyna B3 <no-reply@cyna-b3.machackhub.online>",
 }
 
 export const defaultProfile = {
@@ -48,6 +52,10 @@ export const webAppSettings = {
   },
   images: {
     userDefault,
+    logoNoTextUrl:
+      "https://fimkppvxvt92ijit.public.blob.vercel-storage.com/public/pictures_1739652176726-JuJWTZdMoY5GaXGyjC8fmoYbP0r87H",
+    logoUrl:
+      "https://fimkppvxvt92ijit.public.blob.vercel-storage.com/public/pictures_1739651205443-vaV4qHCnghMEWuS7qETWhGd06LttXx",
   },
 }
 
@@ -318,6 +326,12 @@ export const logKeys = {
     key: "frontSettingsEdit",
     titleKey: "Log.FrontSettingsEdit.title",
     descriptionKey: "Log.FrontSettingsEdit.description",
+  },
+  emailServiceError: {
+    name: "Email Service Error",
+    key: "emailServiceError",
+    titleKey: "Log.EmailServiceError.title",
+    descriptionKey: "Log.EmailServiceError.description",
   },
 }
 

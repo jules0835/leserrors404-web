@@ -21,7 +21,8 @@
       "invalidPassword": "Bitte geben Sie ein gültiges Passwort ein",
       "passwordMinLength": "Das Passwort muss mindestens 12 Zeichen lang sein",
       "requiredEmail": "E -Mail ist erforderlich",
-      "requiredPassword": "Passwort ist erforderlich"
+      "requiredPassword": "Passwort ist erforderlich",
+      "unknownError": "Etwas lief schief, bitte versuchen Sie es erneut oder wenden Sie sich an Support."
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -65,7 +66,13 @@
       "postalCode": "Postleitzahl",
       "postalCodeRequired": "Postleitzahl ist erforderlich",
       "socialMedia": "Social Media bilden",
-      "termsRequired": "Sie müssen die Allgemeinen Geschäftsbedingungen akzeptieren"
+      "termsRequired": "Sie müssen die Allgemeinen Geschäftsbedingungen akzeptieren",
+      "errorRegister": "Während des Registrierungsfehlers überprüfen Sie bitte Ihre Informationen oder versuchen Sie es später erneut.",
+      "street": "Straße",
+      "successMessage": "Sie haben sich erfolgreich registriert",
+      "successMessage2": "Sie erhalten eine E -Mail, um Ihre Registrierung zu bestätigen. Überprüfen Sie bitte Ihren Posteingang und Ihren Spam -Ordner.",
+      "successMessage3": "Sobald Sie Ihre Registrierung bestätigt haben, können Sie sich anmelden.",
+      "successMessage4": "Wenn Sie die E -Mail nicht erhalten, kontaktieren Sie uns bitte."
     }
   },
   "other": "Andere",
@@ -118,7 +125,17 @@
           "title": "Titel",
           "titlePlaceholder": "Geben Sie den Titel ein",
           "titleRequired": "Titel ist erforderlich",
-          "titleSection": "Karussell"
+          "titleSection": "Karussell",
+          "advertisement": "Aus einer Anzeige",
+          "error": "Ein Fehler beim Speichern der Änderung trat auf",
+          "friend": "Ein Freund",
+          "howDidYouHear": "Wo hast du von uns gehört?",
+          "nothingSelected": "Nichts ausgewählt",
+          "other": "Eine andere Option",
+          "saveSuccess": "Erfolg",
+          "saved": "Karussellsänderung wurde gerettet",
+          "socialMedia": "Social Media bilden",
+          "subTitle": "Verwalten Sie Benutzerdetails, Rollen und Berechtigungen"
         },
         "subTitle": "Verwalten Sie den Inhalt der Startseite, Karussell, Alarm und mehr",
         "title": "Homepage -Einstellungen"
@@ -128,8 +145,258 @@
       "Users": {
         "User": {
           "nothingSelected": "Nichts ausgewählt"
-        }
+        },
+        "UserDetails": {
+          "active": "Aktiv",
+          "admin": "Administrator",
+          "advertisement": "Aus einer Anzeige",
+          "cancel": "Stornieren",
+          "changesSavedSuccessfully": "Änderungen erfolgreich gespeichert",
+          "city": "Stadt",
+          "company": "Unternehmen",
+          "confirmed": "Bestätigt",
+          "country": "Land",
+          "created": "Erstellt: {Datum}",
+          "edit": "Bearbeiten",
+          "email": "E-Mail",
+          "failedToSaveChanges": "Änderungen nicht speichern",
+          "firstName": "Vorname",
+          "friend": "Ein Freund",
+          "howDidYouHear": "Wie hast du gehört",
+          "isSuperAdmin": "Super Admin",
+          "lastName": "Nachname",
+          "logs": "Benutzerprotokolle anzeigen",
+          "nothingSelected": "Keine Option ausgewählt",
+          "other": "Eine andere Option",
+          "phone": "Telefon",
+          "profilePictureAlt": "Profilbild von {FirstName} {LastName}",
+          "saveChanges": "Änderungen speichern",
+          "savingChanges": "Veränderungen sparen ...",
+          "socialMedia": "Social Media bilden",
+          "street": "Straße",
+          "subTitle": "Verwalten Sie Benutzerdetails, Rollen und Berechtigungen",
+          "title": "Benutzerdetails",
+          "zipCode": "PLZ"
+        },
+        "actions": "Aktionen",
+        "activateUser": "Benutzer aktivieren",
+        "active": "aktiv",
+        "addUser": "Benutzer hinzufügen",
+        "cancel": "Stornieren",
+        "changingUserStatus": "Ändern des Benutzerstatus in {Status}",
+        "city": "Stadt",
+        "columns": "Spalten",
+        "confirmUser": "Kraftbestätigung",
+        "country": "Land",
+        "delete": "Löschen",
+        "deleteConfirmation": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
+        "deleteError": "Ein Fehler beim Löschen des Benutzer",
+        "deleteSuccess": "Erfolg",
+        "deleteUser": "Benutzer löschen",
+        "deleted": "Benutzer gelöscht",
+        "desactivateUser": "Benutzer aktivieren",
+        "edit": "Bearbeiten",
+        "editUser": "Benutzer bearbeiten",
+        "email": "E-Mail",
+        "error": "Ein Fehler beim Speichern der Änderung trat auf",
+        "errorLoadingData": "Fehler laden Daten.",
+        "failedToChangeUserStatus": "Der Benutzerstatus nicht ändern!",
+        "firstName": "Vorname",
+        "id": "AUSWEIS",
+        "inactive": "inaktiv",
+        "isActive": "Aktiv",
+        "isAdmin": "Administrator",
+        "isConfirmed": "Bestätigt",
+        "isSuperAdmin": "Super Admin",
+        "lastName": "Nachname",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse.",
+        "noUsers": "Keine Benutzer gefunden",
+        "phone": "Telefon",
+        "previous": "Vorherige",
+        "role": "Rolle",
+        "save": "Speichern",
+        "saveSuccess": "Erfolg",
+        "saved": "Änderung des Benutzers gespeichert",
+        "saving": "Wir retten die Änderung ...",
+        "searchPlaceholder": "Suchen...",
+        "subTitle": "Verwalten Sie Benutzer, Rollen und Berechtigungen",
+        "title": "Benutzer",
+        "unconfirmUser": "Unkonstant zwingen",
+        "userStatusChanged": "Erfolgreich geändert den Benutzerstatus in {Status}",
+        "viewUser": "Benutzer anzeigen",
+        "yes": "Ja",
+        "zipCode": "PLZ"
+      },
+      "Logs": {
+        "Log": {
+          "CriticalSecurity": {
+            "description": "Kritisches Sicherheitsereignis",
+            "title": "Kritische Sicherheit"
+          },
+          "Criticality": {
+            "SystemError": {
+              "description": "Fehlerereignis im Zusammenhang mit dem System",
+              "title": "Systemfehler"
+            },
+            "SystemInfo": {
+              "description": "Informationsereignis im Zusammenhang mit dem System",
+              "title": "Systeminformationen"
+            },
+            "SystemSecurity": {
+              "description": "Sicherheitsereignis im Zusammenhang mit dem System",
+              "title": "Systemsicherheit"
+            },
+            "UserError": {
+              "description": "Fehlerereignis im Zusammenhang mit einem Benutzer",
+              "title": "Benutzerfehler"
+            },
+            "UserInfo": {
+              "description": "Informationsereignis im Zusammenhang mit einem Benutzer",
+              "title": "Benutzerinformationen"
+            },
+            "UserSecurity": {
+              "description": "Sicherheitsereignis im Zusammenhang mit einem Benutzer",
+              "title": "Benutzersicherheit"
+            }
+          },
+          "DatabaseError": {
+            "description": "Ein Datenbankfehler ist aufgetreten",
+            "title": "Datenbankfehler"
+          },
+          "FrontSettingsEdit": {
+            "description": "Fronteinstellungen wurden bearbeitet",
+            "title": "Fronteinstellungen bearbeiten"
+          },
+          "InternalError": {
+            "description": "Es ist ein interner Fehler aufgetreten",
+            "title": "Interner Fehler"
+          },
+          "LoginAttempt": {
+            "description": "Es wurde ein Anmeldversuch unternommen",
+            "title": "Anmeldeversuch"
+          },
+          "LoginFailed": {
+            "description": "Ein Anmeldeversuch ist fehlgeschlagen",
+            "title": "Fehler bei der Anmeldung"
+          },
+          "LoginSuccess": {
+            "description": "Ein Anmeldeversuch war erfolgreich",
+            "title": "Anmelderfolg"
+          },
+          "NewOrder": {
+            "description": "Eine neue Bestellung wurde aufgegeben",
+            "title": "Neue Ordnung"
+          },
+          "RegisterAttempt": {
+            "description": "Ein Registrierungsversuch wurde unternommen",
+            "title": "Registerversuch"
+          },
+          "RegisterFailed": {
+            "description": "Ein Registrierungsversuch schlug fehl",
+            "title": "Register fehlgeschlagen"
+          },
+          "RegisterSuccess": {
+            "description": "Ein Registrierungsversuch war erfolgreich",
+            "title": "Erfolg registrieren"
+          },
+          "SettingsEdit": {
+            "description": "Einstellungen wurden bearbeitet",
+            "title": "Einstellungen bearbeiten"
+          },
+          "UserChangeConfirmation": {
+            "description": "Der Status der Benutzerkonträtigung wurde geändert",
+            "title": "Benutzernänderungsbestätigung"
+          },
+          "UserChangePassword": {
+            "description": "Das Benutzerkennwort wurde geändert",
+            "title": "Benutzer ändern das Passwort"
+          },
+          "UserChangeStatus": {
+            "description": "Der Benutzerstatus wurde geändert",
+            "title": "Benutzeränderungsstatus"
+          },
+          "UserConfirmation": {
+            "description": "Der Benutzer bestätigte sein Konto",
+            "title": "Benutzerbestätigung"
+          },
+          "UserCreate": {
+            "description": "Ein neuer Benutzer wurde erstellt",
+            "title": "Benutzer erstellen"
+          },
+          "UserEdit": {
+            "description": "Benutzerdetails wurden bearbeitet",
+            "title": "Benutzerbearbeitung"
+          },
+          "UserLostPassword": {
+            "description": "Der Benutzer hat sein Passwort verloren",
+            "title": "Benutzer verlorenes Passwort"
+          },
+          "UserResetPassword": {
+            "description": "Benutzer setzen sein Passwort zurück",
+            "title": "Benutzer Zurücksetzen Passwort"
+          }
+        },
+        "LogDetails": {
+          "subTitle": "Zeigen Sie alle Details des Protokolls an",
+          "title": "Protokolldetails"
+        },
+        "LogsReloaded": "Protokolle neu geladen!",
+        "columns": "Spalten",
+        "data": "Daten",
+        "date": "Datum",
+        "deviceType": "Gerätetyp",
+        "errorLoadingData": "Fehler laden Daten.",
+        "errorLoadingLogs": "Die Protokolle fehlgeladen nicht neu laden",
+        "isAdminAction": "Ist admin -Aktion",
+        "isError": "Ist Fehler",
+        "logDate": "Protokolldatum",
+        "logDetails": "Details des Protokolls",
+        "logId": "Protokoll -ID",
+        "logKey": "Protokollschlüssel",
+        "logKeys": "Filter nach Protokolltyp",
+        "logLevel": "Protokollebene",
+        "message": "Nachricht",
+        "newData": "Neue Daten",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noLogs": "Für diesen Benutzer sind keine Protokolle verfügbar.",
+        "noResults": "Keine Ergebnisse.",
+        "oldData": "Alte Daten",
+        "pickDate": "Wählen Sie Datum",
+        "previous": "Vorherige",
+        "reLoadingLogs": "Ladeprotokolle neu laden ...",
+        "resetFilters": "Filter zurücksetzen",
+        "searchPlaceholder": "Suchen...",
+        "subTitle": "Zeigen Sie alle Protokolle der Web -App an",
+        "technicalMessage": "Technische Nachricht",
+        "title": "Protokolle",
+        "user": "Benutzer",
+        "userId": "Benutzer-ID",
+        "userLogs": "Benutzerprotokolle",
+        "userLogsDescription": "Zeigen Sie die Protokolle für den ausgewählten Benutzer an.",
+        "userName": "Benutzer",
+        "yes": "Ja"
       }
+    },
+    "Business": {
+      "Coupons": {
+        "title": "Gutscheine"
+      },
+      "Orders": {
+        "title": "Bestellungen"
+      },
+      "Payments": {
+        "title": "Zahlungen"
+      },
+      "Products": {
+        "title": "Produkte"
+      },
+      "Subscriptions": {
+        "title": "Abonnements"
+      },
+      "title": "Geschäft"
     }
   },
   "DefaultNotFound": "FEHLER: Übersetzung nicht gefunden",
@@ -152,7 +419,18 @@
     "register": "Registrieren",
     "salesFront": "Verkaufsfront",
     "settings": "Einstellungen",
-    "signOut": "Abmelden"
+    "signOut": "Abmelden",
+    "business": "Geschäft",
+    "categories": "Kategorien",
+    "coupons": "Gutscheine",
+    "customers": "Kunden",
+    "logs": "Protokolle",
+    "orders": "Bestellungen",
+    "payments": "Zahlungen",
+    "products": "Produkte",
+    "security": "Sicherheit",
+    "subscriptions": "Abonnements",
+    "users": "Benutzer"
   },
   "navigation": {
     "admin": "Admin",
@@ -162,5 +440,16 @@
     "logout": "Abmelden",
     "about": "Um",
     "register": "Registrieren"
-  }
+  },
+  "Email": {
+    "companyEmail": "Kontaktieren Sie uns unter {E -Mail}",
+    "companySignature": "Mit freundlichen Grüßen, {Company}",
+    "farewellMessage": "Wir wünschen Ihnen einen ausgezeichneten Tag!",
+    "greetingWithName": "Hallo {Benutzername},",
+    "greetingWithoutName": "Hallo,",
+    "noReplyEmail": "Diese E -Mail wurde von einer nicht überwachten E -Mail -Adresse gesendet. \nBitte antworten Sie nicht auf diese E -Mail. \nWenn Sie Fragen haben, kontaktieren Sie uns bitte unter {E -Mail}",
+    "userEmail": "Sie können mich unter {E -Mail} erreichen",
+    "userSignature": "Mit freundlichen Grüßen {FirstName} {LastName}"
+  },
+  "isSuperAdminRequired": "Ist Super Admin erforderlich, ist erforderlich"
 }

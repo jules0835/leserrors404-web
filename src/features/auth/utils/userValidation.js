@@ -37,7 +37,7 @@ export const getEditUserSchema = (t) =>
       street: Yup.string().required(t("streetRequired")),
     }),
     isActive: Yup.bool().required(t("isActiveRequired")),
-    isEmployee: Yup.bool().required(t("isEmployeeRequired")),
+    isSuperAdmin: Yup.bool().required(t("isSuperAdminRequired")),
     isAdmin: Yup.bool().required(t("isAdminRequired")),
     isConfirmed: Yup.bool().required(t("isConfirmedRequired")),
   })

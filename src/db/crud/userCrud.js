@@ -114,3 +114,11 @@ export const updateUser = async (id, data) => {
 
   return user
 }
+export const findUserEmailInfos = async (id) => {
+  await mwdb()
+  const user = await UserModel.findById(id).select(
+    "email firstName lastName phone"
+  )
+
+  return user
+}

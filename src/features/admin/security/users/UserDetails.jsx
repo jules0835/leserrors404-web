@@ -87,6 +87,7 @@ export function UserDetailsForm({ user }) {
                 />
                 <div>
                   <h2 className="text-xl font-semibold">{`${user.firstName} ${user.lastName}`}</h2>
+                  <p className="text-sm text-gray-500">{user._id}</p>
                   <p className="text-sm text-gray-500">
                     {t("created", {
                       date: new Date(user.createdAt).toLocaleString("fr-FR"),
@@ -107,12 +108,12 @@ export function UserDetailsForm({ user }) {
                   />
                 </div>
                 <div className="flex flex-col items-center space-y-4">
-                  <Label htmlFor="isEmployee">{t("employee")}</Label>
+                  <Label htmlFor="isSuperAdmin">{t("isSuperAdmin")}</Label>
                   <Switch
-                    id="isEmployee"
-                    checked={values.isEmployee}
+                    id="isSuperAdmin"
+                    checked={values.isSuperAdmin}
                     onCheckedChange={() =>
-                      setFieldValue("isEmployee", !values.isEmployee)
+                      setFieldValue("isSuperAdmin", !values.isSuperAdmin)
                     }
                     disabled={!isEditing}
                   />
