@@ -12,6 +12,7 @@ const unprotectedApiRoutes = [
   "/api/public",
   "/en/api/authentification/user",
   "/en/api/services/log",
+  "/api/test/email",
 ]
 // eslint-disable-next-line consistent-return
 const authMiddleware = auth((req) => {
@@ -53,12 +54,13 @@ export default function middleware(req) {
     currentPath.includes(route)
   )
   const isAuthApi = currentPath.startsWith("/api/auth/")
+  const isTestApi = currentPath.startsWith("/api/test/")
 
   if (isProtected && !isUnprotectedApi) {
     return authMiddleware(req)
   }
 
-  if (isAuthApi) {
+  if (isAuthApi || isTestApi) {
     return NextResponse.next()
   }
 

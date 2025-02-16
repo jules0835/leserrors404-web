@@ -1,6 +1,7 @@
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
 import { getUserLogs } from "@/db/crud/logCrud"
+import { getReqUserId } from "@/features/auth/utils/getAuthParam"
 
 export async function GET(req, { params }) {
   const { searchParams } = new URL(req.url)
@@ -21,6 +22,7 @@ export async function GET(req, { params }) {
       logKey: logKeys.systemError.key,
       isError: true,
       technicalMessage: { error: error.message },
+      authorId: getReqUserId(req),
     })
 
     return new Response(JSON.stringify({ error: error.message }), {

@@ -1,4 +1,3 @@
-import logoCynaNoText from "@/assets/images/logo_notext.png"
 import userDefault from "@/assets/images/user_default.png"
 import {
   LayoutDashboard,
@@ -48,6 +47,12 @@ export const webAppSettings = {
     homepage: {
       alertBannerId: "mainHomeAlertBanner",
       carouselId: "mainHomeCarousel",
+    },
+  },
+  security: {
+    user: {
+      resendEmailDelayMinutes: 5,
+      maxLoginAttemps: 5,
     },
   },
   images: {
@@ -333,6 +338,12 @@ export const logKeys = {
     titleKey: "Log.EmailServiceError.title",
     descriptionKey: "Log.EmailServiceError.description",
   },
+  accountSecurityLock: {
+    name: "Account Security Lock",
+    key: "accountSecurityLock",
+    titleKey: "Log.AccountSecurityLock.title",
+    descriptionKey: "Log.AccountSecurityLock.description",
+  },
 }
 
 export const logCriticalityKeys = {
@@ -342,7 +353,7 @@ export const logCriticalityKeys = {
     titleKey: "Log.Criticality.UserInfo.title",
     descriptionKey: "Log.Criticality.UserInfo.description",
     color: "",
-    icon: <UserRound />,
+    icon: <UserRound size={25} />,
   },
   userError: {
     name: "User Error",
@@ -350,7 +361,7 @@ export const logCriticalityKeys = {
     titleKey: "Log.Criticality.UserError.title",
     descriptionKey: "Log.Criticality.UserError.description",
     color: "bg-orange-200",
-    icon: <UserRoundX />,
+    icon: <UserRoundX size={25} />,
   },
   userSecurity: {
     name: "User Security",
@@ -358,7 +369,7 @@ export const logCriticalityKeys = {
     titleKey: "Log.Criticality.UserSecurity.title",
     descriptionKey: "Log.Criticality.UserSecurity.description",
     color: "bg-red-200",
-    icon: <ShieldAlert />,
+    icon: <ShieldAlert size={25} />,
   },
   systemInfo: {
     name: "System Info",
@@ -366,7 +377,7 @@ export const logCriticalityKeys = {
     titleKey: "Log.Criticality.SystemInfo.title",
     descriptionKey: "Log.Criticality.SystemInfo.description",
     color: "",
-    icon: <Info />,
+    icon: <Info size={25} />,
   },
   systemSecurity: {
     name: "System Security",
@@ -374,7 +385,7 @@ export const logCriticalityKeys = {
     titleKey: "Log.Criticality.SystemSecurity.title",
     descriptionKey: "Log.Criticality.SystemSecurity.description",
     color: "bg-red-200",
-    icon: <ShieldAlert />,
+    icon: <ShieldAlert size={25} />,
   },
   systemError: {
     name: "System Error",
@@ -382,6 +393,6 @@ export const logCriticalityKeys = {
     titleKey: "Log.Criticality.SystemError.title",
     descriptionKey: "Log.Criticality.SystemError.description",
     color: "bg-red-200",
-    icon: <Bug />,
+    icon: <Bug size={25} />,
   },
 }

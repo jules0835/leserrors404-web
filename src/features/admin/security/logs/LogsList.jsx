@@ -201,10 +201,16 @@ export default function LogsList() {
       ),
       cell: ({ row }) => <div>{row.getValue("deviceType")}</div>,
     },
+
     {
       accessorKey: "userName",
       header: t("userName"),
       cell: ({ row }) => <div>{row.getValue("userName")}</div>,
+    },
+    {
+      accessorKey: "authorName",
+      header: t("authorName"),
+      cell: ({ row }) => <div>{row.getValue("authorName")}</div>,
     },
     {
       accessorKey: "date",

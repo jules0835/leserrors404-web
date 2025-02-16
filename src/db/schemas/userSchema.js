@@ -19,20 +19,24 @@ export const userSchema = new Schema({
     street: { type: String, required: true },
   },
   account: {
+    auth: {
+      loginAttempts: { type: Number, default: 0 },
+      isOtpEnabled: { type: Boolean, default: false },
+      otpSecret: { type: String },
+    },
     confirmation: {
       isConfirmed: { type: Boolean, default: false },
-      date: { type: Date },
+      confirmationDate: { type: Date },
+      token: { type: String },
+      lastSendTokenDate: { type: Date },
+      expiresToken: { type: Date },
     },
     activation: {
-      isActivated: { type: Boolean, default: false },
+      isActivated: { type: Boolean, default: true },
       inactivationDate: { type: Date },
       inactivationReason: { type: String },
     },
     resetPassword: {
-      token: { type: String },
-      expires: { type: Date },
-    },
-    confirmEmail: {
       token: { type: String },
       expires: { type: Date },
     },

@@ -25,7 +25,7 @@ export async function POST(req, { params }) {
       message: "Invalid request in /{locale}/api/admin/security/users/[Id]",
       data: { action, actionValue },
       isAdminAction: getReqIsAdmin(req),
-      userId: getReqUserId(req),
+      authorId: getReqUserId(req),
       isError: true,
     })
 
@@ -36,15 +36,17 @@ export async function POST(req, { params }) {
     try {
       const updatedUser = await changeActiveUserStatus(
         userId,
-        actionValue === "true"
+        actionValue === "true",
+        "User status manually changed by admin"
       )
       log.userInfo({
         logKey: logKeys.userEdit.key,
         message: `User status changed to ${actionValue} by admin`,
         newData: { actionValue },
         data: { userId, actionValue },
+        userId,
         isAdminAction: getReqIsAdmin(req),
-        userId: getReqUserId(req),
+        authorId: getReqUserId(req),
       })
 
       return Response.json({ success: true, user: updatedUser })
@@ -53,8 +55,9 @@ export async function POST(req, { params }) {
         logKey: logKeys.internalError.key,
         message: "Failed to change user status",
         data: { userId, actionValue },
+        userId,
         isAdminAction: getReqIsAdmin(req),
-        userId: getReqUserId(req),
+        authorId: getReqUserId(req),
         isError: true,
       })
 
@@ -78,7 +81,8 @@ export async function POST(req, { params }) {
         newData: { actionValue },
         data: { userId, actionValue },
         isAdminAction: getReqIsAdmin(req),
-        userId: getReqUserId(req),
+        authorId: getReqUserId(req),
+        userId,
       })
 
       return Response.json({ success: true, user: updatedUser })
@@ -87,8 +91,9 @@ export async function POST(req, { params }) {
         logKey: logKeys.internalError.key,
         message: "Failed to change user confirmed status",
         data: { userId, actionValue },
+        userId,
         isAdminAction: getReqIsAdmin(req),
-        userId: getReqUserId(req),
+        authorId: getReqUserId(req),
         isError: true,
       })
 
@@ -104,7 +109,7 @@ export async function POST(req, { params }) {
     message: "Invalid request in /{locale}/api/admin/security/users/[Id]",
     data: { action, actionValue },
     isAdminAction: getReqIsAdmin(req),
-    userId: getReqUserId(req),
+    authorId: getReqUserId(req),
   })
 
   return Response.json({ error: "Invalid request" }, { status: 400 })
@@ -122,8 +127,9 @@ export async function GET(req, { params }) {
       logKey: logKeys.internalError.key,
       message: "Failed to get user",
       data: { userId },
+      userId,
       isAdminAction: getReqIsAdmin(req),
-      userId: getReqUserId(req),
+      authorId: getReqUserId(req),
       isError: true,
     })
 
@@ -153,11 +159,13 @@ export async function PUT(req) {
       title,
       company,
       address: { country, city, zipCode, street },
-      isActive,
       isSuperAdmin,
       isAdmin,
-      isConfirmed,
       howDidYouHear,
+      account: {
+        confirmation: { isConfirmed },
+        activation: { isActivated },
+      },
     } = requestBody
     const user = await findUser({ _id })
 
@@ -184,15 +192,41 @@ export async function PUT(req) {
         zipCode,
         street,
       },
-      isActive,
       isSuperAdmin,
       isAdmin,
-      isConfirmed,
       howDidYouHear,
+      account: {
+        confirmation: {
+          ...user.account.confirmation,
+          isConfirmed,
+        },
+        activation: {
+          ...user.account.activation,
+          isActivated,
+        },
+        auth: {
+          ...user.account.auth,
+        },
+        resetPassword: {
+          ...user.account.resetPassword,
+        },
+        confirmEmail: {
+          ...user.account.confirmEmail,
+        },
+      },
     }
 
     if (password) {
       updatedData.password = await bcrypt.hash(password, 10)
+    }
+
+    if (isActivated) {
+      updatedData.account.activation.inactivationReason = null
+      updatedData.account.activation.inactivationDate = null
+    } else {
+      updatedData.account.activation.inactivationReason =
+        "User status manually changed by admin"
+      updatedData.account.activation.inactivationDate = new Date()
     }
 
     const updatedUser = await updateUser(_id, updatedData)
@@ -203,7 +237,8 @@ export async function PUT(req) {
       newData: updatedData,
       data: { userId: _id },
       isAdminAction: getReqIsAdmin(req),
-      userId: getReqUserId(req),
+      authorId: getReqUserId(req),
+      userId: _id,
     })
 
     return Response.json({ success: true, user: updatedUser })
@@ -225,7 +260,7 @@ export async function PUT(req) {
       message: "Failed to update user",
       data: error.message,
       isAdminAction: getReqIsAdmin(req),
-      userId: getReqUserId(req),
+      authorId: getReqUserId(req),
       isError: true,
     })
 

@@ -3,6 +3,10 @@ import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
 import { logEvent } from "@/lib/logEvent"
 import { logKeys } from "@/assets/options/config"
+import {
+  handleLoginFailure,
+  sendConfirmationEmail,
+} from "@/features/auth/utils/accountService"
 
 // eslint-disable-next-line new-cap
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -46,7 +50,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             data: { email: credentials.email },
           })
 
-          return null
+          throw Error("invalid_credentials")
         }
 
         const isValid = await bcrypt.compare(
@@ -57,14 +61,44 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (!isValid) {
           await logEvent({
             level: "userError",
-            message: `User with email ${credentials.email} failed to log in`,
+            message: `User with email ${credentials.email} failed to log in because of invalid password`,
             logKey: logKeys.loginFailed.key,
             isError: true,
             userId: user._id,
             data: { email: credentials.email },
           })
 
-          return null
+          await handleLoginFailure(user._id)
+
+          throw Error("invalid_credentials")
+        }
+
+        if (!user.account.activation.isActivated) {
+          await logEvent({
+            level: "userError",
+            message: `User with email ${credentials.email} failed to log in because account is not activated`,
+            logKey: logKeys.loginFailed.key,
+            isError: true,
+            userId: user._id,
+            data: { email: credentials.email },
+          })
+
+          throw new Error("account_inactive")
+        }
+
+        if (!user.account.confirmation.isConfirmed) {
+          await logEvent({
+            level: "userError",
+            message: `User with email ${credentials.email} failed to log in because account is not confirmed`,
+            logKey: logKeys.loginFailed.key,
+            isError: true,
+            userId: user._id,
+            data: { email: credentials.email },
+          })
+
+          await sendConfirmationEmail(user._id)
+
+          throw new Error("account_not_confirmed")
         }
 
         await logEvent({

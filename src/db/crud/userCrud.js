@@ -77,9 +77,16 @@ export const getUsers = async (size = 10, page = 1, query = "") => {
   }
 }
 
-export const changeActiveUserStatus = async (userId, status) => {
+export const changeActiveUserStatus = async (userId, status, reason = null) => {
   await mwdb()
-  await UserModel.updateOne({ _id: userId }, { isActive: status })
+  await UserModel.updateOne(
+    { _id: userId },
+    {
+      "account.activation.isActivated": status,
+      "account.activation.inactivationReason": reason,
+      "account.activation.inactivationDate": status ? null : new Date(),
+    }
+  )
   const updatedUser = await UserModel.findById(userId).select("-password")
 
   return updatedUser
@@ -87,7 +94,10 @@ export const changeActiveUserStatus = async (userId, status) => {
 
 export const changeUserConfirmedStatus = async (userId, status) => {
   await mwdb()
-  await UserModel.updateOne({ _id: userId }, { isConfirmed: status })
+  await UserModel.updateOne(
+    { _id: userId },
+    { "account.confirmation.isConfirmed": status }
+  )
   const updatedUser = await UserModel.findById(userId).select("-password")
 
   return updatedUser
@@ -114,6 +124,7 @@ export const updateUser = async (id, data) => {
 
   return user
 }
+
 export const findUserEmailInfos = async (id) => {
   await mwdb()
   const user = await UserModel.findById(id).select(
@@ -121,4 +132,63 @@ export const findUserEmailInfos = async (id) => {
   )
 
   return user
+}
+
+export const addLoginAttempt = async (userId) => {
+  await mwdb()
+  try {
+    console.log("Adding login attempt")
+    await UserModel.updateOne(
+      { _id: userId },
+      { $inc: { "account.auth.loginAttempts": 1 } }
+    )
+  } catch (error) {
+    throw new Error("Failed to add login attempt")
+  }
+}
+
+export const resetLoginAttempts = async (userId) => {
+  await mwdb()
+  await UserModel.updateOne(
+    { _id: userId },
+    { "account.auth.loginAttempts": 0 }
+  )
+}
+
+export const findUserById = async (id) => {
+  await mwdb()
+  const user = await UserModel.findById(id)
+
+  return user
+}
+
+export const updateConfirmationToken = async (userId, token, expiresToken) => {
+  await mwdb()
+  try {
+    await UserModel.findOneAndUpdate(
+      { _id: userId },
+      {
+        "account.confirmation.token": token,
+        "account.confirmation.expiresToken": expiresToken,
+        "account.confirmation.lastSendTokenDate": new Date(),
+      }
+    )
+  } catch (error) {
+    throw new Error("Failed to update confirmation token")
+  }
+}
+
+export const findUserByConfirmationToken = async (token) => {
+  await mwdb()
+  try {
+    if (!token) {
+      return null
+    }
+    const user = await UserModel.findOne({
+      "account.confirmation.token": token,
+    })
+    return user || null
+  } catch (error) {
+    throw new Error("Failed to find user by confirmation token")
+  }
 }

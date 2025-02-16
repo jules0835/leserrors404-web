@@ -16,7 +16,7 @@ import {
   SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
 import { Link } from "@/i18n/routing"
-import { company, adminNavItems } from "@/assets/options/config"
+import { company, adminNavItems, webAppSettings } from "@/assets/options/config"
 import {
   Collapsible,
   CollapsibleContent,
@@ -40,7 +40,12 @@ export default function AdminSideNavbar() {
                 href="/"
                 className="p-2 rounded-md w-full flex items-center hover:bg-gray-100"
               >
-                <Image src={company.logo} alt="logo" width={40} height={40} />
+                <Image
+                  src={webAppSettings.images.logoNoTextUrl}
+                  alt="logo"
+                  width={40}
+                  height={40}
+                />
                 <div className="px-2">
                   <h1 className="font-bold text-xl">{company.name}</h1>
                   <span className="text-xs">Admin dashboard</span>

@@ -22,7 +22,9 @@
       "requiredEmail": "Email is required",
       "requiredPassword": "Password is required",
       "passwordMinLength": "Password must be at least 12 characters long",
-      "unknownError": "Something went wrong, please try again or contact support."
+      "unknownError": "Something went wrong, please try again or contact support.",
+      "accountInactive": "Your account has been deactivated, if you believe this is an error please contact our support team at {email}",
+      "accountNotConfirmed": "Your account is not confirmed, please check your email and confirm your account. If you did not receive an email, please check your spam folder. If you still cannot find the email, please contact our support team at {email}."
     },
     "RegisterPage": {
       "title": "Register",
@@ -156,6 +158,8 @@
         "inactive": "inactive",
         "userStatusChanged": "Successfuly changed user status to {status}",
         "failedToChangeUserStatus": "Failed to change user status !",
+        "account_activation_isActivated": "Account is activated",
+        "account_confirmation_isConfirmed": "Account is confirmed",
         "UserDetails": {
           "title": "User details",
           "subTitle": "Manage user details, roles and permissions",
@@ -186,7 +190,18 @@
           "socialMedia": "Form social media",
           "other": "An other option",
           "friend": "A friend",
-          "logs": "View user logs"
+          "logs": "View user logs",
+          "accountNotActivated": "This account is locked",
+          "firstNameRequired": "First name is required",
+          "lastNameRequired": "Last name is required",
+          "phoneRequired": "Phone number is required",
+          "emailRequired": "Email is required",
+          "howDidYouHearRequired": "How did you hear about us is required",
+          "countryRequired": "Country is required",
+          "cityRequired": "City is required",
+          "postalCodeRequired": "Postal code is required",
+          "streetRequired": "Street is required",
+          "companyRequired": "Company is required"
         }
       },
       "Logs": {
@@ -322,6 +337,14 @@
           "RegisterSuccess": {
             "title": "Register Success",
             "description": "A registration attempt succeeded"
+          },
+          "EmailServiceError": {
+            "title": "Email Service Error",
+            "description": "An error occurred with the email service"
+          },
+          "AccountSecurityLock": {
+            "title": "Account Security Lock",
+            "description": "The account has been locked due to security reasons"
           }
         },
         "userName": "User",
@@ -337,7 +360,9 @@
         "pickDate": "Choose date",
         "noLogs": "No logs available for this user.",
         "userLogs": "User Logs",
-        "userLogsDescription": "View the logs for the selected user."
+        "userLogsDescription": "View the logs for the selected user.",
+        "authorName": "Author",
+        "author": "Author"
       }
     },
     "SalesFront": {
@@ -454,6 +479,14 @@
     "otpMessage2": "Your code is :",
     "otpMessage3": "Please do not share this code with anyone. We will never ask for it. If you didn't request this code, please ignore this email.",
     "otpMessageTiming": "This code will expire in 5 minutes.",
-    "otpWarningMessage": "Please do not share this code with anyone. We will never ask for it. If you didn't request this code, please ignore this email."
+    "otpWarningMessage": "Please do not share this code with anyone. We will never ask for it. If you didn't request this code, please ignore this email.",
+    "confirmEmailMessage": "To confirm your email address, and activate your account, click the button below or copy and paste the link into your browser.",
+    "confirmButton": "Confirm Email",
+    "Confirmation": {
+      "subject": "Cyna - Confirm your email"
+    }
+  },
+  "Confirmation": {
+    "subject": "Cyna - Confirm your email"
   }
 }

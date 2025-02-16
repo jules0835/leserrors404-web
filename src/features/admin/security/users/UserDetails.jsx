@@ -13,7 +13,7 @@ import { getHowDidYouHearOptions } from "@/features/auth/utils/register"
 import { useTranslations } from "next-intl"
 import axios from "axios"
 import toast from "react-hot-toast"
-import { Logs } from "lucide-react"
+import { Logs, TriangleAlert } from "lucide-react"
 import UserLogsDialog from "@/features/admin/security/logs/UserLogsDialog"
 
 export function UserDetailsForm({ user }) {
@@ -73,6 +73,24 @@ export function UserDetailsForm({ user }) {
       >
         {({ isSubmitting, values, setFieldValue }) => (
           <Form className="space-y-8">
+            {!newUser.account.activation.isActivated && (
+              <div className=" bg-red-100 p-4 rounded-lg flex items-center space-x-5">
+                <TriangleAlert size={40} />
+                <div>
+                  <p className="text-red-600 font-semibold">
+                    {t("accountNotActivated")}
+                  </p>
+                  {newUser?.account?.activation?.inactivationDate && (
+                    <p>
+                      {new Date(
+                        user?.account?.activation?.inactivationDate
+                      ).toLocaleString("fr-FR")}
+                    </p>
+                  )}
+                  <p>{newUser?.account?.activation?.inactivationReason}</p>
+                </div>
+              </div>
+            )}
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 <Image
@@ -100,9 +118,12 @@ export function UserDetailsForm({ user }) {
                   <Label htmlFor="isActive">{t("active")}</Label>
                   <Switch
                     id="isActive"
-                    checked={values.isActive}
+                    checked={values.account.activation.isActivated}
                     onCheckedChange={() =>
-                      setFieldValue("isActive", !values.isActive)
+                      setFieldValue(
+                        "account.activation.isActivated",
+                        !values.account.activation.isActivated
+                      )
                     }
                     disabled={!isEditing}
                   />
@@ -133,9 +154,12 @@ export function UserDetailsForm({ user }) {
                   <Label htmlFor="isConfirmed">{t("confirmed")}</Label>
                   <Switch
                     id="isConfirmed"
-                    checked={values.isConfirmed}
+                    checked={values.account.confirmation.isConfirmed}
                     onCheckedChange={() =>
-                      setFieldValue("isConfirmed", !values.isConfirmed)
+                      setFieldValue(
+                        "account.confirmation.isConfirmed",
+                        !values.account.confirmation.isConfirmed
+                      )
                     }
                     disabled={!isEditing}
                   />
