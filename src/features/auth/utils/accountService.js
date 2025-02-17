@@ -87,6 +87,7 @@ export const checkLoginAttempts = async (userId) => {
 
 export const sendConfirmationEmail = async (userId) => {
   const t = await getTranslations({ locale: "en" }, "Email")
+
   try {
     const user = await findUserById(userId)
     const now = new Date()
@@ -133,7 +134,6 @@ export const sendConfirmationEmail = async (userId) => {
         ),
       })
     } catch (error) {
-      console.log("Failed to send email", error)
       log.systemError({
         logKey: logKeys.internalError.key,
         message: "Failed to send confirmation email",
@@ -153,7 +153,6 @@ export const sendConfirmationEmail = async (userId) => {
 
     return true
   } catch (error) {
-    console.log(error)
     log.systemError({
       logKey: logKeys.internalError.key,
       message: "Failed to send confirmation email",
@@ -187,13 +186,14 @@ export const confirmEmailWithToken = async (token) => {
         userId: user?._id,
         data: {
           token,
-          userExists: !!user,
+          userExists: Boolean(user),
           isConfirmed: user?.account.confirmation.isConfirmed,
           isActivated: user?.account.activation.isActivated,
           isTokenExpired: user?.account.confirmation.expiresToken < new Date(),
           isTokenMismatch: user?.account.confirmation.token !== token,
         },
       })
+
       return false
     }
 
@@ -209,17 +209,16 @@ export const confirmEmailWithToken = async (token) => {
 
     return true
   } catch (error) {
-    console.log(error)
     log.systemError({
       logKey: logKeys.internalError.key,
       message: "Failed to confirm email with token",
       isError: true,
       data: { token, error },
     })
+
     return false
   }
 }
 
-export const generateConfirmationToken = () => {
-  return crypto.randomBytes(20).toString("hex")
-}
+export const generateConfirmationToken = () =>
+  crypto.randomBytes(20).toString("hex")
