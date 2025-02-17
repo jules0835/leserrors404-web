@@ -17,8 +17,6 @@ export async function DELETE(req, { params }) {
 
         return NextResponse.json(res)
     } catch (error) {
-        console.error("Failed to delete Product:", error)
-
         return NextResponse.json({ error: "Failed to delete Product" }, { status: 500 })
     }
 }
@@ -70,7 +68,6 @@ export async function PUT(req, { params }) {
             isActive,
             ...(picture && { picture }),
         }
-
         const updatedProduct = await updateProduct(Id, updatedData)
 
         if (!updatedProduct) {
@@ -82,8 +79,6 @@ export async function PUT(req, { params }) {
 
         return NextResponse.json({ success: true, product: updatedProduct }, { status: 200 })
     } catch (error) {
-        console.error("Failed to update Product:", error)
-
         if (error instanceof yup.ValidationError) {
             const validationErrors = error.inner.map((err) => err.message).join(", ")
 

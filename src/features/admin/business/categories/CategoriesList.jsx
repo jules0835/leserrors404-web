@@ -68,7 +68,6 @@ export default function CategoriesList() {
     },
   })
   const handleDelete = async (id) => {
-    console.log("Deleting category with id:", id)
     toast.loading(t("Delete.deletingCategory"))
     const response = await fetch(`/api/admin/business/categories/${id}`, {
       method: "DELETE",

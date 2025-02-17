@@ -17,8 +17,8 @@ export async function getProductsList(size = 10, page = 1, query = "") {
 
 export async function GET(req) {
     const { searchParams } = req.nextUrl
-    const limit = parseInt(searchParams.get("limit")) || 10
-    const page = parseInt(searchParams.get("page")) || 1
+    const limit = parseInt(searchParams.get("limit"), 10) || 10
+    const page = parseInt(searchParams.get("page"), 10) || 1
     const query = searchParams.get("query") || ""
 
     try {
@@ -26,8 +26,6 @@ export async function GET(req) {
 
         return Response.json(res)
     } catch (error) {
-        console.error("Failed to fetch Products:", error)
-
         return Response.json({ error: "Failed to fetch Products" }, { status: 500 })
     }
 }
@@ -74,8 +72,6 @@ export async function POST(req) {
 
         return NextResponse.json({ success: true, product }, { status: 201 })
     } catch (error) {
-        console.error(error)
-
         if (error instanceof yup.ValidationError) {
             const validationErrors = error.inner.map((err) => err.message).join(", ")
 

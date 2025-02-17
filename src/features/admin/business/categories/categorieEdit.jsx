@@ -43,6 +43,7 @@ const CategorieEdit = ({ setCategories, editCategory, setEditCategory }) => {
     setFormData((prev) => ({
       ...prev,
       [name]:
+        // eslint-disable-next-line no-nested-ternary
         type === "file" ? files[0] : type === "checkbox" ? checked : value,
     }))
   }

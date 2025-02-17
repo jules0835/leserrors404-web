@@ -58,10 +58,8 @@ export const updateProduct = async (id, data) => {
 
     return Product
   } catch (error) {
-    console.error("Failed to update Product:", error)
+    return null
   }
-
-  return null
 }
 
 export const deleteProduct = async (id) => {
@@ -82,8 +80,6 @@ export const deleteProduct = async (id) => {
 
     return { success: true, message: "Product deleted successfully" }
   } catch (error) {
-    console.error("Failed to delete Product:", error)
-
     return { success: false, message: "Failed to delete Product" }
   }
 }

@@ -17,8 +17,6 @@ export async function DELETE(req, { params }) {
 
         return NextResponse.json(res)
     } catch (error) {
-        console.error("Failed to delete Categorie:", error)
-
         return NextResponse.json({ error: "Failed to delete Categorie" }, { status: 500 })
     }
 }
@@ -43,6 +41,7 @@ export async function PUT(req, { params }) {
         await categorieSchema.validate(requestBody, { abortEarly: false })
 
         const existingCategorie = await findCategorie({ label, _id: { $ne: Id } })
+
         if (existingCategorie) {
             return NextResponse.json(
                 {
@@ -59,7 +58,6 @@ export async function PUT(req, { params }) {
             isActive,
             ...(picture && { picture }),
         }
-
         const updatedCategorie = await updateCategorie(Id, updatedData)
 
         if (!updatedCategorie) {
@@ -71,8 +69,6 @@ export async function PUT(req, { params }) {
 
         return NextResponse.json({ success: true, categorie: updatedCategorie }, { status: 200 })
     } catch (error) {
-        console.error("Failed to update Categorie:", error)
-
         if (error instanceof yup.ValidationError) {
             const validationErrors = error.inner.map((err) => err.message).join(", ")
 

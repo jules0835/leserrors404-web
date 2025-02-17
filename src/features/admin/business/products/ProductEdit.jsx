@@ -72,17 +72,16 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
     setFormData((prev) => ({
       ...prev,
       [name]:
+        // eslint-disable-next-line no-nested-ternary
         type === "file" ? files[0] : type === "checkbox" ? checked : value,
     }))
   }
-
   const handleSwitchChange = (checked) => {
     setFormData((prev) => ({
       ...prev,
       isActive: checked,
     }))
   }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
@@ -130,7 +129,6 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
 
     setIsLoading(false)
   }
-
   const handleOpenChange = (open) => {
     setIsOpen(open)
 

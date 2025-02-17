@@ -90,9 +90,7 @@ export default function ProductsList() {
       return products
     },
   })
-
   const handleDelete = async (id) => {
-    console.log("Deleting product with id:", id)
     toast.loading(t("Delete.deletingProduct"))
     const response = await fetch(`/api/admin/business/products/${id}`, {
       method: "DELETE",
@@ -109,12 +107,11 @@ export default function ProductsList() {
       toast.error(t("Delete.errorDeletingProduct"))
     }
   }
-
   const getCategoryName = (categoryId) => {
     const category = categories.find((cat) => cat._id === categoryId)
+
     return category ? category.label : ""
   }
-
   const columns = [
     {
       id: "picture",
@@ -233,7 +230,6 @@ export default function ProductsList() {
       },
     },
   ]
-
   const table = useReactTable({
     data: products || [],
     columns,
