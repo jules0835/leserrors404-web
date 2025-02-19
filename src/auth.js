@@ -2,8 +2,8 @@ import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
 import { logEvent } from "@/lib/logEvent"
-import { logKeys } from "@/assets/options/config"
-import { verifyUserOtp } from "@/features/auth/utils/otpService"
+import { logKeys, company } from "@/assets/options/config"
+import * as OTPAuth from "otpauth"
 
 // eslint-disable-next-line new-cap
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -208,4 +208,28 @@ const sendConfirmationEmail = async (userId) => {
       body: JSON.stringify({ userId }),
     }
   )
+}
+const verifyUserOtp = (token, user) => {
+  try {
+    const username = `${user.firstName} ${user.lastName}`
+    const userSecret = user.account.auth.otpSecret
+
+    if (!username || !userSecret) {
+      return { valid: false, message: "Invalid user data" }
+    }
+
+    const totp = new OTPAuth.TOTP({
+      issuer: `${company.name}`,
+      label: `${company.name} - ${username}`,
+      algorithm: "SHA1",
+      digits: 6,
+      period: 30,
+      secret: OTPAuth.Secret.fromBase32(userSecret),
+    })
+    const delta = totp.validate({ token, window: 1 })
+
+    return delta !== null
+  } catch (error) {
+    return false
+  }
 }

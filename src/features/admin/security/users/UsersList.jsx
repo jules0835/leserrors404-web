@@ -3,7 +3,7 @@
 "use client"
 import * as React from "react"
 import { useQuery } from "@tanstack/react-query"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   flexRender,
   getCoreRowModel,
@@ -39,7 +39,6 @@ import {
   useChangeConfirmedUserStatus,
 } from "@/features/admin/security/users/utils/users"
 import { useRouter } from "@/i18n/routing"
-import { useEffect } from "react"
 
 export default function UsersList() {
   const [page, setPage] = useState(1)

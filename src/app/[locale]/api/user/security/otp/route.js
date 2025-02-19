@@ -24,6 +24,7 @@ export async function GET(req) {
         isError: true,
         data: { userId },
       })
+
       return NextResponse.json({ error: 401 }, { status: 401 })
     }
 
@@ -38,6 +39,7 @@ export async function GET(req) {
       authorId: getReqUserId(req),
       technicalMessage: error.message,
     })
+
     return NextResponse.json(
       { error: "Failed to process request" },
       { status: 500 }
@@ -56,6 +58,7 @@ export async function POST(req) {
         isError: true,
         data: { userId },
       })
+
       return NextResponse.json({ error: 401 }, { status: 401 })
     }
 
@@ -77,6 +80,7 @@ export async function POST(req) {
       technicalMessage: error.message,
       authorId: getReqUserId(req),
     })
+
     return NextResponse.json(
       { error: "Failed to process request" },
       { status: 500 }
@@ -99,6 +103,7 @@ export async function PUT(req) {
         data: { userId },
         authorId: userId,
       })
+
       return NextResponse.json({ error: 401 }, { status: 401 })
     }
 
@@ -130,6 +135,7 @@ export async function PUT(req) {
       technicalMessage: error.message,
       authorId: getReqUserId(req),
     })
+
     return NextResponse.json(
       { error: "Failed to process request" },
       { status: 500 }
@@ -149,6 +155,7 @@ export async function DELETE(req) {
         authorId: userId,
         data: { userId },
       })
+
       return NextResponse.json({ error: 401 }, { status: 401 })
     }
 
@@ -170,6 +177,7 @@ export async function DELETE(req) {
       technicalMessage: error.message,
       authorId: getReqUserId(req),
     })
+
     return NextResponse.json(
       { error: "Failed to process request" },
       { status: 500 }

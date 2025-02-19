@@ -16,7 +16,7 @@ import {
   SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
 import { Link } from "@/i18n/routing"
-import { company, webAppSettings, userNavItems } from "@/assets/options/config"
+import { webAppSettings, userNavItems } from "@/assets/options/config"
 import {
   Collapsible,
   CollapsibleContent,

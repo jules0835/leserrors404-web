@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Link, Section, Text } from "@react-email/components"
+import { Button, Section, Text } from "@react-email/components"
 import { getTranslations } from "next-intl/server"
 
 export default async function ConfirmTemplate({ locale = "en", confirmUrl }) {

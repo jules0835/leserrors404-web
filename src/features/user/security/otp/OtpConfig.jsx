@@ -37,12 +37,14 @@ export default function OtpConfig() {
     queryKey: ["otpDetails"],
     queryFn: async () => {
       const { data } = await axios.get("/api/user/security/otp")
+
       return data
     },
   })
   const generateOtpKeyMutation = useMutation({
     mutationFn: async () => {
       const { data } = await axios.post("/api/user/security/otp")
+
       return data
     },
     onSuccess: () => {
@@ -60,20 +62,21 @@ export default function OtpConfig() {
 
       return data
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["otpDetails"] })
       setOtpOpen(false)
       setError(null)
       setOtpToken("")
       otpDetails.isOtpEnabled = true
     },
-    onError: (error) => {
-      setError(error.message)
+    onError: (errorVerify) => {
+      setError(errorVerify.message)
     },
   })
   const disableOtpMutation = useMutation({
     mutationFn: async () => {
       const { data } = await axios.delete("/api/user/security/otp")
+
       return data
     },
     onSuccess: () => {
@@ -81,7 +84,6 @@ export default function OtpConfig() {
       otpDetails.isOtpEnabled = false
     },
   })
-
   const handleGenerateOtpKey = () => {
     toast.promise(generateOtpKeyMutation.mutateAsync(), {
       loading: t("loading"),
@@ -103,7 +105,6 @@ export default function OtpConfig() {
       error: t("otpDisableFailed"),
     })
   }
-
   const handleCancelOtp = () => {
     setOtpOpen(false)
     setError(null)
@@ -221,7 +222,7 @@ export default function OtpConfig() {
                 <div className="flex flex-col items-center">
                   <span className="font-mono">
                     {generateOtpKeyMutation.data.secret
-                      .match(/.{1,8}/g)
+                      .match(/.{1,8}/gu)
                       .map((part, index) => (
                         <div key={index}>{part}</div>
                       ))}

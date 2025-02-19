@@ -8,10 +8,6 @@ export function verifyUserOtp(token, user) {
     const username = `${user.firstName} ${user.lastName}`
     const userSecret = user.account.auth.otpSecret
 
-    console.log("username", username)
-    console.log("userSecret", userSecret)
-    console.log("token", token)
-
     if (!username || !userSecret) {
       return { valid: false, message: "Invalid user data" }
     }
@@ -26,10 +22,8 @@ export function verifyUserOtp(token, user) {
     })
     const delta = totp.validate({ token, window: 1 })
 
-    console.log("delta", delta)
     return delta !== null
   } catch (error) {
-    console.error(error)
     return false
   }
 }

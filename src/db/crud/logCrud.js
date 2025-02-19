@@ -12,6 +12,7 @@ export const createLog = async (logData) => {
 
 export const getLogsByUserId = async (userId) => {
   await mwdb()
+
   return await LogModel.find({
     $or: [
       { userId },
