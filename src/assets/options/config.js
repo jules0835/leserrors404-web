@@ -32,6 +32,7 @@ export const webAppSettings = {
     login: "/auth/login",
     register: "/auth/register",
     adminDashboard: "/admin",
+    userProfile: "/user/dashboard/security/otp",
   },
   translation: {
     locales: ["en", "fr", "de", "ts"],
@@ -166,6 +167,33 @@ export const adminNavItems = [
   },
 ]
 
+export const userNavItems = [
+  {
+    title: "Dashboard",
+    translationKey: "dashboard",
+    url: "/user/dashboard",
+    icon: LayoutDashboard,
+    isActive: true,
+    isSuperAdmin: false,
+    items: [],
+  },
+  {
+    title: "My Account",
+    translationKey: "myAccount",
+    url: "/user#",
+    icon: UserRound,
+    isActive: true,
+    isSuperAdmin: false,
+    items: [
+      {
+        title: "Two Factor Auth",
+        translationKey: "security",
+        url: "/user/dashboard/security/otp",
+        isSuperAdmin: false,
+      },
+    ],
+  },
+]
 export const pagesNames = [
   {
     title: "Home Page",

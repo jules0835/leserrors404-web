@@ -22,7 +22,12 @@
       "passwordMinLength": "Das Passwort muss mindestens 12 Zeichen lang sein",
       "requiredEmail": "E -Mail ist erforderlich",
       "requiredPassword": "Passwort ist erforderlich",
-      "unknownError": "Etwas lief schief, bitte versuchen Sie es erneut oder wenden Sie sich an Support."
+      "unknownError": "Etwas lief schief, bitte versuchen Sie es erneut oder wenden Sie sich an Support.",
+      "accountInactive": "Ihr Konto wurde deaktiviert. Wenn Sie glauben, dass dies ein Fehler ist, wenden Sie sich bitte an unser Support -Team unter {E -Mail}",
+      "accountNotConfirmed": "Ihr Konto wird nicht bestätigt. Überprüfen Sie bitte Ihre E -Mails und bestätigen Sie Ihr Konto. \nWenn Sie keine E -Mail erhalten haben, überprüfen Sie bitte Ihren Spam -Ordner. \nWenn Sie die E -Mail immer noch nicht finden können, wenden Sie sich bitte an unser Support -Team unter {E -Mail}.",
+      "invalidOtp": "Der von Ihnen eingegebene OTP ist ungültig. Bitte versuchen Sie es erneut",
+      "otpRequired": "Ihr einmaliges Kennwort ist erforderlich, um sich in Ihrem Konto anzumelden. Geben Sie bitte den Code ein, den Ihre Authenticator -App zur Verfügung stellt",
+      "requiredOtp": "Der OTP -Code mit 6 Ziffern ist erforderlich"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -73,7 +78,11 @@
       "successMessage2": "Sie erhalten eine E -Mail, um Ihre Registrierung zu bestätigen. Überprüfen Sie bitte Ihren Posteingang und Ihren Spam -Ordner.",
       "successMessage3": "Sobald Sie Ihre Registrierung bestätigt haben, können Sie sich anmelden.",
       "successMessage4": "Wenn Sie die E -Mail nicht erhalten, kontaktieren Sie uns bitte."
-    }
+    },
+    "confirmEmail": "E -Mail -Bestätigung",
+    "confirmEmailFailed": "E -Mail -Bestätigung fehlgeschlagen. \nBitte versuchen Sie es erneut oder wenden Sie sich an unser Support -Team.",
+    "confirmEmailSuccess": "Ihre E -Mail wurde erfolgreich bestätigt, Sie können sich jetzt anmelden.",
+    "login": "Kehren Sie zur Anmeldeseite zurück"
   },
   "other": "Andere",
   "socialMedia": "Soziale Medien",
@@ -176,7 +185,19 @@
           "street": "Straße",
           "subTitle": "Verwalten Sie Benutzerdetails, Rollen und Berechtigungen",
           "title": "Benutzerdetails",
-          "zipCode": "PLZ"
+          "zipCode": "PLZ",
+          "accountNotActivated": "Dieses Konto ist gesperrt",
+          "cityRequired": "Stadt ist erforderlich",
+          "companyRequired": "Firma ist erforderlich",
+          "countryRequired": "Land ist erforderlich",
+          "emailRequired": "E -Mail ist erforderlich",
+          "firstNameRequired": "Vorname ist erforderlich",
+          "howDidYouHearRequired": "Wie haben Sie von uns gehört, ist erforderlich",
+          "lastNameRequired": "Nachname ist erforderlich",
+          "phoneRequired": "Telefonnummer ist erforderlich",
+          "postalCodeRequired": "Postleitzahl ist erforderlich",
+          "streetRequired": "Straße ist erforderlich",
+          "twoFactorAuth": "Zwei Faktor"
         },
         "actions": "Aktionen",
         "activateUser": "Benutzer aktivieren",
@@ -227,7 +248,9 @@
         "userStatusChanged": "Erfolgreich geändert den Benutzerstatus in {Status}",
         "viewUser": "Benutzer anzeigen",
         "yes": "Ja",
-        "zipCode": "PLZ"
+        "zipCode": "PLZ",
+        "account_activation_isActivated": "Konto wird aktiviert",
+        "account_confirmation_isConfirmed": "Konto wird bestätigt"
       },
       "Logs": {
         "Log": {
@@ -336,6 +359,14 @@
           "UserResetPassword": {
             "description": "Benutzer setzen sein Passwort zurück",
             "title": "Benutzer Zurücksetzen Passwort"
+          },
+          "AccountSecurityLock": {
+            "description": "Das Konto wurde aus Sicherheitsgründen gesperrt",
+            "title": "Kontosicherheitssperrung"
+          },
+          "EmailServiceError": {
+            "description": "Bei dem E -Mail -Dienst trat ein Fehler auf",
+            "title": "E -Mail -Service -Fehler"
           }
         },
         "LogDetails": {
@@ -377,7 +408,9 @@
         "userLogs": "Benutzerprotokolle",
         "userLogsDescription": "Zeigen Sie die Protokolle für den ausgewählten Benutzer an.",
         "userName": "Benutzer",
-        "yes": "Ja"
+        "yes": "Ja",
+        "author": "Autor",
+        "authorName": "Autor"
       }
     },
     "Business": {
@@ -430,7 +463,8 @@
     "products": "Produkte",
     "security": "Sicherheit",
     "subscriptions": "Abonnements",
-    "users": "Benutzer"
+    "users": "Benutzer",
+    "myAccount": "Mein Konto"
   },
   "navigation": {
     "admin": "Admin",
@@ -449,7 +483,52 @@
     "greetingWithoutName": "Hallo,",
     "noReplyEmail": "Diese E -Mail wurde von einer nicht überwachten E -Mail -Adresse gesendet. \nBitte antworten Sie nicht auf diese E -Mail. \nWenn Sie Fragen haben, kontaktieren Sie uns bitte unter {E -Mail}",
     "userEmail": "Sie können mich unter {E -Mail} erreichen",
-    "userSignature": "Mit freundlichen Grüßen {FirstName} {LastName}"
+    "userSignature": "Mit freundlichen Grüßen {FirstName} {LastName}",
+    "Confirmation": {
+      "subject": "Cyna - Bestätigen Sie Ihre E -Mail"
+    },
+    "companyMessage": "Wir wünschen Ihnen einen ausgezeichneten Tag!",
+    "confirmButton": "E-Mail bestätigen",
+    "confirmEmailMessage": "Um Ihre E -Mail -Adresse zu bestätigen und Ihr Konto zu aktivieren, klicken Sie auf die Schaltfläche unten oder kopieren Sie den Link in Ihren Browser.",
+    "otpMessage1": "Sie erhalten diese E-Mail, da Sie ein einmaliges Passwort (OTP) für Ihr Konto angefordert haben.",
+    "otpMessage2": "Ihr Code ist:",
+    "otpMessage3": "Bitte teilen Sie diesen Code mit niemandem. \nWir werden nie danach fragen. \nWenn Sie diesen Code nicht angefordert haben, ignorieren Sie diese E -Mail.",
+    "otpMessageTiming": "Dieser Code läuft in 5 Minuten ab.",
+    "otpWarningMessage": "Bitte teilen Sie diesen Code mit niemandem. \nWir werden nie danach fragen. \nWenn Sie diesen Code nicht angefordert haben, ignorieren Sie diese E -Mail.",
+    "userMessage": "Ich wünsche Ihnen einen ausgezeichneten Tag!"
   },
-  "isSuperAdminRequired": "Ist Super Admin erforderlich, ist erforderlich"
+  "isSuperAdminRequired": "Ist Super Admin erforderlich, ist erforderlich",
+  "Confirmation": {
+    "subject": "Cyna - Bestätigen Sie Ihre E -Mail"
+  },
+  "User": {
+    "Security": {
+      "OtpConfig": {
+        "cancel": "Stornieren",
+        "confirm": "Bestätigen",
+        "disableOtp": "Deaktivieren Sie OTP",
+        "disableOtpDescription": "Sind Sie sicher, dass Sie OTP deaktivieren möchten?",
+        "disableOtpTitle": "Deaktivieren Sie OTP",
+        "enableOtp": "Aktivieren Sie OTP",
+        "enterOtpToken": "Geben Sie OTP -Token ein",
+        "invalidOtp": "Dieser Code ist ungültig. Bitte überprüfen Sie oder versuchen Sie es erneut",
+        "loading": "Laden...",
+        "newOtpKey": "Neuer OTP -Schlüssel",
+        "otpDisableFailed": "OTP nicht deaktivieren",
+        "otpDisabled": "Sie haben in Ihrem Konto keine Zwei -Faktor -Authentifizierung aktiviert.",
+        "otpEnabled": "OTP ist aktiviert",
+        "otpGenerated": "OTP -Schlüssel erfolgreich erzeugt",
+        "otpGenerationFailed": "Ich habe den OTP -Schlüssel nicht generiert",
+        "otpKeyGenerated": "Laden Sie die kostenlose Google Authenticator -App auf Ihr Telefon herunter, scannen Sie diesen Barcode und geben Sie den Code ein.",
+        "otpVerificationFailed": "OTP nicht überprüft",
+        "otpVerified": "OTP überprüft erfolgreich",
+        "reconfigureOtp": "Rekonfigurieren Sie OTP",
+        "reconfigureOtpDescription": "Sind Sie sicher, dass Sie OTP neu konfigurieren möchten? \nDies erzeugt einen neuen OTP -Schlüssel.",
+        "reconfigureOtpTitle": "Rekonfigurieren Sie OTP",
+        "scanQrCodeOrEnterCode": "Scannen Sie den QRCode mit Ihrer Authenticator -App oder geben Sie diesen Code ein",
+        "title": "OTP -Konfiguration",
+        "verifyOtp": "Überprüfen Sie OTP"
+      }
+    }
+  }
 }

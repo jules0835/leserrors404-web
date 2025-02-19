@@ -92,7 +92,7 @@ export function UserDetailsForm({ user }) {
               </div>
             )}
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-1">
                 <Image
                   src={user.profilePicture || webAppSettings.images.userDefault}
                   alt={t("profilePictureAlt", {
@@ -113,7 +113,7 @@ export function UserDetailsForm({ user }) {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-5 gap-4">
                 <div className="flex flex-col items-center space-y-4">
                   <Label htmlFor="isActive">{t("active")}</Label>
                   <Switch
@@ -159,6 +159,20 @@ export function UserDetailsForm({ user }) {
                       setFieldValue(
                         "account.confirmation.isConfirmed",
                         !values.account.confirmation.isConfirmed
+                      )
+                    }
+                    disabled={!isEditing}
+                  />
+                </div>
+                <div className="flex flex-col items-center space-y-4">
+                  <Label htmlFor="isOtpEnabled">{t("twoFactorAuth")}</Label>
+                  <Switch
+                    id="isOtpEnabled"
+                    checked={values.account.auth.isOtpEnabled}
+                    onCheckedChange={() =>
+                      setFieldValue(
+                        "account.auth.isOtpEnabled",
+                        !values.account.auth.isOtpEnabled
                       )
                     }
                     disabled={!isEditing}

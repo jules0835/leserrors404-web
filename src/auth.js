@@ -3,10 +3,7 @@ import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
 import { logEvent } from "@/lib/logEvent"
 import { logKeys } from "@/assets/options/config"
-import {
-  handleLoginFailure,
-  sendConfirmationEmail,
-} from "@/features/auth/utils/accountService"
+import { verifyUserOtp } from "@/features/auth/utils/otpService"
 
 // eslint-disable-next-line new-cap
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -19,6 +16,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       credentials: {
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
+        otp: { label: "OTP", type: "text" },
+        keepLogin: { label: "Keep me logged in", type: "checkbox" },
       },
       authorize: async (credentials) => {
         await logEvent({
@@ -101,6 +100,29 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           throw new Error("account_not_confirmed")
         }
 
+        if (user.account.auth.isOtpEnabled) {
+          if (!credentials.otp) {
+            throw Error("user_otp_required")
+          }
+
+          const isValidOtp = verifyUserOtp(credentials.otp, user)
+
+          if (!isValidOtp) {
+            await logEvent({
+              level: "userError",
+              message: `User with email ${credentials.email} failed to log in because of invalid OTP`,
+              logKey: logKeys.loginFailed.key,
+              isError: true,
+              userId: user._id,
+              data: { email: credentials.email },
+            })
+
+            await handleLoginFailure(user._id)
+
+            throw Error("invalid_credentials_otp")
+          }
+        }
+
         await logEvent({
           level: "userInfo",
           message: `User with email ${credentials.email} successfully logged in`,
@@ -108,6 +130,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           userId: user._id,
           data: { email: credentials.email },
         })
+
+        await handleLoginSuccess(user._id)
 
         return user
       },
@@ -146,3 +170,42 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   csrf: true,
 })
+const handleLoginFailure = async (userId) => {
+  await fetch(
+    `${process.env.SERVER_URL}/en/api/services/account?action=handleLoginFailure`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`,
+      },
+      body: JSON.stringify({ userId }),
+    }
+  )
+}
+const handleLoginSuccess = async (userId) => {
+  await fetch(
+    `${process.env.SERVER_URL}/en/api/services/account?action=handleLoginSuccess`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`,
+      },
+      body: JSON.stringify({ userId }),
+    }
+  )
+}
+const sendConfirmationEmail = async (userId) => {
+  await fetch(
+    `${process.env.SERVER_URL}/en/api/services/account?action=sendConfirmationEmail`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`,
+      },
+      body: JSON.stringify({ userId }),
+    }
+  )
+}

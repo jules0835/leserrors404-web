@@ -13,6 +13,7 @@ import { sendEmail } from "@/features/email/utils/emailService"
 import { EmailTemplate } from "@/features/email/templates/emailTemplate"
 import ConfirmTemplate from "@/features/email/templates/confirmTemplate"
 import { getTranslations } from "next-intl/server"
+import crypto from "crypto"
 
 export const handleLoginFailure = async (userId) => {
   try {

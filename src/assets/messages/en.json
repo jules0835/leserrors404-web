@@ -24,7 +24,10 @@
       "passwordMinLength": "Password must be at least 12 characters long",
       "unknownError": "Something went wrong, please try again or contact support.",
       "accountInactive": "Your account has been deactivated, if you believe this is an error please contact our support team at {email}",
-      "accountNotConfirmed": "Your account is not confirmed, please check your email and confirm your account. If you did not receive an email, please check your spam folder. If you still cannot find the email, please contact our support team at {email}."
+      "accountNotConfirmed": "Your account is not confirmed, please check your email and confirm your account. If you did not receive an email, please check your spam folder. If you still cannot find the email, please contact our support team at {email}.",
+      "invalidOtp": "The OTP you entered is invalid, please try again",
+      "requiredOtp": "The OTP code with 6 digits is required",
+      "otpRequired": "Your one time password is required to log into your account, please enter the code provide by your authenticator app"
     },
     "RegisterPage": {
       "title": "Register",
@@ -75,7 +78,11 @@
       "successMessage3": "Once you have confirmed your registration, you will be able to log in.",
       "successMessage4": "If you don't receive the email, please contact us.",
       "errorRegister": "An error occured while register, please verify your information or try again later."
-    }
+    },
+    "confirmEmail": "Email confirmation",
+    "confirmEmailFailed": "Email confirmation failed. Please try again or contact our support team.",
+    "login": "Return to login page",
+    "confirmEmailSuccess": "Your email has been confirmed successfully, you can now login."
   },
   "Navigation": {
     "home": "Home",
@@ -103,7 +110,8 @@
     "payments": "Payments",
     "categories": "Categories",
     "customers": "Customers",
-    "logs": "Logs"
+    "logs": "Logs",
+    "myAccount": "My Account"
   },
   "Admin": {
     "Security": {
@@ -201,7 +209,11 @@
           "cityRequired": "City is required",
           "postalCodeRequired": "Postal code is required",
           "streetRequired": "Street is required",
-          "companyRequired": "Company is required"
+          "companyRequired": "Company is required",
+          "twoFactorAuth": "Two Factor"
+        },
+        "User": {
+          "nothingSelected": "Nothing selected"
         }
       },
       "Logs": {
@@ -441,6 +453,36 @@
       },
       "Payments": {
         "title": "Payments"
+      }
+    }
+  },
+  "User": {
+    "Security": {
+      "OtpConfig": {
+        "title": "OTP Configuration",
+        "otpEnabled": "OTP is enabled",
+        "otpDisabled": "You don't have activated two factor authentification in your account.",
+        "reconfigureOtp": "Reconfigure OTP",
+        "reconfigureOtpTitle": "Reconfigure OTP",
+        "reconfigureOtpDescription": "Are you sure you want to reconfigure OTP? This will generate a new OTP key.",
+        "disableOtp": "Disable OTP",
+        "disableOtpTitle": "Disable OTP",
+        "disableOtpDescription": "Are you sure you want to disable OTP?",
+        "enableOtp": "Enable OTP",
+        "newOtpKey": "New OTP Key",
+        "enterOtpToken": "Enter OTP Token",
+        "verifyOtp": "Verify OTP",
+        "loading": "Loading...",
+        "otpGenerated": "OTP key generated successfully",
+        "otpGenerationFailed": "Failed to generate OTP key",
+        "otpVerified": "OTP verified successfully",
+        "otpVerificationFailed": "Failed to verify OTP",
+        "otpDisableFailed": "Failed to disable OTP",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "otpKeyGenerated": "Download the free Google Authenticator app on your phone, then scan this barcode, and enter the code.",
+        "scanQrCodeOrEnterCode": "Scan the QrCode with your authenticator app or enter this code",
+        "invalidOtp": "This code is invalid, please check or try again"
       }
     }
   },

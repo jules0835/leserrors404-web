@@ -22,7 +22,12 @@
       "passwordMinLength": "La password deve essere lunga almeno 12 caratteri",
       "requiredEmail": "L'e-mail è obbligatoria",
       "requiredPassword": "È richiesta la password",
-      "unknownError": "Qualcosa è andato storto, riprova o contatta il supporto."
+      "unknownError": "Qualcosa è andato storto, riprova o contatta il supporto.",
+      "accountInactive": "Il tuo account è stato disattivato, se ritieni che questo sia un errore, contatta il nostro team di supporto in {email}",
+      "accountNotConfirmed": "Il tuo account non è confermato, controlla la tua email e conferma il tuo account. \nSe non hai ricevuto un'e -mail, controlla la cartella SPAM. \nSe non riesci ancora a trovare l'e -mail, contatta il nostro team di supporto in {email}.",
+      "invalidOtp": "L'OTP che hai inserito non è valido, riprova",
+      "otpRequired": "La tua password a un tempo è richiesta per accedere al tuo account, inserisci il codice fornito dalla tua app di autenticazione",
+      "requiredOtp": "È richiesto il codice OTP con 6 cifre"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -73,7 +78,11 @@
       "successMessage2": "Riceverai un'e -mail per confermare la tua registrazione, controlla la cartella della posta in arrivo e dello spam.",
       "successMessage3": "Dopo aver confermato la registrazione, sarai in grado di accedere.",
       "successMessage4": "Se non ricevi l'e -mail, contattaci."
-    }
+    },
+    "confirmEmail": "Conferma e -mail",
+    "confirmEmailFailed": "Conferma e -mail non riuscita. \nRiprova o contatta il nostro team di supporto.",
+    "confirmEmailSuccess": "La tua e -mail è stata confermata correttamente, ora puoi accedere.",
+    "login": "Torna alla pagina di accesso"
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
@@ -267,6 +276,14 @@
           "UserResetPassword": {
             "description": "L'utente reimposta la password",
             "title": "Password di reimpostazione dell'utente"
+          },
+          "AccountSecurityLock": {
+            "description": "L'account è stato bloccato per motivi di sicurezza",
+            "title": "Blocco di sicurezza dell'account"
+          },
+          "EmailServiceError": {
+            "description": "Si è verificato un errore con il servizio di posta elettronica",
+            "title": "Errore di servizio e -mail"
           }
         },
         "LogDetails": {
@@ -308,7 +325,9 @@
         "userLogs": "Registri utente",
         "userLogsDescription": "Visualizza i registri per l'utente selezionato.",
         "userName": "Utente",
-        "yes": "SÌ"
+        "yes": "SÌ",
+        "author": "Autore",
+        "authorName": "Autore"
       },
       "Users": {
         "User": {
@@ -344,7 +363,19 @@
           "street": "Strada",
           "subTitle": "Gestisci i dettagli, i ruoli e le autorizzazioni dell'utente",
           "title": "Dettagli dell'utente",
-          "zipCode": "Cap"
+          "zipCode": "Cap",
+          "accountNotActivated": "Questo account è bloccato",
+          "cityRequired": "La città è richiesta",
+          "companyRequired": "La società è richiesta",
+          "countryRequired": "È richiesto il paese",
+          "emailRequired": "È richiesta l'e -mail",
+          "firstNameRequired": "È richiesto il nome",
+          "howDidYouHearRequired": "Come hai saputo di noi è richiesto",
+          "lastNameRequired": "È richiesto cognome",
+          "phoneRequired": "È richiesto il numero di telefono",
+          "postalCodeRequired": "È richiesto il codice postale",
+          "streetRequired": "È richiesta una strada",
+          "twoFactorAuth": "Due fattori"
         },
         "actions": "Azioni",
         "activateUser": "Attiva l'utente",
@@ -395,7 +426,9 @@
         "userStatusChanged": "Stato utente di successo ha modificato lo stato dell'utente in {status}",
         "viewUser": "Visualizza l'utente",
         "yes": "SÌ",
-        "zipCode": "Cap"
+        "zipCode": "Cap",
+        "account_activation_isActivated": "L'account è attivato",
+        "account_confirmation_isConfirmed": "L'account è confermato"
       }
     }
   },
@@ -430,7 +463,8 @@
     "products": "Prodotti",
     "security": "Sicurezza",
     "subscriptions": "Abbonamenti",
-    "users": "Utenti"
+    "users": "Utenti",
+    "myAccount": "Il mio conto"
   },
   "navigation": {
     "about": "Di",
@@ -449,7 +483,52 @@
     "greetingWithoutName": "Ciao,",
     "noReplyEmail": "Questa e -mail è stata inviata da un indirizzo e -mail non monitorato. \nSi prega di non rispondere a questa e -mail. \nSe hai domande, contattaci su {email}",
     "userEmail": "Puoi contattarmi a {email}",
-    "userSignature": "Cordiali saluti, {FirstName} {LastName}"
+    "userSignature": "Cordiali saluti, {FirstName} {LastName}",
+    "Confirmation": {
+      "subject": "Cyna - Conferma la tua email"
+    },
+    "companyMessage": "Ti auguriamo una giornata eccellente!",
+    "confirmButton": "Conferma email",
+    "confirmEmailMessage": "Per confermare il tuo indirizzo email e attivare il tuo account, fai clic sul pulsante in basso o copia e incolla il collegamento nel browser.",
+    "otpMessage1": "Stai ricevendo questa e-mail perché hai richiesto una password una tantum (OTP) per il tuo account.",
+    "otpMessage2": "Il tuo codice è:",
+    "otpMessage3": "Si prega di non condividere questo codice con nessuno. \nNon lo chiederemo mai. \nSe non hai richiesto questo codice, ignora questa e -mail.",
+    "otpMessageTiming": "Questo codice scadrà tra 5 minuti.",
+    "otpWarningMessage": "Si prega di non condividere questo codice con nessuno. \nNon lo chiederemo mai. \nSe non hai richiesto questo codice, ignora questa e -mail.",
+    "userMessage": "Ti auguro una giornata eccellente!"
   },
-  "isSuperAdminRequired": "È richiesto Super Admin"
+  "isSuperAdminRequired": "È richiesto Super Admin",
+  "Confirmation": {
+    "subject": "Cyna - Conferma la tua email"
+  },
+  "User": {
+    "Security": {
+      "OtpConfig": {
+        "cancel": "Cancellare",
+        "confirm": "Confermare",
+        "disableOtp": "Disabilita OTP",
+        "disableOtpDescription": "Sei sicuro di voler disabilitare OTP?",
+        "disableOtpTitle": "Disabilita OTP",
+        "enableOtp": "Abilita OTP",
+        "enterOtpToken": "Immettere il token OTP",
+        "invalidOtp": "Questo codice non è valido, controlla o riprova",
+        "loading": "Caricamento...",
+        "newOtpKey": "Nuova chiave OTP",
+        "otpDisableFailed": "Impossibile disabilitare OTP",
+        "otpDisabled": "Non hai attivato l'autenzione di due fattori nel tuo account.",
+        "otpEnabled": "OTP è abilitato",
+        "otpGenerated": "La chiave OTP generata correttamente",
+        "otpGenerationFailed": "Impossibile generare la chiave OTP",
+        "otpKeyGenerated": "Scarica l'app Google Authenticator gratuita sul tuo telefono, quindi scansiona questo codice a barre e inserisci il codice.",
+        "otpVerificationFailed": "Impossibile verificare OTP",
+        "otpVerified": "OTP ha verificato con successo",
+        "reconfigureOtp": "Riconfigurare OTP",
+        "reconfigureOtpDescription": "Sei sicuro di voler riconfigurare OTP? \nQuesto genererà una nuova chiave OTP.",
+        "reconfigureOtpTitle": "Riconfigurare OTP",
+        "scanQrCodeOrEnterCode": "Scansiona QRCode con la tua app di autenticatore o immettere questo codice",
+        "title": "Configurazione OTP",
+        "verifyOtp": "Verificare OTP"
+      }
+    }
+  }
 }

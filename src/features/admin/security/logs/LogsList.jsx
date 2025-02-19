@@ -136,7 +136,9 @@ export default function LogsList() {
         </Button>
       ),
       cell: ({ row }) => (
-        <div>{getLogLevelTitle(row.getValue("logLevel"), t)}</div>
+        <div>
+          {trimString(getLogLevelTitle(row.getValue("logLevel"), t), 20)}
+        </div>
       ),
     },
     {
@@ -349,7 +351,7 @@ export default function LogsList() {
           setSelectedCriticalityKey={setSelectedCriticalityKey}
         />
       </div>
-      <div className="rounded-md border mt-4">
+      <div className="rounded-md border mt-4 overflow-x-auto">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

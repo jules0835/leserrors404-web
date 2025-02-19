@@ -165,6 +165,7 @@ export async function PUT(req) {
       account: {
         confirmation: { isConfirmed },
         activation: { isActivated },
+        auth: { isOtpEnabled },
       },
     } = requestBody
     const user = await findUser({ _id })
@@ -206,6 +207,7 @@ export async function PUT(req) {
         },
         auth: {
           ...user.account.auth,
+          isOtpEnabled,
         },
         resetPassword: {
           ...user.account.resetPassword,

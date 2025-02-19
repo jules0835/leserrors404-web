@@ -5,13 +5,14 @@ import { routing } from "./i18n/routing"
 
 // Middleware pour l'internationalisation
 const intlMiddleware = createMiddleware(routing)
-const protectedRoutes = ["/dashboard", "/api", "/admin"]
+const protectedRoutes = ["/dashboard", "/api", "/admin", "/user"]
 const unprotectedApiRoutes = [
   "/api/authentification",
   "/api/auth",
   "/api/public",
   "/en/api/authentification/user",
   "/en/api/services/log",
+  "/en/api/services/account",
   "/api/test/email",
 ]
 // eslint-disable-next-line consistent-return
@@ -20,7 +21,7 @@ const authMiddleware = auth((req) => {
   const locale = req.cookies.get("NEXT_LOCALE")?.value || "en"
 
   if (!req.auth) {
-    if (currentPath.startsWith("/api")) {
+    if (currentPath.includes("/api/")) {
       return new NextResponse(JSON.stringify({ error: "Access denied" }), {
         status: 401,
         headers: { "Content-Type": "application/json" },

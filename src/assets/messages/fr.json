@@ -26,7 +26,12 @@
       "passwordMinLength": "Le mot de passe doit comporter au moins 12 caractères",
       "requiredEmail": "L'e-mail est requis",
       "requiredPassword": "Le mot de passe est requis",
-      "unknownError": "Quelque chose s'est mal passé, veuillez réessayer ou contacter le support."
+      "unknownError": "Quelque chose s'est mal passé, veuillez réessayer ou contacter le support.",
+      "accountInactive": "Votre compte a été désactivé, si vous pensez qu'il s'agit d'une erreur, veuillez contacter notre équipe d'assistance à {email}",
+      "accountNotConfirmed": "Votre compte n'est pas confirmé, veuillez vérifier votre e-mail et confirmer votre compte. \nSi vous n'avez pas reçu d'e-mail, veuillez consulter votre dossier de spam. \nSi vous ne trouvez toujours pas l'e-mail, veuillez contacter notre équipe d'assistance à {email}.",
+      "invalidOtp": "Le OTP que vous avez entré n'est pas valide, veuillez réessayer",
+      "otpRequired": "Votre mot de passe unique est nécessaire pour se connecter à votre compte, veuillez saisir le code fourni par votre application Authenticator",
+      "requiredOtp": "Le code OTP avec 6 chiffres est requis"
     },
     "RegisterPage": {
       "title": "S'inscrire",
@@ -77,7 +82,11 @@
       "successMessage2": "Vous recevrez un e-mail pour confirmer votre inscription, veuillez cocher votre boîte de réception et votre dossier de spam.",
       "successMessage3": "Une fois que vous avez confirmé votre inscription, vous pourrez vous connecter.",
       "successMessage4": "Si vous ne recevez pas l'e-mail, veuillez nous contacter."
-    }
+    },
+    "confirmEmail": "Confirmation par e-mail",
+    "confirmEmailFailed": "La confirmation par e-mail a échoué. \nVeuillez réessayer ou contacter notre équipe d'assistance.",
+    "confirmEmailSuccess": "Votre e-mail a été confirmé avec succès, vous pouvez désormais vous connecter.",
+    "login": "Retour à la page de connexion"
   },
   "navigation": {
     "home": "Accueil",
@@ -114,7 +123,8 @@
     "orders": "Ordres",
     "payments": "Paiements",
     "products": "Produits",
-    "subscriptions": "Abonnements"
+    "subscriptions": "Abonnements",
+    "myAccount": "Mon compte"
   },
   "other": "Autre",
   "socialMedia": "Réseaux sociaux",
@@ -258,7 +268,19 @@
           "street": "Rue",
           "subTitle": "Gérer les détails de l'utilisateur, les rôles et les autorisations",
           "title": "Coordonnées",
-          "zipCode": "Code postal"
+          "zipCode": "Code postal",
+          "accountNotActivated": "Ce compte est verrouillé",
+          "cityRequired": "La ville est requise",
+          "companyRequired": "La société est requise",
+          "countryRequired": "Le pays est requis",
+          "emailRequired": "Un e-mail est requis",
+          "firstNameRequired": "Le prénom est requis",
+          "howDidYouHearRequired": "Comment avez-vous entendu parler de nous est nécessaire",
+          "lastNameRequired": "Le nom de famille est requis",
+          "phoneRequired": "Le numéro de téléphone est requis",
+          "postalCodeRequired": "Le code postal est requis",
+          "streetRequired": "La rue est requise",
+          "twoFactorAuth": "À deux facteurs"
         },
         "activateUser": "Activer l'utilisateur",
         "active": "actif",
@@ -268,7 +290,9 @@
         "failedToChangeUserStatus": "Échec de la modification de l'état de l'utilisateur!",
         "inactive": "inactif",
         "unconfirmUser": "Forcer la non-confirmation",
-        "userStatusChanged": "Réussi à modifier l'état de l'utilisateur en {statut}"
+        "userStatusChanged": "Réussi à modifier l'état de l'utilisateur en {statut}",
+        "account_activation_isActivated": "Le compte est activé",
+        "account_confirmation_isConfirmed": "Le compte est confirmé"
       },
       "Logs": {
         "Log": {
@@ -377,6 +401,14 @@
           "UserResetPassword": {
             "description": "Réinitialisez l'utilisateur de son mot de passe",
             "title": "Mot de passe de réinitialisation de l'utilisateur"
+          },
+          "AccountSecurityLock": {
+            "description": "Le compte a été verrouillé pour des raisons de sécurité",
+            "title": "Verrouillage de sécurité du compte"
+          },
+          "EmailServiceError": {
+            "description": "Une erreur s'est produite avec le service de messagerie",
+            "title": "Erreur de service de messagerie"
           }
         },
         "LogDetails": {
@@ -418,7 +450,9 @@
         "userLogs": "Journaux utilisateurs",
         "userLogsDescription": "Affichez les journaux de l'utilisateur sélectionné.",
         "userName": "Utilisateur",
-        "yes": "Oui"
+        "yes": "Oui",
+        "author": "Auteur",
+        "authorName": "Auteur"
       }
     },
     "Business": {
@@ -456,7 +490,45 @@
     "otpMessage3": "Veuillez ne partager ce code avec personne. \nNous ne le demanderons jamais. \nSi vous n'avez pas demandé ce code, veuillez ignorer cet e-mail.",
     "otpMessageTiming": "Ce code expirera en 5 minutes.",
     "otpWarningMessage": "Veuillez ne partager ce code avec personne. \nNous ne le demanderons jamais. \nSi vous n'avez pas demandé ce code, veuillez ignorer cet e-mail.",
-    "userMessage": "Je vous souhaite une excellente journée!"
+    "userMessage": "Je vous souhaite une excellente journée!",
+    "Confirmation": {
+      "subject": "Cyna - Confirmez votre e-mail"
+    },
+    "confirmButton": "Confirmez votre email",
+    "confirmEmailMessage": "Pour confirmer votre adresse e-mail et activer votre compte, cliquez sur le bouton ci-dessous ou copiez et collez le lien dans votre navigateur."
   },
-  "isSuperAdminRequired": "Le super administrateur est-il nécessaire"
+  "isSuperAdminRequired": "Le super administrateur est-il nécessaire",
+  "Confirmation": {
+    "subject": "Cyna - Confirmez votre e-mail"
+  },
+  "User": {
+    "Security": {
+      "OtpConfig": {
+        "cancel": "Annuler",
+        "confirm": "Confirmer",
+        "disableOtp": "Désactiver OTP",
+        "disableOtpDescription": "Êtes-vous sûr de vouloir désactiver OTP?",
+        "disableOtpTitle": "Désactiver OTP",
+        "enableOtp": "Activer OTP",
+        "enterOtpToken": "Entrez le jeton OTP",
+        "invalidOtp": "Ce code n'est pas valide, veuillez vérifier ou réessayer",
+        "loading": "Chargement...",
+        "newOtpKey": "Nouvelle clé OTP",
+        "otpDisableFailed": "Échec de désactiver l'OTP",
+        "otpDisabled": "Vous n'avez pas activé l'authentification à deux facteurs dans votre compte.",
+        "otpEnabled": "OTP est activé",
+        "otpGenerated": "La clé OTP générée avec succès",
+        "otpGenerationFailed": "Échec de la génération de la clé OTP",
+        "otpKeyGenerated": "Téléchargez l'application gratuite Google Authenticator sur votre téléphone, puis scannez ce code-barres et entrez le code.",
+        "otpVerificationFailed": "Échec de la vérification de l'OTP",
+        "otpVerified": "OTP vérifié avec succès",
+        "reconfigureOtp": "Reconfigurer OTP",
+        "reconfigureOtpDescription": "Êtes-vous sûr de vouloir reconfigurer OTP? \nCela générera une nouvelle clé OTP.",
+        "reconfigureOtpTitle": "Reconfigurer OTP",
+        "scanQrCodeOrEnterCode": "Analysez le QRCODE avec votre application Authenticator ou entrez ce code",
+        "title": "Configuration OTP",
+        "verifyOtp": "Vérifiez OTP"
+      }
+    }
+  }
 }

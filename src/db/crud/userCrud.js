@@ -136,8 +136,8 @@ export const findUserEmailInfos = async (id) => {
 
 export const addLoginAttempt = async (userId) => {
   await mwdb()
+
   try {
-    console.log("Adding login attempt")
     await UserModel.updateOne(
       { _id: userId },
       { $inc: { "account.auth.loginAttempts": 1 } }
@@ -164,6 +164,7 @@ export const findUserById = async (id) => {
 
 export const updateConfirmationToken = async (userId, token, expiresToken) => {
   await mwdb()
+
   try {
     await UserModel.findOneAndUpdate(
       { _id: userId },
@@ -180,15 +181,65 @@ export const updateConfirmationToken = async (userId, token, expiresToken) => {
 
 export const findUserByConfirmationToken = async (token) => {
   await mwdb()
+
   try {
     if (!token) {
       return null
     }
+
     const user = await UserModel.findOne({
       "account.confirmation.token": token,
     })
+
     return user || null
   } catch (error) {
     throw new Error("Failed to find user by confirmation token")
   }
+}
+
+export async function getOtpSecret(userId) {
+  await mwdb()
+
+  const user = await UserModel.findById(userId).select(
+    "firstName lastName account.auth.otpSecret"
+  )
+
+  if (!user) {
+    return { username: null, userSecret: null }
+  }
+
+  const username = `${user.firstName} ${user.lastName}`
+  const userSecret = user.account.auth.otpSecret
+
+  return { username, userSecret }
+}
+
+export async function getUserOtpDetails(userId) {
+  await mwdb()
+
+  const user = await UserModel.findById(userId).select(
+    "firstName lastName account.auth.isOtpEnabled"
+  )
+  const username = `${user.firstName} ${user.lastName}`
+  const { isOtpEnabled } = user.account.auth
+
+  return { username, isOtpEnabled }
+}
+
+export async function updateUserOtpSecret(userId, secret, active) {
+  await mwdb()
+
+  await UserModel.updateOne(
+    { _id: userId },
+    { "account.auth.otpSecret": secret, "account.auth.isOtpEnabled": active }
+  )
+}
+
+export async function changeStatusUserOtp(userId, active) {
+  await mwdb()
+
+  await UserModel.updateOne(
+    { _id: userId },
+    { "account.auth.isOtpEnabled": active }
+  )
 }
