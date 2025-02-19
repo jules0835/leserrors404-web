@@ -15,24 +15,26 @@ export default function AdminLayout({ children }) {
   const pathname = usePathname()
 
   return (
-    <QueryClientProvider client={new QueryClient()}>
-      <SidebarProvider>
-        <AdminSideNavbar />
-        <SidebarInset>
-          <AdminTopNavbar />
-          <div className="mx-7 my-2">
-            <div>
-              <h1 className="text-2xl font-semibold">
-                {t(returnPageTitleTranslation(pathname))}
-              </h1>
-              <p className="text-sm text-muted-foreground">
-                {t(returnPageSubTitleTranslation(pathname))}
-              </p>
+    <div className=" overflow-y-scroll">
+      <QueryClientProvider client={new QueryClient()}>
+        <SidebarProvider>
+          <AdminSideNavbar />
+          <SidebarInset>
+            <AdminTopNavbar />
+            <div className="mx-7 my-2">
+              <div>
+                <h1 className="text-2xl font-semibold">
+                  {t(returnPageTitleTranslation(pathname))}
+                </h1>
+                <p className="text-sm text-muted-foreground">
+                  {t(returnPageSubTitleTranslation(pathname))}
+                </p>
+              </div>
+              <div className="mt-5">{children}</div>
             </div>
-            <div className="mt-5">{children}</div>
-          </div>
-        </SidebarInset>
-      </SidebarProvider>
-    </QueryClientProvider>
+          </SidebarInset>
+        </SidebarProvider>
+      </QueryClientProvider>
+    </div>
   )
 }

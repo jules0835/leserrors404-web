@@ -8,6 +8,7 @@ export const logSchema = new Schema({
   isError: { type: Boolean, default: false },
   isAdminAction: { type: Boolean, default: false },
   deviceType: { type: String, default: "" },
+  authorId: { type: String, default: "System" },
   userId: { type: String, default: null },
   date: { type: Date, default: Date.now },
   data: { type: Object, default: {} },

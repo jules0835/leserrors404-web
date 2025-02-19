@@ -17,7 +17,7 @@ export async function GET(req) {
       message: "Failed to fetch users",
       isError: true,
       technicalMessage: error.message,
-      userId: getReqUserId(req),
+      authorId: getReqUserId(req),
       isAdminAction: getReqIsAdmin(req),
     })
 

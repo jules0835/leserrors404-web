@@ -67,7 +67,7 @@ export async function PUT(req) {
     message: "Salesfront home carousel updated",
     newData: { updatedSalesfrontSettings },
     isAdminAction: getReqIsAdmin(req),
-    userId: getReqUserId(req),
+    authorId: getReqUserId(req),
   })
 
   return Response.json(updatedSalesfrontSettings)

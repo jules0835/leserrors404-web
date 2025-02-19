@@ -15,7 +15,7 @@ export default function LogDetails({ log }) {
 
   return (
     <div>
-      <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="flex flex-col items-center">
           <CardHeader>
             <CardTitle>{t("logId")}</CardTitle>
@@ -30,6 +30,27 @@ export default function LogDetails({ log }) {
           </CardHeader>
           <CardContent>
             <p>{new Date(log.date).toLocaleString("fr-FR")}</p>
+          </CardContent>
+        </Card>
+        <Card className="flex flex-col items-center">
+          <CardHeader>
+            <CardTitle>{t("author")}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            {log.authorName ? (
+              <div className="flex items-center justify-center">
+                <p className="px-2">{log.authorName}</p>
+                <ExternalLink
+                  size={12}
+                  className="cursor-pointer"
+                  onClick={() =>
+                    router.push(`/admin/security/users/${log.authorId}`)
+                  }
+                />
+              </div>
+            ) : (
+              <p>{log.authorId}</p>
+            )}
           </CardContent>
         </Card>
         <Card className="flex flex-col items-center">
