@@ -3,29 +3,52 @@ import { signIn, signOut } from "@/auth"
 import { AuthError } from "next-auth"
 import { getTranslations } from "next-intl/server"
 import log from "@/lib/log"
+import { company } from "@/assets/options/config"
 
-export async function handleCredentialsSignin({ email, password, redirect }) {
+export async function handleCredentialsSignin({
+  email,
+  password,
+  otp,
+  redirect,
+}) {
   const t = await getTranslations("Auth.LoginPage")
 
   try {
-    const result = await signIn("credentials", {
+    await signIn("credentials", {
       email,
       password,
+      otp,
       redirectTo: redirect ? `${redirect}?reval=1` : "/?reval=1",
       callbackUrl: redirect ? `${redirect}?reval=1` : "/?reval=1",
     })
 
-    if (result?.error) {
-      return { error: t("invalidCredentials") }
-    }
-
     return { message: "Sign in successful" }
   } catch (error) {
     if (error instanceof AuthError) {
-      switch (error.type) {
-        case "CredentialsSignin":
+      switch (error.cause.err.message) {
+        case "invalid_credentials":
           return {
             error: t("invalidCredentials"),
+          }
+
+        case "account_inactive":
+          return {
+            error: t("accountInactive", { email: company.email }),
+          }
+
+        case "account_not_confirmed":
+          return {
+            error: t("accountNotConfirmed", { email: company.email }),
+          }
+
+        case "user_otp_required":
+          return {
+            otpRequired: true,
+          }
+
+        case "invalid_credentials_otp":
+          return {
+            error: t("invalidOtp"),
           }
 
         default:

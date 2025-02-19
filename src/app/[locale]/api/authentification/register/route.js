@@ -7,6 +7,7 @@ import { getRegisterSchema } from "@/features/auth/utils/userValidation"
 import { getTranslations } from "next-intl/server"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
+import { sendConfirmationEmail } from "@/features/auth/utils/accountService"
 
 export async function POST(req) {
   try {
@@ -69,6 +70,8 @@ export async function POST(req) {
       data: { email, userId: newUser._id },
       userId: newUser._id,
     })
+
+    await sendConfirmationEmail(newUser._id)
 
     return NextResponse.json({ success: true }, { status: 201 })
   } catch (error) {

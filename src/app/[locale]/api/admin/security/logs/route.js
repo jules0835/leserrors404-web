@@ -1,8 +1,9 @@
 import { getLogs } from "@/db/crud/logCrud"
+import { getReqUserId } from "@/features/auth/utils/getAuthParam"
 import log from "@/lib/log"
 
-export async function GET(request) {
-  const { searchParams } = new URL(request.url)
+export async function GET(req) {
+  const { searchParams } = new URL(req.url)
   const limit = parseInt(searchParams.get("limit") || "10", 10)
   let page = parseInt(searchParams.get("page") || "1", 10)
   const query = searchParams.get("query") || ""
@@ -38,6 +39,7 @@ export async function GET(request) {
       logKey: logKeys.systemError.key,
       isError: true,
       technicalMessage: { error: error.message },
+      authorId: getReqUserId(req),
     })
 
     return new Response(JSON.stringify({ error: error.message }), {

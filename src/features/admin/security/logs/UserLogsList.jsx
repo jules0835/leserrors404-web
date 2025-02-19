@@ -12,6 +12,7 @@ import { useRouter } from "@/i18n/routing"
 import { SquareArrowOutUpRight } from "lucide-react"
 import { useQuery } from "@tanstack/react-query"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
+import { trimString } from "@/lib/utils"
 
 export default function UserLogsList({ userId }) {
   const [page, setPage] = useState(1)
@@ -39,20 +40,20 @@ export default function UserLogsList({ userId }) {
   return (
     <div>
       {isLoading && <ListSkeleton rows={5} py={3} height={8} parts={3} />}
-      {error && <p className="text-center my- py-4">{t("errorLoadingLogs")}</p>}
+      {error && <p className="text-center py-4">{t("errorLoadingLogs")}</p>}
       <ul>
         {logs.map((log) => (
           <li
             key={log._id}
-            className={`flex items-center space-x-4 p-2 border-b ${getBackgroundColor(
+            className={`flex items-center space-x-4 py-1 px-2 my-1 border-b ${getBackgroundColor(
               log.logLevel
             )}`}
           >
             {returnIconLogLevel(log.logLevel)}
             <div className="flex-grow">
-              <p>{getLogKeyTitle(log.logKey, t)}</p>
-              <p>{log.message}</p>
-              <p>{format(new Date(log.date), "PPP p")}</p>
+              <p className="font-semibold">{getLogKeyTitle(log.logKey, t)}</p>
+              <p className="text-sm">{trimString(log.message, 60)}</p>
+              <p className="text-xs">{format(new Date(log.date), "PPP p")}</p>
             </div>
             <Button
               variant="outline"

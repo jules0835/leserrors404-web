@@ -26,18 +26,26 @@ export const getEditUserSchema = (t) =>
   Yup.object().shape({
     firstName: Yup.string().required(t("firstNameRequired")),
     lastName: Yup.string().required(t("lastNameRequired")),
-    company: Yup.string().required(t("companyRequired")),
+    phone: Yup.string().required(t("phoneRequired")),
     email: Yup.string().email(t("invalidEmail")).required(t("emailRequired")),
-    terms: Yup.bool().oneOf([true], t("termsRequired")),
-    phone: Yup.number().required(t("phoneRequired")),
+    company: Yup.string().required(t("companyRequired")),
+    createdAt: Yup.date().default(() => new Date()),
+    isSuperAdmin: Yup.bool().default(false),
+    isAdmin: Yup.bool().default(false),
+    profilePicture: Yup.string(),
+    howDidYouHear: Yup.string().required(t("howDidYouHearRequired")),
     address: Yup.object().shape({
       country: Yup.string().required(t("countryRequired")),
       city: Yup.string().required(t("cityRequired")),
       zipCode: Yup.string().required(t("postalCodeRequired")),
       street: Yup.string().required(t("streetRequired")),
     }),
-    isActive: Yup.bool().required(t("isActiveRequired")),
-    isEmployee: Yup.bool().required(t("isEmployeeRequired")),
-    isAdmin: Yup.bool().required(t("isAdminRequired")),
-    isConfirmed: Yup.bool().required(t("isConfirmedRequired")),
+    account: Yup.object().shape({
+      confirmation: Yup.object().shape({
+        isConfirmed: Yup.bool().default(false),
+      }),
+      activation: Yup.object().shape({
+        isActivated: Yup.bool().default(true),
+      }),
+    }),
   })

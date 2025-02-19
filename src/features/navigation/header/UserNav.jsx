@@ -64,7 +64,12 @@ export function UserNav() {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuLabel>{t("account")}</DropdownMenuLabel>
-            <DropdownMenuItem className="ml-3">{t("profile")}</DropdownMenuItem>
+            <DropdownMenuItem
+              className="ml-3"
+              onClick={() => router.push(webAppSettings.urls.userProfile)}
+            >
+              {t("profile")}
+            </DropdownMenuItem>
             <DropdownMenuItem className="ml-3">{t("billing")}</DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />

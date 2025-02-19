@@ -3,7 +3,7 @@
 "use client"
 import * as React from "react"
 import { useQuery } from "@tanstack/react-query"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   flexRender,
   getCoreRowModel,
@@ -53,7 +53,7 @@ export default function UsersList() {
   const { mutate: changeConfirmedUserStatus, data: updatedConfirmedUser } =
     useChangeConfirmedUserStatus()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (updatedActiveUser) {
       setUsers((prevUsers) =>
         prevUsers.map((user) =>
@@ -63,7 +63,7 @@ export default function UsersList() {
     }
   }, [updatedActiveUser])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (updatedConfirmedUser) {
       setUsers((prevUsers) =>
         prevUsers.map((user) =>
@@ -82,7 +82,7 @@ export default function UsersList() {
     phone: true,
     email: true,
     isActive: true,
-    isEmployee: true,
+    isSuperAdmin: true,
     isAdmin: true,
     isConfirmed: true,
   })
@@ -168,17 +168,21 @@ export default function UsersList() {
       ),
     },
     {
-      accessorKey: "isActive",
+      accessorKey: "account.activation.isActivated",
       header: t("isActive"),
       cell: ({ row }) => (
-        <div>{row.getValue("isActive") ? t("yes") : t("no")}</div>
+        <div>
+          {row.original.account.activation.isActivated ? t("yes") : t("no")}
+        </div>
       ),
     },
     {
-      accessorKey: "isEmployee",
-      header: t("isEmployee"),
+      accessorKey: "account.confirmation.isConfirmed",
+      header: t("isConfirmed"),
       cell: ({ row }) => (
-        <div>{row.getValue("isEmployee") ? t("yes") : t("no")}</div>
+        <div>
+          {row.original.account.confirmation.isConfirmed ? t("yes") : t("no")}
+        </div>
       ),
     },
     {
@@ -189,10 +193,10 @@ export default function UsersList() {
       ),
     },
     {
-      accessorKey: "isConfirmed",
-      header: t("isConfirmed"),
+      accessorKey: "isSuperAdmin",
+      header: t("isSuperAdmin"),
       cell: ({ row }) => (
-        <div>{row.getValue("isConfirmed") ? t("yes") : t("no")}</div>
+        <div>{row.getValue("isSuperAdmin") ? t("yes") : t("no")}</div>
       ),
     },
     {
@@ -220,27 +224,35 @@ export default function UsersList() {
                 onClick={() =>
                   changeActiveUserStatus({
                     userId: user._id,
-                    status: !user.isActive,
+                    status: !user.account.activation.isActivated,
                   })
                 }
                 className={`${
-                  user.isActive ? "text-red-700" : "text-green-700"
+                  user.account.activation.isActivated
+                    ? "text-red-700"
+                    : "text-green-700"
                 }`}
               >
-                {user.isActive ? t("desactivateUser") : t("activateUser")}
+                {user.account.activation.isActivated
+                  ? t("desactivateUser")
+                  : t("activateUser")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() =>
                   changeConfirmedUserStatus({
                     userId: user._id,
-                    status: !user.isConfirmed,
+                    status: !user.account.confirmation.isConfirmed,
                   })
                 }
                 className={`${
-                  user.isConfirmed ? "text-red-700" : "text-green-700"
+                  user.account.confirmation.isConfirmed
+                    ? "text-red-700"
+                    : "text-green-700"
                 }`}
               >
-                {user.isConfirmed ? t("unconfirmUser") : t("confirmUser")}
+                {user.account.confirmation.isConfirmed
+                  ? t("unconfirmUser")
+                  : t("confirmUser")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

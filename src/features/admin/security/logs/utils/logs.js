@@ -16,16 +16,16 @@ export const getLogLevelTitle = (level, t) => {
 export const getBackgroundColor = (logLevel) => {
   switch (logLevel) {
     case "userError":
-      return "bg-orange-200"
+      return "bg-orange-200 rounded-md"
 
     case "userSecurity":
-      return "bg-red-200"
+      return "bg-red-200 rounded-md"
 
     case "systemSecurity":
-      return "bg-red-200"
+      return "bg-red-200 rounded-md"
 
     case "systemError":
-      return "bg-red-200"
+      return "bg-red-200 rounded-md"
 
     default:
       return ""

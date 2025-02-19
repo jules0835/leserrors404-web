@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 "use client"
 
 import { useEffect, useState, useRef } from "react"
@@ -13,7 +14,7 @@ import { getHowDidYouHearOptions } from "@/features/auth/utils/register"
 import { useTranslations } from "next-intl"
 import axios from "axios"
 import toast from "react-hot-toast"
-import { Logs } from "lucide-react"
+import { Logs, TriangleAlert } from "lucide-react"
 import UserLogsDialog from "@/features/admin/security/logs/UserLogsDialog"
 
 export function UserDetailsForm({ user }) {
@@ -73,8 +74,26 @@ export function UserDetailsForm({ user }) {
       >
         {({ isSubmitting, values, setFieldValue }) => (
           <Form className="space-y-8">
+            {!newUser.account.activation.isActivated && (
+              <div className=" bg-red-100 p-4 rounded-lg flex items-center space-x-5">
+                <TriangleAlert size={40} />
+                <div>
+                  <p className="text-red-600 font-semibold">
+                    {t("accountNotActivated")}
+                  </p>
+                  {newUser?.account?.activation?.inactivationDate && (
+                    <p>
+                      {new Date(
+                        user?.account?.activation?.inactivationDate
+                      ).toLocaleString("fr-FR")}
+                    </p>
+                  )}
+                  <p>{newUser?.account?.activation?.inactivationReason}</p>
+                </div>
+              </div>
+            )}
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-1">
                 <Image
                   src={user.profilePicture || webAppSettings.images.userDefault}
                   alt={t("profilePictureAlt", {
@@ -87,6 +106,7 @@ export function UserDetailsForm({ user }) {
                 />
                 <div>
                   <h2 className="text-xl font-semibold">{`${user.firstName} ${user.lastName}`}</h2>
+                  <p className="text-sm text-gray-500">{user._id}</p>
                   <p className="text-sm text-gray-500">
                     {t("created", {
                       date: new Date(user.createdAt).toLocaleString("fr-FR"),
@@ -94,25 +114,28 @@ export function UserDetailsForm({ user }) {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-5 gap-4">
                 <div className="flex flex-col items-center space-y-4">
                   <Label htmlFor="isActive">{t("active")}</Label>
                   <Switch
                     id="isActive"
-                    checked={values.isActive}
+                    checked={values.account.activation.isActivated}
                     onCheckedChange={() =>
-                      setFieldValue("isActive", !values.isActive)
+                      setFieldValue(
+                        "account.activation.isActivated",
+                        !values.account.activation.isActivated
+                      )
                     }
                     disabled={!isEditing}
                   />
                 </div>
                 <div className="flex flex-col items-center space-y-4">
-                  <Label htmlFor="isEmployee">{t("employee")}</Label>
+                  <Label htmlFor="isSuperAdmin">{t("isSuperAdmin")}</Label>
                   <Switch
-                    id="isEmployee"
-                    checked={values.isEmployee}
+                    id="isSuperAdmin"
+                    checked={values.isSuperAdmin}
                     onCheckedChange={() =>
-                      setFieldValue("isEmployee", !values.isEmployee)
+                      setFieldValue("isSuperAdmin", !values.isSuperAdmin)
                     }
                     disabled={!isEditing}
                   />
@@ -132,9 +155,26 @@ export function UserDetailsForm({ user }) {
                   <Label htmlFor="isConfirmed">{t("confirmed")}</Label>
                   <Switch
                     id="isConfirmed"
-                    checked={values.isConfirmed}
+                    checked={values.account.confirmation.isConfirmed}
                     onCheckedChange={() =>
-                      setFieldValue("isConfirmed", !values.isConfirmed)
+                      setFieldValue(
+                        "account.confirmation.isConfirmed",
+                        !values.account.confirmation.isConfirmed
+                      )
+                    }
+                    disabled={!isEditing}
+                  />
+                </div>
+                <div className="flex flex-col items-center space-y-4">
+                  <Label htmlFor="isOtpEnabled">{t("twoFactorAuth")}</Label>
+                  <Switch
+                    id="isOtpEnabled"
+                    checked={values.account.auth.isOtpEnabled}
+                    onCheckedChange={() =>
+                      setFieldValue(
+                        "account.auth.isOtpEnabled",
+                        !values.account.auth.isOtpEnabled
+                      )
                     }
                     disabled={!isEditing}
                   />

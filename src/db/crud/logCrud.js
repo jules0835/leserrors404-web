@@ -13,7 +13,15 @@ export const createLog = async (logData) => {
 export const getLogsByUserId = async (userId) => {
   await mwdb()
 
-  return await LogModel.find({ userId })
+  return await LogModel.find({
+    $or: [
+      { userId },
+      { authorId: userId },
+      { "data.userId": userId },
+      { "newData.userId": userId },
+      { "oldData.userId": userId },
+    ],
+  })
 }
 
 export const getAdminLogs = async () => {
@@ -109,6 +117,17 @@ export const getLogs = async (
         }
       }
 
+      if (log.authorId) {
+        if (isValidObjectId(log.authorId)) {
+          const author = await findUserById(log.authorId)
+
+          // eslint-disable-next-line max-depth
+          if (author) {
+            logObject.authorName = `${author.firstName} ${author.lastName}`
+          }
+        }
+      }
+
       return logObject
     })
   )
@@ -134,6 +153,16 @@ export const getLogById = async (logId) => {
         }
       }
     }
+
+    if (log.authorId) {
+      if (isValidObjectId(log.authorId)) {
+        const author = await findUserById(log.authorId)
+
+        if (author) {
+          log.authorName = `${author.firstName} ${author.lastName}`
+        }
+      }
+    }
   }
 
   return { log }
@@ -145,6 +174,7 @@ export const getUserLogs = async (userId, limit, page) => {
   const logs = await LogModel.find({
     $or: [
       { userId },
+      { authorId: userId },
       { "data.userId": userId },
       { "newData.userId": userId },
       { "oldData.userId": userId },
@@ -154,6 +184,35 @@ export const getUserLogs = async (userId, limit, page) => {
     .limit(limit)
     .skip((page - 1) * limit)
     .exec()
+  const logsWithUserDetails = await Promise.all(
+    logs.map(async (log) => {
+      const logObject = log.toObject()
+
+      if (log.userId) {
+        if (isValidObjectId(log.userId)) {
+          const user = await findUserById(log.userId)
+
+          // eslint-disable-next-line max-depth
+          if (user) {
+            logObject.userName = `${user.firstName} ${user.lastName}`
+          }
+        }
+      }
+
+      if (log.authorId) {
+        if (isValidObjectId(log.authorId)) {
+          const author = await findUserById(log.authorId)
+
+          // eslint-disable-next-line max-depth
+          if (author) {
+            logObject.authorName = `${author.firstName} ${author.lastName}`
+          }
+        }
+      }
+
+      return logObject
+    })
+  )
   const total = await LogModel.countDocuments({
     $or: [
       { userId },
@@ -163,5 +222,5 @@ export const getUserLogs = async (userId, limit, page) => {
     ],
   }).exec()
 
-  return { logs, total }
+  return { logs: logsWithUserDetails, total }
 }
