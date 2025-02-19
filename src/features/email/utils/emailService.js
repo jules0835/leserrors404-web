@@ -2,7 +2,7 @@ import { Resend } from "resend"
 import log from "@/lib/log"
 import { emailConfig, logKeys } from "@/assets/options/config"
 
-const resend = new Resend(process.env.RESEND_EMAIL_SECRET)
+const resend = new Resend("re_X9LsK6ZC_ExDAaNCPZqBWjH6QNT2B2Ca2")
 
 export const sendEmail = async ({ from, to, subject, messageBody }) => {
   try {
