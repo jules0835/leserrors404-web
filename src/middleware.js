@@ -69,5 +69,11 @@ export default function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/", "/(fr|en|de|ts)/:path*", "/api/:path*"],
+  matcher: [
+    "/",
+    "/(fr|en|de|ts)/:path*",
+    "/api/:path*",
+    "/auth/:path*",
+    "/admin/:path*",
+  ],
 }

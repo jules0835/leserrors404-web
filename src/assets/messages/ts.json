@@ -21,7 +21,14 @@
       "invalidPassword": "Hi kombela u nghenisa password leyi tirhaka .",
       "passwordMinLength": "Phasiwedi yi fanele ku leha kwalomu ka 12 wa swihlawulekisi",
       "requiredEmail": "Imeyili ya laveka .",
-      "requiredPassword": "Password ya laveka"
+      "requiredPassword": "Password ya laveka",
+      "accountInactive": "Akhawunti ya wena yi herisiwile, loko u tshemba leswaku lexi i xihoxo hi kombela u tihlanganisa na ntlawa wa hina wa nseketelo eka {Email}",
+      "accountNotConfirmed": "Akhawunti ya wena a yi tiyisisiwanga, hi kombela u languta email ya wena u tiyisisa akhawunti ya wena. \nLoko u nga amukelanga email, hi kombela u languta folda ya wena ya spam. \nLoko wa ha tsandzeka ku kuma email, hi kombela u tihlanganisa na ntlawa wa hina wa nseketelo eka {Email}.",
+      "invalidOtp": "OTP leyi u yi ngheniseke a yi tirhi, hi kombela u ringeta nakambe .",
+      "otpRequired": "Password ya wena ya nkarhi wun’we yi laveka ku nghena eka akhawunti ya wena, hi kombela u nghenisa khodi leyi u yi nyikeke hi app ya wena ya Authenticator .",
+      "requiredOtp": "Khodi ya OTP leyi nga na 6 wa tidijithali ta laveka .",
+      "resetSuccess": "Password ya wena a yi ri succesfuly reset, sweswi u nga nghena .",
+      "unknownError": "Ku na leswi nga famba kahle, hi kombela u ringeta nakambe kumbe u tihlanganisa na nseketelo."
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -65,8 +72,45 @@
       "postalCode": "Khodi ya poso",
       "postalCodeRequired": "Khodi ya poso ya laveka",
       "socialMedia": "Xivumbeko xa swa mahungu ya swa matirhiselo ya vanhu .",
-      "termsRequired": "U fanele ku amukela Mimpimanyeto na Swipimelo ."
-    }
+      "termsRequired": "U fanele ku amukela Mimpimanyeto na Swipimelo .",
+      "errorRegister": "Xihoxo xi humelerile loko u ri karhi u tsarisa, hi kombela u tiyisisa rungula ra wena kumbe u ringeta nakambe endzhaku.",
+      "street": "Xitarata",
+      "successMessage": "U tsarisile hi ndlela leyi humelelaka .",
+      "successMessage2": "U ta kuma email ku tiyisisa ku tsarisa ka wena, hi kombela u languta folda ya wena ya inbox na spam.",
+      "successMessage3": "Loko se u tiyisisile ku tsarisa ka wena, u ta kota ku nghena.",
+      "successMessage4": "Loko u nga amukeli email, hi kombela u hi tihlanganisa na hina."
+    },
+    "ResetPasswordPage": {
+      "backToHome": "Yana ekaya .",
+      "backToLogin": "Vuya eka tluka ro nghena .",
+      "backToResetPassword": "Kombela yin'wana leyintshwa .",
+      "confirmPassword": "Coonfirm Password ya wena leyintshwa .",
+      "description": "Nghenisa email ya wena hi ta ku rhumela link yo reset password ya wena.",
+      "email": "Imeyili .",
+      "goToLogin": "Yana eka tluka ro nghena .",
+      "invalidEmail": "Imeyili leyi nga tirhiki .",
+      "invalidOrExpiredToken": "Xikombiso xa reset a xi tirhi kumbe xi heleriwe hi nkarhi .",
+      "invalidToken": "Xihlanganisi xa Reset lexi nga tirhiki .",
+      "invalidTokenMessage": "Link leyi a yi tirhi kumbe ku hela matimba ringeta ku kombela leyintshwa eka tihlanganisi na ntlawa wa hina wa nseketelo.",
+      "password": "Nghenisa password ya wena leyintshwa .",
+      "passwordMinLength": "Phasiwedi leyi nga ni maletere ya 12 ya laveka .",
+      "passwordResetSuccess": "Password yi tlheriseriwile hi ndlela leyi humelelaka, sweswi u nga nghena .",
+      "passwordsMustMatch": "Tiphasiwedi ti fanele ku fambisana .",
+      "register": "Ku vuyela eka tluka ro nghena .",
+      "rememberYourPassword": "Phela u swi tsundzuka ?",
+      "requiredConfirmPassword": "Coonfirm password ya wena leyintshwa ya laveka .",
+      "requiredEmail": "Imeyili ya laveka .",
+      "requiredPassword": "Ku laveka phaswedi .",
+      "resetPassword": "Reset password .",
+      "resetPasswordEmailSent": "Loko email yi ri kona, reset link yi rhumeriwile. \nHi kombela u languta folda ya wena ya inbox kumbe spam.",
+      "sendEmail": "Rhumela xihlanganisi xa reset .",
+      "somethingWentWrong": "Leswi a swi nge swi koti ku rhumela email ya reset, hi kombela u ringeta nakambe.",
+      "title": "Seta phaswedi ya wena ."
+    },
+    "confirmEmail": "Ku tiyisisiwa ka imeyili .",
+    "confirmEmailFailed": "Ku tiyisisiwa ka imeyili ku tsandzekile. \nHi kombela u ringeta nakambe kumbe u tihlanganisa na ntlawa wa hina wa nseketelo.",
+    "confirmEmailSuccess": "Email ya wena yi tiyisisiwile hi ndlela leyi humelelaka, sweswi u nga nghena.",
+    "login": "Vuya eka tluka ro nghena ."
   },
   "other": "Xin'wana",
   "socialMedia": "Social Media",
@@ -118,10 +162,301 @@
           "title": "Xirhangi",
           "titlePlaceholder": "Nghenisa xihloko",
           "titleRequired": "Xihloko xa laveka",
-          "titleSection": "Carousel ya xirhendzevutani"
+          "titleSection": "Carousel ya xirhendzevutani",
+          "advertisement": "Ku suka eka xinavetiso .",
+          "error": "Xihoxo xi humelerile loko ku ri karhi ku hlayisiwa ku cinca .",
+          "friend": "Munghana wa yena .",
+          "howDidYouHear": "Xana u swi twile kwihi hi hina ?",
+          "nothingSelected": "A ku na nchumu lowu hlawuriweke .",
+          "other": "Nhlawulo wun’wana .",
+          "saveSuccess": "Humelela",
+          "saved": "Ku cinca ka carousel ku ponisiwile .",
+          "socialMedia": "Xivumbeko xa swa mahungu ya swa matirhiselo ya vanhu .",
+          "subTitle": "Lawula vuxokoxoko bya mutirhisi, mintirho na mpfumelelo ."
         },
         "subTitle": "Lawula nhundzu ya pheji ya le kaya, carousel, alert na swin'wana",
         "title": "Switirhisiwa swa pheji ya le kaya"
+      }
+    },
+    "Business": {
+      "Coupons": {
+        "title": "Tikhuphoni ."
+      },
+      "Orders": {
+        "title": "Tioda ."
+      },
+      "Payments": {
+        "title": "Ku hakela ."
+      },
+      "Products": {
+        "title": "Swihumelerisiwa ."
+      },
+      "Subscriptions": {
+        "title": "Swikhokhelo ."
+      },
+      "title": "Bindzu"
+    },
+    "Security": {
+      "Logs": {
+        "Log": {
+          "AccountSecurityLock": {
+            "description": "Account yi lotleriwile hikwalaho ka swivangelo swa vuhlayiseki .",
+            "title": "Xilotlelo xa Vuhlayiseki bya akhawunti ."
+          },
+          "CriticalSecurity": {
+            "description": "Xiendlakalo xa Vuhlayiseki bya Nkoka .",
+            "title": "Vuhlayiseki bya nkoka ."
+          },
+          "Criticality": {
+            "SystemError": {
+              "description": "Xiendlakalo xa xihoxo lexi fambelanaka na sisiteme .",
+              "title": "Xihoxo xa sisiteme ."
+            },
+            "SystemInfo": {
+              "description": "Xiendlakalo xa vuxokoxoko lexi fambelanaka na sisiteme .",
+              "title": "Info ya sisiteme ."
+            },
+            "SystemSecurity": {
+              "description": "Xiendlakalo xa vuhlayiseki lexi fambelanaka na sisiteme .",
+              "title": "Vuhlayiseki bya sisiteme ."
+            },
+            "UserError": {
+              "description": "Xiendlakalo xa xihoxo lexi fambelanaka na mutirhisi .",
+              "title": "Xihoxo xa mutirhisi ."
+            },
+            "UserInfo": {
+              "description": "Xiendlakalo xa vuxokoxoko lexi fambelanaka na mutirhisi .",
+              "title": "Vuxokoxoko bya mutirhisi ."
+            },
+            "UserSecurity": {
+              "description": "Xiendlakalo xa vuhlayiseki lexi fambelanaka na mutirhisi .",
+              "title": "Vuhlayiseki bya vatirhisi ."
+            }
+          },
+          "DatabaseError": {
+            "description": "Xihoxo xa database xi humelerile .",
+            "title": "Xihoxo xa database ."
+          },
+          "EmailServiceError": {
+            "description": "Xihoxo xi humelerile hi vukorhokeri bya imeyili .",
+            "title": "Xihoxo xa Vukorhokeri bya Imeyili ."
+          },
+          "FrontSettingsEdit": {
+            "description": "Switirhisiwa swa le mahlweni swi hleriwile .",
+            "title": "Switirhisiwa swa le mahlweni Hlela ."
+          },
+          "InternalError": {
+            "description": "Xihoxo xa le ndzeni xi humelerile .",
+            "title": "Xihoxo xa le ndzeni ."
+          },
+          "LoginAttempt": {
+            "description": "Ku ringetiwe ku nghena .",
+            "title": "Ku ringeta ku nghena ."
+          },
+          "LoginFailed": {
+            "description": "Ku ringeta ku nghena swi tsandzekile .",
+            "title": "Login yi tsandzekile ."
+          },
+          "LoginSuccess": {
+            "description": "Ku ringeta ku nghena swi humelerile .",
+            "title": "Ku humelela ka login ."
+          },
+          "NewOrder": {
+            "description": "Ku endliwe oda leyintshwa .",
+            "title": "Xileriso Lexintshwa ."
+          },
+          "RegisterAttempt": {
+            "description": "Ku ringetiwe ku tsarisa .",
+            "title": "Ku ringeta ku tsarisa ."
+          },
+          "RegisterFailed": {
+            "description": "Ku ringeta ku tsarisa ku tsandzekile .",
+            "title": "Rhijisitara ri tsandzekile ."
+          },
+          "RegisterSuccess": {
+            "description": "Ku ringeta ku tsarisa ku humelerile .",
+            "title": "Ku humelela ka ku tsarisa ."
+          },
+          "SettingsEdit": {
+            "description": "Switirhisiwa swi hleriwile .",
+            "title": "Switirhisiwa Hlela ."
+          },
+          "UserChangeConfirmation": {
+            "description": "Xiyimo xa ku tiyisisiwa ka mutirhisi xi cinciwile .",
+            "title": "xitiyisekiso xa ku cinca ka mutirhisi ."
+          },
+          "UserChangePassword": {
+            "description": "Password ya mutirhisi yi cinciwile .",
+            "title": "Password yo cinca mutirhisi ."
+          },
+          "UserChangeStatus": {
+            "description": "Xiyimo xa mutirhisi xi cinciwile .",
+            "title": "Xiyimo xa ku cinca ka mutirhisi ."
+          },
+          "UserConfirmation": {
+            "description": "Mutirhisi u tiyisisile akhawunti ya vona .",
+            "title": "xitiyisekiso xa mutirhisi ."
+          },
+          "UserCreate": {
+            "description": "Ku endliwe mutirhisi lontshwa .",
+            "title": "Mutirhisi Ku tumbuluxa ."
+          },
+          "UserEdit": {
+            "description": "Vuxokoxoko bya vatirhisi byi hleriwile .",
+            "title": "Ku Hlela Mutirhisi ."
+          },
+          "UserLostPassword": {
+            "description": "Mutirhisi u lahlekeriwe hi password ya vona .",
+            "title": "Mutirhisi Lost Password ."
+          },
+          "UserResetPassword": {
+            "description": "user reset password ya vona .",
+            "title": "Mutirhisi Seta Phasiwedi ."
+          }
+        },
+        "LogDetails": {
+          "subTitle": "Languta vuxokoxoko hinkwabyo bya log .",
+          "title": "Vuxokoxoko bya log ."
+        },
+        "LogsReloaded": "Tilogu ti layichiwile nakambe!",
+        "author": "Mutsari",
+        "authorName": "Mutsari",
+        "columns": "Tikholomu .",
+        "data": "Datara",
+        "date": "Siku",
+        "deviceType": "Muxaka wa xitirhisiwa .",
+        "errorLoadingData": "Xihoxo xa ku layicha datha.",
+        "errorLoadingLogs": "Ku tsandzekile ku tlhela u layicha swilo leswi tsariweke .",
+        "isAdminAction": "i xiendlo xa admin .",
+        "isError": "i xihoxo .",
+        "logDate": "Siku ra log .",
+        "logDetails": "Vuxokoxoko bya log .",
+        "logId": "ID ya log .",
+        "logKey": "Xilotlelo xa log .",
+        "logKeys": "Sefa hi muxaka wa log .",
+        "logLevel": "Levhele ya log .",
+        "message": "Hungu",
+        "newData": "Data leyintshwa .",
+        "next": "Landzelaka",
+        "no": "E-e",
+        "noLogs": "Ku hava ti log leti kumekaka eka mutirhisi loyi.",
+        "noResults": "Ku hava vuyelo.",
+        "oldData": "Data ya khale .",
+        "pickDate": "Hlawula Siku .",
+        "previous": "Endzhaku",
+        "reLoadingLogs": "Ku layicha swilo hi vuntshwa swihlahla...",
+        "resetFilters": "Tifiltara Reset .",
+        "searchPlaceholder": "Secha...",
+        "subTitle": "Languta swilo hinkwaswo leswi tsariweke swa web app .",
+        "technicalMessage": "Rungula ra xithekiniki .",
+        "title": "Tilogu .",
+        "user": "Mutirhisi .",
+        "userId": "ID ya mutirhisi .",
+        "userLogs": "Tilogu ta vatirhisi .",
+        "userLogsDescription": "Languta tilog ta mutirhisi loyi a hlawuriweke.",
+        "userName": "Mutirhisi .",
+        "yes": "Ina"
+      },
+      "Users": {
+        "User": {
+          "nothingSelected": "A ku na nchumu lowu hlawuriweke ."
+        },
+        "UserDetails": {
+          "accountNotActivated": "Akhawunti leyi yi lotleriwile .",
+          "active": "Hanya",
+          "admin": "Admin .",
+          "advertisement": "Ku suka eka xinavetiso .",
+          "cancel": "Khansela",
+          "changesSavedSuccessfully": "Ku cinca loku hlayisiweke hi ndlela leyi humelelaka .",
+          "city": "Doroba",
+          "cityRequired": "Ku laveka doroba .",
+          "company": "Khamphani",
+          "companyRequired": "Khamphani ya laveka .",
+          "confirmed": "xi tiyisisiwile .",
+          "country": "Tiko",
+          "countryRequired": "Ku laveka tiko .",
+          "created": "Xi endliwile: {date}",
+          "edit": "Hlela",
+          "email": "Imeyili .",
+          "emailRequired": "Imeyili ya laveka .",
+          "failedToSaveChanges": "Ku tsandzekile ku hlayisa ku cinca .",
+          "firstName": "Vito rosungula",
+          "firstNameRequired": "Vito ro sungula ra laveka .",
+          "friend": "Munghana wa yena .",
+          "howDidYouHear": "Xana u swi twile njhani .",
+          "howDidYouHearRequired": "Xana u swi twile njhani hi hina swa laveka .",
+          "isSuperAdmin": "Super Admin .",
+          "lastName": "Xivongo",
+          "lastNameRequired": "Vito ra makumu ra laveka .",
+          "logs": "Vona Tilogu ta Vatirhisi .",
+          "nothingSelected": "Ku hava xihlawuhlawu lexi hlawuriweke .",
+          "other": "Nhlawulo wun’wana .",
+          "phone": "Riqingho",
+          "phoneRequired": "Nomboro ya riqingho ya laveka .",
+          "postalCodeRequired": "Khodi ya poso ya laveka .",
+          "profilePictureAlt": "Xifaniso xa xivumbeko xa {vito ro sungula} {Navimu yo hetelela}",
+          "saveChanges": "Hlayisa ku cinca .",
+          "savingChanges": "Ku hlayisa ku cinca...",
+          "socialMedia": "Xivumbeko xa swa mahungu ya swa matirhiselo ya vanhu .",
+          "street": "Xitarata",
+          "streetRequired": "Xitarata xa laveka .",
+          "subTitle": "Lawula vuxokoxoko bya mutirhisi, mintirho na mpfumelelo .",
+          "title": "Vuxokoxoko bya mutirhisi .",
+          "twoFactorAuth": "Swilo swimbirhi .",
+          "zipCode": "Khodi ya zip ."
+        },
+        "account_activation_isActivated": "Akhawunti yi tirhisiwile .",
+        "account_confirmation_isConfirmed": "Akhawunti yi tiyisisiwile .",
+        "actions": "Swiendlo .",
+        "activateUser": "Tirhisa mutirhisi .",
+        "active": "hanya",
+        "addUser": "Engetela mutirhisi .",
+        "cancel": "Khansela",
+        "changingUserStatus": "Ku cinca xiyimo xa mutirhisi ku ya eka {xiyimo} .",
+        "city": "Doroba",
+        "columns": "Tikholomu .",
+        "confirmUser": "Ku tiyisisiwa ka matimba .",
+        "country": "Tiko",
+        "delete": "Sula",
+        "deleteConfirmation": "Xana u tiyisile leswaku u lava ku susa mutirhisi loyi?",
+        "deleteError": "Xihoxo xi humelerile loko ku ri karhi ku susiwa mutirhisi .",
+        "deleteSuccess": "Humelela",
+        "deleteUser": "Susa mutirhisi .",
+        "deleted": "Mutirhisi u susiwile .",
+        "desactivateUser": "Mutirhisi wa DeSactivate .",
+        "edit": "Hlela",
+        "editUser": "Hlela Mutirhisi .",
+        "email": "Imeyili .",
+        "error": "Xihoxo xi humelerile loko ku ri karhi ku hlayisiwa ku cinca .",
+        "errorLoadingData": "Xihoxo xa ku layicha datha.",
+        "failedToChangeUserStatus": "Ku tsandzeka ku cinca xiyimo xa mutirhisi !",
+        "firstName": "Vito rosungula",
+        "id": "ID .",
+        "inactive": "Inactive .",
+        "isActive": "Hanya",
+        "isAdmin": "Admin .",
+        "isConfirmed": "xi tiyisisiwile .",
+        "isSuperAdmin": "Super Admin .",
+        "lastName": "Xivongo",
+        "next": "Landzelaka",
+        "no": "E-e",
+        "noResults": "Ku hava vuyelo.",
+        "noUsers": "Ku hava vatirhisi lava kumiweke .",
+        "phone": "Riqingho",
+        "previous": "Endzhaku",
+        "role": "Ntirho",
+        "save": "Hlayisa",
+        "saveSuccess": "Humelela",
+        "saved": "Ku cinca ka mutirhisi ku hlayisiwile .",
+        "saving": "Hi hlayisa ku cinca...",
+        "searchPlaceholder": "Secha...",
+        "subTitle": "Lawula vatirhisi, mintirho na mpfumelelo .",
+        "title": "vatirhisi va switirhisiwa .",
+        "unconfirmUser": "Matimba ya matimba .",
+        "userStatusChanged": "Ku humelela ku cinca xiyimo xa mutirhisi ku va {xiyimo} .",
+        "viewUser": "Vona mutirhisi .",
+        "yes": "Ina",
+        "zipCode": "Khodi ya zip ."
       }
     }
   },
@@ -145,7 +480,25 @@
     "register": "Tsarisela",
     "salesFront": "Xiphemu xa le mahlweni xa ku xavisa .",
     "settings": "Swiyimiso .",
-    "signOut": "Sayina Ku Huma"
+    "signOut": "Sayina Ku Huma",
+    "business": "Bindzu",
+    "categories": "Swiyenge .",
+    "coupons": "Tikhuphoni .",
+    "customers": "Vaxavi .",
+    "logs": "Tilogu .",
+    "myAccount": "Akhawunti ya mina .",
+    "mySupport": "Mathikithi ya mina .",
+    "myTickets": "Mathikithi ya mina .",
+    "needHelp": "U lava mpfuno ?",
+    "openNewTicket": "Vula thikithi .",
+    "orders": "Tioda .",
+    "paymentMethods": "Maendlelo ya ku hakela .",
+    "payments": "Ku hakela .",
+    "products": "Swihumelerisiwa .",
+    "security": "Vuhlayiseki",
+    "subscriptions": "Swikhokhelo .",
+    "support": "Nseketelo",
+    "users": "vatirhisi va switirhisiwa ."
   },
   "navigation": {
     "about": "Hi",
@@ -155,5 +508,176 @@
     "login": "Nghena",
     "logout": "Log out .",
     "register": "Tsarisela"
-  }
+  },
+  "Confirmation": {
+    "subject": "Cyna - Tiyisisa email ya wena ."
+  },
+  "Email": {
+    "Confirmation": {
+      "subject": "Cyna - Tiyisisa email ya wena ."
+    },
+    "companyEmail": "Tihlanganise na hina eka {Email}",
+    "companyMessage": "Hi mi navelela siku ra kahle swinene!",
+    "companySignature": "Hi mayelana na mhaka leyinene, {khampani}",
+    "confirmButton": "Tiyisisa email .",
+    "confirmEmailMessage": "Ku tiyisisa adirese ya wena ya email, na ku endla leswaku akhawunti ya wena yi tirha, tinya buti leyi nga laha hansi kutani u kopa u tlhela u namarheta xihlanganisi eka browser ya wena.",
+    "farewellMessage": "Hi mi navelela siku ra kahle swinene!",
+    "greetingWithName": "Hello {Vito ra mutirhisi}, .",
+    "greetingWithoutName": "Avuxeni,",
+    "noReplyEmail": "Imeyili leyi yi rhumeriwile ku suka eka adirese ya email leyi nga kombisiwiki. \nHi kombela mi nga hlamuli email leyi. \nLoko u ri na swivutiso, hi kombela u hi tihlanganisa eka {Email}",
+    "otpMessage1": "U amukela email leyi hikuva u komberile phaswedi ya nkarhi wun’we (OTP) ya akhawunti ya wena.",
+    "otpMessage2": "Khodi ya wena hi leyi :",
+    "otpMessage3": "Hi kombela mi nga avelani khodi leyi na munhu. \nA hi nge pfuki hi swi komberile. \nLoko u nga kombela khodi leyi, hi kombela u honisa email leyi.",
+    "otpMessageTiming": "Khodi leyi yi ta hela hi 5 wa timinete.",
+    "otpWarningMessage": "Hi kombela mi nga avelani khodi leyi na munhu. \nA hi nge pfuki hi swi komberile. \nLoko u nga kombela khodi leyi, hi kombela u honisa email leyi.",
+    "resetButton": "Seta password ya mina .",
+    "resetEmailMessage": "Leswaku u tlhela u veka phaswedi ya wena, ti-click eka buti leyi nga laha hansi ivi u landzela swiletelo. \nLink leyi yi ta hela hi awara yin'we. \nLoko u nga kombela ku tlheriseriwa ka phaswedi, u nga honisa imeyili leyi hi ku hlayiseka kumbe u tihlanganisa na ntlawa wa hina wa nseketelo.",
+    "userEmail": "U nga ndzi fikelela eka {Email}",
+    "userMessage": "Ndzi mi navelela siku ra kahle swinene!",
+    "userSignature": "Hi mayelana na swinene, {vito ro sungula} {vito ro hetelela}"
+  },
+  "User": {
+    "Business": {
+      "Orders": {
+        "title": "Tioda ."
+      },
+      "Payments": {
+        "title": "Ku hakela ."
+      },
+      "Subscriptions": {
+        "title": "Swikhokhelo ."
+      },
+      "title": "Bindzu"
+    },
+    "Dashboard": {
+      "subTitle": "Lawula akhawunti ya wena, swiyimiso, swikhokhelo na swin’wana .",
+      "title": "Dashboard ya wena ."
+    },
+    "MyAccount": {
+      "PaymentMethods": {
+        "title": "Maendlelo ya ku hakela ."
+      },
+      "Profile": {
+        "advertisement": "Ku suka eka xinavetiso .",
+        "friend": "Munghana wa yena .",
+        "other": "Nhlawulo wun’wana .",
+        "socialMedia": "Ku suka eka swihangalasamahungu swa le ka social media .",
+        "title": "Phurofayili"
+      },
+      "Security": {
+        "title": "Vuhlayiseki"
+      },
+      "Settings": {
+        "title": "Swiyimiso ."
+      },
+      "title": "Akhawunti ya mina ."
+    },
+    "Profile": {
+      "cancel": "Khansela",
+      "changesSavedSuccessfully": "Ku cinca loku hlayisiweke hi ndlela leyi humelelaka .",
+      "city": "Doroba",
+      "company": "Khamphani",
+      "country": "Tiko",
+      "created": "Xi endliwile: {date}",
+      "edit": "Hlela",
+      "email": "Imeyili .",
+      "emailExists": "Email se yi kona.",
+      "error": "Xihoxo loko u ri karhi u hlayisa xivumbeko .",
+      "failedToSaveChanges": "Ku tsandzekile ku hlayisa ku cinca .",
+      "firstName": "Vito rosungula",
+      "howDidYouHear": "Xana u swi twile njhani .",
+      "lastName": "Xivongo",
+      "nothingSelected": "A ku na nchumu lowu hlawuriweke .",
+      "phone": "Riqingho",
+      "saveChanges": "Hlayisa ku cinca .",
+      "saved": "Profile yi hlayisiwile .",
+      "saving": "Ku hlayisa profil ya wena .",
+      "savingChanges": "Ku hlayisa ku cinca...",
+      "street": "Xitarata",
+      "twoFactorAuth": "Ku tiyisisiwa ka swivangelo swimbirhi .",
+      "zipCode": "Khodi ya zip ."
+    },
+    "Security": {
+      "OtpConfig": {
+        "activateOtp": "Tirhisa OTP .",
+        "cancel": "Khansela",
+        "confirm": "Tiyisisa",
+        "disableOtp": "Ku tshikisa OTP .",
+        "disableOtpDescription": "Xana u tiyisile leswaku u lava ku tshikisa OTP?",
+        "disableOtpTitle": "Ku tshikisa OTP .",
+        "enableOtp": "Endla leswaku OTP yi tirha .",
+        "enterOtpToken": "Nghenisa xikombiso xa OTP .",
+        "invalidOtp": "Khodi leyi a yi tirhi, hi kombela u languta kumbe u ringeta nakambe .",
+        "loading": "Ku layicha...",
+        "newOtpKey": "Xilotlelo lexintshwa xa OTP .",
+        "otpDisableFailed": "Ku tsandzekile ku tshikisa OTP .",
+        "otpDisabled": "A wu na activated two factor authentification eka akhawunti ya wena.",
+        "otpEnabled": "OTP yi tirhisiwile .",
+        "otpGenerated": "Xilotlelo xa OTP xi endliwile hi ndlela leyi humelelaka .",
+        "otpGenerationFailed": "Ku tsandzeka ku tumbuluxa xilotlelo xa OTP .",
+        "otpKeyGenerated": "Kopa app ya mahala ya Google Authenticator eka riqingho ra wena, kutani u skena barkhodi leyi, ivi u nghenisa khodi.",
+        "otpVerificationFailed": "Ku tsandzekile ku tiyisisa OTP .",
+        "otpVerified": "OTP yi tiyisisiwile hi ndlela leyi humelelaka .",
+        "reconfigureOtp": "Ku hlela nakambe OTP .",
+        "reconfigureOtpDescription": "Xana u tiyisile leswaku u lava ku tlhela u hlela OTP? \nLeswi swi ta humesa xilotlelo lexintshwa xa OTP.",
+        "reconfigureOtpTitle": "Ku hlela nakambe OTP .",
+        "scanQrCodeOrEnterCode": "Skena QRCode hi app ya wena ya Authenticator kutani u nghenisa khodi leyi .",
+        "title": "Xivumbeko xa OTP .",
+        "verifyOtp": "Tiyisisa OTP ."
+      },
+      "Password": {
+        "changePassword": "Cinca phaswedi .",
+        "confirmPassword": "Tiyisisa password leyintshwa .",
+        "confirmPasswordRequired": "Tiyisisa phaswedi ya laveka .",
+        "currentPassword": "Password ya sweswi .",
+        "currentPasswordIncorrect": "Password ya wena ya sweswi a yi fambelani.",
+        "currentPasswordRequired": "Password ya sweswi ya laveka .",
+        "loading": "Ku cinca password ya wena .",
+        "newPassword": "Password leyintshwa .",
+        "newPasswordRequired": "Ku laveka phaswedi leyintshwa .",
+        "passwordChangeError": "Ku tsandzekile ku cinca password .",
+        "passwordChangeSuccess": "Password yi cinciwile hi ndlela leyi humelelaka .",
+        "passwordMinLength": "Password yi fanele ku va kwalomu ka 12 wa swihlawulekisi swo leha .",
+        "passwordsMustMatch": "Tiphasiwedi ti fanele ku fambisana .",
+        "title": "Cinca phaswedi ."
+      },
+      "password": "Phasiwedi",
+      "passwordContent": "Phasiwedi",
+      "subTitle": "Lawula swiyimiso swa wena swa vuhlayiseki .",
+      "title": "Vuhlayiseki",
+      "twoFactorAuth": "Ku tiyisisiwa ka swivangelo swimbirhi ."
+    },
+    "Support": {
+      "MyTickets": {
+        "title": "Mathikithi ya mina ."
+      },
+      "NeedHelp": {
+        "title": "Senthara ya Nseketelo ."
+      },
+      "OpenNewTicket": {
+        "title": "Vula thikithi ."
+      },
+      "title": "Nseketelo"
+    }
+  },
+  "isSuperAdminRequired": "is super admin ya laveka .",
+  "pagesNames": {
+    "businessOrders": "Swileriso swa Mabindzu .",
+    "businessPayments": "Ku hakela ka bindzu .",
+    "businessSubscriptions": "Swikhokhelo swa Mabindzu .",
+    "homePage": "Tluka ra le kaya .",
+    "logDetailsAdmin": "log details admin .",
+    "logsAdmin": "Logs admin .",
+    "myTickets": "Mathikithi ya mina .",
+    "needHelp": "U lava mpfuno .",
+    "openTicket": "Vula thikithi .",
+    "paymentMethods": "Maendlelo ya ku hakela .",
+    "profile": "Phurofayili",
+    "security": "Vuhlayiseki",
+    "settings": "Swiyimiso .",
+    "userDetailsAdmin": "Vuxokoxoko bya mutirhisi Admin .",
+    "usersAdmin": "Vatirhisi va admin .",
+    "yourDashboard": "Dashboard ya wena ."
+  },
+  "resetPasswordEmailSubject": "Cyna - wisa password ya wena ."
 }

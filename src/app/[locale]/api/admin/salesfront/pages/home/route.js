@@ -54,6 +54,10 @@ export async function PUT(req) {
         const imageBuffer = Buffer.from(part.uploadImage, "base64")
         part.image = await uploadPublicPicture(imageBuffer)
       }
+
+      if (typeof part.image !== "string") {
+        part.image = ""
+      }
     })
   )
 

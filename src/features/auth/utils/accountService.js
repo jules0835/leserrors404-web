@@ -6,6 +6,8 @@ import {
   findUserById,
   updateConfirmationToken,
   findUserByConfirmationToken,
+  findUserByEmail,
+  updateUserResetToken,
 } from "@/db/crud/userCrud"
 import log from "@/lib/log"
 import { logKeys, webAppSettings } from "@/assets/options/config"
@@ -14,6 +16,7 @@ import { EmailTemplate } from "@/features/email/templates/emailTemplate"
 import ConfirmTemplate from "@/features/email/templates/confirmTemplate"
 import { getTranslations } from "next-intl/server"
 import crypto from "crypto"
+import ResetTemplate from "@/features/email/templates/resetTemplate"
 
 export const handleLoginFailure = async (userId) => {
   try {
@@ -218,6 +221,62 @@ export const confirmEmailWithToken = async (token) => {
     })
 
     return false
+  }
+}
+
+export const sendResetPasswordEmail = async (email) => {
+  const t = await getTranslations({ locale: "en" }, "Auth.ResetPasswordPage")
+
+  try {
+    const user = await findUserByEmail(email)
+
+    if (!user) {
+      await log.userInfo({
+        logKey: logKeys.userResetPassword.key,
+        message: "Failed to send reset password email because user not found",
+        isError: true,
+        data: { email },
+      })
+
+      return { message: "If the email exists, a reset link has been sent." }
+    }
+
+    const token = crypto.randomBytes(32).toString("hex")
+    const expires = new Date(Date.now() + 3600000)
+
+    await updateUserResetToken(user._id, token, expires)
+
+    await sendEmail({
+      to: user.email,
+      subject: t("resetPasswordEmailSubject"),
+      messageBody: (
+        <EmailTemplate
+          subject={t("resetPasswordEmailSubject")}
+          userName={user.firstName}
+        >
+          <ResetTemplate
+            resetUrl={`${process.env.SERVER_URL}/auth/password/${token}`}
+          />
+        </EmailTemplate>
+      ),
+    })
+
+    await log.userInfo({
+      logKey: logKeys.userResetPassword.key,
+      message: "Reset password email sent",
+      data: { email },
+    })
+
+    return { message: "Reset password email sent" }
+  } catch (error) {
+    await log.systemError({
+      logKey: logKeys.internalError.key,
+      message: "Failed to send reset password email",
+      isError: true,
+      data: { email, error },
+    })
+
+    return { error: "Failed to send reset password email" }
   }
 }
 

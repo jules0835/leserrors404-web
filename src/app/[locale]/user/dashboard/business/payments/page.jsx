@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <div>
-      <h1>OTP details</h1>
+      <h1>Dashboard payments</h1>
     </div>
   )
 }

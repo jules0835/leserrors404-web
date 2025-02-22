@@ -68,9 +68,26 @@ export function UserNav() {
               className="ml-3"
               onClick={() => router.push(webAppSettings.urls.userProfile)}
             >
+              {t("dashboard")}
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="ml-3"
+              onClick={() => router.push("/user/dashboard/business/orders")}
+            >
+              {t("orders")}
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="ml-3"
+              onClick={() => router.push(webAppSettings.urls.userProfile)}
+            >
               {t("profile")}
             </DropdownMenuItem>
-            <DropdownMenuItem className="ml-3">{t("billing")}</DropdownMenuItem>
+            <DropdownMenuItem
+              className="ml-3"
+              onClick={() => router.push("/user/dashboard/support/tickets")}
+            >
+              {t("mySupport")}
+            </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => signOut()}>

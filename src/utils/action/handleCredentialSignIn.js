@@ -10,6 +10,7 @@ export async function handleCredentialsSignin({
   password,
   otp,
   redirect,
+  keepLogin,
 }) {
   const t = await getTranslations("Auth.LoginPage")
 
@@ -20,6 +21,7 @@ export async function handleCredentialsSignin({
       otp,
       redirectTo: redirect ? `${redirect}?reval=1` : "/?reval=1",
       callbackUrl: redirect ? `${redirect}?reval=1` : "/?reval=1",
+      keepLogin,
     })
 
     return { message: "Sign in successful" }

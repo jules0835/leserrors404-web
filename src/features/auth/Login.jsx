@@ -38,6 +38,7 @@ export default function Login() {
     }),
   })
   const redirectUrl = searchParams.get("next") || "/"
+  const isResetSuccess = searchParams.get("resetSuccess")
 
   useEffect(() => {
     if (otpOpen && otpInputRef.current) {
@@ -72,8 +73,19 @@ export default function Login() {
             </p>
           )}
 
+          {isResetSuccess && (
+            <p className="text-green-600 text-sm font-medium text-center">
+              {t("resetSuccess")}
+            </p>
+          )}
+
           <Formik
-            initialValues={{ email: "", password: "", otp: "" }}
+            initialValues={{
+              email: "",
+              password: "",
+              otp: "",
+              keepLogin: false,
+            }}
             validationSchema={LoginSchema}
             onSubmit={async (values, { setSubmitting }) => {
               values.redirect = redirectUrl
@@ -184,19 +196,19 @@ export default function Login() {
                         <div className="flex items-center h-5">
                           <Field
                             type="checkbox"
-                            name="remember"
-                            id="remember"
+                            name="keepLogin"
+                            id="keepLogin"
                             className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
                           />
                         </div>
                         <div className="ml-3 text-sm">
-                          <label htmlFor="remember" className="text-gray-500">
+                          <label htmlFor="keepLogin" className="text-gray-500">
                             {t("rememberMe")}
                           </label>
                         </div>
                       </div>
                       <Link
-                        href="/forgot-password"
+                        href="/auth/password"
                         className="text-sm font-medium text-primary-600 hover:underline"
                       >
                         {t("forgotPassword")}

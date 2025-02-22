@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import userDefault from "@/assets/images/user_default.png"
 import {
   LayoutDashboard,
@@ -9,6 +10,7 @@ import {
   ShieldAlert,
   UserRoundX,
   UserRound,
+  Headset,
 } from "lucide-react"
 
 export const company = {
@@ -32,7 +34,7 @@ export const webAppSettings = {
     login: "/auth/login",
     register: "/auth/register",
     adminDashboard: "/admin",
-    userProfile: "/user/dashboard/security/otp",
+    userProfile: "/user/dashboard/profile",
   },
   translation: {
     locales: ["en", "fr", "de", "ts"],
@@ -62,6 +64,17 @@ export const webAppSettings = {
       "https://fimkppvxvt92ijit.public.blob.vercel-storage.com/public/pictures_1739652176726-JuJWTZdMoY5GaXGyjC8fmoYbP0r87H",
     logoUrl:
       "https://fimkppvxvt92ijit.public.blob.vercel-storage.com/public/pictures_1739651205443-vaV4qHCnghMEWuS7qETWhGd06LttXx",
+  },
+}
+
+export const tokenExpiration = {
+  admin: {
+    default: 2 * 60 * 60,
+    keepLogin: 24 * 60 * 60,
+  },
+  user: {
+    default: 12 * 60 * 60,
+    keepLogin: 48 * 60 * 60,
   },
 }
 
@@ -174,22 +187,80 @@ export const userNavItems = [
     url: "/user/dashboard",
     icon: LayoutDashboard,
     isActive: true,
-    isSuperAdmin: false,
     items: [],
+  },
+  {
+    title: "Buissness",
+    translationKey: "business",
+    url: "#",
+    icon: BriefcaseBusiness,
+    isActive: true,
+    items: [
+      {
+        title: "Orders",
+        translationKey: "orders",
+        url: "/user/dashboard/business/orders",
+      },
+      {
+        title: "Subscriptions",
+        translationKey: "subscriptions",
+        url: "/user/dashboard/business/subscriptions",
+      },
+      {
+        title: "Payments",
+        translationKey: "payments",
+        url: "/user/dashboard/business/payments",
+      },
+    ],
   },
   {
     title: "My Account",
     translationKey: "myAccount",
-    url: "/user#",
     icon: UserRound,
     isActive: true,
-    isSuperAdmin: false,
     items: [
       {
-        title: "Two Factor Auth",
+        title: "Profile",
+        translationKey: "profile",
+        url: "/user/dashboard/profile",
+      },
+      {
+        title: "security",
         translationKey: "security",
-        url: "/user/dashboard/security/otp",
-        isSuperAdmin: false,
+        url: "/user/dashboard/profile/security",
+      },
+      {
+        title: "Payment Methods",
+        translationKey: "paymentMethods",
+        url: "/user/dashboard/profile/payments",
+      },
+      {
+        title: "Settings",
+        translationKey: "settings",
+        url: "/user/dashboard/profile/settings",
+      },
+    ],
+  },
+  {
+    title: "Support",
+    translationKey: "support",
+    icon: Headset,
+    isActive: true,
+    items: [
+      {
+        title: "Need Help",
+        translationKey: "needHelp",
+        url: "/user/dashboard/support",
+      },
+      {
+        title: "Open Ticket",
+        translationKey: "openNewTicket",
+        url: "/user/dashboard/support/new",
+      },
+      {
+        title: "My Tickets",
+        translationKey: "myTickets",
+        url: "/user/dashboard/support/tickets",
       },
     ],
   },
@@ -224,6 +295,72 @@ export const pagesNames = [
     titleKey: "Admin.Security.Logs.LogDetails.title",
     subTitleKey: "Admin.Security.Logs.LogDetails.subTitle",
     url: "/admin/security/logs/[Id]",
+  },
+  {
+    title: "Your dashboard",
+    titleKey: "User.Dashboard.title",
+    subTitleKey: "User.Dashboard.subTitle",
+    url: "/user/dashboard",
+  },
+  {
+    title: "Security",
+    titleKey: "User.Security.title",
+    subTitleKey: "User.Security.subTitle",
+    url: "/user/dashboard/profile/security",
+  },
+  {
+    title: "Payment Methods",
+    titleKey: "User.MyAccount.PaymentMethods.title",
+    subTitleKey: "NoSubTitle",
+    url: "/user/dashboard/profile/payments",
+  },
+  {
+    title: "Settings",
+    titleKey: "User.MyAccount.Settings.title",
+    subTitleKey: "NoSubTitle",
+    url: "/user/dashboard/profile/settings",
+  },
+  {
+    title: "Open Ticket",
+    titleKey: "User.Support.OpenNewTicket.title",
+    subTitleKey: "NoSubTitle",
+    url: "/user/dashboard/support/new",
+  },
+  {
+    title: "My Tickets",
+    titleKey: "User.Support.MyTickets.title",
+    subTitleKey: "NoSubTitle",
+    url: "/user/dashboard/support/tickets",
+  },
+  {
+    title: "Business Orders",
+    titleKey: "User.Business.Orders.title",
+    subTitleKey: "NoSubTitle",
+    url: "/user/dashboard/business/orders",
+  },
+  {
+    title: "Business Subscriptions",
+    titleKey: "User.Business.Subscriptions.title",
+    subTitleKey: "NoSubTitle",
+    url: "/user/dashboard/business/subscriptions",
+  },
+  {
+    title: "Business Payments",
+    titleKey: "User.Business.Payments.title",
+    subTitleKey: "NoSubTitle",
+    url: "/user/dashboard/business/payments",
+  },
+  {
+    title: "Profile",
+    titleKey: "User.MyAccount.Profile.title",
+    subTitleKey: "NoSubTitle",
+    url: "/user/dashboard/profile",
+  },
+  {
+    title: "Need Help",
+    titleKey: "User.Support.NeedHelp.title",
+    subTitleKey: "NoSubTitle",
+    url: "/user/dashboard/support",
   },
 ]
 

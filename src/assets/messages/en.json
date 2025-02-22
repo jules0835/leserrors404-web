@@ -27,7 +27,8 @@
       "accountNotConfirmed": "Your account is not confirmed, please check your email and confirm your account. If you did not receive an email, please check your spam folder. If you still cannot find the email, please contact our support team at {email}.",
       "invalidOtp": "The OTP you entered is invalid, please try again",
       "requiredOtp": "The OTP code with 6 digits is required",
-      "otpRequired": "Your one time password is required to log into your account, please enter the code provide by your authenticator app"
+      "otpRequired": "Your one time password is required to log into your account, please enter the code provide by your authenticator app",
+      "resetSuccess": "Your password was succesfuly reset, you can now login"
     },
     "RegisterPage": {
       "title": "Register",
@@ -82,7 +83,34 @@
     "confirmEmail": "Email confirmation",
     "confirmEmailFailed": "Email confirmation failed. Please try again or contact our support team.",
     "login": "Return to login page",
-    "confirmEmailSuccess": "Your email has been confirmed successfully, you can now login."
+    "confirmEmailSuccess": "Your email has been confirmed successfully, you can now login.",
+    "ResetPasswordPage": {
+      "title": "Reset your password",
+      "invalidEmail": "Invalid email",
+      "requiredEmail": "Email is required",
+      "email": "Email",
+      "sendEmail": "Send a reset link",
+      "description": "Enter your email address and we will send you a link to reset your password.",
+      "backToLogin": "Return to login page",
+      "rememberYourPassword": "After all you remember it ?",
+      "register": "Back to login page",
+      "resetPasswordEmailSent": "If the email exists, a reset link has been sent. Please check your inbox or spam folder.",
+      "somethingWentWrong": "Unable to send the reset email, please try again.",
+      "goToLogin": "Go to login page",
+      "invalidToken": "Invalid reset link",
+      "invalidTokenMessage": "This link is invalid or expire try to ask for a new one on contact our support team.",
+      "backToResetPassword": "Ask for a new one",
+      "backToHome": "Go home",
+      "resetPassword": "Reset password",
+      "confirmPassword": "Coonfirm your new password",
+      "password": "Enter your new password",
+      "requiredConfirmPassword": "Coonfirm your new password is required",
+      "passwordsMustMatch": "Passwords must match",
+      "requiredPassword": "Password is required",
+      "passwordMinLength": "A password with 12 letters is required",
+      "invalidOrExpiredToken": "The reset token is invalid or has expired",
+      "passwordResetSuccess": "Password has been reset successfully, you can now login"
+    }
   },
   "Navigation": {
     "home": "Home",
@@ -111,7 +139,13 @@
     "categories": "Categories",
     "customers": "Customers",
     "logs": "Logs",
-    "myAccount": "My Account"
+    "myAccount": "My Account",
+    "paymentMethods": "Payment Methods",
+    "support": "Support",
+    "openNewTicket": "Open Ticket",
+    "myTickets": "My Tickets",
+    "needHelp": "Need help ?",
+    "mySupport": "My tickets"
   },
   "Admin": {
     "Security": {
@@ -457,7 +491,13 @@
     }
   },
   "User": {
+    "Dashboard": {
+      "title": "Your dashboard",
+      "subTitle": "Manage your account, settings, subscriptions and more"
+    },
     "Security": {
+      "title": "Security",
+      "subTitle": "Manage your security settings",
       "OtpConfig": {
         "title": "OTP Configuration",
         "otpEnabled": "OTP is enabled",
@@ -482,8 +522,96 @@
         "cancel": "Cancel",
         "otpKeyGenerated": "Download the free Google Authenticator app on your phone, then scan this barcode, and enter the code.",
         "scanQrCodeOrEnterCode": "Scan the QrCode with your authenticator app or enter this code",
-        "invalidOtp": "This code is invalid, please check or try again"
+        "invalidOtp": "This code is invalid, please check or try again",
+        "activateOtp": "Activate OTP"
+      },
+      "password": "Password",
+      "passwordContent": "Password",
+      "twoFactorAuth": "Two Factor Authentication",
+      "Password": {
+        "title": "Change Password",
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm New Password",
+        "changePassword": "Change Password",
+        "currentPasswordRequired": "Current password is required",
+        "newPasswordRequired": "New password is required",
+        "confirmPasswordRequired": "Confirm password is required",
+        "passwordMinLength": "Password must be at least 12 characters long",
+        "passwordsMustMatch": "Passwords must match",
+        "passwordChangeSuccess": "Password changed successfully",
+        "passwordChangeError": "Failed to change password",
+        "loading": "Changing your password",
+        "currentPasswordIncorrect": "Your current password does not match."
       }
+    },
+    "Business": {
+      "title": "Business",
+      "Orders": {
+        "title": "Orders"
+      },
+      "Subscriptions": {
+        "title": "Subscriptions"
+      },
+      "Payments": {
+        "title": "Payments"
+      }
+    },
+    "MyAccount": {
+      "title": "My Account",
+      "Profile": {
+        "title": "Profile",
+        "friend": "A friend",
+        "advertisement": "From an ad",
+        "socialMedia": "From social media",
+        "other": "Another option"
+      },
+      "Security": {
+        "title": "Security"
+      },
+      "PaymentMethods": {
+        "title": "Payment Methods"
+      },
+      "Settings": {
+        "title": "Settings"
+      }
+    },
+    "Support": {
+      "title": "Support",
+      "OpenNewTicket": {
+        "title": "Open Ticket"
+      },
+      "MyTickets": {
+        "title": "My Tickets"
+      },
+      "NeedHelp": {
+        "title": "Support Center"
+      }
+    },
+    "Profile": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "howDidYouHear": "How Did You Hear",
+      "country": "Country",
+      "city": "City",
+      "zipCode": "Zip Code",
+      "street": "Street",
+      "company": "Company",
+      "saveChanges": "Save Changes",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "savingChanges": "Saving changes...",
+      "changesSavedSuccessfully": "Changes saved successfully",
+      "failedToSaveChanges": "Failed to save changes",
+      "nothingSelected": "Nothing selected",
+      "created": "Created: {date}",
+      "twoFactorAuth": "Two Factor Authentication",
+      "emailExists": "Email already exist.",
+      "saving": "Saving your profil",
+      "error": "Error while saving profile",
+      "saved": "Profile saved"
     }
   },
   "DefaultNotFound": "ERROR: Translation not found",
@@ -526,9 +654,30 @@
     "confirmButton": "Confirm Email",
     "Confirmation": {
       "subject": "Cyna - Confirm your email"
-    }
+    },
+    "resetEmailMessage": "To reset your password, click the button below and follow the instructions. This link will expire in 1 hour. If you did not request a password reset, you can safely ignore this email or contact our support team.",
+    "resetButton": "Reset my password"
   },
   "Confirmation": {
     "subject": "Cyna - Confirm your email"
-  }
+  },
+  "pagesNames": {
+    "homePage": "Home Page",
+    "usersAdmin": "Users Admin",
+    "userDetailsAdmin": "User details Admin",
+    "logsAdmin": "Logs admin",
+    "logDetailsAdmin": "Log details admin",
+    "yourDashboard": "Your dashboard",
+    "security": "Security",
+    "paymentMethods": "Payment Methods",
+    "settings": "Settings",
+    "openTicket": "Open Ticket",
+    "myTickets": "My Tickets",
+    "businessOrders": "Business Orders",
+    "businessSubscriptions": "Business Subscriptions",
+    "businessPayments": "Business Payments",
+    "profile": "Profile",
+    "needHelp": "Need Help"
+  },
+  "resetPasswordEmailSubject": "Cyna - rest your password"
 }

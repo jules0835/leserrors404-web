@@ -2,8 +2,13 @@ import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
 import { logEvent } from "@/lib/logEvent"
-import { logKeys, company } from "@/assets/options/config"
-import * as OTPAuth from "otpauth"
+import { logKeys, tokenExpiration } from "@/assets/options/config"
+import {
+  handleAuthLoginFailure,
+  handleAuthLoginSuccess,
+  sendAuthConfirmationEmail,
+  verifyAuthUserOtp,
+} from "@/features/auth/utils/loginUtils"
 
 // eslint-disable-next-line new-cap
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -67,7 +72,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             data: { email: credentials.email },
           })
 
-          await handleLoginFailure(user._id)
+          await handleAuthLoginFailure(user._id)
 
           throw Error("invalid_credentials")
         }
@@ -95,7 +100,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             data: { email: credentials.email },
           })
 
-          await sendConfirmationEmail(user._id)
+          await sendAuthConfirmationEmail(user._id)
 
           throw new Error("account_not_confirmed")
         }
@@ -105,7 +110,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             throw Error("user_otp_required")
           }
 
-          const isValidOtp = verifyUserOtp(credentials.otp, user)
+          const isValidOtp = verifyAuthUserOtp(credentials.otp, user)
 
           if (!isValidOtp) {
             await logEvent({
@@ -117,7 +122,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               data: { email: credentials.email },
             })
 
-            await handleLoginFailure(user._id)
+            await handleAuthLoginFailure(user._id)
 
             throw Error("invalid_credentials_otp")
           }
@@ -131,7 +136,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           data: { email: credentials.email },
         })
 
-        await handleLoginSuccess(user._id)
+        await handleAuthLoginSuccess(user._id)
 
         return user
       },
@@ -141,7 +146,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     strategy: "jwt",
   },
   callbacks: {
-    jwt({ token, user }) {
+    jwt({ token, user, account }) {
       if (user) {
         token.id = user.id
         token.userId = user._id
@@ -150,7 +155,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.lastName = user.lastName
         token.image = user.image
         token.isAdmin = user.isAdmin
+        token.keepLogin = account?.keepLogin || false
       }
+
+      let expirationTime = 0
+
+      if (token.isAdmin) {
+        expirationTime = token.keepLogin
+          ? tokenExpiration.admin.keepLogin
+          : tokenExpiration.admin.default
+      } else {
+        expirationTime = token.keepLogin
+          ? tokenExpiration.user.keepLogin
+          : tokenExpiration.user.default
+      }
+
+      token.exp = Math.floor(Date.now() / 1000) + expirationTime
 
       return token
     },
@@ -170,66 +190,3 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   csrf: true,
 })
-const handleLoginFailure = async (userId) => {
-  await fetch(
-    `${process.env.SERVER_URL}/en/api/services/account?action=handleLoginFailure`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`,
-      },
-      body: JSON.stringify({ userId }),
-    }
-  )
-}
-const handleLoginSuccess = async (userId) => {
-  await fetch(
-    `${process.env.SERVER_URL}/en/api/services/account?action=handleLoginSuccess`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`,
-      },
-      body: JSON.stringify({ userId }),
-    }
-  )
-}
-const sendConfirmationEmail = async (userId) => {
-  await fetch(
-    `${process.env.SERVER_URL}/en/api/services/account?action=sendConfirmationEmail`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`,
-      },
-      body: JSON.stringify({ userId }),
-    }
-  )
-}
-const verifyUserOtp = (token, user) => {
-  try {
-    const username = `${user.firstName} ${user.lastName}`
-    const userSecret = user.account.auth.otpSecret
-
-    if (!username || !userSecret) {
-      return { valid: false, message: "Invalid user data" }
-    }
-
-    const totp = new OTPAuth.TOTP({
-      issuer: `${company.name}`,
-      label: `${company.name} - ${username}`,
-      algorithm: "SHA1",
-      digits: 6,
-      period: 30,
-      secret: OTPAuth.Secret.fromBase32(userSecret),
-    })
-    const delta = totp.validate({ token, window: 1 })
-
-    return delta !== null
-  } catch (error) {
-    return false
-  }
-}

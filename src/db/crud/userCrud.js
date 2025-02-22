@@ -179,6 +179,24 @@ export const updateConfirmationToken = async (userId, token, expiresToken) => {
   }
 }
 
+export const updateUserResetToken = async (userId, token, expires) => {
+  await mwdb()
+
+  try {
+    await UserModel.findOneAndUpdate(
+      {
+        _id: userId,
+      },
+      {
+        "account.resetPassword.token": token,
+        "account.resetPassword.expires": expires,
+      }
+    )
+  } catch (error) {
+    throw new Error("Failed to update reset token")
+  }
+}
+
 export const findUserByConfirmationToken = async (token) => {
   await mwdb()
 
@@ -242,4 +260,31 @@ export async function changeStatusUserOtp(userId, active) {
     { _id: userId },
     { "account.auth.isOtpEnabled": active }
   )
+}
+
+export async function updateUserPassword(userId, password) {
+  await mwdb()
+
+  await UserModel.updateOne({ _id: userId }, { password })
+}
+
+export async function checkResetToken(token) {
+  await mwdb()
+
+  const user = await UserModel.findOne({
+    "account.resetPassword.token": token,
+    "account.resetPassword.expires": { $gt: new Date() },
+  })
+
+  return Boolean(user)
+}
+
+export async function findUserByResetToken(token) {
+  await mwdb()
+
+  const user = await UserModel.findOne({
+    "account.resetPassword.token": token,
+  }).select("-password")
+
+  return user
 }

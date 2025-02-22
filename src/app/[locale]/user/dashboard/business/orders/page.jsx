@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <div>
-      <h1>RegisterOtp</h1>
+      <h1>Dashboard orders</h1>
     </div>
   )
 }

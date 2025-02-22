@@ -18,14 +18,14 @@ export default async function RootLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale}>
-      <body className="antialiased overscroll-none bg-gray-100">
+      <body className="antialiased overscroll-none bg-[#2F1F80]">
         <SessionProvider>
           <NextIntlClientProvider messages={messages}>
             <div>
               <Toaster position="top-right" />
             </div>
             <Header />
-            {children}
+            <div className="bg-gray-100">{children}</div>
           </NextIntlClientProvider>
         </SessionProvider>
       </body>

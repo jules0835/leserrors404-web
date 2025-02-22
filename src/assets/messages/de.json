@@ -27,7 +27,8 @@
       "accountNotConfirmed": "Ihr Konto wird nicht bestätigt. Überprüfen Sie bitte Ihre E -Mails und bestätigen Sie Ihr Konto. \nWenn Sie keine E -Mail erhalten haben, überprüfen Sie bitte Ihren Spam -Ordner. \nWenn Sie die E -Mail immer noch nicht finden können, wenden Sie sich bitte an unser Support -Team unter {E -Mail}.",
       "invalidOtp": "Der von Ihnen eingegebene OTP ist ungültig. Bitte versuchen Sie es erneut",
       "otpRequired": "Ihr einmaliges Kennwort ist erforderlich, um sich in Ihrem Konto anzumelden. Geben Sie bitte den Code ein, den Ihre Authenticator -App zur Verfügung stellt",
-      "requiredOtp": "Der OTP -Code mit 6 Ziffern ist erforderlich"
+      "requiredOtp": "Der OTP -Code mit 6 Ziffern ist erforderlich",
+      "resetSuccess": "Ihr Passwort war erfolgreicher Reset, Sie können sich jetzt anmelden"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -82,7 +83,34 @@
     "confirmEmail": "E -Mail -Bestätigung",
     "confirmEmailFailed": "E -Mail -Bestätigung fehlgeschlagen. \nBitte versuchen Sie es erneut oder wenden Sie sich an unser Support -Team.",
     "confirmEmailSuccess": "Ihre E -Mail wurde erfolgreich bestätigt, Sie können sich jetzt anmelden.",
-    "login": "Kehren Sie zur Anmeldeseite zurück"
+    "login": "Kehren Sie zur Anmeldeseite zurück",
+    "ResetPasswordPage": {
+      "backToHome": "Nach Hause gehen",
+      "backToLogin": "Kehren Sie zur Anmeldeseite zurück",
+      "backToResetPassword": "Fragen Sie nach einem neuen",
+      "confirmPassword": "Bestätigen Sie Ihr neues Passwort",
+      "description": "Geben Sie Ihre E -Mail -Adresse ein und wir senden Ihnen einen Link, um Ihr Passwort zurückzusetzen.",
+      "email": "E-Mail",
+      "goToLogin": "Gehen Sie zur Anmeldeseite",
+      "invalidEmail": "Ungültige E -Mail",
+      "invalidOrExpiredToken": "Das Reset -Token ist ungültig oder ist abgelaufen",
+      "invalidToken": "Ungültiger Reset -Link",
+      "invalidTokenMessage": "Dieser Link ist ungültig oder läuft nach Ablauf nach einem neuen für Kontakte unseres Support -Teams.",
+      "password": "Geben Sie Ihr neues Passwort ein",
+      "passwordMinLength": "Ein Passwort mit 12 Buchstaben ist erforderlich",
+      "passwordResetSuccess": "Das Passwort wurde erfolgreich zurückgesetzt. Sie können sich jetzt anmelden",
+      "passwordsMustMatch": "Passwörter müssen übereinstimmen",
+      "register": "Zurück zur Anmeldeseite",
+      "rememberYourPassword": "Nach all dem, dass du dich daran erinnerst?",
+      "requiredConfirmPassword": "Mit Ihrem neuen Passwort ist es erforderlich",
+      "requiredEmail": "E -Mail ist erforderlich",
+      "requiredPassword": "Passwort ist erforderlich",
+      "resetPassword": "Passwort zurücksetzen",
+      "resetPasswordEmailSent": "Wenn die E -Mail vorhanden ist, wurde ein Reset -Link gesendet. \nBitte überprüfen Sie Ihren Posteingang oder Spamordner.",
+      "sendEmail": "Senden Sie einen Reset -Link",
+      "somethingWentWrong": "Bitte versuchen Sie es nicht erneut.",
+      "title": "Setzen Sie Ihr Passwort zurück"
+    }
   },
   "other": "Andere",
   "socialMedia": "Soziale Medien",
@@ -464,7 +492,13 @@
     "security": "Sicherheit",
     "subscriptions": "Abonnements",
     "users": "Benutzer",
-    "myAccount": "Mein Konto"
+    "myAccount": "Mein Konto",
+    "mySupport": "Meine Tickets",
+    "myTickets": "Meine Tickets",
+    "needHelp": "Benötigen Sie Hilfe?",
+    "openNewTicket": "Offenes Ticket",
+    "paymentMethods": "Zahlungsmethoden",
+    "support": "Unterstützung"
   },
   "navigation": {
     "admin": "Admin",
@@ -495,7 +529,9 @@
     "otpMessage3": "Bitte teilen Sie diesen Code mit niemandem. \nWir werden nie danach fragen. \nWenn Sie diesen Code nicht angefordert haben, ignorieren Sie diese E -Mail.",
     "otpMessageTiming": "Dieser Code läuft in 5 Minuten ab.",
     "otpWarningMessage": "Bitte teilen Sie diesen Code mit niemandem. \nWir werden nie danach fragen. \nWenn Sie diesen Code nicht angefordert haben, ignorieren Sie diese E -Mail.",
-    "userMessage": "Ich wünsche Ihnen einen ausgezeichneten Tag!"
+    "userMessage": "Ich wünsche Ihnen einen ausgezeichneten Tag!",
+    "resetButton": "Setzen Sie mein Passwort zurück",
+    "resetEmailMessage": "Um Ihr Passwort zurückzusetzen, klicken Sie auf die Schaltfläche unten und befolgen Sie die Anweisungen. \nDieser Link läuft in 1 Stunde ab. \nWenn Sie keinen Hinweis für ein Passwort zurückgesetzt haben, können Sie diese E -Mail sicher ignorieren oder unser Support -Team kontaktieren."
   },
   "isSuperAdminRequired": "Ist Super Admin erforderlich, ist erforderlich",
   "Confirmation": {
@@ -527,8 +563,121 @@
         "reconfigureOtpTitle": "Rekonfigurieren Sie OTP",
         "scanQrCodeOrEnterCode": "Scannen Sie den QRCode mit Ihrer Authenticator -App oder geben Sie diesen Code ein",
         "title": "OTP -Konfiguration",
-        "verifyOtp": "Überprüfen Sie OTP"
-      }
+        "verifyOtp": "Überprüfen Sie OTP",
+        "activateOtp": "Aktivieren Sie OTP"
+      },
+      "Password": {
+        "changePassword": "Kennwort ändern",
+        "confirmPassword": "Neues Passwort bestätigen",
+        "confirmPasswordRequired": "Bestätigen Sie das Passwort erforderlich",
+        "currentPassword": "Aktuelles Passwort",
+        "currentPasswordIncorrect": "Ihr aktuelles Passwort stimmt nicht überein.",
+        "currentPasswordRequired": "Aktuelles Passwort ist erforderlich",
+        "loading": "Ändern Sie Ihr Passwort",
+        "newPassword": "Neues Passwort",
+        "newPasswordRequired": "Neues Passwort ist erforderlich",
+        "passwordChangeError": "Das Passwort nicht ändern",
+        "passwordChangeSuccess": "Passwort erfolgreich geändert",
+        "passwordMinLength": "Das Passwort muss mindestens 12 Zeichen lang sein",
+        "passwordsMustMatch": "Passwörter müssen übereinstimmen",
+        "title": "Kennwort ändern"
+      },
+      "password": "Passwort",
+      "passwordContent": "Passwort",
+      "subTitle": "Verwalten Sie Ihre Sicherheitseinstellungen",
+      "title": "Sicherheit",
+      "twoFactorAuth": "Zwei -Faktor -Authentifizierung"
+    },
+    "Business": {
+      "Orders": {
+        "title": "Bestellungen"
+      },
+      "Payments": {
+        "title": "Zahlungen"
+      },
+      "Subscriptions": {
+        "title": "Abonnements"
+      },
+      "title": "Geschäft"
+    },
+    "Dashboard": {
+      "subTitle": "Verwalten Sie Ihr Konto, Ihre Einstellungen, Abonnements und mehr",
+      "title": "Dein Dashboard"
+    },
+    "MyAccount": {
+      "PaymentMethods": {
+        "title": "Zahlungsmethoden"
+      },
+      "Profile": {
+        "advertisement": "Aus einer Anzeige",
+        "friend": "Ein Freund",
+        "other": "Eine andere Option",
+        "socialMedia": "Aus sozialen Medien",
+        "title": "Profil"
+      },
+      "Security": {
+        "title": "Sicherheit"
+      },
+      "Settings": {
+        "title": "Einstellungen"
+      },
+      "title": "Mein Konto"
+    },
+    "Profile": {
+      "cancel": "Stornieren",
+      "changesSavedSuccessfully": "Änderungen erfolgreich gespeichert",
+      "city": "Stadt",
+      "company": "Unternehmen",
+      "country": "Land",
+      "created": "Erstellt: {Datum}",
+      "edit": "Bearbeiten",
+      "email": "E-Mail",
+      "emailExists": "E -Mail gibt es bereits.",
+      "error": "Fehler beim Speichern von Profilen",
+      "failedToSaveChanges": "Änderungen nicht speichern",
+      "firstName": "Vorname",
+      "howDidYouHear": "Wie hast du gehört",
+      "lastName": "Nachname",
+      "nothingSelected": "Nichts ausgewählt",
+      "phone": "Telefon",
+      "saveChanges": "Änderungen speichern",
+      "saved": "Profil gespeichert",
+      "saving": "Speichern Sie Ihren Profil",
+      "savingChanges": "Veränderungen sparen ...",
+      "street": "Straße",
+      "twoFactorAuth": "Zwei -Faktor -Authentifizierung",
+      "zipCode": "PLZ"
+    },
+    "Support": {
+      "MyTickets": {
+        "title": "Meine Tickets"
+      },
+      "NeedHelp": {
+        "title": "Unterstützungszentrum"
+      },
+      "OpenNewTicket": {
+        "title": "Offenes Ticket"
+      },
+      "title": "Unterstützung"
     }
-  }
+  },
+  "pagesNames": {
+    "businessOrders": "Geschäftsbestellungen",
+    "businessPayments": "Geschäftszahlungen",
+    "businessSubscriptions": "Geschäftsabonnements",
+    "homePage": "Startseite",
+    "logDetailsAdmin": "Protokolldetails Admin",
+    "logsAdmin": "Protokolliert Admin",
+    "myTickets": "Meine Tickets",
+    "needHelp": "Brauche Hilfe",
+    "openTicket": "Offenes Ticket",
+    "paymentMethods": "Zahlungsmethoden",
+    "profile": "Profil",
+    "security": "Sicherheit",
+    "settings": "Einstellungen",
+    "userDetailsAdmin": "Benutzerdetails Admin",
+    "usersAdmin": "Benutzer admin",
+    "yourDashboard": "Dein Dashboard"
+  },
+  "resetPasswordEmailSubject": "Cyna - ruhen Sie Ihr Passwort aus"
 }

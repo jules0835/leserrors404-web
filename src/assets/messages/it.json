@@ -27,7 +27,8 @@
       "accountNotConfirmed": "Il tuo account non è confermato, controlla la tua email e conferma il tuo account. \nSe non hai ricevuto un'e -mail, controlla la cartella SPAM. \nSe non riesci ancora a trovare l'e -mail, contatta il nostro team di supporto in {email}.",
       "invalidOtp": "L'OTP che hai inserito non è valido, riprova",
       "otpRequired": "La tua password a un tempo è richiesta per accedere al tuo account, inserisci il codice fornito dalla tua app di autenticazione",
-      "requiredOtp": "È richiesto il codice OTP con 6 cifre"
+      "requiredOtp": "È richiesto il codice OTP con 6 cifre",
+      "resetSuccess": "La tua password è stata ripristinata di successo, ora puoi accedere"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -82,7 +83,34 @@
     "confirmEmail": "Conferma e -mail",
     "confirmEmailFailed": "Conferma e -mail non riuscita. \nRiprova o contatta il nostro team di supporto.",
     "confirmEmailSuccess": "La tua e -mail è stata confermata correttamente, ora puoi accedere.",
-    "login": "Torna alla pagina di accesso"
+    "login": "Torna alla pagina di accesso",
+    "ResetPasswordPage": {
+      "backToHome": "Vai a casa",
+      "backToLogin": "Torna alla pagina di accesso",
+      "backToResetPassword": "Chiedi uno nuovo",
+      "confirmPassword": "Coonfirm la tua nuova password",
+      "description": "Inserisci il tuo indirizzo email e ti invieremo un link per reimpostare la password.",
+      "email": "E-mail",
+      "goToLogin": "Vai alla pagina di accesso",
+      "invalidEmail": "Email non valida",
+      "invalidOrExpiredToken": "Il token di ripristino non è valido o è scaduto",
+      "invalidToken": "Link di ripristino non valido",
+      "invalidTokenMessage": "Questo link non è valido o scadenza, prova a chiederne uno nuovo a contattare il nostro team di supporto.",
+      "password": "Inserisci la tua nuova password",
+      "passwordMinLength": "È richiesta una password con 12 lettere",
+      "passwordResetSuccess": "La password è stata ripristinata correttamente, ora puoi accedere",
+      "passwordsMustMatch": "Le password devono essere identiche",
+      "register": "Torna alla pagina di accesso",
+      "rememberYourPassword": "Dopo tutto lo ricordi?",
+      "requiredConfirmPassword": "Coonfirm è richiesta la tua nuova password",
+      "requiredEmail": "È richiesta l'e -mail",
+      "requiredPassword": "È richiesta la password",
+      "resetPassword": "Reimpostare la password",
+      "resetPasswordEmailSent": "Se l'e -mail esiste, è stato inviato un collegamento di ripristino. \nControlla la cartella della posta in arrivo o dello spam.",
+      "sendEmail": "Invia un collegamento di ripristino",
+      "somethingWentWrong": "Impossibile inviare l'e -mail di ripristino, riprova.",
+      "title": "Reimpostare la password"
+    }
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
@@ -464,7 +492,13 @@
     "security": "Sicurezza",
     "subscriptions": "Abbonamenti",
     "users": "Utenti",
-    "myAccount": "Il mio conto"
+    "myAccount": "Il mio conto",
+    "mySupport": "I miei biglietti",
+    "myTickets": "I miei biglietti",
+    "needHelp": "Hai bisogno di aiuto?",
+    "openNewTicket": "Biglietto aperto",
+    "paymentMethods": "Metodi di pagamento",
+    "support": "Supporto"
   },
   "navigation": {
     "about": "Di",
@@ -495,7 +529,9 @@
     "otpMessage3": "Si prega di non condividere questo codice con nessuno. \nNon lo chiederemo mai. \nSe non hai richiesto questo codice, ignora questa e -mail.",
     "otpMessageTiming": "Questo codice scadrà tra 5 minuti.",
     "otpWarningMessage": "Si prega di non condividere questo codice con nessuno. \nNon lo chiederemo mai. \nSe non hai richiesto questo codice, ignora questa e -mail.",
-    "userMessage": "Ti auguro una giornata eccellente!"
+    "userMessage": "Ti auguro una giornata eccellente!",
+    "resetButton": "Reimpostare la mia password",
+    "resetEmailMessage": "Per reimpostare la password, fare clic sul pulsante in basso e seguire le istruzioni. \nQuesto link scadrà tra 1 ora. \nSe non hai richiesto un reimpostazione della password, è possibile ignorare in sicurezza questa e -mail o contattare il nostro team di supporto."
   },
   "isSuperAdminRequired": "È richiesto Super Admin",
   "Confirmation": {
@@ -527,8 +563,121 @@
         "reconfigureOtpTitle": "Riconfigurare OTP",
         "scanQrCodeOrEnterCode": "Scansiona QRCode con la tua app di autenticatore o immettere questo codice",
         "title": "Configurazione OTP",
-        "verifyOtp": "Verificare OTP"
-      }
+        "verifyOtp": "Verificare OTP",
+        "activateOtp": "Attivare OTP"
+      },
+      "Password": {
+        "changePassword": "Cambiare la password",
+        "confirmPassword": "Conferma nuova password",
+        "confirmPasswordRequired": "Conferma che è richiesta la password",
+        "currentPassword": "password attuale",
+        "currentPasswordIncorrect": "La tua password corrente non corrisponde.",
+        "currentPasswordRequired": "È richiesta la password corrente",
+        "loading": "Modifica della tua password",
+        "newPassword": "Nuova password",
+        "newPasswordRequired": "È richiesta una nuova password",
+        "passwordChangeError": "Impossibile modificare la password",
+        "passwordChangeSuccess": "Password modificata correttamente",
+        "passwordMinLength": "La password deve essere lunga almeno 12 caratteri",
+        "passwordsMustMatch": "Le password devono essere identiche",
+        "title": "Cambiare la password"
+      },
+      "password": "Password",
+      "passwordContent": "Password",
+      "subTitle": "Gestisci le tue impostazioni di sicurezza",
+      "title": "Sicurezza",
+      "twoFactorAuth": "Autenticazione a due fattori"
+    },
+    "Business": {
+      "Orders": {
+        "title": "Ordini"
+      },
+      "Payments": {
+        "title": "Pagamenti"
+      },
+      "Subscriptions": {
+        "title": "Abbonamenti"
+      },
+      "title": "Attività commerciale"
+    },
+    "Dashboard": {
+      "subTitle": "Gestisci il tuo account, impostazioni, abbonamenti e altro ancora",
+      "title": "La tua dashboard"
+    },
+    "MyAccount": {
+      "PaymentMethods": {
+        "title": "Metodi di pagamento"
+      },
+      "Profile": {
+        "advertisement": "Da un annuncio",
+        "friend": "Un amico",
+        "other": "Un'altra opzione",
+        "socialMedia": "Dai social media",
+        "title": "Profilo"
+      },
+      "Security": {
+        "title": "Sicurezza"
+      },
+      "Settings": {
+        "title": "Impostazioni"
+      },
+      "title": "Il mio conto"
+    },
+    "Profile": {
+      "cancel": "Cancellare",
+      "changesSavedSuccessfully": "Cambiamenti salvati con successo",
+      "city": "Città",
+      "company": "Azienda",
+      "country": "Paese",
+      "created": "Creato: {data}",
+      "edit": "Modificare",
+      "email": "E-mail",
+      "emailExists": "Email esistono già.",
+      "error": "Errore durante il salvataggio del profilo",
+      "failedToSaveChanges": "Impossibile salvare le modifiche",
+      "firstName": "Nome di battesimo",
+      "howDidYouHear": "Come hai sentito",
+      "lastName": "Cognome",
+      "nothingSelected": "Niente selezionato",
+      "phone": "Telefono",
+      "saveChanges": "Salva le modifiche",
+      "saved": "Profilo salvato",
+      "saving": "Salvando il tuo profilo",
+      "savingChanges": "Salvare le modifiche ...",
+      "street": "Strada",
+      "twoFactorAuth": "Autenticazione a due fattori",
+      "zipCode": "Cap"
+    },
+    "Support": {
+      "MyTickets": {
+        "title": "I miei biglietti"
+      },
+      "NeedHelp": {
+        "title": "Centro di supporto"
+      },
+      "OpenNewTicket": {
+        "title": "Biglietto aperto"
+      },
+      "title": "Supporto"
     }
-  }
+  },
+  "pagesNames": {
+    "businessOrders": "Ordini commerciali",
+    "businessPayments": "Pagamenti aziendali",
+    "businessSubscriptions": "Abbonamenti aziendali",
+    "homePage": "Home page",
+    "logDetailsAdmin": "DETTAGLI DI LEGGI AMMIN",
+    "logsAdmin": "Registri amministratore",
+    "myTickets": "I miei biglietti",
+    "needHelp": "Hai bisogno di aiuto",
+    "openTicket": "Biglietto aperto",
+    "paymentMethods": "Metodi di pagamento",
+    "profile": "Profilo",
+    "security": "Sicurezza",
+    "settings": "Impostazioni",
+    "userDetailsAdmin": "Dettagli dell'utente amministratore",
+    "usersAdmin": "Amministratore degli utenti",
+    "yourDashboard": "La tua dashboard"
+  },
+  "resetPasswordEmailSubject": "Cyna - riposa la password"
 }
