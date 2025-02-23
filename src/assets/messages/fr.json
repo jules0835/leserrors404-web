@@ -4,7 +4,16 @@
     "about": "Aller à la page à propos",
     "HomePage": {
       "carouselButtonMoreInfos": "Plus d'informations"
-    }
+    },
+    "clients": "Confiance par plus de 500 clients autour du monde.",
+    "learnMore": "Afficher le produit",
+    "learnMoreCategory": "Voir tous les produits",
+    "ourProducts": "Nos produits",
+    "ourServices": "Nos cyber-services",
+    "welcome": "Bienvenue à {Company}",
+    "welcomeMessage": "Votre partenaire de confiance dans les solutions de cybersécurité.",
+    "welcomeMessageAnimation": "Il est temps de sécuriser votre avenir!",
+    "welcomeMessageDescription": "Rejoignez maintenant plus de 500 entreprises qui nous font confiance pour sécuriser leur entreprise et créer un environnement sûr pour leurs employés et clients."
   },
   "HomeAdmin": {
     "title": "Bonjour le monde!",

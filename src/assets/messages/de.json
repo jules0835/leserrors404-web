@@ -4,7 +4,16 @@
     "about": "OKOKOKOKOKOKOK",
     "HomePage": {
       "carouselButtonMoreInfos": "Weitere Informationen"
-    }
+    },
+    "clients": "Vertrauen von mehr als 500 Kunden rund um das Wort.",
+    "learnMore": "Produkt anzeigen",
+    "learnMoreCategory": "Alle Produkte anzeigen",
+    "ourProducts": "Unsere Produkte",
+    "ourServices": "Unsere Cyber ​​-Dienste",
+    "welcome": "Willkommen bei {Company}",
+    "welcomeMessage": "Ihr vertrauenswürdiger Partner in Cybersicherheitslösungen.",
+    "welcomeMessageAnimation": "Es ist Zeit, Ihre Zukunft zu sichern!",
+    "welcomeMessageDescription": "Machen Sie jetzt mehr als 500 Unternehmen, die uns vertrauen, um ihr Unternehmen zu sichern und ein sicheres Umfeld für ihre Mitarbeiter und Kunden zu schaffen."
   },
   "Auth": {
     "LoginPage": {

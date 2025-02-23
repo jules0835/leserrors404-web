@@ -7,11 +7,13 @@
     },
     "welcome": "Welcome to {company}",
     "welcomeMessage": "Your trusted partner in cybersecurity solutions.",
-    "clients": "Trusted by more than 500 clients around the word.",
+    "clients": "Trusted by more than 500 clients around the world.",
     "ourServices": "Our cyber services",
     "ourProducts": "Our products",
     "learnMore": "View product",
-    "learnMoreCategory": "View all products"
+    "learnMoreCategory": "View all products",
+    "welcomeMessageDescription": "        Join now more than 500 companies that trust us to secure their company and build a safe environment for their employees and customers.",
+    "welcomeMessageAnimation": "It's time to secure your future !"
   },
   "Auth": {
     "LoginPage": {

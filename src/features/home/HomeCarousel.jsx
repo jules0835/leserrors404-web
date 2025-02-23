@@ -54,7 +54,6 @@ export default function HomeCarousel({ initialCarouselData }) {
                     alt={part.titleTrans[locale]}
                     layout="fill"
                     objectFit="cover"
-                    className=""
                   />
                   {part.titleTrans[locale] && (
                     <div className="absolute right-0 top-1/2 transform -translate-y-1/2 m-4 p-6 bg-white rounded-lg shadow-lg">
