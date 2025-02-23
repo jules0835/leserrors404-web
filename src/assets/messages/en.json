@@ -4,7 +4,14 @@
     "about": "Go to the about page",
     "HomePage": {
       "carouselButtonMoreInfos": "More informations"
-    }
+    },
+    "welcome": "Welcome to {company}",
+    "welcomeMessage": "Your trusted partner in cybersecurity solutions.",
+    "clients": "Trusted by more than 500 clients around the word.",
+    "ourServices": "Our cyber services",
+    "ourProducts": "Our products",
+    "learnMore": "View product",
+    "learnMoreCategory": "View all products"
   },
   "Auth": {
     "LoginPage": {

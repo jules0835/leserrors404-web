@@ -9,7 +9,10 @@ const nextConfig = {
     return config
   },
   images: {
-    domains: ["fimkppvxvt92ijit.public.blob.vercel-storage.com"],
+    domains: [
+      "fimkppvxvt92ijit.public.blob.vercel-storage.com",
+      "upload.wikimedia.org",
+    ],
   },
 }
 

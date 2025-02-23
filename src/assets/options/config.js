@@ -561,3 +561,46 @@ export const logCriticalityKeys = {
     icon: <Bug size={25} />,
   },
 }
+
+export const clientList = [
+  { name: "Cyna", logo: webAppSettings.images.logoUrl },
+  {
+    name: "Amazon",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png",
+  },
+  { name: "client1", logo: webAppSettings.images.logoUrl },
+  {
+    name: "samsung",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Samsung_wordmark.svg",
+  },
+  { name: "client1", logo: webAppSettings.images.logoUrl },
+  {
+    name: "bollore",
+    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/2/29/Logo_Bollore_2020.svg/2560px-Logo_Bollore_2020.svg.png",
+  },
+  { name: "client1", logo: webAppSettings.images.logoUrl },
+  {
+    name: "airbus",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Airbus_Logo_2017.svg/2560px-Airbus_Logo_2017.svg.png",
+  },
+  { name: "client1", logo: webAppSettings.images.logoUrl },
+  {
+    name: "ubereat",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Uber_Eats_2018_logo.svg/1280px-Uber_Eats_2018_logo.svg.png",
+  },
+  { name: "client1", logo: webAppSettings.images.logoUrl },
+  {
+    name: "playstation",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/5c/PlayStation_logo_and_wordmark.svg",
+  },
+  { name: "client1", logo: webAppSettings.images.logoUrl },
+  {
+    name: "playmobile",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Playmobil_logo.svg/1200px-Playmobil_logo.svg.png",
+  },
+  { name: "client1", logo: webAppSettings.images.logoUrl },
+  {
+    name: "netflix",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1200px-Netflix_2015_logo.svg.png",
+  },
+]
