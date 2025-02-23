@@ -1,7 +1,7 @@
 import { webAppSettings } from "@/assets/options/config"
 import DButton from "@/components/ui/DButton"
 import { checkResetToken } from "@/db/crud/userCrud"
-import ResetPassword from "@/features/auth/ResetPassword"
+import ResetPassword from "@/features/auth/resetPassword"
 import { Link } from "@/i18n/routing"
 import { ShieldX } from "lucide-react"
 import { getTranslations } from "next-intl/server"

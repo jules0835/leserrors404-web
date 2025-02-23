@@ -14,12 +14,15 @@ import { Link } from "@/i18n/routing"
 import Autoplay from "embla-carousel-autoplay"
 import { useState, useRef } from "react"
 import { useLocale, useTranslations } from "next-intl"
+import { motion } from "motion/react"
+import { useInView } from "react-intersection-observer"
 
 export default function HomeCarousel({ initialCarouselData }) {
   const [carouselData] = useState(JSON.parse(initialCarouselData))
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }))
   const t = useTranslations("HomePage")
   const locale = useLocale()
+  const { ref, inView } = useInView({ triggerOnce: true })
 
   if (!carouselData.carouselParts || carouselData.carouselParts.length === 0) {
     return null
@@ -28,8 +31,14 @@ export default function HomeCarousel({ initialCarouselData }) {
   const hasMultipleImages = carouselData.carouselParts.length > 1
 
   return (
-    <div className="w-full bg-indigo-600 flex justify-center">
-      <div className="max-w-screen-lg w-full">
+    <motion.div
+      ref={ref}
+      className="md:w-1/2 flex justify-center m-4 rounded-lg shadow-lg bg-white"
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 1, delay: 0.7 }}
+    >
+      <div className="w-full">
         <Carousel
           plugins={[plugin.current]}
           onMouseEnter={plugin.current.stop}
@@ -45,7 +54,7 @@ export default function HomeCarousel({ initialCarouselData }) {
                     alt={part.titleTrans[locale]}
                     layout="fill"
                     objectFit="cover"
-                    className="w-full h-full"
+                    className=""
                   />
                   {part.titleTrans[locale] && (
                     <div className="absolute right-0 top-1/2 transform -translate-y-1/2 m-4 p-6 bg-white rounded-lg shadow-lg">
@@ -74,10 +83,14 @@ export default function HomeCarousel({ initialCarouselData }) {
                 </CarouselItem>
               ))}
           </CarouselContent>
-          {hasMultipleImages && <CarouselPrevious />}
-          {hasMultipleImages && <CarouselNext />}
+          {hasMultipleImages && (
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 mb-4 flex space-x-4">
+              <CarouselPrevious />
+              <CarouselNext />
+            </div>
+          )}
         </Carousel>
       </div>
-    </div>
+    </motion.div>
   )
 }
