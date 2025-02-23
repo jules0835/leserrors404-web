@@ -6,6 +6,7 @@ import Image from "next/image"
 
 export default function HomeWelcome() {
   const t = useTranslations("HomePage")
+
   return (
     <div className="flex flex-col items-center justify-center md:w-1/2 md:mt-0 pt-8 pb-10">
       <motion.div
