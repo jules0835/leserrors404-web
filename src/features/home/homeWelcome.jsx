@@ -5,13 +5,22 @@ import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import animation from "@/assets/images/lockAnnimation.gif"
+import { TypeAnimation } from "react-type-animation"
+import { Link } from "@/i18n/routing"
 
-export default function HomeWelcome({ animationReverse }) {
+export default function HomeWelcome({ animationReverse, isLoggedIn }) {
   const t = useTranslations("HomePage")
   const [reverse, setReverse] = useState(false)
+  const wordsToSecure = [
+    t("business"),
+    t("data"),
+    t("privacy"),
+    t("customers"),
+    t("employees"),
+  ]
 
   useEffect(() => {
-    if (!animationReverse) {
+    if (!animationReverse || isLoggedIn) {
       return undefined
     }
 
@@ -20,11 +29,11 @@ export default function HomeWelcome({ animationReverse }) {
     }, 2000)
 
     return () => clearTimeout(timer)
-  }, [animationReverse])
+  }, [animationReverse, isLoggedIn])
 
   return (
     <div className="flex flex-col items-center justify-center md:w-1/2 md:pt-0 pb-10 pt-10">
-      {animationReverse && (
+      {animationReverse && !isLoggedIn && (
         <Image
           src={animation}
           alt="Cyna Animation"
@@ -44,14 +53,14 @@ export default function HomeWelcome({ animationReverse }) {
           <Image
             src={webAppSettings.images.logoNoTextUrl}
             alt="Cyna Logo"
-            width={110}
-            height={110}
-            className="rounded-full bg-white p-4 mb-8"
+            width={100}
+            height={100}
+            className="rounded-full bg-white p-4 mb-4"
           />
         </motion.div>
       )}
       <motion.h1
-        className="text-4xl font-bold text-center text-white "
+        className="text-5xl font-bold text-center text-white"
         initial={{ opacity: 0, y: -50 }}
         animate={reverse ? { opacity: 0, y: -50 } : { opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -60,9 +69,9 @@ export default function HomeWelcome({ animationReverse }) {
           ? t("welcome", { company: company.name })
           : `${company.name}`}
       </motion.h1>
-      {animationReverse && (
+      {animationReverse && !isLoggedIn && (
         <motion.p
-          className="mt-4 text-lg text-center text-white font-semibold"
+          className="mt-4 text-xl text-center text-white font-semibold"
           initial={{ opacity: 0, y: 50 }}
           animate={reverse ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -73,7 +82,7 @@ export default function HomeWelcome({ animationReverse }) {
       {!animationReverse && (
         <div>
           <motion.p
-            className="mt-4 text-lg text-center text-white"
+            className="mt-4 text-2xl text-center text-white"
             initial={{ opacity: 0, y: 50 }}
             animate={reverse ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -81,13 +90,41 @@ export default function HomeWelcome({ animationReverse }) {
             {t("welcomeMessage")}
           </motion.p>
           <motion.p
-            className="mt-4 text-lg text-center text-white md:mx-32 mx-5"
+            className="mt-1 text-xl text-center text-white md:mx-20 mx-5"
             initial={{ opacity: 0, y: 50 }}
             animate={reverse ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
           >
-            {t("welcomeMessageDescription")}
+            {t("welcomeMessageDescription")}{" "}
+            <TypeAnimation
+              sequence={wordsToSecure.flatMap((word) => [word, 2000])}
+              wrapper="span"
+              cursor={true}
+              className="text-xl font-bold text-white"
+              repeat={Infinity}
+            />
           </motion.p>
+          {!isLoggedIn && (
+            <motion.div
+              className="flex justify-center mt-8"
+              initial={{ opacity: 0, y: 50 }}
+              animate={reverse ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+            >
+              <Link
+                className="rounded-lg bg-white text-indigo-600 p-2 px-4 mr-4  hover:bg-gray-200"
+                href="/auth/register"
+              >
+                {t("register")}
+              </Link>
+              <Link
+                className="rounded-lg bg-indigo-800 text-white p-2 px-4 hover:bg-indigo-700"
+                href="/auth/login"
+              >
+                {t("login")}
+              </Link>
+            </motion.div>
+          )}
         </div>
       )}
     </div>
