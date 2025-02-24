@@ -10,6 +10,7 @@ export const salesfrontSchema = new Schema({
   createdBy: { type: Schema.Types.ObjectId, ref: "User" },
   updatedBy: { type: Schema.Types.ObjectId, ref: "User" },
   image: { type: String },
+  icon: { type: String },
   color: { type: String },
   isLayout: { type: Boolean, default: false },
   titleTrans: {

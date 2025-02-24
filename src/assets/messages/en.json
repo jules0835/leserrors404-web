@@ -12,8 +12,15 @@
     "ourProducts": "Our products",
     "learnMore": "View product",
     "learnMoreCategory": "View all products",
-    "welcomeMessageDescription": "        Join now more than 500 companies that trust us to secure their company and build a safe environment for their employees and customers.",
-    "welcomeMessageAnimation": "It's time to secure your future !"
+    "welcomeMessageDescription": "Join now more than 500 wordwild companies that trust us to secure their ",
+    "welcomeMessageAnimation": "It's time to secure your future !",
+    "register": "Register now",
+    "login": "Login",
+    "business": "business",
+    "data": "datas",
+    "privacy": "privacy",
+    "customers": "customers",
+    "employees": "employees"
   },
   "Auth": {
     "LoginPage": {

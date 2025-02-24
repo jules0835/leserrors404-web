@@ -24,7 +24,11 @@ export default function HomeCarousel({ initialCarouselData }) {
   const locale = useLocale()
   const { ref, inView } = useInView({ triggerOnce: true })
 
-  if (!carouselData.carouselParts || carouselData.carouselParts.length === 0) {
+  if (
+    !carouselData ||
+    !carouselData.carouselParts ||
+    carouselData.carouselParts.length === 0
+  ) {
     return null
   }
 
