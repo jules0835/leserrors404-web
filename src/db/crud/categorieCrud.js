@@ -1,6 +1,5 @@
 import { CategorieModel } from "@/db/models/CategorieModel"
 import { mwdb } from "@/api/mwdb"
-import { deletePublicPicture } from "@/utils/database/blobService"
 
 export const existingCategorie = async (label) => {
   await mwdb()
@@ -70,12 +69,6 @@ export const deleteCategorie = async (id) => {
 
     if (!Categorie) {
       return { success: false, message: "Categorie not found" }
-    }
-
-    const pictureUrl = Categorie.picture
-
-    if (pictureUrl) {
-      await deletePublicPicture(pictureUrl)
     }
 
     return { success: true, message: "Categorie deleted successfully" }

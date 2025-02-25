@@ -433,6 +433,8 @@
         },
         "Add": {
           "adding": "Adding",
+          "selectLanguage": "Select a language",
+          "language": "Language",
           "dialogDescription": "Fill the form to add a new category",
           "addingCategory": "Adding category",
           "dialogTitle": "Add a new category",
@@ -448,6 +450,8 @@
         },
         "Edit": {
           "update": "Update",
+          "selectLanguage": "Select a language",
+          "language": "Language",
           "updated": "Updated",
           "updating": "Updating",
           "errorUpdatingCategory": "Error updating category",
@@ -483,6 +487,10 @@
           "errorDeletingProduct": "Error deleting product"
         },
         "Add": {
+          "taxe": "Taxe",
+          "subscription": "Subscription",
+          "language": "Language",
+          "selectLanguage": "Select a language",
           "adding": "Adding",
           "dialogDescription": "Fill the form to add a new product",
           "addingProduct": "Adding product",
@@ -507,6 +515,8 @@
         },
         "Edit": {
           "update": "Update",
+          "language": "Language",
+          "selectLanguage": "Select a language",
           "updated": "Updated",
           "updating": "Updating",
           "errorUpdatingProduct": "Error updating product",

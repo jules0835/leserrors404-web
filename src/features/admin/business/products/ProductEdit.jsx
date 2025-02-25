@@ -21,36 +21,43 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { webAppSettings } from "@/assets/options/config"
 
+const languages = Object.keys(webAppSettings.translation.titles)
 const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
   const t = useTranslations("Admin.Business.Products")
   const [formData, setFormData] = useState({
-    label: "",
-    description: "",
-    characteristics: "",
+    label: { en: "" },
+    description: { en: "" },
+    characteristics: { en: "" },
     categorie: "",
     stock: "",
     price: "",
     priority: "",
     image: null,
     isActive: false,
+    taxe: "",
+    subscription: false,
   })
   const [categories, setCategories] = useState([])
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [selectedLanguage, setSelectedLanguage] = useState("en")
 
   useEffect(() => {
     if (editProduct) {
       setFormData({
-        label: editProduct.label,
-        description: editProduct.description,
-        characteristics: editProduct.characteristics,
+        label: JSON.parse(editProduct.label),
+        description: JSON.parse(editProduct.description),
+        characteristics: JSON.parse(editProduct.characteristics),
         categorie: editProduct.categorie,
         stock: editProduct.stock,
         price: editProduct.price,
         priority: editProduct.priority,
         image: null,
         isActive: editProduct.isActive,
+        taxe: editProduct.taxe,
+        subscription: editProduct.subscription,
       })
       setIsOpen(true)
     }
@@ -76,10 +83,20 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
         type === "file" ? files[0] : type === "checkbox" ? checked : value,
     }))
   }
-  const handleSwitchChange = (checked) => {
+  const handleTranslationChange = (e) => {
+    const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
-      isActive: checked,
+      [name]: {
+        ...prev[name],
+        [selectedLanguage]: value,
+      },
+    }))
+  }
+  const handleSwitchChange = (name, checked) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: checked,
     }))
   }
   const handleSubmit = async (e) => {
@@ -88,14 +105,16 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
     toast.loading(t("Edit.updating"))
 
     const data = new FormData()
-    data.append("label", formData.label)
-    data.append("description", formData.description)
-    data.append("characteristics", formData.characteristics)
+    data.append("label", JSON.stringify(formData.label))
+    data.append("description", JSON.stringify(formData.description))
+    data.append("characteristics", JSON.stringify(formData.characteristics))
     data.append("categorie", formData.categorie)
     data.append("stock", formData.stock)
     data.append("price", formData.price)
     data.append("priority", formData.priority)
     data.append("isActive", formData.isActive)
+    data.append("taxe", formData.taxe)
+    data.append("subscription", formData.subscription)
 
     if (formData.image) {
       data.append("image", formData.image)
@@ -136,6 +155,10 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
       setEditProduct(null)
     }
   }
+  const isLanguageFilled = (lang) =>
+    formData.label[lang] &&
+    formData.description[lang] &&
+    formData.characteristics[lang]
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
@@ -147,15 +170,44 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
 
         <form onSubmit={handleSubmit} className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="language" className="text-right">
+              {t("Edit.language")}
+            </Label>
+            <Select
+              id="language"
+              name="language"
+              value={selectedLanguage}
+              onValueChange={setSelectedLanguage}
+              className="col-span-3"
+            >
+              <SelectTrigger className="flex-1">
+                <SelectValue placeholder={t("Edit.selectLanguage")} />
+              </SelectTrigger>
+              <SelectContent>
+                {languages.map((lang) => (
+                  <SelectItem
+                    key={lang}
+                    value={lang}
+                    className={
+                      isLanguageFilled(lang) ? "text-green-500" : "text-red-500"
+                    }
+                  >
+                    {lang}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="label" className="text-right">
               {t("Add.label")}
             </Label>
             <Input
               id="label"
               name="label"
-              value={formData.label}
+              value={formData.label[selectedLanguage] || ""}
               className="col-span-3"
-              onChange={handleChange}
+              onChange={handleTranslationChange}
               required
             />
           </div>
@@ -166,9 +218,9 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
             <Textarea
               id="description"
               name="description"
-              value={formData.description}
+              value={formData.description[selectedLanguage] || ""}
               className="col-span-3 min-h-[100px]"
-              onChange={handleChange}
+              onChange={handleTranslationChange}
               required
             />
           </div>
@@ -179,9 +231,9 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
             <Textarea
               id="characteristics"
               name="characteristics"
-              value={formData.characteristics}
+              value={formData.characteristics[selectedLanguage] || ""}
               className="col-span-3 min-h-[100px]"
-              onChange={handleChange}
+              onChange={handleTranslationChange}
               required
             />
           </div>
@@ -273,7 +325,37 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
               id="isActive"
               name="isActive"
               checked={formData.isActive}
-              onCheckedChange={handleSwitchChange}
+              onCheckedChange={(checked) =>
+                handleSwitchChange("isActive", checked)
+              }
+              className="col-span-3"
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="taxe" className="text-right">
+              {t("Add.taxe")}
+            </Label>
+            <Input
+              id="taxe"
+              name="taxe"
+              type="number"
+              value={formData.taxe}
+              className="col-span-3"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="subscription" className="text-right">
+              {t("Add.subscription")}
+            </Label>
+            <Switch
+              id="subscription"
+              name="subscription"
+              checked={formData.subscription}
+              onCheckedChange={(checked) =>
+                handleSwitchChange("subscription", checked)
+              }
               className="col-span-3"
             />
           </div>

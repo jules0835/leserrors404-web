@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 "use client"
 import DataGridSkeleton from "@/components/skeleton/DataGridSkeleton"
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
@@ -24,7 +25,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { Input } from "@/components/ui/input"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { useState, useEffect } from "react"
 import {
   DropdownMenu,
@@ -37,6 +38,7 @@ import toast from "react-hot-toast"
 import { trimString } from "@/lib/utils"
 
 export default function ProductsList() {
+  const locale = useLocale()
   const t = useTranslations("Admin.Business.Products")
   const [page, setPage] = useState(1)
   const [products, setProducts] = useState([])
@@ -51,6 +53,8 @@ export default function ProductsList() {
     categorie: true,
     stock: true,
     price: true,
+    taxe: false,
+    subscription: false,
     priority: true,
     isActive: true,
     picture: true,
@@ -110,7 +114,22 @@ export default function ProductsList() {
   const getCategoryName = (categoryId) => {
     const category = categories.find((cat) => cat._id === categoryId)
 
-    return category ? category.label : ""
+    if (category) {
+      const label = JSON.parse(category.label)
+
+      return label[locale] || label.en || ""
+    }
+
+    return ""
+  }
+  const getLocalizedValue = (value) => {
+    try {
+      const parsedValue = JSON.parse(value)
+
+      return parsedValue[locale] || parsedValue.en || ""
+    } catch (err) {
+      return value
+    }
   }
   const columns = [
     {
@@ -140,7 +159,9 @@ export default function ProductsList() {
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="text-center">{row.getValue("label")}</div>
+        <div className="text-center">
+          {getLocalizedValue(row.getValue("label"))}
+        </div>
       ),
     },
     {
@@ -149,7 +170,7 @@ export default function ProductsList() {
       accessorKey: "description",
       cell: ({ row }) => (
         <div className="text-center">
-          {trimString(row.getValue("description"), 180)}
+          {trimString(getLocalizedValue(row.getValue("description")), 180)}
         </div>
       ),
     },
@@ -158,7 +179,7 @@ export default function ProductsList() {
       header: t("Add.characteristics"),
       cell: ({ row }) => (
         <div className="text-center">
-          {trimString(row.getValue("characteristics"), 180)}
+          {trimString(getLocalizedValue(row.getValue("characteristics")), 180)}
         </div>
       ),
     },
@@ -183,6 +204,20 @@ export default function ProductsList() {
       header: t("Add.price"),
       cell: ({ row }) => (
         <div className="text-center">{row.getValue("price")}</div>
+      ),
+    },
+    {
+      accessorKey: "taxe",
+      header: t("Add.taxe"),
+      cell: ({ row }) => (
+        <div className="text-center">{row.getValue("taxe")}</div>
+      ),
+    },
+    {
+      accessorKey: "subscription",
+      header: t("Add.subscription"),
+      cell: ({ row }) => (
+        <div className="text-center">{row.getValue("subscription")}</div>
       ),
     },
     {

@@ -24,7 +24,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { Input } from "@/components/ui/input"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { useState } from "react"
 import {
   DropdownMenu,
@@ -36,6 +36,7 @@ import toast from "react-hot-toast"
 import { trimString } from "@/lib/utils"
 
 export default function CategoriesList() {
+  const locale = useLocale()
   const t = useTranslations("Admin.Business.Categories")
   const [page, setPage] = useState(1)
   const [categories, setCategories] = useState([])
@@ -84,6 +85,15 @@ export default function CategoriesList() {
       toast.error(t("Delete.errorDeletingCategory"))
     }
   }
+  const getLocalizedValue = (value) => {
+    try {
+      const parsedValue = JSON.parse(value)
+
+      return parsedValue[locale] || parsedValue.en || ""
+    } catch (err) {
+      return value
+    }
+  }
   const columns = [
     {
       id: "picture",
@@ -112,7 +122,9 @@ export default function CategoriesList() {
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="text-center">{row.getValue("label")}</div>
+        <div className="text-center">
+          {getLocalizedValue(row.getValue("label"))}
+        </div>
       ),
     },
     {
@@ -121,7 +133,7 @@ export default function CategoriesList() {
       accessorKey: "description",
       cell: ({ row }) => (
         <div className="text-center">
-          {trimString(row.getValue("description"), 180)}
+          {trimString(getLocalizedValue(row.getValue("description")), 180)}
         </div>
       ),
     },

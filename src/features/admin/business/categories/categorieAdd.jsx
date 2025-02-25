@@ -11,15 +11,25 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import toast from "react-hot-toast"
+import { webAppSettings } from "@/assets/options/config"
 
+const languages = Object.keys(webAppSettings.translation.titles)
 const CategorieAdd = ({ setCategories = null }) => {
   const t = useTranslations("Admin.Business.Categories.Add")
+  const [selectedLanguage, setSelectedLanguage] = useState("en")
   const [formData, setFormData] = useState({
-    label: "",
-    description: "",
+    label: { en: "" },
+    description: { en: "" },
     image: null,
   })
   const [isOpen, setIsOpen] = useState(false)
@@ -31,14 +41,24 @@ const CategorieAdd = ({ setCategories = null }) => {
       [name]: type === "file" ? files[0] : value,
     }))
   }
+  const handleTranslationChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: {
+        ...prev[name],
+        [selectedLanguage]: value,
+      },
+    }))
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
-    toast.loading(t("Add.addingCategory"))
+    toast.loading(t("addingCategory"))
 
     const data = new FormData()
-    data.append("label", formData.label)
-    data.append("description", formData.description)
+    data.append("label", JSON.stringify(formData.label))
+    data.append("description", JSON.stringify(formData.description))
 
     if (formData.image) {
       data.append("image", formData.image)
@@ -57,8 +77,8 @@ const CategorieAdd = ({ setCategories = null }) => {
       }
 
       setFormData({
-        label: "",
-        description: "",
+        label: { en: "" },
+        description: { en: "" },
         image: null,
       })
       setIsOpen(false)
@@ -76,12 +96,14 @@ const CategorieAdd = ({ setCategories = null }) => {
 
     if (!open) {
       setFormData({
-        label: "",
-        description: "",
+        label: { en: "" },
+        description: { en: "" },
         image: null,
       })
     }
   }
+  const isLanguageFilled = (lang) =>
+    formData.label[lang] && formData.description[lang]
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
@@ -98,15 +120,44 @@ const CategorieAdd = ({ setCategories = null }) => {
 
         <form onSubmit={handleSubmit} className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="language" className="text-right">
+              {t("language")}
+            </Label>
+            <Select
+              id="language"
+              name="language"
+              value={selectedLanguage}
+              onValueChange={setSelectedLanguage}
+              className="col-span-3"
+            >
+              <SelectTrigger className="flex-1">
+                <SelectValue placeholder={t("selectLanguage")} />
+              </SelectTrigger>
+              <SelectContent>
+                {languages.map((lang) => (
+                  <SelectItem
+                    key={lang}
+                    value={lang}
+                    className={
+                      isLanguageFilled(lang) ? "text-green-500" : "text-red-500"
+                    }
+                  >
+                    {lang}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="label" className="text-right">
               {t("label")}
             </Label>
             <Input
               id="label"
               name="label"
-              value={formData.label}
+              value={formData.label[selectedLanguage] || ""}
               className="col-span-3"
-              onChange={handleChange}
+              onChange={handleTranslationChange}
               required
             />
           </div>
@@ -117,9 +168,9 @@ const CategorieAdd = ({ setCategories = null }) => {
             <Textarea
               id="description"
               name="description"
-              value={formData.description}
+              value={formData.description[selectedLanguage] || ""}
               className="col-span-3 min-h-[100px] border-2 rounded-md p-2"
-              onChange={handleChange}
+              onChange={handleTranslationChange}
               required
             />
           </div>

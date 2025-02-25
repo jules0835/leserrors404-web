@@ -18,9 +18,9 @@ export const findProduct = async (query) => {
   return Product
 }
 
-export const createProduct = async (Product) => {
+export const createProduct = async (product) => {
   await mwdb()
-  const newProduct = await ProductModel.create(Product)
+  const newProduct = await ProductModel.create(product)
 
   return newProduct
 }
@@ -52,11 +52,11 @@ export const updateProduct = async (id, data) => {
   await mwdb()
 
   try {
-    const Product = await ProductModel.findOneAndUpdate({ _id: id }, data, {
+    const product = await ProductModel.findOneAndUpdate({ _id: id }, data, {
       new: true,
     })
 
-    return Product
+    return product
   } catch (error) {
     return null
   }
@@ -66,13 +66,13 @@ export const deleteProduct = async (id) => {
   await mwdb()
 
   try {
-    const Product = await ProductModel.findOneAndDelete({ _id: id })
+    const product = await ProductModel.findOneAndDelete({ _id: id })
 
-    if (!Product) {
+    if (!product) {
       return { success: false, message: "Product not found" }
     }
 
-    const pictureUrl = Product.picture
+    const pictureUrl = product.picture
 
     if (pictureUrl) {
       await deletePublicPicture(pictureUrl)
@@ -80,6 +80,6 @@ export const deleteProduct = async (id) => {
 
     return { success: true, message: "Product deleted successfully" }
   } catch (error) {
-    return { success: false, message: "Failed to delete Product" }
+    return { success: false, message: "Failed to delete product" }
   }
 }

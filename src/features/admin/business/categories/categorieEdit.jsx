@@ -10,27 +10,38 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import toast from "react-hot-toast"
+import { webAppSettings } from "@/assets/options/config"
 import { Textarea } from "@/components/ui/textarea"
 
+const languages = Object.keys(webAppSettings.translation.titles)
 const CategorieEdit = ({ setCategories, editCategory, setEditCategory }) => {
   const t = useTranslations("Admin.Business.Categories")
+  const [selectedLanguage, setSelectedLanguage] = useState("en")
   const [formData, setFormData] = useState({
-    label: "",
-    description: "",
-    isActive: false,
+    label: { en: "" },
+    description: { en: "" },
     image: null,
   })
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const isLanguageFilled = (lang) =>
+    formData.label[lang] && formData.description[lang]
 
   useEffect(() => {
     if (editCategory) {
       setFormData({
-        label: editCategory.label,
-        description: editCategory.description,
+        label: JSON.parse(editCategory.label),
+        description: JSON.parse(editCategory.description),
         isActive: editCategory.isActive,
         image: null,
       })
@@ -47,6 +58,16 @@ const CategorieEdit = ({ setCategories, editCategory, setEditCategory }) => {
         type === "file" ? files[0] : type === "checkbox" ? checked : value,
     }))
   }
+  const handleTranslationChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: {
+        ...prev[name],
+        [selectedLanguage]: value,
+      },
+    }))
+  }
   const handleSwitchChange = (checked) => {
     setFormData((prev) => ({
       ...prev,
@@ -59,8 +80,8 @@ const CategorieEdit = ({ setCategories, editCategory, setEditCategory }) => {
     toast.loading(t("Edit.updating"))
 
     const data = new FormData()
-    data.append("label", formData.label)
-    data.append("description", formData.description)
+    data.append("label", JSON.stringify(formData.label))
+    data.append("description", JSON.stringify(formData.description))
     data.append("isActive", formData.isActive)
 
     if (formData.image) {
@@ -113,15 +134,44 @@ const CategorieEdit = ({ setCategories, editCategory, setEditCategory }) => {
 
         <form onSubmit={handleSubmit} className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="language" className="text-right">
+              {t("Edit.language")}
+            </Label>
+            <Select
+              id="language"
+              name="language"
+              value={selectedLanguage}
+              onValueChange={setSelectedLanguage}
+              className="col-span-3"
+            >
+              <SelectTrigger className="flex-1">
+                <SelectValue placeholder={t("Edit.selectLanguage")} />
+              </SelectTrigger>
+              <SelectContent>
+                {languages.map((lang) => (
+                  <SelectItem
+                    key={lang}
+                    value={lang}
+                    className={
+                      isLanguageFilled(lang) ? "text-green-500" : "text-red-500"
+                    }
+                  >
+                    {lang}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="label" className="text-right">
               {t("Add.label")}
             </Label>
             <Input
               id="label"
               name="label"
-              value={formData.label}
+              value={formData.label[selectedLanguage] || ""}
               className="col-span-3"
-              onChange={handleChange}
+              onChange={handleTranslationChange}
               required
             />
           </div>
@@ -132,9 +182,9 @@ const CategorieEdit = ({ setCategories, editCategory, setEditCategory }) => {
             <Textarea
               id="description"
               name="description"
-              value={formData.description}
+              value={formData.description[selectedLanguage] || ""}
               className="col-span-3 min-h-[100px]"
-              onChange={handleChange}
+              onChange={handleTranslationChange}
               required
             />
           </div>
