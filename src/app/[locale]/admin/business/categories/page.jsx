@@ -1,3 +1,9 @@
+import CategoriesList from "@/features/admin/business/categories/CategoriesList"
+
 export default function Categories() {
-  return <div>Categories</div>
+  return (
+    <div>
+      <CategoriesList />
+    </div>
+  )
 }

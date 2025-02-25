@@ -1,5 +1,6 @@
 import { put } from "@vercel/blob"
 
+
 export async function uploadPublicPicture(file) {
   if (!file) {
     throw new Error("No file provided for upload")
