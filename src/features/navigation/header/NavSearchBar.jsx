@@ -7,6 +7,7 @@ import ListSkeleton from "@/components/skeleton/ListSkeleton"
 import { useLocale, useTranslations } from "next-intl"
 import { trimString } from "@/lib/utils"
 import axios from "axios"
+import { webAppSettings } from "@/assets/options/config"
 
 export default function NavSearchBar() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -94,7 +95,12 @@ export default function NavSearchBar() {
                 }`}
                 onClick={() => handleItemClick(product._id, "product")}
               >
-                {indPrd + 1} - {trimString(product.label[locale], 50)}
+                {indPrd + 1} -{" "}
+                {trimString(
+                  product.label[locale] ??
+                    product.label[webAppSettings.translation.defaultLocale],
+                  50
+                )}
               </li>
             ))}
           </ul>
@@ -114,7 +120,12 @@ export default function NavSearchBar() {
                 }`}
                 onClick={() => handleItemClick(category._id, "category")}
               >
-                {indCat + 1} - {trimString(category.label[locale], 50)}
+                {indCat + 1} -{" "}
+                {trimString(
+                  category.label[locale] ??
+                    category.label[webAppSettings.translation.defaultLocale],
+                  50
+                )}
               </li>
             ))}
           </ul>
