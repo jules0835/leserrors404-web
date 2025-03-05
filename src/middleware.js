@@ -56,8 +56,9 @@ export default function middleware(req) {
   )
   const isAuthApi = currentPath.startsWith("/api/auth/")
   const isTestApi = currentPath.startsWith("/api/test/")
+  const isShopApi = currentPath.includes("/api/shop/")
 
-  if (isProtected && !isUnprotectedApi) {
+  if (isProtected && !isUnprotectedApi && !isShopApi) {
     return authMiddleware(req)
   }
 
