@@ -13,22 +13,18 @@ export const metadata = {
   },
 }
 
-export default async function RootLayout({ children, params: { locale } }) {
+export default async function RootLayout({ children }) {
   const messages = await getMessages()
 
   return (
-    <html lang={locale}>
-      <body className="antialiased overscroll-none bg-[#2F1F80]">
-        <SessionProvider>
-          <NextIntlClientProvider messages={messages}>
-            <div>
-              <Toaster position="top-right" />
-            </div>
-            <Header />
-            <div className="bg-gray-100">{children}</div>
-          </NextIntlClientProvider>
-        </SessionProvider>
-      </body>
-    </html>
+    <SessionProvider>
+      <NextIntlClientProvider messages={messages}>
+        <div>
+          <Toaster position="top-right" />
+        </div>
+        <Header />
+        <div className="bg-gray-100">{children}</div>
+      </NextIntlClientProvider>
+    </SessionProvider>
   )
 }

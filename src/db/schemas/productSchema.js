@@ -7,12 +7,11 @@ export const productSchema = new Schema({
   categorie: { type: Schema.Types.ObjectId, ref: "Categorie" },
   stock: { type: Number, default: 0, required: true },
   price: { type: Number, default: 0, required: true },
-  taxe: { type: Number, default: 0.20, required: true },
+  taxe: { type: Number, default: 0.2, required: true },
   subscription: { type: Boolean, default: false, required: true },
   priority: { type: Number, default: 0 },
   similarProducts: [{ type: Schema.Types.ObjectId, ref: "Product" }],
-  isActive: {
-    type: Boolean, default: true, required: true
-  },
+  isActive: { type: Boolean, default: true, required: true },
   picture: { type: String },
+  __v: { type: Number, default: 0 },
 })

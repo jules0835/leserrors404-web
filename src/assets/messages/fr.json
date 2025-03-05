@@ -11,12 +11,129 @@
         "title": "Paiements"
       },
       "Products": {
-        "title": "Produits"
+        "title": "Produits",
+        "Add": {
+          "Stock": "Action",
+          "add": "Ajouter",
+          "adding": "Ajout",
+          "addingProduct": "Ajout de produit",
+          "categorie": "Catégoriser",
+          "characteristics": "Caractéristiques",
+          "description": "Description",
+          "dialogDescription": "Remplissez le formulaire pour ajouter un nouveau produit",
+          "dialogTitle": "Ajouter un nouveau produit",
+          "errorAddingProduct": "Erreur d'ajout de produit",
+          "imagePlaceholder": "Choisissez un fichier image",
+          "isActive": "Actif",
+          "label": "Nom",
+          "language": "Langue",
+          "picture": "Image",
+          "price": "Prix",
+          "priority": "Priorité",
+          "productAdded": "Produit ajouté",
+          "selectCategorie": "Sélectionnez une catégorie",
+          "selectLanguage": "Sélectionnez une langue",
+          "selectPriority": "Sélectionnez une priorité",
+          "stock": "Action",
+          "subscription": "Abonnement",
+          "taxe": "Taxer",
+          "technicalCaracteristics": "Caractéristiques techniques"
+        },
+        "Delete": {
+          "deletingProduct": "Suppression du produit",
+          "errorDeletingProduct": "Erreur de suppression du produit",
+          "productDeleted": "Produit supprimé"
+        },
+        "Edit": {
+          "dialogDescription": "Remplissez le formulaire pour modifier le produit",
+          "dialogTitle": "Modifier le produit",
+          "errorUpdatingProduct": "Produit de mise à jour d'erreur",
+          "language": "Langue",
+          "selectLanguage": "Sélectionnez une langue",
+          "update": "Mise à jour",
+          "updated": "Mis à jour",
+          "updating": "Mise à jour"
+        },
+        "Errors": {
+          "descriptionRequired": "Description est requise",
+          "labelRequired": "Le nom est requis",
+          "pictureRequired": "Une image est requise"
+        },
+        "More": {
+          "deleteProduct": "Supprimer le produit",
+          "editProduct": "Modifier le produit",
+          "viewProduct": "Afficher le produit"
+        },
+        "columns": "Colonnes",
+        "errorLoadingData": "Erreur de chargement des données.",
+        "isActive": "Actif",
+        "next": "Suivant",
+        "no": "Non",
+        "noResults": "Aucun résultat",
+        "previous": "Précédent",
+        "searchPlaceholder": "Recherche...",
+        "subTitle": "Gérer les produits",
+        "yes": "Oui"
       },
       "Subscriptions": {
         "title": "Abonnements"
       },
-      "title": "Entreprise"
+      "title": "Entreprise",
+      "Categories": {
+        "Add": {
+          "Stock": "Action",
+          "add": "Ajouter",
+          "adding": "Ajout",
+          "addingCategory": "Ajout de catégorie",
+          "categoryAdded": "Catégorie ajoutée",
+          "description": "Description",
+          "dialogDescription": "Remplissez le formulaire pour ajouter une nouvelle catégorie",
+          "dialogTitle": "Ajouter une nouvelle catégorie",
+          "errorAddingCategory": "Erreur d'ajout de catégorie",
+          "imagePlaceholder": "Choisissez un fichier image",
+          "isActive": "Actif",
+          "label": "Nom",
+          "language": "Langue",
+          "picture": "Image",
+          "selectLanguage": "Sélectionnez une langue"
+        },
+        "Delete": {
+          "categoryDeleted": "Catégorie supprimée",
+          "deletingCategory": "Suppression de catégorie",
+          "errorDeletingCategory": "Catégorie de suppression d'erreur"
+        },
+        "Edit": {
+          "dialogDescription": "Remplissez le formulaire pour modifier la catégorie",
+          "dialogTitle": "Modifier la catégorie",
+          "errorUpdatingCategory": "Catégorie de mise à jour d'erreur",
+          "language": "Langue",
+          "selectLanguage": "Sélectionnez une langue",
+          "update": "Mise à jour",
+          "updated": "Mis à jour",
+          "updating": "Mise à jour"
+        },
+        "Errors": {
+          "descriptionRequired": "Description est requise",
+          "labelRequired": "Le nom est requis",
+          "pictureRequired": "Une image est requise"
+        },
+        "More": {
+          "deleteCategory": "Supprimer la catégorie",
+          "editCategory": "Modifier la catégorie",
+          "viewCategory": "Catégorie de vue"
+        },
+        "columns": "Colonnes",
+        "errorLoadingData": "Erreur de chargement des données.",
+        "isActive": "Actif",
+        "next": "Suivant",
+        "no": "Non",
+        "noResults": "Aucun résultat",
+        "previous": "Précédent",
+        "searchPlaceholder": "Recherche...",
+        "subTitle": "Gérer les catégories",
+        "title": "Catégories",
+        "yes": "Oui"
+      }
     },
     "SalesFront": {
       "HomePage": {
@@ -695,5 +812,20 @@
     "yourDashboard": "Votre tableau de bord"
   },
   "resetPasswordEmailSubject": "Cyna - Reposez votre mot de passe",
-  "socialMedia": "Réseaux sociaux"
+  "socialMedia": "Réseaux sociaux",
+  "ProductCard": {
+    "seeMore": "Voir plus"
+  },
+  "NavSearchBar": {
+    "categories": "Catégories",
+    "error": "Erreur lors de la recherche de produits",
+    "noCategoriesFound": "Pas de catégories",
+    "noResults": "Aucun produit trouvé pour {searchterm}",
+    "products": "Produits"
+  },
+  "ProductPage": {
+    "error": "Une erreur s'est produite tout en récupérant les produits, veuillez essayer",
+    "searchResultsFor": "Résultats pour",
+    "title": "Nos produits"
+  }
 }

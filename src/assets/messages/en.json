@@ -812,5 +812,20 @@
     "profile": "Profile",
     "needHelp": "Need Help"
   },
-  "resetPasswordEmailSubject": "Cyna - rest your password"
+  "resetPasswordEmailSubject": "Cyna - rest your password",
+  "ProductCard": {
+    "seeMore": "See more"
+  },
+  "ProductPage": {
+    "title": "Our products",
+    "error": "An error occurred while fetching products, please try angain",
+    "searchResultsFor": "Results for"
+  },
+  "NavSearchBar": {
+    "categories": "Categories",
+    "products": "Products",
+    "noCategoriesFound": "No categories",
+    "noResults": "No product found for {searchTerm}",
+    "error": "Error while searching for products"
+  }
 }

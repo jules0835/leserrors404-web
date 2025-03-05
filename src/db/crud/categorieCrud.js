@@ -29,12 +29,12 @@ export const getCategories = async (size = 10, page = 1, query = "") => {
     await mwdb()
     const searchQuery = query
       ? {
-        $or: [
-          { label: { $regex: query, $options: "i" } },
-          { description: { $regex: query, $options: "i" } },
-          { picture: { $regex: query, $options: "i" } },
-        ],
-      }
+          $or: [
+            { label: { $regex: query, $options: "i" } },
+            { description: { $regex: query, $options: "i" } },
+            { picture: { $regex: query, $options: "i" } },
+          ],
+        }
       : {}
     const total = await CategorieModel.countDocuments(searchQuery)
     const Categories = await CategorieModel.find(searchQuery)

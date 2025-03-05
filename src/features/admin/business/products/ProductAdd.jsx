@@ -100,10 +100,12 @@ const ProductAdd = ({ setProducts }) => {
     data.append("label", JSON.stringify(formData.label))
     data.append("description", JSON.stringify(formData.description))
     data.append("characteristics", JSON.stringify(formData.characteristics))
-    data.append("categorie", formData.categorie)
-    data.append("stock", formData.stock)
-    data.append("price", formData.price)
-    data.append("priority", formData.priority)
+    data.append("categorie", JSON.stringify(formData.categorie))
+    data.append("stock", JSON.stringify(formData.stock))
+    data.append("price", JSON.stringify(formData.price))
+    data.append("priority", JSON.stringify(formData.priority))
+    data.append("taxe", JSON.stringify(formData.taxe))
+    data.append("subscription", JSON.stringify(formData.subscription))
 
     if (formData.image) {
       data.append("image", formData.image)

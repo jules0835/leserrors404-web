@@ -86,13 +86,11 @@ export default function CategoriesList() {
     }
   }
   const getLocalizedValue = (value) => {
-    try {
-      const parsedValue = JSON.parse(value)
-
-      return parsedValue[locale] || parsedValue.en || ""
-    } catch (err) {
-      return value
+    if (typeof value === "object" && value !== null) {
+      return value[locale] || value.en || ""
     }
+
+    return value
   }
   const columns = [
     {
