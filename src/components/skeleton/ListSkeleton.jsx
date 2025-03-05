@@ -5,19 +5,19 @@ export default function ListSkeleton({
   px = 4,
   parts = 1,
   height = 4,
-  gapY = 8,
+  mt = 4,
 }) {
   return (
     <div className={`w-full`}>
       {Array.from({ length: rows }).map((_, rowIndex) => (
         <div
           key={rowIndex}
-          className={`flex items-center mt-10 space-x-${px} w-full`}
+          className={`flex items-center mt-${mt} w-full px-${px} mb-4`}
         >
           {Array.from({ length: parts }).map((__, cellIndex) => (
             <Skeleton
               key={cellIndex}
-              className={`h-${height} rounded-sm w-full my-${gapY}`}
+              className={`h-${height} rounded-sm w-full `}
             />
           ))}
         </div>

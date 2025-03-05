@@ -13,7 +13,14 @@
     "welcome": "Benvenuti in {company}",
     "welcomeMessage": "Il tuo partner di fiducia nelle soluzioni di sicurezza informatica.",
     "welcomeMessageAnimation": "È ora di proteggere il tuo futuro!",
-    "welcomeMessageDescription": "Unisciti ora a più di 500 aziende che si fidano di noi per proteggere la propria azienda e costruire un ambiente sicuro per i propri dipendenti e clienti."
+    "welcomeMessageDescription": "Unisciti ora a più di 500 aziende che si fidano di noi per proteggere la propria azienda e costruire un ambiente sicuro per i propri dipendenti e clienti.",
+    "business": "Attività commerciale",
+    "customers": "clienti",
+    "data": "dati",
+    "employees": "dipendenti",
+    "login": "Login",
+    "privacy": "Privacy",
+    "register": "Registrati ora"
   },
   "Auth": {
     "LoginPage": {
@@ -198,12 +205,129 @@
         "title": "Pagamenti"
       },
       "Products": {
-        "title": "Prodotti"
+        "title": "Prodotti",
+        "Add": {
+          "Stock": "Azione",
+          "add": "Aggiungere",
+          "adding": "Aggiunta",
+          "addingProduct": "Aggiunta di prodotto",
+          "categorie": "Categorie",
+          "characteristics": "Caratteristiche",
+          "description": "Descrizione",
+          "dialogDescription": "Compilare il modulo per aggiungere un nuovo prodotto",
+          "dialogTitle": "Aggiungi un nuovo prodotto",
+          "errorAddingProduct": "Errore che aggiunge il prodotto",
+          "imagePlaceholder": "Scegli un file di immagine",
+          "isActive": "Attivo",
+          "label": "Nome",
+          "language": "Lingua",
+          "picture": "Immagine",
+          "price": "Prezzo",
+          "priority": "Priorità",
+          "productAdded": "Prodotto aggiunto",
+          "selectCategorie": "Seleziona una categoria",
+          "selectLanguage": "Seleziona una lingua",
+          "selectPriority": "Seleziona una priorità",
+          "stock": "Azione",
+          "subscription": "Sottoscrizione",
+          "taxe": "Taxe",
+          "technicalCaracteristics": "Caracteristiche tecniche"
+        },
+        "Delete": {
+          "deletingProduct": "Eliminazione del prodotto",
+          "errorDeletingProduct": "Errore eliminazione del prodotto",
+          "productDeleted": "Prodotto eliminato"
+        },
+        "Edit": {
+          "dialogDescription": "Compilare il modulo per modificare il prodotto",
+          "dialogTitle": "Modifica il prodotto",
+          "errorUpdatingProduct": "Errore di aggiornamento del prodotto",
+          "language": "Lingua",
+          "selectLanguage": "Seleziona una lingua",
+          "update": "Aggiornamento",
+          "updated": "Aggiornato",
+          "updating": "Aggiornamento"
+        },
+        "Errors": {
+          "descriptionRequired": "È richiesta una descrizione",
+          "labelRequired": "È richiesto il nome",
+          "pictureRequired": "È richiesta l'immagine"
+        },
+        "More": {
+          "deleteProduct": "Elimina il prodotto",
+          "editProduct": "Modifica il prodotto",
+          "viewProduct": "Visualizza il prodotto"
+        },
+        "columns": "Colonne",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "isActive": "Attivo",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato",
+        "previous": "Precedente",
+        "searchPlaceholder": "Ricerca...",
+        "subTitle": "Gestire i prodotti",
+        "yes": "SÌ"
       },
       "Subscriptions": {
         "title": "Abbonamenti"
       },
-      "title": "Attività commerciale"
+      "title": "Attività commerciale",
+      "Categories": {
+        "Add": {
+          "Stock": "Azione",
+          "add": "Aggiungere",
+          "adding": "Aggiunta",
+          "addingCategory": "Aggiunta di categoria",
+          "categoryAdded": "Categoria aggiunta",
+          "description": "Descrizione",
+          "dialogDescription": "Compila il modulo per aggiungere una nuova categoria",
+          "dialogTitle": "Aggiungi una nuova categoria",
+          "errorAddingCategory": "Errore di aggiunta di categoria",
+          "imagePlaceholder": "Scegli un file di immagine",
+          "isActive": "Attivo",
+          "label": "Nome",
+          "language": "Lingua",
+          "picture": "Immagine",
+          "selectLanguage": "Seleziona una lingua"
+        },
+        "Delete": {
+          "categoryDeleted": "Categoria cancellata",
+          "deletingCategory": "Categoria di eliminazione",
+          "errorDeletingCategory": "Categoria di eliminazione degli errori"
+        },
+        "Edit": {
+          "dialogDescription": "Compilare il modulo per modificare la categoria",
+          "dialogTitle": "Modifica categoria",
+          "errorUpdatingCategory": "Errore di aggiornamento della categoria",
+          "language": "Lingua",
+          "selectLanguage": "Seleziona una lingua",
+          "update": "Aggiornamento",
+          "updated": "Aggiornato",
+          "updating": "Aggiornamento"
+        },
+        "Errors": {
+          "descriptionRequired": "È richiesta una descrizione",
+          "labelRequired": "È richiesto il nome",
+          "pictureRequired": "È richiesta l'immagine"
+        },
+        "More": {
+          "deleteCategory": "Elimina categoria",
+          "editCategory": "Modifica categoria",
+          "viewCategory": "Visualizza categoria"
+        },
+        "columns": "Colonne",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "isActive": "Attivo",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato",
+        "previous": "Precedente",
+        "searchPlaceholder": "Ricerca...",
+        "subTitle": "Gestisci categorie",
+        "title": "Categorie",
+        "yes": "SÌ"
+      }
     },
     "Security": {
       "Logs": {
@@ -688,5 +812,20 @@
     "usersAdmin": "Amministratore degli utenti",
     "yourDashboard": "La tua dashboard"
   },
-  "resetPasswordEmailSubject": "Cyna - riposa la password"
+  "resetPasswordEmailSubject": "Cyna - riposa la password",
+  "NavSearchBar": {
+    "categories": "Categorie",
+    "error": "Errore durante la ricerca di prodotti",
+    "noCategoriesFound": "Nessuna categorie",
+    "noResults": "Nessun prodotto trovato per {SearchTerm}",
+    "products": "Prodotti"
+  },
+  "ProductCard": {
+    "seeMore": "Vedere di più"
+  },
+  "ProductPage": {
+    "error": "Si è verificato un errore durante il recupero di prodotti, prova ad Angain",
+    "searchResultsFor": "Risultati per",
+    "title": "I nostri prodotti"
+  }
 }

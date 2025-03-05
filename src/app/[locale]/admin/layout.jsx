@@ -8,7 +8,6 @@ import {
   returnPageSubTitleTranslation,
 } from "@/lib/utils"
 import { usePathname } from "next/navigation"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 export default function AdminLayout({ children }) {
   const t = useTranslations("")
@@ -16,25 +15,23 @@ export default function AdminLayout({ children }) {
 
   return (
     <div className=" overflow-y-scroll">
-      <QueryClientProvider client={new QueryClient()}>
-        <SidebarProvider>
-          <AdminSideNavbar />
-          <SidebarInset>
-            <AdminTopNavbar />
-            <div className="mx-7 my-2">
-              <div>
-                <h1 className="text-2xl font-semibold">
-                  {t(returnPageTitleTranslation(pathname))}
-                </h1>
-                <p className="text-sm text-muted-foreground">
-                  {t(returnPageSubTitleTranslation(pathname))}
-                </p>
-              </div>
-              <div className="mt-5">{children}</div>
+      <SidebarProvider>
+        <AdminSideNavbar />
+        <SidebarInset>
+          <AdminTopNavbar />
+          <div className="mx-7 my-2">
+            <div>
+              <h1 className="text-2xl font-semibold">
+                {t(returnPageTitleTranslation(pathname))}
+              </h1>
+              <p className="text-sm text-muted-foreground">
+                {t(returnPageSubTitleTranslation(pathname))}
+              </p>
             </div>
-          </SidebarInset>
-        </SidebarProvider>
-      </QueryClientProvider>
+            <div className="mt-5">{children}</div>
+          </div>
+        </SidebarInset>
+      </SidebarProvider>
     </div>
   )
 }

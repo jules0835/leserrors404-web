@@ -57,5 +57,9 @@ export async function getHomeCarouselData() {
 }
 
 export function trimString(string, length) {
+  if (string === null || string === undefined) {
+    return string
+  }
+
   return string.length > length ? `${string.substring(0, length)}...` : string
 }

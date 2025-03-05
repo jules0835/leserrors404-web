@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import { useState, useEffect } from "react"
 import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
@@ -47,9 +48,9 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
   useEffect(() => {
     if (editProduct) {
       setFormData({
-        label: JSON.parse(editProduct.label),
-        description: JSON.parse(editProduct.description),
-        characteristics: JSON.parse(editProduct.characteristics),
+        label: editProduct.label,
+        description: editProduct.description,
+        characteristics: editProduct.characteristics,
         categorie: editProduct.categorie,
         stock: editProduct.stock,
         price: editProduct.price,
@@ -108,13 +109,13 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
     data.append("label", JSON.stringify(formData.label))
     data.append("description", JSON.stringify(formData.description))
     data.append("characteristics", JSON.stringify(formData.characteristics))
-    data.append("categorie", formData.categorie)
-    data.append("stock", formData.stock)
-    data.append("price", formData.price)
-    data.append("priority", formData.priority)
-    data.append("isActive", formData.isActive)
-    data.append("taxe", formData.taxe)
-    data.append("subscription", formData.subscription)
+    data.append("categorie", JSON.stringify(formData.categorie))
+    data.append("stock", JSON.stringify(formData.stock))
+    data.append("price", JSON.stringify(formData.price))
+    data.append("priority", JSON.stringify(formData.priority))
+    data.append("isActive", JSON.stringify(formData.isActive))
+    data.append("taxe", JSON.stringify(formData.taxe))
+    data.append("subscription", JSON.stringify(formData.subscription))
 
     if (formData.image) {
       data.append("image", formData.image)
@@ -257,7 +258,7 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
                 <SelectContent>
                   {categories.map((category) => (
                     <SelectItem key={category._id} value={category._id}>
-                      {category.label}
+                      {category.label[selectedLanguage] || category.label.en}
                     </SelectItem>
                   ))}
                 </SelectContent>

@@ -3,7 +3,7 @@
 import DataGridSkeleton from "@/components/skeleton/DataGridSkeleton"
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 import { useQuery } from "@tanstack/react-query"
-import ProductAdd from "@/features/admin/business/products/productAdd"
+import ProductAdd from "@/features/admin/business/products/ProductAdd"
 import ProductEdit from "@/features/admin/business/products/ProductEdit"
 import { Button } from "@/components/ui/button"
 import * as React from "react"
@@ -112,10 +112,10 @@ export default function ProductsList() {
     }
   }
   const getCategoryName = (categoryId) => {
-    const category = categories.find((cat) => cat._id === categoryId)
+    const category = categories.find((cat) => cat._id.$oid === categoryId.$oid)
 
     if (category) {
-      const label = JSON.parse(category.label)
+      const { label } = category
 
       return label[locale] || label.en || ""
     }
@@ -123,13 +123,11 @@ export default function ProductsList() {
     return ""
   }
   const getLocalizedValue = (value) => {
-    try {
-      const parsedValue = JSON.parse(value)
-
-      return parsedValue[locale] || parsedValue.en || ""
-    } catch (err) {
-      return value
+    if (typeof value === "object" && value !== null) {
+      return value[locale] || value.en || ""
     }
+
+    return value
   }
   const columns = [
     {

@@ -52,12 +52,13 @@ export default function HomeCarousel({ initialCarouselData }) {
             {carouselData &&
               carouselData.carouselParts?.length > 0 &&
               carouselData.carouselParts.map((part) => (
-                <CarouselItem key={part._id} className="relative">
+                <CarouselItem key={part._id} className="relative h-96">
                   <Image
                     src={part.image || "/default_large.png"}
+                    className="object-cover w-full h-full"
                     alt={part.titleTrans[locale]}
-                    layout="fill"
-                    objectFit="cover"
+                    width={1920}
+                    height={1080}
                   />
                   {part.titleTrans[locale] && (
                     <div className="absolute right-0 top-1/2 transform -translate-y-1/2 m-4 p-6 bg-white rounded-lg shadow-lg">
