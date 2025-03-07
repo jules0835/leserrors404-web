@@ -54,7 +54,7 @@ export default function NavSearchBar() {
   return (
     <div
       ref={ref}
-      className="relative w-full md:w-auto md:absolute md:left-1/2 md:transform md:-translate-x-1/2 mb-4 md:mb-0 transition-all"
+      className="relative w-full md:w-auto md:absolute md:left-1/2 md:transform md:-translate-x-1/2 mb-4 md:mb-0 transition-all z-30"
     >
       <form
         onSubmit={handleSearch}
@@ -75,12 +75,12 @@ export default function NavSearchBar() {
         </button>
       </form>
       {isOpen && debouncedSearchTerm && (
-        <div className="absolute bg-white shadow-lg rounded-b-xl w-full md:w-[500px] border-t-2 border-[#7059e7]">
+        <div className="absolute bg-white shadow-lg rounded-b-xl w-full md:w-[500px] border-t-2 border-[#7059e7] z-30">
           {!isLoading && error && (
             <div className="p-4 text-red-500">{t("error")}</div>
           )}
           <div className="p-2 text-gray-700 font-bold">{t("products")}</div>
-          {isLoading && <ListSkeleton rows={3} px={4} />}
+          {isLoading && <ListSkeleton rows={1} />}
           {!isLoading && !error && data?.products.length === 0 && (
             <div className="px-4 py-2 text-gray-500">
               {t("noResults", { searchTerm: debouncedSearchTerm })}
@@ -105,7 +105,7 @@ export default function NavSearchBar() {
             ))}
           </ul>
           <div className="p-2 text-gray-700 font-bold">{t("categories")}</div>
-          {isLoading && <ListSkeleton rows={2} />}
+          {isLoading && <ListSkeleton rows={1} />}
           {!isLoading && !error && data?.categories.length === 0 && (
             <div className="px-4 py-2 text-gray-500">
               {t("noCategoriesFound")}

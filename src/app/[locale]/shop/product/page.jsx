@@ -6,19 +6,16 @@ import ProductCard from "@/features/shop/product/productCard"
 import { webAppSettings } from "@/assets/options/config"
 import { useTranslations } from "next-intl"
 import GridProductsSkeleton from "@/components/skeleton/GridProductsSkeleton"
-
-async function fetchProducts({ queryKey }) {
-  const [, page, searchQuery] = queryKey
-  const res = await fetch(
-    `/api/shop/product?page=${page}&limit=${webAppSettings.shop.products.itemsPerPage}&q=${searchQuery || ""}`
-  )
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch products")
-  }
-
-  return res.json()
-}
+import { fetchProducts } from "@/features/shop/product/utils/product"
+import Image from "next/image"
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
 
 export default function ProductsPage() {
   const [page, setPage] = useState(1)
@@ -65,18 +62,50 @@ export default function ProductsPage() {
             ))}
           </div>
         )}
+
+        {!isLoading && products && products.length === 0 && (
+          <div className="flex flex-col items-center">
+            <h1 className="text-center font-semibold text-xl mt-6">
+              {t("noResults")}
+            </h1>
+            <Image
+              src={webAppSettings.images.notFoundUrl}
+              alt="not found"
+              width={600}
+              height={600}
+            />
+          </div>
+        )}
       </div>
-      <div className="pagination">
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i}
-            onClick={() => setPage(i + 1)}
-            disabled={page === i + 1}
-          >
-            {i + 1}
-          </button>
-        ))}
-      </div>
+      <Pagination className={"mt-7"}>
+        <PaginationContent>
+          {page > 1 && (
+            <PaginationItem>
+              <PaginationPrevious
+                href="#"
+                onClick={() => setPage(page - 1)}
+                disabled={page === 1}
+              />
+            </PaginationItem>
+          )}
+          {Array.from({ length: totalPages }, (_, i) => (
+            <PaginationItem key={i}>
+              <PaginationLink
+                href="#"
+                onClick={() => setPage(i + 1)}
+                isActive={page === i + 1}
+              >
+                {i + 1}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
+          {page < totalPages && (
+            <PaginationItem>
+              <PaginationNext href="#" onClick={() => setPage(page + 1)} />
+            </PaginationItem>
+          )}
+        </PaginationContent>
+      </Pagination>
     </div>
   )
 }
