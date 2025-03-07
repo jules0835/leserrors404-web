@@ -12,10 +12,12 @@ import { webAppSettings } from "@/assets/options/config"
 import DButton from "@/components/ui/DButton"
 import { SquarePlus } from "lucide-react"
 import { trimString } from "@/lib/utils"
+import { useRouter } from "@/i18n/routing"
 
 export default function ProductCard({ product }) {
   const locale = useLocale()
   const t = useTranslations("ProductCard")
+  const router = useRouter()
 
   return (
     <Card className="text-left flex flex-col h-full ">
@@ -54,7 +56,12 @@ export default function ProductCard({ product }) {
         </div>
         <div className="flex w-full">
           <div className="flex-grow">
-            <DButton isMain>{t("seeMore")}</DButton>
+            <DButton
+              isMain
+              onClickBtn={() => router.push(`/shop/product/${product._id}`)}
+            >
+              {t("seeMore")}
+            </DButton>
           </div>
           <div>
             <DButton styles={"ml-2"}>

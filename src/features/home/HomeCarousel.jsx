@@ -37,7 +37,7 @@ export default function HomeCarousel({ initialCarouselData }) {
   return (
     <motion.div
       ref={ref}
-      className="md:w-1/2 flex justify-center m-4 rounded-lg shadow-lg bg-white"
+      className="md:w-1/2 flex justify-center m-4 rounded-lg shadow-lg bg-white overflow-hidden relative z-20"
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1, delay: 0.7 }}
@@ -52,14 +52,20 @@ export default function HomeCarousel({ initialCarouselData }) {
             {carouselData &&
               carouselData.carouselParts?.length > 0 &&
               carouselData.carouselParts.map((part) => (
-                <CarouselItem key={part._id} className="relative h-96">
-                  <Image
-                    src={part.image || "/default_large.png"}
-                    className="object-cover w-full h-full"
-                    alt={part.titleTrans[locale]}
-                    width={1920}
-                    height={1080}
-                  />
+                <CarouselItem
+                  key={part._id}
+                  className="relative h-96 overflow-hidden rounded-lg"
+                >
+                  <div className="w-full h-full relative">
+                    <Image
+                      src={part.image || "/default_large.png"}
+                      className="object-cover rounded-lg"
+                      alt={part.titleTrans[locale]}
+                      width={1920}
+                      height={1080}
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
                   {part.titleTrans[locale] && (
                     <div className="absolute right-0 top-1/2 transform -translate-y-1/2 m-4 p-6 bg-white rounded-lg shadow-lg">
                       <div>

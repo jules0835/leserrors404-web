@@ -20,6 +20,22 @@ export const findProduct = async (query) => {
   return Product
 }
 
+export const findProductById = async (id) => {
+  await mwdb()
+
+  const product = await ProductModel.findById(id)
+
+  return product
+}
+
+export const findShopProductById = async (id) => {
+  await mwdb()
+
+  const product = await ProductModel.findOne({ _id: id, isActive: true })
+
+  return product
+}
+
 export const createProduct = async (product) => {
   await mwdb()
   const newProduct = await ProductModel.create(product)

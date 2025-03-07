@@ -819,7 +819,8 @@
   "ProductPage": {
     "title": "Our products",
     "error": "An error occurred while fetching products, please try angain",
-    "searchResultsFor": "Results for"
+    "searchResultsFor": "Results for",
+    "noResults": "Oh no! We can't find any products for your search. Try again with another keyword."
   },
   "NavSearchBar": {
     "categories": "Categories",
@@ -827,5 +828,11 @@
     "noCategoriesFound": "No categories",
     "noResults": "No product found for {searchTerm}",
     "error": "Error while searching for products"
+  },
+  "Error": {
+    "Front": {
+      "errorFrontTitle": "An error occurred, please try again later or contact support team",
+      "backHome": "Return to home"
+    }
   }
 }
