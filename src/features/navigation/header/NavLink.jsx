@@ -1,13 +1,12 @@
 import { Link } from "@/i18n/routing"
-import { ShoppingCart } from "@mui/icons-material"
 import LocaleSwitcher from "@/features/navigation/header/LocaleSwitcher"
 import { UserNav } from "@/features/navigation/header/UserNav"
+import ShoppingCart from "@/features/navigation/header/ShoppingCart"
 
 export default function NavLink() {
   const links = [
     {
       name: "cart",
-      href: "/user/order/cart",
       icon: <ShoppingCart className="text-white hover:scale-125 scale-110" />,
     },
     {

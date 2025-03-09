@@ -7,7 +7,7 @@ export default async function HomePage() {
   const session = await auth()
 
   return (
-    <div>
+    <div className="md:pt-10">
       <Home
         carouselData={JSON.stringify(carouselData)}
         isLoggedIn={Boolean(session)}

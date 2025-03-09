@@ -70,6 +70,8 @@ export const webAppSettings = {
       "https://fimkppvxvt92ijit.public.blob.vercel-storage.com/public/pictures_1741381058682-owYMtrAdNM6KfXlwH4DvhgkEhb4QsS",
     errorUrl:
       "https://fimkppvxvt92ijit.public.blob.vercel-storage.com/public/pictures_1741384826287-KCl1JZV4cYJlWMvSFFP1rs6Ew5f0pg",
+    emptyCartUrl:
+      "https://fimkppvxvt92ijit.public.blob.vercel-storage.com/public/pictures_1741543848611-bUgnGyJ1dhcDbucxsF1XNB99QJ9UUX",
   },
   shop: {
     products: {

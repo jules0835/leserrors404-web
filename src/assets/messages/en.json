@@ -834,5 +834,26 @@
       "errorFrontTitle": "An error occurred, please try again later or contact support team",
       "backHome": "Return to home"
     }
+  },
+  "Shop": {
+    "Cart": {
+      "miniCart": {
+        "title": "Your cart",
+        "subtitle": "Products"
+      },
+      "emptyCart": "Your cart is empty",
+      "total": "Total",
+      "viewCart": "View cart",
+      "emptyCartSubtitle": "It's time to start shopping !",
+      "productAddedToCart": "Product added to card !"
+    },
+    "Product": {
+      "outOfStock": "Out of stock",
+      "addToCart": {
+        "button": "Add to cart"
+      },
+      "quantity": "Quantity",
+      "price": "Price"
+    }
   }
 }
