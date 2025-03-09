@@ -1,13 +1,24 @@
 "use client"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { fetchProduct } from "@/features/shop/product/utils/product"
 import { useParams } from "next/navigation"
-import { useLocale } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { Skeleton } from "@/components/ui/skeleton"
 import Image from "next/image"
 import ErrorFront from "@/components/navigation/error"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Minus, Plus, ShoppingCart } from "lucide-react"
+import { useState } from "react"
+import { useCart } from "@/features/shop/cart/context/cartContext"
+import DButton from "@/components/ui/DButton"
 
 export default function ShopProductPage() {
+  const { addProdToCart } = useCart()
+  const queryClient = useQueryClient()
+  const [quantity, setQuantity] = useState(1)
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
+  const t = useTranslations("Shop.Product")
   const { id } = useParams()
   const locale = useLocale()
   const {
@@ -25,6 +36,23 @@ export default function ShopProductPage() {
     }
 
     return value
+  }
+  const handleQuantityChange = (increment) => {
+    if (increment) {
+      setQuantity((prev) => prev + 1)
+    } else {
+      setQuantity((prev) => (prev > 1 ? prev - 1 : 1))
+    }
+  }
+  const handleAddToCart = async () => {
+    setIsAddingToCart(true)
+    const success = await addProdToCart(id, quantity)
+
+    if (success) {
+      queryClient.invalidateQueries(["cart"])
+    }
+
+    setIsAddingToCart(false)
   }
 
   return (
@@ -70,13 +98,51 @@ export default function ShopProductPage() {
           </div>
           <div className="flex-1">
             <div className="p-4 border rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4">Add to Cart</h2>
               <p className="text-lg mb-4">
-                <strong>Price:</strong> ${product.price}
+                <strong>{t("price")}:</strong> {product.price}€
               </p>
-              <button className="w-full bg-blue-500 text-white py-2 rounded-lg">
-                Add to Cart
-              </button>
+
+              <div className="flex items-center gap-4 mb-4">
+                <p className="font-medium">{t("quantity")}:</p>
+                <div className="flex items-center border rounded-md">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleQuantityChange(false)}
+                    disabled={quantity <= 1}
+                  >
+                    <Minus className="h-4 w-4" />
+                  </Button>
+                  <Input
+                    type="number"
+                    min="1"
+                    value={quantity}
+                    onChange={(e) =>
+                      setQuantity(
+                        Math.max(1, parseInt(e.target.value, 10) || 1)
+                      )
+                    }
+                    className="w-16 text-center border-0"
+                  />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleQuantityChange(true)}
+                    disabled={quantity >= product.stock}
+                  >
+                    <Plus className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+
+              <DButton
+                onClickBtn={handleAddToCart}
+                isMain
+                isDisabled={isAddingToCart || product.stock === 0}
+              >
+                <ShoppingCart className="mr-2 h-5 w-5" />
+                {product.stock === 0 ? t("outOfStock") : t("addToCart.button")}
+              </DButton>
             </div>
           </div>
         </div>

@@ -13,8 +13,10 @@ import DButton from "@/components/ui/DButton"
 import { SquarePlus } from "lucide-react"
 import { trimString } from "@/lib/utils"
 import { useRouter } from "@/i18n/routing"
+import { useCart } from "@/features/shop/cart/context/cartContext"
 
 export default function ProductCard({ product }) {
+  const { addProdToCart } = useCart()
   const locale = useLocale()
   const t = useTranslations("ProductCard")
   const router = useRouter()
@@ -64,7 +66,10 @@ export default function ProductCard({ product }) {
             </DButton>
           </div>
           <div>
-            <DButton styles={"ml-2"}>
+            <DButton
+              styles={"ml-2"}
+              onClickBtn={() => addProdToCart(product._id)}
+            >
               <SquarePlus size={20} />
             </DButton>
           </div>

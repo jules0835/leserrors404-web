@@ -13,7 +13,6 @@ export default function Header() {
   const searchParams = useSearchParams()
   const reval = searchParams.get("reval")
   const router = useRouter()
-  const isUserDashboard = pathname.includes("/user/dashboard")
 
   useEffect(() => {
     if (reval) {
@@ -29,9 +28,7 @@ export default function Header() {
   }
 
   return (
-    <header
-      className={`bg-[#2F1F80] p-3 ${isUserDashboard ? "fixed top-0 w-full z-50" : ""}`}
-    >
+    <header className={`bg-[#2F1F80] p-3 md:fixed top-0 w-full z-50`}>
       <div className="flex flex-col md:flex-row justify-between items-center relative">
         <div className="mb-4 md:mb-0">
           <Link href="/">

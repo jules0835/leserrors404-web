@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
 import { SessionProvider } from "next-auth/react"
 import { Toaster } from "react-hot-toast"
+import { CartProvider } from "@/features/shop/cart/context/cartContext"
 
 export const metadata = {
   title: "Cyna",
@@ -19,11 +20,13 @@ export default async function RootLayout({ children }) {
   return (
     <SessionProvider>
       <NextIntlClientProvider messages={messages}>
-        <div>
-          <Toaster position="top-right" />
-        </div>
-        <Header />
-        <div className="bg-gray-100">{children}</div>
+        <CartProvider>
+          <div>
+            <Toaster position="top-right" />
+          </div>
+          <Header />
+          <div className="bg-gray-100">{children}</div>
+        </CartProvider>
       </NextIntlClientProvider>
     </SessionProvider>
   )
