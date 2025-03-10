@@ -2,6 +2,8 @@
 import {
   addProductToCart,
   getCartItemsCount,
+  removeProductFromCart,
+  updateProductQuantity,
 } from "@/features/shop/cart/utils/cartService"
 import { createContext, useContext, useState, useEffect } from "react"
 
@@ -25,9 +27,31 @@ export const CartProvider = ({ children }) => {
       updateCartCount()
     }
   }
+  const removeProdFromCart = async (productId) => {
+    const result = await removeProductFromCart(productId)
+
+    if (result) {
+      updateCartCount()
+    }
+  }
+  const updateProdCart = async (productId, quantity) => {
+    const result = await updateProductQuantity(productId, quantity)
+
+    if (result) {
+      updateCartCount()
+    }
+  }
 
   return (
-    <CartContext.Provider value={{ cartCount, setCartCount, addProdToCart }}>
+    <CartContext.Provider
+      value={{
+        cartCount,
+        setCartCount,
+        addProdToCart,
+        removeProdFromCart,
+        updateProdCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   )

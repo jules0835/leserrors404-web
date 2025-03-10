@@ -845,7 +845,15 @@
       "total": "Total",
       "viewCart": "View cart",
       "emptyCartSubtitle": "It's time to start shopping !",
-      "productAddedToCart": "Product added to card !"
+      "productAddedToCart": "Product added to card !",
+      "yourCart": "Your cart",
+      "login": "Login",
+      "register": "Register",
+      "checkout": "Checkout",
+      "subtotal": "Sub total",
+      "items": "Products",
+      "orderSummary": "Your order",
+      "continueShopping": "Continue shipping"
     },
     "Product": {
       "outOfStock": "Out of stock",

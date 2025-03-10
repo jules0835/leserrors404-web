@@ -826,6 +826,42 @@
   "ProductPage": {
     "error": "Beim Abrufen von Produkten ist ein Fehler aufgetreten, bitte versuchen Sie Angain",
     "searchResultsFor": "Ergebnisse für",
-    "title": "Unsere Produkte"
+    "title": "Unsere Produkte",
+    "noResults": "Oh nein! \nWir können keine Produkte für Ihre Suche finden. \nVersuchen Sie es erneut mit einem anderen Schlüsselwort."
+  },
+  "Error": {
+    "Front": {
+      "backHome": "Kehre nach Hause zurück",
+      "errorFrontTitle": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder wenden Sie sich an Support -Team"
+    }
+  },
+  "Shop": {
+    "Cart": {
+      "emptyCart": "Ihr Wagen ist leer",
+      "emptyCartSubtitle": "Es ist Zeit zum Einkaufen!",
+      "miniCart": {
+        "subtitle": "Produkte",
+        "title": "Dein Wagen"
+      },
+      "productAddedToCart": "Produkt zur Karte hinzugefügt!",
+      "total": "Gesamt",
+      "viewCart": "Wagen anzeigen",
+      "checkout": "Kasse",
+      "continueShopping": "Versand fort",
+      "items": "Produkte",
+      "login": "Login",
+      "orderSummary": "Ihre Bestellung",
+      "register": "Registrieren",
+      "subtotal": "Sub Total",
+      "yourCart": "Dein Wagen"
+    },
+    "Product": {
+      "addToCart": {
+        "button": "In den Warenkorb legen"
+      },
+      "outOfStock": "Aus dem Bestand",
+      "price": "Preis",
+      "quantity": "Menge"
+    }
   }
 }

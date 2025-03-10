@@ -7,6 +7,7 @@ import logo from "@/assets/images/logo.webp"
 import NavLink from "@/features/navigation/header/NavLink"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import NavSearchBar from "@/features/navigation/header/NavSearchBar"
+import { mergeCarts } from "@/features/shop/cart/utils/cartService"
 
 export default function Header() {
   const pathname = usePathname()
@@ -15,12 +16,16 @@ export default function Header() {
   const router = useRouter()
 
   useEffect(() => {
-    if (reval) {
-      const params = new URLSearchParams(searchParams)
-      params.delete("reval")
-      const newUrl = `${window.location.pathname}?${params.toString()}`
-      window.location.replace(newUrl)
+    async function fetchData() {
+      if (reval) {
+        await mergeCarts()
+        const params = new URLSearchParams(searchParams)
+        params.delete("reval")
+        const newUrl = `${window.location.pathname}?${params.toString()}`
+        window.location.replace(newUrl)
+      }
     }
+    fetchData()
   }, [reval, searchParams, router])
 
   if (pathname.includes("/auth/") || pathname.includes("/admin")) {
