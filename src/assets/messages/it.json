@@ -826,6 +826,42 @@
   "ProductPage": {
     "error": "Si è verificato un errore durante il recupero di prodotti, prova ad Angain",
     "searchResultsFor": "Risultati per",
-    "title": "I nostri prodotti"
+    "title": "I nostri prodotti",
+    "noResults": "Oh no! \nNon possiamo trovare prodotti per la tua ricerca. \nRiprova con un'altra parola chiave."
+  },
+  "Error": {
+    "Front": {
+      "backHome": "Tornare a casa",
+      "errorFrontTitle": "Si è verificato un errore, riprovare più tardi o contattare il team di supporto"
+    }
+  },
+  "Shop": {
+    "Cart": {
+      "emptyCart": "Il tuo carrello è vuoto",
+      "emptyCartSubtitle": "È ora di iniziare a fare shopping!",
+      "miniCart": {
+        "subtitle": "Prodotti",
+        "title": "Il tuo carrello"
+      },
+      "productAddedToCart": "Prodotto aggiunto alla carta!",
+      "total": "Totale",
+      "viewCart": "Visualizza il carrello",
+      "checkout": "Guardare",
+      "continueShopping": "Continua a spedire",
+      "items": "Prodotti",
+      "login": "Login",
+      "orderSummary": "Il tuo ordine",
+      "register": "Registro",
+      "subtotal": "Sub totale",
+      "yourCart": "Il tuo carrello"
+    },
+    "Product": {
+      "addToCart": {
+        "button": "Aggiungi al carrello"
+      },
+      "outOfStock": "Esaurito",
+      "price": "Prezzo",
+      "quantity": "Quantità"
+    }
   }
 }

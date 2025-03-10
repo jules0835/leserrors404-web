@@ -10,7 +10,9 @@ export const createCart = async (data) => {
 export const findCart = async (query) => {
   await mwdb()
 
-  return CartModel.findOne(query).populate("products.product")
+  const cart = await CartModel.findOne(query).populate("products.product")
+
+  return cart
 }
 
 export const addToCart = async (cartId, productId, quantity) => {
@@ -68,4 +70,34 @@ export const clearCartProducts = async (cartId) => {
     },
     { new: true }
   )
+}
+
+export const mergeCart = async (userId, tempCartId) => {
+  await mwdb()
+
+  const [userCart, tempCart] = await Promise.all([
+    CartModel.findOne({ user: userId }),
+    CartModel.findById(tempCartId),
+  ])
+
+  if (!userCart || !tempCart) {
+    return null
+  }
+
+  for (const tempItem of tempCart.products) {
+    const existingProduct = userCart.products.find(
+      (p) => p.product.toString() === tempItem.product.toString()
+    )
+
+    if (existingProduct) {
+      existingProduct.quantity += tempItem.quantity
+    } else {
+      userCart.products.push(tempItem)
+    }
+  }
+
+  await userCart.save()
+  await CartModel.findByIdAndDelete(tempCartId)
+
+  return userCart.populate("products.product")
 }

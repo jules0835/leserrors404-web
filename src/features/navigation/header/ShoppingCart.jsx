@@ -14,11 +14,7 @@ import {
 } from "@/components/ui/hover-card"
 import Image from "next/image"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
-import {
-  getCart,
-  updateProductQuantity,
-  removeProductFromCart,
-} from "@/features/shop/cart/utils/cartService"
+import { getCart } from "@/features/shop/cart/utils/cartService"
 import { useTranslations } from "next-intl"
 import DButton from "@/components/ui/DButton"
 import { Button } from "@/components/ui/button"
@@ -29,7 +25,7 @@ import { useState, useEffect, useRef } from "react"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
 
 export default function ShoppingCart() {
-  const { cartCount } = useCart()
+  const { cartCount, removeProdFromCart, updateProdCart } = useCart()
   const t = useTranslations("Shop.Cart")
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
@@ -55,7 +51,7 @@ export default function ShoppingCart() {
     }
 
     previousCartCount.current = cartCount
-  }, [cartCount])
+  }, [cartCount, isInitialLoad])
 
   useEffect(() => {
     if (!isOpen) {
@@ -76,12 +72,13 @@ export default function ShoppingCart() {
     const newQuantity = increment
       ? currentQuantity + 1
       : Math.max(1, currentQuantity - 1)
-    await updateProductQuantity(productId, newQuantity)
-    await queryClient.invalidateQueries(["cart"])
+
+    await updateProdCart(productId, newQuantity)
+    await queryClient.invalidateQueries({ queryKey: ["cart"] }, { exact: true })
   }
   const handleRemoveItem = async (productId) => {
-    await removeProductFromCart(productId)
-    await queryClient.invalidateQueries(["cart"])
+    await removeProdFromCart(productId)
+    await queryClient.invalidateQueries({ queryKey: ["cart"] }, { exact: true })
   }
   const handleOpenChange = (open) => {
     setIsOpen(open)
@@ -101,7 +98,7 @@ export default function ShoppingCart() {
   return (
     <HoverCard
       openDelay={0}
-      closeDelay={200}
+      closeDelay={100}
       open={isOpen}
       onOpenChange={handleOpenChange}
     >
@@ -120,12 +117,6 @@ export default function ShoppingCart() {
       </HoverCardTrigger>
       <HoverCardContent className="w-96 mt-3 mr-4">
         <div className="space-y-4">
-          {showAddedMessage && (
-            <div className="flex items-center gap-2 p-2 bg-green-50 text-green-700 rounded-md">
-              <AlertCircle className="h-4 w-4" />
-              <p className="text-sm">{t("productAddedToCart")}</p>
-            </div>
-          )}
           <div className="flex items-center justify-between">
             <h4 className="font-medium text-2xl">{t("miniCart.title")}</h4>
             {cart?.products?.length > 0 && (
@@ -252,6 +243,12 @@ export default function ShoppingCart() {
                   {t("viewCart")}
                 </DButton>
               </div>
+              {showAddedMessage && (
+                <div className="flex items-center gap-2 p-2 bg-green-50 text-green-700 rounded-md">
+                  <AlertCircle className="h-4 w-4" />
+                  <p className="text-sm">{t("productAddedToCart")}</p>
+                </div>
+              )}
             </>
           )}
         </div>

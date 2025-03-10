@@ -4,7 +4,23 @@
     "about": "OKOKOKOKOKOKOK",
     "HomePage": {
       "carouselButtonMoreInfos": "Vuxokoxoko byo tala ."
-    }
+    },
+    "business": "bindzu",
+    "clients": "Ku tshembiwa hi tiklayenti to tlula 500 emisaveni hinkwayo.",
+    "customers": "Vaxavi .",
+    "data": "Tidata .",
+    "employees": "vatirhi",
+    "learnMore": "View Product .",
+    "learnMoreCategory": "View all products .",
+    "login": "Ku nghena .",
+    "ourProducts": "Switirhisiwa swa hina .",
+    "ourServices": "Vukorhokeri bya hina bya Cyber ​​.",
+    "privacy": "xihundla",
+    "register": "Tsarisa Sweswi .",
+    "welcome": "Mi amukeriwile eka {Khamphani}",
+    "welcomeMessage": "Mutirhisani wa wena loyi a tshembekaka eka swintshuxo swa vuhlayiseki bya xiyenge xa ​​inthanete.",
+    "welcomeMessageAnimation": "I nkarhi wo tiyisisa vumundzuku bya wena !",
+    "welcomeMessageDescription": "Joyina sweswi ku tlula 500 wa tikhamphani ta Wordwild leti hi tshembaka ku tiyisisa tona ."
   },
   "Auth": {
     "LoginPage": {
@@ -189,12 +205,129 @@
         "title": "Ku hakela ."
       },
       "Products": {
-        "title": "Swihumelerisiwa ."
+        "title": "Swihumelerisiwa .",
+        "Add": {
+          "Stock": "Xitoko",
+          "add": "Katsa",
+          "adding": "Ku engetela .",
+          "addingProduct": "Ku engetela xiendliwa .",
+          "categorie": "Categorie .",
+          "characteristics": "Swihlawulekisi",
+          "description": "Nhlamuselo",
+          "dialogDescription": "Tata fomo ku engetela xitirhisiwa lexintshwa .",
+          "dialogTitle": "Engetela xitirhisiwa lexintshwa .",
+          "errorAddingProduct": "Xihoxo xo engetela xitirhisiwa .",
+          "imagePlaceholder": "Hlawula fayili ya xifaniso .",
+          "isActive": "Hanya",
+          "label": "Vito",
+          "language": "Ririmi",
+          "picture": "Xifaniso",
+          "price": "Nxavo",
+          "priority": "Xa nkoka",
+          "productAdded": "Xiendliwa lexi engeteriweke .",
+          "selectCategorie": "Hlawula xiyenge xo karhi .",
+          "selectLanguage": "Hlawula ririmi .",
+          "selectPriority": "Hlawula nchumu wa nkoka .",
+          "stock": "Xitoko",
+          "subscription": "Xikhokhelo .",
+          "taxe": "Taxe .",
+          "technicalCaracteristics": "Swifaniso swa vutshila ."
+        },
+        "Delete": {
+          "deletingProduct": "Ku Susa Xiendliwa .",
+          "errorDeletingProduct": "Xihoxo xo susa xitirhisiwa .",
+          "productDeleted": "Xiendliwa xi susiwile ."
+        },
+        "Edit": {
+          "dialogDescription": "Tata fomo ku hlela xitirhisiwa .",
+          "dialogTitle": "Hlela xitirhisiwa .",
+          "errorUpdatingProduct": "Xihoxo xo pfuxeta xitirhisiwa .",
+          "language": "Ririmi",
+          "selectLanguage": "Hlawula ririmi .",
+          "update": "Pfuxeta",
+          "updated": "Ku pfuxetiwile",
+          "updating": "Ku pfuxetiwa ."
+        },
+        "Errors": {
+          "descriptionRequired": "Nhlamuselo ya laveka .",
+          "labelRequired": "Vito ra laveka .",
+          "pictureRequired": "Xifaniso xa laveka ."
+        },
+        "More": {
+          "deleteProduct": "Susa xitirhisiwa .",
+          "editProduct": "Hlela xitirhisiwa .",
+          "viewProduct": "View Product ."
+        },
+        "columns": "Tikholomu .",
+        "errorLoadingData": "Xihoxo xa ku layicha datha.",
+        "isActive": "Hanya",
+        "next": "Landzelaka",
+        "no": "E-e",
+        "noResults": "Ku hava vuyelo .",
+        "previous": "Endzhaku",
+        "searchPlaceholder": "Secha...",
+        "subTitle": "Lawula Swikumiwa .",
+        "yes": "Ina"
       },
       "Subscriptions": {
         "title": "Swikhokhelo ."
       },
-      "title": "Bindzu"
+      "title": "Bindzu",
+      "Categories": {
+        "Add": {
+          "Stock": "Xitoko",
+          "add": "Katsa",
+          "adding": "Ku engetela .",
+          "addingCategory": "Ku engetela xiyenge .",
+          "categoryAdded": "Xiyenge lexi engeteriweke .",
+          "description": "Nhlamuselo",
+          "dialogDescription": "Tata fomo ku engetela xiyenge lexintshwa .",
+          "dialogTitle": "Engetela xiyenge lexintshwa .",
+          "errorAddingCategory": "Xihoxo xo engetela xiyenge .",
+          "imagePlaceholder": "Hlawula fayili ya xifaniso .",
+          "isActive": "Hanya",
+          "label": "Vito",
+          "language": "Ririmi",
+          "picture": "Xifaniso",
+          "selectLanguage": "Hlawula ririmi ."
+        },
+        "Delete": {
+          "categoryDeleted": "Category yi susiwile .",
+          "deletingCategory": "Ku susa xiyenge .",
+          "errorDeletingCategory": "Xihoxo xo susa xiyenge ."
+        },
+        "Edit": {
+          "dialogDescription": "Tata fomo ku hlela xiyenge xa ​​.",
+          "dialogTitle": "Hlela Xiyenge .",
+          "errorUpdatingCategory": "Xihoxo xo pfuxeta xiyenge .",
+          "language": "Ririmi",
+          "selectLanguage": "Hlawula ririmi .",
+          "update": "Pfuxeta",
+          "updated": "Ku pfuxetiwile",
+          "updating": "Ku pfuxetiwa ."
+        },
+        "Errors": {
+          "descriptionRequired": "Nhlamuselo ya laveka .",
+          "labelRequired": "Vito ra laveka .",
+          "pictureRequired": "Xifaniso xa laveka ."
+        },
+        "More": {
+          "deleteCategory": "Susa xiyenge .",
+          "editCategory": "Hlela Xiyenge .",
+          "viewCategory": "Vona xiyenge xa"
+        },
+        "columns": "Tikholomu .",
+        "errorLoadingData": "Xihoxo xa ku layicha datha.",
+        "isActive": "Hanya",
+        "next": "Landzelaka",
+        "no": "E-e",
+        "noResults": "Ku hava vuyelo .",
+        "previous": "Endzhaku",
+        "searchPlaceholder": "Secha...",
+        "subTitle": "Lawula Swiyenge .",
+        "title": "Swiyenge .",
+        "yes": "Ina"
+      }
     },
     "Security": {
       "Logs": {
@@ -679,5 +812,56 @@
     "usersAdmin": "Vatirhisi va admin .",
     "yourDashboard": "Dashboard ya wena ."
   },
-  "resetPasswordEmailSubject": "Cyna - wisa password ya wena ."
+  "resetPasswordEmailSubject": "Cyna - wisa password ya wena .",
+  "Error": {
+    "Front": {
+      "backHome": "Vuya ekaya .",
+      "errorFrontTitle": "Xihoxo xi humelerile, hi kombela u ringeta nakambe endzhaku kumbe u tihlanganisa na ntlawa wa nseketelo ."
+    }
+  },
+  "NavSearchBar": {
+    "categories": "Swiyenge .",
+    "error": "Xihoxo loko u ri karhi u lava swilo leswi endliweke .",
+    "noCategoriesFound": "Ku hava swiyenge .",
+    "noResults": "Ku hava xitirhisiwa lexi kumiweke xa {searchterm}",
+    "products": "Swihumelerisiwa ."
+  },
+  "ProductCard": {
+    "seeMore": "Vona swin'wana"
+  },
+  "ProductPage": {
+    "error": "Xihoxo xi humelerile loko u ri karhi u teka switirhisiwa, hi kombela u ringeta Angain .",
+    "noResults": "Oh hayi! \nA hi nge kumi swilo swo karhi leswi u swi lavaka. \nRingeta nakambe hi rito rin’wana ra nkoka.",
+    "searchResultsFor": "Vuyelo bya .",
+    "title": "Switirhisiwa swa hina ."
+  },
+  "Shop": {
+    "Cart": {
+      "emptyCart": "Xigolonyana xa wena a xi na nchumu .",
+      "emptyCartSubtitle": "I nkarhi wo sungula ku xava !",
+      "miniCart": {
+        "subtitle": "Swihumelerisiwa .",
+        "title": "Xigolonyana xa wena ."
+      },
+      "productAddedToCart": "Product yi engeteriwile eka khadi !",
+      "total": "Hinkwaswo",
+      "viewCart": "Vona Xigolonyana .",
+      "checkout": "Ku xava swilo .",
+      "continueShopping": "Yana emahlweni .",
+      "items": "Swihumelerisiwa .",
+      "login": "Ku nghena .",
+      "orderSummary": "Oda ya wena .",
+      "register": "Tsarisela",
+      "subtotal": "Sub Nhlayo hinkwayo .",
+      "yourCart": "Xigolonyana xa wena ."
+    },
+    "Product": {
+      "addToCart": {
+        "button": "Ku engetela eka xigwitsirisi ."
+      },
+      "outOfStock": "Ku huma exitokweni",
+      "price": "Nxavo",
+      "quantity": "Ntsengo"
+    }
+  }
 }

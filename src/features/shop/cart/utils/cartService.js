@@ -16,9 +16,7 @@ export const initializeCart = async () => {
       return false
     }
 
-    await response.json()
-
-    return true
+    return await response.json()
   } catch {
     return false
   }
@@ -99,6 +97,24 @@ export const clearCart = async () => {
 export const getCart = async () => {
   try {
     const response = await fetch("/api/shop/cart")
+
+    if (!response.ok) {
+      return false
+    }
+
+    const data = await response.json()
+
+    return data
+  } catch {
+    return false
+  }
+}
+
+export const mergeCarts = async () => {
+  try {
+    const response = await fetch("/api/shop/cart", {
+      method: "PUT",
+    })
 
     if (!response.ok) {
       return false

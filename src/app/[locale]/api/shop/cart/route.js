@@ -1,16 +1,20 @@
 import { NextResponse } from "next/server"
-import { createCart, findCart } from "@/db/crud/cartCrud"
+import { createCart, findCart, mergeCart } from "@/db/crud/cartCrud"
 import { getReqUserId } from "@/features/auth/utils/getAuthParam"
 
 export async function GET(req) {
   const userId = getReqUserId(req)
   const cartId = req.cookies.get("cartId")?.value
 
-  if (!cartId) {
+  if (!cartId && !userId) {
     return NextResponse.json({ error: "Cart not found" }, { status: 404 })
   }
 
-  const cart = await findCart(userId ? { user: userId } : { _id: cartId })
+  let cart = await findCart(userId ? { user: userId } : { _id: cartId })
+
+  if (!cart && userId) {
+    cart = await createCart({ user: userId, products: [] })
+  }
 
   if (!cart) {
     return NextResponse.json({ error: "Cart not found" }, { status: 404 })
@@ -39,6 +43,31 @@ export async function POST(req) {
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to create cart" },
+      { status: 500 }
+    )
+  }
+}
+
+export async function PUT(req) {
+  const userId = getReqUserId(req)
+  const tempCartId = req.cookies.get("cartId")?.value
+
+  if (!userId || !tempCartId) {
+    return NextResponse.json(
+      { error: "Missing required parameters" },
+      { status: 400 }
+    )
+  }
+
+  try {
+    const mergedCart = await mergeCart(userId, tempCartId)
+    const response = NextResponse.json(mergedCart)
+    response.cookies.delete("cartId")
+
+    return response
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to merge carts" },
       { status: 500 }
     )
   }

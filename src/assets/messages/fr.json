@@ -826,6 +826,42 @@
   "ProductPage": {
     "error": "Une erreur s'est produite tout en récupérant les produits, veuillez essayer",
     "searchResultsFor": "Résultats pour",
-    "title": "Nos produits"
+    "title": "Nos produits",
+    "noResults": "Oh non! \nNous ne trouvons aucun produit pour votre recherche. \nRéessayez avec un autre mot-clé."
+  },
+  "Error": {
+    "Front": {
+      "backHome": "Retour à la maison",
+      "errorFrontTitle": "Une erreur s'est produite, veuillez réessayer plus tard ou contacter l'équipe d'assistance"
+    }
+  },
+  "Shop": {
+    "Cart": {
+      "emptyCart": "Votre panier est vide",
+      "emptyCartSubtitle": "Il est temps de commencer à faire du shopping!",
+      "miniCart": {
+        "subtitle": "Produits",
+        "title": "Votre panier"
+      },
+      "productAddedToCart": "Produit ajouté à la carte!",
+      "total": "Total",
+      "viewCart": "Voir le chariot",
+      "checkout": "Vérifier",
+      "continueShopping": "Continuer l'expédition",
+      "items": "Produits",
+      "login": "Se connecter",
+      "orderSummary": "Votre commande",
+      "register": "Registre",
+      "subtotal": "Sous-total",
+      "yourCart": "Votre panier"
+    },
+    "Product": {
+      "addToCart": {
+        "button": "Ajouter au panier"
+      },
+      "outOfStock": "En rupture de stock",
+      "price": "Prix",
+      "quantity": "Quantité"
+    }
   }
 }

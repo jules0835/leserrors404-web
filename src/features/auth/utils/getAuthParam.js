@@ -4,7 +4,7 @@ export function getReqUserId() {
   const headersList = headers()
   const intAuth = headersList.get("x-int-auth-userId")
 
-  if (!intAuth) {
+  if (!intAuth || intAuth === "undefined" || intAuth === "null") {
     return null
   }
 
@@ -17,7 +17,7 @@ export function getReqIsAdmin() {
   const headersList = headers()
   const intAuth = headersList.get("x-int-auth-isAdmin")
 
-  if (!intAuth) {
+  if (!intAuth || intAuth === "undefined" || intAuth === "null") {
     return false
   }
 

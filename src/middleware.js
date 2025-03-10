@@ -19,6 +19,14 @@ const unprotectedApiRoutes = [
 const authMiddleware = auth((req) => {
   const currentPath = req.nextUrl.pathname
   const locale = req.cookies.get("NEXT_LOCALE")?.value || "en"
+  const isShopApi = currentPath.includes("/api/shop/")
+  const { isAdmin, userId } = req?.auth?.user || {}
+  req.headers.set("x-int-auth-userId", userId)
+  req.headers.set("x-int-auth-isAdmin", isAdmin)
+
+  if (isShopApi) {
+    return intlMiddleware(req)
+  }
 
   if (!req.auth) {
     if (currentPath.includes("/api/")) {
@@ -32,10 +40,6 @@ const authMiddleware = auth((req) => {
       new URL(`/${locale}/auth/login?next=${currentPath}`, req.url)
     )
   }
-
-  const { isAdmin, userId } = req.auth.user
-  req.headers.set("x-int-auth-userId", userId)
-  req.headers.set("x-int-auth-isAdmin", isAdmin)
 
   if (currentPath.includes("/admin")) {
     if (!req.auth.user.isAdmin) {
@@ -56,9 +60,8 @@ export default function middleware(req) {
   )
   const isAuthApi = currentPath.startsWith("/api/auth/")
   const isTestApi = currentPath.startsWith("/api/test/")
-  const isShopApi = currentPath.includes("/api/shop/")
 
-  if (isProtected && !isUnprotectedApi && !isShopApi) {
+  if (isProtected && !isUnprotectedApi) {
     return authMiddleware(req)
   }
 
