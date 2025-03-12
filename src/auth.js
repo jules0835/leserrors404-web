@@ -183,6 +183,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         session.user.lastName = token.lastName
         session.user.image = token.image
         session.user.isAdmin = token.isAdmin
+        session.user.exp = token.exp
       }
 
       return session

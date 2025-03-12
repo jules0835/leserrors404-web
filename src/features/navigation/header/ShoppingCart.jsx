@@ -23,6 +23,7 @@ import { useRouter } from "@/i18n/routing"
 import { trimString } from "@/lib/utils"
 import { useState, useEffect, useRef } from "react"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function ShoppingCart() {
   const { cartCount, removeProdFromCart, updateProdCart } = useCart()
@@ -39,6 +40,7 @@ export default function ShoppingCart() {
     enabled: isOpen,
     refetchOnMount: true,
   })
+  const [isUpdating, setIsUpdating] = useState(false)
 
   useEffect(() => {
     if (cartCount > previousCartCount.current && !isInitialLoad) {
@@ -59,27 +61,40 @@ export default function ShoppingCart() {
     }
   }, [isOpen])
 
-  const calculateTotal = () =>
-    cart?.products?.reduce(
-      (total, item) => total + item.product.price * item.quantity,
-      0
-    ) || 0
   const handleUpdateQuantity = async (
     productId,
     currentQuantity,
     increment
   ) => {
-    const newQuantity = increment
-      ? currentQuantity + 1
-      : Math.max(1, currentQuantity - 1)
+    try {
+      setIsUpdating(true)
+      const newQuantity = increment
+        ? currentQuantity + 1
+        : Math.max(1, currentQuantity - 1)
 
-    await updateProdCart(productId, newQuantity)
-    await queryClient.invalidateQueries({ queryKey: ["cart"] }, { exact: true })
+      await updateProdCart(productId, newQuantity)
+      await queryClient.invalidateQueries({ queryKey: ["cart"] })
+      await queryClient.refetchQueries({ queryKey: ["cart"] })
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsUpdating(false)
+    }
   }
+
   const handleRemoveItem = async (productId) => {
-    await removeProdFromCart(productId)
-    await queryClient.invalidateQueries({ queryKey: ["cart"] }, { exact: true })
+    try {
+      setIsUpdating(true)
+      await removeProdFromCart(productId)
+      await queryClient.invalidateQueries({ queryKey: ["cart"] })
+      await queryClient.refetchQueries({ queryKey: ["cart"] })
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsUpdating(false)
+    }
   }
+
   const handleOpenChange = (open) => {
     setIsOpen(open)
 
@@ -94,6 +109,9 @@ export default function ShoppingCart() {
   const handleAction = (e) => {
     e.stopPropagation()
   }
+
+  const displayLoadingCalcul = (value) =>
+    isUpdating ? <Skeleton className="w-16 h-6" /> : `${value} €`
 
   return (
     <HoverCard
@@ -197,11 +215,16 @@ export default function ShoppingCart() {
                               false
                             )
                           }
+                          disabled={isUpdating}
                         >
                           <Minus className="h-3 w-3" />
                         </Button>
                         <span className="w-8 text-center text-sm">
-                          {item.quantity}
+                          {isUpdating ? (
+                            <Skeleton className="w-6 h-6 mx-auto" />
+                          ) : (
+                            item.quantity
+                          )}
                         </span>
                         <Button
                           variant="ghost"
@@ -214,6 +237,7 @@ export default function ShoppingCart() {
                               true
                             )
                           }
+                          disabled={isUpdating}
                         >
                           <Plus className="h-3 w-3" />
                         </Button>
@@ -223,6 +247,7 @@ export default function ShoppingCart() {
                         size="icon"
                         className="h-8 w-8 text-red-500 hover:text-red-700"
                         onClick={() => handleRemoveItem(item.product._id)}
+                        disabled={isUpdating}
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>
@@ -233,7 +258,7 @@ export default function ShoppingCart() {
               <div className="border-t pt-4">
                 <div className="flex justify-between mb-4 text-lg">
                   <span className="font-medium">{t("total")}:</span>
-                  <span>{calculateTotal()}€</span>
+                  <span>{displayLoadingCalcul(cart?.total.toFixed(2))}</span>
                 </div>
                 <DButton
                   isMain

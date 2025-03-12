@@ -39,6 +39,7 @@ export default function Login() {
   })
   const redirectUrl = searchParams.get("next") || "/"
   const isResetSuccess = searchParams.get("resetSuccess")
+  const isLogout = searchParams.get("logout")
 
   useEffect(() => {
     if (otpOpen && otpInputRef.current) {
@@ -46,7 +47,7 @@ export default function Login() {
     }
   }, [otpOpen])
 
-  if (session) {
+  if (session && !isLogout) {
     router.push("/")
   }
 
@@ -70,6 +71,12 @@ export default function Login() {
           {error && (
             <p className="text-red-600 text-sm font-medium text-center">
               {error}
+            </p>
+          )}
+
+          {isLogout && (
+            <p className="text-red-600 text-sm font-medium text-center">
+              {t("logoutAutoSuccess")}
             </p>
           )}
 

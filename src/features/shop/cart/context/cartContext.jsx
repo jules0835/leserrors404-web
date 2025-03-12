@@ -1,9 +1,11 @@
 "use client"
 import {
   addProductToCart,
+  applyVoucher,
   getCartItemsCount,
   removeProductFromCart,
   updateProductQuantity,
+  removeVoucher,
 } from "@/features/shop/cart/utils/cartService"
 import { createContext, useContext, useState, useEffect } from "react"
 
@@ -41,6 +43,28 @@ export const CartProvider = ({ children }) => {
       updateCartCount()
     }
   }
+  const applyCartVoucher = async (voucherCode) => {
+    try {
+      const result = await applyVoucher(voucherCode)
+
+      if (result) {
+        updateCartCount()
+      }
+    } catch (error) {
+      throw new Error(error.message)
+    }
+  }
+  const removeCartVoucher = async () => {
+    try {
+      const result = await removeVoucher()
+
+      if (result) {
+        updateCartCount()
+      }
+    } catch (error) {
+      throw new Error(error.message)
+    }
+  }
 
   return (
     <CartContext.Provider
@@ -50,6 +74,8 @@ export const CartProvider = ({ children }) => {
         addProdToCart,
         removeProdFromCart,
         updateProdCart,
+        applyCartVoucher,
+        removeCartVoucher,
       }}
     >
       {children}

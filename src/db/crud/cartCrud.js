@@ -1,4 +1,4 @@
-import { CartModel } from "@/db/models/CartModel"
+import { CartModel, VoucherModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 
 export const createCart = async (data) => {
@@ -10,7 +10,9 @@ export const createCart = async (data) => {
 export const findCart = async (query) => {
   await mwdb()
 
-  const cart = await CartModel.findOne(query).populate("products.product")
+  const cart = await CartModel.findOne(query).populate(
+    "products.product voucher"
+  )
 
   return cart
 }
@@ -30,13 +32,15 @@ export const addToCart = async (cartId, productId, quantity) => {
 
   cart.updatedAt = new Date()
 
-  return cart.save()
+  await cart.save()
+
+  return calculateCartTotals(cart)
 }
 
 export const removeFromCart = async (cartId, productId) => {
   await mwdb()
 
-  return CartModel.findByIdAndUpdate(
+  const cart = await CartModel.findByIdAndUpdate(
     cartId,
     {
       $pull: { products: { product: productId } },
@@ -44,12 +48,14 @@ export const removeFromCart = async (cartId, productId) => {
     },
     { new: true }
   ).populate("products.product")
+
+  return calculateCartTotals(cart)
 }
 
 export const updateQuantity = async (cartId, productId, quantity) => {
   await mwdb()
 
-  return CartModel.findOneAndUpdate(
+  const cart = await CartModel.findOneAndUpdate(
     { _id: cartId, "products.product": productId },
     {
       $set: { "products.$.quantity": quantity },
@@ -57,6 +63,8 @@ export const updateQuantity = async (cartId, productId, quantity) => {
     },
     { new: true }
   ).populate("products.product")
+
+  return calculateCartTotals(cart)
 }
 
 export const clearCartProducts = async (cartId) => {
@@ -100,4 +108,71 @@ export const mergeCart = async (userId, tempCartId) => {
   await CartModel.findByIdAndDelete(tempCartId)
 
   return userCart.populate("products.product")
+}
+
+export const applyVoucherToCart = async (cartId, voucherCode) => {
+  await mwdb()
+  const voucher = await VoucherModel.findOne({
+    code: voucherCode,
+    isActive: true,
+  })
+
+  if (!voucher) {
+    throw new Error("Voucher not found or inactive")
+  }
+
+  const cart = await CartModel.findByIdAndUpdate(
+    cartId,
+    { voucher: voucher._id },
+    { new: true }
+  )
+
+  return calculateCartTotals(cart)
+}
+
+export const removeVoucherFromCart = async (cartId) => {
+  await mwdb()
+  const cart = await CartModel.findByIdAndUpdate(
+    cartId,
+    { $unset: { voucher: "" } },
+    { new: true }
+  )
+
+  return calculateCartTotals(cart)
+}
+
+const calculateCartTotals = async (cart) => {
+  await cart.populate("products.product voucher")
+
+  const subtotal = cart.products.reduce(
+    (sum, item) => sum + item.product.price * item.quantity,
+    0
+  )
+
+  let discount = 0
+
+  if (cart.voucher) {
+    discount =
+      cart.voucher.type === "percentage"
+        ? subtotal * (cart.voucher.amount / 100)
+        : Math.min(cart.voucher.amount, subtotal)
+  }
+
+  const taxableAmount = subtotal - discount
+  const tax = cart.products.reduce((sum, item) => {
+    const productTaxAmount =
+      item.product.price * (item.product.taxe / 100) * item.quantity
+
+    return sum + productTaxAmount
+  }, 0)
+  const total = taxableAmount + tax
+
+  cart.subtotal = subtotal
+  cart.discount = discount
+  cart.tax = tax
+  cart.total = total
+
+  await cart.save()
+
+  return cart
 }

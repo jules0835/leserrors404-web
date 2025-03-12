@@ -29,7 +29,7 @@
       "password": "Your password",
       "login": "Sign in",
       "forgotPassword": "Forgot password?",
-      "noAccount": "Don’t have an account yet?",
+      "noAccount": "Don't have an account yet?",
       "register": "Register here",
       "rememberMe": "Remember me",
       "invalidEmail": "Please enter a valid email address",
@@ -44,7 +44,8 @@
       "invalidOtp": "The OTP you entered is invalid, please try again",
       "requiredOtp": "The OTP code with 6 digits is required",
       "otpRequired": "Your one time password is required to log into your account, please enter the code provide by your authenticator app",
-      "resetSuccess": "Your password was succesfuly reset, you can now login"
+      "resetSuccess": "Your password was succesfuly reset, you can now login",
+      "logoutAutoSuccess": "You have been automatically logged out. Please log in again."
     },
     "RegisterPage": {
       "title": "Register",
@@ -126,7 +127,9 @@
       "passwordMinLength": "A password with 12 letters is required",
       "invalidOrExpiredToken": "The reset token is invalid or has expired",
       "passwordResetSuccess": "Password has been reset successfully, you can now login"
-    }
+    },
+    "loggingYouOut": "Logging you out",
+    "loggingYouOutMessage": "If you are not redirected, please click here"
   },
   "Navigation": {
     "home": "Home",
@@ -149,7 +152,7 @@
     "business": "Business",
     "products": "Products",
     "orders": "Orders",
-    "coupons": "Coupons",
+    "vouchers": "Vouchers",
     "subscriptions": "Subscriptions",
     "payments": "Payments",
     "categories": "Categories",
@@ -492,8 +495,57 @@
       "Orders": {
         "title": "Orders"
       },
-      "Coupons": {
-        "title": "Coupons"
+      "Vouchers": {
+        "title": "Vouchers",
+        "subTitle": "Manage vouchers",
+        "code": "Code",
+        "discount": "Discount",
+        "expirationDate": "Expiration Date",
+        "isActive": "Active",
+        "actions": "Actions",
+        "viewVoucher": "View Voucher",
+        "deactivateVoucher": "Deactivate Voucher",
+        "activateVoucher": "Activate Voucher",
+        "searchPlaceholder": "Search...",
+        "columns": "Columns",
+        "errorLoadingData": "Error loading data.",
+        "noResults": "No results.",
+        "previous": "Previous",
+        "next": "Next",
+        "yes": "Yes",
+        "no": "No",
+        "type": "Type",
+        "percentage": "Percentage",
+        "fixed": "Fixed",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "minPurchaseAmount": "Minimum Purchase Amount",
+        "description": "Description",
+        "isProductSpecific": "Specific to Product",
+        "isCategorySpecific": "Specific to Category",
+        "product": "Product",
+        "category": "Category",
+        "user": "User",
+        "addVoucher": "Add Voucher",
+        "addVoucherDescription": "Fill in the details to create a new voucher.",
+        "saveChanges": "Save Changes",
+        "autoGenerateCodeMessage": "If left empty, a code will be automatically generated.",
+        "voucherType": "Voucher Type",
+        "voucherCode": "Voucher Code",
+        "voucherAmount": "Amount",
+        "requiredType": "Type is required",
+        "amountMin": "1 is the minimum",
+        "requiredAmount": "Amount required",
+        "minPurchaseAmountMin": "Minimum purchase amount is required",
+        "voucherCreated": "Voucher created",
+        "voucherCreationFailed": "Voucher creation failed",
+        "amount": "Amount",
+        "createdAt": "Create at",
+        "updatedAt": "Update at",
+        "VoucherDetails": {
+          "title": "Voucher details",
+          "subTitle": "View the details of the voucher"
+        }
       },
       "Subscriptions": {
         "title": "Subscriptions"
@@ -853,7 +905,12 @@
       "subtotal": "Sub total",
       "items": "Products",
       "orderSummary": "Your order",
-      "continueShopping": "Continue shipping"
+      "continueShopping": "Continue shipping",
+      "loginToProceed": "Login to your account to access to your personnal cart",
+      "taxes": "Taxes",
+      "voucherCode": "Voucher code",
+      "apply": "Apply",
+      "discount": "Discount"
     },
     "Product": {
       "outOfStock": "Out of stock",

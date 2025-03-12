@@ -127,3 +127,38 @@ export const mergeCarts = async () => {
     return false
   }
 }
+
+export const applyVoucher = async (code) => {
+  const cart = await getCart()
+
+  if (!cart) {
+    return false
+  }
+
+  const response = await fetch(`/api/shop/cart/${cart._id}/voucher`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ code }),
+  })
+
+  if (!response.ok) {
+    const error = await response.json()
+    throw new Error(error.message)
+  }
+
+  return await response.json()
+}
+
+export const removeVoucher = async () => {
+  const cart = await getCart()
+
+  if (!cart) {
+    return false
+  }
+
+  const response = await fetch(`/api/shop/cart/${cart._id}/voucher`, {
+    method: "DELETE",
+  })
+
+  return response.ok
+}

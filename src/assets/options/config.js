@@ -162,9 +162,9 @@ export const adminNavItems = [
         isSuperAdmin: false,
       },
       {
-        title: "Coupons",
-        translationKey: "coupons",
-        url: "/admin/business/coupons",
+        title: "Vouchers",
+        translationKey: "vouchers",
+        url: "/admin/business/vouchers",
         isSuperAdmin: false,
       },
     ],
@@ -364,6 +364,12 @@ export const pagesNames = [
     url: "/user/dashboard/business/payments",
   },
   {
+    title: "Business Vouchers",
+    titleKey: "Admin.Business.Vouchers.title",
+    subTitleKey: "Admin.Business.Vouchers.subTitle",
+    url: "/admin/business/vouchers",
+  },
+  {
     title: "Profile",
     titleKey: "User.MyAccount.Profile.title",
     subTitleKey: "NoSubTitle",
@@ -386,6 +392,12 @@ export const pagesNames = [
     titleKey: "Admin.Business.Categories.title",
     subTitleKey: "Admin.Business.Categories.subTitle",
     url: "/admin/business/categories",
+  },
+  {
+    title: "Voucher details",
+    titleKey: "Admin.Business.Vouchers.VoucherDetails.title",
+    subTitleKey: "Admin.Business.Vouchers.VoucherDetails.subTitle",
+    url: "/admin/business/vouchers/[Id]",
   },
 ]
 
