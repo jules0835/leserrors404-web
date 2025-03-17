@@ -44,7 +44,8 @@
       "invalidOtp": "L'OTP che hai inserito non è valido, riprova",
       "otpRequired": "La tua password a un tempo è richiesta per accedere al tuo account, inserisci il codice fornito dalla tua app di autenticazione",
       "requiredOtp": "È richiesto il codice OTP con 6 cifre",
-      "resetSuccess": "La tua password è stata ripristinata di successo, ora puoi accedere"
+      "resetSuccess": "La tua password è stata ripristinata di successo, ora puoi accedere",
+      "logoutAutoSuccess": "Sei stato automaticamente disconnesso. \nAccedi di nuovo."
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -126,7 +127,9 @@
       "sendEmail": "Invia un collegamento di ripristino",
       "somethingWentWrong": "Impossibile inviare l'e -mail di ripristino, riprova.",
       "title": "Reimpostare la password"
-    }
+    },
+    "loggingYouOut": "Disconnettendoti",
+    "loggingYouOutMessage": "Se non sei reindirizzato, fai clic qui"
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
@@ -326,6 +329,58 @@
         "searchPlaceholder": "Ricerca...",
         "subTitle": "Gestisci categorie",
         "title": "Categorie",
+        "yes": "SÌ"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Visualizza i dettagli del voucher",
+          "title": "Dettagli del voucher"
+        },
+        "actions": "Azioni",
+        "activateVoucher": "Attiva voucher",
+        "addVoucher": "Aggiungi voucher",
+        "addVoucherDescription": "Compila i dettagli per creare un nuovo voucher.",
+        "amount": "Quantità",
+        "amountMin": "1 è il minimo",
+        "autoGenerateCodeMessage": "Se lasciato vuoto, un codice verrà generato automaticamente.",
+        "category": "Categoria",
+        "code": "Codice",
+        "columns": "Colonne",
+        "createdAt": "Creare a",
+        "deactivateVoucher": "DEACTIVATE VOUCHER",
+        "description": "Descrizione",
+        "discount": "Sconto",
+        "endDate": "Data di fine",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "expirationDate": "Data di scadenza",
+        "fixed": "Fisso",
+        "isActive": "Attivo",
+        "isCategorySpecific": "Specifico per la categoria",
+        "isProductSpecific": "Specifico per il prodotto",
+        "minPurchaseAmount": "Importo minimo di acquisto",
+        "minPurchaseAmountMin": "È richiesto l'importo minimo dell'acquisto",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato.",
+        "percentage": "Percentuale",
+        "previous": "Precedente",
+        "product": "Prodotto",
+        "requiredAmount": "Importo richiesto",
+        "requiredType": "È richiesto il tipo",
+        "saveChanges": "Salva le modifiche",
+        "searchPlaceholder": "Ricerca...",
+        "startDate": "Data di inizio",
+        "subTitle": "Gestisci i buoni",
+        "title": "Voucher",
+        "type": "Tipo",
+        "updatedAt": "Aggiornamento a",
+        "user": "Utente",
+        "viewVoucher": "Visualizza voucher",
+        "voucherAmount": "Quantità",
+        "voucherCode": "Codice voucher",
+        "voucherCreated": "Voucher creato",
+        "voucherCreationFailed": "La creazione di voucher non è riuscita",
+        "voucherType": "Tipo di voucher",
         "yes": "SÌ"
       }
     },
@@ -631,7 +686,8 @@
     "needHelp": "Hai bisogno di aiuto?",
     "openNewTicket": "Biglietto aperto",
     "paymentMethods": "Metodi di pagamento",
-    "support": "Supporto"
+    "support": "Supporto",
+    "vouchers": "Voucher"
   },
   "navigation": {
     "about": "Di",
@@ -853,7 +909,12 @@
       "orderSummary": "Il tuo ordine",
       "register": "Registro",
       "subtotal": "Sub totale",
-      "yourCart": "Il tuo carrello"
+      "yourCart": "Il tuo carrello",
+      "apply": "Fare domanda a",
+      "discount": "Sconto",
+      "loginToProceed": "Accedi al tuo account per accedere al tuo carrello personale",
+      "taxes": "Tasse",
+      "voucherCode": "Codice voucher"
     },
     "Product": {
       "addToCart": {

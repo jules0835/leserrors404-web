@@ -1,3 +1,4 @@
+"use client"
 import {
   Card,
   CardHeader,
@@ -14,12 +15,20 @@ import { SquarePlus } from "lucide-react"
 import { trimString } from "@/lib/utils"
 import { useRouter } from "@/i18n/routing"
 import { useCart } from "@/features/shop/cart/context/cartContext"
+import { useState } from "react"
+import { AnimatedReload } from "@/components/actions/AnimatedReload"
 
 export default function ProductCard({ product }) {
+  const [isLoading, setIsLoading] = useState(false)
   const { addProdToCart } = useCart()
   const locale = useLocale()
   const t = useTranslations("ProductCard")
   const router = useRouter()
+  const handleAddToCart = async (id) => {
+    setIsLoading(true)
+    await addProdToCart(id)
+    setIsLoading(false)
+  }
 
   return (
     <Card className="text-left flex flex-col h-full ">
@@ -68,9 +77,9 @@ export default function ProductCard({ product }) {
           <div>
             <DButton
               styles={"ml-2"}
-              onClickBtn={() => addProdToCart(product._id)}
+              onClickBtn={() => handleAddToCart(product._id)}
             >
-              <SquarePlus size={20} />
+              {isLoading ? <AnimatedReload /> : <SquarePlus size={20} />}
             </DButton>
           </div>
         </div>

@@ -44,7 +44,8 @@
       "invalidOtp": "Der von Ihnen eingegebene OTP ist ungültig. Bitte versuchen Sie es erneut",
       "otpRequired": "Ihr einmaliges Kennwort ist erforderlich, um sich in Ihrem Konto anzumelden. Geben Sie bitte den Code ein, den Ihre Authenticator -App zur Verfügung stellt",
       "requiredOtp": "Der OTP -Code mit 6 Ziffern ist erforderlich",
-      "resetSuccess": "Ihr Passwort war erfolgreicher Reset, Sie können sich jetzt anmelden"
+      "resetSuccess": "Ihr Passwort war erfolgreicher Reset, Sie können sich jetzt anmelden",
+      "logoutAutoSuccess": "Sie wurden automatisch angemeldet. \nBitte melden Sie sich erneut an."
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -126,7 +127,9 @@
       "sendEmail": "Senden Sie einen Reset -Link",
       "somethingWentWrong": "Bitte versuchen Sie es nicht erneut.",
       "title": "Setzen Sie Ihr Passwort zurück"
-    }
+    },
+    "loggingYouOut": "Anmeldung dich raus",
+    "loggingYouOutMessage": "Wenn Sie nicht weitergeleitet werden, klicken Sie bitte hier"
   },
   "other": "Andere",
   "socialMedia": "Soziale Medien",
@@ -590,6 +593,58 @@
         "subTitle": "Kategorien verwalten",
         "title": "Kategorien",
         "yes": "Ja"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Sehen Sie sich die Details des Gutscheins an",
+          "title": "Gutscheindetails"
+        },
+        "actions": "Aktionen",
+        "activateVoucher": "Gutschein aktivieren",
+        "addVoucher": "Gutschein hinzufügen",
+        "addVoucherDescription": "Füllen Sie die Details ein, um einen neuen Gutschein zu erstellen.",
+        "amount": "Menge",
+        "amountMin": "1 ist das Minimum",
+        "autoGenerateCodeMessage": "Wenn es leer ist, wird ein Code automatisch generiert.",
+        "category": "Kategorie",
+        "code": "Code",
+        "columns": "Spalten",
+        "createdAt": "Erstellen bei",
+        "deactivateVoucher": "Deaktivieren Sie den Gutschein",
+        "description": "Beschreibung",
+        "discount": "Rabatt",
+        "endDate": "Enddatum",
+        "errorLoadingData": "Fehler laden Daten.",
+        "expirationDate": "Verfallsdatum",
+        "fixed": "Behoben",
+        "isActive": "Aktiv",
+        "isCategorySpecific": "Spezifisch für Kategorien",
+        "isProductSpecific": "Spezifisch für Produkte",
+        "minPurchaseAmount": "Mindestkaufbetrag",
+        "minPurchaseAmountMin": "Mindestkaufsbetrag ist erforderlich",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse.",
+        "percentage": "Prozentsatz",
+        "previous": "Vorherige",
+        "product": "Produkt",
+        "requiredAmount": "Betrag erforderlich",
+        "requiredType": "Typ ist erforderlich",
+        "saveChanges": "Änderungen speichern",
+        "searchPlaceholder": "Suchen...",
+        "startDate": "Startdatum",
+        "subTitle": "Gutscheine verwalten",
+        "title": "Gutscheine",
+        "type": "Typ",
+        "updatedAt": "Update at",
+        "user": "Benutzer",
+        "viewVoucher": "Gutschein anzeigen",
+        "voucherAmount": "Menge",
+        "voucherCode": "Gutscheincode",
+        "voucherCreated": "Gutschein erstellt",
+        "voucherCreationFailed": "Die Gutscheinkreation ist fehlgeschlagen",
+        "voucherType": "Gutscheintyp",
+        "yes": "Ja"
       }
     }
   },
@@ -631,7 +686,8 @@
     "needHelp": "Benötigen Sie Hilfe?",
     "openNewTicket": "Offenes Ticket",
     "paymentMethods": "Zahlungsmethoden",
-    "support": "Unterstützung"
+    "support": "Unterstützung",
+    "vouchers": "Gutscheine"
   },
   "navigation": {
     "admin": "Admin",
@@ -853,7 +909,12 @@
       "orderSummary": "Ihre Bestellung",
       "register": "Registrieren",
       "subtotal": "Sub Total",
-      "yourCart": "Dein Wagen"
+      "yourCart": "Dein Wagen",
+      "apply": "Anwenden",
+      "discount": "Rabatt",
+      "loginToProceed": "Melden Sie sich in Ihrem Konto an, um auf Ihren Personenwagen zuzugreifen",
+      "taxes": "Steuern",
+      "voucherCode": "Gutscheincode"
     },
     "Product": {
       "addToCart": {

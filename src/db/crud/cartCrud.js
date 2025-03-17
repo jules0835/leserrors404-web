@@ -1,5 +1,6 @@
 import { CartModel, VoucherModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
+import { hasMixedProductTypes } from "@/features/shop/cart/utils/cartService"
 
 export const createCart = async (data) => {
   await mwdb()
@@ -141,6 +142,17 @@ export const removeVoucherFromCart = async (cartId) => {
   return calculateCartTotals(cart)
 }
 
+export const checkCartEligibilityForCheckout = async (query) => {
+  const cart = await findCart(query)
+
+  if (!cart) {
+    throw new Error("Cart not found")
+  }
+
+  const canCheckout = !hasMixedProductTypes(cart)
+
+  return { canCheckout, cart }
+}
 const calculateCartTotals = async (cart) => {
   await cart.populate("products.product voucher")
 

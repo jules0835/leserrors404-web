@@ -1,12 +1,20 @@
 "use client"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
-import { getCart } from "./utils/cartService"
+import { getCart, checkOutStripe } from "./utils/cartService"
 import { useCart } from "@/features/shop/cart/context/cartContext"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
-import { Trash2, Plus, Minus, ShoppingBag, UserPlus } from "lucide-react"
+import {
+  Trash2,
+  Plus,
+  Minus,
+  ShoppingBag,
+  UserPlus,
+  TicketPercent,
+  Info,
+} from "lucide-react"
 import { Card } from "@/components/ui/card"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
 import { webAppSettings } from "@/assets/options/config"
@@ -20,6 +28,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 export default function UserCart() {
   const t = useTranslations("Shop.Cart")
   const [isUpdating, setIsUpdating] = useState(false)
+  const [isCheckingOut, setIsCheckingOut] = useState(false)
+  const [mixedProductTypes, setMixedProductTypes] = useState(false)
   const { data: session } = useSession()
   const queryClient = useQueryClient()
   const {
@@ -72,6 +82,7 @@ export default function UserCart() {
       await updateProdCart(productId, newQuantity)
       await queryClient.invalidateQueries({ queryKey: ["cart"] })
       await queryClient.refetchQueries({ queryKey: ["cart"] })
+      setMixedProductTypes(false)
     } catch (errorQt) {
       toast.error(`An error occurred, please try again.${errorQt}`)
     } finally {
@@ -84,6 +95,7 @@ export default function UserCart() {
       await removeProdFromCart(productId)
       await queryClient.invalidateQueries({ queryKey: ["cart"] })
       await queryClient.refetchQueries({ queryKey: ["cart"] })
+      setMixedProductTypes(false)
     } catch (errorRm) {
       toast.error(`An error occurred, please try again.${errorRm}`)
     } finally {
@@ -108,15 +120,44 @@ export default function UserCart() {
     ) : (
       `${value} €`
     )
+  const handleCheckout = async () => {
+    setIsCheckingOut(true)
+    const response = await checkOutStripe()
+
+    if (response.canCheckout) {
+      window.location.href = response.url
+    } else {
+      if (response.error === "MixedProductTypes") {
+        setMixedProductTypes(true)
+      }
+
+      toast.error(response.message)
+    }
+
+    setIsCheckingOut(false)
+  }
 
   return (
-    <div className="container mx-auto pb-20">
+    <div className="container mx-auto pb-20 pt-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2">
           <h1 className="text-2xl font-bold mb-6">{t("yourCart")}</h1>
           <div className="space-y-4">
             {error && <ErrorFront />}
             {isLoading && <ListSkeleton rows={3} height={12} />}
+            {mixedProductTypes && (
+              <div className="bg-orange-200 p-4 rounded-md border border-orange-600">
+                <div className="flex items-center gap-2">
+                  <Info />
+                  <h2 className="text-xl font-bold">
+                    {t("MixedProductTypes")}
+                  </h2>
+                </div>
+                <p className="text-muted-foreground">
+                  {t("MixedProductTypesSubtitle")}
+                </p>
+              </div>
+            )}
             {!isLoading &&
               !error &&
               (cart?.products?.length === 0 || !cart) && (
@@ -246,15 +287,6 @@ export default function UserCart() {
                     </span>
                   </div>
 
-                  {cart?.discount > 0 && (
-                    <div className="flex justify-between text-green-600">
-                      <span>{t("discount")}</span>
-                      <span>
-                        -{displayLoadingCalcul(cart?.discount.toFixed(2), "20")}
-                      </span>
-                    </div>
-                  )}
-
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">{t("taxes")}</span>
                     <span>
@@ -263,6 +295,18 @@ export default function UserCart() {
                   </div>
 
                   <Separator />
+
+                  {cart?.discount > 0 && (
+                    <div className="flex justify-between text-green-600">
+                      <span>{t("discount")}</span>
+                      <span>
+                        {displayLoadingCalcul(
+                          `- ${cart?.discount.toFixed(2)}`,
+                          "20"
+                        )}
+                      </span>
+                    </div>
+                  )}
 
                   <div className="flex justify-between text-xl font-bold">
                     <span>{t("total")}</span>
@@ -291,8 +335,12 @@ export default function UserCart() {
                     </Button>
                   </div>
                 )}
-                {cart?.voucher && (
-                  <div className="flex justify-between items-center border rounded-md p-2">
+                {cart?.voucher && isUpdating && (
+                  <Skeleton className="w-full h-10" />
+                )}
+                {cart?.voucher && !isUpdating && (
+                  <div className="flex justify-between items-center border rounded-md py-1 px-5">
+                    <TicketPercent />
                     <span>{`${cart.voucher.code} - ${cart.voucher.type === "percentage" ? `${cart.voucher.amount}%` : `${cart.voucher.amount}€`}`}</span>
                     <Button
                       variant="ghost"
@@ -304,9 +352,19 @@ export default function UserCart() {
                   </div>
                 )}
                 {!isLoading && session && (
-                  <DButton isMain isDisabled={cart?.products?.length === 0}>
-                    <ShoppingBag className="mr-2 h-4 w-4" />
-                    {t("checkout")}
+                  <DButton
+                    isMain
+                    isDisabled={cart?.products?.length === 0}
+                    onClickBtn={handleCheckout}
+                  >
+                    {isCheckingOut ? (
+                      <div className="dotsLoader" />
+                    ) : (
+                      <>
+                        <ShoppingBag className="mr-2 h-4 w-4" />
+                        {t("checkout")}
+                      </>
+                    )}
                   </DButton>
                 )}
               </div>

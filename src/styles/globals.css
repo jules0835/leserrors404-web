@@ -141,6 +141,15 @@
   border-radius: 20px;
 }
 
+.circleLoader {
+  border: 2px solid #fff;
+  border-bottom-color: #5c00dc;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
 .dotsLoader {
   width: 15px;
   aspect-ratio: 1;
@@ -191,5 +200,14 @@
       60px 15px,
       60px 15px,
       60px 15px;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

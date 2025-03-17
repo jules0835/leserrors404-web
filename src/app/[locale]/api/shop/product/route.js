@@ -1,5 +1,6 @@
 import { getShopProducts } from "@/db/crud/productCrud"
-import { webAppSettings } from "@/assets/options/config"
+import { logKeys, webAppSettings } from "@/assets/options/config"
+import log from "@/lib/log"
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url)
@@ -16,6 +17,12 @@ export async function GET(req) {
       status: 200,
     })
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.shopProductError.key,
+      message: "Failed to fetch products",
+      error,
+    })
+
     return new Response(JSON.stringify({ error: "Failed to fetch products" }), {
       status: 500,
     })

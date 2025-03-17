@@ -8,6 +8,8 @@ import { getCategorieSchema } from "@/features/admin/business/categories/utils/c
 import { NextResponse } from "next/server"
 import * as yup from "yup"
 import { uploadPublicPicture } from "@/utils/database/blobService"
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
 
 export async function getCategoriesList(size = 10, page = 1, query = "") {
   try {
@@ -15,6 +17,17 @@ export async function getCategoriesList(size = 10, page = 1, query = "") {
 
     return res
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.internalError.key,
+      message: "Failed to fetch Categories",
+      error,
+      data: {
+        size,
+        page,
+        query,
+      },
+    })
+
     return { Categories: [], total: 0 }
   }
 }
@@ -30,6 +43,17 @@ export async function GET(req) {
 
     return Response.json(res)
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.internalError.key,
+      message: "Failed to fetch Categories",
+      error,
+      data: {
+        limit,
+        page,
+        query,
+      },
+    })
+
     return Response.json(
       { error: "Failed to fetch Categories" },
       { status: 500 }
@@ -70,6 +94,14 @@ export async function POST(req) {
     }
     categorie = await createCategorie(categorie)
 
+    log.systemInfo({
+      logKey: logKeys.shopSettingsEdit.key,
+      message: "Categorie created",
+      data: {
+        categorie,
+      },
+    })
+
     return NextResponse.json({ success: true, categorie }, { status: 201 })
   } catch (error) {
     if (error instanceof yup.ValidationError) {
@@ -83,6 +115,12 @@ export async function POST(req) {
         { status: 400 }
       )
     }
+
+    log.systemError({
+      logKey: logKeys.shopSettingsError.key,
+      message: "Failed to create Categorie",
+      error,
+    })
 
     return NextResponse.json(
       { error: "InternalServerError", message: "Something went wrong" },

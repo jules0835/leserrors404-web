@@ -34,6 +34,7 @@ export default function NewVoucher({ onVoucherCreated }) {
     amount: 1,
     minPurchaseAmount: 0,
     description: "",
+    isSingleUse: false,
   }
   const handleSubmit = async (values, { setSubmitting, setErrors }) => {
     try {
@@ -139,6 +140,17 @@ export default function NewVoucher({ onVoucherCreated }) {
                 <Field name="description" as={Input} />
                 <ErrorMessage
                   name="description"
+                  component="div"
+                  className="text-red-600 text-sm mt-1"
+                />
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <Field type="checkbox" name="isSingleUse" id="isSingleUse" />
+                  <Label htmlFor="isSingleUse">{t("singleUseVoucher")}</Label>
+                </div>
+                <ErrorMessage
+                  name="isSingleUse"
                   component="div"
                   className="text-red-600 text-sm mt-1"
                 />

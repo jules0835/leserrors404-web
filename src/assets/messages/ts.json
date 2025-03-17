@@ -44,7 +44,8 @@
       "otpRequired": "Password ya wena ya nkarhi wun’we yi laveka ku nghena eka akhawunti ya wena, hi kombela u nghenisa khodi leyi u yi nyikeke hi app ya wena ya Authenticator .",
       "requiredOtp": "Khodi ya OTP leyi nga na 6 wa tidijithali ta laveka .",
       "resetSuccess": "Password ya wena a yi ri succesfuly reset, sweswi u nga nghena .",
-      "unknownError": "Ku na leswi nga famba kahle, hi kombela u ringeta nakambe kumbe u tihlanganisa na nseketelo."
+      "unknownError": "Ku na leswi nga famba kahle, hi kombela u ringeta nakambe kumbe u tihlanganisa na nseketelo.",
+      "logoutAutoSuccess": "U humesiwile hi ku tisungulela. \nHi kombela mi nghena nakambe."
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -126,7 +127,9 @@
     "confirmEmail": "Ku tiyisisiwa ka imeyili .",
     "confirmEmailFailed": "Ku tiyisisiwa ka imeyili ku tsandzekile. \nHi kombela u ringeta nakambe kumbe u tihlanganisa na ntlawa wa hina wa nseketelo.",
     "confirmEmailSuccess": "Email ya wena yi tiyisisiwile hi ndlela leyi humelelaka, sweswi u nga nghena.",
-    "login": "Vuya eka tluka ro nghena ."
+    "login": "Vuya eka tluka ro nghena .",
+    "loggingYouOut": "Ku logging ku ku huma",
+    "loggingYouOutMessage": "Loko u nga kongomisiwanga, hi kombela u tikhoma laha ."
   },
   "other": "Xin'wana",
   "socialMedia": "Social Media",
@@ -326,6 +329,58 @@
         "searchPlaceholder": "Secha...",
         "subTitle": "Lawula Swiyenge .",
         "title": "Swiyenge .",
+        "yes": "Ina"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Languta vuxokoxoko bya vawuchari .",
+          "title": "Vuxokoxoko bya tivhawuchara ."
+        },
+        "actions": "Swiendlo .",
+        "activateVoucher": "Ku tirhisa Vhawuchara .",
+        "addVoucher": "U engetela vawuchari .",
+        "addVoucherDescription": "Tata vuxokoxoko byo endla vawuchari leyintshwa.",
+        "amount": "Ntsengo",
+        "amountMin": "1 i xiyimo xa le hansi .",
+        "autoGenerateCodeMessage": "Loko yi tshikiwa yi nga ri na nchumu, khodi yi ta endliwa hi ku tisungulela.",
+        "category": "Xiyenge",
+        "code": "Khodi ya Khodi .",
+        "columns": "Tikholomu .",
+        "createdAt": "Endla eka .",
+        "deactivateVoucher": "Vawuchari yo herisa ku tirha .",
+        "description": "Nhlamuselo",
+        "discount": "Mbhukuto",
+        "endDate": "Siku ro hetelela .",
+        "errorLoadingData": "Xihoxo xa ku layicha datha.",
+        "expirationDate": "Siku ro hela ka nkarhi .",
+        "fixed": "Lulamile",
+        "isActive": "Hanya",
+        "isCategorySpecific": "Hi ku kongoma eka xiyenge .",
+        "isProductSpecific": "Hi ku kongoma eka xiendliwa .",
+        "minPurchaseAmount": "Mali ya le hansi yo xava .",
+        "minPurchaseAmountMin": "Mali ya le hansi yo xava ya laveka .",
+        "next": "Landzelaka",
+        "no": "E-e",
+        "noResults": "Ku hava vuyelo.",
+        "percentage": "Tiphesente .",
+        "previous": "Endzhaku",
+        "product": "Ximakiwa",
+        "requiredAmount": "Nhlayo leyi lavekaka .",
+        "requiredType": "Muxaka wa laveka .",
+        "saveChanges": "Hlayisa ku cinca .",
+        "searchPlaceholder": "Secha...",
+        "startDate": "Siku ro sungula .",
+        "subTitle": "Lawula tivhawuchara .",
+        "title": "Tivhawuchara .",
+        "type": "Muxaka",
+        "updatedAt": "update eka",
+        "user": "Mutirhisi .",
+        "viewVoucher": "Vona Vhawuchara .",
+        "voucherAmount": "Ntsengo",
+        "voucherCode": "Khodi ya vawuchari .",
+        "voucherCreated": "Voucher yi endliwile .",
+        "voucherCreationFailed": "Ku tumbuluxiwa ka tivhawuchara swi tsandzekile .",
+        "voucherType": "Muxaka wa tivhawuchara .",
         "yes": "Ina"
       }
     },
@@ -631,7 +686,8 @@
     "security": "Vuhlayiseki",
     "subscriptions": "Swikhokhelo .",
     "support": "Nseketelo",
-    "users": "vatirhisi va switirhisiwa ."
+    "users": "vatirhisi va switirhisiwa .",
+    "vouchers": "Tivhawuchara ."
   },
   "navigation": {
     "about": "Hi",
@@ -853,7 +909,12 @@
       "orderSummary": "Oda ya wena .",
       "register": "Tsarisela",
       "subtotal": "Sub Nhlayo hinkwayo .",
-      "yourCart": "Xigolonyana xa wena ."
+      "yourCart": "Xigolonyana xa wena .",
+      "apply": "Endla xikombelo",
+      "discount": "Mbhukuto",
+      "loginToProceed": "Nghena eka akhawunti ya wena ku nghena eka xigolonyana xa wena xa munhu .",
+      "taxes": "Swibalo .",
+      "voucherCode": "Khodi ya vawuchari ."
     },
     "Product": {
       "addToCart": {

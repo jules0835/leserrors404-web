@@ -19,6 +19,13 @@ export async function GET(req) {
     !salesfrontSettings ||
     salesfrontSettings.key === webAppSettings.salesfront.homepage.carouselId
   ) {
+    log.systemInfo({
+      logKey: logKeys.shopSettingsEdit.key,
+      message: "Carousel created",
+      data: {
+        salesfrontSettings,
+      },
+    })
     salesfrontSettings = await createSalesfront({
       name: webAppSettings.salesfront.homepage.carouselId,
       isCarousel: true,
@@ -29,6 +36,13 @@ export async function GET(req) {
     !salesfrontSettings ||
     salesfrontSettings.key === webAppSettings.salesfront.homepage.alertBannerId
   ) {
+    log.systemInfo({
+      logKey: logKeys.shopSettingsEdit.key,
+      message: "Alert banner created",
+      data: {
+        salesfrontSettings,
+      },
+    })
     salesfrontSettings = await createSalesfront({
       name: webAppSettings.salesfront.homepage.alertBannerId,
       isBanner: true,

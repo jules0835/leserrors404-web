@@ -1,11 +1,11 @@
 "use client"
 import { useQuery } from "@tanstack/react-query"
-import DataGridSkeleton from "@/components/skeleton/DataGridSkeleton"
 import { Button } from "@/components/ui/button"
 import toast from "react-hot-toast"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
 import { Skeleton } from "@/components/ui/skeleton"
+import { useTranslations } from "next-intl"
 
 export default function VoucherDetails({ voucherId }) {
   const {
@@ -25,6 +25,7 @@ export default function VoucherDetails({ voucherId }) {
       return response.json()
     },
   })
+  const t = useTranslations("Admin.Business.Vouchers")
   const handleChangeVoucherStatus = async () => {
     try {
       const response = await fetch(
@@ -54,7 +55,7 @@ export default function VoucherDetails({ voucherId }) {
           <ListSkeleton rows={2} parts={4} height={20} px={2} />
         </div>
       )}
-      {error && <div>Failed to load voucher details</div>}
+      {error && <div>{t("errorLoadingData")}</div>}
       {voucher && (
         <div className="space-y-4">
           <Button
@@ -62,12 +63,12 @@ export default function VoucherDetails({ voucherId }) {
             onClick={handleChangeVoucherStatus}
             className={`mt-4 ${voucher.isActive ? "text-red-700" : "text-green-700"}`}
           >
-            {voucher.isActive ? "Deactivate Voucher" : "Activate Voucher"}
+            {voucher.isActive ? t("deactivateVoucher") : t("activateVoucher")}
           </Button>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Code</CardTitle>
+                <CardTitle>{t("code")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>{voucher.code}</p>
@@ -75,7 +76,7 @@ export default function VoucherDetails({ voucherId }) {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Type</CardTitle>
+                <CardTitle>{t("type")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>{voucher.type}</p>
@@ -83,7 +84,7 @@ export default function VoucherDetails({ voucherId }) {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Amount</CardTitle>
+                <CardTitle>{t("amount")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>{voucher.amount}</p>
@@ -91,7 +92,7 @@ export default function VoucherDetails({ voucherId }) {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Minimum Purchase Amount</CardTitle>
+                <CardTitle>{t("minPurchaseAmount")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>{voucher.minPurchaseAmount}</p>
@@ -99,7 +100,7 @@ export default function VoucherDetails({ voucherId }) {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Description</CardTitle>
+                <CardTitle>{t("description")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>{voucher.description}</p>
@@ -107,15 +108,15 @@ export default function VoucherDetails({ voucherId }) {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Active</CardTitle>
+                <CardTitle>{t("isActive")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p>{voucher.isActive ? "Yes" : "No"}</p>
+                <p>{voucher.isActive ? t("yes") : t("no")}</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Created At</CardTitle>
+                <CardTitle>{t("createdAt")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>{new Date(voucher.createdAt).toLocaleDateString()}</p>
@@ -123,7 +124,7 @@ export default function VoucherDetails({ voucherId }) {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Updated At</CardTitle>
+                <CardTitle>{t("updatedAt")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>{new Date(voucher.updatedAt).toLocaleDateString()}</p>
@@ -132,9 +133,7 @@ export default function VoucherDetails({ voucherId }) {
           </div>
         </div>
       )}
-      {!isLoading && !error && !voucher && (
-        <div>No voucher details available</div>
-      )}
+      {!isLoading && !error && !voucher && <div>{t("noResults")}</div>}
     </div>
   )
 }

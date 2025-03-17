@@ -1,10 +1,14 @@
 import { findProduct, getProducts, createProduct } from "@/db/crud/productCrud"
 import { getTranslations } from "next-intl/server"
-import { getProductSchema } from "@/features/admin/business/products/utils/product"
+import {
+  getProductSchema,
+  createStripeProduct,
+} from "@/features/admin/business/products/utils/product"
 import { NextResponse } from "next/server"
 import * as yup from "yup"
 import { uploadPublicPicture } from "@/utils/database/blobService"
-
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
 export async function getProductsList(size = 10, page = 1, query = "") {
   try {
     const res = await getProducts(size, page, query)
@@ -26,6 +30,12 @@ export async function GET(req) {
 
     return Response.json(res)
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.shopSettingsError.key,
+      message: "Failed to fetch products",
+      error,
+    })
+
     return Response.json({ error: "Failed to fetch Products" }, { status: 500 })
   }
 }
@@ -39,6 +49,8 @@ export async function POST(req) {
     const categorie = formData.get("categorie")
     const stock = formData.get("stock")
     const price = formData.get("price")
+    const priceMonthly = formData.get("priceMonthly")
+    const priceAnnual = formData.get("priceAnnual")
     const priority = formData.get("priority")
     const taxe = formData.get("taxe")
     const subscription = formData.get("subscription")
@@ -50,6 +62,8 @@ export async function POST(req) {
       categorie,
       stock,
       price,
+      priceMonthly,
+      priceAnnual,
       priority,
       taxe,
       subscription,
@@ -74,6 +88,20 @@ export async function POST(req) {
       )
     }
 
+    const labelObj = JSON.parse(label)
+    const descriptionObj = JSON.parse(description)
+    const name = labelObj.en || Object.values(labelObj)[0]
+    const desc = descriptionObj.en || Object.values(descriptionObj)[0]
+    const stripeData = await createStripeProduct({
+      name,
+      description: desc,
+      price: JSON.parse(price),
+      priceMonthly: JSON.parse(priceMonthly),
+      priceAnnual: JSON.parse(priceAnnual),
+      subscription: JSON.parse(subscription),
+      taxe: JSON.parse(taxe),
+    })
+
     let product = {
       label: JSON.parse(label),
       description: JSON.parse(description),
@@ -81,12 +109,25 @@ export async function POST(req) {
       categorie: JSON.parse(categorie),
       stock: JSON.parse(stock),
       price: JSON.parse(price),
+      priceMonthly: JSON.parse(priceMonthly),
+      priceAnnual: JSON.parse(priceAnnual),
       priority: JSON.parse(priority),
       taxe: JSON.parse(taxe),
       subscription: JSON.parse(subscription),
       picture,
+      stripeProductId: stripeData.stripeProductId,
+      stripePriceIdMonthly: stripeData.stripePriceIdMonthly,
+      stripePriceIdAnnual: stripeData.stripePriceIdAnnual,
+      stripePriceId: stripeData.stripePriceId,
+      stripeTaxId: stripeData.stripeTaxId,
     }
     product = await createProduct(product)
+
+    log.systemInfo({
+      logKey: logKeys.shopSettingsEdit.key,
+      message: "Product created",
+      product,
+    })
 
     return NextResponse.json({ success: true, product }, { status: 201 })
   } catch (error) {
@@ -101,6 +142,12 @@ export async function POST(req) {
         { status: 400 }
       )
     }
+
+    log.systemError({
+      logKey: logKeys.shopSettingsError.key,
+      message: "Failed to create product",
+      error,
+    })
 
     return NextResponse.json(
       { error: "InternalServerError", message: "Something went wrong" },

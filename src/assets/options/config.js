@@ -546,6 +546,30 @@ export const logKeys = {
     titleKey: "Log.AccountSecurityLock.title",
     descriptionKey: "Log.AccountSecurityLock.description",
   },
+  shopSettingsEdit: {
+    name: "Shop Settings Edit",
+    key: "shopSettingsEdit",
+    titleKey: "Log.ShopSettingsEdit.title",
+    descriptionKey: "Log.ShopSettingsEdit.description",
+  },
+  shopSettingsError: {
+    name: "Shop Settings Error",
+    key: "shopSettingsError",
+    titleKey: "Log.ShopSettingsError.title",
+    descriptionKey: "Log.ShopSettingsError.description",
+  },
+  shopUserCart: {
+    name: "Shop User Cart",
+    key: "shopUserCart",
+    titleKey: "Log.ShopUserCart.title",
+    descriptionKey: "Log.ShopUserCart.description",
+  },
+  shopUserCartError: {
+    name: "Shop User Cart Error",
+    key: "shopUserCartError",
+    titleKey: "Log.ShopUserCartError.title",
+    descriptionKey: "Log.ShopUserCartError.description",
+  },
 }
 
 export const logCriticalityKeys = {

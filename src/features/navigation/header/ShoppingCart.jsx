@@ -76,12 +76,11 @@ export default function ShoppingCart() {
       await queryClient.invalidateQueries({ queryKey: ["cart"] })
       await queryClient.refetchQueries({ queryKey: ["cart"] })
     } catch (error) {
-      console.error(error)
+      setIsUpdating(false)
     } finally {
       setIsUpdating(false)
     }
   }
-
   const handleRemoveItem = async (productId) => {
     try {
       setIsUpdating(true)
@@ -89,12 +88,11 @@ export default function ShoppingCart() {
       await queryClient.invalidateQueries({ queryKey: ["cart"] })
       await queryClient.refetchQueries({ queryKey: ["cart"] })
     } catch (error) {
-      console.error(error)
+      setIsUpdating(false)
     } finally {
       setIsUpdating(false)
     }
   }
-
   const handleOpenChange = (open) => {
     setIsOpen(open)
 
@@ -109,7 +107,6 @@ export default function ShoppingCart() {
   const handleAction = (e) => {
     e.stopPropagation()
   }
-
   const displayLoadingCalcul = (value) =>
     isUpdating ? <Skeleton className="w-16 h-6" /> : `${value} €`
 

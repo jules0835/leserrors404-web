@@ -164,7 +164,8 @@
     "openNewTicket": "Open Ticket",
     "myTickets": "My Tickets",
     "needHelp": "Need help ?",
-    "mySupport": "My tickets"
+    "mySupport": "My tickets",
+    "coupons": "Vouchers"
   },
   "Admin": {
     "Security": {
@@ -672,6 +673,9 @@
           "editProduct": "Edit product",
           "viewProduct": "View product"
         }
+      },
+      "Coupons": {
+        "title": "Vouchers"
       }
     }
   },
@@ -910,7 +914,9 @@
       "taxes": "Taxes",
       "voucherCode": "Voucher code",
       "apply": "Apply",
-      "discount": "Discount"
+      "discount": "Discount",
+      "MixedProductTypes": "Please separate your orders for different types of products.",
+      "MixedProductTypesSubtitle": "                  You can't checkout with mixed product types. Please separate different subscription and on time buy product."
     },
     "Product": {
       "outOfStock": "Out of stock",
@@ -919,6 +925,46 @@
       },
       "quantity": "Quantity",
       "price": "Price"
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "title": "Critical Security",
+      "description": "Critical security event"
+    },
+    "InternalError": {
+      "title": "Internal Error",
+      "description": "An internal error occurred"
+    },
+    "UserChangePassword": {
+      "title": "User Change Password",
+      "description": "User password was changed"
+    },
+    "Criticality": {
+      "UserInfo": {
+        "title": "User Info",
+        "description": "Informational event related to a user"
+      },
+      "UserError": {
+        "title": "User Error",
+        "description": "Error event related to a user"
+      },
+      "UserSecurity": {
+        "title": "User Security",
+        "description": "Security event related to a user"
+      },
+      "SystemInfo": {
+        "title": "System Info",
+        "description": "Informational event related to the system"
+      },
+      "SystemSecurity": {
+        "title": "System Security",
+        "description": "Security event related to the system"
+      },
+      "SystemError": {
+        "title": "System Error",
+        "description": "Error event related to the system"
+      }
     }
   }
 }

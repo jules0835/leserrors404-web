@@ -133,6 +133,58 @@
         "subTitle": "Gérer les catégories",
         "title": "Catégories",
         "yes": "Oui"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Afficher les détails du bon",
+          "title": "Détails de bon"
+        },
+        "actions": "Actes",
+        "activateVoucher": "Activer le bon",
+        "addVoucher": "Ajouter le bon",
+        "addVoucherDescription": "Remplissez les détails pour créer un nouveau bon.",
+        "amount": "Montant",
+        "amountMin": "1 est le minimum",
+        "autoGenerateCodeMessage": "S'il est laissé vide, un code sera automatiquement généré.",
+        "category": "Catégorie",
+        "code": "Code",
+        "columns": "Colonnes",
+        "createdAt": "Créer",
+        "deactivateVoucher": "Bon de désactivation",
+        "description": "Description",
+        "discount": "Rabais",
+        "endDate": "Date de fin",
+        "errorLoadingData": "Erreur de chargement des données.",
+        "expirationDate": "Date d'expiration",
+        "fixed": "Fixé",
+        "isActive": "Actif",
+        "isCategorySpecific": "Spécifique à la catégorie",
+        "isProductSpecific": "Spécifique au produit",
+        "minPurchaseAmount": "Montant d'achat minimum",
+        "minPurchaseAmountMin": "Le montant d'achat minimum est requis",
+        "next": "Suivant",
+        "no": "Non",
+        "noResults": "Aucun résultat.",
+        "percentage": "Pourcentage",
+        "previous": "Précédent",
+        "product": "Produit",
+        "requiredAmount": "Montant requis",
+        "requiredType": "Le type est requis",
+        "saveChanges": "Enregistrer les modifications",
+        "searchPlaceholder": "Recherche...",
+        "startDate": "Date de début",
+        "subTitle": "Gérer les bons",
+        "title": "Portes",
+        "type": "Taper",
+        "updatedAt": "Mettre à jour",
+        "user": "Utilisateur",
+        "viewVoucher": "Voir le bon",
+        "voucherAmount": "Montant",
+        "voucherCode": "Code de bon",
+        "voucherCreated": "Bon créé",
+        "voucherCreationFailed": "La création de bons a échoué",
+        "voucherType": "Type de bon",
+        "yes": "Oui"
       }
     },
     "SalesFront": {
@@ -481,7 +533,8 @@
       "requiredPassword": "Le mot de passe est requis",
       "resetSuccess": "Votre mot de passe a été réinitialisé avec succès, vous pouvez maintenant vous connecter",
       "title": "Connectez-vous à votre compte Cyna",
-      "unknownError": "Quelque chose s'est mal passé, veuillez réessayer ou contacter le support."
+      "unknownError": "Quelque chose s'est mal passé, veuillez réessayer ou contacter le support.",
+      "logoutAutoSuccess": "Vous avez été automatiquement déconnecté. \nVeuillez vous connecter à nouveau."
     },
     "RegisterPage": {
       "acceptTermsEnd": "termes et conditions",
@@ -563,7 +616,9 @@
     "confirmEmail": "Confirmation par e-mail",
     "confirmEmailFailed": "La confirmation par e-mail a échoué. \nVeuillez réessayer ou contacter notre équipe d'assistance.",
     "confirmEmailSuccess": "Votre e-mail a été confirmé avec succès, vous pouvez désormais vous connecter.",
-    "login": "Retour à la page de connexion"
+    "login": "Retour à la page de connexion",
+    "loggingYouOut": "Vous enregistrer",
+    "loggingYouOutMessage": "Si vous n'êtes pas redirigé, veuillez cliquer ici"
   },
   "Confirmation": {
     "subject": "Cyna - Confirmez votre e-mail"
@@ -653,7 +708,8 @@
     "signOut": "Se déconnecter",
     "subscriptions": "Abonnements",
     "support": "Soutien",
-    "users": "Utilisateurs"
+    "users": "Utilisateurs",
+    "vouchers": "Portes"
   },
   "NoSubTitle": "Pas de sous-titre",
   "User": {
@@ -853,7 +909,12 @@
       "orderSummary": "Votre commande",
       "register": "Registre",
       "subtotal": "Sous-total",
-      "yourCart": "Votre panier"
+      "yourCart": "Votre panier",
+      "apply": "Appliquer",
+      "discount": "Rabais",
+      "loginToProceed": "Connectez-vous à votre compte pour accéder à votre panier personnal",
+      "taxes": "Taxes",
+      "voucherCode": "Code de bon"
     },
     "Product": {
       "addToCart": {

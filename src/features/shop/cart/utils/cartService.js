@@ -162,3 +162,32 @@ export const removeVoucher = async () => {
 
   return response.ok
 }
+
+export const checkOutStripe = async () => {
+  try {
+    const cart = await getCart()
+
+    if (!cart) {
+      return { url: null, canCheckout: false }
+    }
+
+    const response = await fetch(`/api/shop/checkout`, {
+      method: "POST",
+    })
+
+    return response.json()
+  } catch (error) {
+    return { url: null, canCheckout: false }
+  }
+}
+
+export const hasMixedProductTypes = (cart) => {
+  const hasSubscription = cart.products.some(
+    (item) => item.product.subscription
+  )
+  const hasOneTimePurchase = cart.products.some(
+    (item) => !item.product.subscription
+  )
+
+  return hasSubscription && hasOneTimePurchase
+}

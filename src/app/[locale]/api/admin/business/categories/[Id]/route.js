@@ -8,6 +8,8 @@ import { getTranslations } from "next-intl/server"
 import { getCategorieSchema } from "@/features/admin/business/categories/utils/categorie"
 import * as yup from "yup"
 import { uploadPublicPicture } from "@/utils/database/blobService"
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
 
 export async function DELETE(req, { params }) {
   const { Id } = params
@@ -19,8 +21,22 @@ export async function DELETE(req, { params }) {
       return NextResponse.json({ error: res.message }, { status: 404 })
     }
 
+    log.systemInfo({
+      logKey: logKeys.shopSettingsEdit.key,
+      message: "Categorie deleted",
+      data: {
+        categorieId: Id,
+      },
+    })
+
     return NextResponse.json(res)
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.shopSettingsError.key,
+      message: "Failed to delete Categorie",
+      error,
+    })
+
     return NextResponse.json(
       { error: "Failed to delete Categorie" },
       { status: 500 }
@@ -80,6 +96,16 @@ export async function PUT(req, { params }) {
       )
     }
 
+    log.systemInfo({
+      logKey: logKeys.shopSettingsEdit.key,
+      message: "Categorie updated",
+      oldData: existingCategorie,
+      newData: updatedCategorie,
+      data: {
+        categorieId: Id,
+      },
+    })
+
     return NextResponse.json(
       { success: true, categorie: updatedCategorie },
       { status: 200 }
@@ -96,6 +122,12 @@ export async function PUT(req, { params }) {
         { status: 400 }
       )
     }
+
+    log.systemError({
+      logKey: logKeys.shopSettingsError.key,
+      message: "Failed to update Categorie",
+      error,
+    })
 
     return NextResponse.json(
       { error: "InternalServerError", message: "Something went wrong" },

@@ -39,6 +39,8 @@ export async function PUT(req, { params }) {
     const categorie = formData.get("categorie")
     const stock = formData.get("stock")
     const price = formData.get("price")
+    const priceMonthly = formData.get("priceMonthly")
+    const priceAnnual = formData.get("priceAnnual")
     const priority = formData.get("priority")
     const taxe = formData.get("taxe")
     const subscription = formData.get("subscription")
@@ -52,6 +54,8 @@ export async function PUT(req, { params }) {
       categorie,
       stock,
       price,
+      priceMonthly,
+      priceAnnual,
       priority,
       taxe,
       subscription,
@@ -84,20 +88,22 @@ export async function PUT(req, { params }) {
       )
     }
 
-    const updatedData = {
-      label: JSON.parse(label),
-      description: JSON.parse(description),
-      characteristics: JSON.parse(characteristics),
-      categorie: JSON.parse(categorie),
-      stock: JSON.parse(stock),
-      price: JSON.parse(price),
-      priority: JSON.parse(priority),
-      taxe: JSON.parse(taxe),
+    const parsedData = {
+      label: label ? JSON.parse(label) : null,
+      description: description ? JSON.parse(description) : null,
+      characteristics: characteristics ? JSON.parse(characteristics) : null,
+      categorie: categorie ? JSON.parse(categorie) : null,
+      stock: stock ? JSON.parse(stock) : null,
+      price: price ? JSON.parse(price) : null,
+      priceMonthly: priceMonthly ? JSON.parse(priceMonthly) : null,
+      priceAnnual: priceAnnual ? JSON.parse(priceAnnual) : null,
+      priority: priority ? JSON.parse(priority) : null,
+      taxe: taxe ? JSON.parse(taxe) : null,
+      subscription: subscription ? JSON.parse(subscription) : null,
       isActive,
-      subscription: JSON.parse(subscription),
       ...(picture && { picture }),
     }
-    const updatedProduct = await updateProduct(Id, updatedData)
+    const updatedProduct = await updateProduct(Id, parsedData)
 
     if (!updatedProduct) {
       return NextResponse.json(
