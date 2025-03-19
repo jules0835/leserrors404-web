@@ -15,7 +15,19 @@ const unprotectedApiRoutes = [
   "/en/api/services/account",
   "/api/test/email",
 ]
-// eslint-disable-next-line consistent-return
+
+function checkTokenExpiration(req) {
+  const userExp = req?.auth?.user?.exp
+
+  if (!userExp) {
+    return false
+  }
+
+  const currentTime = Math.floor(Date.now() / 1000)
+
+  return userExp > currentTime
+}
+
 const authMiddleware = auth((req) => {
   const currentPath = req.nextUrl.pathname
   const locale = req.cookies.get("NEXT_LOCALE")?.value || "en"
@@ -26,6 +38,10 @@ const authMiddleware = auth((req) => {
 
   if (isShopApi) {
     return intlMiddleware(req)
+  }
+
+  if (!checkTokenExpiration(req)) {
+    return NextResponse.redirect(new URL(`/${locale}/auth/logout`, req.url))
   }
 
   if (!req.auth) {

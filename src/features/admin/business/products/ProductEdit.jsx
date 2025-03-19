@@ -34,6 +34,8 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
     categorie: "",
     stock: "",
     price: "",
+    priceMonthly: "",
+    priceAnnual: "",
     priority: "",
     image: null,
     isActive: false,
@@ -54,6 +56,8 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
         categorie: editProduct.categorie,
         stock: editProduct.stock,
         price: editProduct.price,
+        priceMonthly: editProduct.priceMonthly,
+        priceAnnual: editProduct.priceAnnual,
         priority: editProduct.priority,
         image: null,
         isActive: editProduct.isActive,
@@ -112,6 +116,8 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
     data.append("categorie", JSON.stringify(formData.categorie))
     data.append("stock", JSON.stringify(formData.stock))
     data.append("price", JSON.stringify(formData.price))
+    data.append("priceMonthly", JSON.stringify(formData.priceMonthly))
+    data.append("priceAnnual", JSON.stringify(formData.priceAnnual))
     data.append("priority", JSON.stringify(formData.priority))
     data.append("isActive", JSON.stringify(formData.isActive))
     data.append("taxe", JSON.stringify(formData.taxe))
@@ -163,218 +169,224 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[800px]">
         <DialogHeader>
           <DialogTitle>{t("Edit.dialogTitle")}</DialogTitle>
           <DialogDescription>{t("Edit.dialogDescription")}</DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="language" className="text-right">
-              {t("Edit.language")}
-            </Label>
-            <Select
-              id="language"
-              name="language"
-              value={selectedLanguage}
-              onValueChange={setSelectedLanguage}
-              className="col-span-3"
-            >
-              <SelectTrigger className="flex-1">
-                <SelectValue placeholder={t("Edit.selectLanguage")} />
-              </SelectTrigger>
-              <SelectContent>
-                {languages.map((lang) => (
-                  <SelectItem
-                    key={lang}
-                    value={lang}
-                    className={
-                      isLanguageFilled(lang) ? "text-green-500" : "text-red-500"
+        <form onSubmit={handleSubmit} className="py-4">
+          <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <Label htmlFor="language">{t("Edit.language")}</Label>
+                <Select
+                  id="language"
+                  name="language"
+                  value={selectedLanguage}
+                  onValueChange={setSelectedLanguage}
+                >
+                  <SelectTrigger className="flex-1">
+                    <SelectValue placeholder={t("Edit.selectLanguage")} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {languages.map((lang) => (
+                      <SelectItem
+                        key={lang}
+                        value={lang}
+                        className={
+                          isLanguageFilled(lang)
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }
+                      >
+                        {lang}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="label">{t("Add.label")}</Label>
+                <Input
+                  id="label"
+                  name="label"
+                  value={formData.label[selectedLanguage] || ""}
+                  onChange={handleTranslationChange}
+                  required
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="description">{t("Add.description")}</Label>
+                <Textarea
+                  id="description"
+                  name="description"
+                  value={formData.description[selectedLanguage] || ""}
+                  className="min-h-[100px] border-2 rounded-md p-2"
+                  onChange={handleTranslationChange}
+                  required
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="characteristics">
+                  {t("Add.characteristics")}
+                </Label>
+                <Textarea
+                  id="characteristics"
+                  name="characteristics"
+                  value={formData.characteristics[selectedLanguage] || ""}
+                  className="min-h-[100px] border-2 rounded-md p-2"
+                  onChange={handleTranslationChange}
+                  required
+                />
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <Label htmlFor="categorie">{t("Add.categorie")}</Label>
+                <Select
+                  id="categorie"
+                  name="categorie"
+                  value={formData.categorie}
+                  onValueChange={(value) =>
+                    setFormData((prev) => ({ ...prev, categorie: value }))
+                  }
+                  required
+                >
+                  <SelectTrigger className="flex-1">
+                    <SelectValue placeholder={t("Add.selectCategorie")} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {categories.map((category) => (
+                      <SelectItem key={category._id} value={category._id}>
+                        {category.label[selectedLanguage] || category.label.en}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="stock">{t("Add.stock")}</Label>
+                <Input
+                  id="stock"
+                  name="stock"
+                  type="number"
+                  value={formData.stock}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="space-y-1 flex justify-between">
+                <div>
+                  <Label htmlFor="price">{t("Add.price")}</Label>
+                  <Input
+                    id="price"
+                    name="price"
+                    type="number"
+                    value={formData.price}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <Label htmlFor="subscription">{t("Add.subscription")}</Label>
+                  <Switch
+                    id="subscription"
+                    name="subscription"
+                    checked={formData.subscription}
+                    onCheckedChange={(checked) =>
+                      handleSwitchChange("subscription", checked)
                     }
-                  >
-                    {lang}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="label" className="text-right">
-              {t("Add.label")}
-            </Label>
-            <Input
-              id="label"
-              name="label"
-              value={formData.label[selectedLanguage] || ""}
-              className="col-span-3"
-              onChange={handleTranslationChange}
-              required
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="description" className="text-right">
-              {t("Add.description")}
-            </Label>
-            <Textarea
-              id="description"
-              name="description"
-              value={formData.description[selectedLanguage] || ""}
-              className="col-span-3 min-h-[100px]"
-              onChange={handleTranslationChange}
-              required
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="characteristics" className="text-right">
-              {t("Add.characteristics")}
-            </Label>
-            <Textarea
-              id="characteristics"
-              name="characteristics"
-              value={formData.characteristics[selectedLanguage] || ""}
-              className="col-span-3 min-h-[100px]"
-              onChange={handleTranslationChange}
-              required
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="categorie" className="text-right">
-              {t("Add.categorie")}
-            </Label>
-            <div className="col-span-3 flex items-center gap-2">
-              <Select
-                id="categorie"
-                name="categorie"
-                value={formData.categorie}
-                onValueChange={(value) =>
-                  setFormData((prev) => ({ ...prev, categorie: value }))
-                }
-                required
-              >
-                <SelectTrigger className="flex-1">
-                  <SelectValue placeholder={t("Add.selectCategorie")} />
-                </SelectTrigger>
-                <SelectContent>
-                  {categories.map((category) => (
-                    <SelectItem key={category._id} value={category._id}>
-                      {category.label[selectedLanguage] || category.label.en}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+                  />
+                </div>
+              </div>
+              {formData.subscription && (
+                <>
+                  <div className="space-y-1">
+                    <Label htmlFor="priceMonthly">
+                      {t("Add.priceMonthly")}
+                    </Label>
+                    <Input
+                      id="priceMonthly"
+                      name="priceMonthly"
+                      type="number"
+                      value={formData.priceMonthly}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="priceAnnual">{t("Add.priceAnnual")}</Label>
+                    <Input
+                      id="priceAnnual"
+                      name="priceAnnual"
+                      type="number"
+                      value={formData.priceAnnual}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </>
+              )}
+              <div className="space-y-1">
+                <Label htmlFor="priority">{t("Add.priority")}</Label>
+                <Select
+                  id="priority"
+                  name="priority"
+                  value={formData.priority}
+                  onValueChange={(value) =>
+                    setFormData((prev) => ({ ...prev, priority: value }))
+                  }
+                  required
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder={t("Add.selectPriority")} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[0, 1, 2, 3].map((priority) => (
+                      <SelectItem key={priority} value={priority.toString()}>
+                        {priority}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="taxe">{t("Add.taxe")}</Label>
+                <Input
+                  id="taxe"
+                  name="taxe"
+                  type="number"
+                  value={formData.taxe}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="isActive">{t("Add.isActive")}</Label>
+                <div>
+                  <Switch
+                    id="isActive"
+                    name="isActive"
+                    checked={formData.isActive}
+                    onCheckedChange={(checked) =>
+                      handleSwitchChange("isActive", checked)
+                    }
+                  />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="image-upload">{t("Add.picture")}</Label>
+                <Input
+                  id="image-upload"
+                  name="image"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleChange}
+                />
+              </div>
             </div>
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="stock" className="text-right">
-              {t("Add.stock")}
-            </Label>
-            <Input
-              id="stock"
-              name="stock"
-              type="number"
-              value={formData.stock}
-              className="col-span-3"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="price" className="text-right">
-              {t("Add.price")}
-            </Label>
-            <Input
-              id="price"
-              name="price"
-              type="number"
-              value={formData.price}
-              className="col-span-3"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="priority" className="text-right">
-              {t("Add.priority")}
-            </Label>
-            <Select
-              id="priority"
-              name="priority"
-              value={formData.priority}
-              onValueChange={(value) =>
-                setFormData((prev) => ({ ...prev, priority: value }))
-              }
-              required
-            >
-              <SelectTrigger className="col-span-3">
-                <SelectValue placeholder={t("Add.selectPriority")} />
-              </SelectTrigger>
-              <SelectContent>
-                {[0, 1, 2, 3].map((priority) => (
-                  <SelectItem key={priority} value={priority.toString()}>
-                    {priority}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="isActive" className="text-right">
-              {t("Add.isActive")}
-            </Label>
-            <Switch
-              id="isActive"
-              name="isActive"
-              checked={formData.isActive}
-              onCheckedChange={(checked) =>
-                handleSwitchChange("isActive", checked)
-              }
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="taxe" className="text-right">
-              {t("Add.taxe")}
-            </Label>
-            <Input
-              id="taxe"
-              name="taxe"
-              type="number"
-              value={formData.taxe}
-              className="col-span-3"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="subscription" className="text-right">
-              {t("Add.subscription")}
-            </Label>
-            <Switch
-              id="subscription"
-              name="subscription"
-              checked={formData.subscription}
-              onCheckedChange={(checked) =>
-                handleSwitchChange("subscription", checked)
-              }
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="image-upload" className="text-right">
-              {t("Add.picture")}
-            </Label>
-            <Input
-              id="image-upload"
-              name="image"
-              className="col-span-3"
-              type="file"
-              accept="image/*"
-              onChange={handleChange}
-            />
-          </div>
-
-          <DialogFooter>
+          <DialogFooter className="mt-6">
             <Button type="submit" disabled={isLoading}>
               {isLoading ? t("Edit.updating") : t("Edit.update")}
             </Button>

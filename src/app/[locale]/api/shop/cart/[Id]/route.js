@@ -5,8 +5,8 @@ import {
   updateQuantity,
   clearCartProducts,
 } from "@/db/crud/cartCrud"
-
-// /shop/cart/[Id]
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
 
 export async function GET(req, { params }) {
   const { Id } = params
@@ -44,6 +44,12 @@ export async function GET(req, { params }) {
 
     return NextResponse.json(result)
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.shopUserCartError.key,
+      message: "Failed to get cart",
+      error,
+    })
+
     return NextResponse.json({ error: error.message }, { status: 500 })
   }
 }

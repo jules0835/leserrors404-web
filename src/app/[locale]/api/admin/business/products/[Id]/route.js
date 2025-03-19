@@ -39,6 +39,8 @@ export async function PUT(req, { params }) {
     const categorie = formData.get("categorie")
     const stock = formData.get("stock")
     const price = formData.get("price")
+    const priceMonthly = formData.get("priceMonthly")
+    const priceAnnual = formData.get("priceAnnual")
     const priority = formData.get("priority")
     const taxe = formData.get("taxe")
     const subscription = formData.get("subscription")
@@ -52,6 +54,8 @@ export async function PUT(req, { params }) {
       categorie,
       stock,
       price,
+      priceMonthly,
+      priceAnnual,
       priority,
       taxe,
       subscription,
@@ -91,6 +95,8 @@ export async function PUT(req, { params }) {
       categorie: JSON.parse(categorie),
       stock: JSON.parse(stock),
       price: JSON.parse(price),
+      priceMonthly: JSON.parse(priceMonthly),
+      priceAnnual: JSON.parse(priceAnnual),
       priority: JSON.parse(priority),
       taxe: JSON.parse(taxe),
       isActive,

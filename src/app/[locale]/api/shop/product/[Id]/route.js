@@ -1,4 +1,6 @@
 import { findShopProductById } from "@/db/crud/productCrud"
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
 
 export async function GET(req, { params }) {
   const { Id } = await params
@@ -12,6 +14,12 @@ export async function GET(req, { params }) {
 
     return new Response(JSON.stringify(product), { status: 200 })
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.shopProductError.key,
+      message: "Failed to fetch product",
+      error,
+    })
+
     return new Response("Failed to fetch product", { status: 500 })
   }
 }

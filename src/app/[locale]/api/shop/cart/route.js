@@ -1,26 +1,38 @@
 import { NextResponse } from "next/server"
 import { createCart, findCart, mergeCart } from "@/db/crud/cartCrud"
 import { getReqUserId } from "@/features/auth/utils/getAuthParam"
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
 
 export async function GET(req) {
-  const userId = getReqUserId(req)
-  const cartId = req.cookies.get("cartId")?.value
+  try {
+    const userId = getReqUserId(req)
+    const cartId = req.cookies.get("cartId")?.value
 
-  if (!cartId && !userId) {
-    return NextResponse.json({ error: "Cart not found" }, { status: 404 })
+    if (!cartId && !userId) {
+      return NextResponse.json({ error: "Cart not found" }, { status: 404 })
+    }
+
+    let cart = await findCart(userId ? { user: userId } : { _id: cartId })
+
+    if (!cart && userId) {
+      cart = await createCart({ user: userId, products: [] })
+    }
+
+    if (!cart) {
+      return NextResponse.json({ error: "Cart not found" }, { status: 404 })
+    }
+
+    return NextResponse.json(cart)
+  } catch (error) {
+    log.systemError({
+      logKey: logKeys.shopUserCartError.key,
+      message: "Failed to get cart",
+      error,
+    })
+
+    return NextResponse.json({ error: "Failed to get cart" }, { status: 500 })
   }
-
-  let cart = await findCart(userId ? { user: userId } : { _id: cartId })
-
-  if (!cart && userId) {
-    cart = await createCart({ user: userId, products: [] })
-  }
-
-  if (!cart) {
-    return NextResponse.json({ error: "Cart not found" }, { status: 404 })
-  }
-
-  return NextResponse.json(cart)
 }
 
 export async function POST(req) {
@@ -41,6 +53,12 @@ export async function POST(req) {
 
     return response
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.shopUserCartError.key,
+      message: "Failed to create cart",
+      error,
+    })
+
     return NextResponse.json(
       { error: "Failed to create cart" },
       { status: 500 }
@@ -66,6 +84,12 @@ export async function PUT(req) {
 
     return response
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.shopUserCartError.key,
+      message: "Failed to merge carts",
+      error,
+    })
+
     return NextResponse.json(
       { error: "Failed to merge carts" },
       { status: 500 }

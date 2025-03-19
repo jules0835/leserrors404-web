@@ -129,3 +129,10 @@ export const deleteProduct = async (id) => {
     return { success: false, message: "Failed to delete product" }
   }
 }
+
+export const getProductByStripeId = async (stripeId) => {
+  await mwdb()
+  const product = await ProductModel.findOne({ stripeProductId: stripeId })
+
+  return product
+}

@@ -11,7 +11,13 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, ChevronDown, SquareX, CalendarIcon } from "lucide-react"
+import {
+  ArrowUpDown,
+  ChevronDown,
+  SquareX,
+  CalendarIcon,
+  RefreshCcw,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -58,6 +64,7 @@ export default function LogsList() {
   const [columnFilters, setColumnFilters] = useState([])
   const [selectedLogKeys, setSelectedLogKeys] = useState([])
   const [selectedCriticalityKey, setSelectedCriticalityKey] = useState("")
+  const [isReloading, setIsReloading] = useState(false)
   const [columnVisibility, setColumnVisibility] = useState({
     logLevel: true,
     logKey: true,
@@ -258,11 +265,14 @@ export default function LogsList() {
     state: { sorting, columnFilters, columnVisibility, rowSelection },
   })
   const reloadData = () => {
-    toast.promise(refetch(), {
-      loading: t("reLoadingLogs"),
-      success: t("LogsReloaded"),
-      error: t("errorLoadingLogs"),
-    })
+    setIsReloading(true)
+    toast
+      .promise(refetch(), {
+        loading: t("reLoadingLogs"),
+        success: t("LogsReloaded"),
+        error: t("errorLoadingLogs"),
+      })
+      .finally(() => setIsReloading(false))
   }
   const handleResetClick = () => {
     setQuery("")
@@ -335,7 +345,7 @@ export default function LogsList() {
           </DropdownMenuContent>
         </DropdownMenu>
         <Button variant="outline" className="ml-2" onClick={reloadData}>
-          <AnimatedReload />
+          {isReloading ? <AnimatedReload /> : <RefreshCcw />}
         </Button>
         <Button variant="outline" className="ml-2" onClick={handleResetClick}>
           <SquareX />

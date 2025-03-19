@@ -36,6 +36,8 @@ const ProductAdd = ({ setProducts }) => {
     categorie: "",
     stock: "",
     price: "",
+    priceMonthly: "",
+    priceAnnual: "",
     priority: "",
     image: null,
     taxe: "",
@@ -104,6 +106,8 @@ const ProductAdd = ({ setProducts }) => {
     data.append("categorie", JSON.stringify(formData.categorie))
     data.append("stock", JSON.stringify(formData.stock))
     data.append("price", JSON.stringify(formData.price))
+    data.append("priceMonthly", JSON.stringify(formData.priceMonthly))
+    data.append("priceAnnual", JSON.stringify(formData.priceAnnual))
     data.append("priority", JSON.stringify(formData.priority))
     data.append("taxe", JSON.stringify(formData.taxe))
     data.append("subscription", JSON.stringify(formData.subscription))
@@ -127,6 +131,8 @@ const ProductAdd = ({ setProducts }) => {
         categorie: "",
         stock: "",
         price: "",
+        priceMonthly: "",
+        priceAnnual: "",
         priority: "",
         image: null,
         taxe: "",
@@ -153,6 +159,8 @@ const ProductAdd = ({ setProducts }) => {
         categorie: "",
         stock: "",
         price: "",
+        priceMonthly: "",
+        priceAnnual: "",
         priority: "",
         image: null,
         taxe: "",
@@ -305,6 +313,31 @@ const ProductAdd = ({ setProducts }) => {
                   </div>
                 </div>
               </div>
+              {formData.subscription && (
+                <>
+                  <div className="space-y-1">
+                    <Label htmlFor="priceMonthly">{t("priceMonthly")}</Label>
+                    <Input
+                      id="priceMonthly"
+                      name="priceMonthly"
+                      type="number"
+                      value={formData.priceMonthly}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="priceAnnual">{t("priceAnnual")}</Label>
+                    <Input
+                      id="priceAnnual"
+                      name="priceAnnual"
+                      type="number"
+                      value={formData.priceAnnual}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </>
+              )}
               <div className="space-y-1">
                 <Label htmlFor="priority">{t("priority")}</Label>
                 <Select

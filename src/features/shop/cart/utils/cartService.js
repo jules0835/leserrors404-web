@@ -127,3 +127,71 @@ export const mergeCarts = async () => {
     return false
   }
 }
+
+export const applyVoucher = async (code) => {
+  const cart = await getCart()
+
+  if (!cart) {
+    return false
+  }
+
+  const response = await fetch(`/api/shop/cart/${cart._id}/voucher`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ code }),
+  })
+
+  if (!response.ok) {
+    const error = await response.json()
+    throw new Error(error.message)
+  }
+
+  return await response.json()
+}
+
+export const removeVoucher = async () => {
+  const cart = await getCart()
+
+  if (!cart) {
+    return false
+  }
+
+  const response = await fetch(`/api/shop/cart/${cart._id}/voucher`, {
+    method: "DELETE",
+  })
+
+  return response.ok
+}
+
+export const checkOutStripe = async () => {
+  try {
+    const cart = await getCart()
+
+    if (!cart) {
+      return { url: null, canCheckout: false }
+    }
+
+    const response = await fetch(`/api/shop/checkout`, {
+      method: "POST",
+    })
+
+    return response.json()
+  } catch (error) {
+    return { url: null, canCheckout: false }
+  }
+}
+
+export const hasMixedProductTypes = (cart) => {
+  if (!cart.products) {
+    return false
+  }
+
+  const hasSubscription = cart.products.some(
+    (item) => item.product.subscription
+  )
+  const hasOneTimePurchase = cart.products.some(
+    (item) => !item.product.subscription
+  )
+
+  return hasSubscription && hasOneTimePurchase
+}

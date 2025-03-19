@@ -1,5 +1,6 @@
 import { UserModel } from "@/db/models/UserModel"
 import { mwdb } from "@/api/mwdb"
+import { getUserOrderEligibilitySchema } from "@/features/auth/utils/userValidation"
 
 export const existingUsername = async (username) => {
   await mwdb()
@@ -287,4 +288,25 @@ export async function findUserByResetToken(token) {
   }).select("-password")
 
   return user
+}
+
+export const checkUserOrderEligibility = async (userId) => {
+  await mwdb()
+
+  const user = await UserModel.findById(userId)
+
+  try {
+    await getUserOrderEligibilitySchema().validate(user)
+  } catch (error) {
+    return { isEligible: false }
+  }
+
+  return { isEligible: true }
+}
+
+export const getUserIdByEmail = async (email) => {
+  await mwdb()
+  const user = await UserModel.findOne({ email })
+
+  return user._id
 }

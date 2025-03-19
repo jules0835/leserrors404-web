@@ -44,7 +44,8 @@
       "invalidOtp": "L'OTP che hai inserito non è valido, riprova",
       "otpRequired": "La tua password a un tempo è richiesta per accedere al tuo account, inserisci il codice fornito dalla tua app di autenticazione",
       "requiredOtp": "È richiesto il codice OTP con 6 cifre",
-      "resetSuccess": "La tua password è stata ripristinata di successo, ora puoi accedere"
+      "resetSuccess": "La tua password è stata ripristinata di successo, ora puoi accedere",
+      "logoutAutoSuccess": "Sei stato automaticamente disconnesso. \nAccedi di nuovo."
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -126,7 +127,9 @@
       "sendEmail": "Invia un collegamento di ripristino",
       "somethingWentWrong": "Impossibile inviare l'e -mail di ripristino, riprova.",
       "title": "Reimpostare la password"
-    }
+    },
+    "loggingYouOut": "Disconnettendoti",
+    "loggingYouOutMessage": "Se non sei reindirizzato, fai clic qui"
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
@@ -327,6 +330,58 @@
         "subTitle": "Gestisci categorie",
         "title": "Categorie",
         "yes": "SÌ"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Visualizza i dettagli del voucher",
+          "title": "Dettagli del voucher"
+        },
+        "actions": "Azioni",
+        "activateVoucher": "Attiva voucher",
+        "addVoucher": "Aggiungi voucher",
+        "addVoucherDescription": "Compila i dettagli per creare un nuovo voucher.",
+        "amount": "Quantità",
+        "amountMin": "1 è il minimo",
+        "autoGenerateCodeMessage": "Se lasciato vuoto, un codice verrà generato automaticamente.",
+        "category": "Categoria",
+        "code": "Codice",
+        "columns": "Colonne",
+        "createdAt": "Creare a",
+        "deactivateVoucher": "DEACTIVATE VOUCHER",
+        "description": "Descrizione",
+        "discount": "Sconto",
+        "endDate": "Data di fine",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "expirationDate": "Data di scadenza",
+        "fixed": "Fisso",
+        "isActive": "Attivo",
+        "isCategorySpecific": "Specifico per la categoria",
+        "isProductSpecific": "Specifico per il prodotto",
+        "minPurchaseAmount": "Importo minimo di acquisto",
+        "minPurchaseAmountMin": "È richiesto l'importo minimo dell'acquisto",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato.",
+        "percentage": "Percentuale",
+        "previous": "Precedente",
+        "product": "Prodotto",
+        "requiredAmount": "Importo richiesto",
+        "requiredType": "È richiesto il tipo",
+        "saveChanges": "Salva le modifiche",
+        "searchPlaceholder": "Ricerca...",
+        "startDate": "Data di inizio",
+        "subTitle": "Gestisci i buoni",
+        "title": "Voucher",
+        "type": "Tipo",
+        "updatedAt": "Aggiornamento a",
+        "user": "Utente",
+        "viewVoucher": "Visualizza voucher",
+        "voucherAmount": "Quantità",
+        "voucherCode": "Codice voucher",
+        "voucherCreated": "Voucher creato",
+        "voucherCreationFailed": "La creazione di voucher non è riuscita",
+        "voucherType": "Tipo di voucher",
+        "yes": "SÌ"
       }
     },
     "Security": {
@@ -445,6 +500,30 @@
           "EmailServiceError": {
             "description": "Si è verificato un errore con il servizio di posta elettronica",
             "title": "Errore di servizio e -mail"
+          },
+          "ShopSettingsEdit": {
+            "description": "Le impostazioni del negozio sono state modificate",
+            "title": "Modifica delle impostazioni del negozio"
+          },
+          "ShopSettingsError": {
+            "description": "Si è verificato un errore con le impostazioni del negozio",
+            "title": "Errore delle impostazioni del negozio"
+          },
+          "ShopStripeWebhook": {
+            "description": "Evento Webhook Stripe",
+            "title": "Shop Stripe Webhook"
+          },
+          "ShopStripeWebhookError": {
+            "description": "Si è verificato un errore con il webhook a strisce",
+            "title": "Shop Stripe Webhook Errore"
+          },
+          "ShopUserCart": {
+            "description": "Attività del carrello utente",
+            "title": "Carrello utente del negozio"
+          },
+          "ShopUserCartError": {
+            "description": "Si è verificato un errore con il carrello utente",
+            "title": "Errore del carrello utente del negozio"
           }
         },
         "LogDetails": {
@@ -492,7 +571,7 @@
       },
       "Users": {
         "User": {
-          "nothingSelected": ""
+          "nothingSelected": "Nothing selected"
         },
         "UserDetails": {
           "active": "Attivo",
@@ -631,7 +710,8 @@
     "needHelp": "Hai bisogno di aiuto?",
     "openNewTicket": "Biglietto aperto",
     "paymentMethods": "Metodi di pagamento",
-    "support": "Supporto"
+    "support": "Supporto",
+    "vouchers": "Voucher"
   },
   "navigation": {
     "about": "Di",
@@ -853,7 +933,30 @@
       "orderSummary": "Il tuo ordine",
       "register": "Registro",
       "subtotal": "Sub totale",
-      "yourCart": "Il tuo carrello"
+      "yourCart": "Il tuo carrello",
+      "apply": "Fare domanda a",
+      "discount": "Sconto",
+      "loginToProceed": "Accedi al tuo account per accedere al tuo carrello personale",
+      "taxes": "Tasse",
+      "voucherCode": "Codice voucher",
+      "MixedProductTypes": "Si prega di separare i tuoi ordini per diversi tipi di prodotti.",
+      "MixedProductTypesSubtitle": "Non puoi controllare con tipi di prodotti misti. \nSi prega di separare il prodotto di acquisto diverso e puntuale.",
+      "cantCheckout": "Non puoi fare il checkout per il momento, per favore rivedi il tuo carrello o account.",
+      "failToCheckout": "Si è verificato un errore durante il check -out, riprova.",
+      "CompleteProfile": "Completa il mio profilo",
+      "UserProfileIncomplete": "Il tuo profilo è incompleto, mancano alcuni campi.",
+      "UserProfileIncompleteSubtitle": "Completa il tuo profilo nella pagina del tuo account per procedere al checkout.",
+      "VoucherNotActive": "Voucher non valido",
+      "VoucherNotActiveSubtitle": "Il voucher applicato al carrello è scaduto o non disponibile per l'ordine, rimuovi per procedere al checkout.",
+      "completeProfile": "Completa il mio profilo",
+      "mixedProductTypes": "Si prega di separare i tuoi ordini per diversi prodotti.",
+      "mixedProductTypesSubtitle": "Non puoi controllare con tipi di prodotti misti. \nSi prega di separare il prodotto di acquisto diverso e puntuale.",
+      "userProfileIncomplete": "Il tuo profilo è incompleto, mancano alcuni campi.",
+      "userProfileIncompleteSubtitle": "Completa il tuo profilo nella pagina del tuo account per procedere al checkout.",
+      "voucherApplied": "Voucher applicato",
+      "voucherError": "Errore con questo voucher",
+      "voucherNotActive": "Voucher non valido",
+      "voucherNotActiveSubtitle": "Il voucher applicato al carrello è scaduto o non disponibile per l'ordine, rimuovi per procedere al checkout."
     },
     "Product": {
       "addToCart": {
@@ -862,6 +965,52 @@
       "outOfStock": "Esaurito",
       "price": "Prezzo",
       "quantity": "Quantità"
+    },
+    "Checkout": {
+      "myOrders": "I miei ordini",
+      "redirectingMessage": "Al termine del processo, verrai automaticamente reindirizzato alle informazioni sull'ordine.",
+      "redirectingToCheckout": "Stiamo elaborando il tuo pagamento, per favore aspetta ...",
+      "redirectingToCheckoutMessage": "MMM, sembra che il processo stia richiedendo più tempo del previsto. \nSi prega di attendere qualche secondo e quindi fare clic sul pulsante in basso per andare alla pagina degli ordini"
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "description": "Evento di sicurezza critico",
+      "title": "Sicurezza critica"
+    },
+    "Criticality": {
+      "SystemError": {
+        "description": "Evento di errore relativo al sistema",
+        "title": "Errore di sistema"
+      },
+      "SystemInfo": {
+        "description": "Evento informativo relativo al sistema",
+        "title": "Informazioni di sistema"
+      },
+      "SystemSecurity": {
+        "description": "Evento di sicurezza relativo al sistema",
+        "title": "Sicurezza del sistema"
+      },
+      "UserError": {
+        "description": "Evento di errore relativo a un utente",
+        "title": "Errore dell'utente"
+      },
+      "UserInfo": {
+        "description": "Evento informativo relativo a un utente",
+        "title": "Informazioni dell'utente"
+      },
+      "UserSecurity": {
+        "description": "Evento di sicurezza relativo a un utente",
+        "title": "Sicurezza dell'utente"
+      }
+    },
+    "InternalError": {
+      "description": "Si è verificato un errore interno",
+      "title": "Errore interno"
+    },
+    "UserChangePassword": {
+      "description": "La password dell'utente è stata modificata",
+      "title": "La password di modifica dell'utente"
     }
   }
 }

@@ -4,6 +4,8 @@ import { getProductSchema } from "@/features/admin/business/products/utils/produ
 import { NextResponse } from "next/server"
 import * as yup from "yup"
 import { uploadPublicPicture } from "@/utils/database/blobService"
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
 
 export async function getProductsList(size = 10, page = 1, query = "") {
   try {
@@ -26,6 +28,13 @@ export async function GET(req) {
 
     return Response.json(res)
   } catch (error) {
+    log.systemError({
+      logKey: logKeys.internalError.key,
+      message: "Failed to fetch Products",
+      isError: true,
+      technicalMessage: error.message,
+    })
+
     return Response.json({ error: "Failed to fetch Products" }, { status: 500 })
   }
 }
@@ -39,6 +48,8 @@ export async function POST(req) {
     const categorie = formData.get("categorie")
     const stock = formData.get("stock")
     const price = formData.get("price")
+    const priceMonthly = formData.get("priceMonthly")
+    const priceAnnual = formData.get("priceAnnual")
     const priority = formData.get("priority")
     const taxe = formData.get("taxe")
     const subscription = formData.get("subscription")
@@ -50,6 +61,8 @@ export async function POST(req) {
       categorie,
       stock,
       price,
+      priceMonthly,
+      priceAnnual,
       priority,
       taxe,
       subscription,
@@ -81,12 +94,20 @@ export async function POST(req) {
       categorie: JSON.parse(categorie),
       stock: JSON.parse(stock),
       price: JSON.parse(price),
+      priceMonthly: JSON.parse(priceMonthly),
+      priceAnnual: JSON.parse(priceAnnual),
       priority: JSON.parse(priority),
       taxe: JSON.parse(taxe),
       subscription: JSON.parse(subscription),
       picture,
     }
     product = await createProduct(product)
+
+    log.systemInfo({
+      logKey: logKeys.shopSettingsEdit.key,
+      message: "Product created",
+      data: product,
+    })
 
     return NextResponse.json({ success: true, product }, { status: 201 })
   } catch (error) {
@@ -101,6 +122,13 @@ export async function POST(req) {
         { status: 400 }
       )
     }
+
+    log.systemError({
+      logKey: logKeys.shopSettingsError.key,
+      message: "Failed to create product",
+      isError: true,
+      technicalMessage: error.message,
+    })
 
     return NextResponse.json(
       { error: "InternalServerError", message: "Something went wrong" },

@@ -3,7 +3,7 @@
     "title": "Hello world!",
     "about": "Go to the about page",
     "HomePage": {
-      "carouselButtonMoreInfos": "More informations"
+      "carouselButtonMoreInfos": "More information"
     },
     "welcome": "Welcome to {company}",
     "welcomeMessage": "Your trusted partner in cybersecurity solutions.",
@@ -12,7 +12,7 @@
     "ourProducts": "Our products",
     "learnMore": "View product",
     "learnMoreCategory": "View all products",
-    "welcomeMessageDescription": "Join now more than 500 wordwild companies that trust us to secure their ",
+    "welcomeMessageDescription": "Join now more than 500 worldwide companies that trust us to secure their ",
     "welcomeMessageAnimation": "It's time to secure your future !",
     "register": "Register now",
     "login": "Login",
@@ -29,7 +29,7 @@
       "password": "Your password",
       "login": "Sign in",
       "forgotPassword": "Forgot password?",
-      "noAccount": "Don’t have an account yet?",
+      "noAccount": "Don't have an account yet?",
       "register": "Register here",
       "rememberMe": "Remember me",
       "invalidEmail": "Please enter a valid email address",
@@ -44,7 +44,8 @@
       "invalidOtp": "The OTP you entered is invalid, please try again",
       "requiredOtp": "The OTP code with 6 digits is required",
       "otpRequired": "Your one time password is required to log into your account, please enter the code provide by your authenticator app",
-      "resetSuccess": "Your password was succesfuly reset, you can now login"
+      "resetSuccess": "Your password was successfully reset, you can now login",
+      "logoutAutoSuccess": "You have been automatically logged out. Please log in again."
     },
     "RegisterPage": {
       "title": "Register",
@@ -94,7 +95,7 @@
       "successMessage2": "You will receive an email to confirm your registration, please check your inbox and spam folder.",
       "successMessage3": "Once you have confirmed your registration, you will be able to log in.",
       "successMessage4": "If you don't receive the email, please contact us.",
-      "errorRegister": "An error occured while register, please verify your information or try again later."
+      "errorRegister": "An error occurred while registering, please verify your information or try again later."
     },
     "confirmEmail": "Email confirmation",
     "confirmEmailFailed": "Email confirmation failed. Please try again or contact our support team.",
@@ -118,7 +119,7 @@
       "backToResetPassword": "Ask for a new one",
       "backToHome": "Go home",
       "resetPassword": "Reset password",
-      "confirmPassword": "Coonfirm your new password",
+      "confirmPassword": "Confirm your new password",
       "password": "Enter your new password",
       "requiredConfirmPassword": "Coonfirm your new password is required",
       "passwordsMustMatch": "Passwords must match",
@@ -126,7 +127,9 @@
       "passwordMinLength": "A password with 12 letters is required",
       "invalidOrExpiredToken": "The reset token is invalid or has expired",
       "passwordResetSuccess": "Password has been reset successfully, you can now login"
-    }
+    },
+    "loggingYouOut": "Logging you out",
+    "loggingYouOutMessage": "If you are not redirected, please click here"
   },
   "Navigation": {
     "home": "Home",
@@ -149,7 +152,7 @@
     "business": "Business",
     "products": "Products",
     "orders": "Orders",
-    "coupons": "Coupons",
+    "vouchers": "Vouchers",
     "subscriptions": "Subscriptions",
     "payments": "Payments",
     "categories": "Categories",
@@ -161,7 +164,8 @@
     "openNewTicket": "Open Ticket",
     "myTickets": "My Tickets",
     "needHelp": "Need help ?",
-    "mySupport": "My tickets"
+    "mySupport": "My tickets",
+    "coupons": "Vouchers"
   },
   "Admin": {
     "Security": {
@@ -183,13 +187,13 @@
         "saving": "We are saving the change...",
         "saveSuccess": "Success",
         "saved": "User's change saved",
-        "error": "An error occured while saving the change",
+        "error": "An error occurred while saving the change",
         "cancel": "Cancel",
         "save": "Save",
         "deleteConfirmation": "Are you sure you want to delete this user?",
         "deleteSuccess": "Success",
         "deleted": "User deleted",
-        "deleteError": "An error occured while deleting the user",
+        "deleteError": "An error occurred while deleting the user",
         "country": "Country",
         "city": "City",
         "zipCode": "Zip Code",
@@ -209,13 +213,13 @@
         "no": "No",
         "unconfirmUser": "Force unconfirm",
         "confirmUser": "Force confirmation",
-        "desactivateUser": "Desactivate user",
+        "desactivateUser": "Deactivate user",
         "activateUser": "Activate User",
         "changingUserStatus": "Changing user status to {status}",
         "active": "active",
         "inactive": "inactive",
-        "userStatusChanged": "Successfuly changed user status to {status}",
-        "failedToChangeUserStatus": "Failed to change user status !",
+        "userStatusChanged": "Successfully changed user status to {status}",
+        "failedToChangeUserStatus": "Failed to change user status!",
         "account_activation_isActivated": "Account is activated",
         "account_confirmation_isConfirmed": "Account is confirmed",
         "UserDetails": {
@@ -294,6 +298,30 @@
         "yes": "Yes",
         "no": "No",
         "Log": {
+          "ShopSettingsEdit": {
+            "title": "Shop Settings Edit",
+            "description": "Shop settings were edited"
+          },
+          "ShopSettingsError": {
+            "title": "Shop Settings Error",
+            "description": "An error occurred with the shop settings"
+          },
+          "ShopUserCart": {
+            "title": "Shop User Cart",
+            "description": "User cart activity"
+          },
+          "ShopUserCartError": {
+            "title": "Shop User Cart Error",
+            "description": "An error occurred with the user cart"
+          },
+          "ShopStripeWebhook": {
+            "title": "Shop Stripe Webhook",
+            "description": "Stripe webhook event"
+          },
+          "ShopStripeWebhookError": {
+            "title": "Shop Stripe Webhook Error",
+            "description": "An error occurred with the Stripe webhook"
+          },
           "CriticalSecurity": {
             "title": "Critical Security",
             "description": "Critical security event"
@@ -492,8 +520,57 @@
       "Orders": {
         "title": "Orders"
       },
-      "Coupons": {
-        "title": "Coupons"
+      "Vouchers": {
+        "title": "Vouchers",
+        "subTitle": "Manage vouchers",
+        "code": "Code",
+        "discount": "Discount",
+        "expirationDate": "Expiration Date",
+        "isActive": "Active",
+        "actions": "Actions",
+        "viewVoucher": "View Voucher",
+        "deactivateVoucher": "Deactivate Voucher",
+        "activateVoucher": "Activate Voucher",
+        "searchPlaceholder": "Search...",
+        "columns": "Columns",
+        "errorLoadingData": "Error loading data.",
+        "noResults": "No results.",
+        "previous": "Previous",
+        "next": "Next",
+        "yes": "Yes",
+        "no": "No",
+        "type": "Type",
+        "percentage": "Percentage",
+        "fixed": "Fixed",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "minPurchaseAmount": "Minimum Purchase Amount",
+        "description": "Description",
+        "isProductSpecific": "Specific to Product",
+        "isCategorySpecific": "Specific to Category",
+        "product": "Product",
+        "category": "Category",
+        "user": "User",
+        "addVoucher": "Add Voucher",
+        "addVoucherDescription": "Fill in the details to create a new voucher.",
+        "saveChanges": "Save Changes",
+        "autoGenerateCodeMessage": "If left empty, a code will be automatically generated.",
+        "voucherType": "Voucher Type",
+        "voucherCode": "Voucher Code",
+        "voucherAmount": "Amount",
+        "requiredType": "Type is required",
+        "amountMin": "1 is the minimum",
+        "requiredAmount": "Amount required",
+        "minPurchaseAmountMin": "Minimum purchase amount is required",
+        "voucherCreated": "Voucher created",
+        "voucherCreationFailed": "Voucher creation failed",
+        "amount": "Amount",
+        "createdAt": "Create at",
+        "updatedAt": "Update at",
+        "VoucherDetails": {
+          "title": "Voucher details",
+          "subTitle": "View the details of the voucher"
+        }
       },
       "Subscriptions": {
         "title": "Subscriptions"
@@ -620,6 +697,9 @@
           "editProduct": "Edit product",
           "viewProduct": "View product"
         }
+      },
+      "Coupons": {
+        "title": "Vouchers"
       }
     }
   },
@@ -753,7 +833,7 @@
     "about": "Go to the about page",
     "title": "Home Admin"
   },
-  "advertisement": "Avertissement",
+  "advertisement": "Advertisement",
   "friend": "By a friend",
   "navigation": {
     "about": "About",
@@ -764,8 +844,8 @@
     "register": "Register",
     "logout": "Log out"
   },
-  "other": "Other",
-  "socialMedia": "Social Media",
+  "other": "Another option",
+  "socialMedia": "From social media",
   "isSuperAdminRequired": "Is super admin is required",
   "Email": {
     "greetingWithName": "Hello {userName},",
@@ -812,13 +892,13 @@
     "profile": "Profile",
     "needHelp": "Need Help"
   },
-  "resetPasswordEmailSubject": "Cyna - rest your password",
+  "resetPasswordEmailSubject": "Cyna - reset your password",
   "ProductCard": {
     "seeMore": "See more"
   },
   "ProductPage": {
     "title": "Our products",
-    "error": "An error occurred while fetching products, please try angain",
+    "error": "An error occurred while fetching products, please try again",
     "searchResultsFor": "Results for",
     "noResults": "Oh no! We can't find any products for your search. Try again with another keyword."
   },
@@ -845,7 +925,7 @@
       "total": "Total",
       "viewCart": "View cart",
       "emptyCartSubtitle": "It's time to start shopping !",
-      "productAddedToCart": "Product added to card !",
+      "productAddedToCart": "Product added to cart!",
       "yourCart": "Your cart",
       "login": "Login",
       "register": "Register",
@@ -853,7 +933,30 @@
       "subtotal": "Sub total",
       "items": "Products",
       "orderSummary": "Your order",
-      "continueShopping": "Continue shipping"
+      "continueShopping": "Continue shopping",
+      "loginToProceed": "Login to your account to access your personal cart",
+      "taxes": "Taxes",
+      "voucherCode": "Voucher code",
+      "apply": "Apply",
+      "discount": "Discount",
+      "MixedProductTypes": "Please separate your orders for different products.",
+      "MixedProductTypesSubtitle": "                  You can't checkout with mixed product types. Please separate different subscription and on time buy product.",
+      "failToCheckout": "There was an error while checking out, please try again.",
+      "cantCheckout": "You can't checkout for the moment, please review your cart or account.",
+      "UserProfileIncompleteSubtitle": "Please complete your profile on your account page to proceed to checkout.",
+      "UserProfileIncomplete": "Your profile is incomplete, some fields are missing.",
+      "CompleteProfile": "Complete my profile",
+      "voucherApplied": "Voucher applied",
+      "voucherError": "Error with this voucher",
+      "VoucherNotActive": "Voucher not valid",
+      "VoucherNotActiveSubtitle": "The voucher applied to your cart is expired or not available for your order, please remove to proceed to checkout.",
+      "mixedProductTypes": "Please separate your orders for different products.",
+      "mixedProductTypesSubtitle": "You can't checkout with mixed product types. Please separate different subscription and on time buy product.",
+      "userProfileIncomplete": "Your profile is incomplete, some fields are missing.",
+      "userProfileIncompleteSubtitle": "Please complete your profile on your account page to proceed to checkout.",
+      "completeProfile": "Complete my profile",
+      "voucherNotActiveSubtitle": "The voucher applied to your cart is expired or not available for your order, please remove to proceed to checkout.",
+      "voucherNotActive": "Voucher not valid"
     },
     "Product": {
       "outOfStock": "Out of stock",
@@ -862,6 +965,52 @@
       },
       "quantity": "Quantity",
       "price": "Price"
+    },
+    "Checkout": {
+      "redirectingToCheckout": "We are processing your payment, please wait...",
+      "redirectingToCheckoutMessage": "Mmm, it seems like the process is taking longer than expected. Please wait a few seconds and then click the button below to go to your orders page",
+      "myOrders": "My orders",
+      "redirectingMessage": "When the process is finished, you will be automatically redirected to your order information."
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "description": "log",
+      "title": "log"
+    },
+    "Criticality": {
+      "SystemError": {
+        "description": "log",
+        "title": "log"
+      },
+      "SystemInfo": {
+        "description": "log",
+        "title": "log"
+      },
+      "SystemSecurity": {
+        "description": "log",
+        "title": "log"
+      },
+      "UserError": {
+        "description": "log",
+        "title": "log"
+      },
+      "UserInfo": {
+        "description": "log",
+        "title": "log"
+      },
+      "UserSecurity": {
+        "description": "log",
+        "title": "log"
+      }
+    },
+    "InternalError": {
+      "description": "log",
+      "title": "log"
+    },
+    "UserChangePassword": {
+      "description": "log",
+      "title": "log"
     }
   }
 }

@@ -1,12 +1,21 @@
 "use client"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
-import { getCart } from "./utils/cartService"
+import { getCart, checkOutStripe } from "./utils/cartService"
 import { useCart } from "@/features/shop/cart/context/cartContext"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
-import { Trash2, Plus, Minus, ShoppingBag } from "lucide-react"
+import {
+  Trash2,
+  Plus,
+  Minus,
+  ShoppingBag,
+  UserPlus,
+  TicketPercent,
+  Info,
+  UserRoundX,
+} from "lucide-react"
 import { Card } from "@/components/ui/card"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
 import { webAppSettings } from "@/assets/options/config"
@@ -14,13 +23,30 @@ import DButton from "@/components/ui/DButton"
 import { useSession } from "next-auth/react"
 import ErrorFront from "@/components/navigation/error"
 import toast from "react-hot-toast"
+import { Separator } from "@/components/ui/separator"
+import { Skeleton } from "@/components/ui/skeleton"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { useRouter } from "@/i18n/routing"
+import { returnError } from "@/features/shop/cart/utils/cart"
 
 export default function UserCart() {
   const t = useTranslations("Shop.Cart")
   const [isUpdating, setIsUpdating] = useState(false)
+  const [isCheckingOut, setIsCheckingOut] = useState(false)
   const { data: session } = useSession()
+  const router = useRouter()
   const queryClient = useQueryClient()
-  const { updateProdCart, removeProdFromCart } = useCart()
+  const {
+    updateProdCart,
+    removeProdFromCart,
+    applyCartVoucher,
+    removeCartVoucher,
+  } = useCart()
   const {
     data: cart,
     isLoading,
@@ -32,6 +58,26 @@ export default function UserCart() {
     refetchOnMount: true,
     staleTime: 0,
   })
+  const [voucherCode, setVoucherCode] = useState("")
+  const [isApplyingVoucher, setIsApplyingVoucher] = useState(false)
+  const handleApplyVoucher = async () => {
+    if (!voucherCode) {
+      return
+    }
+
+    setIsApplyingVoucher(true)
+
+    try {
+      await applyCartVoucher(voucherCode)
+      await queryClient.invalidateQueries({ queryKey: ["cart"] })
+      toast.success(t("voucherApplied"))
+    } catch (errorVoucher) {
+      toast.error(errorVoucher.message || t("voucherError"))
+    } finally {
+      setIsApplyingVoucher(false)
+      setVoucherCode("")
+    }
+  }
   const handleQuantityChange = async (productId, increment) => {
     try {
       setIsUpdating(true)
@@ -63,39 +109,66 @@ export default function UserCart() {
       setIsUpdating(false)
     }
   }
-  const calculateTotal = () =>
-    cart?.products?.reduce(
-      (total, item) => total + item.product.price * item.quantity,
-      0
-    ) || 0
+  const handleRemoveVoucher = async () => {
+    try {
+      setIsUpdating(true)
+      await removeCartVoucher()
+      await queryClient.invalidateQueries({ queryKey: ["cart"] })
+      await queryClient.refetchQueries({ queryKey: ["cart"] })
+    } catch (errorRm) {
+      toast.error(`An error occurred, please try again.${errorRm}`)
+    } finally {
+      setIsUpdating(false)
+    }
+  }
+  const displayLoadingCalcul = (value, size) =>
+    isUpdating || isLoading ? (
+      <Skeleton className={`w-${size} h-6`} />
+    ) : (
+      `${value || 0} €`
+    )
+  const handleCheckout = async () => {
+    setIsCheckingOut(true)
+    const response = await checkOutStripe()
+
+    if (response.canCheckout) {
+      router.push(response.url)
+    } else {
+      toast.error(response.message)
+    }
+
+    setIsCheckingOut(false)
+  }
 
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-auto pb-20 pt-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2">
           <h1 className="text-2xl font-bold mb-6">{t("yourCart")}</h1>
           <div className="space-y-4">
             {error && <ErrorFront />}
             {isLoading && <ListSkeleton rows={3} height={12} />}
-            {!isLoading && !error && cart?.products?.length === 0 && (
-              <div className="container mx-auto p-4 mt-20">
-                <div className="flex flex-col items-center justify-center space-y-4 p-8">
-                  <Image
-                    src={webAppSettings.images.emptyCartUrl}
-                    alt="Empty cart"
-                    width={200}
-                    height={200}
-                  />
-                  <h2 className="text-2xl font-bold">{t("emptyCart")}</h2>
-                  <p className="text-muted-foreground">
-                    {t("emptyCartSubtitle")}
-                  </p>
-                  <DButton isMain withLink="/">
-                    {t("continueShopping")}
-                  </DButton>
+            {!isLoading &&
+              !error &&
+              (cart?.products?.length === 0 || !cart) && (
+                <div className="container mx-auto p-4 mt-20">
+                  <div className="flex flex-col items-center justify-center space-y-4 p-8">
+                    <Image
+                      src={webAppSettings.images.emptyCartUrl}
+                      alt="Empty cart"
+                      width={200}
+                      height={200}
+                    />
+                    <h2 className="text-2xl font-bold">{t("emptyCart")}</h2>
+                    <p className="text-muted-foreground">
+                      {t("emptyCartSubtitle")}
+                    </p>
+                    <DButton isMain withLink="/shop/product">
+                      {t("continueShopping")}
+                    </DButton>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
             {!isLoading &&
               !error &&
               cart?.products?.length > 0 &&
@@ -161,47 +234,216 @@ export default function UserCart() {
 
         <div className="md:col-span-1">
           <Card className="p-6 sticky top-24">
-            <div className="mb-6">
-              <h2 className="text-lg font-semibold">{t("orderSummary")}</h2>
-              {isLoading && <ListSkeleton />}
-              {!isLoading && cart && cart.products && (
-                <p className="text-sm text-muted-foreground">
-                  {cart.products.length} {t("items")}
-                </p>
-              )}
-            </div>
-
-            <div className="space-y-4">
-              {!isLoading && cart && cart.products && (
-                <div className="flex justify-between">
-                  <div className="flex justify-between text-lg">
-                    <span>{t("subtotal")}</span>{" "}
-                    <span>{calculateTotal()}€</span>
+            <div className="space-y-6">
+              {cart?.checkout?.reason &&
+                cart?.checkout?.reason === "MIXED_PRODUCT_TYPES" && (
+                  <div className="bg-orange-200 p-4 rounded-md border border-orange-600">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div>
+                        <Info size={40} />
+                      </div>
+                      <div>
+                        <h2 className="text-xl font-bold text-center">
+                          {t("mixedProductTypes")}
+                        </h2>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground mt-2 text-center">
+                      {t("mixedProductTypesSubtitle")}
+                    </p>
                   </div>
-                  <div className="border-t pt-4">
-                    <div className="flex justify-between text-xl font-bold">
-                      <span>{t("total")}</span> <span>{calculateTotal()}€</span>
+                )}
+              {cart?.checkout?.reason &&
+                cart?.checkout?.reason === "USER_PROFILE_INCOMPLETE" && (
+                  <div className="bg-orange-200 p-4 rounded-md border border-orange-600">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div>
+                        <UserRoundX size={48} />
+                      </div>
+                      <div>
+                        <h2 className="text-xl text-center font-bold">
+                          {t("userProfileIncomplete")}
+                        </h2>
+                      </div>
+                    </div>
+
+                    <p className="text-muted-foreground mt-2 text-center">
+                      {t("userProfileIncompleteSubtitle")}
+                    </p>
+                    <DButton isMain withLink="/user/dashboard/profile">
+                      {t("completeProfile")}
+                    </DButton>
+                  </div>
+                )}
+              {cart?.checkout?.reason &&
+                cart?.checkout?.reason === "VOUCHER_NOT_ACTIVE" && (
+                  <div className="bg-orange-200 p-4 rounded-md border border-orange-600">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div>
+                        <TicketPercent size={48} />
+                      </div>
+                      <div>
+                        <h2 className="text-xl text-center font-bold">
+                          {t("voucherNotActive")}
+                        </h2>
+                      </div>
+                    </div>
+
+                    <p className="text-muted-foreground mt-2 text-center">
+                      {t("voucherNotActiveSubtitle")}
+                    </p>
+                  </div>
+                )}
+              {!isLoading && !session && (
+                <div className="space-y-4">
+                  <div className="flex justify-center flex-col items-center space-y-4">
+                    <UserPlus size={48} />
+                  </div>
+                  <h1 className="text-lg font-semibold text-center mb-2">
+                    {t("loginToProceed")}
+                  </h1>
+                  <div className="flex space-x-2">
+                    <div className="w-full">
+                      <DButton
+                        isMain
+                        withLink="/auth/login"
+                        styles={"flex-grow  w-full"}
+                      >
+                        {t("login")}
+                      </DButton>
+                    </div>
+                    <div className="w-full">
+                      <DButton
+                        withLink="/auth/register"
+                        styles={"flex-grow  w-full"}
+                      >
+                        {t("register")}
+                      </DButton>
                     </div>
                   </div>
+                  <Separator />
                 </div>
               )}
+              <div>
+                <h2 className="text-xl font-bold mb-4">{t("orderSummary")}</h2>
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">
+                      {t("subtotal")}
+                    </span>
+                    <span>
+                      {displayLoadingCalcul(cart?.subtotal?.toFixed(2), "16")}
+                    </span>
+                  </div>
 
-              {!isLoading && session && (
-                <DButton isMain>
-                  <ShoppingBag className="mr-2 h-4 w-4" />
-                  {t("checkout")}
-                </DButton>
-              )}
-              {!isLoading && !session && (
-                <div className="space-y-2">
-                  <DButton isMain withLink="/auth/login" className="w-full">
-                    {t("login")}
-                  </DButton>
-                  <DButton withLink="/auth/register" className="w-full">
-                    {t("register")}
-                  </DButton>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">{t("taxes")}</span>
+                    <span>
+                      {displayLoadingCalcul(cart?.tax?.toFixed(2), "16")}
+                    </span>
+                  </div>
+
+                  <Separator />
+
+                  {cart?.discount > 0 && (
+                    <div className="flex justify-between text-green-600">
+                      <span>{t("discount")}</span>
+                      <span>
+                        {displayLoadingCalcul(
+                          `- ${cart?.discount?.toFixed(2)}`,
+                          "20"
+                        )}
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="flex justify-between text-xl font-bold">
+                    <span>{t("total")}</span>
+                    <span>
+                      {displayLoadingCalcul(cart?.total?.toFixed(2), "24")}
+                    </span>
+                  </div>
                 </div>
-              )}
+              </div>
+
+              <div className="space-y-4">
+                {!cart?.voucher && (
+                  <div className="flex gap-2 items-center">
+                    <input
+                      type="text"
+                      placeholder={t("voucherCode")}
+                      value={voucherCode}
+                      onChange={(e) => setVoucherCode(e.target.value)}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    />
+                    <Button
+                      onClick={handleApplyVoucher}
+                      disabled={isApplyingVoucher || !voucherCode}
+                    >
+                      {t("apply")}
+                    </Button>
+                  </div>
+                )}
+                {cart?.voucher && isUpdating && (
+                  <Skeleton className="w-full h-10" />
+                )}
+                {cart?.voucher && !isUpdating && (
+                  <div className="flex justify-between items-center border rounded-md py-1 px-5">
+                    <TicketPercent />
+                    <span>{`${cart.voucher.code} - ${cart.voucher.type === "percentage" ? `${cart.voucher.amount}%` : `${cart.voucher.amount}€`}`}</span>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={handleRemoveVoucher}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                )}
+                {!isLoading && session && (
+                  <TooltipProvider>
+                    {!cart?.checkout?.isEligible && (
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div>
+                            <DButton
+                              isMain
+                              isDisabled={
+                                cart?.products?.length === 0 ||
+                                !cart?.checkout?.isEligible
+                              }
+                              onClickBtn={handleCheckout}
+                            >
+                              <ShoppingBag className="mr-2 h-4 w-4" />
+                              {t("checkout")}
+                            </DButton>
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          {returnError(t, cart?.checkout?.reason) ||
+                            t("cantCheckout")}
+                        </TooltipContent>
+                      </Tooltip>
+                    )}
+                    {cart?.checkout?.isEligible && (
+                      <DButton
+                        isMain
+                        isDisabled={cart?.products?.length === 0}
+                        onClickBtn={handleCheckout}
+                      >
+                        {isCheckingOut ? (
+                          <div className="dotsLoader" />
+                        ) : (
+                          <>
+                            <ShoppingBag className="mr-2 h-4 w-4" />
+                            {t("checkout")}
+                          </>
+                        )}
+                      </DButton>
+                    )}
+                  </TooltipProvider>
+                )}
+              </div>
             </div>
           </Card>
         </div>

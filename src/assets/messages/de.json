@@ -44,7 +44,8 @@
       "invalidOtp": "Der von Ihnen eingegebene OTP ist ungültig. Bitte versuchen Sie es erneut",
       "otpRequired": "Ihr einmaliges Kennwort ist erforderlich, um sich in Ihrem Konto anzumelden. Geben Sie bitte den Code ein, den Ihre Authenticator -App zur Verfügung stellt",
       "requiredOtp": "Der OTP -Code mit 6 Ziffern ist erforderlich",
-      "resetSuccess": "Ihr Passwort war erfolgreicher Reset, Sie können sich jetzt anmelden"
+      "resetSuccess": "Ihr Passwort war erfolgreicher Reset, Sie können sich jetzt anmelden",
+      "logoutAutoSuccess": "Sie wurden automatisch angemeldet. \nBitte melden Sie sich erneut an."
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -126,7 +127,9 @@
       "sendEmail": "Senden Sie einen Reset -Link",
       "somethingWentWrong": "Bitte versuchen Sie es nicht erneut.",
       "title": "Setzen Sie Ihr Passwort zurück"
-    }
+    },
+    "loggingYouOut": "Anmeldung dich raus",
+    "loggingYouOutMessage": "Wenn Sie nicht weitergeleitet werden, klicken Sie bitte hier"
   },
   "other": "Andere",
   "socialMedia": "Soziale Medien",
@@ -411,6 +414,30 @@
           "EmailServiceError": {
             "description": "Bei dem E -Mail -Dienst trat ein Fehler auf",
             "title": "E -Mail -Service -Fehler"
+          },
+          "ShopSettingsEdit": {
+            "description": "Ladeneinstellungen wurden bearbeitet",
+            "title": "Shop -Einstellungen bearbeiten"
+          },
+          "ShopSettingsError": {
+            "description": "Bei den Shop -Einstellungen trat ein Fehler auf",
+            "title": "Laden Sie Einstellungsfehler"
+          },
+          "ShopStripeWebhook": {
+            "description": "Stripe Webhook Event",
+            "title": "Laden Sie Stripe Webhook"
+          },
+          "ShopStripeWebhookError": {
+            "description": "Bei dem Stripe Webhook trat ein Fehler auf",
+            "title": "Laden Sie Stripe Webhook -Fehler ein"
+          },
+          "ShopUserCart": {
+            "description": "Benutzerwagenaktivität",
+            "title": "Einkaufen Benutzerwagen"
+          },
+          "ShopUserCartError": {
+            "description": "Bei dem Benutzerwagen trat ein Fehler auf",
+            "title": "Einkaufswarenmarks Fehler einladen"
           }
         },
         "LogDetails": {
@@ -590,6 +617,58 @@
         "subTitle": "Kategorien verwalten",
         "title": "Kategorien",
         "yes": "Ja"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Sehen Sie sich die Details des Gutscheins an",
+          "title": "Gutscheindetails"
+        },
+        "actions": "Aktionen",
+        "activateVoucher": "Gutschein aktivieren",
+        "addVoucher": "Gutschein hinzufügen",
+        "addVoucherDescription": "Füllen Sie die Details ein, um einen neuen Gutschein zu erstellen.",
+        "amount": "Menge",
+        "amountMin": "1 ist das Minimum",
+        "autoGenerateCodeMessage": "Wenn es leer ist, wird ein Code automatisch generiert.",
+        "category": "Kategorie",
+        "code": "Code",
+        "columns": "Spalten",
+        "createdAt": "Erstellen bei",
+        "deactivateVoucher": "Deaktivieren Sie den Gutschein",
+        "description": "Beschreibung",
+        "discount": "Rabatt",
+        "endDate": "Enddatum",
+        "errorLoadingData": "Fehler laden Daten.",
+        "expirationDate": "Verfallsdatum",
+        "fixed": "Behoben",
+        "isActive": "Aktiv",
+        "isCategorySpecific": "Spezifisch für Kategorien",
+        "isProductSpecific": "Spezifisch für Produkte",
+        "minPurchaseAmount": "Mindestkaufbetrag",
+        "minPurchaseAmountMin": "Mindestkaufsbetrag ist erforderlich",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse.",
+        "percentage": "Prozentsatz",
+        "previous": "Vorherige",
+        "product": "Produkt",
+        "requiredAmount": "Betrag erforderlich",
+        "requiredType": "Typ ist erforderlich",
+        "saveChanges": "Änderungen speichern",
+        "searchPlaceholder": "Suchen...",
+        "startDate": "Startdatum",
+        "subTitle": "Gutscheine verwalten",
+        "title": "Gutscheine",
+        "type": "Typ",
+        "updatedAt": "Update at",
+        "user": "Benutzer",
+        "viewVoucher": "Gutschein anzeigen",
+        "voucherAmount": "Menge",
+        "voucherCode": "Gutscheincode",
+        "voucherCreated": "Gutschein erstellt",
+        "voucherCreationFailed": "Die Gutscheinkreation ist fehlgeschlagen",
+        "voucherType": "Gutscheintyp",
+        "yes": "Ja"
       }
     }
   },
@@ -631,7 +710,8 @@
     "needHelp": "Benötigen Sie Hilfe?",
     "openNewTicket": "Offenes Ticket",
     "paymentMethods": "Zahlungsmethoden",
-    "support": "Unterstützung"
+    "support": "Unterstützung",
+    "vouchers": "Gutscheine"
   },
   "navigation": {
     "admin": "Admin",
@@ -853,7 +933,30 @@
       "orderSummary": "Ihre Bestellung",
       "register": "Registrieren",
       "subtotal": "Sub Total",
-      "yourCart": "Dein Wagen"
+      "yourCart": "Dein Wagen",
+      "apply": "Anwenden",
+      "discount": "Rabatt",
+      "loginToProceed": "Melden Sie sich in Ihrem Konto an, um auf Ihren Personenwagen zuzugreifen",
+      "taxes": "Steuern",
+      "voucherCode": "Gutscheincode",
+      "MixedProductTypes": "Bitte trennen Sie Ihre Bestellungen für verschiedene Arten von Produkten.",
+      "MixedProductTypesSubtitle": "Sie können nicht mit gemischten Produkttypen auschecken. \nBitte trennen Sie verschiedene Abonnements und kaufen Sie pünktlich Produkt.",
+      "cantCheckout": "Sie können für den Moment nicht auschecken, bitte überprüfen Sie Ihren Warenkorb oder Ihr Konto.",
+      "failToCheckout": "Während des Auscheckens gab es einen Fehler, bitte versuchen Sie es erneut.",
+      "CompleteProfile": "Vervollständige mein Profil",
+      "UserProfileIncomplete": "Ihr Profil ist unvollständig, einige Felder fehlen.",
+      "UserProfileIncompleteSubtitle": "Bitte vervollständigen Sie Ihr Profil auf Ihrer Kontoseite, um zur Kaufabteilung fortzufahren.",
+      "VoucherNotActive": "Gutschein nicht gültig",
+      "VoucherNotActiveSubtitle": "Der auf Ihren Wagen angewandte Gutschein ist abgelaufen oder für Ihre Bestellung nicht verfügbar. Bitte entfernen Sie, um zur Kasse zu fahren.",
+      "completeProfile": "Vervollständige mein Profil",
+      "mixedProductTypes": "Bitte trennen Sie Ihre Bestellungen für verschiedene Produkte.",
+      "mixedProductTypesSubtitle": "Sie können nicht mit gemischten Produkttypen auschecken. \nBitte trennen Sie verschiedene Abonnements und kaufen Sie pünktlich Produkt.",
+      "userProfileIncomplete": "Ihr Profil ist unvollständig, einige Felder fehlen.",
+      "userProfileIncompleteSubtitle": "Bitte vervollständigen Sie Ihr Profil auf Ihrer Kontoseite, um zur Kaufabteilung fortzufahren.",
+      "voucherApplied": "Gutschein angewendet",
+      "voucherError": "Fehler mit diesem Gutschein",
+      "voucherNotActive": "Gutschein nicht gültig",
+      "voucherNotActiveSubtitle": "Der auf Ihren Wagen angewandte Gutschein ist abgelaufen oder für Ihre Bestellung nicht verfügbar. Bitte entfernen Sie, um zur Kasse zu fahren."
     },
     "Product": {
       "addToCart": {
@@ -862,6 +965,52 @@
       "outOfStock": "Aus dem Bestand",
       "price": "Preis",
       "quantity": "Menge"
+    },
+    "Checkout": {
+      "myOrders": "Meine Bestellungen",
+      "redirectingMessage": "Wenn der Vorgang abgeschlossen ist, werden Sie automatisch auf Ihre Bestellinformationen umgeleitet.",
+      "redirectingToCheckout": "Wir bearbeiten Ihre Zahlung, bitte warten ...",
+      "redirectingToCheckoutMessage": "Mmm, es scheint, dass der Prozess länger als erwartet dauert. \nBitte warten Sie ein paar Sekunden und klicken Sie dann auf die Schaltfläche unten, um zu Ihren Bestellungen zu gelangen"
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "description": "Kritisches Sicherheitsereignis",
+      "title": "Kritische Sicherheit"
+    },
+    "Criticality": {
+      "SystemError": {
+        "description": "Fehlerereignis im Zusammenhang mit dem System",
+        "title": "Systemfehler"
+      },
+      "SystemInfo": {
+        "description": "Informationsereignis im Zusammenhang mit dem System",
+        "title": "Systeminformationen"
+      },
+      "SystemSecurity": {
+        "description": "Sicherheitsereignis im Zusammenhang mit dem System",
+        "title": "Systemsicherheit"
+      },
+      "UserError": {
+        "description": "Fehlerereignis im Zusammenhang mit einem Benutzer",
+        "title": "Benutzerfehler"
+      },
+      "UserInfo": {
+        "description": "Informationsereignis im Zusammenhang mit einem Benutzer",
+        "title": "Benutzerinformationen"
+      },
+      "UserSecurity": {
+        "description": "Sicherheitsereignis im Zusammenhang mit einem Benutzer",
+        "title": "Benutzersicherheit"
+      }
+    },
+    "InternalError": {
+      "description": "Es ist ein interner Fehler aufgetreten",
+      "title": "Interner Fehler"
+    },
+    "UserChangePassword": {
+      "description": "Das Benutzerkennwort wurde geändert",
+      "title": "Benutzer ändern das Passwort"
     }
   }
 }

@@ -162,9 +162,9 @@ export const adminNavItems = [
         isSuperAdmin: false,
       },
       {
-        title: "Coupons",
-        translationKey: "coupons",
-        url: "/admin/business/coupons",
+        title: "Vouchers",
+        translationKey: "vouchers",
+        url: "/admin/business/vouchers",
         isSuperAdmin: false,
       },
     ],
@@ -364,6 +364,12 @@ export const pagesNames = [
     url: "/user/dashboard/business/payments",
   },
   {
+    title: "Business Vouchers",
+    titleKey: "Admin.Business.Vouchers.title",
+    subTitleKey: "Admin.Business.Vouchers.subTitle",
+    url: "/admin/business/vouchers",
+  },
+  {
     title: "Profile",
     titleKey: "User.MyAccount.Profile.title",
     subTitleKey: "NoSubTitle",
@@ -386,6 +392,12 @@ export const pagesNames = [
     titleKey: "Admin.Business.Categories.title",
     subTitleKey: "Admin.Business.Categories.subTitle",
     url: "/admin/business/categories",
+  },
+  {
+    title: "Voucher details",
+    titleKey: "Admin.Business.Vouchers.VoucherDetails.title",
+    subTitleKey: "Admin.Business.Vouchers.VoucherDetails.subTitle",
+    url: "/admin/business/vouchers/[Id]",
   },
 ]
 
@@ -533,6 +545,42 @@ export const logKeys = {
     key: "accountSecurityLock",
     titleKey: "Log.AccountSecurityLock.title",
     descriptionKey: "Log.AccountSecurityLock.description",
+  },
+  shopSettingsEdit: {
+    name: "Shop Settings Edit",
+    key: "shopSettingsEdit",
+    titleKey: "Log.ShopSettingsEdit.title",
+    descriptionKey: "Log.ShopSettingsEdit.description",
+  },
+  shopSettingsError: {
+    name: "Shop Settings Error",
+    key: "shopSettingsError",
+    titleKey: "Log.ShopSettingsError.title",
+    descriptionKey: "Log.ShopSettingsError.description",
+  },
+  shopUserCart: {
+    name: "Shop User Cart",
+    key: "shopUserCart",
+    titleKey: "Log.ShopUserCart.title",
+    descriptionKey: "Log.ShopUserCart.description",
+  },
+  shopUserCartError: {
+    name: "Shop User Cart Error",
+    key: "shopUserCartError",
+    titleKey: "Log.ShopUserCartError.title",
+    descriptionKey: "Log.ShopUserCartError.description",
+  },
+  shopStripeWebhook: {
+    name: "Shop Stripe Webhook",
+    key: "shopStripeWebhook",
+    titleKey: "Log.ShopStripeWebhook.title",
+    descriptionKey: "Log.ShopStripeWebhook.description",
+  },
+  shopStripeWebhookError: {
+    name: "Shop Stripe Webhook Error",
+    key: "shopStripeWebhookError",
+    titleKey: "Log.ShopStripeWebhookError.title",
+    descriptionKey: "Log.ShopStripeWebhookError.description",
   },
 }
 

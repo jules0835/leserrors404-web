@@ -28,7 +28,11 @@ export default function Header() {
     fetchData()
   }, [reval, searchParams, router])
 
-  if (pathname.includes("/auth/") || pathname.includes("/admin")) {
+  if (
+    pathname.includes("/auth/") ||
+    pathname.includes("/admin") ||
+    pathname.includes("/shop/checkout/redirect")
+  ) {
     return null
   }
 

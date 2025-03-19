@@ -49,3 +49,18 @@ export const getEditUserSchema = (t) =>
       }),
     }),
   })
+
+export const getUserOrderEligibilitySchema = () =>
+  Yup.object().shape({
+    firstName: Yup.string().required(),
+    lastName: Yup.string().required(),
+    company: Yup.string().required(),
+    email: Yup.string().email().required(),
+    phone: Yup.number().required(),
+    address: Yup.object().shape({
+      country: Yup.string().required(),
+      city: Yup.string().required(),
+      zipCode: Yup.string().required(),
+      street: Yup.string().required(),
+    }),
+  })
