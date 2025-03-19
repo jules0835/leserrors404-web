@@ -88,22 +88,22 @@ export async function PUT(req, { params }) {
       )
     }
 
-    const parsedData = {
-      label: label ? JSON.parse(label) : null,
-      description: description ? JSON.parse(description) : null,
-      characteristics: characteristics ? JSON.parse(characteristics) : null,
-      categorie: categorie ? JSON.parse(categorie) : null,
-      stock: stock ? JSON.parse(stock) : null,
-      price: price ? JSON.parse(price) : null,
-      priceMonthly: priceMonthly ? JSON.parse(priceMonthly) : null,
-      priceAnnual: priceAnnual ? JSON.parse(priceAnnual) : null,
-      priority: priority ? JSON.parse(priority) : null,
-      taxe: taxe ? JSON.parse(taxe) : null,
-      subscription: subscription ? JSON.parse(subscription) : null,
+    const updatedData = {
+      label: JSON.parse(label),
+      description: JSON.parse(description),
+      characteristics: JSON.parse(characteristics),
+      categorie: JSON.parse(categorie),
+      stock: JSON.parse(stock),
+      price: JSON.parse(price),
+      priceMonthly: JSON.parse(priceMonthly),
+      priceAnnual: JSON.parse(priceAnnual),
+      priority: JSON.parse(priority),
+      taxe: JSON.parse(taxe),
       isActive,
+      subscription: JSON.parse(subscription),
       ...(picture && { picture }),
     }
-    const updatedProduct = await updateProduct(Id, parsedData)
+    const updatedProduct = await updateProduct(Id, updatedData)
 
     if (!updatedProduct) {
       return NextResponse.json(

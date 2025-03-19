@@ -19,29 +19,35 @@ export async function POST(req, { params }) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
-    const { canCheckout, cart } = await checkCartEligibilityForCheckout({
-      user: userId,
-    })
+    const { canCheckout, cart, reason } = await checkCartEligibilityForCheckout(
+      null,
+      {
+        user: userId,
+      }
+    )
 
     if (!canCheckout) {
       return NextResponse.json(
         {
-          error: "MixedProductTypes",
-          message: t("MixedProductTypes"),
+          message: t(reason),
           canCheckout: false,
         },
         { status: 400 }
       )
     }
 
+    if (!cart) {
+      return NextResponse.json({ error: "Cart not found" }, { status: 404 })
+    }
+
     const user = await findUserById(userId)
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
-      mode: cart.products.some((item) => item.product.subscription)
+      mode: cart.products?.some((item) => item.product.subscription)
         ? "subscription"
         : "payment",
       customer_email: user.email,
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/checkout/redirect?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/cart`,
       discounts: cart.voucher?.stripeCouponId
         ? [{ promotion_code: cart.voucher.stripeCouponId }]
@@ -53,6 +59,12 @@ export async function POST(req, { params }) {
       })),
     })
 
+    log.systemInfo({
+      logKey: logKeys.shopUserCart.key,
+      message: "Checkout session created",
+      data: session,
+    })
+
     return NextResponse.json({
       url: session.url,
       canCheckout: true,
@@ -61,11 +73,15 @@ export async function POST(req, { params }) {
     log.systemError({
       logKey: logKeys.shopUserCartError.key,
       message: "Failed to checkout",
-      error,
+      technicalMessage: error,
     })
 
     return NextResponse.json(
-      { error: "Internal server error", canCheckout: false },
+      {
+        error: "Internal server error",
+        canCheckout: false,
+        message: t("failToCheckout"),
+      },
       { status: 500 }
     )
   }

@@ -500,6 +500,30 @@
           "EmailServiceError": {
             "description": "Si è verificato un errore con il servizio di posta elettronica",
             "title": "Errore di servizio e -mail"
+          },
+          "ShopSettingsEdit": {
+            "description": "Le impostazioni del negozio sono state modificate",
+            "title": "Modifica delle impostazioni del negozio"
+          },
+          "ShopSettingsError": {
+            "description": "Si è verificato un errore con le impostazioni del negozio",
+            "title": "Errore delle impostazioni del negozio"
+          },
+          "ShopStripeWebhook": {
+            "description": "Evento Webhook Stripe",
+            "title": "Shop Stripe Webhook"
+          },
+          "ShopStripeWebhookError": {
+            "description": "Si è verificato un errore con il webhook a strisce",
+            "title": "Shop Stripe Webhook Errore"
+          },
+          "ShopUserCart": {
+            "description": "Attività del carrello utente",
+            "title": "Carrello utente del negozio"
+          },
+          "ShopUserCartError": {
+            "description": "Si è verificato un errore con il carrello utente",
+            "title": "Errore del carrello utente del negozio"
           }
         },
         "LogDetails": {
@@ -547,7 +571,7 @@
       },
       "Users": {
         "User": {
-          "nothingSelected": ""
+          "nothingSelected": "Nothing selected"
         },
         "UserDetails": {
           "active": "Attivo",
@@ -914,7 +938,25 @@
       "discount": "Sconto",
       "loginToProceed": "Accedi al tuo account per accedere al tuo carrello personale",
       "taxes": "Tasse",
-      "voucherCode": "Codice voucher"
+      "voucherCode": "Codice voucher",
+      "MixedProductTypes": "Si prega di separare i tuoi ordini per diversi tipi di prodotti.",
+      "MixedProductTypesSubtitle": "Non puoi controllare con tipi di prodotti misti. \nSi prega di separare il prodotto di acquisto diverso e puntuale.",
+      "cantCheckout": "Non puoi fare il checkout per il momento, per favore rivedi il tuo carrello o account.",
+      "failToCheckout": "Si è verificato un errore durante il check -out, riprova.",
+      "CompleteProfile": "Completa il mio profilo",
+      "UserProfileIncomplete": "Il tuo profilo è incompleto, mancano alcuni campi.",
+      "UserProfileIncompleteSubtitle": "Completa il tuo profilo nella pagina del tuo account per procedere al checkout.",
+      "VoucherNotActive": "Voucher non valido",
+      "VoucherNotActiveSubtitle": "Il voucher applicato al carrello è scaduto o non disponibile per l'ordine, rimuovi per procedere al checkout.",
+      "completeProfile": "Completa il mio profilo",
+      "mixedProductTypes": "Si prega di separare i tuoi ordini per diversi prodotti.",
+      "mixedProductTypesSubtitle": "Non puoi controllare con tipi di prodotti misti. \nSi prega di separare il prodotto di acquisto diverso e puntuale.",
+      "userProfileIncomplete": "Il tuo profilo è incompleto, mancano alcuni campi.",
+      "userProfileIncompleteSubtitle": "Completa il tuo profilo nella pagina del tuo account per procedere al checkout.",
+      "voucherApplied": "Voucher applicato",
+      "voucherError": "Errore con questo voucher",
+      "voucherNotActive": "Voucher non valido",
+      "voucherNotActiveSubtitle": "Il voucher applicato al carrello è scaduto o non disponibile per l'ordine, rimuovi per procedere al checkout."
     },
     "Product": {
       "addToCart": {
@@ -923,6 +965,52 @@
       "outOfStock": "Esaurito",
       "price": "Prezzo",
       "quantity": "Quantità"
+    },
+    "Checkout": {
+      "myOrders": "I miei ordini",
+      "redirectingMessage": "Al termine del processo, verrai automaticamente reindirizzato alle informazioni sull'ordine.",
+      "redirectingToCheckout": "Stiamo elaborando il tuo pagamento, per favore aspetta ...",
+      "redirectingToCheckoutMessage": "MMM, sembra che il processo stia richiedendo più tempo del previsto. \nSi prega di attendere qualche secondo e quindi fare clic sul pulsante in basso per andare alla pagina degli ordini"
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "description": "Evento di sicurezza critico",
+      "title": "Sicurezza critica"
+    },
+    "Criticality": {
+      "SystemError": {
+        "description": "Evento di errore relativo al sistema",
+        "title": "Errore di sistema"
+      },
+      "SystemInfo": {
+        "description": "Evento informativo relativo al sistema",
+        "title": "Informazioni di sistema"
+      },
+      "SystemSecurity": {
+        "description": "Evento di sicurezza relativo al sistema",
+        "title": "Sicurezza del sistema"
+      },
+      "UserError": {
+        "description": "Evento di errore relativo a un utente",
+        "title": "Errore dell'utente"
+      },
+      "UserInfo": {
+        "description": "Evento informativo relativo a un utente",
+        "title": "Informazioni dell'utente"
+      },
+      "UserSecurity": {
+        "description": "Evento di sicurezza relativo a un utente",
+        "title": "Sicurezza dell'utente"
+      }
+    },
+    "InternalError": {
+      "description": "Si è verificato un errore interno",
+      "title": "Errore interno"
+    },
+    "UserChangePassword": {
+      "description": "La password dell'utente è stata modificata",
+      "title": "La password di modifica dell'utente"
     }
   }
 }

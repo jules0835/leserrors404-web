@@ -1,6 +1,7 @@
 import { CartModel, VoucherModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { hasMixedProductTypes } from "@/features/shop/cart/utils/cartService"
+import { checkUserOrderEligibility } from "@/db/crud/userCrud"
 
 export const createCart = async (data) => {
   await mwdb()
@@ -15,7 +16,7 @@ export const findCart = async (query) => {
     "products.product voucher"
   )
 
-  return cart
+  return await calculateCartTotals(cart)
 }
 
 export const addToCart = async (cartId, productId, quantity) => {
@@ -142,20 +143,75 @@ export const removeVoucherFromCart = async (cartId) => {
   return calculateCartTotals(cart)
 }
 
-export const checkCartEligibilityForCheckout = async (query) => {
-  const cart = await findCart(query)
+export const checkCartEligibilityForCheckout = async (cart, query) => {
+  let cartToCheck = cart
 
   if (!cart) {
+    cartToCheck = await findCart(query)
+  }
+
+  if (!cartToCheck) {
     throw new Error("Cart not found")
   }
 
-  const canCheckout = !hasMixedProductTypes(cart)
+  if (!cartToCheck.products) {
+    return {
+      canCheckout: false,
+      cart: cartToCheck,
+      reason: "CART_EMPTY",
+    }
+  }
 
-  return { canCheckout, cart }
+  const mixedProduct = hasMixedProductTypes(cartToCheck)
+
+  if (mixedProduct) {
+    return {
+      canCheckout: false,
+      cart: cartToCheck,
+      reason: "MIXED_PRODUCT_TYPES",
+    }
+  }
+
+  const userEligibility = await checkUserOrderEligibility(cartToCheck.user)
+
+  if (!userEligibility.isEligible) {
+    return {
+      canCheckout: false,
+      cart: cartToCheck,
+      reason: "USER_PROFILE_INCOMPLETE",
+    }
+  }
+
+  if (cartToCheck.voucher && !cartToCheck.voucher.isActive) {
+    return {
+      canCheckout: false,
+      cart: cartToCheck,
+      reason: "VOUCHER_NOT_ACTIVE",
+    }
+  }
+
+  return { canCheckout: true, cart: cartToCheck }
+}
+
+export const resetUserCart = async (userId) => {
+  await mwdb()
+
+  return CartModel.findOneAndUpdate(
+    { user: userId },
+    {
+      products: [],
+      subtotal: 0,
+      discount: 0,
+      tax: 0,
+      total: 0,
+      voucher: null,
+      updatedAt: new Date(),
+    },
+    { new: true }
+  )
 }
 const calculateCartTotals = async (cart) => {
   await cart.populate("products.product voucher")
-
   const subtotal = cart.products.reduce(
     (sum, item) => sum + item.product.price * item.quantity,
     0
@@ -170,21 +226,39 @@ const calculateCartTotals = async (cart) => {
         : Math.min(cart.voucher.amount, subtotal)
   }
 
-  const taxableAmount = subtotal - discount
-  const tax = cart.products.reduce((sum, item) => {
+  const discountedSubtotal = subtotal - discount
+  const totalTax = cart.products.reduce((sum, item) => {
+    const itemPriceAfterDiscount =
+      item.product.price - (discount / subtotal) * item.product.price
     const productTaxAmount =
-      item.product.price * (item.product.taxe / 100) * item.quantity
+      itemPriceAfterDiscount * (item.product.taxe / 100) * item.quantity
 
     return sum + productTaxAmount
   }, 0)
-  const total = taxableAmount + tax
+  const total = Math.max(discountedSubtotal + totalTax, 0)
 
   cart.subtotal = subtotal
   cart.discount = discount
-  cart.tax = tax
+  cart.tax = totalTax
   cart.total = total
 
-  await cart.save()
+  cart.checkout = {
+    isEligible: false,
+    reason: "",
+  }
+
+  if (cart.user) {
+    const eligibility = await checkCartEligibilityForCheckout(cart, null)
+    cart.checkout.isEligible = eligibility.canCheckout
+    cart.checkout.reason = eligibility.reason || ""
+  } else {
+    cart.checkout.isEligible = false
+    cart.checkout.reason = "USER_NOT_LOGGED_IN"
+  }
+
+  if (cart.isModified()) {
+    await cart.save()
+  }
 
   return cart
 }

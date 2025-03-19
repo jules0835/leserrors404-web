@@ -500,6 +500,30 @@
           "UserResetPassword": {
             "description": "user reset password ya vona .",
             "title": "Mutirhisi Seta Phasiwedi ."
+          },
+          "ShopSettingsEdit": {
+            "description": "Switirhisiwa swa le xitolo swi hleriwile .",
+            "title": "Switirhisiwa swa xitolo Hlela ."
+          },
+          "ShopSettingsError": {
+            "description": "Xihoxo xi humelerile hi swiyimiso swa xitolo .",
+            "title": "Xihoxo xa Switirhisiwa swa Vhengele ."
+          },
+          "ShopStripeWebhook": {
+            "description": "Xiendlakalo xa stripe webhook .",
+            "title": "Shop Stripe WebHook ."
+          },
+          "ShopStripeWebhookError": {
+            "description": "Xihoxo xi humelerile hi stripe webhook .",
+            "title": "Shop Stripe WebHook Xihoxo ."
+          },
+          "ShopUserCart": {
+            "description": "Ntirho wa xigolonyana xa mutirhisi .",
+            "title": "Xigolonyana xa mutirhisi wa xitolo ."
+          },
+          "ShopUserCartError": {
+            "description": "Xihoxo xi humelerile eka xigolonyana xa mutirhisi .",
+            "title": "Xihoxo xa Xigolonyana xa Mutirhisi xa Vhengele ."
           }
         },
         "LogDetails": {
@@ -914,7 +938,25 @@
       "discount": "Mbhukuto",
       "loginToProceed": "Nghena eka akhawunti ya wena ku nghena eka xigolonyana xa wena xa munhu .",
       "taxes": "Swibalo .",
-      "voucherCode": "Khodi ya vawuchari ."
+      "voucherCode": "Khodi ya vawuchari .",
+      "MixedProductTypes": "Hi kombela u hambanisa tioda ta wena eka tinxaka to hambana ta switirhisiwa.",
+      "MixedProductTypesSubtitle": "A wu nge swikoti ku checkout na tinxaka ta swihumelerisiwa leswi pfanganisiweke. \nHi kombela u hambanyisa xikhokhelo xo hambana na hi nkarhi wa xitirhisiwa.",
+      "cantCheckout": "A wu nge swikoti ku huma eka nkarhi wolowo, hi kombela u kambisisa xigolonyana kumbe akhawunti ya wena.",
+      "failToCheckout": "Ku vile na xihoxo loko u ri karhi u kambela, hi kombela u ringeta nakambe.",
+      "CompleteProfile": "Hetisa profile ya mina .",
+      "UserProfileIncomplete": "Profayile ya wena a yi helelanga, tinsimu tin’wana a ti kona.",
+      "UserProfileIncompleteSubtitle": "Hi kombela u tata profile ya wena eka pheji ya akhawunti ya wena ku ya emahlweni u huma.",
+      "VoucherNotActive": "Vhawuchari a yi tirhi .",
+      "VoucherNotActiveSubtitle": "Vhawuchara leyi tirhisiweke eka xigolonyana xa wena yi heleriwe hi nkarhi kumbe a yi kumeki eka oda ya wena, hi kombela u susa leswaku u ya emahlweni u huma.",
+      "completeProfile": "Hetisa profile ya mina .",
+      "mixedProductTypes": "Hi kombela u hambanisa tioda ta wena ta swilo swo hambana-hambana.",
+      "mixedProductTypesSubtitle": "A wu nge swikoti ku checkout na tinxaka ta swihumelerisiwa leswi pfanganisiweke. \nHi kombela u hambanyisa xikhokhelo xo hambana na hi nkarhi wa xitirhisiwa.",
+      "userProfileIncomplete": "Profayile ya wena a yi helelanga, tinsimu tin’wana a ti kona.",
+      "userProfileIncompleteSubtitle": "Hi kombela u tata profile ya wena eka pheji ya akhawunti ya wena ku ya emahlweni u huma.",
+      "voucherApplied": "Vhawuchara yi tirhisiwile .",
+      "voucherError": "Xihoxo hi ku tirhisa vawuchari leyi .",
+      "voucherNotActive": "Vhawuchari a yi tirhi .",
+      "voucherNotActiveSubtitle": "Vhawuchara leyi tirhisiweke eka xigolonyana xa wena yi heleriwe hi nkarhi kumbe a yi kumeki eka oda ya wena, hi kombela u susa leswaku u ya emahlweni u huma."
     },
     "Product": {
       "addToCart": {
@@ -923,6 +965,52 @@
       "outOfStock": "Ku huma exitokweni",
       "price": "Nxavo",
       "quantity": "Ntsengo"
+    },
+    "Checkout": {
+      "myOrders": "Tioda ta mina .",
+      "redirectingMessage": "Loko endlelo ri herile, u ta kongomisiwa hi ku tisungulela eka vuxokoxoko bya oda ya wena.",
+      "redirectingToCheckout": "Hi le ku endleni ka hakelo ya wena, hi kombela u rindza...",
+      "redirectingToCheckoutMessage": "MMM, swi vonaka onge endlelo ri teka nkarhi wo leha ku tlula leswi a swi languteriwile. \nHi kombela u yimela tisekoni ti nga ri tingani ivi u tikhoma buti leyi nga laha hansi leswaku u ya eka tluka ra wena ra Tioda ."
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "description": "Xiendlakalo xa Vuhlayiseki bya Nkoka .",
+      "title": "Vuhlayiseki bya nkoka ."
+    },
+    "Criticality": {
+      "SystemError": {
+        "description": "Xiendlakalo xa xihoxo lexi fambelanaka na sisiteme .",
+        "title": "Xihoxo xa sisiteme ."
+      },
+      "SystemInfo": {
+        "description": "Xiendlakalo xa vuxokoxoko lexi fambelanaka na sisiteme .",
+        "title": "Info ya sisiteme ."
+      },
+      "SystemSecurity": {
+        "description": "Xiendlakalo xa vuhlayiseki lexi fambelanaka na sisiteme .",
+        "title": "Vuhlayiseki bya sisiteme ."
+      },
+      "UserError": {
+        "description": "Xiendlakalo xa xihoxo lexi fambelanaka na mutirhisi .",
+        "title": "Xihoxo xa mutirhisi ."
+      },
+      "UserInfo": {
+        "description": "Xiendlakalo xa vuxokoxoko lexi fambelanaka na mutirhisi .",
+        "title": "Vuxokoxoko bya mutirhisi ."
+      },
+      "UserSecurity": {
+        "description": "Xiendlakalo xa vuhlayiseki lexi fambelanaka na mutirhisi .",
+        "title": "Vuhlayiseki bya vatirhisi ."
+      }
+    },
+    "InternalError": {
+      "description": "Xihoxo xa le ndzeni xi humelerile .",
+      "title": "Xihoxo xa le ndzeni ."
+    },
+    "UserChangePassword": {
+      "description": "Password ya mutirhisi yi cinciwile .",
+      "title": "Password yo cinca mutirhisi ."
     }
   }
 }

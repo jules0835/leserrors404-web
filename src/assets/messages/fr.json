@@ -363,6 +363,30 @@
           "UserResetPassword": {
             "description": "Réinitialisez l'utilisateur de son mot de passe",
             "title": "Mot de passe de réinitialisation de l'utilisateur"
+          },
+          "ShopSettingsEdit": {
+            "description": "Les paramètres des magasins ont été modifiés",
+            "title": "Les paramètres de la boutique Modifier"
+          },
+          "ShopSettingsError": {
+            "description": "Une erreur s'est produite avec les paramètres de la boutique",
+            "title": "Erreur des paramètres de l'atelier"
+          },
+          "ShopStripeWebhook": {
+            "description": "Événement Stripe Webhook",
+            "title": "Bouche de bouche Webhook"
+          },
+          "ShopStripeWebhookError": {
+            "description": "Une erreur s'est produite avec le webhook Stripe",
+            "title": "Erreur de la bouche d'atelier webhook"
+          },
+          "ShopUserCart": {
+            "description": "Activité de panier d'utilisateurs",
+            "title": "Acheter un panier"
+          },
+          "ShopUserCartError": {
+            "description": "Une erreur s'est produite avec le panier d'utilisateur",
+            "title": "Erreur d'agitation de panier d'utilisateurs"
           }
         },
         "LogDetails": {
@@ -914,7 +938,25 @@
       "discount": "Rabais",
       "loginToProceed": "Connectez-vous à votre compte pour accéder à votre panier personnal",
       "taxes": "Taxes",
-      "voucherCode": "Code de bon"
+      "voucherCode": "Code de bon",
+      "MixedProductTypes": "Veuillez séparer vos commandes pour différents types de produits.",
+      "MixedProductTypesSubtitle": "Vous ne pouvez pas vérifier avec des types de produits mixtes. \nVeuillez séparer les différents abonnement et sur le temps d'achat de produits.",
+      "cantCheckout": "Vous ne pouvez pas vérifier pour le moment, veuillez consulter votre panier ou votre compte.",
+      "failToCheckout": "Il y a eu une erreur lors de la vérification, veuillez réessayer.",
+      "CompleteProfile": "Compléter mon profil",
+      "UserProfileIncomplete": "Votre profil est incomplet, certains champs sont manquants.",
+      "UserProfileIncompleteSubtitle": "Veuillez compléter votre profil sur la page de votre compte pour passer à la caisse.",
+      "VoucherNotActive": "Bon non valide",
+      "VoucherNotActiveSubtitle": "Le bon appliqué à votre panier est expiré ou non disponible pour votre commande, veuillez supprimer pour passer à la caisse.",
+      "completeProfile": "Compléter mon profil",
+      "mixedProductTypes": "Veuillez séparer vos commandes pour différents produits.",
+      "mixedProductTypesSubtitle": "Vous ne pouvez pas vérifier avec des types de produits mixtes. \nVeuillez séparer les différents abonnement et sur le temps d'achat de produits.",
+      "userProfileIncomplete": "Votre profil est incomplet, certains champs sont manquants.",
+      "userProfileIncompleteSubtitle": "Veuillez compléter votre profil sur la page de votre compte pour passer à la caisse.",
+      "voucherApplied": "Bon appliquée",
+      "voucherError": "Erreur avec ce bon",
+      "voucherNotActive": "Bon non valide",
+      "voucherNotActiveSubtitle": "Le bon appliqué à votre panier est expiré ou non disponible pour votre commande, veuillez supprimer pour passer à la caisse."
     },
     "Product": {
       "addToCart": {
@@ -923,6 +965,52 @@
       "outOfStock": "En rupture de stock",
       "price": "Prix",
       "quantity": "Quantité"
+    },
+    "Checkout": {
+      "redirectingToCheckout": "Nous traitons votre paiement, veuillez patienter ...",
+      "myOrders": "Mes commandes",
+      "redirectingMessage": "Une fois le processus terminé, vous serez automatiquement redirigé vers les informations de votre commande.",
+      "redirectingToCheckoutMessage": "MMM, il semble que le processus prenne plus de temps que prévu. \nVeuillez patienter quelques secondes, puis cliquez sur le bouton ci-dessous pour accéder à votre page de commande"
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "description": "Événement de sécurité critique",
+      "title": "Sécurité critique"
+    },
+    "Criticality": {
+      "SystemError": {
+        "description": "Événement d'erreur lié au système",
+        "title": "Erreur système"
+      },
+      "SystemInfo": {
+        "description": "Événement d'information lié au système",
+        "title": "Informations système"
+      },
+      "SystemSecurity": {
+        "description": "Événement de sécurité lié au système",
+        "title": "Sécurité du système"
+      },
+      "UserError": {
+        "description": "Événement d'erreur lié à un utilisateur",
+        "title": "Erreur de l'utilisateur"
+      },
+      "UserInfo": {
+        "description": "Événement d'information lié à un utilisateur",
+        "title": "Informations sur les utilisateurs"
+      },
+      "UserSecurity": {
+        "description": "Événement de sécurité lié à un utilisateur",
+        "title": "Sécurité des utilisateurs"
+      }
+    },
+    "InternalError": {
+      "description": "Une erreur interne s'est produite",
+      "title": "Erreur interne"
+    },
+    "UserChangePassword": {
+      "description": "Le mot de passe de l'utilisateur a été modifié",
+      "title": "Mot de passe de changement d'utilisateur"
     }
   }
 }

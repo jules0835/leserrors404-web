@@ -14,6 +14,7 @@ import {
   UserPlus,
   TicketPercent,
   Info,
+  UserRoundX,
 } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
@@ -24,13 +25,21 @@ import ErrorFront from "@/components/navigation/error"
 import toast from "react-hot-toast"
 import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { useRouter } from "@/i18n/routing"
+import { returnError } from "@/features/shop/cart/utils/cart"
 
 export default function UserCart() {
   const t = useTranslations("Shop.Cart")
   const [isUpdating, setIsUpdating] = useState(false)
   const [isCheckingOut, setIsCheckingOut] = useState(false)
-  const [mixedProductTypes, setMixedProductTypes] = useState(false)
   const { data: session } = useSession()
+  const router = useRouter()
   const queryClient = useQueryClient()
   const {
     updateProdCart,
@@ -82,7 +91,6 @@ export default function UserCart() {
       await updateProdCart(productId, newQuantity)
       await queryClient.invalidateQueries({ queryKey: ["cart"] })
       await queryClient.refetchQueries({ queryKey: ["cart"] })
-      setMixedProductTypes(false)
     } catch (errorQt) {
       toast.error(`An error occurred, please try again.${errorQt}`)
     } finally {
@@ -95,7 +103,6 @@ export default function UserCart() {
       await removeProdFromCart(productId)
       await queryClient.invalidateQueries({ queryKey: ["cart"] })
       await queryClient.refetchQueries({ queryKey: ["cart"] })
-      setMixedProductTypes(false)
     } catch (errorRm) {
       toast.error(`An error occurred, please try again.${errorRm}`)
     } finally {
@@ -118,19 +125,15 @@ export default function UserCart() {
     isUpdating || isLoading ? (
       <Skeleton className={`w-${size} h-6`} />
     ) : (
-      `${value} €`
+      `${value || 0} €`
     )
   const handleCheckout = async () => {
     setIsCheckingOut(true)
     const response = await checkOutStripe()
 
     if (response.canCheckout) {
-      window.location.href = response.url
+      router.push(response.url)
     } else {
-      if (response.error === "MixedProductTypes") {
-        setMixedProductTypes(true)
-      }
-
       toast.error(response.message)
     }
 
@@ -145,19 +148,6 @@ export default function UserCart() {
           <div className="space-y-4">
             {error && <ErrorFront />}
             {isLoading && <ListSkeleton rows={3} height={12} />}
-            {mixedProductTypes && (
-              <div className="bg-orange-200 p-4 rounded-md border border-orange-600">
-                <div className="flex items-center gap-2">
-                  <Info />
-                  <h2 className="text-xl font-bold">
-                    {t("MixedProductTypes")}
-                  </h2>
-                </div>
-                <p className="text-muted-foreground">
-                  {t("MixedProductTypesSubtitle")}
-                </p>
-              </div>
-            )}
             {!isLoading &&
               !error &&
               (cart?.products?.length === 0 || !cart) && (
@@ -245,6 +235,65 @@ export default function UserCart() {
         <div className="md:col-span-1">
           <Card className="p-6 sticky top-24">
             <div className="space-y-6">
+              {cart?.checkout?.reason &&
+                cart?.checkout?.reason === "MIXED_PRODUCT_TYPES" && (
+                  <div className="bg-orange-200 p-4 rounded-md border border-orange-600">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div>
+                        <Info size={40} />
+                      </div>
+                      <div>
+                        <h2 className="text-xl font-bold text-center">
+                          {t("mixedProductTypes")}
+                        </h2>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground mt-2 text-center">
+                      {t("mixedProductTypesSubtitle")}
+                    </p>
+                  </div>
+                )}
+              {cart?.checkout?.reason &&
+                cart?.checkout?.reason === "USER_PROFILE_INCOMPLETE" && (
+                  <div className="bg-orange-200 p-4 rounded-md border border-orange-600">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div>
+                        <UserRoundX size={48} />
+                      </div>
+                      <div>
+                        <h2 className="text-xl text-center font-bold">
+                          {t("userProfileIncomplete")}
+                        </h2>
+                      </div>
+                    </div>
+
+                    <p className="text-muted-foreground mt-2 text-center">
+                      {t("userProfileIncompleteSubtitle")}
+                    </p>
+                    <DButton isMain withLink="/user/dashboard/profile">
+                      {t("completeProfile")}
+                    </DButton>
+                  </div>
+                )}
+              {cart?.checkout?.reason &&
+                cart?.checkout?.reason === "VOUCHER_NOT_ACTIVE" && (
+                  <div className="bg-orange-200 p-4 rounded-md border border-orange-600">
+                    <div className="flex items-center justify-center space-x-4">
+                      <div>
+                        <TicketPercent size={48} />
+                      </div>
+                      <div>
+                        <h2 className="text-xl text-center font-bold">
+                          {t("voucherNotActive")}
+                        </h2>
+                      </div>
+                    </div>
+
+                    <p className="text-muted-foreground mt-2 text-center">
+                      {t("voucherNotActiveSubtitle")}
+                    </p>
+                  </div>
+                )}
               {!isLoading && !session && (
                 <div className="space-y-4">
                   <div className="flex justify-center flex-col items-center space-y-4">
@@ -283,7 +332,7 @@ export default function UserCart() {
                       {t("subtotal")}
                     </span>
                     <span>
-                      {displayLoadingCalcul(cart?.subtotal.toFixed(2), "16")}
+                      {displayLoadingCalcul(cart?.subtotal?.toFixed(2), "16")}
                     </span>
                   </div>
 
@@ -301,7 +350,7 @@ export default function UserCart() {
                       <span>{t("discount")}</span>
                       <span>
                         {displayLoadingCalcul(
-                          `- ${cart?.discount.toFixed(2)}`,
+                          `- ${cart?.discount?.toFixed(2)}`,
                           "20"
                         )}
                       </span>
@@ -311,7 +360,7 @@ export default function UserCart() {
                   <div className="flex justify-between text-xl font-bold">
                     <span>{t("total")}</span>
                     <span>
-                      {displayLoadingCalcul(cart?.total.toFixed(2), "24")}
+                      {displayLoadingCalcul(cart?.total?.toFixed(2), "24")}
                     </span>
                   </div>
                 </div>
@@ -352,20 +401,47 @@ export default function UserCart() {
                   </div>
                 )}
                 {!isLoading && session && (
-                  <DButton
-                    isMain
-                    isDisabled={cart?.products?.length === 0}
-                    onClickBtn={handleCheckout}
-                  >
-                    {isCheckingOut ? (
-                      <div className="dotsLoader" />
-                    ) : (
-                      <>
-                        <ShoppingBag className="mr-2 h-4 w-4" />
-                        {t("checkout")}
-                      </>
+                  <TooltipProvider>
+                    {!cart?.checkout?.isEligible && (
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div>
+                            <DButton
+                              isMain
+                              isDisabled={
+                                cart?.products?.length === 0 ||
+                                !cart?.checkout?.isEligible
+                              }
+                              onClickBtn={handleCheckout}
+                            >
+                              <ShoppingBag className="mr-2 h-4 w-4" />
+                              {t("checkout")}
+                            </DButton>
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          {returnError(t, cart?.checkout?.reason) ||
+                            t("cantCheckout")}
+                        </TooltipContent>
+                      </Tooltip>
                     )}
-                  </DButton>
+                    {cart?.checkout?.isEligible && (
+                      <DButton
+                        isMain
+                        isDisabled={cart?.products?.length === 0}
+                        onClickBtn={handleCheckout}
+                      >
+                        {isCheckingOut ? (
+                          <div className="dotsLoader" />
+                        ) : (
+                          <>
+                            <ShoppingBag className="mr-2 h-4 w-4" />
+                            {t("checkout")}
+                          </>
+                        )}
+                      </DButton>
+                    )}
+                  </TooltipProvider>
                 )}
               </div>
             </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import { useCart } from "@/features/shop/cart/context/cartContext"
 import {
@@ -19,7 +20,7 @@ import { useTranslations } from "next-intl"
 import DButton from "@/components/ui/DButton"
 import { Button } from "@/components/ui/button"
 import { webAppSettings } from "@/assets/options/config"
-import { useRouter } from "@/i18n/routing"
+import { useRouter, usePathname } from "@/i18n/routing"
 import { trimString } from "@/lib/utils"
 import { useState, useEffect, useRef } from "react"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
@@ -41,9 +42,14 @@ export default function ShoppingCart() {
     refetchOnMount: true,
   })
   const [isUpdating, setIsUpdating] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
-    if (cartCount > previousCartCount.current && !isInitialLoad) {
+    if (
+      cartCount > previousCartCount.current &&
+      !isInitialLoad &&
+      !pathname.includes("/shop/cart")
+    ) {
       setIsOpen(true)
       setShowAddedMessage(true)
     }

@@ -15,4 +15,8 @@ export const cartSchema = new Schema({
   total: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
+  checkout: {
+    isEligible: { type: Boolean, default: false },
+    reason: { type: String, default: "" },
+  },
 })

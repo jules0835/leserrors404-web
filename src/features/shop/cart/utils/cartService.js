@@ -182,6 +182,10 @@ export const checkOutStripe = async () => {
 }
 
 export const hasMixedProductTypes = (cart) => {
+  if (!cart.products) {
+    return false
+  }
+
   const hasSubscription = cart.products.some(
     (item) => item.product.subscription
   )
