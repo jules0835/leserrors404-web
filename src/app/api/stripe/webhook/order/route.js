@@ -10,9 +10,9 @@ import { NextResponse } from "next/server"
 export async function POST(req) {
   let event = null
   const body = await req.text()
-  const sig = req.headers["stripe-signature"]
+  const sig = await req.headers.get("stripe-signature")
 
-  if (!sig) {
+  if (!sig || sig !== process.env.STRIPE_WEBHOOK_SECRET) {
     log.systemError({
       logKey: logKeys.shopStripeWebhookError.key,
       message: "No signature on order webhook",
