@@ -27,8 +27,12 @@ export async function GET(req) {
   } catch (error) {
     log.systemError({
       logKey: logKeys.shopUserCartError.key,
-      message: "Failed to get cart",
-      error,
+      message: "Failed to get cart from GET /api/shop/cart",
+      technicalMessage: error.message,
+      isError: true,
+      data: {
+        error,
+      },
     })
 
     return NextResponse.json({ error: "Failed to get cart" }, { status: 500 })
@@ -55,8 +59,12 @@ export async function POST(req) {
   } catch (error) {
     log.systemError({
       logKey: logKeys.shopUserCartError.key,
-      message: "Failed to create cart",
-      error,
+      message: "Failed to create cart from POST /api/shop/cart",
+      technicalMessage: error.message,
+      isError: true,
+      data: {
+        error,
+      },
     })
 
     return NextResponse.json(
@@ -86,8 +94,12 @@ export async function PUT(req) {
   } catch (error) {
     log.systemError({
       logKey: logKeys.shopUserCartError.key,
-      message: "Failed to merge carts",
-      error,
+      message: "Failed to merge carts from PUT /api/shop/cart",
+      technicalMessage: error.message,
+      isError: true,
+      data: {
+        error,
+      },
     })
 
     return NextResponse.json(

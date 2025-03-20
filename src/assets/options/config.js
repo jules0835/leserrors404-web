@@ -399,6 +399,12 @@ export const pagesNames = [
     subTitleKey: "Admin.Business.Vouchers.VoucherDetails.subTitle",
     url: "/admin/business/vouchers/[Id]",
   },
+  {
+    title: "Order Details",
+    titleKey: "User.Business.Orders.OrderDetails.title",
+    subTitleKey: "User.Business.Orders.OrderDetails.subTitle",
+    url: "/user/dashboard/business/orders/[Id]",
+  },
 ]
 
 export const emptyCarouselPart = {

@@ -206,16 +206,30 @@ export const resetUserCart = async (userId) => {
       total: 0,
       voucher: null,
       updatedAt: new Date(),
+      checkout: {
+        isEligible: false,
+        reason: "",
+      },
     },
     { new: true }
   )
 }
 const calculateCartTotals = async (cart) => {
   await cart.populate("products.product voucher")
-  const subtotal = cart.products.reduce(
-    (sum, item) => sum + item.product.price * item.quantity,
-    0
-  )
+  const subtotal = cart.products.reduce((sum, item) => {
+    let itemPrice = 0
+
+    if (item.product.subscription) {
+      itemPrice =
+        item.billingCycle === "year"
+          ? item.product.priceAnnual
+          : item.product.priceMonthly
+    } else {
+      itemPrice = item.product.price
+    }
+
+    return sum + itemPrice * item.quantity
+  }, 0)
 
   let discount = 0
 
@@ -228,8 +242,18 @@ const calculateCartTotals = async (cart) => {
 
   const discountedSubtotal = subtotal - discount
   const totalTax = cart.products.reduce((sum, item) => {
-    const itemPriceAfterDiscount =
-      item.product.price - (discount / subtotal) * item.product.price
+    let itemPrice = 0
+
+    if (item.product.subscription) {
+      itemPrice =
+        item.billingCycle === "year"
+          ? item.product.priceAnnual
+          : item.product.priceMonthly
+    } else {
+      itemPrice = item.product.price
+    }
+
+    const itemPriceAfterDiscount = itemPrice - (discount / subtotal) * itemPrice
     const productTaxAmount =
       itemPriceAfterDiscount * (item.product.taxe / 100) * item.quantity
 

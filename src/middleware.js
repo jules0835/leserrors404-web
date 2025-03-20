@@ -14,6 +14,7 @@ const unprotectedApiRoutes = [
   "/en/api/services/log",
   "/en/api/services/account",
   "/api/test/email",
+  "/api/stripe/webhook/order",
 ]
 
 function checkTokenExpiration(req) {
@@ -76,12 +77,13 @@ export default function middleware(req) {
   )
   const isAuthApi = currentPath.startsWith("/api/auth/")
   const isTestApi = currentPath.startsWith("/api/test/")
+  const isStripeWebhookApi = currentPath.startsWith("/api/stripe/webhook/")
 
   if (isProtected && !isUnprotectedApi) {
     return authMiddleware(req)
   }
 
-  if (isAuthApi || isTestApi) {
+  if (isAuthApi || isTestApi || isStripeWebhookApi) {
     return NextResponse.next()
   }
 
