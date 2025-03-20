@@ -12,13 +12,13 @@ export async function POST(req) {
   const body = await req.text()
   const sig = await req.headers.get("stripe-signature")
 
-  if (!sig || sig !== process.env.STRIPE_WEBHOOK_SECRET) {
+  if (!sig) {
     log.systemError({
       logKey: logKeys.shopStripeWebhookError.key,
       message: "No signature on order webhook",
     })
 
-    return NextResponse.json({ error: "No signature" }, { status: 400 })
+    return NextResponse.json({ error: "Error" }, { status: 400 })
   }
 
   try {
@@ -37,23 +37,42 @@ export async function POST(req) {
     return NextResponse.json({ error: errorWebhook.message }, { status: 400 })
   }
 
+  log.systemInfo({
+    logKey: logKeys.shopStripeWebhook.key,
+    message: "New order webhook received",
+    data: event,
+  })
+
   switch (event.type) {
     case "checkout.session.completed": {
-      const session = event.data.object
+      const session = event?.data?.object
 
-      if (session.mode === "subscription") {
-        await createSubscriptionOrder(session)
-      } else if (session.mode === "payment") {
-        await createPaymentOrder(session)
+      try {
+        if (session.mode === "subscription") {
+          await createSubscriptionOrder(session)
+        } else if (session.mode === "payment") {
+          await createPaymentOrder(session.id, "Stripe Webhook Order")
+        }
+
+        log.systemInfo({
+          logKey: logKeys.shopStripeWebhook.key,
+          message: "Order created",
+          data: session,
+        })
+
+        return NextResponse.json({ message: "Order created" }, { status: 200 })
+      } catch (error) {
+        log.systemError({
+          logKey: logKeys.shopStripeWebhookError.key,
+          message: "Failed to create order",
+          technicalMessage: error.message,
+        })
+
+        return NextResponse.json(
+          { error: "Failed to create order" },
+          { status: 500 }
+        )
       }
-
-      log.systemInfo({
-        logKey: logKeys.shopStripeWebhook.key,
-        message: "Order created",
-        data: session,
-      })
-
-      return NextResponse.json({ message: "Order created" }, { status: 200 })
     }
 
     default:
