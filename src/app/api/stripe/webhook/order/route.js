@@ -37,6 +37,12 @@ export async function POST(req) {
     return NextResponse.json({ error: errorWebhook.message }, { status: 400 })
   }
 
+  log.systemInfo({
+    logKey: logKeys.shopStripeWebhook.key,
+    message: "New order webhook received",
+    data: event,
+  })
+
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event?.data?.object
