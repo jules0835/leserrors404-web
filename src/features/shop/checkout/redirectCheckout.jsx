@@ -9,6 +9,7 @@ import { Landmark, Store } from "lucide-react"
 import { useSearchParams } from "next/navigation"
 import { Separator } from "@/components/ui/separator"
 import { useQuery } from "@tanstack/react-query"
+import { company } from "@/assets/options/config"
 
 export default function RedirectCheckout() {
   const [isErrorMessage, setIsErrorMessage] = useState(false)
@@ -73,7 +74,7 @@ export default function RedirectCheckout() {
               <div className="dotsLoader mx-auto" />
               <div className="flex flex-col items-center justify-center font-semibold">
                 <Store className="w-10 h-10 md:w-12 md:h-12" />
-                <p>Cyna</p>
+                <p>{company.name}</p>
               </div>
             </div>
             <Separator className="w-full mt-4" />

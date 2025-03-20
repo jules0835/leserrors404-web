@@ -9,10 +9,6 @@ export default function ErrorFront() {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
-      <DButton isMain withLink={"/"}>
-        <Undo2 className="mr-4" />
-        {t("backHome")}
-      </DButton>
       <h1 className="text-2xl font-bold text-center mt-4">
         {t("errorFrontTitle")}
       </h1>
@@ -23,6 +19,10 @@ export default function ErrorFront() {
         height={400}
         className="mt-4"
       />
+      <DButton isMain withLink={"/"}>
+        <Undo2 className="mr-4" />
+        {t("backHome")}
+      </DButton>
     </div>
   )
 }

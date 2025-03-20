@@ -1,7 +1,13 @@
+"use client"
+import UserOrderDetails from "@/features/user/business/orders/userOrderDetails"
+import { useParams } from "next/navigation"
+
 export default function Page() {
+  const { id } = useParams()
+
   return (
     <div>
-      <h1>Dashboard orders</h1>
+      <UserOrderDetails orderId={id} />
     </div>
   )
 }

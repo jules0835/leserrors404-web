@@ -513,12 +513,6 @@
           "other": "An other option",
           "nothingSelected": "Nothing selected"
         }
-      }
-    },
-    "Business": {
-      "title": "Business",
-      "Orders": {
-        "title": "Orders"
       },
       "Vouchers": {
         "title": "Vouchers",
@@ -760,14 +754,53 @@
     },
     "Business": {
       "title": "Business",
-      "Orders": {
-        "title": "Orders"
-      },
       "Subscriptions": {
         "title": "Subscriptions"
       },
       "Payments": {
         "title": "Payments"
+      },
+      "Orders": {
+        "title": "Orders",
+        "subTitle": "Manage your orders",
+        "orderId": "Order ID",
+        "date": "Date",
+        "total": "Total",
+        "viewDetails": "View Details",
+        "errorLoadingOrders": "Error loading orders",
+        "noOrders": "No orders found",
+        "status": {
+          "title": "Status",
+          "paid": "Paid",
+          "pending": "Pending",
+          "processing": "Processing",
+          "completed": "Completed",
+          "cancelled": "Cancelled",
+          "failed": "Failed"
+        },
+        "OrderDetails": {
+          "title": "Order Details",
+          "subTitle": "View the details of your order",
+          "orderInformation": "Order Information",
+          "customerInformation": "Customer Information",
+          "products": "Products",
+          "paymentInformation": "Payment Information",
+          "statusHistory": "Status History",
+          "email": "Email",
+          "name": "Name",
+          "quantity": "Quantity",
+          "billingCycle": "Billing Cycle",
+          "stripePriceId": "Stripe Price ID",
+          "totalAmount": "Total Amount",
+          "currency": "Currency",
+          "sessionId": "Session ID",
+          "paymentIntentId": "Payment Intent ID",
+          "subscriptionId": "Subscription ID",
+          "changedBy": "Changed by",
+          "loading": "Loading...",
+          "error": "Error loading order details",
+          "notFound": "Order not found"
+        }
       }
     },
     "MyAccount": {

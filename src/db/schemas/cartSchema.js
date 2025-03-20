@@ -6,6 +6,11 @@ export const cartSchema = new Schema({
     {
       product: { type: Schema.Types.ObjectId, ref: "Product" },
       quantity: { type: Number, default: 1 },
+      billingCycle: {
+        type: String,
+        enum: ["month", "year"],
+        default: "month",
+      },
     },
   ],
   voucher: { type: Schema.Types.ObjectId, ref: "Voucher" },

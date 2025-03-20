@@ -27,7 +27,8 @@ import ListSkeleton from "@/components/skeleton/ListSkeleton"
 import { Skeleton } from "@/components/ui/skeleton"
 
 export default function ShoppingCart() {
-  const { cartCount, removeProdFromCart, updateProdCart } = useCart()
+  const { cartCount, removeProdFromCart, updateProdCart, updateCartCount } =
+    useCart()
   const t = useTranslations("Shop.Cart")
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
@@ -56,6 +57,7 @@ export default function ShoppingCart() {
 
     if (isInitialLoad) {
       setIsInitialLoad(false)
+      updateCartCount()
     }
 
     previousCartCount.current = cartCount

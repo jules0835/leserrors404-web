@@ -1,7 +1,11 @@
+import UserOrderList from "@/features/user/business/orders/userOrderList"
+
 export default function Page() {
   return (
     <div>
-      <h1>Dashboard orders</h1>
+      <h1>
+        <UserOrderList />
+      </h1>
     </div>
   )
 }
