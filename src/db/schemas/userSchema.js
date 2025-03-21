@@ -19,6 +19,9 @@ export const userSchema = new Schema({
     street: { type: String, required: true },
   },
   account: {
+    stripe: {
+      customerId: { type: String },
+    },
     auth: {
       loginAttempts: { type: Number, default: 0 },
       isOtpEnabled: { type: Boolean, default: false },

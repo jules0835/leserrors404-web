@@ -588,6 +588,18 @@ export const logKeys = {
     titleKey: "Log.ShopStripeWebhookError.title",
     descriptionKey: "Log.ShopStripeWebhookError.description",
   },
+  shopStripeCustomer: {
+    name: "Shop Stripe Customer",
+    key: "shopStripeCustomer",
+    titleKey: "Log.ShopStripeCustomer.title",
+    descriptionKey: "Log.ShopStripeCustomer.description",
+  },
+  shopStripeCustomerError: {
+    name: "Shop Stripe Customer Error",
+    key: "shopStripeCustomerError",
+    titleKey: "Log.ShopStripeCustomerError.title",
+    descriptionKey: "Log.ShopStripeCustomerError.description",
+  },
 }
 
 export const logCriticalityKeys = {

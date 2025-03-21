@@ -19,6 +19,7 @@ export const orderSchema = new Schema(
         },
         price: { type: Number, required: true },
         stripePriceId: { type: String, required: true },
+        totalTax: { type: Number, required: true },
       },
     ],
 

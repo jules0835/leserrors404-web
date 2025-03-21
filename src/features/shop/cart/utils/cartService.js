@@ -163,21 +163,26 @@ export const removeVoucher = async () => {
   return response.ok
 }
 
-export const checkOutStripe = async () => {
+export const checkOutStripe = async (saveCardForFuture = false) => {
   try {
-    const cart = await getCart()
+    const response = await fetch(
+      `/api/shop/checkout?saveCardForFuture=${saveCardForFuture}`,
+      {
+        method: "POST",
+      }
+    )
+    const data = await response.json()
 
-    if (!cart) {
-      return { url: null, canCheckout: false }
+    if (!response.ok) {
+      throw new Error(data.message || "An error occurred")
     }
 
-    const response = await fetch(`/api/shop/checkout`, {
-      method: "POST",
-    })
-
-    return response.json()
+    return data
   } catch (error) {
-    return { url: null, canCheckout: false }
+    return {
+      canCheckout: false,
+      message: error.message,
+    }
   }
 }
 
@@ -194,4 +199,12 @@ export const hasMixedProductTypes = (cart) => {
   )
 
   return hasSubscription && hasOneTimePurchase
+}
+
+export const hasSubscriptions = (cart) => {
+  if (!cart?.products) {
+    return false
+  }
+
+  return cart.products.some((item) => item.product.subscription)
 }

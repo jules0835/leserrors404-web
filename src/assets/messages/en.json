@@ -322,6 +322,14 @@
             "title": "Shop Stripe Webhook Error",
             "description": "An error occurred with the Stripe webhook"
           },
+          "ShopStripeCustomer": {
+            "title": "Shop Stripe Customer",
+            "description": "Stripe customer activity"
+          },
+          "ShopStripeCustomerError": {
+            "title": "Shop Stripe Customer Error",
+            "description": "An error occurred with the Stripe customer"
+          },
           "CriticalSecurity": {
             "title": "Critical Security",
             "description": "Critical security event"
@@ -455,65 +463,7 @@
         "author": "Author"
       }
     },
-    "SalesFront": {
-      "HomePage": {
-        "title": "Home page settings",
-        "subTitle": "Manage the home page content, carousel, alert and more",
-        "Carousel": {
-          "editPartTitle": "Edit Carousel Part",
-          "editPartDescription": "Modify the details of this carousel part.",
-          "title": "Title",
-          "titlePlaceholder": "Enter the title",
-          "descriptionPlaceholder": "Enter the description",
-          "imageUpload": "Upload Image",
-          "imageLabel": "Select an image",
-          "imagePlaceholder": "Choose an image file",
-          "linkLabel": "Enter the link URL",
-          "cancelButton": "Cancel",
-          "saveButton": "Save",
-          "titleSection": "Carousel",
-          "addSlide": "Add slide",
-          "removeSlide": "Remove slide",
-          "slide": "Slide",
-          "image": "Image",
-          "imageRequired": "Image is required",
-          "titleRequired": "Title is required",
-          "description": "Description",
-          "descriptionRequired": "Description is required",
-          "link": "Link",
-          "linkRequired": "Link is required",
-          "linkInvalid": "Link is invalid",
-          "linkPlaceholder": "https://www.example.com",
-          "save": "Save",
-          "cancel": "Cancel",
-          "remove": "Remove",
-          "add": "Add",
-          "edit": "Edit carousel",
-          "empty": "Carousel Empty, start by adding new pages.",
-          "active": "Active",
-          "inactive": "Inactive",
-          "isActualState": "The carousel is actualy ",
-          "saving": "We are saving the change...",
-          "partTitle": "Title",
-          "noTitle": "No title configure",
-          "partDescription": "Description",
-          "partUrl": "Button Link",
-          "noUrl": "No link configure",
-          "partTranslationDone": "Translation done",
-          "noDescription": "No description",
-          "partTranslationAreDone": "translation(s) are completed.",
-          "saveSuccess": "Success",
-          "saved": "Carousel's change saved",
-          "error": "An error occured while saving the change",
-          "subTitle": "Manage user details, roles and permissions",
-          "howDidYouHear": "Where did you hear about us ?",
-          "friend": "A friend",
-          "advertisement": "From an ad",
-          "socialMedia": "Form social media",
-          "other": "An other option",
-          "nothingSelected": "Nothing selected"
-        }
-      },
+    "Business": {
       "Vouchers": {
         "title": "Vouchers",
         "subTitle": "Manage vouchers",
@@ -694,6 +644,251 @@
       },
       "Coupons": {
         "title": "Vouchers"
+      },
+      "Orders": {
+        "title": "Orders"
+      },
+      "title": "Business"
+    },
+    "SalesFront": {
+      "HomePage": {
+        "title": "Home page settings",
+        "subTitle": "Manage the home page content, carousel, alert and more",
+        "Carousel": {
+          "editPartTitle": "Edit Carousel Part",
+          "editPartDescription": "Modify the details of this carousel part.",
+          "title": "Title",
+          "titlePlaceholder": "Enter the title",
+          "descriptionPlaceholder": "Enter the description",
+          "imageUpload": "Upload Image",
+          "imageLabel": "Select an image",
+          "imagePlaceholder": "Choose an image file",
+          "linkLabel": "Enter the link URL",
+          "cancelButton": "Cancel",
+          "saveButton": "Save",
+          "titleSection": "Carousel",
+          "addSlide": "Add slide",
+          "removeSlide": "Remove slide",
+          "slide": "Slide",
+          "image": "Image",
+          "imageRequired": "Image is required",
+          "titleRequired": "Title is required",
+          "description": "Description",
+          "descriptionRequired": "Description is required",
+          "link": "Link",
+          "linkRequired": "Link is required",
+          "linkInvalid": "Link is invalid",
+          "linkPlaceholder": "https://www.example.com",
+          "save": "Save",
+          "cancel": "Cancel",
+          "remove": "Remove",
+          "add": "Add",
+          "edit": "Edit carousel",
+          "empty": "Carousel Empty, start by adding new pages.",
+          "active": "Active",
+          "inactive": "Inactive",
+          "isActualState": "The carousel is actualy ",
+          "saving": "We are saving the change...",
+          "partTitle": "Title",
+          "noTitle": "No title configure",
+          "partDescription": "Description",
+          "partUrl": "Button Link",
+          "noUrl": "No link configure",
+          "partTranslationDone": "Translation done",
+          "noDescription": "No description",
+          "partTranslationAreDone": "translation(s) are completed.",
+          "saveSuccess": "Success",
+          "saved": "Carousel's change saved",
+          "error": "An error occured while saving the change",
+          "subTitle": "Manage user details, roles and permissions",
+          "howDidYouHear": "Where did you hear about us ?",
+          "friend": "A friend",
+          "advertisement": "From an ad",
+          "socialMedia": "Form social media",
+          "other": "An other option",
+          "nothingSelected": "Nothing selected"
+        }
+      },
+      "Categories": {
+        "Add": {
+          "Stock": "Stock",
+          "add": "Add",
+          "adding": "Addition",
+          "addingCategory": "Addition of category",
+          "categoryAdded": "Added category",
+          "description": "Description",
+          "dialogDescription": "Fill out the form to add a new category",
+          "dialogTitle": "Add a new category",
+          "errorAddingCategory": "Category addition error",
+          "imagePlaceholder": "Choose an image file",
+          "isActive": "Active",
+          "label": "Name",
+          "language": "Language",
+          "picture": "Picture",
+          "selectLanguage": "Select a language"
+        },
+        "Delete": {
+          "categoryDeleted": "Deleted category",
+          "deletingCategory": "Category removal",
+          "errorDeletingCategory": "Error deletion category"
+        },
+        "Edit": {
+          "dialogDescription": "Fill out the form to modify the category",
+          "dialogTitle": "Change the category",
+          "errorUpdatingCategory": "Error update category",
+          "language": "Language",
+          "selectLanguage": "Select a language",
+          "update": "Update",
+          "updated": "Updated",
+          "updating": "Update"
+        },
+        "Errors": {
+          "descriptionRequired": "Description is required",
+          "labelRequired": "The name is required",
+          "pictureRequired": "An image is required"
+        },
+        "More": {
+          "deleteCategory": "Delete category",
+          "editCategory": "Change the category",
+          "viewCategory": "View category"
+        },
+        "columns": "Columns",
+        "errorLoadingData": "Data loading error.",
+        "isActive": "Active",
+        "next": "Following",
+        "no": "No",
+        "noResults": "No results",
+        "previous": "Previous",
+        "searchPlaceholder": "Research...",
+        "subTitle": "Manage categories",
+        "title": "Categories",
+        "yes": "Yes"
+      },
+      "Coupons": {
+        "title": "Doors"
+      },
+      "Payments": {
+        "title": "Payments"
+      },
+      "Products": {
+        "Add": {
+          "Stock": "Action",
+          "add": "Add",
+          "adding": "Addition",
+          "addingProduct": "Adding product",
+          "categorie": "Categorize",
+          "characteristics": "Features",
+          "description": "Description",
+          "dialogDescription": "Fill out the form to add a new product",
+          "dialogTitle": "Add a new product",
+          "errorAddingProduct": "Product adding error",
+          "imagePlaceholder": "Choose an image file",
+          "isActive": "Active",
+          "label": "Name",
+          "language": "Language",
+          "picture": "Picture",
+          "price": "Price",
+          "priority": "Priority",
+          "productAdded": "Product added",
+          "selectCategorie": "Select a category",
+          "selectLanguage": "Select a language",
+          "selectPriority": "Select a priority",
+          "stock": "Action",
+          "subscription": "Subscription",
+          "taxe": "Tax",
+          "technicalCaracteristics": "Technical characteristics"
+        },
+        "Delete": {
+          "deletingProduct": "Deletion of the product",
+          "errorDeletingProduct": "Product deletion error",
+          "productDeleted": "Deleted product"
+        },
+        "Edit": {
+          "dialogDescription": "Fill out the form to modify the product",
+          "dialogTitle": "Change the product",
+          "errorUpdatingProduct": "Error update",
+          "language": "Language",
+          "selectLanguage": "Select a language",
+          "update": "Update",
+          "updated": "Updated",
+          "updating": "Update"
+        },
+        "Errors": {
+          "descriptionRequired": "Description is required",
+          "labelRequired": "The name is required",
+          "pictureRequired": "An image is required"
+        },
+        "More": {
+          "deleteProduct": "Delete the product",
+          "editProduct": "Change the product",
+          "viewProduct": "Display the product"
+        },
+        "columns": "Columns",
+        "errorLoadingData": "Data loading error.",
+        "isActive": "Active",
+        "next": "Following",
+        "no": "No",
+        "noResults": "No results",
+        "previous": "Previous",
+        "searchPlaceholder": "Research...",
+        "subTitle": "Manage products",
+        "title": "Products",
+        "yes": "Yes"
+      },
+      "Subscriptions": {
+        "title": "Subscriptions"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Show the details of the right",
+          "title": "Details of good"
+        },
+        "actions": "Acts",
+        "activateVoucher": "Activate the right",
+        "addVoucher": "Add the right",
+        "addVoucherDescription": "Fill the details to create a new good.",
+        "amount": "Amount",
+        "amountMin": "1 is the minimum",
+        "autoGenerateCodeMessage": "If it is left empty, a code will be automatically generated.",
+        "category": "Category",
+        "code": "Code",
+        "columns": "Columns",
+        "createdAt": "Create",
+        "deactivateVoucher": "Deactivation",
+        "description": "Description",
+        "discount": "Discount",
+        "endDate": "End date",
+        "errorLoadingData": "Data loading error.",
+        "expirationDate": "Expiration date",
+        "fixed": "Fixed",
+        "isActive": "Active",
+        "isCategorySpecific": "Specific to the category",
+        "isProductSpecific": "Product specific",
+        "minPurchaseAmount": "Minimum purchase amount",
+        "minPurchaseAmountMin": "The minimum purchase amount is required",
+        "next": "Following",
+        "no": "No",
+        "noResults": "No results.",
+        "percentage": "Percentage",
+        "previous": "Previous",
+        "product": "Product",
+        "requiredAmount": "Amount required",
+        "requiredType": "The guy is required",
+        "saveChanges": "Save changes",
+        "searchPlaceholder": "Research...",
+        "startDate": "Start date",
+        "subTitle": "Manage good",
+        "title": "Doors",
+        "type": "Type",
+        "updatedAt": "To update",
+        "user": "User",
+        "viewVoucher": "See the right",
+        "voucherAmount": "Amount",
+        "voucherCode": "Good code",
+        "voucherCreated": "Good created",
+        "voucherCreationFailed": "The creation of good failed",
+        "voucherType": "Type of good",
+        "yes": "Yes"
       }
     }
   },
@@ -799,7 +994,9 @@
           "changedBy": "Changed by",
           "loading": "Loading...",
           "error": "Error loading order details",
-          "notFound": "Order not found"
+          "notFound": "Order not found",
+          "orderId": "Order Id",
+          "date": "Date"
         }
       }
     },
@@ -972,6 +1169,7 @@
       "voucherCode": "Voucher code",
       "apply": "Apply",
       "discount": "Discount",
+      "saveCardForFuture": "Save card for future payments",
       "MixedProductTypes": "Please separate your orders for different products.",
       "MixedProductTypesSubtitle": "                  You can't checkout with mixed product types. Please separate different subscription and on time buy product.",
       "failToCheckout": "There was an error while checking out, please try again.",
@@ -986,10 +1184,14 @@
       "mixedProductTypes": "Please separate your orders for different products.",
       "mixedProductTypesSubtitle": "You can't checkout with mixed product types. Please separate different subscription and on time buy product.",
       "userProfileIncomplete": "Your profile is incomplete, some fields are missing.",
+      "productNotActive": "Some products are not available",
+      "productNotActiveSubtitle": "Please remove the product that is not available to proceed to checkout.",
       "userProfileIncompleteSubtitle": "Please complete your profile on your account page to proceed to checkout.",
       "completeProfile": "Complete my profile",
       "voucherNotActiveSubtitle": "The voucher applied to your cart is expired or not available for your order, please remove to proceed to checkout.",
-      "voucherNotActive": "Voucher not valid"
+      "voucherNotActive": "Voucher not valid",
+      "subscription": "Subscription",
+      "oneTimePurchase": "One-time purchase"
     },
     "Product": {
       "outOfStock": "Out of stock",

@@ -195,6 +195,187 @@
         },
         "subTitle": "Verwalten Sie den Inhalt der Startseite, Karussell, Alarm und mehr",
         "title": "Homepage -Einstellungen"
+      },
+      "Categories": {
+        "Add": {
+          "Stock": "Aktie",
+          "add": "Hinzufügen",
+          "adding": "Hinzufügen",
+          "addingCategory": "Kategorie hinzufügen",
+          "categoryAdded": "Kategorie hinzugefügt",
+          "description": "Beschreibung",
+          "dialogDescription": "Füllen Sie das Formular aus, um eine neue Kategorie hinzuzufügen",
+          "dialogTitle": "Fügen Sie eine neue Kategorie hinzu",
+          "errorAddingCategory": "Fehler beim Hinzufügen von Kategorien",
+          "imagePlaceholder": "Wählen Sie eine Bilddatei",
+          "isActive": "Aktiv",
+          "label": "Name",
+          "language": "Sprache",
+          "picture": "Bild",
+          "selectLanguage": "Wählen Sie eine Sprache"
+        },
+        "Delete": {
+          "categoryDeleted": "Kategorie gelöscht",
+          "deletingCategory": "Kategorie löschen",
+          "errorDeletingCategory": "Fehler löschen Kategorie"
+        },
+        "Edit": {
+          "dialogDescription": "Füllen Sie das Formular aus, um die Kategorie zu bearbeiten",
+          "dialogTitle": "Kategorie bearbeiten",
+          "errorUpdatingCategory": "Fehleraktualisierungskategorie",
+          "language": "Sprache",
+          "selectLanguage": "Wählen Sie eine Sprache",
+          "update": "Aktualisieren",
+          "updated": "Aktualisiert",
+          "updating": "Aktualisierung"
+        },
+        "Errors": {
+          "descriptionRequired": "Beschreibung ist erforderlich",
+          "labelRequired": "Name ist erforderlich",
+          "pictureRequired": "Bild ist erforderlich"
+        },
+        "More": {
+          "deleteCategory": "Kategorie löschen",
+          "editCategory": "Kategorie bearbeiten",
+          "viewCategory": "Kategorie anzeigen"
+        },
+        "columns": "Spalten",
+        "errorLoadingData": "Fehler laden Daten.",
+        "isActive": "Aktiv",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse",
+        "previous": "Vorherige",
+        "searchPlaceholder": "Suchen...",
+        "subTitle": "Kategorien verwalten",
+        "title": "Kategorien",
+        "yes": "Ja"
+      },
+      "Coupons": {
+        "title": "Gutscheine"
+      },
+      "Payments": {
+        "title": "Zahlungen"
+      },
+      "Products": {
+        "Add": {
+          "Stock": "Aktie",
+          "add": "Hinzufügen",
+          "adding": "Hinzufügen",
+          "addingProduct": "Produkt hinzufügen",
+          "categorie": "Kategorie",
+          "characteristics": "Eigenschaften",
+          "description": "Beschreibung",
+          "dialogDescription": "Füllen Sie das Formular aus, um ein neues Produkt hinzuzufügen",
+          "dialogTitle": "Fügen Sie ein neues Produkt hinzu",
+          "errorAddingProduct": "Fehler beim Hinzufügen von Produkten",
+          "imagePlaceholder": "Wählen Sie eine Bilddatei",
+          "isActive": "Aktiv",
+          "label": "Name",
+          "language": "Sprache",
+          "picture": "Bild",
+          "price": "Preis",
+          "priority": "Priorität",
+          "productAdded": "Produkt hinzugefügt",
+          "selectCategorie": "Wählen Sie eine Kategorie aus",
+          "selectLanguage": "Wählen Sie eine Sprache",
+          "selectPriority": "Wählen Sie eine Priorität",
+          "stock": "Aktie",
+          "subscription": "Abonnement",
+          "taxe": "Steuern",
+          "technicalCaracteristics": "Technische Karaccteristics"
+        },
+        "Delete": {
+          "deletingProduct": "Produkt löschen",
+          "errorDeletingProduct": "Fehler löschen Produkt",
+          "productDeleted": "Produkt gelöscht"
+        },
+        "Edit": {
+          "dialogDescription": "Füllen Sie das Formular zum Bearbeiten des Produkts aus",
+          "dialogTitle": "Produkt bearbeiten",
+          "errorUpdatingProduct": "Fehler Aktualisieren von Produkten",
+          "language": "Sprache",
+          "selectLanguage": "Wählen Sie eine Sprache",
+          "update": "Aktualisieren",
+          "updated": "Aktualisiert",
+          "updating": "Aktualisierung"
+        },
+        "Errors": {
+          "descriptionRequired": "Beschreibung ist erforderlich",
+          "labelRequired": "Name ist erforderlich",
+          "pictureRequired": "Bild ist erforderlich"
+        },
+        "More": {
+          "deleteProduct": "Produkt löschen",
+          "editProduct": "Produkt bearbeiten",
+          "viewProduct": "Produkt anzeigen"
+        },
+        "columns": "Spalten",
+        "errorLoadingData": "Fehler laden Daten.",
+        "isActive": "Aktiv",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse",
+        "previous": "Vorherige",
+        "searchPlaceholder": "Suchen...",
+        "subTitle": "Produkte verwalten",
+        "title": "Produkte",
+        "yes": "Ja"
+      },
+      "Subscriptions": {
+        "title": "Abonnements"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Sehen Sie sich die Details des Gutscheins an",
+          "title": "Gutscheindetails"
+        },
+        "actions": "Aktionen",
+        "activateVoucher": "Gutschein aktivieren",
+        "addVoucher": "Gutschein hinzufügen",
+        "addVoucherDescription": "Füllen Sie die Details ein, um einen neuen Gutschein zu erstellen.",
+        "amount": "Menge",
+        "amountMin": "1 ist das Minimum",
+        "autoGenerateCodeMessage": "Wenn es leer ist, wird ein Code automatisch generiert.",
+        "category": "Kategorie",
+        "code": "Code",
+        "columns": "Spalten",
+        "createdAt": "Erstellen bei",
+        "deactivateVoucher": "Deaktivieren Sie den Gutschein",
+        "description": "Beschreibung",
+        "discount": "Rabatt",
+        "endDate": "Enddatum",
+        "errorLoadingData": "Fehler laden Daten.",
+        "expirationDate": "Verfallsdatum",
+        "fixed": "Behoben",
+        "isActive": "Aktiv",
+        "isCategorySpecific": "Spezifisch für Kategorien",
+        "isProductSpecific": "Spezifisch für Produkte",
+        "minPurchaseAmount": "Mindestkaufbetrag",
+        "minPurchaseAmountMin": "Mindestkaufsbetrag ist erforderlich",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse.",
+        "percentage": "Prozentsatz",
+        "previous": "Vorherige",
+        "product": "Produkt",
+        "requiredAmount": "Betrag erforderlich",
+        "requiredType": "Typ ist erforderlich",
+        "saveChanges": "Änderungen speichern",
+        "searchPlaceholder": "Suchen...",
+        "startDate": "Startdatum",
+        "subTitle": "Gutscheine verwalten",
+        "title": "Gutscheine",
+        "type": "Typ",
+        "updatedAt": "Update at",
+        "user": "Benutzer",
+        "viewVoucher": "Gutschein anzeigen",
+        "voucherAmount": "Menge",
+        "voucherCode": "Gutscheincode",
+        "voucherCreated": "Gutschein erstellt",
+        "voucherCreationFailed": "Die Gutscheinkreation ist fehlgeschlagen",
+        "voucherType": "Gutscheintyp",
+        "yes": "Ja"
       }
     },
     "Security": {
@@ -438,6 +619,14 @@
           "ShopUserCartError": {
             "description": "Bei dem Benutzerwagen trat ein Fehler auf",
             "title": "Einkaufswarenmarks Fehler einladen"
+          },
+          "ShopStripeCustomer": {
+            "description": "Streifenkundenaktivität",
+            "title": "Kunde einkaufen"
+          },
+          "ShopStripeCustomerError": {
+            "description": "Bei dem Stripe -Kunden trat ein Fehler auf",
+            "title": "Kundenstreifen -Kundenfehler einladen"
           }
         },
         "LogDetails": {
@@ -803,7 +992,48 @@
     },
     "Business": {
       "Orders": {
-        "title": "Bestellungen"
+        "title": "Bestellungen",
+        "OrderDetails": {
+          "billingCycle": "Abrechnungszyklus",
+          "changedBy": "Geändert von",
+          "currency": "Währung",
+          "customerInformation": "Kundeninformationen",
+          "date": "Datum",
+          "email": "E-Mail",
+          "error": "Fehlerladungsauftragsdetails",
+          "loading": "Laden...",
+          "name": "Name",
+          "notFound": "Nicht gefunden",
+          "orderId": "Bestellausweis",
+          "orderInformation": "Informationen bestellen",
+          "paymentInformation": "Zahlungsinformationen",
+          "paymentIntentId": "Zahlungsabsichten -ID",
+          "products": "Produkte",
+          "quantity": "Menge",
+          "sessionId": "Sitzungs -ID",
+          "statusHistory": "Statusgeschichte",
+          "stripePriceId": "Streifenpreis -ID",
+          "subTitle": "Sehen Sie sich die Details Ihrer Bestellung an",
+          "subscriptionId": "Abonnement -ID",
+          "title": "Bestelldetails",
+          "totalAmount": "Gesamtbetrag"
+        },
+        "date": "Datum",
+        "errorLoadingOrders": "Fehlerladungsaufträge",
+        "noOrders": "Keine Bestellungen gefunden",
+        "orderId": "Bestellausweis",
+        "status": {
+          "cancelled": "Abgesagt",
+          "completed": "Vollendet",
+          "failed": "Fehlgeschlagen",
+          "paid": "Bezahlt",
+          "pending": "Ausstehend",
+          "processing": "Verarbeitung",
+          "title": "Status"
+        },
+        "subTitle": "Verwalten Sie Ihre Bestellungen",
+        "total": "Gesamt",
+        "viewDetails": "Details anzeigen"
       },
       "Payments": {
         "title": "Zahlungen"
@@ -956,7 +1186,12 @@
       "voucherApplied": "Gutschein angewendet",
       "voucherError": "Fehler mit diesem Gutschein",
       "voucherNotActive": "Gutschein nicht gültig",
-      "voucherNotActiveSubtitle": "Der auf Ihren Wagen angewandte Gutschein ist abgelaufen oder für Ihre Bestellung nicht verfügbar. Bitte entfernen Sie, um zur Kasse zu fahren."
+      "voucherNotActiveSubtitle": "Der auf Ihren Wagen angewandte Gutschein ist abgelaufen oder für Ihre Bestellung nicht verfügbar. Bitte entfernen Sie, um zur Kasse zu fahren.",
+      "saveCardForFuture": "Karte für zukünftige Zahlungen sparen",
+      "oneTimePurchase": "Einmaliger Kauf",
+      "productNotActive": "Einige Produkte sind nicht verfügbar",
+      "productNotActiveSubtitle": "Bitte entfernen Sie das Produkt, das nicht zur Verfügung steht, um zum Checkout fortzufahren.",
+      "subscription": "Abonnement"
     },
     "Product": {
       "addToCart": {
