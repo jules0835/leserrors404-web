@@ -190,6 +190,14 @@ export const checkCartEligibilityForCheckout = async (cart, query) => {
     }
   }
 
+  if (cartToCheck.products.some((item) => !item.product.isActive)) {
+    return {
+      canCheckout: false,
+      cart: cartToCheck,
+      reason: "PRODUCT_NOT_ACTIVE",
+    }
+  }
+
   return { canCheckout: true, cart: cartToCheck }
 }
 

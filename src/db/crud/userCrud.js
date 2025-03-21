@@ -43,6 +43,7 @@ export const findAuthUser = async (email) => {
 }
 
 export const findUserByEmail = async (email) => {
+  await mwdb()
   const user = await UserModel.findOne({ email })
 
   return user
@@ -309,4 +310,13 @@ export const getUserIdByEmail = async (email) => {
   const user = await UserModel.findOne({ email })
 
   return user._id
+}
+
+export const findUserByStripeId = async (stripeId) => {
+  await mwdb()
+  const user = await UserModel.findOne({
+    "account.stripe.customerId": stripeId,
+  })
+
+  return user
 }

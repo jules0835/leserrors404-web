@@ -1,8 +1,5 @@
 import { logKeys } from "@/assets/options/config"
-import {
-  createPaymentOrder,
-  createSubscriptionOrder,
-} from "@/features/shop/checkout/utils/checkoutService"
+import { createPaymentOrder } from "@/features/shop/checkout/utils/checkoutService"
 import log from "@/lib/log"
 import stripe from "@/utils/stripe/stripe"
 import { NextResponse } from "next/server"
@@ -48,11 +45,7 @@ export async function POST(req) {
       const session = event?.data?.object
 
       try {
-        if (session.mode === "subscription") {
-          await createSubscriptionOrder(session)
-        } else if (session.mode === "payment") {
-          await createPaymentOrder(session.id, "Stripe Webhook Order")
-        }
+        await createPaymentOrder(session.id, "Stripe Webhook Order")
 
         log.systemInfo({
           logKey: logKeys.shopStripeWebhook.key,

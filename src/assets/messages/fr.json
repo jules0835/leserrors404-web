@@ -245,6 +245,187 @@
         },
         "subTitle": "Gérer le contenu de la page d'accueil, le carrousel, l'alerte et plus",
         "title": "Paramètres de la page d'accueil"
+      },
+      "Categories": {
+        "Add": {
+          "Stock": "Action",
+          "add": "Ajouter",
+          "adding": "Ajout",
+          "addingCategory": "Ajout de catégorie",
+          "categoryAdded": "Catégorie ajoutée",
+          "description": "Description",
+          "dialogDescription": "Remplissez le formulaire pour ajouter une nouvelle catégorie",
+          "dialogTitle": "Ajouter une nouvelle catégorie",
+          "errorAddingCategory": "Erreur d'ajout de catégorie",
+          "imagePlaceholder": "Choisissez un fichier image",
+          "isActive": "Actif",
+          "label": "Nom",
+          "language": "Langue",
+          "picture": "Image",
+          "selectLanguage": "Sélectionnez une langue"
+        },
+        "Delete": {
+          "categoryDeleted": "Catégorie supprimée",
+          "deletingCategory": "Suppression de catégorie",
+          "errorDeletingCategory": "Catégorie de suppression d'erreur"
+        },
+        "Edit": {
+          "dialogDescription": "Remplissez le formulaire pour modifier la catégorie",
+          "dialogTitle": "Modifier la catégorie",
+          "errorUpdatingCategory": "Catégorie de mise à jour d'erreur",
+          "language": "Langue",
+          "selectLanguage": "Sélectionnez une langue",
+          "update": "Mise à jour",
+          "updated": "Mis à jour",
+          "updating": "Mise à jour"
+        },
+        "Errors": {
+          "descriptionRequired": "Description est requise",
+          "labelRequired": "Le nom est requis",
+          "pictureRequired": "Une image est requise"
+        },
+        "More": {
+          "deleteCategory": "Supprimer la catégorie",
+          "editCategory": "Modifier la catégorie",
+          "viewCategory": "Catégorie de vue"
+        },
+        "columns": "Colonnes",
+        "errorLoadingData": "Erreur de chargement des données.",
+        "isActive": "Actif",
+        "next": "Suivant",
+        "no": "Non",
+        "noResults": "Aucun résultat",
+        "previous": "Précédent",
+        "searchPlaceholder": "Recherche...",
+        "subTitle": "Gérer les catégories",
+        "title": "Catégories",
+        "yes": "Oui"
+      },
+      "Coupons": {
+        "title": "Portes"
+      },
+      "Payments": {
+        "title": "Paiements"
+      },
+      "Products": {
+        "Add": {
+          "Stock": "Action",
+          "add": "Ajouter",
+          "adding": "Ajout",
+          "addingProduct": "Ajout de produit",
+          "categorie": "Catégoriser",
+          "characteristics": "Caractéristiques",
+          "description": "Description",
+          "dialogDescription": "Remplissez le formulaire pour ajouter un nouveau produit",
+          "dialogTitle": "Ajouter un nouveau produit",
+          "errorAddingProduct": "Erreur d'ajout de produit",
+          "imagePlaceholder": "Choisissez un fichier image",
+          "isActive": "Actif",
+          "label": "Nom",
+          "language": "Langue",
+          "picture": "Image",
+          "price": "Prix",
+          "priority": "Priorité",
+          "productAdded": "Produit ajouté",
+          "selectCategorie": "Sélectionnez une catégorie",
+          "selectLanguage": "Sélectionnez une langue",
+          "selectPriority": "Sélectionnez une priorité",
+          "stock": "Action",
+          "subscription": "Abonnement",
+          "taxe": "Taxer",
+          "technicalCaracteristics": "Caractéristiques techniques"
+        },
+        "Delete": {
+          "deletingProduct": "Suppression du produit",
+          "errorDeletingProduct": "Erreur de suppression du produit",
+          "productDeleted": "Produit supprimé"
+        },
+        "Edit": {
+          "dialogDescription": "Remplissez le formulaire pour modifier le produit",
+          "dialogTitle": "Modifier le produit",
+          "errorUpdatingProduct": "Produit de mise à jour d'erreur",
+          "language": "Langue",
+          "selectLanguage": "Sélectionnez une langue",
+          "update": "Mise à jour",
+          "updated": "Mis à jour",
+          "updating": "Mise à jour"
+        },
+        "Errors": {
+          "descriptionRequired": "Description est requise",
+          "labelRequired": "Le nom est requis",
+          "pictureRequired": "Une image est requise"
+        },
+        "More": {
+          "deleteProduct": "Supprimer le produit",
+          "editProduct": "Modifier le produit",
+          "viewProduct": "Afficher le produit"
+        },
+        "columns": "Colonnes",
+        "errorLoadingData": "Erreur de chargement des données.",
+        "isActive": "Actif",
+        "next": "Suivant",
+        "no": "Non",
+        "noResults": "Aucun résultat",
+        "previous": "Précédent",
+        "searchPlaceholder": "Recherche...",
+        "subTitle": "Gérer les produits",
+        "title": "Produits",
+        "yes": "Oui"
+      },
+      "Subscriptions": {
+        "title": "Abonnements"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Afficher les détails du bon",
+          "title": "Détails de bon"
+        },
+        "actions": "Actes",
+        "activateVoucher": "Activer le bon",
+        "addVoucher": "Ajouter le bon",
+        "addVoucherDescription": "Remplissez les détails pour créer un nouveau bon.",
+        "amount": "Montant",
+        "amountMin": "1 est le minimum",
+        "autoGenerateCodeMessage": "S'il est laissé vide, un code sera automatiquement généré.",
+        "category": "Catégorie",
+        "code": "Code",
+        "columns": "Colonnes",
+        "createdAt": "Créer",
+        "deactivateVoucher": "Bon de désactivation",
+        "description": "Description",
+        "discount": "Rabais",
+        "endDate": "Date de fin",
+        "errorLoadingData": "Erreur de chargement des données.",
+        "expirationDate": "Date d'expiration",
+        "fixed": "Fixé",
+        "isActive": "Actif",
+        "isCategorySpecific": "Spécifique à la catégorie",
+        "isProductSpecific": "Spécifique au produit",
+        "minPurchaseAmount": "Montant d'achat minimum",
+        "minPurchaseAmountMin": "Le montant d'achat minimum est requis",
+        "next": "Suivant",
+        "no": "Non",
+        "noResults": "Aucun résultat.",
+        "percentage": "Pourcentage",
+        "previous": "Précédent",
+        "product": "Produit",
+        "requiredAmount": "Montant requis",
+        "requiredType": "Le type est requis",
+        "saveChanges": "Enregistrer les modifications",
+        "searchPlaceholder": "Recherche...",
+        "startDate": "Date de début",
+        "subTitle": "Gérer les bons",
+        "title": "Portes",
+        "type": "Taper",
+        "updatedAt": "Mettre à jour",
+        "user": "Utilisateur",
+        "viewVoucher": "Voir le bon",
+        "voucherAmount": "Montant",
+        "voucherCode": "Code de bon",
+        "voucherCreated": "Bon créé",
+        "voucherCreationFailed": "La création de bons a échoué",
+        "voucherType": "Type de bon",
+        "yes": "Oui"
       }
     },
     "Security": {
@@ -387,6 +568,14 @@
           "ShopUserCartError": {
             "description": "Une erreur s'est produite avec le panier d'utilisateur",
             "title": "Erreur d'agitation de panier d'utilisateurs"
+          },
+          "ShopStripeCustomer": {
+            "description": "Activité du client rayé",
+            "title": "Client de la bande"
+          },
+          "ShopStripeCustomerError": {
+            "description": "Une erreur s'est produite avec le client Stripe",
+            "title": "Erreur du client Stripe de magasin"
           }
         },
         "LogDetails": {
@@ -739,7 +928,48 @@
   "User": {
     "Business": {
       "Orders": {
-        "title": "Ordres"
+        "title": "Ordres",
+        "OrderDetails": {
+          "billingCycle": "Cycle de facturation",
+          "changedBy": "Modifié par",
+          "currency": "Devise",
+          "customerInformation": "Informations sur les clients",
+          "date": "Date",
+          "email": "E-mail",
+          "error": "Détails de la commande de chargement d'erreur",
+          "loading": "Chargement...",
+          "name": "Nom",
+          "notFound": "Ordre non trouvé",
+          "orderId": "ID de commande",
+          "orderInformation": "Informations sur les commandes",
+          "paymentInformation": "Informations de paiement",
+          "paymentIntentId": "ID d'intention de paiement",
+          "products": "Produits",
+          "quantity": "Quantité",
+          "sessionId": "ID de session",
+          "statusHistory": "Historique de statut",
+          "stripePriceId": "ID de prix à rayures",
+          "subTitle": "Afficher les détails de votre commande",
+          "subscriptionId": "ID d'abonnement",
+          "title": "Détails de la commande",
+          "totalAmount": "Montant total"
+        },
+        "date": "Date",
+        "errorLoadingOrders": "Commandes de chargement d'erreur",
+        "noOrders": "Aucune commande trouvée",
+        "orderId": "ID de commande",
+        "status": {
+          "cancelled": "Annulé",
+          "completed": "Complété",
+          "failed": "Échoué",
+          "paid": "Payé",
+          "pending": "En attente",
+          "processing": "Traitement",
+          "title": "Statut"
+        },
+        "subTitle": "Gérez vos commandes",
+        "total": "Total",
+        "viewDetails": "Afficher les détails"
       },
       "Payments": {
         "title": "Paiements"
@@ -956,7 +1186,12 @@
       "voucherApplied": "Bon appliquée",
       "voucherError": "Erreur avec ce bon",
       "voucherNotActive": "Bon non valide",
-      "voucherNotActiveSubtitle": "Le bon appliqué à votre panier est expiré ou non disponible pour votre commande, veuillez supprimer pour passer à la caisse."
+      "voucherNotActiveSubtitle": "Le bon appliqué à votre panier est expiré ou non disponible pour votre commande, veuillez supprimer pour passer à la caisse.",
+      "saveCardForFuture": "Économisez la carte pour les paiements futurs",
+      "oneTimePurchase": "Achat unique",
+      "productNotActive": "Certains produits ne sont pas disponibles",
+      "productNotActiveSubtitle": "Veuillez supprimer le produit qui n'est pas disponible pour passer à la caisse.",
+      "subscription": "Abonnement"
     },
     "Product": {
       "addToCart": {

@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { findUserById } from "@/db/crud/userCrud"
+import { findUserById, updateUser } from "@/db/crud/userCrud"
 import { getReqUserId } from "@/features/auth/utils/getAuthParam"
 import stripe from "@/utils/stripe/stripe"
 import { NextResponse } from "next/server"
@@ -10,6 +10,8 @@ import { logKeys } from "@/assets/options/config"
 
 export async function POST(req, { params }) {
   const t = await getTranslations("Shop.Cart")
+  const { searchParams } = req.nextUrl
+  const saveCardForFuture = searchParams.get("saveCardForFuture") || false
 
   try {
     const userId = getReqUserId(req)
@@ -40,18 +42,51 @@ export async function POST(req, { params }) {
       return NextResponse.json({ error: "Cart not found" }, { status: 404 })
     }
 
-    const user = await findUserById(userId)
+    let user = await findUserById(userId)
+
+    if (!user?.account?.stripe?.customerId) {
+      const customer = await stripe.customers.create({
+        email: user.email,
+        name: `${user.firstName} ${user.lastName}`,
+        address: {
+          country: user.address.country,
+          city: user.address.city,
+          postal_code: user.address.zipCode,
+          line1: user.address.street,
+        },
+        metadata: {
+          userId: user._id.toString(),
+        },
+      })
+
+      user = await updateUser(userId, {
+        "account.stripe.customerId": customer.id,
+      })
+
+      log.systemInfo({
+        logKey: logKeys.shopStripeCustomer.key,
+        message: "Stripe customer created",
+        newData: customer,
+        oldData: user,
+      })
+    }
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: cart.products?.some((item) => item.product.subscription)
         ? "subscription"
         : "payment",
-      customer_email: user.email,
+      customer: user?.account?.stripe?.customerId,
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/checkout/redirect?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/cart`,
       discounts: cart.voucher?.stripeCouponId
         ? [{ promotion_code: cart.voucher.stripeCouponId }]
         : [],
+      payment_intent_data:
+        cart.products?.some((item) => item.product.subscription) ||
+        !saveCardForFuture
+          ? undefined
+          : { setup_future_usage: "off_session" },
       line_items: cart.products?.map((item) => ({
         price: item.product.stripePriceId || item.product.stripePriceIdMonthly,
         quantity: item.quantity,
