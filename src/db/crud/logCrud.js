@@ -1,6 +1,6 @@
 /* eslint-disable max-depth */
 /* eslint-disable max-params */
-import { LogModel } from "@/db/models/LogModel"
+import { LogModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { isValidObjectId, findUserById } from "@/db/utils/dbUtils"
 

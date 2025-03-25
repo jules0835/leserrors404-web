@@ -405,6 +405,18 @@ export const pagesNames = [
     subTitleKey: "User.Business.Orders.OrderDetails.subTitle",
     url: "/user/dashboard/business/orders/[Id]",
   },
+  {
+    title: "Subscription Details",
+    titleKey: "User.Business.Subscriptions.SubscriptionDetails.title",
+    subTitleKey: "User.Business.Subscriptions.SubscriptionDetails.subTitle",
+    url: "/user/dashboard/business/subscriptions/[Id]",
+  },
+  {
+    title: "Orders list admin",
+    titleKey: "Admin.Business.Orders.title",
+    subTitleKey: "Admin.Business.Orders.subTitle",
+    url: "/admin/business/orders",
+  },
 ]
 
 export const emptyCarouselPart = {

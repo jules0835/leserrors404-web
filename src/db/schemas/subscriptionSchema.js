@@ -10,14 +10,24 @@ export const subscriptionSchema = new Schema(
       subscriptionId: { type: String, required: true },
       status: {
         type: String,
-        enum: ["ACTIVE", "CANCELED", "PAST_DUE", "UNPAID"],
-        default: "ACTIVE",
+        enum: [
+          "incomplete",
+          "incomplete_expired",
+          "trialing",
+          "active",
+          "past_due",
+          "canceled",
+          "unpaid",
+          "paused",
+        ],
+        default: "active",
       },
       periodStart: { type: Date, required: true },
       periodEnd: { type: Date, required: true },
       canceledAt: { type: Date },
       customerId: { type: String, required: true },
       defaultPaymentMethod: { type: String },
+      latestInvoiceId: { type: String },
     },
 
     items: [
@@ -44,7 +54,16 @@ export const subscriptionSchema = new Schema(
       {
         status: {
           type: String,
-          enum: ["ACTIVE", "CANCELED", "PAST_DUE", "UNPAID"],
+          enum: [
+            "incomplete",
+            "incomplete_expired",
+            "trialing",
+            "active",
+            "past_due",
+            "canceled",
+            "unpaid",
+            "paused",
+          ],
           required: true,
         },
         changedAt: { type: Date, default: Date.now },

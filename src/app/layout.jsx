@@ -1,7 +1,6 @@
 "use client"
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-
 export default function TopLevelLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>

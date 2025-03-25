@@ -92,6 +92,12 @@ export async function POST(req, { params }) {
         quantity: item.quantity,
         tax_rates: item.product.stripeTaxId ? [item.product.stripeTaxId] : [],
       })),
+      invoice_creation: cart.products?.some((item) => item.product.subscription)
+        ? undefined
+        : {
+            enabled: true,
+          },
+      locale,
     })
 
     log.systemInfo({

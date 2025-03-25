@@ -1,15 +1,15 @@
-import { VoucherModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import stripe from "@/utils/stripe/stripe"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
+import { findVoucherById } from "@/db/crud/voucherCrud"
 
 export async function PUT(req, { params }) {
   const { Id } = params
   await mwdb()
 
   try {
-    const voucher = await VoucherModel.findById(Id)
+    const voucher = await findVoucherById(Id)
 
     if (!voucher) {
       return new Response(JSON.stringify({ error: "Voucher not found" }), {
@@ -70,7 +70,7 @@ export async function GET(req, { params }) {
   await mwdb()
 
   try {
-    const voucher = await VoucherModel.findById(Id)
+    const voucher = await findVoucherById(Id)
 
     if (!voucher) {
       return new Response(JSON.stringify({ error: "Voucher not found" }), {

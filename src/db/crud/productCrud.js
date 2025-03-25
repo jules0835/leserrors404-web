@@ -1,6 +1,6 @@
 /* eslint-disable require-unicode-regexp */
 /* eslint-disable max-params */
-import { ProductModel } from "@/db/models/ProductModel"
+import { ProductModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { webAppSettings } from "@/assets/options/config"
 

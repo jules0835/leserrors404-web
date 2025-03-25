@@ -28,7 +28,14 @@ export const orderSchema = new Schema(
       paymentIntentId: { type: String },
       subscriptionId: { type: String },
       amountTotal: { type: Number, required: true },
+      amountSubtotal: { type: Number, required: true },
       currency: { type: String, default: "eur" },
+      paymentMethod: { type: String },
+      paymentStatus: { type: String },
+      voucherCode: { type: String },
+      amountTax: { type: Number },
+      amountDiscount: { type: Number },
+      invoiceId: { type: String },
     },
 
     orderStatus: {

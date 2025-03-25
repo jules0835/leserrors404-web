@@ -48,7 +48,7 @@ export default function Register() {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                 {t("title")}
               </h1>
-              <div className="flex flex-col space-y-5 items-center justify-center w-full h-96">
+              <div className="flex flex-col space-y-5 items-center justify-center text-center w-full h-96">
                 <MarkEmailReadIcon className="text-9xl text-primary-600" />
 
                 <h1 className="text-3xl font-bold text-gray-900">

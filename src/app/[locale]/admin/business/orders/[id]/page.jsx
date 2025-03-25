@@ -1,3 +1,9 @@
-export default function Order() {
-  return <div>Order</div>
+import AdminOrderDetails from "@/features/admin/business/orders/adminOrderDetails"
+
+export default function OrderPage() {
+  return (
+    <div>
+      <AdminOrderDetails />
+    </div>
+  )
 }
