@@ -86,7 +86,7 @@ export default function UserCart() {
                     <p className="text-muted-foreground">
                       {t("emptyCartSubtitle")}
                     </p>
-                    <DButton isMain withLink="/shop/product">
+                    <DButton isMain withLink="/shop/products">
                       {t("continueShopping")}
                     </DButton>
                   </div>

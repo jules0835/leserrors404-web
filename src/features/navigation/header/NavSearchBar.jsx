@@ -33,7 +33,7 @@ export default function NavSearchBar() {
   const handleSearch = (e) => {
     e.preventDefault()
     setIsOpen(false)
-    router.push(`/shop/product?q=${searchTerm}`)
+    router.push(`/shop/products?q=${searchTerm}`)
   }
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value)
@@ -43,7 +43,7 @@ export default function NavSearchBar() {
     setIsOpen(false)
 
     if (type === "product") {
-      router.push(`/shop/product/${id}`)
+      router.push(`/shop/products/${id}`)
     }
 
     if (type === "category") {

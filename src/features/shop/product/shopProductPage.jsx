@@ -19,16 +19,16 @@ export default function ShopProductPage() {
   const [quantity, setQuantity] = useState(1)
   const [isAddingToCart, setIsAddingToCart] = useState(false)
   const t = useTranslations("Shop.Product")
-  const { id } = useParams()
+  const { Id } = useParams()
   const locale = useLocale()
   const {
     data: product,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["product", id],
-    queryFn: () => fetchProduct(id),
-    enabled: Boolean(id),
+    queryKey: ["product", Id],
+    queryFn: () => fetchProduct(Id),
+    enabled: Boolean(Id),
   })
   const getLocalizedValue = (value) => {
     if (typeof value === "object" && value !== null) {
@@ -46,10 +46,10 @@ export default function ShopProductPage() {
   }
   const handleAddToCart = async () => {
     setIsAddingToCart(true)
-    const success = await addProdToCart(id, quantity)
+    const success = await addProdToCart(Id, quantity)
 
     if (success) {
-      queryClient.invalidateQueries(["cart"])
+      queryClient.invalIdateQueries(["cart"])
     }
 
     setIsAddingToCart(false)
@@ -78,7 +78,7 @@ export default function ShopProductPage() {
               src={product.picture}
               alt={getLocalizedValue(product.label)}
               className="w-full h-auto rounded-lg shadow-md"
-              width={400}
+              wIdth={400}
               height={400}
             />
           </div>

@@ -69,7 +69,7 @@ export default function ProductCard({ product }) {
           <div className="flex-grow">
             <DButton
               isMain
-              onClickBtn={() => router.push(`/shop/product/${product._id}`)}
+              onClickBtn={() => router.push(`/shop/products/${product._id}`)}
             >
               {t("seeMore")}
             </DButton>

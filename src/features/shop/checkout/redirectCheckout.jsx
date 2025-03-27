@@ -33,7 +33,7 @@ export default function RedirectCheckout() {
     retry: false,
     refetchInterval: (dataRefetch) => {
       if (dataRefetch?.isSessionReady) {
-        router.push(`/user/dashboard/business/orders/${dataRefetch.orderId}`)
+        router.push(`/shop/checkout/success/${dataRefetch.orderId}`)
       }
 
       return 5000
@@ -58,7 +58,7 @@ export default function RedirectCheckout() {
     }
 
     if (data?.isSessionReady) {
-      router.push(`/user/dashboard/business/orders/${data.orderId}`)
+      router.push(`/shop/checkout/success/${data.orderId}`)
     } else if (!data?.isSessionExist) {
       router.push("/shop/cart")
     }

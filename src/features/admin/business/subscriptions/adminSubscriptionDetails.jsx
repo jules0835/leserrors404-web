@@ -17,7 +17,6 @@ import {
 import { format } from "date-fns"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
 import ErrorFront from "@/components/navigation/error"
-import OrderDetailsSkeleton from "@/features/user/business/orders/orderDetailsSkeleton"
 import { useState } from "react"
 import toast from "react-hot-toast"
 import { Separator } from "@/components/ui/separator"
@@ -28,6 +27,7 @@ import {
 import { ArrowRight } from "lucide-react"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
 import { useRouter } from "@/i18n/routing"
+import AdminSubscriptionDetailsSkeleton from "@/features/admin/business/subscriptions/AdminSubscriptionDetailsSkeleton"
 
 export default function AdminSubscriptionDetails() {
   const t = useTranslations("Admin.Business.Subscriptions.SubscriptionDetails")
@@ -71,7 +71,7 @@ export default function AdminSubscriptionDetails() {
   })
 
   if (isLoading) {
-    return <OrderDetailsSkeleton />
+    return <AdminSubscriptionDetailsSkeleton />
   }
 
   if (error) {
@@ -163,6 +163,18 @@ export default function AdminSubscriptionDetails() {
               }}
             >
               {t("viewOrder")}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                router.push(
+                  `/admin/business/customers/${subscription.user._id}`
+                )
+              }}
+            >
+              {t("viewCustomer")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button variant="outline" onClick={openInvoice} size="sm">

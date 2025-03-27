@@ -232,6 +232,9 @@ export default function CardCheckoutCart({
                       </>
                     )}
                   </DButton>
+                  <p className="text-sm text-muted-foreground text-center">
+                    {t("checkoutDescription")}
+                  </p>
                 </div>
               )}
             </TooltipProvider>
