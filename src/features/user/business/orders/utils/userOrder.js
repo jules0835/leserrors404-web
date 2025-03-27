@@ -11,13 +11,13 @@ export const fetchOrderDetails = async (orderId) => {
 export const getStatusColor = (status) => {
   const colors = {
     RECEIVED: "bg-blue-500",
-    PAID: "bg-green-500",
+    PAID: "bg-blue-500",
     CANCEL: "bg-red-500",
     REFUND: "bg-yellow-500",
     PENDING: "bg-orange-500",
     FAILED: "bg-red-500",
-    COMPLETED: "bg-green-500",
-    WAITING_COMPLETION: "bg-blue-500",
+    COMPLETED: "bg-green-800",
+    PROCESSING: "bg-purple-500",
   }
 
   return colors[status] || "bg-gray-500"

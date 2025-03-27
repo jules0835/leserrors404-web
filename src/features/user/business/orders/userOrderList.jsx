@@ -84,7 +84,7 @@ export default function UserOrderList() {
       accessorKey: "orderStatus",
       header: ({ _column }) => (
         <Button variant="ghost" onClick={() => handleSort("orderStatus")}>
-          {t("status.title")} <ArrowUpDown className="ml-2 h-4 w-4" />
+          {t("Status.title")} <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       ),
       cell: ({ row }) => (
@@ -93,7 +93,7 @@ export default function UserOrderList() {
             row.getValue("orderStatus")
           )} text-white`}
         >
-          {t(`status.${row.getValue("orderStatus").toLowerCase()}`)}
+          {t(`Status.${row.getValue("orderStatus").toLowerCase()}`)}
         </span>
       ),
     },

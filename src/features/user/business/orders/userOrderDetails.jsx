@@ -168,28 +168,25 @@ export default function OrderDetails() {
             <p>{t("subtotal")}</p>
             <p className="text-gray-600">{order.stripe.amountSubtotal}€</p>
           </div>
-
-          {order.stripe.amountTax && (
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
-              <p>{t("tax")}</p>
-              <p className="text-gray-600">{order.stripe.amountTax}€</p>
-            </div>
-          )}
-
+          {order.stripe.amountTax !== undefined &&
+            order.stripe.amountTax !== null && (
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
+                <p>{t("tax")}</p>
+                <p className="text-gray-600">{order.stripe.amountTax}€</p>
+              </div>
+            )}
           {order.stripe.amountDiscount && (
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
               <p>{t("discount")}</p>
               <p className="text-gray-600">-{order.stripe.amountDiscount}€</p>
             </div>
           )}
-
           {order.stripe.voucherCode && (
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
               <p>{t("voucher")}</p>
               <p className="text-gray-600">{order.stripe.voucherCode}</p>
             </div>
           )}
-
           <div className="border-t pt-3 mt-3">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
               <p className="font-semibold">{t("total")}</p>

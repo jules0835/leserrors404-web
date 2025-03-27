@@ -21,6 +21,9 @@ export const getSubscriptionStatusColor = (status) => {
     case "incomplete_expired":
       return "bg-gray-500"
 
+    case "preCanceled":
+      return "bg-orange-500"
+
     default:
       return "bg-gray-500"
   }

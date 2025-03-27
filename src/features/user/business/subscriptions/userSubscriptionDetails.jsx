@@ -25,14 +25,16 @@ import OrderDetailsSkeleton from "@/features/user/business/orders/orderDetailsSk
 import { useState } from "react"
 import toast from "react-hot-toast"
 import { Separator } from "@/components/ui/separator"
-import { FileText } from "lucide-react"
+import { ArrowRight, FileText } from "lucide-react"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
+import { useRouter } from "@/i18n/routing"
 
 export default function SubscriptionDetails() {
   const t = useTranslations("User.Business.Subscriptions.SubscriptionDetails")
   const { Id: subscriptionId } = useParams()
   const [showCancelDialog, setShowCancelDialog] = useState(false)
   const queryClient = useQueryClient()
+  const router = useRouter()
   const {
     data: subscription,
     isLoading,
@@ -89,12 +91,14 @@ export default function SubscriptionDetails() {
       action,
     })
   }
-  const canCancel = subscription.stripe.status === "active"
+  const canCancel =
+    subscription.stripe.status === "active" ||
+    subscription.stripe.status === "preCanceled"
 
   return (
     <div className="space-y-6">
       <Card className="p-6">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           <div>
             <Badge
               className={getSubscriptionStatusColor(subscription.stripe.status)}
@@ -123,14 +127,6 @@ export default function SubscriptionDetails() {
             )}
           </div>
           <div>
-            <Button variant="outline" onClick={openInvoice}>
-              {isFetchingInvoice ? (
-                <AnimatedReload />
-              ) : (
-                <FileText className="w-4 h-4 mr-2" />
-              )}
-              {t("openInvoice")}
-            </Button>
             <h2 className="font-semibold mb-2">{t("customerInformation")}</h2>
             <p>
               {t("name")}: {subscription.user.firstName}{" "}
@@ -139,26 +135,33 @@ export default function SubscriptionDetails() {
             <p>
               {t("email")}: {subscription.user.email}
             </p>
-            <p>
-              {t("customerId")}: {subscription.stripe.customerId}
-            </p>
-            {subscription.stripe.defaultPaymentMethod && (
-              <p>
-                {t("defaultPaymentMethod")}:{" "}
-                {subscription.stripe.defaultPaymentMethod}
-              </p>
+          </div>
+          <div>
+            <h2 className="font-semibold mb-2">{t("manageSubscription")}</h2>
+            <Button variant="outline" onClick={openInvoice}>
+              {isFetchingInvoice ? (
+                <AnimatedReload />
+              ) : (
+                <FileText className="w-4 h-4 mr-2" />
+              )}
+              {t("openInvoice")}
+            </Button>
+            {canCancel && (
+              <div className="mt-4">
+                <Button
+                  variant="destructive"
+                  onClick={() => setShowCancelDialog(true)}
+                >
+                  {t("cancelSubscription")}
+                </Button>
+              </div>
             )}
           </div>
         </div>
-        {canCancel && (
-          <div className="mt-4">
-            <Button
-              variant="destructive"
-              onClick={() => setShowCancelDialog(true)}
-            >
-              {t("cancelSubscription")}
-            </Button>
-          </div>
+        {subscription.stripe.status === "preCanceled" && (
+          <p className="mt-4 first-line:text-sm text-orange-500 text-center border-t pt-4">
+            {t("preCanceledDescription")}
+          </p>
         )}
       </Card>
 
@@ -178,9 +181,16 @@ export default function SubscriptionDetails() {
                 </p>
               </div>
               <div className="text-right">
-                <p className="text-sm text-gray-500">
-                  {t("stripePriceId")}: {item.stripe.priceId}
-                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    router.push(`/shop/product/${item.productId._id}`)
+                  }}
+                >
+                  {t("viewProduct")}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
               </div>
             </div>
           ))}

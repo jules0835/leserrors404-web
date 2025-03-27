@@ -98,3 +98,31 @@ export const getAllOrders = async (
 
   return { orders: ordersWithSubscriptions, total }
 }
+
+export const updateOrderStatus = async (
+  orderId,
+  status,
+  details,
+  updatedBy
+) => {
+  await mwdb()
+
+  const order = await OrderModel.findById(orderId)
+
+  if (!order) {
+    throw new Error("Order not found")
+  }
+
+  order.statusHistory.push({
+    status,
+    changedAt: new Date(),
+    updatedBy,
+    details,
+  })
+
+  order.orderStatus = status
+
+  const updatedOrder = await order.save()
+
+  return updatedOrder
+}

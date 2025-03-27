@@ -6,6 +6,7 @@ import {
   findSubscriptionByStripeId,
   updateSubscription,
 } from "@/db/crud/subscriptionCrud"
+import { handleSubscriptionDeleted } from "@/features/shop/services/subscriptionService"
 
 export async function POST(req) {
   let event = null
@@ -64,8 +65,12 @@ export async function POST(req) {
           )
         }
 
+        const newStatus =
+          existingSubscription.stripe.status === "preCanceled"
+            ? "preCanceled"
+            : subscriptionData.status
         const alreadyUpdated =
-          existingSubscription.stripe.status === subscriptionData.status &&
+          existingSubscription.stripe.status === newStatus &&
           existingSubscription.stripe.periodEnd.getTime() ===
             subscriptionData.current_period_end * 1000 &&
           existingSubscription.stripe.defaultPaymentMethod ===
@@ -86,7 +91,7 @@ export async function POST(req) {
           )
         }
 
-        existingSubscription.stripe.status = subscriptionData.status
+        existingSubscription.stripe.status = newStatus
         existingSubscription.stripe.periodStart = new Date(
           subscriptionData.current_period_start * 1000
         )
@@ -102,7 +107,7 @@ export async function POST(req) {
           subscriptionData.latest_invoice
 
         existingSubscription.statusHistory.push({
-          status: subscriptionData.status,
+          status: newStatus,
           updatedBy: "stripe-webhook",
           details: `Subscription ${event.type.replace(
             "customer.subscription.",
@@ -134,6 +139,27 @@ export async function POST(req) {
 
         return NextResponse.json(
           { error: "Failed to update subscription" },
+          { status: 500 }
+        )
+      }
+
+    case "customer.subscription.deleted":
+      try {
+        await handleSubscriptionDeleted(subscriptionData)
+
+        return NextResponse.json(
+          { message: "Subscription deleted successfully" },
+          { status: 200 }
+        )
+      } catch (error) {
+        log.systemError({
+          logKey: logKeys.shopStripeWebhookError.key,
+          message: "Failed to handle subscription deletion",
+          technicalMessage: error.message,
+        })
+
+        return NextResponse.json(
+          { error: "Failed to handle subscription deletion" },
           { status: 500 }
         )
       }

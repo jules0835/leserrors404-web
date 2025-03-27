@@ -22,20 +22,33 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
+import AdminSubscriptionsFilterBar from "./adminSubscriptionFilterBar"
+import { useState } from "react"
 
-export default function UserSubscriptionList() {
-  const t = useTranslations("User.Business.Subscriptions")
+export default function AdminSubscriptionList() {
+  const t = useTranslations("Admin.Business.Subscriptions")
   const searchParams = useSearchParams()
   const router = useRouter()
   const page = parseInt(searchParams.get("page"), 10) || 1
   const limit = 10
   const sortField = searchParams.get("sortField") || "createdAt"
-  const sortOrder = searchParams.get("sortOrder") || "desc"
+  const sortSubscription = searchParams.get("sortSubscription") || "desc"
+  const status = searchParams.get("status") || "all"
+  const search = searchParams.get("search") || ""
+  const [date, setDate] = useState(null)
   const { data, isLoading, error } = useQuery({
-    queryKey: ["subscriptions", page, sortField, sortOrder],
+    queryKey: [
+      "adminSubscriptions",
+      page,
+      sortField,
+      sortSubscription,
+      status,
+      search,
+      date,
+    ],
     queryFn: async () => {
       const response = await fetch(
-        `/api/user/dashboard/business/subscriptions?page=${page}&limit=${limit}&sortField=${sortField}&sortOrder=${sortOrder}`
+        `/api/admin/business/subscriptions?page=${page}&limit=${limit}&sortField=${sortField}&sortSubscription=${sortSubscription}&status=${status}&search=${search}&date=${date ? date.toISOString() : ""}`
       )
 
       if (!response.ok) {
@@ -49,12 +62,38 @@ export default function UserSubscriptionList() {
     const params = new URLSearchParams(searchParams)
 
     if (sortField === field) {
-      params.set("sortOrder", sortOrder === "asc" ? "desc" : "asc")
+      params.set(
+        "sortSubscription",
+        sortSubscription === "asc" ? "desc" : "asc"
+      )
     } else {
       params.set("sortField", field)
-      params.set("sortOrder", "asc")
+      params.set("sortSubscription", "asc")
     }
 
+    router.push(`?${params.toString()}`)
+  }
+  const handleSearch = (e) => {
+    const params = new URLSearchParams(searchParams)
+    params.set("search", e.target.value)
+    params.set("page", "1")
+    router.push(`?${params.toString()}`)
+  }
+  const handleStatusChange = (value) => {
+    const params = new URLSearchParams(searchParams)
+    params.set("status", value)
+    params.set("page", "1")
+    router.push(`?${params.toString()}`)
+  }
+  const handleResetClick = () => {
+    const params = new URLSearchParams(searchParams)
+    params.set("search", "")
+    params.set("status", "all")
+    params.set("page", "1")
+    params.set("date", "")
+    params.set("sortField", "createdAt")
+    params.set("sortSubscription", "desc")
+    setDate(null)
     router.push(`?${params.toString()}`)
   }
   const columns = [
@@ -70,6 +109,22 @@ export default function UserSubscriptionList() {
       ),
     },
     {
+      accessorKey: "user",
+      header: "Customer",
+      cell: ({ row }) => {
+        const { user } = row.original
+
+        return (
+          <div>
+            <div className="font-medium">
+              {user.firstName} {user.lastName}
+            </div>
+            <div className="text-sm text-gray-500">{user.email}</div>
+          </div>
+        )
+      },
+    },
+    {
       accessorKey: "createdAt",
       header: ({ _column }) => (
         <Button variant="ghost" onClick={() => handleSort("createdAt")}>
@@ -77,23 +132,33 @@ export default function UserSubscriptionList() {
         </Button>
       ),
       cell: ({ row }) => (
-        <div>{new Date(row.getValue("createdAt")).toLocaleDateString()}</div>
+        <div>{new Date(row.getValue("createdAt")).toLocaleString("fr-FR")}</div>
       ),
     },
     {
       accessorKey: "stripe.status",
       header: ({ _column }) => (
         <Button variant="ghost" onClick={() => handleSort("stripe.status")}>
-          {t("status.title")} <ArrowUpDown className="ml-2 h-4 w-4" />
+          {t("Status.title")} <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       ),
       cell: ({ row }) => (
-        <span
-          className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getSubscriptionStatusColor(
-            row.original.stripe.status
-          )} text-white`}
-        >
-          {row.original.stripe.status}
+        <span className="flex items-center gap-2">
+          <span
+            className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getSubscriptionStatusColor(
+              row.original.stripe.status
+            )} text-white`}
+          >
+            {t(`Status.${row.original.stripe.status}`)}
+          </span>
+          {row.original.stripe.status === "active" &&
+            row.original.stripe.canceledAt && (
+              <span
+                className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-500 text-white`}
+              >
+                {t("status.preCanceled")}
+              </span>
+            )}
         </span>
       ),
     },
@@ -118,7 +183,7 @@ export default function UserSubscriptionList() {
       id: "actions",
       cell: ({ row }) => (
         <Link
-          href={`/user/dashboard/business/subscriptions/${row.original._id}`}
+          href={`/admin/business/subscriptions/${row.original._id}`}
           className="text-primary hover:text-primary-dark"
         >
           <CircleChevronRight />
@@ -134,6 +199,16 @@ export default function UserSubscriptionList() {
 
   return (
     <div className="space-y-6">
+      <AdminSubscriptionsFilterBar
+        status={status}
+        onStatusChange={handleStatusChange}
+        search={search}
+        date={date}
+        setDate={setDate}
+        handleResetClick={handleResetClick}
+        handleSearch={handleSearch}
+      />
+
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -179,7 +254,7 @@ export default function UserSubscriptionList() {
                   colSpan={columns.length}
                   className="h-1 w-full space-y-7"
                 >
-                  <DataGridSkeleton rows={1} cells={5} />
+                  <DataGridSkeleton rows={1} cells={6} />
                 </TableCell>
               </TableRow>
             )}
@@ -206,26 +281,36 @@ export default function UserSubscriptionList() {
       </div>
 
       {data?.total > limit && (
-        <div className="flex justify-center space-x-2">
-          {Array.from(
-            { length: Math.ceil(data.total / limit) },
-            (_, i) => i + 1
-          ).map((pageNum) => (
-            <Link
-              key={pageNum}
-              href={`?${new URLSearchParams({
-                ...Object.fromEntries(searchParams),
-                page: pageNum.toString(),
-              }).toString()}`}
-              className={`px-4 py-2 rounded ${
-                pageNum === page
-                  ? "bg-primary text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              }`}
+        <div className="flex items-center justify-end space-x-2 py-4">
+          <div className="space-x-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                const params = new URLSearchParams(searchParams)
+                params.set("page", Math.max(page - 1, 1).toString())
+                router.push(`?${params.toString()}`)
+              }}
+              disabled={page === 1}
             >
-              {pageNum}
-            </Link>
-          ))}
+              {t("previous")}
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                const params = new URLSearchParams(searchParams)
+                params.set(
+                  "page",
+                  (page * limit < data.total ? page + 1 : page).toString()
+                )
+                router.push(`?${params.toString()}`)
+              }}
+              disabled={page * limit >= data.total}
+            >
+              {t("next")}
+            </Button>
+          </div>
         </div>
       )}
     </div>

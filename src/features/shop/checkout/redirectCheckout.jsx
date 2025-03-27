@@ -31,7 +31,26 @@ export default function RedirectCheckout() {
     queryFn: fetchCheckoutOrder,
     enabled: Boolean(sessionId),
     retry: false,
+    refetchInterval: (dataRefetch) => {
+      if (dataRefetch?.isSessionReady) {
+        router.push(`/user/dashboard/business/orders/${dataRefetch.orderId}`)
+      }
+
+      return 5000
+    },
   })
+
+  useEffect(() => {
+    if (!sessionId) {
+      router.push("/shop/cart")
+    }
+
+    const timer = setTimeout(() => {
+      setIsErrorMessage(true)
+    }, 30000)
+
+    return () => clearTimeout(timer)
+  }, [router, sessionId])
 
   useEffect(() => {
     if (!data) {
@@ -44,17 +63,6 @@ export default function RedirectCheckout() {
       router.push("/shop/cart")
     }
   }, [data, router])
-  useEffect(() => {
-    if (!sessionId) {
-      router.push("/shop/cart")
-    }
-
-    const timer = setTimeout(() => {
-      setIsErrorMessage(true)
-    }, 30000)
-
-    return () => clearTimeout(timer)
-  }, [router, sessionId])
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0 bg-[#2F1F80]">

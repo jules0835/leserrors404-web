@@ -51,3 +51,24 @@ export const findSubscriptionByStripeId = async (stripeId) => {
 
   return await SubscriptionModel.findOne({ "stripe.subscriptionId": stripeId })
 }
+
+export const getAllSubscriptions = async (
+  size = 10,
+  page = 1,
+  sort = { createdAt: -1 },
+  filters = {}
+) => {
+  await mwdb()
+  const searchQuery = { ...filters }
+  const total = await SubscriptionModel.countDocuments(searchQuery)
+  const subscriptions = await SubscriptionModel.find(searchQuery)
+    .populate("items.productId")
+    .populate("user", "firstName lastName email")
+    .populate("orderId")
+    .sort(sort)
+    .limit(size)
+    .skip(size * (page - 1))
+    .lean()
+
+  return { subscriptions, total }
+}

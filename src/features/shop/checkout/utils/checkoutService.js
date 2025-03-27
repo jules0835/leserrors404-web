@@ -30,7 +30,6 @@ export const createPaymentOrder = async (sessionId, origin) => {
         isOrderCreated: false,
         isSessionExist: true,
         isPaymentFound: false,
-        error: "Payment not found",
       }
     }
 
@@ -76,6 +75,7 @@ export const createPaymentOrder = async (sessionId, origin) => {
         amountTax: session.total_details.amount_tax / 100,
         amountDiscount: session.total_details.amount_discount / 100,
         invoiceId: session.invoice,
+        paymentIntentId: session.payment_intent,
       },
       products,
       orderStatus: "PAID",
@@ -228,5 +228,31 @@ export const createPaymentOrder = async (sessionId, origin) => {
     }
 
     throw error
+  }
+}
+
+export const checkPaymentOrder = async (sessionId) => {
+  const session = await stripe.checkout.sessions.retrieve(sessionId)
+
+  if (!session) {
+    return {
+      isOrderCreated: false,
+      isSessionExist: false,
+      isPaymentFound: false,
+    }
+  }
+
+  if (session.status !== "complete") {
+    return {
+      isOrderCreated: false,
+      isSessionExist: true,
+      isPaymentFound: false,
+    }
+  }
+
+  return {
+    isOrderCreated: false,
+    isSessionExist: false,
+    isPaymentFound: false,
   }
 }

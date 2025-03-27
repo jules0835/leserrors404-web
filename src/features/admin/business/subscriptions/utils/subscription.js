@@ -1,6 +1,6 @@
 export const fetchSubscriptionDetails = async (subscriptionId) => {
   const response = await fetch(
-    `/api/user/dashboard/business/subscriptions/${subscriptionId}`
+    `/api/admin/business/subscriptions/${subscriptionId}`
   )
 
   if (!response.ok) {
@@ -11,7 +11,7 @@ export const fetchSubscriptionDetails = async (subscriptionId) => {
 }
 export const updateSubscription = async ({ subscriptionId, action }) => {
   const response = await fetch(
-    `/api/user/dashboard/business/subscriptions/${subscriptionId}`,
+    `/api/admin/business/subscriptions/${subscriptionId}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },

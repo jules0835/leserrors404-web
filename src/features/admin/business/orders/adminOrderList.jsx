@@ -121,7 +121,7 @@ export default function AdminOrderList() {
         </Button>
       ),
       cell: ({ row }) => (
-        <div>{new Date(row.getValue("createdAt")).toLocaleDateString()}</div>
+        <div>{new Date(row.getValue("createdAt")).toLocaleString("fr-FR")}</div>
       ),
     },
     {
@@ -137,7 +137,7 @@ export default function AdminOrderList() {
             row.getValue("orderStatus")
           )} text-white`}
         >
-          {t(`status.${row.getValue("orderStatus").toLowerCase()}`)}
+          {t(`Status.${row.getValue("orderStatus").toLowerCase()}`)}
         </span>
       ),
     },
