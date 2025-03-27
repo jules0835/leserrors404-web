@@ -462,7 +462,8 @@
           "suspendOrderError": "Impossibile sospendere l'ordine",
           "suspendOrderReasonPlaceholder": "Inserisci il motivo della sospensione ...",
           "suspendOrderSuccess": "Ordine sospeso con successo",
-          "suspendOrderTitle": "Sospendere l'ordine"
+          "suspendOrderTitle": "Sospendere l'ordine",
+          "viewCustomer": "Visualizza il cliente"
         },
         "Status": {
           "all": "Tutto lo stato",
@@ -495,7 +496,25 @@
         "viewDetails": "Visualizza i dettagli"
       },
       "Payments": {
-        "title": "Pagamenti"
+        "title": "Pagamenti",
+        "actions": "Azioni",
+        "amount": "Quantità",
+        "date": "Data",
+        "expires": "Scade",
+        "invoices": "Fatture",
+        "loading": "Caricamento...",
+        "next": "Prossimo",
+        "noInvoices": "Nessuna fattura trovata",
+        "noPaymentMethods": "Nessun metodo di pagamento salvato",
+        "olderInvoicesMessage": "Cerchi fatture più vecchie? \nAccedi alla cronologia di fatturazione completa nel portale Stripe.",
+        "openStripePortal": "Portale a strisce aperte",
+        "paymentPortal": "Portale di pagamento",
+        "paymentPortalDescription": "Visualizza la cronologia dei pagamenti e gestisci i tuoi metodi di pagamento. \nPer una gestione avanzata, utilizzare il portale dei clienti Stripe.",
+        "previous": "Precedente",
+        "savedPaymentMethods": "Metodi di pagamento salvati",
+        "status": "Stato",
+        "stripePortalInactive": "Il tuo account Stripe verrà attivato dopo il tuo primo ordine. \nAvrai quindi accesso al portale dei clienti Stripe.",
+        "viewInvoice": "Visualizza la fattura"
       },
       "Products": {
         "title": "Prodotti",
@@ -637,7 +656,8 @@
           "updateError": "Si è verificato un errore durante l'aggiornamento dell'abbonamento",
           "updateSuccess": "Il tuo abbonamento ha avuto successo aggiornato",
           "viewOrder": "Visualizza l'ordine",
-          "viewProduct": "Visualizza il prodotto"
+          "viewProduct": "Visualizza il prodotto",
+          "viewCustomer": "Visualizza il cliente"
         },
         "all": "Tutto",
         "columns": "Colonne",
@@ -762,6 +782,78 @@
         "voucherCreationFailed": "La creazione di voucher non è riuscita",
         "voucherType": "Tipo di voucher",
         "yes": "SÌ"
+      },
+      "Customers": {
+        "CustomerDetails": {
+          "subTitle": "Visualizza i dettagli del tuo cliente",
+          "title": "Dettagli del cliente"
+        },
+        "Status": {
+          "active": "Attivo",
+          "cancel": "Annullato",
+          "canceled": "Annullato",
+          "completed": "Completato",
+          "failed": "Fallito",
+          "incomplete": "Incompleto",
+          "incomplete_expired": "Scaduto incompleto",
+          "paid": "Pagato",
+          "past_due": "Passato",
+          "paused": "In pausa",
+          "pending": "In attesa di",
+          "preCanceled": "Pre-cancellato",
+          "processing": "Elaborazione",
+          "refund": "Rimborsato",
+          "trialing": "Prova",
+          "unpaid": "Non pagato"
+        },
+        "actions": "Azioni",
+        "annual": "Annuale",
+        "billingCycle": "Ciclo di fatturazione",
+        "city": "Città",
+        "columns": "Colonne",
+        "company": "Azienda",
+        "countCustomerOrders": "Ordini totali",
+        "countCustomerSubscriptions": "Abbonamento totale",
+        "countCustomerTickets": "Biglietti totali",
+        "country": "Paese",
+        "created": "Creato: {data}",
+        "createdAt": "Creato a",
+        "customerDetails": "Dettagli del cliente",
+        "date": "Data",
+        "editCustomer": "Modifica il cliente",
+        "email": "E-mail",
+        "endDate": "Data di fine",
+        "errorLoadingData": "Errore Caricamento dei dati dei clienti",
+        "firstName": "Nome di battesimo",
+        "invoiceNotFound": "Fattura non trovata",
+        "lastName": "Cognome",
+        "monthly": "Mensile",
+        "next": "Prossimo",
+        "noOrders": "Nessun ordine trovato",
+        "noResults": "Nessun cliente trovato",
+        "noStripeCustomerId": "Questo cliente non è ancora registrato su Stripe, verrà registrato automaticamente al suo primo ordine/abbonamento",
+        "noSubscriptions": "Nessun abbonamento trovato",
+        "openClientStripePortal": "Portale a strisce client aperte",
+        "orderId": "Ordine ID",
+        "orders": "Ordini",
+        "phone": "Telefono",
+        "portalNotFound": "Si verifica un errore mentre si ottiene il portale dell'utente",
+        "previous": "Precedente",
+        "profilePictureAlt": "Immagine del profilo di {FirstName} {LastName}",
+        "searchPlaceholder": "Cerca clienti ...",
+        "startDate": "Data di inizio",
+        "status": {
+          "title": "Stato"
+        },
+        "street": "Strada",
+        "subTitle": "Gestisci i tuoi clienti",
+        "subscriptionId": "ID abbonamento",
+        "subscriptions": "Abbonamenti",
+        "title": "Clienti",
+        "total": "Totale",
+        "viewDetails": "Visualizza i dettagli",
+        "viewOnStripe": "Visualizza su Stripe",
+        "zipCode": "Cap"
       }
     },
     "Security": {
@@ -1287,7 +1379,25 @@
         }
       },
       "Payments": {
-        "title": "Pagamenti"
+        "title": "Pagamenti",
+        "actions": "Azioni",
+        "amount": "Quantità",
+        "date": "Data",
+        "expires": "Scade",
+        "invoices": "Fatture",
+        "loading": "Caricamento...",
+        "next": "Prossimo",
+        "noInvoices": "Nessuna fattura trovata",
+        "noPaymentMethods": "Nessun metodo di pagamento salvato",
+        "olderInvoicesMessage": "Cerchi fatture più vecchie? \nAccedi alla cronologia di fatturazione completa nel portale Stripe.",
+        "openStripePortal": "Portale a strisce aperte",
+        "paymentPortal": "Portale di pagamento",
+        "paymentPortalDescription": "Visualizza la cronologia dei pagamenti e gestisci i tuoi metodi di pagamento. \nPer una gestione avanzata, utilizzare il portale dei clienti Stripe.",
+        "previous": "Precedente",
+        "savedPaymentMethods": "Metodi di pagamento salvati",
+        "status": "Stato",
+        "stripePortalInactive": "Il tuo account Stripe verrà attivato dopo il tuo primo ordine. \nAvrai quindi accesso al portale dei clienti Stripe.",
+        "viewInvoice": "Visualizza la fattura"
       },
       "Subscriptions": {
         "title": "Abbonamenti",
@@ -1530,7 +1640,8 @@
       "oneTimePurchase": "Acquisto una tantum",
       "productNotActive": "Alcuni prodotti non sono disponibili",
       "productNotActiveSubtitle": "Rimuovere il prodotto che non è disponibile per procedere al checkout.",
-      "subscription": "Sottoscrizione"
+      "subscription": "Sottoscrizione",
+      "checkoutDescription": "Quando fai clic su Checkout, accetti termini e condizioni OU. \nI prezzi sono forniti solo come informazioni e il prezzo finale sarà confermato alla fine del processo di pagamento."
     },
     "Product": {
       "addToCart": {
@@ -1544,7 +1655,37 @@
       "myOrders": "I miei ordini",
       "redirectingMessage": "Al termine del processo, verrai automaticamente reindirizzato alle informazioni sull'ordine.",
       "redirectingToCheckout": "Stiamo elaborando il tuo pagamento, per favore aspetta ...",
-      "redirectingToCheckoutMessage": "MMM, sembra che il processo stia richiedendo più tempo del previsto. \nSi prega di attendere qualche secondo e quindi fare clic sul pulsante in basso per andare alla pagina degli ordini"
+      "redirectingToCheckoutMessage": "MMM, sembra che il processo stia richiedendo più tempo del previsto. \nSi prega di attendere qualche secondo e quindi fare clic sul pulsante in basso per andare alla pagina degli ordini",
+      "billingCycle": "Ciclo di fatturazione",
+      "billingPeriod": "Periodo di fatturazione",
+      "continueShopping": "Continua a fare shopping",
+      "date": "Data",
+      "discount": "Sconto",
+      "downloadInvoice": "Scarica fattura",
+      "orderId": "Ordine ID",
+      "orderInformation": "Informazioni sull'ordine",
+      "orderSuccess": "Grazie per il tuo ordine!",
+      "orderSuccessMessage": "Siamo entusiasti di confermare che il tuo ordine è stato effettuato con successo. \nRiceverai un'e -mail di conferma a breve.",
+      "processingOrder": "Elaborazione del tuo ordine ...",
+      "products": "Prodotti",
+      "quantity": "Quantità",
+      "subscriptionInformation": "Informazioni sull'abbonamento",
+      "subscriptionStatus": {
+        "active": "Attivo",
+        "canceled": "Annullato",
+        "incomplete": "Incompleto",
+        "incomplete_expired": "Scaduto incompleto",
+        "past_due": "Passato",
+        "paused": "In pausa",
+        "preCanceled": "Pre-cancellato",
+        "trialing": "Prova",
+        "unpaid": "Non pagato"
+      },
+      "subtotal": "Subtotale",
+      "tax": "Tassare",
+      "total": "Totale",
+      "viewAllOrders": "Visualizza tutti gli ordini",
+      "viewSubscription": "Visualizza l'abbonamento"
     }
   },
   "Log": {

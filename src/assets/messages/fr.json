@@ -84,7 +84,8 @@
           "suspendOrderError": "Échec de la suspension",
           "suspendOrderReasonPlaceholder": "Entrez la raison de la suspension ...",
           "suspendOrderSuccess": "Commander avec succès",
-          "suspendOrderTitle": "Ordonnance de suspension"
+          "suspendOrderTitle": "Ordonnance de suspension",
+          "viewCustomer": "Afficher le client"
         },
         "Status": {
           "all": "Tout statut",
@@ -117,7 +118,25 @@
         "viewDetails": "Afficher les détails"
       },
       "Payments": {
-        "title": "Paiements"
+        "title": "Paiements",
+        "actions": "Actes",
+        "amount": "Montant",
+        "date": "Date",
+        "expires": "Expire",
+        "invoices": "Factures",
+        "loading": "Chargement...",
+        "next": "Suivant",
+        "noInvoices": "Aucune facture trouvée",
+        "noPaymentMethods": "Aucune méthode de paiement enregistrée",
+        "olderInvoicesMessage": "Vous cherchez des factures plus anciennes? \nAccédez à votre historique de facturation complet dans le portail Stripe.",
+        "openStripePortal": "Portail à bande ouverte",
+        "paymentPortal": "Portail de paiement",
+        "paymentPortalDescription": "Consultez votre historique de paiement et gérez vos méthodes de paiement. \nPour une gestion avancée, utilisez le portail client Stripe.",
+        "previous": "Précédent",
+        "savedPaymentMethods": "Méthodes de paiement enregistrées",
+        "status": "Statut",
+        "stripePortalInactive": "Votre compte Stripe sera activé après votre première commande. \nVous aurez ensuite accès au portail client Stripe.",
+        "viewInvoice": "Afficher la facture"
       },
       "Products": {
         "title": "Produits",
@@ -259,7 +278,8 @@
           "updateError": "Une erreur s'est produite lors de la mise à jour de votre abonnement",
           "updateSuccess": "Votre abonnement a été réussi à mettre à jour",
           "viewOrder": "Afficher la commande",
-          "viewProduct": "Afficher le produit"
+          "viewProduct": "Afficher le produit",
+          "viewCustomer": "Afficher le client"
         },
         "all": "Tous",
         "columns": "Colonnes",
@@ -384,6 +404,78 @@
         "voucherCreationFailed": "La création de bons a échoué",
         "voucherType": "Type de bon",
         "yes": "Oui"
+      },
+      "Customers": {
+        "CustomerDetails": {
+          "subTitle": "Afficher les détails de votre client",
+          "title": "Détails du client"
+        },
+        "Status": {
+          "active": "Actif",
+          "cancel": "Annulé",
+          "canceled": "Annulé",
+          "completed": "Complété",
+          "failed": "Échoué",
+          "incomplete": "Incomplet",
+          "incomplete_expired": "Incomplet expiré",
+          "paid": "Payé",
+          "past_due": "Passé en raison",
+          "paused": "Interrompu",
+          "pending": "En attente",
+          "preCanceled": "Préconçu",
+          "processing": "Traitement",
+          "refund": "Remboursé",
+          "trialing": "Procès",
+          "unpaid": "Non rémunéré"
+        },
+        "actions": "Actes",
+        "annual": "Annuel",
+        "billingCycle": "Cycle de facturation",
+        "city": "Ville",
+        "columns": "Colonnes",
+        "company": "Entreprise",
+        "countCustomerOrders": "Ordres de totale",
+        "countCustomerSubscriptions": "Abonnement à totale",
+        "countCustomerTickets": "Billets Totale",
+        "country": "Pays",
+        "created": "Créé: {Date}",
+        "createdAt": "Créé à",
+        "customerDetails": "Détails du client",
+        "date": "Date",
+        "editCustomer": "Éditer le client",
+        "email": "E-mail",
+        "endDate": "Date de fin",
+        "errorLoadingData": "Erreur Chargement des clients Données",
+        "firstName": "Prénom",
+        "invoiceNotFound": "Facture introuvable",
+        "lastName": "Nom de famille",
+        "monthly": "Mensuel",
+        "next": "Suivant",
+        "noOrders": "Aucune commande trouvée",
+        "noResults": "Aucun client trouvé",
+        "noStripeCustomerId": "Ce client n'est pas encore inscrit sur Stripe, il s'inscrira automatiquement sur sa première commande / abonnement",
+        "noSubscriptions": "Aucun abonnements trouvé",
+        "openClientStripePortal": "Portail à rayures du client ouvert",
+        "orderId": "ID de commande",
+        "orders": "Ordres",
+        "phone": "Téléphone",
+        "portalNotFound": "Une erreur se produit tout en obtenant le portail utilisateur",
+        "previous": "Précédent",
+        "profilePictureAlt": "Photo de profil de {FirstName} {LastName}",
+        "searchPlaceholder": "Rechercher les clients ...",
+        "startDate": "Date de début",
+        "status": {
+          "title": "Statut"
+        },
+        "street": "Rue",
+        "subTitle": "Gérez vos clients",
+        "subscriptionId": "ID d'abonnement",
+        "subscriptions": "Abonnements",
+        "title": "Clients",
+        "total": "Total",
+        "viewDetails": "Afficher les détails",
+        "viewOnStripe": "Vue sur Stripe",
+        "zipCode": "Code postal"
       }
     },
     "SalesFront": {
@@ -1223,7 +1315,25 @@
         }
       },
       "Payments": {
-        "title": "Paiements"
+        "title": "Paiements",
+        "actions": "Actes",
+        "amount": "Montant",
+        "date": "Date",
+        "expires": "Expire",
+        "invoices": "Factures",
+        "loading": "Chargement...",
+        "next": "Suivant",
+        "noInvoices": "Aucune facture trouvée",
+        "noPaymentMethods": "Aucune méthode de paiement enregistrée",
+        "olderInvoicesMessage": "Vous cherchez des factures plus anciennes? \nAccédez à votre historique de facturation complet dans le portail Stripe.",
+        "openStripePortal": "Portail à bande ouverte",
+        "paymentPortal": "Portail de paiement",
+        "paymentPortalDescription": "Consultez votre historique de paiement et gérez vos méthodes de paiement. \nPour une gestion avancée, utilisez le portail client Stripe.",
+        "previous": "Précédent",
+        "savedPaymentMethods": "Méthodes de paiement enregistrées",
+        "status": "Statut",
+        "stripePortalInactive": "Votre compte Stripe sera activé après votre première commande. \nVous aurez ensuite accès au portail client Stripe.",
+        "viewInvoice": "Afficher la facture"
       },
       "Subscriptions": {
         "title": "Abonnements",
@@ -1530,7 +1640,8 @@
       "oneTimePurchase": "Achat unique",
       "productNotActive": "Certains produits ne sont pas disponibles",
       "productNotActiveSubtitle": "Veuillez supprimer le produit qui n'est pas disponible pour passer à la caisse.",
-      "subscription": "Abonnement"
+      "subscription": "Abonnement",
+      "checkoutDescription": "Lorsque vous cliquez sur la caisse, vous acceptez les termes et conditions de l'OU. \nLes prix sont fournis comme information uniquement et le prix final sera confirmé à la fin du processus de paiement."
     },
     "Product": {
       "addToCart": {
@@ -1544,7 +1655,37 @@
       "redirectingToCheckout": "Nous traitons votre paiement, veuillez patienter ...",
       "myOrders": "Mes commandes",
       "redirectingMessage": "Une fois le processus terminé, vous serez automatiquement redirigé vers les informations de votre commande.",
-      "redirectingToCheckoutMessage": "MMM, il semble que le processus prenne plus de temps que prévu. \nVeuillez patienter quelques secondes, puis cliquez sur le bouton ci-dessous pour accéder à votre page de commande"
+      "redirectingToCheckoutMessage": "MMM, il semble que le processus prenne plus de temps que prévu. \nVeuillez patienter quelques secondes, puis cliquez sur le bouton ci-dessous pour accéder à votre page de commande",
+      "billingCycle": "Cycle de facturation",
+      "billingPeriod": "Période de facturation",
+      "continueShopping": "Continuer les achats",
+      "date": "Date",
+      "discount": "Rabais",
+      "downloadInvoice": "Télécharger la facture",
+      "orderId": "ID de commande",
+      "orderInformation": "Informations sur les commandes",
+      "orderSuccess": "Merci pour votre commande!",
+      "orderSuccessMessage": "Nous sommes ravis de confirmer que votre commande a été passée avec succès. \nVous recevrez un e-mail de confirmation sous peu.",
+      "processingOrder": "Traitement de votre commande ...",
+      "products": "Produits",
+      "quantity": "Quantité",
+      "subscriptionInformation": "Informations sur l'abonnement",
+      "subscriptionStatus": {
+        "active": "Actif",
+        "canceled": "Annulé",
+        "incomplete": "Incomplet",
+        "incomplete_expired": "Incomplet expiré",
+        "past_due": "Passé en raison",
+        "paused": "Interrompu",
+        "preCanceled": "Préconçu",
+        "trialing": "Procès",
+        "unpaid": "Non rémunéré"
+      },
+      "subtotal": "Total",
+      "tax": "Impôt",
+      "total": "Total",
+      "viewAllOrders": "Afficher toutes les commandes",
+      "viewSubscription": "Afficher l'abonnement"
     }
   },
   "Log": {

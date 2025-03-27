@@ -31,7 +31,7 @@ import toast from "react-hot-toast"
 
 export default function AdminOrderDetails() {
   const t = useTranslations("Admin.Business.Orders.OrderDetails")
-  const { Id: orderId } = useParams()
+  const { Id } = useParams()
   const router = useRouter()
   const [showCancelDialog, setShowCancelDialog] = useState(false)
   const [isCancelling, setIsCancelling] = useState(false)
@@ -41,8 +41,8 @@ export default function AdminOrderDetails() {
     error,
     refetch,
   } = useQuery({
-    queryKey: ["order", orderId],
-    queryFn: () => fetchOrderDetails(orderId),
+    queryKey: ["order", Id],
+    queryFn: () => fetchOrderDetails(Id),
   })
 
   if (isLoading) {
@@ -75,7 +75,7 @@ export default function AdminOrderDetails() {
     try {
       setIsCancelling(true)
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/admin/business/orders/${orderId}/cancel`,
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/admin/business/orders/${Id}/cancel`,
         {
           method: "POST",
           headers: {
@@ -175,7 +175,7 @@ export default function AdminOrderDetails() {
           order.orderStatus !== "REFUND" && (
             <AdminOrderTreatment
               order={order}
-              orderId={orderId}
+              orderId={Id}
               fetchOrderDetails={fetchOrderDetails}
             />
           )}

@@ -462,7 +462,8 @@
           "suspendOrderError": "Ku tsandzekile ku yimisa xileriso .",
           "suspendOrderReasonPlaceholder": "Nghenisa xivangelo xa ku yimisiwa...",
           "suspendOrderSuccess": "Xileriso xi yimisiwile hi ndlela leyi humelelaka .",
-          "suspendOrderTitle": "Xileriso xo yimisa ."
+          "suspendOrderTitle": "Xileriso xo yimisa .",
+          "viewCustomer": "Vona muxavi ."
         },
         "Status": {
           "all": "Xiyimo hinkwaxo .",
@@ -495,7 +496,25 @@
         "viewDetails": "Vona vuxokoxoko ."
       },
       "Payments": {
-        "title": "Ku hakela ."
+        "title": "Ku hakela .",
+        "actions": "Swiendlo .",
+        "amount": "Ntsengo",
+        "date": "Siku",
+        "expires": "Ku hela ka nkarhi .",
+        "invoices": "Tiinvoyisi .",
+        "loading": "Ku layicha...",
+        "next": "Landzelaka",
+        "noInvoices": "Ku hava ti-invoice leti kumiweke .",
+        "noPaymentMethods": "Ku hava tindlela to hakela leti hlayisiweke .",
+        "olderInvoicesMessage": "U lava ti invoice ta khale? \nFikelela matimu ya wena ya ku hakela lama heleleke eka portal ya stripe.",
+        "openStripePortal": "Phokholo ya stripe leyi pfulekeke .",
+        "paymentPortal": "Portal ya ku hakela .",
+        "paymentPortalDescription": "Languta matimu ya wena ya hakelo na ku lawula tindlela ta wena to hakela. \nEka vufambisi bya xiyimo xa le henhla, tirhisa portal ya vaxavi ya Stripe.",
+        "previous": "Endzhaku",
+        "savedPaymentMethods": "Maendlelo yo hakela lama hlayisiweke .",
+        "status": "Xiyimo",
+        "stripePortalInactive": "Account ya wena ya stripe yi ta tirhisiwa endzhaku ka oda ya wena yo sungula. \nKutani u ta va na mfikelelo eka Khokholo ra Vaxavi ra Stripe.",
+        "viewInvoice": "Vona invoice ."
       },
       "Products": {
         "title": "Swihumelerisiwa .",
@@ -637,7 +656,8 @@
           "updateError": "Xihoxo xi humelerile loko u ri karhi u pfuxeta xikhokhelo xa wena .",
           "updateSuccess": "Xikhokhelo xa wena xi humelerile ku pfuxetiwa .",
           "viewOrder": "Vona Xileriso .",
-          "viewProduct": "View Product ."
+          "viewProduct": "View Product .",
+          "viewCustomer": "Vona muxavi ."
         },
         "all": "Hinkwaswo",
         "columns": "Tikholomu .",
@@ -762,6 +782,78 @@
         "voucherCreationFailed": "Ku tumbuluxiwa ka tivhawuchara swi tsandzekile .",
         "voucherType": "Muxaka wa tivhawuchara .",
         "yes": "Ina"
+      },
+      "Customers": {
+        "CustomerDetails": {
+          "subTitle": "Languta vuxokoxoko bya muxavi wa wena .",
+          "title": "Vuxokoxoko bya vaxavi ."
+        },
+        "Status": {
+          "active": "Hanya",
+          "cancel": "Ku khanseriwa .",
+          "canceled": "Ku khanseriwa .",
+          "completed": "Ku hetiwa .",
+          "failed": "Hluleka",
+          "incomplete": "A yi helelanga .",
+          "incomplete_expired": "Ku nga heleli loku nga helelangiki ku herile .",
+          "paid": "Hakerile",
+          "past_due": "Nkarhi lowu hundzeke lowu faneleke .",
+          "paused": "Yi miyerile .",
+          "pending": "Rindzerile",
+          "preCanceled": "Pre-Canceled .",
+          "processing": "Ku lulamisiwa ka swilo .",
+          "refund": "Ku tlheriseriwa mali .",
+          "trialing": "Tenga",
+          "unpaid": "A swi hakeriwi ."
+        },
+        "actions": "Swiendlo .",
+        "annual": "Lembe na lembe",
+        "billingCycle": "Xirhendzevutana xa ku hakela mali .",
+        "city": "Doroba",
+        "columns": "Tikholomu .",
+        "company": "Khamphani",
+        "countCustomerOrders": "Tioda ta Totale .",
+        "countCustomerSubscriptions": "Xikhokhelo xa Totale .",
+        "countCustomerTickets": "Mathikithi ya Totale .",
+        "country": "Tiko",
+        "created": "Xi endliwile: {date}",
+        "createdAt": "Xi tumbuluxiwile eka .",
+        "customerDetails": "Vuxokoxoko bya vaxavi .",
+        "date": "Siku",
+        "editCustomer": "Hlela Khasimende .",
+        "email": "Imeyili .",
+        "endDate": "Siku ro hetelela .",
+        "errorLoadingData": "Xihoxo xo layicha data ya vaxavi .",
+        "firstName": "Vito rosungula",
+        "invoiceNotFound": "Invoice a yi kumekanga .",
+        "lastName": "Xivongo",
+        "monthly": "N’hweti na n’hweti .",
+        "next": "Landzelaka",
+        "noOrders": "Ku hava ti oda leti kumiweke .",
+        "noResults": "Ku hava vaxavi lava kumiweke .",
+        "noStripeCustomerId": "Khasimende leyi a yi si tsarisa eka stripe, u ta tsarisa hi ku tisungulela eka oda ya yena yo sungula/xikhomela .",
+        "noSubscriptions": "Ku hava swikhokhelo leswi kumiweke .",
+        "openClientStripePortal": "Ku pfuleka ka xitirhisiwa xa stripe portal .",
+        "orderId": "ID ya oda .",
+        "orders": "Tioda .",
+        "phone": "Riqingho",
+        "portalNotFound": "Xihoxo xi humelerile loko u ri karhi u kuma portal ya mutirhisi .",
+        "previous": "Endzhaku",
+        "profilePictureAlt": "Xifaniso xa xivumbeko xa {vito ro sungula} {Navimu yo hetelela}",
+        "searchPlaceholder": "Ku lavisisa vaxavi...",
+        "startDate": "Siku ro sungula .",
+        "status": {
+          "title": "Xiyimo"
+        },
+        "street": "Xitarata",
+        "subTitle": "Lawula vaxavi va wena .",
+        "subscriptionId": "ID ya xikhokhelo .",
+        "subscriptions": "Swikhokhelo .",
+        "title": "Vaxavi .",
+        "total": "Hinkwaswo",
+        "viewDetails": "Vona vuxokoxoko .",
+        "viewOnStripe": "Xivono xa stripe .",
+        "zipCode": "Khodi ya zip ."
       }
     },
     "Security": {
@@ -1236,7 +1328,25 @@
         }
       },
       "Payments": {
-        "title": "Ku hakela ."
+        "title": "Ku hakela .",
+        "actions": "Swiendlo .",
+        "amount": "Ntsengo",
+        "date": "Siku",
+        "expires": "Ku hela ka nkarhi .",
+        "invoices": "Tiinvoyisi .",
+        "loading": "Ku layicha...",
+        "next": "Landzelaka",
+        "noInvoices": "Ku hava ti-invoice leti kumiweke .",
+        "noPaymentMethods": "Ku hava tindlela to hakela leti hlayisiweke .",
+        "olderInvoicesMessage": "U lava ti invoice ta khale? \nFikelela matimu ya wena ya ku hakela lama heleleke eka portal ya stripe.",
+        "openStripePortal": "Phokholo ya stripe leyi pfulekeke .",
+        "paymentPortal": "Portal ya ku hakela .",
+        "paymentPortalDescription": "Languta matimu ya wena ya hakelo na ku lawula tindlela ta wena to hakela. \nEka vufambisi bya xiyimo xa le henhla, tirhisa portal ya vaxavi ya Stripe.",
+        "previous": "Endzhaku",
+        "savedPaymentMethods": "Maendlelo yo hakela lama hlayisiweke .",
+        "status": "Xiyimo",
+        "stripePortalInactive": "Account ya wena ya stripe yi ta tirhisiwa endzhaku ka oda ya wena yo sungula. \nKutani u ta va na mfikelelo eka Khokholo ra Vaxavi ra Stripe.",
+        "viewInvoice": "Vona invoice ."
       },
       "Subscriptions": {
         "title": "Swikhokhelo .",
@@ -1530,7 +1640,8 @@
       "oneTimePurchase": "Ku xava kan’we .",
       "productNotActive": "Switirhisiwa swin’wana a swi kumeki .",
       "productNotActiveSubtitle": "Hi kombela u susa xitirhisiwa lexi nga kumekiki ku ya emahlweni u huma.",
-      "subscription": "Xikhokhelo ."
+      "subscription": "Xikhokhelo .",
+      "checkoutDescription": "Loko u tikhoma eka ku xava, u amukela milawu na swipimelo swa OU. \nMinxavo yi nyikiwa tani hi mahungu ntsena naswona ntsengo wo hetelela wu ta tiyisisiwa eku heleni ka endlelo ro huma."
     },
     "Product": {
       "addToCart": {
@@ -1544,7 +1655,37 @@
       "myOrders": "Tioda ta mina .",
       "redirectingMessage": "Loko endlelo ri herile, u ta kongomisiwa hi ku tisungulela eka vuxokoxoko bya oda ya wena.",
       "redirectingToCheckout": "Hi le ku endleni ka hakelo ya wena, hi kombela u rindza...",
-      "redirectingToCheckoutMessage": "MMM, swi vonaka onge endlelo ri teka nkarhi wo leha ku tlula leswi a swi languteriwile. \nHi kombela u yimela tisekoni ti nga ri tingani ivi u tikhoma buti leyi nga laha hansi leswaku u ya eka tluka ra wena ra Tioda ."
+      "redirectingToCheckoutMessage": "MMM, swi vonaka onge endlelo ri teka nkarhi wo leha ku tlula leswi a swi languteriwile. \nHi kombela u yimela tisekoni ti nga ri tingani ivi u tikhoma buti leyi nga laha hansi leswaku u ya eka tluka ra wena ra Tioda .",
+      "billingCycle": "Xirhendzevutana xa ku hakela mali .",
+      "billingPeriod": "Nkarhi wa ku hakela mali .",
+      "continueShopping": "Yana emahlweni u xava .",
+      "date": "Siku",
+      "discount": "Mbhukuto",
+      "downloadInvoice": "Download invoice .",
+      "orderId": "ID ya oda .",
+      "orderInformation": "Vuxokoxoko bya Odara .",
+      "orderSuccess": "Ndza khensa oda ya wena!",
+      "orderSuccessMessage": "Hi tsakile ku tiyisisa leswaku oda ya wena yi vekiwile hi ndlela leyi humelelaka. \nU ta kuma email yo tiyisisa ku nga ri khale.",
+      "processingOrder": "Ku lulamisa oda ya wena...",
+      "products": "Swihumelerisiwa .",
+      "quantity": "Ntsengo",
+      "subscriptionInformation": "Vuxokoxoko bya xikhokhelo .",
+      "subscriptionStatus": {
+        "active": "Hanya",
+        "canceled": "Ku khanseriwa .",
+        "incomplete": "A yi helelanga .",
+        "incomplete_expired": "Ku nga heleli loku nga helelangiki ku herile .",
+        "past_due": "Nkarhi lowu hundzeke lowu faneleke .",
+        "paused": "Yi miyerile .",
+        "preCanceled": "Pre-Canceled .",
+        "trialing": "Tenga",
+        "unpaid": "A swi hakeriwi ."
+      },
+      "subtotal": "Nhlayo ya le hansi ya xibalo xa le hansi .",
+      "tax": "Xibalo xa xibalo .",
+      "total": "Hinkwaswo",
+      "viewAllOrders": "Vona tioda hinkwato .",
+      "viewSubscription": "View Subscription ."
     }
   },
   "Log": {
