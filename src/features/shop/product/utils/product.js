@@ -3,7 +3,7 @@ import { webAppSettings } from "@/assets/options/config"
 export async function fetchProducts({ queryKey }) {
   const [, page, searchQuery] = queryKey
   const res = await fetch(
-    `/api/shop/product?page=${page}&limit=${webAppSettings.shop.products.itemsPerPage}&q=${searchQuery || ""}`
+    `/api/shop/products?page=${page}&limit=${webAppSettings.shop.products.itemsPerPage}&q=${searchQuery || ""}`
   )
 
   if (!res.ok) {
@@ -14,7 +14,7 @@ export async function fetchProducts({ queryKey }) {
 }
 
 export async function fetchProduct(id) {
-  const res = await fetch(`/api/shop/product/${id}`)
+  const res = await fetch(`/api/shop/products/${id}`)
 
   if (!res.ok) {
     throw new Error("Failed to fetch product")

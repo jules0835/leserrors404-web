@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 import { UserModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { getUserOrderEligibilitySchema } from "@/features/auth/utils/userValidation"
@@ -51,24 +52,33 @@ export const findUserByEmail = async (email) => {
 
 export const createUser = async (user) => await UserModel.create(user)
 
-export const getUsers = async (size = 10, page = 1, query = "") => {
+export const getUsers = async (
+  size = 10,
+  page = 1,
+  query = "",
+  sort = { createdAt: -1 }
+) => {
   try {
     await mwdb()
-    const searchQuery = query
-      ? {
-          $or: [
-            { firstName: { $regex: query, $options: "i" } },
-            { lastName: { $regex: query, $options: "i" } },
-            { country: { $regex: query, $options: "i" } },
-            { city: { $regex: query, $options: "i" } },
-            { zipCode: { $regex: query, $options: "i" } },
-            { phone: { $regex: query, $options: "i" } },
-            { email: { $regex: query, $options: "i" } },
-          ],
-        }
-      : {}
+    let searchQuery = {}
+
+    if (typeof query === "string" && query) {
+      searchQuery = {
+        $or: [
+          { firstName: { $regex: query, $options: "i" } },
+          { lastName: { $regex: query, $options: "i" } },
+          { country: { $regex: query, $options: "i" } },
+          { city: { $regex: query, $options: "i" } },
+          { zipCode: { $regex: query, $options: "i" } },
+          { phone: { $regex: query, $options: "i" } },
+          { email: { $regex: query, $options: "i" } },
+        ],
+      }
+    }
+
     const total = await UserModel.countDocuments(searchQuery)
     const users = await UserModel.find(searchQuery)
+      .sort(sort)
       .limit(size)
       .skip(size * (page - 1))
       .select("-password")

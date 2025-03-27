@@ -20,7 +20,10 @@ export async function GET(req) {
     log.systemError({
       logKey: logKeys.shopProductError.key,
       message: "Failed to fetch products",
-      error,
+      technicalMessage: error.message,
+      data: {
+        error,
+      },
     })
 
     return new Response(JSON.stringify({ error: "Failed to fetch products" }), {

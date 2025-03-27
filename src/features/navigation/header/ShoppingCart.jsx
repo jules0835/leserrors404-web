@@ -109,7 +109,7 @@ export default function ShoppingCart() {
     }
   }
   const goToProductPage = (productId) => {
-    router.push(`/shop/product/${productId}`)
+    router.push(`/shop/products/${productId}`)
     setIsOpen(false)
   }
   const handleAction = (e) => {

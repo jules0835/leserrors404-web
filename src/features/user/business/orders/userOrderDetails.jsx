@@ -13,7 +13,7 @@ import {
 } from "@/features/user/business/orders/utils/userOrder"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
 import ErrorFront from "@/components/navigation/error"
-import OrderDetailsSkeleton from "@/features/user/business/orders/orderDetailsSkeleton"
+import OrderDetailsSkeleton from "@/features/user/business/orders/OrderDetailsSkeleton"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
 
 export default function OrderDetails() {

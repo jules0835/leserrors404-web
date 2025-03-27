@@ -17,7 +17,10 @@ export async function GET(req, { params }) {
     log.systemError({
       logKey: logKeys.shopProductError.key,
       message: "Failed to fetch product",
-      error,
+      technicalMessage: error.message,
+      data: {
+        error,
+      },
     })
 
     return new Response("Failed to fetch product", { status: 500 })

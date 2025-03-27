@@ -606,11 +606,30 @@
           "viewProduct": "View Product",
           "preCanceledDescription": "This subscription was canceled and will be stop at the end of the current period.",
           "openSubscriptionStripe": "View on stripe",
-          "viewOrder": "View order"
+          "viewOrder": "View order",
+          "viewCustomer": "View Customer"
         }
       },
       "Payments": {
-        "title": "Payments"
+        "title": "Payments",
+        "paymentPortal": "Payment Portal",
+        "paymentPortalDescription": "View your payment history and manage your payment methods. For advanced management, use the Stripe Customer Portal.",
+        "openStripePortal": "Open Stripe Portal",
+        "savedPaymentMethods": "Saved Payment Methods",
+        "invoices": "Invoices",
+        "date": "Date",
+        "amount": "Amount",
+        "status": "Status",
+        "actions": "Actions",
+        "viewInvoice": "View Invoice",
+        "previous": "Previous",
+        "next": "Next",
+        "expires": "Expires",
+        "noPaymentMethods": "No payment methods saved",
+        "noInvoices": "No invoices found",
+        "loading": "Loading...",
+        "stripePortalInactive": "Your Stripe account will be activated after your first order. You will then have access to the Stripe Customer Portal.",
+        "olderInvoicesMessage": "Looking for older invoices? Access your complete billing history in the Stripe Portal."
       },
       "Categories": {
         "title": "Categories",
@@ -831,7 +850,8 @@
           "goToSubscriptionPageDescription": "Manage subscription cancellation and refunds on the subscription page.",
           "cancelSuccess": "Order canceled successfully",
           "cancelError": "Failed to cancel order",
-          "noRefundAvailable": "This order cannot be refunded. This may be because it was paid with a voucher or is not eligible for a refund."
+          "noRefundAvailable": "This order cannot be refunded. This may be because it was paid with a voucher or is not eligible for a refund.",
+          "viewCustomer": "View Customer"
         },
         "searchPlaceholder": "Search for an order",
         "previous": "Previous",
@@ -846,6 +866,78 @@
           "failed": "Failed",
           "refund": "Refunded"
         }
+      },
+      "Customers": {
+        "CustomerDetails": {
+          "title": "Customer Details",
+          "subTitle": "View the details of your customer"
+        },
+        "title": "Customers",
+        "subTitle": "Manage your customers",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "country": "Country",
+        "city": "City",
+        "zipCode": "Zip Code",
+        "phone": "Phone",
+        "email": "Email",
+        "createdAt": "Created At",
+        "orders": "Orders",
+        "subscriptions": "Subscriptions",
+        "viewDetails": "View Details",
+        "searchPlaceholder": "Search customers...",
+        "columns": "Columns",
+        "previous": "Previous",
+        "next": "Next",
+        "errorLoadingData": "Error loading customers data",
+        "noResults": "No customers found",
+        "customerDetails": "Customer Details",
+        "profilePictureAlt": "Profile picture of {firstName} {lastName}",
+        "created": "Created: {date}",
+        "orderId": "Order ID",
+        "date": "Date",
+        "status": {
+          "title": "Status"
+        },
+        "Status": {
+          "paid": "Paid",
+          "pending": "Pending",
+          "processing": "Processing",
+          "completed": "Completed",
+          "cancel": "Cancelled",
+          "failed": "Failed",
+          "refund": "Refunded",
+          "active": "Active",
+          "canceled": "Canceled",
+          "past_due": "Past Due",
+          "unpaid": "Unpaid",
+          "incomplete": "Incomplete",
+          "incomplete_expired": "Incomplete Expired",
+          "trialing": "Trial",
+          "paused": "Paused",
+          "preCanceled": "Pre-Canceled"
+        },
+        "total": "Total",
+        "actions": "Actions",
+        "noOrders": "No orders found",
+        "noSubscriptions": "No subscriptions found",
+        "subscriptionId": "Subscription ID",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "billingCycle": "Billing Cycle",
+        "monthly": "Monthly",
+        "annual": "Annual",
+        "street": "Street",
+        "company": "Company",
+        "countCustomerOrders": "Totale Orders",
+        "countCustomerSubscriptions": "Totale Subscription",
+        "countCustomerTickets": "Totale Tickets",
+        "viewOnStripe": "View on Stripe",
+        "editCustomer": "Edit Customer",
+        "noStripeCustomerId": "This customer is not yet register on stripe, he will be automaticly register on his first order/subscription",
+        "openClientStripePortal": "Open Client Stripe Portal",
+        "invoiceNotFound": "Invoice not found",
+        "portalNotFound": "An error occurd while getting the user portal"
       },
       "title": "Business"
     },
@@ -1240,7 +1332,25 @@
         "all": "All"
       },
       "Payments": {
-        "title": "Payments"
+        "title": "Payments",
+        "paymentPortal": "Payment Portal",
+        "paymentPortalDescription": "View your payment history and manage your payment methods. For advanced management, use the Stripe Customer Portal.",
+        "openStripePortal": "Open Stripe Portal",
+        "savedPaymentMethods": "Saved Payment Methods",
+        "invoices": "Invoices",
+        "date": "Date",
+        "amount": "Amount",
+        "status": "Status",
+        "actions": "Actions",
+        "viewInvoice": "View Invoice",
+        "previous": "Previous",
+        "next": "Next",
+        "expires": "Expires",
+        "noPaymentMethods": "No payment methods saved",
+        "noInvoices": "No invoices found",
+        "loading": "Loading...",
+        "stripePortalInactive": "Your Stripe account will be activated after your first order. You will then have access to the Stripe Customer Portal.",
+        "olderInvoicesMessage": "Looking for older invoices? Access your complete billing history in the Stripe Portal."
       },
       "Orders": {
         "title": "Orders",
@@ -1530,7 +1640,8 @@
       "voucherNotActiveSubtitle": "The voucher applied to your cart is expired or not available for your order, please remove to proceed to checkout.",
       "voucherNotActive": "Voucher not valid",
       "subscription": "Subscription",
-      "oneTimePurchase": "One-time purchase"
+      "oneTimePurchase": "One-time purchase",
+      "checkoutDescription": "When clicking on checkout, you accept ou terms and conditions. Prices are provided as information only and the final price will be confirmed at the end of the checkout process."
     },
     "Product": {
       "outOfStock": "Out of stock",
@@ -1544,7 +1655,37 @@
       "redirectingToCheckout": "We are processing your payment, please wait...",
       "redirectingToCheckoutMessage": "Mmm, it seems like the process is taking longer than expected. Please wait a few seconds and then click the button below to go to your orders page",
       "myOrders": "My orders",
-      "redirectingMessage": "When the process is finished, you will be automatically redirected to your order information."
+      "redirectingMessage": "When the process is finished, you will be automatically redirected to your order information.",
+      "processingOrder": "Processing your order...",
+      "orderSuccess": "Thank you for your order!",
+      "orderSuccessMessage": "We're excited to confirm that your order has been successfully placed. You'll receive a confirmation email shortly.",
+      "orderInformation": "Order Information",
+      "orderId": "Order ID",
+      "date": "Date",
+      "downloadInvoice": "Download Invoice",
+      "viewAllOrders": "View All Orders",
+      "subscriptionInformation": "Subscription Information",
+      "subscriptionStatus": {
+        "incomplete": "Incomplete",
+        "incomplete_expired": "Incomplete Expired",
+        "trialing": "Trial",
+        "active": "Active",
+        "past_due": "Past Due",
+        "canceled": "Canceled",
+        "unpaid": "Unpaid",
+        "paused": "Paused",
+        "preCanceled": "Pre-Canceled"
+      },
+      "billingPeriod": "Billing Period",
+      "viewSubscription": "View Subscription",
+      "products": "Products",
+      "quantity": "Quantity",
+      "billingCycle": "Billing Cycle",
+      "subtotal": "Subtotal",
+      "tax": "Tax",
+      "discount": "Discount",
+      "total": "Total",
+      "continueShopping": "Continue Shopping"
     }
   },
   "Log": {

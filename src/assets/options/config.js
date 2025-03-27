@@ -156,12 +156,6 @@ export const adminNavItems = [
         isSuperAdmin: false,
       },
       {
-        title: "Payments",
-        translationKey: "payments",
-        url: "/admin/business/payments",
-        isSuperAdmin: false,
-      },
-      {
         title: "Vouchers",
         translationKey: "vouchers",
         url: "/admin/business/vouchers",
@@ -434,6 +428,18 @@ export const pagesNames = [
     titleKey: "User.Business.Orders.OrderDetails.title",
     subTitleKey: "User.Business.Orders.OrderDetails.subTitle",
     url: "/admin/business/orders/[Id]",
+  },
+  {
+    title: "Customers",
+    titleKey: "Admin.Business.Customers.title",
+    subTitleKey: "Admin.Business.Customers.subTitle",
+    url: "/admin/business/customers",
+  },
+  {
+    title: "Customer details",
+    titleKey: "Admin.Business.Customers.CustomerDetails.title",
+    subTitleKey: "Admin.Business.Customers.CustomerDetails.subTitle",
+    url: "/admin/business/customers/[Id]",
   },
 ]
 

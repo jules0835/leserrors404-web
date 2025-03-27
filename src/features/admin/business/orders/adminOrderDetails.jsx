@@ -14,8 +14,8 @@ import {
 } from "@/features/user/business/orders/utils/userOrder"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
 import ErrorFront from "@/components/navigation/error"
-import OrderDetailsSkeleton from "@/features/user/business/orders/orderDetailsSkeleton"
 import AdminOrderTreatment from "./adminOrderTreatment"
+import AdminOrderDetailsSkeleton from "@/features/admin/business/orders/AdminOrderDetailsSkeleton"
 import { useState } from "react"
 import {
   Dialog,
@@ -46,7 +46,7 @@ export default function AdminOrderDetails() {
   })
 
   if (isLoading) {
-    return <OrderDetailsSkeleton />
+    return <AdminOrderDetailsSkeleton />
   }
 
   if (error) {
@@ -131,6 +131,16 @@ export default function AdminOrderDetails() {
             <h2 className="font-semibold mb-2">{t("orderActions")}</h2>
             <Button variant="outline" size="sm" onClick={openInvoice}>
               {t("openUserInvoice")}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                router.push(`/admin/business/customers/${order.user._id}`)
+              }}
+            >
+              {t("viewCustomer")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button variant="outline" size="sm" onClick={openOrderStripe}>

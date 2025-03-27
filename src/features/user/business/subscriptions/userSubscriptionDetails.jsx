@@ -21,7 +21,7 @@ import {
   updateSubscription,
 } from "@/features/user/business/subscriptions/utils/subscription"
 import ErrorFront from "@/components/navigation/error"
-import OrderDetailsSkeleton from "@/features/user/business/orders/orderDetailsSkeleton"
+import OrderDetailsSkeleton from "@/features/user/business/orders/OrderDetailsSkeleton"
 import { useState } from "react"
 import toast from "react-hot-toast"
 import { Separator } from "@/components/ui/separator"
@@ -185,7 +185,7 @@ export default function SubscriptionDetails() {
                   variant="outline"
                   size="sm"
                   onClick={() => {
-                    router.push(`/shop/product/${item.productId._id}`)
+                    router.push(`/shop/products/${item.productId._id}`)
                   }}
                 >
                   {t("viewProduct")}
