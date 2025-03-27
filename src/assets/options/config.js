@@ -405,6 +405,36 @@ export const pagesNames = [
     subTitleKey: "User.Business.Orders.OrderDetails.subTitle",
     url: "/user/dashboard/business/orders/[Id]",
   },
+  {
+    title: "Subscription Details",
+    titleKey: "User.Business.Subscriptions.SubscriptionDetails.title",
+    subTitleKey: "User.Business.Subscriptions.SubscriptionDetails.subTitle",
+    url: "/user/dashboard/business/subscriptions/[Id]",
+  },
+  {
+    title: "Orders list admin",
+    titleKey: "Admin.Business.Orders.title",
+    subTitleKey: "Admin.Business.Orders.subTitle",
+    url: "/admin/business/orders",
+  },
+  {
+    title: "Subscriptions list admin",
+    titleKey: "Admin.Business.Subscriptions.title",
+    subTitleKey: "Admin.Business.Subscriptions.subTitle",
+    url: "/admin/business/subscriptions",
+  },
+  {
+    title: "Subscription details admin",
+    titleKey: "Admin.Business.Subscriptions.SubscriptionDetails.title",
+    subTitleKey: "Admin.Business.Subscriptions.SubscriptionDetails.subTitle",
+    url: "/admin/business/subscriptions/[Id]",
+  },
+  {
+    title: "Order details",
+    titleKey: "User.Business.Orders.OrderDetails.title",
+    subTitleKey: "User.Business.Orders.OrderDetails.subTitle",
+    url: "/admin/business/orders/[Id]",
+  },
 ]
 
 export const emptyCarouselPart = {
@@ -599,6 +629,12 @@ export const logKeys = {
     key: "shopStripeCustomerError",
     titleKey: "Log.ShopStripeCustomerError.title",
     descriptionKey: "Log.ShopStripeCustomerError.description",
+  },
+  orderUpdate: {
+    name: "Order Update",
+    key: "orderUpdate",
+    titleKey: "Log.OrderUpdate.title",
+    descriptionKey: "Log.OrderUpdate.description",
   },
 }
 

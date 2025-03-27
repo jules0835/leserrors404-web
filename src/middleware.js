@@ -15,6 +15,7 @@ const unprotectedApiRoutes = [
   "/en/api/services/account",
   "/api/test/email",
   "/api/stripe/webhook/order",
+  "/api/stripe/webhook/subscription",
 ]
 
 function checkTokenExpiration(req) {

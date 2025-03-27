@@ -1,4 +1,4 @@
-import { CategorieModel } from "@/db/models/CategorieModel"
+import { CategorieModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 
 export const existingCategorie = async (label) => {

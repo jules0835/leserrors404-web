@@ -22,7 +22,7 @@ export async function POST(req) {
     event = stripe.webhooks.constructEvent(
       body,
       sig,
-      process.env.STRIPE_WEBHOOK_SECRET
+      process.env.STRIPE_WEBHOOK_SECRET_ORDER
     )
   } catch (errorWebhook) {
     log.systemError({

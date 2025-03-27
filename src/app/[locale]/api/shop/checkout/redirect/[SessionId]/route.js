@@ -1,5 +1,5 @@
 import { checkOrderExistBySessionId } from "@/db/crud/orderCrud"
-import { createPaymentOrder } from "@/features/shop/checkout/utils/checkoutService"
+import { checkPaymentOrder } from "@/features/shop/checkout/utils/checkoutService"
 import { NextResponse } from "next/server"
 
 export async function GET(req, { params }) {
@@ -13,23 +13,9 @@ export async function GET(req, { params }) {
     )
   }
 
-  const newPayementOrder = await createPaymentOrder(
-    SessionId,
-    "stripe_redirect_checkout"
-  )
+  const payementOrder = await checkPaymentOrder(SessionId)
 
-  if (newPayementOrder.isOrderCreated) {
-    return NextResponse.json(
-      {
-        orderId: newPayementOrder.order._id,
-        isSessionReady: true,
-        isSessionExist: true,
-      },
-      { status: 200 }
-    )
-  }
-
-  if (newPayementOrder.isPaymentFound) {
+  if (payementOrder.isPaymentFound) {
     return NextResponse.json(
       { orderId: null, isSessionReady: false, isSessionExist: true },
       { status: 200 }

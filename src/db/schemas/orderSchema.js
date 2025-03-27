@@ -25,10 +25,17 @@ export const orderSchema = new Schema(
 
     stripe: {
       sessionId: { type: String, required: true },
-      paymentIntentId: { type: String },
       subscriptionId: { type: String },
       amountTotal: { type: Number, required: true },
+      amountSubtotal: { type: Number, required: true },
       currency: { type: String, default: "eur" },
+      paymentMethod: { type: String },
+      paymentStatus: { type: String },
+      voucherCode: { type: String },
+      amountTax: { type: Number },
+      amountDiscount: { type: Number },
+      invoiceId: { type: String },
+      paymentIntentId: { type: String },
     },
 
     orderStatus: {
@@ -41,7 +48,7 @@ export const orderSchema = new Schema(
         "PENDING",
         "FAILED",
         "COMPLETED",
-        "WAITING_COMPLETION",
+        "PROCESSING",
       ],
       default: "RECEIVED",
     },
@@ -58,7 +65,7 @@ export const orderSchema = new Schema(
             "PENDING",
             "FAILED",
             "COMPLETED",
-            "WAITING_COMPLETION",
+            "PROCESSING",
           ],
           required: true,
         },

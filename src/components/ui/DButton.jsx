@@ -1,5 +1,6 @@
 import { Loader2 } from "lucide-react"
 import { Link } from "@/i18n/routing"
+import { AnimatedReload } from "@/components/actions/AnimatedReload"
 
 export default function DButton({
   children,
@@ -51,11 +52,7 @@ export default function DButton({
           }${styles} ${padding || "py-2 px-4"}`}
           disabled={isDisabled || isLoading}
         >
-          {isLoading ? (
-            <Loader2 className="animate-spin" size={25} />
-          ) : (
-            children
-          )}
+          {isLoading ? <AnimatedReload /> : children}
         </button>
       )}
     </div>

@@ -1,4 +1,4 @@
-import { UserModel } from "@/db/models/UserModel"
+import { UserModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { getUserOrderEligibilitySchema } from "@/features/auth/utils/userValidation"
 

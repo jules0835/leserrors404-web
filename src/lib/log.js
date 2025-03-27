@@ -16,6 +16,7 @@ import { logCriticalityKeys } from "@/assets/options/config"
  * @property {Object} [data]
  * @property {Object} [oldData]
  * @property {Object} [newData]
+ * @property {string} [authorId]
  */
 
 /**

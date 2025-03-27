@@ -59,3 +59,15 @@ export const createVoucher = async (voucherData) => {
     throw new Error("Failed to create voucher")
   }
 }
+
+export const getVoucherCodeByStripeId = async (stripeId) => {
+  await mwdb()
+
+  return VoucherModel.findOne({ stripeCouponId: stripeId })
+}
+
+export const findVoucherById = async (voucherId) => {
+  await mwdb()
+
+  return VoucherModel.findById(voucherId)
+}

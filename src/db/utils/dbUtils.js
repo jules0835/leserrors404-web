@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import { UserModel } from "@/db/models/UserModel"
+import { UserModel } from "@/db/models/indexModels"
 
 export const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id)
 
