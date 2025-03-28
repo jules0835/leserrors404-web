@@ -642,6 +642,18 @@ export const logKeys = {
     titleKey: "Log.OrderUpdate.title",
     descriptionKey: "Log.OrderUpdate.description",
   },
+  chatbotError: {
+    name: "Chatbot Error",
+    key: "chatbotError",
+    titleKey: "Log.ChatbotError.title",
+    descriptionKey: "Log.ChatbotError.description",
+  },
+  chatbotInfo: {
+    name: "Chatbot Info",
+    key: "chatbotInfo",
+    titleKey: "Log.ChatbotInfo.title",
+    descriptionKey: "Log.ChatbotInfo.description",
+  },
 }
 
 export const logCriticalityKeys = {

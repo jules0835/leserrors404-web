@@ -1727,5 +1727,143 @@
       "description": "log",
       "title": "log"
     }
+  },
+  "Contact": {
+    "Chatbot": {
+      "Bot": {
+        "MyOrder": {
+          "title": "I have a question about my orders",
+          "question": "What do you want to know about your orders ?",
+          "Questions": {
+            "missing": "I can't find my order in my account.",
+            "delay": "When will my order be processed?",
+            "question": "I have a question about my recent order.",
+            "cancel": "I would like to cancel my order.",
+            "refund": "How can I get a refund for my order?"
+          },
+          "Responses": {
+            "missing": "Please make sure you're logged in and check the order history tab.",
+            "delay": "Orders are usually processed within 24 to 48 hours.",
+            "question": "Sure! Could you please specify your question about your order?",
+            "cancel": "You can cancel your order from your dashboard if it's still in processing.",
+            "refund": "Refunds are issued within 5-7 days after approval."
+          }
+        },
+        "Subscriptions": {
+          "title": "I have a question about my subscriptions",
+          "question": "What do you want to know about your subscriptions ?",
+          "Questions": {
+            "where": "Where can I find my subscription?",
+            "how": "How does the subscription system work?",
+            "question": "I have a question about my subscription.",
+            "cancel": "I would like to cancel my subscription.",
+            "refund": "How can I request a refund for my subscription?"
+          },
+          "Responses": {
+            "where": "Your subscription details are available in your account under the Subscriptions tab.",
+            "how": "Subscriptions renew automatically monthly or annually, depending on your plan.",
+            "question": "Sure, let me know what you'd like to know about your subscription.",
+            "cancel": "You can cancel your subscription anytime in your account settings.",
+            "refund": "Refunds for subscriptions depend on the terms and time of cancellation."
+          }
+        },
+        "Shop": {
+          "title": "I have a question about the shop",
+          "question": "What do you want to know about our shop ?",
+          "Questions": {
+            "difference": "What's the difference between one-time purchase and subscription?",
+            "pay": "How do I make a payment?",
+            "methods": "What payment methods are available?",
+            "product": "I have a question about a product.",
+            "negociate": "Can I negotiate the price of a product?",
+            "voucher": "How can I use a discount or voucher code?"
+          },
+          "Responses": {
+            "difference": "One-time purchases are charged once, subscriptions renew automatically.",
+            "pay": "You can pay using your preferred method at checkout.",
+            "methods": "We accept credit cards, PayPal, and more depending on your region.",
+            "product": "Sure! Let me know which product you're interested in.",
+            "negociate": "For bulk or B2B orders, feel free to contact our sales team.",
+            "voucher": "You can enter your voucher code during checkout to apply a discount."
+          }
+        },
+        "CustomerService": {
+          "title": "I have a question about customer service",
+          "question": "What do you want to know about our customer service and/or your support ?",
+          "Questions": {
+            "legal": "Where can I read the legal terms and conditions?",
+            "contact": "How do I contact customer service?",
+            "tickets": "How can I view my support tickets?",
+            "human": "I want to speak to a human agent."
+          },
+          "Responses": {
+            "legal": "You can find all our legal and policy documents in the footer of the website.",
+            "contact": "You can reach customer support through the contact form or live chat.",
+            "tickets": "Your support tickets are available in your user dashboard.",
+            "human": "Sure! A human agent will join the conversation shortly."
+          }
+        },
+        "Account": {
+          "title": "I have a question about my account",
+          "question": "What do you want to know about your account ?",
+          "Questions": {
+            "create": "How do I create an account?",
+            "confirm": "How do I confirm my email address?",
+            "reset": "I forgot my password, how can I reset it?",
+            "blocked": "My account has been blocked, what should I do?"
+          },
+          "Responses": {
+            "create": "Click on 'Sign Up' and fill in your details to create an account.",
+            "confirm": "We sent you a confirmation email. Click the link inside to verify your address.",
+            "reset": "Click 'Forgot password?' on the login page to reset your credentials.",
+            "blocked": "Please contact support to resolve issues with your account."
+          }
+        }
+      },
+      "error": {
+        "userNameAndEmailRequired": "Username and Email are required."
+      },
+      "bot": {
+        "message": {
+          "hello": "Hi {userName}, how may I help you today ?",
+          "error": "I could not find an answer, can you select an other option please ?"
+        },
+        "selector": {
+          "selectOption": "Select an option",
+          "cancel": "Cancel"
+        }
+      },
+      "welcome": {
+        "startButton": "Start chat",
+        "description": " Hi, Mathys here, I'm here to help you with your questions. If I can't answer your question, I'll transfer you to a human. It's ok for you ? Click the button below to start a new chat.",
+        "title": "Start now a new chat",
+        "disclaimer": "By stating a new chat, you agree to our Terms and Condition and privacy Policy",
+        "namePlaceholder": "Your name",
+        "emailPlaceholder": "Your email",
+        "error": {
+          "needNameAndEmail": "Your Name and Email are required"
+        }
+      },
+      "widget": {
+        "title": "Chat with us"
+      }
+    }
+  },
+  "chat": {
+    "chatWith": "You are chatting with",
+    "bot": "our support Bot",
+    "admin": "a membre of our support team",
+    "endChat": {
+      "title": "Terminer la conversation",
+      "description": "Êtes-vous sûr de vouloir terminer cette conversation ? Vous ne pourrez plus envoyer de messages une fois la conversation terminée.",
+      "cancel": "Annuler",
+      "confirm": "Terminer la conversation"
+    },
+    "chatEnded": {
+      "title": "Conversation terminée",
+      "description": "Cette conversation a été terminée. Vous pouvez fermer cette fenêtre.",
+      "closeButton": "Fermer"
+    },
+    "chatWithHuman": "Chat with a human"
   }
 }

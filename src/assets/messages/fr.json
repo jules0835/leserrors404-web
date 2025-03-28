@@ -1727,5 +1727,143 @@
       "description": "Le mot de passe de l'utilisateur a été modifié",
       "title": "Mot de passe de changement d'utilisateur"
     }
+  },
+  "Contact": {
+    "Chatbot": {
+      "Bot": {
+        "Account": {
+          "Questions": {
+            "blocked": "Mon compte a été bloqué, que dois-je faire?",
+            "confirm": "Comment confirmer mon adresse e-mail?",
+            "create": "Comment créer un compte?",
+            "reset": "J'ai oublié mon mot de passe, comment puis-je le réinitialiser?"
+          },
+          "Responses": {
+            "blocked": "Veuillez contacter l'assistance pour résoudre les problèmes avec votre compte.",
+            "confirm": "Nous vous avons envoyé un e-mail de confirmation. \nCliquez sur le lien à l'intérieur pour vérifier votre adresse.",
+            "create": "Cliquez sur «Inscrivez-vous» et remplissez vos coordonnées pour créer un compte.",
+            "reset": "Cliquez sur «Mot de passe oublié? \nsur la page de connexion pour réinitialiser vos informations d'identification."
+          },
+          "question": "Que voulez-vous savoir sur votre compte?",
+          "title": "J'ai une question sur mon compte"
+        },
+        "CustomerService": {
+          "Questions": {
+            "contact": "Comment contacter le service client?",
+            "human": "Je veux parler à un agent humain.",
+            "legal": "Où puis-je lire les termes et conditions juridiques?",
+            "tickets": "Comment puis-je voir mes billets de support?"
+          },
+          "Responses": {
+            "contact": "Vous pouvez atteindre le support client via le formulaire de contact ou le chat en direct.",
+            "human": "Bien sûr! \nUn agent humain rejoindra la conversation sous peu.",
+            "legal": "Vous pouvez trouver tous nos documents juridiques et politiques dans le pied de page du site Web.",
+            "tickets": "Vos billets d'assistance sont disponibles dans votre tableau de bord utilisateur."
+          },
+          "question": "Que voulez-vous savoir sur notre service client et / ou votre support?",
+          "title": "J'ai une question sur le service client"
+        },
+        "MyOrder": {
+          "Questions": {
+            "cancel": "Je voudrais annuler ma commande.",
+            "delay": "Quand ma commande sera-t-elle traitée?",
+            "missing": "Je ne trouve pas ma commande dans mon compte.",
+            "question": "J'ai une question sur ma récente commande.",
+            "refund": "Comment puis-je obtenir un remboursement pour ma commande?"
+          },
+          "Responses": {
+            "cancel": "Vous pouvez annuler votre commande à partir de votre tableau de bord s'il est toujours en traitement.",
+            "delay": "Les commandes sont généralement traitées dans les 24 à 48 heures.",
+            "missing": "Veuillez vous assurer que vous êtes connecté et vérifiez l'onglet Historique des commandes.",
+            "question": "Bien sûr! \nPourriez-vous s'il vous plaît spécifier votre question sur votre commande?",
+            "refund": "Des remboursements sont émis dans les 5-7 jours suivant l'approbation."
+          },
+          "question": "Que voulez-vous savoir sur vos commandes?",
+          "title": "J'ai une question sur mes commandes"
+        },
+        "Shop": {
+          "Questions": {
+            "difference": "Quelle est la différence entre l'achat unique et l'abonnement?",
+            "methods": "Quels méthodes de paiement sont disponibles?",
+            "negociate": "Puis-je négocier le prix d'un produit?",
+            "pay": "Comment effectuer un paiement?",
+            "product": "J'ai une question sur un produit.",
+            "voucher": "Comment puis-je utiliser une remise ou un code de bon?"
+          },
+          "Responses": {
+            "difference": "Les achats uniques sont facturés une fois, les abonnements se renouvellent automatiquement.",
+            "methods": "Nous acceptons les cartes de crédit, PayPal et plus en fonction de votre région.",
+            "negociate": "Pour les commandes en vrac ou B2B, n'hésitez pas à contacter notre équipe de vente.",
+            "pay": "Vous pouvez payer en utilisant votre méthode préférée à la caisse.",
+            "product": "Bien sûr! \nFaites-moi savoir quel produit qui vous intéresse.",
+            "voucher": "Vous pouvez saisir votre code de bon pendant le paiement pour appliquer une remise."
+          },
+          "question": "Que voulez-vous savoir sur notre boutique?",
+          "title": "J'ai une question sur la boutique"
+        },
+        "Subscriptions": {
+          "Questions": {
+            "cancel": "Je voudrais annuler mon abonnement.",
+            "how": "Comment fonctionne le système d'abonnement?",
+            "question": "J'ai une question sur mon abonnement.",
+            "refund": "Comment puis-je demander un remboursement pour mon abonnement?",
+            "where": "Où puis-je trouver mon abonnement?"
+          },
+          "Responses": {
+            "cancel": "Vous pouvez annuler votre abonnement à tout moment dans les paramètres de votre compte.",
+            "how": "Les abonnements se renouvellent automatiquement mensuellement ou annuellement, selon votre plan.",
+            "question": "Bien sûr, faites-moi savoir ce que vous aimeriez savoir sur votre abonnement.",
+            "refund": "Les remboursements pour les abonnements dépendent des termes et du temps d'annulation.",
+            "where": "Vos détails d'abonnement sont disponibles dans votre compte dans l'onglet Abonnements."
+          },
+          "question": "Que voulez-vous savoir sur vos abonnements?",
+          "title": "J'ai une question sur mes abonnements"
+        }
+      },
+      "bot": {
+        "message": {
+          "error": "Je n'ai pas pu trouver de réponse, pouvez-vous sélectionner une autre option s'il vous plaît?",
+          "hello": "Salut {nom d'utilisateur}, comment puis-je vous aider aujourd'hui?"
+        },
+        "selector": {
+          "cancel": "Annuler",
+          "selectOption": "Sélectionnez une option"
+        }
+      },
+      "error": {
+        "userNameAndEmailRequired": "Le nom d'utilisateur et le courrier électronique sont requis."
+      },
+      "welcome": {
+        "description": "Salut, Mathys ici, je suis là pour vous aider avec vos questions. \nSi je ne peux pas répondre à votre question, je vais vous transférer à un humain. \nC'est OK pour toi? \nCliquez sur le bouton ci-dessous pour démarrer une nouvelle conversation.",
+        "disclaimer": "En indiquant une nouvelle conversation, vous acceptez nos conditions générales et notre politique de confidentialité",
+        "emailPlaceholder": "Votre e-mail",
+        "error": {
+          "needNameAndEmail": "Votre nom et votre e-mail sont requis"
+        },
+        "namePlaceholder": "Votre nom",
+        "startButton": "Commencer à discuter",
+        "title": "Commencez maintenant une nouvelle conversation"
+      },
+      "widget": {
+        "title": "Discuter avec nous"
+      }
+    }
+  },
+  "chat": {
+    "admin": "Une membrane de notre équipe de soutien",
+    "bot": "Notre bot de soutien",
+    "chatEnded": {
+      "closeButton": "Fermer",
+      "description": "Conversation de cette A Été terminée. \nVous Pouvez Fermer Cette Fenêtre.",
+      "title": "Conversation Terminee"
+    },
+    "chatWith": "Vous discutez avec",
+    "chatWithHuman": "Discuter avec un humain",
+    "endChat": {
+      "cancel": "Anuler",
+      "confirm": "Termine la conversation",
+      "description": "Les êtes-vous sûr de Vouloir terminer la conversation de cille? \nVous ne pourrez plus envoyé de messages une fois la conversation terminée.",
+      "title": "Termine la conversation"
+    }
   }
 }

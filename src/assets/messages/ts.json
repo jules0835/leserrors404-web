@@ -1727,5 +1727,143 @@
       "description": "Password ya mutirhisi yi cinciwile .",
       "title": "Password yo cinca mutirhisi ."
     }
+  },
+  "Contact": {
+    "Chatbot": {
+      "Bot": {
+        "Account": {
+          "Questions": {
+            "blocked": "Account ya mina yi pfaleriwile, ndzi fanele ndzi endla yini?",
+            "confirm": "Xana ndzi tiyisisa njhani adirese ya mina ya email?",
+            "create": "Xana ndzi nga yi endla njhani account?",
+            "reset": "Ndzi rivele password ya mina, ndzi nga yi reset njhani?"
+          },
+          "Responses": {
+            "blocked": "Hi kombela u tihlanganisa na Support ku lulamisa swiphiqo na akhawunti ya wena.",
+            "confirm": "Hi ku rhumele email yo tiyisisa. \nClick link leyi nga endzeni ku tiyisisa adirese ya wena.",
+            "create": "Click eka 'Sign up' u tata vuxokoxoko bya wena ku endla account.",
+            "reset": "Click 'Forgot Password?' \nEka tluka ro nghena ku tlhela u veka switifiketi swa wena."
+          },
+          "question": "Xana u lava ku tiva yini hi akhawunti ya wena ?",
+          "title": "Ndzi na xivutiso mayelana na akhawunti ya mina ."
+        },
+        "CustomerService": {
+          "Questions": {
+            "contact": "Xana ndzi nga tihlanganisa njhani na vukorhokeri bya vaxavi?",
+            "human": "Ndzi lava ku vulavula na muyimeri wa munhu.",
+            "legal": "Xana ndzi nga yi hlaya kwihi milawu ni swipimelo swa nawu?",
+            "tickets": "Xana ndzi nga ma languta njhani mathikithi ya mina ya nseketelo?"
+          },
+          "Responses": {
+            "contact": "U nga fikelela nseketelo wa vaxavi hi ku tirhisa fomo ya vuhlanganisi kumbe ku burisana hi ku kongoma.",
+            "human": "Tiyisisa! \nMuyimeri wa munhu u ta joyina bulo ku nga ri khale.",
+            "legal": "U nga kuma matsalwa ya hina hinkwawo ya nawu na ya pholisi eka xiphemu xa le hansi xa webusayiti.",
+            "tickets": "Mathikithi ya wena ya nseketelo ya kumeka eka dashboard ya wena ya mutirhisi."
+          },
+          "question": "Xana u lava ku tiva yini hi vukorhokeri bya hina bya vaxavi na/kumbe nseketelo wa wena ?",
+          "title": "Ndzi na xivutiso mayelana na vukorhokeri bya vaxavi ."
+        },
+        "MyOrder": {
+          "Questions": {
+            "cancel": "Ndzi tsakela ku cancel order ya mina.",
+            "delay": "Xana oda ya mina yi ta endliwa rini?",
+            "missing": "A ndzi kumi oda ya mina eka akhawunti ya mina.",
+            "question": "Ndzi na xivutiso mayelana na oda ya mina ya sweswinyana.",
+            "refund": "Xana ndzi nga swi kotisa ku yini ku tlheriseriwa mali ya oda ya mina?"
+          },
+          "Responses": {
+            "cancel": "U nga ha khansela oda ya wena eka dashboard ya wena loko ya ha ri eku phurosesa.",
+            "delay": "Hi ntolovelo tioda ti endliwa ku nga si hela tiawara ta 24 ku ya eka 48.",
+            "missing": "Hi kombela u tiyisisa leswaku u nghenile u languta thebhu ya Matimu ya Odara.",
+            "question": "Tiyisisa! \nXana u nga kombela u boxa xivutiso xa wena mayelana na oda ya wena?",
+            "refund": "Ku tlheriseriwa mali ku humesiwa ku nga si hela masiku ya 5-7 endzhaku ko amukeriwa."
+          },
+          "question": "Xana u lava ku tiva yini hi ti oda ta wena ?",
+          "title": "Ndzi na xivutiso mayelana na ti order ta mina ."
+        },
+        "Shop": {
+          "Questions": {
+            "difference": "Xana ku hambana kwihi exikarhi ka ku xava kan’we ni ku xava kan’we?",
+            "methods": "Hi tihi tindlela to hakela leti nga kona?",
+            "negociate": "Xana ndzi nga burisana hi nxavo wa xitirhisiwa?",
+            "pay": "Xana ndzi nga endla njhani hakelo?",
+            "product": "Ndzi na xivutiso mayelana na xiendliwa.",
+            "voucher": "Xana ndzi nga yi tirhisa njhani discount kumbe voucher code?"
+          },
+          "Responses": {
+            "difference": "Ku xava kan’we ku hakeriwa kan’we, swikhokhelo swi pfuxeta hi ku tisungulela.",
+            "methods": "Hi amukela makhadi ya xikweleti, PayPal, na swin’wana ku ya hi xifundzha xa wena.",
+            "negociate": "Eka tioda ta bulk kumbe B2B, titwe u ntshunxekile ku tihlanganisa na ntlawa wa hina wa vuxavisi.",
+            "pay": "U nga hakela hi ku tirhisa ndlela leyi u yi tsakelaka loko u ya eku xaveni.",
+            "product": "Tiyisisa! \nNdzi tivise leswaku u tsakela product yihi.",
+            "voucher": "U nga nghenisa khodi ya wena ya tivhawuchara hi nkarhi wa ku xava ku tirhisa nhlawulo."
+          },
+          "question": "Xana u lava ku tiva yini hi vhengele ra hina ?",
+          "title": "Ndzi na xivutiso mayelana na vhengele ."
+        },
+        "Subscriptions": {
+          "Questions": {
+            "cancel": "Ndzi tsakela ku khansela xikhokhelo xa mina.",
+            "how": "Xana fambiselo ra xikhokhelo ri tirha njhani?",
+            "question": "Ndzi na xivutiso mayelana na xikhokhelo xa mina.",
+            "refund": "Xana ndzi nga kombela njhani ku tlheriseriwa mali ya xikhokhelo xa mina?",
+            "where": "Xana ndzi nga xi kuma kwihi xikhokhelo xa mina?"
+          },
+          "Responses": {
+            "cancel": "U nga khansela xikhokhelo xa wena nkarhi wihi na wihi eka swiletelo swa akhawunti ya wena.",
+            "how": "Swikhokhelo swi pfuxeta hi ku tisungulela n’hweti na n’hweti kumbe lembe na lembe, ku ya hi pulani ya wena.",
+            "question": "Kunene, ndzi tivise leswi u nga tsakelaka ku swi tiva hi xikhokhelo xa wena.",
+            "refund": "Ku tlheriseriwa mali ya swikhokhelo swi ya hi swipimelo na nkarhi wo khansela.",
+            "where": "Vuxokoxoko bya wena bya xikhokhelo byi kumeka eka akhawunti ya wena ehansi ka thebhu ya Swikhokhelo."
+          },
+          "question": "Xana u lava ku tiva yini hi swikhokhelo swa wena ?",
+          "title": "Ndzi na xivutiso mayelana na swikhokhelo swa mina ."
+        }
+      },
+      "bot": {
+        "message": {
+          "error": "A ndzi kumanga nhlamulo, xana u nga hlawula ndlela yin'wana ndzi kombela ?",
+          "hello": "Hi {username}, ndzi nga ku pfuna njhani namuntlha ?"
+        },
+        "selector": {
+          "cancel": "Khansela",
+          "selectOption": "Hlawula xihlawuhlawu ."
+        }
+      },
+      "error": {
+        "userNameAndEmailRequired": "Vito ra mutirhisi na imeyili swa laveka."
+      },
+      "welcome": {
+        "description": "Hi, Mathys laha, ndzi kona ku ku pfuna hi swivutiso swa wena. \nLoko ndzi nga swi koti ku hlamula xivutiso xa wena, ndzi ta ku hundzisela eka munhu. \nSwi lulamile eka wena ? \nClick button leyi nga laha hansi ku sungula chat leyintshwa.",
+        "disclaimer": "Hi ku boxa mbulavurisano lowuntshwa, u pfumelelana ni milawu ni xiyimo xa hina ni pholisi ya vuhlayiseki bya vuxokoxoko .",
+        "emailPlaceholder": "Imeyili ya wena .",
+        "error": {
+          "needNameAndEmail": "Vito ra wena na email swa laveka ."
+        },
+        "namePlaceholder": "Vito ra wena .",
+        "startButton": "Sungula ku burisana .",
+        "title": "Sungula sweswi ku burisana lokuntshwa ."
+      },
+      "widget": {
+        "title": "Chat na hina"
+      }
+    }
+  },
+  "chat": {
+    "admin": "Membre ya xipano xa hina xa nseketelo .",
+    "bot": "Bot ya hina ya nseketelo .",
+    "chatEnded": {
+      "closeButton": "Fermer .",
+      "description": "Cette mbulavurisano a été terminée. \nvous Pouvez Fermer Cette Fenêtre.",
+      "title": "Xirhendzevutani xa mbulavurisano ."
+    },
+    "chatWith": "U le ku buleni na .",
+    "chatWithHuman": "Chat na munhu .",
+    "endChat": {
+      "cancel": "Annuler .",
+      "confirm": "Terminer LA Ku vulavula hi .",
+      "description": "êtes-Vous Sûr de Vouloir Xihehlo xa le Terminer Cette ? \nvous ne pourrez plus murhumiwa de marungula une fois la bulo ra kona.",
+      "title": "Terminer LA Ku vulavula hi ."
+    }
   }
 }

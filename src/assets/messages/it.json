@@ -1727,5 +1727,143 @@
       "description": "La password dell'utente è stata modificata",
       "title": "La password di modifica dell'utente"
     }
+  },
+  "Contact": {
+    "Chatbot": {
+      "Bot": {
+        "Account": {
+          "Questions": {
+            "blocked": "Il mio account è stato bloccato, cosa dovrei fare?",
+            "confirm": "Come confermo il mio indirizzo email?",
+            "create": "Come creo un account?",
+            "reset": "Ho dimenticato la mia password, come posso ripristinarlo?"
+          },
+          "Responses": {
+            "blocked": "Si prega di contattare il supporto per risolvere i problemi con il tuo account.",
+            "confirm": "Ti abbiamo inviato un'e -mail di conferma. \nFai clic sul collegamento all'interno per verificare il tuo indirizzo.",
+            "create": "Fai clic su \"Iscriviti\" e compila i tuoi dati per creare un account.",
+            "reset": "Fare clic su \"Password dimenticata?\" \nNella pagina di accesso per ripristinare le credenziali."
+          },
+          "question": "Cosa vuoi sapere sul tuo account?",
+          "title": "Ho una domanda sul mio account"
+        },
+        "CustomerService": {
+          "Questions": {
+            "contact": "Come contatto il servizio clienti?",
+            "human": "Voglio parlare con un agente umano.",
+            "legal": "Dove posso leggere i termini e le condizioni legali?",
+            "tickets": "Come posso visualizzare i miei biglietti di supporto?"
+          },
+          "Responses": {
+            "contact": "Puoi raggiungere l'assistenza clienti tramite il modulo di contatto o la chat in diretta.",
+            "human": "Sicuro! \nUn agente umano si unirà alla conversazione a breve.",
+            "legal": "Puoi trovare tutti i nostri documenti legali e politici nel piè di pagina del sito Web.",
+            "tickets": "I tuoi biglietti di supporto sono disponibili nella dashboard utente."
+          },
+          "question": "Cosa vuoi sapere del nostro servizio clienti e/o del tuo supporto?",
+          "title": "Ho una domanda sul servizio clienti"
+        },
+        "MyOrder": {
+          "Questions": {
+            "cancel": "Vorrei annullare il mio ordine.",
+            "delay": "Quando verrà elaborato il mio ordine?",
+            "missing": "Non riesco a trovare il mio ordine nel mio account.",
+            "question": "Ho una domanda sul mio recente ordine.",
+            "refund": "Come posso ottenere un rimborso per il mio ordine?"
+          },
+          "Responses": {
+            "cancel": "Puoi annullare il tuo ordine dalla dashboard se è ancora in elaborazione.",
+            "delay": "Gli ordini vengono generalmente elaborati entro 24-48 ore.",
+            "missing": "Assicurati di essere effettuato l'accesso e controlla la scheda Cronologia ordini.",
+            "question": "Sicuro! \nPotresti specificare la tua domanda sul tuo ordine?",
+            "refund": "I rimborsi vengono emessi entro 5-7 giorni dall'approvazione."
+          },
+          "question": "Cosa vuoi sapere sui tuoi ordini?",
+          "title": "Ho una domanda sui miei ordini"
+        },
+        "Shop": {
+          "Questions": {
+            "difference": "Qual è la differenza tra l'acquisto una tantum e l'abbonamento?",
+            "methods": "Quali metodi di pagamento sono disponibili?",
+            "negociate": "Posso negoziare il prezzo di un prodotto?",
+            "pay": "Come faccio un pagamento?",
+            "product": "Ho una domanda su un prodotto.",
+            "voucher": "Come posso usare uno sconto o un codice voucher?"
+          },
+          "Responses": {
+            "difference": "Gli acquisti una tantum vengono addebitati una volta, gli abbonamenti si rinnovano automaticamente.",
+            "methods": "Accettiamo carte di credito, PayPal e altro a seconda della tua regione.",
+            "negociate": "Per gli ordini di massa o B2B, non esitare a contattare il nostro team di vendita.",
+            "pay": "Puoi pagare utilizzando il tuo metodo preferito al momento del pagamento.",
+            "product": "Sicuro! \nFammi sapere a quale prodotto ti interessa.",
+            "voucher": "È possibile inserire il codice del voucher durante il checkout per applicare uno sconto."
+          },
+          "question": "Cosa vuoi sapere del nostro negozio?",
+          "title": "Ho una domanda sul negozio"
+        },
+        "Subscriptions": {
+          "Questions": {
+            "cancel": "Vorrei annullare il mio abbonamento.",
+            "how": "Come funziona il sistema di abbonamento?",
+            "question": "Ho una domanda sul mio abbonamento.",
+            "refund": "Come posso richiedere un rimborso per il mio abbonamento?",
+            "where": "Dove posso trovare il mio abbonamento?"
+          },
+          "Responses": {
+            "cancel": "Puoi annullare l'abbonamento in qualsiasi momento nelle impostazioni dell'account.",
+            "how": "Gli abbonamenti si rinnovano automaticamente mensilmente o ogni anno, a seconda del piano.",
+            "question": "Certo, fammi sapere cosa vorresti sapere sul tuo abbonamento.",
+            "refund": "I rimborsi per gli abbonamenti dipendono dai termini e dal tempo della cancellazione.",
+            "where": "I dettagli dell'abbonamento sono disponibili nel tuo account nella scheda Abbonamenti."
+          },
+          "question": "Cosa vuoi sapere sui tuoi abbonamenti?",
+          "title": "Ho una domanda sui miei abbonamenti"
+        }
+      },
+      "bot": {
+        "message": {
+          "error": "Non sono riuscito a trovare una risposta, puoi selezionare un'altra opzione per favore?",
+          "hello": "Ciao {nome utente}, come posso aiutarti oggi?"
+        },
+        "selector": {
+          "cancel": "Cancellare",
+          "selectOption": "Seleziona un'opzione"
+        }
+      },
+      "error": {
+        "userNameAndEmailRequired": "Sono richiesti nome utente ed e -mail."
+      },
+      "welcome": {
+        "description": "Ciao, Mathys qui, sono qui per aiutarti con le tue domande. \nSe non riesco a rispondere alla tua domanda, ti trasferirò a un essere umano. \nVa bene per te? \nFai clic sul pulsante in basso per avviare una nuova chat.",
+        "disclaimer": "Dichiarando una nuova chat, accetti i nostri termini, condizioni e politica sulla privacy",
+        "emailPlaceholder": "La tua email",
+        "error": {
+          "needNameAndEmail": "Sono richiesti il ​​tuo nome ed e -mail"
+        },
+        "namePlaceholder": "Il tuo nome",
+        "startButton": "Inizia a chattare",
+        "title": "Inizia ora una nuova chat"
+      },
+      "widget": {
+        "title": "Chatta con noi"
+      }
+    }
+  },
+  "chat": {
+    "admin": "un membro del nostro team di supporto",
+    "bot": "Il nostro bot di supporto",
+    "chatEnded": {
+      "closeButton": "Fermer",
+      "description": "Cette Conversation a été Terminée. \nVous Pouvez Fermer Cette Fenêtre.",
+      "title": "Conversazione terminale"
+    },
+    "chatWith": "Stai chattando con",
+    "chatWithHuman": "Chatta con un essere umano",
+    "endChat": {
+      "cancel": "Annuleratore",
+      "confirm": "Conversazione Terminer LA",
+      "description": "Êtes-vous sûr de vouloir Terminer Cette Conversation? \nVous ne piorrez plus inviyer de messaggi une fois la conversation terminée.",
+      "title": "Conversazione Terminer LA"
+    }
   }
 }
