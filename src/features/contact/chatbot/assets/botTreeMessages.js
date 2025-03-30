@@ -6,32 +6,43 @@ export const botTreeMessages = {
       missing: {
         transKey: "Bot.MyOrder.Questions.missing",
         responseTransKey: "Bot.MyOrder.Responses.missing",
-        action: null,
-        link: null,
+        link: {
+          href: "/user/dashboard/business/orders",
+          type: "internal",
+          needLogin: true,
+        },
       },
       delay: {
         transKey: "Bot.MyOrder.Questions.delay",
         responseTransKey: "Bot.MyOrder.Responses.delay",
-        link: null,
+        link: {
+          href: "/user/dashboard/business/orders",
+          type: "internal",
+          needLogin: true,
+        },
       },
       question: {
         transKey: "Bot.MyOrder.Questions.question",
         responseTransKey: "Bot.MyOrder.Responses.question",
+        action: "CONTACT_HUMAN",
+        needLogin: true,
       },
       cancel: {
         transKey: "Bot.MyOrder.Questions.cancel",
         responseTransKey: "Bot.MyOrder.Responses.cancel",
         link: {
-          href: "/help/cancel-order",
+          href: "/user/dashboard/business/orders",
           type: "internal",
+          needLogin: true,
         },
       },
       refund: {
         transKey: "Bot.MyOrder.Questions.refund",
         responseTransKey: "Bot.MyOrder.Responses.refund",
         link: {
-          href: "https://refund-policy.example.com",
-          type: "external",
+          href: "/user/dashboard/business/orders",
+          type: "internal",
+          needLogin: true,
         },
       },
     },
@@ -44,22 +55,43 @@ export const botTreeMessages = {
       where: {
         transKey: "Bot.Subscriptions.Questions.where",
         responseTransKey: "Bot.Subscriptions.Responses.where",
+        link: {
+          href: "/user/dashboard/business/subscriptions",
+          type: "internal",
+          needLogin: true,
+        },
       },
       how: {
         transKey: "Bot.Subscriptions.Questions.how",
         responseTransKey: "Bot.Subscriptions.Responses.how",
+        link: {
+          href: "/user/dashboard/business/subscriptions",
+          type: "internal",
+          needLogin: true,
+        },
       },
       question: {
         transKey: "Bot.Subscriptions.Questions.question",
         responseTransKey: "Bot.Subscriptions.Responses.question",
+        action: "CONTACT_HUMAN",
       },
       cancel: {
         transKey: "Bot.Subscriptions.Questions.cancel",
         responseTransKey: "Bot.Subscriptions.Responses.cancel",
+        link: {
+          href: "/user/dashboard/business/subscriptions",
+          type: "internal",
+          needLogin: true,
+        },
       },
       refund: {
         transKey: "Bot.Subscriptions.Questions.refund",
         responseTransKey: "Bot.Subscriptions.Responses.refund",
+        link: {
+          href: "/user/dashboard/business/subscriptions",
+          type: "internal",
+          needLogin: true,
+        },
       },
     },
   },
@@ -83,10 +115,16 @@ export const botTreeMessages = {
       product: {
         transKey: "Bot.Shop.Questions.product",
         responseTransKey: "Bot.Shop.Responses.product",
+        link: {
+          href: "/shop/products",
+          type: "internal",
+          needLogin: false,
+        },
       },
       negociate: {
         transKey: "Bot.Shop.Questions.negociate",
         responseTransKey: "Bot.Shop.Responses.negociate",
+        action: "CONTACT_HUMAN",
       },
       voucher: {
         transKey: "Bot.Shop.Questions.voucher",
@@ -102,14 +140,25 @@ export const botTreeMessages = {
       legal: {
         transKey: "Bot.CustomerService.Questions.legal",
         responseTransKey: "Bot.CustomerService.Responses.legal",
+        link: {
+          href: "/legals",
+          type: "internal",
+          needLogin: false,
+        },
       },
       contact: {
         transKey: "Bot.CustomerService.Questions.contact",
         responseTransKey: "Bot.CustomerService.Responses.contact",
+        action: "CONTACT_HUMAN",
       },
       tickets: {
         transKey: "Bot.CustomerService.Questions.tickets",
         responseTransKey: "Bot.CustomerService.Responses.tickets",
+        link: {
+          href: "/user/dashboard/support/tickets",
+          type: "internal",
+          needLogin: true,
+        },
       },
       human: {
         transKey: "Bot.CustomerService.Questions.human",
@@ -126,6 +175,11 @@ export const botTreeMessages = {
       create: {
         transKey: "Bot.Account.Questions.create",
         responseTransKey: "Bot.Account.Responses.create",
+        link: {
+          href: "/auth/register",
+          type: "internal",
+          needLogin: false,
+        },
       },
       confirm: {
         transKey: "Bot.Account.Questions.confirm",
@@ -134,10 +188,16 @@ export const botTreeMessages = {
       reset: {
         transKey: "Bot.Account.Questions.reset",
         responseTransKey: "Bot.Account.Responses.reset",
+        link: {
+          href: "/auth/password",
+          type: "internal",
+          needLogin: false,
+        },
       },
       blocked: {
         transKey: "Bot.Account.Questions.blocked",
         responseTransKey: "Bot.Account.Responses.blocked",
+        action: "CONTACT_HUMAN",
       },
     },
   },

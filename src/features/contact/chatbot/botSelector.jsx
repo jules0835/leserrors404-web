@@ -7,7 +7,7 @@ import DButton from "@/components/ui/DButton"
 
 export default function BotSelector() {
   const t = useTranslations("Contact.Chatbot")
-  const { chatData, sendMessage, isSendingMessage } = useChat()
+  const { chatData, sendMessageToBot, isSendingMessage } = useChat()
   const [isOpen, setIsOpen] = useState(false)
   const lastMessage =
     chatData?.chat?.messages[chatData.chat.messages.length - 1]
@@ -19,7 +19,7 @@ export default function BotSelector() {
   const handleOptionSelect = async (option) => {
     setIsOpen(false)
 
-    await sendMessage(option.value, true)
+    await sendMessageToBot(option.value, true)
   }
 
   return (

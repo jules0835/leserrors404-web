@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 import { ChatModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 
@@ -7,22 +8,22 @@ export const createChat = async (data) => {
   return ChatModel.create(data)
 }
 
-export const findChatByIdForBot = async (chatId) => {
+export const findChatByIdForChatBot = async (chatId) => {
   await mwdb()
 
   return await ChatModel.findOne({
-    state: "CHAT_BOT",
+    state: { $in: ["CHAT_BOT", "CHAT_ADMIN"] },
     isActive: true,
     _id: chatId,
   })
 }
 
-export const findChatByUserIdForBot = async (userId) => {
+export const findChatByUserIdForChatBot = async (userId) => {
   await mwdb()
 
   return await ChatModel.findOne({
     isActive: true,
-    state: "CHAT_BOT",
+    state: { $in: ["CHAT_BOT", "CHAT_ADMIN"] },
     user: userId,
   })
 }
@@ -46,4 +47,213 @@ export const createChatForBotUser = async ({ userId, message }) => {
     state: "CHAT_BOT",
     messages: [message],
   })
+}
+
+export const findAdminChats = async () => {
+  await mwdb()
+
+  const chats = await ChatModel.find({
+    state: { $in: ["CHAT_ADMIN", "INBOX"] },
+    isActive: true,
+  })
+    .populate("user", "firstName lastName email phone company")
+    .lean()
+
+  // Sort chats by last message date
+  return chats.sort((a, b) => {
+    const lastMessageA =
+      a.messages[a.messages.length - 1]?.sendDate || a.createdAt
+    const lastMessageB =
+      b.messages[b.messages.length - 1]?.sendDate || b.createdAt
+
+    return new Date(lastMessageB) - new Date(lastMessageA)
+  })
+}
+
+export const findAdminChatById = async (chatId) => {
+  await mwdb()
+
+  return await ChatModel.findById(chatId).populate(
+    "user",
+    "firstName lastName email phone company"
+  )
+}
+
+export const findAdminChatByIdWithMessages = async (chatId) => {
+  await mwdb()
+
+  return await ChatModel.findById(chatId)
+    .populate("user", "firstName lastName email phone company")
+    .populate("orders")
+    .populate("subscriptions")
+    .populate("products")
+}
+
+export const updateChatAction = async (
+  chatId,
+  messageId,
+  selectedItem,
+  action
+) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat) {
+    return null
+  }
+
+  const message = chat.messages.id(messageId)
+
+  if (!message) {
+    return null
+  }
+
+  message.isActionDone = true
+
+  switch (action) {
+    case "SELECT_ORDER":
+      if (!chat.orders.includes(selectedItem._id)) {
+        chat.orders.push(selectedItem._id)
+      }
+
+      break
+
+    case "SELECT_SUBSCRIPTION":
+      if (!chat.subscriptions.includes(selectedItem._id)) {
+        chat.subscriptions.push(selectedItem._id)
+      }
+
+      break
+
+    case "SELECT_PRODUCT":
+      if (!chat.products.includes(selectedItem._id)) {
+        chat.products.push(selectedItem._id)
+      }
+
+      break
+  }
+
+  return await chat.save()
+}
+
+export const addAdminMessage = async (chatId, messageData) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat) {
+    return null
+  }
+
+  chat.messages.push(messageData)
+  const updatedChat = await chat.save()
+  await markAdminMessagesAsRead(chatId)
+
+  return updatedChat
+}
+
+export const markAdminMessagesAsRead = async (chatId) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat) {
+    return null
+  }
+
+  chat.messages.forEach((message) => {
+    if (message.sender === "USER" && !message.readByAdmin) {
+      message.readByAdmin = true
+    }
+  })
+
+  return await chat.save()
+}
+
+export const markUserMessagesAsRead = async (chatId) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat) {
+    return null
+  }
+
+  chat.messages.forEach((message) => {
+    if (
+      (message.sender === "BOT" || message.sender === "ADMIN") &&
+      !message.readByUser
+    ) {
+      message.readByUser = true
+    }
+  })
+
+  return await chat.save()
+}
+
+export const endChat = async (chatId, closedBy) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat) {
+    return null
+  }
+
+  chat.isActive = false
+  chat.closeBy = closedBy
+  chat.endedAt = new Date()
+
+  return await chat.save()
+}
+
+export const switchChatToAdmin = async (chatId) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat) {
+    return null
+  }
+
+  chat.state = "CHAT_ADMIN"
+
+  return await chat.save()
+}
+
+export const updateUserTypingStatus = async (chatId, isTyping) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat) {
+    return null
+  }
+
+  chat.isUserTyping = isTyping
+  chat.isUserTypingLastUpdate = isTyping ? new Date() : null
+
+  const updatedChat = await chat.save()
+  await markUserMessagesAsRead(chatId)
+
+  return updatedChat
+}
+
+export const updateAdminTypingStatus = async (chatId, isTyping) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat) {
+    return null
+  }
+
+  chat.isAdminTyping = isTyping
+  chat.isAdminTypingLastUpdate = isTyping ? new Date() : null
+
+  const updatedChat = await chat.save()
+  await markAdminMessagesAsRead(chatId)
+
+  return updatedChat
 }

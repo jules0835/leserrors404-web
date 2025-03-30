@@ -1,6 +1,9 @@
 /* eslint-disable max-depth */
 import { logKeys } from "@/assets/options/config"
-import { findChatByIdForBot, findChatByUserIdForBot } from "@/db/crud/chatCrud"
+import {
+  findChatByIdForChatBot,
+  findChatByUserIdForChatBot,
+} from "@/db/crud/chatCrud"
 import { getReqUserId } from "@/features/auth/utils/getAuthParam"
 import log from "@/lib/log"
 import { getTranslations } from "next-intl/server"
@@ -17,9 +20,9 @@ export async function POST(req) {
     let chat = null
 
     if (userId) {
-      chat = await findChatByUserIdForBot(userId)
+      chat = await findChatByUserIdForChatBot(userId)
     } else if (chatId) {
-      chat = await findChatByIdForBot(chatId)
+      chat = await findChatByIdForChatBot(chatId)
     }
 
     if (!chat) {
@@ -83,6 +86,11 @@ export async function POST(req) {
             sender: "BOT",
             message: t(selectedQuestion.responseTransKey),
             needUserSelectBot: true,
+            link: selectedQuestion.link?.href || null,
+            linkType: selectedQuestion.link?.type || null,
+            linkNeedLogin: selectedQuestion.link?.needLogin || false,
+            action: selectedQuestion.action || null,
+            readByUser: false,
             botQuerySelectionOptions: Object.entries(botTreeMessages).map(
               ([key, value]) => ({
                 transKey: value.transKey,
@@ -95,6 +103,11 @@ export async function POST(req) {
             sender: "BOT",
             message: t(selectedOption.questionTransKey),
             needUserSelectBot: true,
+            link: selectedOption.link?.href || null,
+            linkType: selectedOption.link?.type || null,
+            action: selectedOption.action || null,
+            linkNeedLogin: selectedOption.link?.needLogin || false,
+            readByUser: false,
             botQuerySelectionOptions: Object.entries(
               selectedOption.questions
             ).map(([key, value]) => ({
@@ -108,6 +121,7 @@ export async function POST(req) {
           sender: "BOT",
           message: t("bot.message.error"),
           needUserSelectBot: true,
+          readByUser: false,
           botQuerySelectionOptions: Object.entries(botTreeMessages).map(
             ([key, value]) => ({
               transKey: value.transKey,

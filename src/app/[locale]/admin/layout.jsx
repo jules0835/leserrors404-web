@@ -12,23 +12,32 @@ import { usePathname } from "next/navigation"
 export default function AdminLayout({ children }) {
   const t = useTranslations("")
   const pathname = usePathname()
+  const isAdminInbox = pathname.includes("/admin/support/inbox")
 
   return (
-    <div className=" overflow-y-scroll">
+    <div className="h-screen flex flex-col">
       <SidebarProvider>
         <AdminSideNavbar />
-        <SidebarInset>
+        <SidebarInset className="flex flex-col flex-1">
           <AdminTopNavbar />
-          <div className="mx-7 my-2">
-            <div>
-              <h1 className="text-2xl font-semibold">
-                {t(returnPageTitleTranslation(pathname))}
-              </h1>
-              <p className="text-sm text-muted-foreground">
-                {t(returnPageSubTitleTranslation(pathname))}
-              </p>
+          <div className="flex-1 overflow-hidden">
+            <div className={`${isAdminInbox ? "" : "mx-7 my-2"}`}>
+              {!isAdminInbox && (
+                <div>
+                  <h1 className="text-2xl font-semibold">
+                    {t(returnPageTitleTranslation(pathname))}
+                  </h1>
+                  <p className="text-sm text-muted-foreground">
+                    {t(returnPageSubTitleTranslation(pathname))}
+                  </p>
+                </div>
+              )}
+              <div
+                className={`${isAdminInbox ? "h-[calc(100vh-59px)]" : "mt-5"}`}
+              >
+                {children}
+              </div>
             </div>
-            <div className="mt-5">{children}</div>
           </div>
         </SidebarInset>
       </SidebarProvider>

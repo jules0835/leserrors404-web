@@ -2,8 +2,8 @@ import { logKeys } from "@/assets/options/config"
 import {
   createChatForBotNoUser,
   createChatForBotUser,
-  findChatByIdForBot,
-  findChatByUserIdForBot,
+  findChatByIdForChatBot,
+  findChatByUserIdForChatBot,
 } from "@/db/crud/chatCrud"
 import { getReqUserId } from "@/features/auth/utils/getAuthParam"
 import log from "@/lib/log"
@@ -19,9 +19,9 @@ export async function GET(req) {
     let chat = null
 
     if (userId) {
-      chat = await findChatByUserIdForBot(userId)
+      chat = await findChatByUserIdForChatBot(userId)
     } else if (chatId) {
-      chat = await findChatByIdForBot(chatId)
+      chat = await findChatByIdForChatBot(chatId)
     }
 
     if (chat) {
@@ -53,7 +53,7 @@ export async function POST(req) {
     const chatId = req.cookies.get("chatId")?.value
 
     if (chatId) {
-      const chat = await findChatByIdForBot(chatId)
+      const chat = await findChatByIdForChatBot(chatId)
 
       if (chat) {
         return NextResponse.json(

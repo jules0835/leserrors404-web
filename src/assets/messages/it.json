@@ -1150,6 +1150,72 @@
         "account_activation_isActivated": "L'account è attivato",
         "account_confirmation_isConfirmed": "L'account è confermato"
       }
+    },
+    "Chat": {
+      "SELECT_ORDER": "Seleziona l'ordine",
+      "SELECT_PRODUCT": "Seleziona il prodotto",
+      "SELECT_SUBSCRIPTION": "Seleziona l'abbonamento",
+      "actionRequired": "Azione richiesta",
+      "active": "Attivo",
+      "adminSummary": "Riepilogo dell'amministratore",
+      "all": "Tutto",
+      "chatAdmin": "CHIACCHIERATA",
+      "chatClosed": "Questa conversazione è stata chiusa, non puoi inviare un nuovo messaggio",
+      "chatInbox": "Inbox",
+      "closed": "Chiuso",
+      "company": "Azienda",
+      "completed": "Completato",
+      "conversationDetails": "Dettagli di conversazione",
+      "conversationStats": "Statistiche di conversazione",
+      "email": "E-mail",
+      "endChat": {
+        "cancel": "Cancellare",
+        "confirm": "Confermare",
+        "description": "Sei sicuro di voler terminare questa conversazione? \nL'amministratore o il cliente non saranno in grado di inviare messaggi dopo questo.",
+        "ending": "Fine chat",
+        "title": "Termina questa conversazione?"
+      },
+      "ended": "Concluso",
+      "enterLink": "Immettere l'URL del collegamento",
+      "enterLinkMessage": "Immettere il messaggio per il collegamento",
+      "error": "Si è verificato un errore, prova a ricaricare la pagina o riprovare più tardi.",
+      "externalLink": "Collegamento esterno",
+      "internalLink": "Collegamento interno",
+      "location": "Posizione",
+      "loginRequired": "Accesso richiesto",
+      "noConversations": "Nessuna conversazione",
+      "noEmail": "Nessuna e -mail",
+      "notProvided": "Non fornito",
+      "order": "Ordine",
+      "orders": "Ordini",
+      "pending": "In attesa di",
+      "phone": "Telefono",
+      "product": "Prodotto",
+      "products": "Prodotti",
+      "relatedItems": "Articoli correlati",
+      "reload": "Ricaricare",
+      "requireLogin": "Richiedere l'accesso per accedere",
+      "searchPlaceholder": "Cerca una chat",
+      "selectAction": "Seleziona un'azione",
+      "selectConversation": "Seleziona una conversazione",
+      "selectOrder": "Selezione dell'ordine di richiesta",
+      "selectProduct": "Richiedi la selezione del prodotto",
+      "selectSubscription": "Richiedi selezione dell'abbonamento",
+      "send": "Inviare",
+      "sendLink": "Invia un link",
+      "sendingMessage": "[? \n] - Invio del tuo messaggio ...",
+      "started": "Iniziato",
+      "status": "Stato",
+      "subscription": "Sottoscrizione",
+      "subscriptions": "Abbonamenti",
+      "totalMessages": "Messaggi totali",
+      "typeMessage": "Digita un messaggio",
+      "unread": "Non letto",
+      "userActions": "Azioni dell'utente",
+      "userNotLoggedIn": "L'utente non ha effettuato l'accesso",
+      "userOrders": "Ordini utente",
+      "userProfile": "Profilo utente",
+      "userSubscriptions": "Abbonamenti utente"
     }
   },
   "DefaultNotFound": "Errore: traduzione non trovata",
@@ -1191,7 +1257,9 @@
     "openNewTicket": "Biglietto aperto",
     "paymentMethods": "Metodi di pagamento",
     "support": "Supporto",
-    "vouchers": "Voucher"
+    "vouchers": "Voucher",
+    "inbox": "Inbox",
+    "tickets": "Biglietti"
   },
   "navigation": {
     "about": "Di",
@@ -1846,7 +1914,44 @@
       },
       "widget": {
         "title": "Chatta con noi"
-      }
+      },
+      "Actions": {
+        "SELECT_ORDER": {
+          "buttonText": "Seleziona un ordine",
+          "noResults": "Nessun ordine trovato",
+          "orderNumber": "Ordine",
+          "searchPlaceholder": "Ordini di ricerca ...",
+          "title": "Seleziona un ordine"
+        },
+        "SELECT_PRODUCT": {
+          "annual": "anno",
+          "buttonText": "Seleziona un prodotto",
+          "monthly": "mese",
+          "noResults": "Nessun prodotto trovato",
+          "searchPlaceholder": "Cerca prodotti ...",
+          "title": "Seleziona un prodotto"
+        },
+        "SELECT_SUBSCRIPTION": {
+          "buttonText": "Seleziona un abbonamento",
+          "noResults": "Nessun abbonamento trovato",
+          "searchPlaceholder": "Abbonamenti di ricerca ...",
+          "subscriptionNumber": "Sottoscrizione",
+          "title": "Seleziona un abbonamento"
+        }
+      },
+      "Messages": {
+        "SELECT_ORDER": "Per aiutarti, seleziona un ordine relativo alla tua domanda facendo clic sul pulsante seguente",
+        "SELECT_PRODUCT": "Per aiutarti, seleziona un prodotto relativo alla tua domanda facendo clic sul pulsante seguente",
+        "SELECT_SUBSCRIPTION": "Per aiutarti, selezionare un abbonamento relativo alla tua domanda facendo clic sul pulsante seguente",
+        "actionCompleted": "Azione completata",
+        "actionRequired": "Fare clic sul pulsante in basso per selezionare un'opzione",
+        "contactHuman": "Chatta con il nostro team di supporto",
+        "error": "Si è verificato un errore, ricarica la pagina o riprova più tardi.",
+        "seeLink": "Link aperto",
+        "seeLinkLogin": "È necessario accedere per accedere a questa pagina"
+      },
+      "actionCompleted": "Azione completata",
+      "adminModeEnabled": "Messaggio ricevuto. \nTi trasferirò ai miei colleghi. \nRisponderanno il prima possibile. \nNel frattempo, si prega di fornire quante più informazioni possibili."
     }
   },
   "chat": {
@@ -1865,5 +1970,6 @@
       "description": "Êtes-vous sûr de vouloir Terminer Cette Conversation? \nVous ne piorrez plus inviyer de messaggi une fois la conversation terminée.",
       "title": "Conversazione Terminer LA"
     }
-  }
+  },
+  "error": "Si è verificato un errore, prova a ricaricare la pagina o riprovare più tardi."
 }

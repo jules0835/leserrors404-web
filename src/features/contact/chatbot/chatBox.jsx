@@ -16,11 +16,24 @@ import {
 } from "@/components/ui/dialog"
 import { MessageSquareMore, MessageSquareOff } from "lucide-react"
 import ErrorFront from "@/components/navigation/error"
+import { AnimatedReload } from "@/components/actions/AnimatedReload"
 
 export default function ChatBox() {
-  const { chatData, endChat, closeChat, isEnding } = useChat()
+  const {
+    chatData,
+    endChat,
+    closeChat,
+    isEnding,
+    switchToAdmin,
+    shouldReset,
+    isSwitchingToAdmin,
+  } = useChat()
   const state = chatData?.chatState
   const t = useTranslations("chat")
+
+  if (shouldReset) {
+    return <WelcomeMessage />
+  }
 
   if (chatData?.chatState === "CHAT_ERROR") {
     return <ErrorFront />
@@ -69,9 +82,22 @@ export default function ChatBox() {
       {chatData?.chat?.state === "CHAT_ADMIN" ? <ChatInput /> : <BotSelector />}
       {chatData?.chat?.state === "CHAT_BOT" && (
         <div className="p-4 border-t flex justify-center">
-          <Button variant="outline" className="rounded-full">
-            <MessageSquareMore size={40} />
-            {t("chatWithHuman")}
+          <Button
+            variant="outline"
+            className="rounded-full"
+            onClick={switchToAdmin}
+            disabled={isSwitchingToAdmin}
+          >
+            {isSwitchingToAdmin ? (
+              <div>
+                <AnimatedReload />
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <MessageSquareMore size={40} />
+                {t("chatWithHuman")}
+              </div>
+            )}
           </Button>
         </div>
       )}

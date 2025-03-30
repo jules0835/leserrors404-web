@@ -165,9 +165,78 @@
     "myTickets": "My Tickets",
     "needHelp": "Need help ?",
     "mySupport": "My tickets",
-    "coupons": "Vouchers"
+    "coupons": "Vouchers",
+    "inbox": "Inbox",
+    "tickets": "Tickets"
   },
   "Admin": {
+    "Chat": {
+      "selectAction": "Select an action",
+      "sendLink": "Send a link",
+      "selectOrder": "Request order selection",
+      "selectSubscription": "Request subscription selection",
+      "selectProduct": "Request product selection",
+      "enterLink": "Enter link URL",
+      "enterLinkMessage": "Enter message for the link",
+      "internalLink": "Internal link",
+      "externalLink": "External link",
+      "requireLogin": "Require login to access",
+      "send": "Send",
+      "adminSummary": "Admin Summary",
+      "product": "Product",
+      "products": "Products",
+      "subscription": "Subscription",
+      "subscriptions": "Subscriptions",
+      "order": "Order",
+      "orders": "Orders",
+      "relatedItems": "Related Items",
+      "ended": "Ended",
+      "status": "Status",
+      "active": "Active",
+      "closed": "Closed",
+      "totalMessages": "Total Messages",
+      "started": "Started",
+      "conversationStats": "Conversation Stats",
+      "notProvided": "Not provided",
+      "company": "Company",
+      "location": "Location",
+      "phone": "Phone",
+      "email": "Email",
+      "userNotLoggedIn": "User not logged-in",
+      "noEmail": "No email",
+      "conversationDetails": "Conversation Details",
+      "noConversations": "No conversations",
+      "chatAdmin": "CHAT",
+      "chatInbox": "INBOX",
+      "reload": "Reload",
+      "searchPlaceholder": "Search for a chat",
+      "all": "All",
+      "unread": "Unread",
+      "selectConversation": "Select a conversation",
+      "actionRequired": "Action requested",
+      "pending": "Pending",
+      "SELECT_ORDER": "Select order",
+      "SELECT_SUBSCRIPTION": "Select subscription",
+      "SELECT_PRODUCT": "Select product",
+      "completed": "Completed",
+      "sendingMessage": "[ ? ] - Sending your message...",
+      "typeMessage": "Type a message",
+      "loginRequired": "Login required",
+      "endChat": {
+        "ending": "Ending chat",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "title": "End this conversation ?",
+        "description": "Are you sure you want to end this conversation ? Admin or client will not be able to send messages after this.",
+        "titleBtn": "End conversation"
+      },
+      "chatClosed": "This conversation was closed, you can't send new message",
+      "error": "An error occured, please try to reload the page or try again later.",
+      "userActions": "User Actions",
+      "userOrders": "User Orders",
+      "userSubscriptions": "User Subscriptions",
+      "userProfile": "User Profil"
+    },
     "Security": {
       "Users": {
         "title": "Users",
@@ -1846,7 +1915,44 @@
       },
       "widget": {
         "title": "Chat with us"
-      }
+      },
+      "Messages": {
+        "seeLink": "Open Link",
+        "seeLinkLogin": "You need to login to access to this page",
+        "contactHuman": "Chat with our Support Team",
+        "actionRequired": "Please click the button below to select an option",
+        "actionCompleted": "Action completed",
+        "SELECT_ORDER": "In order to help you, please select an order related to your question by clicking on the button below",
+        "SELECT_SUBSCRIPTION": "In order to help you, please select a subscription related to your question by clicking on the button below",
+        "SELECT_PRODUCT": "In order to help you, please select a product related to your question by clicking on the button below",
+        "error": "An error occured, please reload the page or try again later."
+      },
+      "Actions": {
+        "SELECT_ORDER": {
+          "buttonText": "Select an order",
+          "title": "Select an order",
+          "searchPlaceholder": "Search orders...",
+          "noResults": "No orders found",
+          "orderNumber": "Order #{number}"
+        },
+        "SELECT_SUBSCRIPTION": {
+          "buttonText": "Select a subscription",
+          "title": "Select a subscription",
+          "searchPlaceholder": "Search subscriptions...",
+          "noResults": "No subscriptions found",
+          "subscriptionNumber": "Subscription #{number}"
+        },
+        "SELECT_PRODUCT": {
+          "buttonText": "Select a product",
+          "title": "Select a product",
+          "searchPlaceholder": "Search products...",
+          "noResults": "No products found",
+          "monthly": "month",
+          "annual": "year"
+        }
+      },
+      "actionCompleted": "Action completed",
+      "adminModeEnabled": "Message received. I will transfer you to my colleagues. They will reply as soon as possible. In the meantime, please provide as much information as possible."
     }
   },
   "chat": {
@@ -1865,5 +1971,6 @@
       "closeButton": "Fermer"
     },
     "chatWithHuman": "Chat with a human"
-  }
+  },
+  "error": "An error occured, please try to reload the page or try again later."
 }

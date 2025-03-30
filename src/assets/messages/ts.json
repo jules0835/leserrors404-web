@@ -1150,6 +1150,72 @@
         "yes": "Ina",
         "zipCode": "Khodi ya zip ."
       }
+    },
+    "Chat": {
+      "SELECT_ORDER": "Hlawula Odara .",
+      "SELECT_PRODUCT": "Hlawula Xiendliwa .",
+      "SELECT_SUBSCRIPTION": "Hlawula xikhokhelo .",
+      "actionRequired": "Goza ri komberiwile .",
+      "active": "Hanya",
+      "adminSummary": "Nkatsakanyo wa Admin .",
+      "all": "Hinkwaswo",
+      "chatAdmin": "BULA",
+      "chatClosed": "Bulo leri ri pfariwile, a wu nge swi koti ku rhumela rungula lerintshwa .",
+      "chatInbox": "Inbox .",
+      "closed": "Xi pfariwile .",
+      "company": "Khamphani",
+      "completed": "Ku hetiwa .",
+      "conversationDetails": "Vuxokoxoko bya mbulavurisano .",
+      "conversationStats": "Switatimende swa mbulavurisano .",
+      "email": "Imeyili .",
+      "endChat": {
+        "cancel": "Khansela",
+        "confirm": "Tiyisisa",
+        "description": "Xana u tiyisile leswaku u lava ku herisa mbulavurisano lowu ? \nAdmin kumbe client a yi nge swi koti ku rhumela marungula endzhaku ka leswi.",
+        "ending": "Ku vulavula hi ku hetelela .",
+        "title": "Ku heta mbulavurisano lowu ?"
+      },
+      "ended": "Ku hela .",
+      "enterLink": "Nghenisa URL ya xihlanganisi .",
+      "enterLinkMessage": "Nghenisa rungula ra xihlanganisi .",
+      "error": "Xihoxo xi humelerile, hi kombela u ringeta ku tlhela u layicha pheji kumbe u ringeta nakambe endzhaku.",
+      "externalLink": "Xihlanganisi xa le handle .",
+      "internalLink": "Xihlanganisi xa le ndzeni .",
+      "location": "Ndhawu",
+      "loginRequired": "Login yi laveka .",
+      "noConversations": "Ku hava mabulo .",
+      "noEmail": "Ku hava email .",
+      "notProvided": "A swi nyikiwanga .",
+      "order": "Xileriso",
+      "orders": "Tioda .",
+      "pending": "Rindzerile",
+      "phone": "Riqingho",
+      "product": "Ximakiwa",
+      "products": "Swihumelerisiwa .",
+      "relatedItems": "Swilo leswi fambelanaka na swona .",
+      "reload": "Ku layicha nakambe .",
+      "requireLogin": "Ku lava ku nghena ku nghena .",
+      "searchPlaceholder": "Kuma vuxokoxoko bya xihundla .",
+      "selectAction": "Hlawula xiendlo .",
+      "selectConversation": "Hlawula bulo .",
+      "selectOrder": "Kombela ku hlawuriwa ka Odara .",
+      "selectProduct": "Kombela ku hlawuriwa ka xitirhisiwa .",
+      "selectSubscription": "Kombela nhlawulo wa xikhokhelo .",
+      "send": "Rhumela",
+      "sendLink": "Rhumela xihlanganisi .",
+      "sendingMessage": "[ ? \n] - Ku rhumela rungula ra wena...",
+      "started": "Sungurile",
+      "status": "Xiyimo",
+      "subscription": "Xikhokhelo .",
+      "subscriptions": "Swikhokhelo .",
+      "totalMessages": "Mahungu hinkwawo .",
+      "typeMessage": "Thayipha rungula .",
+      "unread": "Ku nga hlayiwi .",
+      "userActions": "Swiendlo swa Mutirhisi .",
+      "userNotLoggedIn": "Mutirhisi a nga nghenanga-in .",
+      "userOrders": "Tioda ta vatirhisi .",
+      "userProfile": "Mutirhisi Profil .",
+      "userSubscriptions": "Swikhokhelo swa vatirhisi ."
     }
   },
   "DefaultNotFound": "Xihoxo: Vuhundzuluxi a byi kumekanga .",
@@ -1191,7 +1257,9 @@
     "subscriptions": "Swikhokhelo .",
     "support": "Nseketelo",
     "users": "vatirhisi va switirhisiwa .",
-    "vouchers": "Tivhawuchara ."
+    "vouchers": "Tivhawuchara .",
+    "inbox": "Inbox .",
+    "tickets": "Mathikithi ."
   },
   "navigation": {
     "about": "Hi",
@@ -1846,7 +1914,44 @@
       },
       "widget": {
         "title": "Chat na hina"
-      }
+      },
+      "Actions": {
+        "SELECT_ORDER": {
+          "buttonText": "Hlawula odara .",
+          "noResults": "Ku hava ti oda leti kumiweke .",
+          "orderNumber": "Xileriso",
+          "searchPlaceholder": "Tioda to lavisisa...",
+          "title": "Hlawula odara ."
+        },
+        "SELECT_PRODUCT": {
+          "annual": "lembe",
+          "buttonText": "Hlawula xitirhisiwa .",
+          "monthly": "n'hweti",
+          "noResults": "Ku hava swilo leswi kumiweke .",
+          "searchPlaceholder": "Ku lavisisa switirhisiwa...",
+          "title": "Hlawula xitirhisiwa ."
+        },
+        "SELECT_SUBSCRIPTION": {
+          "buttonText": "Hlawula xikhokhelo .",
+          "noResults": "Ku hava swikhokhelo leswi kumiweke .",
+          "searchPlaceholder": "Swikhokhelo swa ku lavisisa...",
+          "subscriptionNumber": "Xikhokhelo .",
+          "title": "Hlawula xikhokhelo ."
+        }
+      },
+      "Messages": {
+        "SELECT_ORDER": "Leswaku u ku pfuna, hi kombela u hlawula oda leyi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi .",
+        "SELECT_PRODUCT": "Leswaku u ku pfuna, hi kombela u hlawula xitirhisiwa lexi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi .",
+        "SELECT_SUBSCRIPTION": "Leswaku u ta ku pfuna, hi kombela u hlawula xikhokhelo lexi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi .",
+        "actionCompleted": "Xiendlo xi hetisiwile .",
+        "actionRequired": "Hi kombela u tikhoma buti leyi nga laha hansi leswaku u hlawula ndlela yo hlawula .",
+        "contactHuman": "Chat na xipano xa hina xa nseketelo .",
+        "error": "Xihoxo xi humelerile, hi kombela u tlhela u layicha pheji kumbe u ringeta nakambe endzhaku.",
+        "seeLink": "Xihlanganisi xo pfula .",
+        "seeLinkLogin": "U fanele u nghena leswaku u nghena eka tluka leri ."
+      },
+      "actionCompleted": "Xiendlo xi hetisiwile .",
+      "adminModeEnabled": "Rungula leri amukeriweke. \nNdzi ta mi hundzisela eka vatirhi kulorhi. \nVa ta hlamula hi ku hatlisa hilaha swi nga kotekaka hakona. \nHi nkarhi wolowo, hi kombela u nyika rungula ro tala hilaha swi nga kotekaka hakona."
     }
   },
   "chat": {
@@ -1865,5 +1970,6 @@
       "description": "êtes-Vous Sûr de Vouloir Xihehlo xa le Terminer Cette ? \nvous ne pourrez plus murhumiwa de marungula une fois la bulo ra kona.",
       "title": "Terminer LA Ku vulavula hi ."
     }
-  }
+  },
+  "error": "Xihoxo xi humelerile, hi kombela u ringeta ku tlhela u layicha pheji kumbe u ringeta nakambe endzhaku."
 }

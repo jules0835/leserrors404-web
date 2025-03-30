@@ -1013,6 +1013,72 @@
         "yes": "Oui",
         "zipCode": "Code postal"
       }
+    },
+    "Chat": {
+      "SELECT_ORDER": "Sélectionner la commande",
+      "SELECT_PRODUCT": "Sélectionner le produit",
+      "SELECT_SUBSCRIPTION": "Sélectionner l'abonnement",
+      "actionRequired": "Action demandée",
+      "active": "Actif",
+      "adminSummary": "Résumé de l'administrateur",
+      "all": "Tous",
+      "chatAdmin": "CHAT",
+      "chatClosed": "Cette conversation a été fermée, vous ne pouvez pas envoyer un nouveau message",
+      "chatInbox": "Boîte de réception",
+      "closed": "Fermé",
+      "company": "Entreprise",
+      "completed": "Complété",
+      "conversationDetails": "Détails de la conversation",
+      "conversationStats": "Statistiques de conversation",
+      "email": "E-mail",
+      "endChat": {
+        "cancel": "Annuler",
+        "confirm": "Confirmer",
+        "description": "Êtes-vous sûr de vouloir mettre fin à cette conversation? \nL'administrateur ou le client ne pourra pas envoyer de messages après cela.",
+        "ending": "Terminer le chat",
+        "title": "Mettre fin à cette conversation?"
+      },
+      "ended": "Terminé",
+      "enterLink": "Entrez l'URL du lien",
+      "enterLinkMessage": "Entrez le message pour le lien",
+      "error": "Une erreur s'est produite, veuillez essayer de recharger la page ou réessayer plus tard.",
+      "externalLink": "Lien externe",
+      "internalLink": "Lien interne",
+      "location": "Emplacement",
+      "loginRequired": "Connexion requise",
+      "noConversations": "Pas de conversations",
+      "noEmail": "Pas de courriel",
+      "notProvided": "Non fourni",
+      "order": "Commande",
+      "orders": "Ordres",
+      "pending": "En attente",
+      "phone": "Téléphone",
+      "product": "Produit",
+      "products": "Produits",
+      "relatedItems": "Articles connexes",
+      "reload": "Recharger",
+      "requireLogin": "Exiger la connexion pour accéder",
+      "searchPlaceholder": "Rechercher une conversation",
+      "selectAction": "Sélectionnez une action",
+      "selectConversation": "Sélectionnez une conversation",
+      "selectOrder": "Demande la sélection des commandes",
+      "selectProduct": "Demander la sélection des produits",
+      "selectSubscription": "Demander la sélection de l'abonnement",
+      "send": "Envoyer",
+      "sendLink": "Envoyer un lien",
+      "sendingMessage": "[? \n] - Envoi de votre message ...",
+      "started": "Commencé",
+      "status": "Statut",
+      "subscription": "Abonnement",
+      "subscriptions": "Abonnements",
+      "totalMessages": "Messages totaux",
+      "typeMessage": "Tapez un message",
+      "unread": "Non lu",
+      "userActions": "Actions des utilisateurs",
+      "userNotLoggedIn": "L'utilisateur n'est pas connecté",
+      "userOrders": "Commandes utilisateur",
+      "userProfile": "Profil d'utilisateur",
+      "userSubscriptions": "Abonnements utilisateur"
     }
   },
   "Auth": {
@@ -1213,7 +1279,9 @@
     "subscriptions": "Abonnements",
     "support": "Soutien",
     "users": "Utilisateurs",
-    "vouchers": "Portes"
+    "vouchers": "Portes",
+    "inbox": "Boîte de réception",
+    "tickets": "Billets"
   },
   "NoSubTitle": "Pas de sous-titre",
   "User": {
@@ -1846,7 +1914,44 @@
       },
       "widget": {
         "title": "Discuter avec nous"
-      }
+      },
+      "Actions": {
+        "SELECT_ORDER": {
+          "buttonText": "Sélectionnez une commande",
+          "noResults": "Aucune commande trouvée",
+          "orderNumber": "Commande",
+          "searchPlaceholder": "Commandes de recherche ...",
+          "title": "Sélectionnez une commande"
+        },
+        "SELECT_PRODUCT": {
+          "annual": "année",
+          "buttonText": "Sélectionnez un produit",
+          "monthly": "mois",
+          "noResults": "Aucun produit trouvé",
+          "searchPlaceholder": "Produits de recherche ...",
+          "title": "Sélectionnez un produit"
+        },
+        "SELECT_SUBSCRIPTION": {
+          "buttonText": "Sélectionnez un abonnement",
+          "noResults": "Aucun abonnements trouvé",
+          "searchPlaceholder": "Rechercher des abonnements ...",
+          "subscriptionNumber": "Abonnement",
+          "title": "Sélectionnez un abonnement"
+        }
+      },
+      "Messages": {
+        "SELECT_ORDER": "Afin de vous aider, veuillez sélectionner une commande liée à votre question en cliquant sur le bouton ci-dessous",
+        "SELECT_PRODUCT": "Afin de vous aider, veuillez sélectionner un produit lié à votre question en cliquant sur le bouton ci-dessous",
+        "SELECT_SUBSCRIPTION": "Afin de vous aider, veuillez sélectionner un abonnement lié à votre question en cliquant sur le bouton ci-dessous",
+        "actionCompleted": "Action terminée",
+        "actionRequired": "Veuillez cliquer sur le bouton ci-dessous pour sélectionner une option",
+        "contactHuman": "Discuter avec notre équipe d'assistance",
+        "error": "Une erreur s'est produite, veuillez recharger la page ou réessayer plus tard.",
+        "seeLink": "Lien ouvert",
+        "seeLinkLogin": "Vous devez vous connecter pour accéder à cette page"
+      },
+      "actionCompleted": "Action terminée",
+      "adminModeEnabled": "Message reçu. \nJe vais vous transférer à mes collègues. \nIls répondront dès que possible. \nEn attendant, veuillez fournir autant d'informations que possible."
     }
   },
   "chat": {
@@ -1865,5 +1970,6 @@
       "description": "Les êtes-vous sûr de Vouloir terminer la conversation de cille? \nVous ne pourrez plus envoyé de messages une fois la conversation terminée.",
       "title": "Termine la conversation"
     }
-  }
+  },
+  "error": "Une erreur s'est produite, veuillez essayer de recharger la page ou réessayer plus tard."
 }
