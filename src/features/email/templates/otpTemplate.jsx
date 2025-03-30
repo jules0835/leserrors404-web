@@ -2,7 +2,7 @@ import React from "react"
 import { Section, Text } from "@react-email/components"
 import { getTranslations } from "next-intl/server"
 
-export default async function OtpTemplate({ locale, code }) {
+export default async function OtpTemplate({ locale = "en", code }) {
   const t = await getTranslations({ locale, namespace: "Email" })
 
   return (

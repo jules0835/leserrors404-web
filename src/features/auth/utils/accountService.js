@@ -12,7 +12,7 @@ import {
 import log from "@/lib/log"
 import { logKeys, webAppSettings } from "@/assets/options/config"
 import { sendEmail } from "@/features/email/utils/emailService"
-import { EmailTemplate } from "@/features/email/templates/emailTemplate"
+import { EmailTemplate } from "@/features/email/templates/main/emailTemplate"
 import ConfirmTemplate from "@/features/email/templates/confirmTemplate"
 import { getTranslations } from "next-intl/server"
 import crypto from "crypto"

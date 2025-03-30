@@ -244,7 +244,8 @@
       "adminSummaryPlaceholder": "Summary of the chat for admin",
       "you": "You",
       "waitingAction": "Waiting for action",
-      "actionDone": "Action done"
+      "actionDone": "Action done",
+      "sendAsEmail": "This message will also be send as email to the user email."
     },
     "Security": {
       "Users": {
@@ -463,6 +464,18 @@
           "UserCreate": {
             "title": "User Create",
             "description": "A new user was created"
+          },
+          "ChatbotError": {
+            "title": "Chatbot Error",
+            "description": "An error occurred with the chatbot"
+          },
+          "ChatbotInfo": {
+            "title": "Chatbot Info",
+            "description": "An info occurred with the chatbot"
+          },
+          "OrderUpdate": {
+            "title": "Order Update",
+            "description": "An order was updated"
           },
           "Criticality": {
             "UserInfo": {
@@ -1626,7 +1639,12 @@
       "subject": "Cyna - Confirm your email"
     },
     "resetEmailMessage": "To reset your password, click the button below and follow the instructions. This link will expire in 1 hour. If you did not request a password reset, you can safely ignore this email or contact our support team.",
-    "resetButton": "Reset my password"
+    "resetButton": "Reset my password",
+    "Support": {
+      "newMessage": "You've received a new message in one of your conversations with our customer support team. Here is a summary:",
+      "openChatButton": "Open Conversation",
+      "newMessageSubject": "{company}  - New Message from support team"
+    }
   },
   "Confirmation": {
     "subject": "Cyna - Confirm your email"

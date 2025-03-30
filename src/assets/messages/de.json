@@ -627,6 +627,18 @@
           "ShopStripeCustomerError": {
             "description": "Bei dem Stripe -Kunden trat ein Fehler auf",
             "title": "Kundenstreifen -Kundenfehler einladen"
+          },
+          "ChatbotError": {
+            "description": "Bei dem Chatbot trat ein Fehler auf",
+            "title": "Chatbot -Fehler"
+          },
+          "ChatbotInfo": {
+            "description": "Eine Informationen mit dem Chatbot ereignete sich",
+            "title": "Chatbot -Info"
+          },
+          "OrderUpdate": {
+            "description": "Eine Bestellung wurde aktualisiert",
+            "title": "Bestellaktualisierung"
           }
         },
         "LogDetails": {
@@ -1225,7 +1237,8 @@
       "saveAdminSummary": "Zusammenfassung speichern",
       "viewOnStripe": "Blick auf Streifen",
       "waitingAction": "Warten auf Aktion",
-      "you": "Du"
+      "you": "Du",
+      "sendAsEmail": "Diese Nachricht wird auch als E -Mail an die Benutzer -E -Mail gesendet."
     }
   },
   "DefaultNotFound": "FEHLER: Übersetzung nicht gefunden",
@@ -1302,7 +1315,12 @@
     "otpWarningMessage": "Bitte teilen Sie diesen Code mit niemandem. \nWir werden nie danach fragen. \nWenn Sie diesen Code nicht angefordert haben, ignorieren Sie diese E -Mail.",
     "userMessage": "Ich wünsche Ihnen einen ausgezeichneten Tag!",
     "resetButton": "Setzen Sie mein Passwort zurück",
-    "resetEmailMessage": "Um Ihr Passwort zurückzusetzen, klicken Sie auf die Schaltfläche unten und befolgen Sie die Anweisungen. \nDieser Link läuft in 1 Stunde ab. \nWenn Sie keinen Hinweis für ein Passwort zurückgesetzt haben, können Sie diese E -Mail sicher ignorieren oder unser Support -Team kontaktieren."
+    "resetEmailMessage": "Um Ihr Passwort zurückzusetzen, klicken Sie auf die Schaltfläche unten und befolgen Sie die Anweisungen. \nDieser Link läuft in 1 Stunde ab. \nWenn Sie keinen Hinweis für ein Passwort zurückgesetzt haben, können Sie diese E -Mail sicher ignorieren oder unser Support -Team kontaktieren.",
+    "Support": {
+      "newMessage": "Sie haben eine neue Nachricht in einem Ihrer Gespräche mit unserem Kundendienstteam erhalten. \nHier ist eine Zusammenfassung:",
+      "newMessageSubject": "{Company} - Neue Nachricht vom Support -Team",
+      "openChatButton": "Offenes Gespräch"
+    }
   },
   "isSuperAdminRequired": "Ist Super Admin erforderlich, ist erforderlich",
   "Confirmation": {

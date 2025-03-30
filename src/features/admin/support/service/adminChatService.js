@@ -12,16 +12,8 @@ export const getAdminChat = async (chatId) => {
   return response.data
 }
 
-export const getAdminMessages = async (chatId) => {
-  const response = await axios.get(
-    `/api/contact/admin/message?chatId=${chatId}`
-  )
-
-  return response.data
-}
-
 export const sendAdminMessage = async (chatId, message, options = {}) => {
-  const response = await axios.post("/api/contact/admin/message", {
+  const response = await axios.post("/api/contact/admin/chat", {
     chatId,
     message,
     ...options,

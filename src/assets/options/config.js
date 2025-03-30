@@ -35,6 +35,7 @@ export const webAppSettings = {
     register: "/auth/register",
     adminDashboard: "/admin",
     userProfile: "/user/dashboard/profile",
+    supportChat: "/user/dashboard/support/tickets/",
   },
   translation: {
     locales: ["en", "fr", "de", "ts"],

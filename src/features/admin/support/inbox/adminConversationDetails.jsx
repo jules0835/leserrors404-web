@@ -122,6 +122,7 @@ export default function AdminConversationDetails({ chat }) {
           <h4 className="font-medium">{t("adminSummary")}</h4>
           <Textarea
             value={adminSummary}
+            disabled={!chat.isActive}
             onChange={(e) => setAdminSummary(e.target.value)}
             placeholder={t("adminSummaryPlaceholder")}
             className="w-full bg-white"
