@@ -1,57 +1,91 @@
 import { useState } from "react"
 import { useTranslations } from "next-intl"
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command"
 import { useQuery } from "@tanstack/react-query"
-import { format } from "date-fns"
+import { Button } from "@/components/ui/button"
 import { Package } from "lucide-react"
+import { format } from "date-fns"
+import ListSkeleton from "@/components/skeleton/ListSkeleton"
 
 export default function SelectOrder({ onSelect }) {
-  const [search, setSearch] = useState("")
+  const [page, setPage] = useState(1)
+  const limit = 5
   const t = useTranslations("Contact.Chatbot.Actions")
-  const { data: orders } = useQuery({
-    queryKey: ["user-orders"],
-    queryFn: () => fetch("/api/subscriptions").then((res) => res.json()),
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["user-orders", page],
+    queryFn: async () => {
+      const response = await fetch(
+        `/api/user/dashboard/business/orders?page=${page}&limit=${limit}&sortField=createdAt&sortOrder=desc`
+      )
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch orders")
+      }
+
+      return response.json()
+    },
   })
-  const filteredOrders = orders?.filter((order) =>
-    order._id.toLowerCase().includes(search.toLowerCase())
-  )
+
+  if (error) {
+    return <div className="p-4 text-red-500">{t("SELECT_ORDER.error")}</div>
+  }
+
+  if (!data?.orders?.length && !isLoading) {
+    return <div className="p-4">{t("SELECT_ORDER.noOrders")}</div>
+  }
 
   return (
-    <Command className="rounded-lg border shadow-md">
-      <CommandInput
-        placeholder={t("SELECT_ORDER.searchPlaceholder")}
-        onValueChange={setSearch}
-      />
-      <CommandEmpty>{t("SELECT_ORDER.noResults")}</CommandEmpty>
-      <div className="overflow-y-auto max-h-72">
-        <CommandGroup>
-          {filteredOrders?.map((order) => (
-            <CommandItem
+    <div className="space-y-4">
+      <div className="space-y-2">
+        {isLoading && (
+          <div className="flex items-center justify-center">
+            <ListSkeleton rows={5} height={12} />
+          </div>
+        )}
+        {!isLoading &&
+          data.orders.map((order) => (
+            <Button
               key={order._id}
-              onSelect={() => onSelect(order)}
-              className="cursor-pointer"
+              variant="outline"
+              className="w-full justify-start gap-2 h-14 p-2"
+              onClick={() => onSelect(order)}
             >
-              <Package className="mr-2 h-4 w-4" />
-              <div>
-                <div className="font-medium">
+              <Package className="h-4 w-4" />
+              <div className="flex flex-col items-start">
+                <span className="font-medium">
                   {t("SELECT_ORDER.orderNumber", {
                     number: order._id.slice(-6),
                   })}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {format(new Date(order.createdAt), "PPP")}
-                </div>
+                </span>
+                <span className="text-sm text-muted-foreground">
+                  {format(new Date(order.createdAt), "PPP")} -{" "}
+                  {order.stripe.amountTotal.toFixed(2)}{" "}
+                  {order.stripe.currency.toUpperCase()}
+                </span>
               </div>
-            </CommandItem>
+            </Button>
           ))}
-        </CommandGroup>
       </div>
-    </Command>
+
+      {!isLoading && data.total > limit && (
+        <div className="flex justify-center gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1}
+          >
+            {t("SELECT_ORDER.previous")}
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setPage((p) => p + 1)}
+            disabled={page * limit >= data.total}
+          >
+            {t("SELECT_ORDER.next")}
+          </Button>
+        </div>
+      )}
+    </div>
   )
 }

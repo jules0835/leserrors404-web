@@ -8,16 +8,17 @@ import {
   User,
   Eye,
   EyeOff,
+  ClipboardCheck,
 } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useEffect, useRef, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import DButton from "@/components/ui/DButton"
 import { useLocale, useTranslations } from "next-intl"
-import ChatActionButton from "./chatActionButton"
-import { completeAction } from "./service/chatActionService"
+import ChatActionButton from "@/features/contact/chatbot/chatActionButton"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
 import { formatDistanceToNow } from "date-fns"
+import { Button } from "@/components/ui/button"
 
 export default function MessagesList() {
   const {
@@ -29,6 +30,8 @@ export default function MessagesList() {
     switchToAdmin,
     isSwitchingToAdmin,
     error,
+    completeSelectedAction,
+    isCompletingAction,
   } = useChat()
   const messages = useMemo(
     () => chatData?.chat?.messages || [],
@@ -46,7 +49,11 @@ export default function MessagesList() {
   }, [messages, isSendingMessage, isStarting, isEnding])
 
   const handleActionComplete = async (message, selectedItem) => {
-    await completeAction(
+    if (message.isActionDone) {
+      return
+    }
+
+    await completeSelectedAction(
       chatData.chat._id,
       message._id,
       selectedItem,
@@ -132,6 +139,7 @@ export default function MessagesList() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.2, delay: 0.2 }}
+                    className="text-sm"
                   >
                     {t(msg.action)}
                     <ChatActionButton
@@ -139,20 +147,30 @@ export default function MessagesList() {
                       onActionComplete={(selectedItem) =>
                         handleActionComplete(msg, selectedItem)
                       }
-                      isDisabled={!chatData?.chat?.isActive}
+                      isDisabled={
+                        !chatData?.chat?.isActive || isCompletingAction
+                      }
+                      isLoading={isCompletingAction}
                     />
                   </motion.div>
                 )}
 
                 {msg.isAction && msg.isActionDone && (
-                  <motion.p
+                  <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.2, delay: 0.2 }}
-                    className="mt-1 text-xs text-green-500 italic"
+                    className="text-sm"
                   >
-                    ✅ {t("actionCompleted")}
-                  </motion.p>
+                    {t(msg.action)}
+                    <Button
+                      variant="outline"
+                      className="mt-1 text-xs text-green-500 w-full"
+                    >
+                      <ClipboardCheck size={18} />
+                      {t("actionCompleted")}
+                    </Button>
+                  </motion.div>
                 )}
 
                 {msg.link &&
@@ -211,6 +229,13 @@ export default function MessagesList() {
                       ) : (
                         <EyeOff className="w-3 h-3 text-muted-foreground" />
                       )}
+                    </span>
+                  )}
+                  {isAdmin && (
+                    <span className="flex items-center gap-1">
+                      {formatDistanceToNow(new Date(msg.sendDate), {
+                        addSuffix: true,
+                      })}
                     </span>
                   )}
                 </div>

@@ -15,12 +15,14 @@ export default function AdminLayout({ children }) {
   const isAdminInbox = pathname.includes("/admin/support/inbox")
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="flex flex-col">
       <SidebarProvider>
         <AdminSideNavbar />
         <SidebarInset className="flex flex-col flex-1">
           <AdminTopNavbar />
-          <div className="flex-1 overflow-hidden">
+          <div
+            className={isAdminInbox ? "flex-1 overflow-hidden" : "min-h-screen"}
+          >
             <div className={`${isAdminInbox ? "" : "mx-7 my-2"}`}>
               {!isAdminInbox && (
                 <div>
@@ -33,7 +35,7 @@ export default function AdminLayout({ children }) {
                 </div>
               )}
               <div
-                className={`${isAdminInbox ? "h-[calc(100vh-59px)]" : "mt-5"}`}
+                className={`${isAdminInbox ? "h-[calc(100vh-56px)]" : "mt-5"}`}
               >
                 {children}
               </div>

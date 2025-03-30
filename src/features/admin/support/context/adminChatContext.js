@@ -11,6 +11,7 @@ import {
   markAdminMessagesAsRead,
   updateAdminTypingStatus,
   endAdminChat,
+  saveAdminSummary,
 } from "@/features/admin/support/service/adminChatService"
 
 const AdminChatContext = createContext()
@@ -29,6 +30,7 @@ export const AdminChatProvider = ({ children }) => {
   const [isTyping, setIsTyping] = useState(false)
   const typingTimeoutRef = useRef(null)
   const [isEndingChat, setIsEndingChat] = useState(false)
+  const [isSavingAdminSummary, setIsSavingAdminSummary] = useState(false)
   const {
     data: chatsData,
     refetch: refetchChats,
@@ -168,6 +170,25 @@ export const AdminChatProvider = ({ children }) => {
     []
   )
 
+  const handleSaveAdminSummary = async (chatId, adminSummary) => {
+    if (!chatId) {
+      return
+    }
+
+    setIsSavingAdminSummary(true)
+
+    try {
+      await saveAdminSummary(chatId, adminSummary)
+      await refetchSelectedChat()
+    } catch (errorSaveAdminSummary) {
+      setError(
+        errorSaveAdminSummary?.response?.data?.error ||
+          errorSaveAdminSummary.message
+      )
+    } finally {
+      setIsSavingAdminSummary(false)
+    }
+  }
   const handleEndChat = async () => {
     if (!selectedChatId) {
       return
@@ -206,6 +227,8 @@ export const AdminChatProvider = ({ children }) => {
         handleTyping,
         endChat: handleEndChat,
         isEndingChat,
+        isSavingAdminSummary,
+        saveAdminSummary: handleSaveAdminSummary,
       }}
     >
       {children}

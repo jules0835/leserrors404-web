@@ -5,6 +5,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { User } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useTranslations } from "next-intl"
+import { trimString } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
 
 export default function AdminMessageList({
   chats,
@@ -13,26 +15,6 @@ export default function AdminMessageList({
   isFirstLoading,
 }) {
   const t = useTranslations("Admin.Chat")
-  const isTypingActive = (chat) => {
-    if (!chat.isUserTyping || !chat.isUserTypingLastUpdate) {
-      return false
-    }
-
-    const lastUpdate = new Date(chat.isUserTypingLastUpdate)
-    const now = new Date()
-
-    return now - lastUpdate < 30000
-  }
-  const isAdminTypingActive = (chat) => {
-    if (!chat.isAdminTyping || !chat.isAdminTypingLastUpdate) {
-      return false
-    }
-
-    const lastUpdate = new Date(chat.isAdminTypingLastUpdate)
-    const now = new Date()
-
-    return now - lastUpdate < 30000
-  }
 
   if (isFirstLoading) {
     return (
@@ -74,26 +56,25 @@ export default function AdminMessageList({
         return (
           <div
             key={chat._id}
-            className={`p-4 border-b cursor-pointer hover:bg-muted/50 transition-colors ${
+            className={`px-2 py-3 border-b cursor-pointer hover:bg-muted/50 transition-colors ${
               selectedChatId === chat._id ? "bg-muted" : ""
             }`}
             onClick={() => onSelectChat(chat._id)}
           >
-            <div className="flex items-start gap-3">
+            <div className="flex items-center gap-3">
               <div className="relative flex-shrink-0">
                 <Avatar className="h-10 w-10">
                   <AvatarFallback>
                     <User className="h-4 w-4" />
                   </AvatarFallback>
                 </Avatar>
-                {isTypingActive(chat) && (
-                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-background rounded-full animate-pulse"></span>
-                )}
               </div>
 
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-baseline">
-                  <h3 className="font-medium truncate">{userName}</h3>
+                  <h3 className="font-medium truncate">
+                    {trimString(userName, 15)}
+                  </h3>
                   <span className="text-xs text-muted-foreground">
                     {formatDistanceToNow(new Date(lastMessage.sendDate), {
                       addSuffix: true,
@@ -103,12 +84,28 @@ export default function AdminMessageList({
 
                 <div className="flex items-center mt-1">
                   <p className="text-sm text-muted-foreground truncate flex-1">
-                    {lastMessage.sender === "ADMIN" ? "You: " : ""}
+                    {lastMessage.sender === "ADMIN" ? `${t("you")}: ` : ""}
                     {lastMessage.message}
+                    {lastMessage.isAction && !lastMessage.isActionDone && (
+                      <Badge
+                        variant="outline"
+                        className="ml-2 border-orange-300"
+                      >
+                        {t("waitingAction")}
+                      </Badge>
+                    )}
+                    {lastMessage.isAction && lastMessage.isActionDone && (
+                      <Badge
+                        variant="outline"
+                        className="ml-2 border-green-300"
+                      >
+                        {t("actionDone")}
+                      </Badge>
+                    )}
                   </p>
 
                   {unreadCount > 0 && (
-                    <span className="ml-2 w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
+                    <span className="ml-2 w-2 h-2 bg-blue-500 rounded-full flex-shrink-0 animate-pulse"></span>
                   )}
                 </div>
 
@@ -127,16 +124,6 @@ export default function AdminMessageList({
                   {unreadCount > 0 && (
                     <span className="text-xs text-primary">
                       {unreadCount} {t("unread")}
-                    </span>
-                  )}
-                  {isTypingActive(chat) && (
-                    <span className="text-xs text-muted-foreground">
-                      {t("typing")}
-                    </span>
-                  )}
-                  {isAdminTypingActive(chat) && (
-                    <span className="text-xs text-muted-foreground">
-                      {t("adminTyping")}
                     </span>
                   )}
                 </div>

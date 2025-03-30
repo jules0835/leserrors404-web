@@ -6,13 +6,7 @@ import {
 } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import {
-  TableOfContents,
-  Link,
-  Package,
-  CreditCard,
-  ShoppingBag,
-} from "lucide-react"
+import { TableOfContents, Link, Package, CreditCard } from "lucide-react"
 import { useTranslations } from "next-intl"
 import {
   Select,
@@ -22,7 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-export default function AdminMessageActions({ onSendAction }) {
+export default function AdminMessageActions({ onSendAction, isLoggedIn }) {
   const [selectedAction, setSelectedAction] = useState("link")
   const [link, setLink] = useState("")
   const [linkMessage, setLinkMessage] = useState("")
@@ -73,6 +67,11 @@ export default function AdminMessageActions({ onSendAction }) {
         <div className="space-y-4">
           <div className="space-y-2">
             <h4 className="font-medium">{t("selectAction")}</h4>
+            {!isLoggedIn && (
+              <p className="text-sm text-muted-foreground text-center text-red-500">
+                {t("loginRequiredActions")}
+              </p>
+            )}
             <Select
               value={selectedAction}
               onValueChange={(value) => setSelectedAction(value)}
@@ -87,24 +86,22 @@ export default function AdminMessageActions({ onSendAction }) {
                     {t("sendLink")}
                   </div>
                 </SelectItem>
-                <SelectItem value="SELECT_ORDER">
-                  <div className="flex items-center">
-                    <Package className="w-4 h-4 mr-2" />
-                    {t("selectOrder")}
-                  </div>
-                </SelectItem>
-                <SelectItem value="SELECT_SUBSCRIPTION">
-                  <div className="flex items-center">
-                    <CreditCard className="w-4 h-4 mr-2" />
-                    {t("selectSubscription")}
-                  </div>
-                </SelectItem>
-                <SelectItem value="SELECT_PRODUCT">
-                  <div className="flex items-center">
-                    <ShoppingBag className="w-4 h-4 mr-2" />
-                    {t("selectProduct")}
-                  </div>
-                </SelectItem>
+                {isLoggedIn && (
+                  <>
+                    <SelectItem value="SELECT_ORDER">
+                      <div className="flex items-center">
+                        <Package className="w-4 h-4 mr-2" />
+                        {t("selectOrder")}
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="SELECT_SUBSCRIPTION">
+                      <div className="flex items-center">
+                        <CreditCard className="w-4 h-4 mr-2" />
+                        {t("selectSubscription")}
+                      </div>
+                    </SelectItem>
+                  </>
+                )}
               </SelectContent>
             </Select>
           </div>
@@ -130,15 +127,17 @@ export default function AdminMessageActions({ onSendAction }) {
                   <SelectItem value="external">{t("externalLink")}</SelectItem>
                 </SelectContent>
               </Select>
-              <div className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  id="needLogin"
-                  checked={needLogin}
-                  onChange={(e) => setNeedLogin(e.target.checked)}
-                />
-                <label htmlFor="needLogin">{t("requireLogin")}</label>
-              </div>
+              {linkType === "internal" && !isLoggedIn && (
+                <div className="flex items-center space-x-2 justify-center">
+                  <input
+                    type="checkbox"
+                    id="needLogin"
+                    checked={needLogin}
+                    onChange={(e) => setNeedLogin(e.target.checked)}
+                  />
+                  <label htmlFor="needLogin">{t("requireLogin")}</label>
+                </div>
+              )}
             </div>
           )}
 

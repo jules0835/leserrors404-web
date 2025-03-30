@@ -54,3 +54,12 @@ export const endAdminChat = async (chatId) => {
 
   return response.data
 }
+
+export const saveAdminSummary = async (chatId, adminSummary) => {
+  const response = await axios.post("/api/contact/admin/chat/summary", {
+    chatId,
+    adminSummary,
+  })
+
+  return response.data
+}

@@ -23,6 +23,7 @@ import { format } from "date-fns"
 import DButton from "@/components/ui/DButton"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { useRouter } from "@/i18n/routing"
+import ErrorFront from "@/components/navigation/error"
 
 export default function UserPaymentPortal() {
   const t = useTranslations("User.Business.Payments")
@@ -108,12 +109,7 @@ export default function UserPaymentPortal() {
   }
 
   if (error) {
-    return (
-      <Alert variant="destructive">
-        <AlertCircle className="h-4 w-4" />
-        <AlertDescription>{error.message}</AlertDescription>
-      </Alert>
-    )
+    return <ErrorFront />
   }
 
   const paymentMethods = data?.paymentMethods?.data || []
@@ -147,9 +143,11 @@ export default function UserPaymentPortal() {
           </DButton>
         </div>
         {!hasPortalAccess && (
-          <Alert className="mt-4">
+          <Alert className="mt-4 border-green-500">
             <AlertCircle className="h-4 w-4" />
-            <AlertDescription>{t("stripePortalInactive")}</AlertDescription>
+            <AlertDescription className="mt-1">
+              {t("stripePortalInactive")}
+            </AlertDescription>
           </Alert>
         )}
       </Card>

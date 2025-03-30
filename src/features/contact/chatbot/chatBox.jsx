@@ -14,9 +14,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { MessageSquareMore, MessageSquareOff } from "lucide-react"
+import {
+  Bot,
+  MessageSquareMore,
+  MessageSquareOff,
+  UserRound,
+} from "lucide-react"
 import ErrorFront from "@/components/navigation/error"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
+import { company } from "@/assets/options/config"
 
 export default function ChatBox() {
   const {
@@ -46,9 +52,16 @@ export default function ChatBox() {
   return (
     <div className="flex flex-col h-[80vh]">
       <div className="flex items-center justify-between p-4 border-b">
-        <div>
-          {t("chatWith")}{" "}
-          {chatData?.chat?.state === "CHAT_BOT" ? t("bot") : t("admin")}
+        <div className="flex items-center gap-2">
+          {chatData?.chat?.state === "CHAT_BOT" ? (
+            <Bot size={24} />
+          ) : (
+            <UserRound size={24} />
+          )}
+          <span>-</span>
+          {chatData?.chat?.state === "CHAT_BOT"
+            ? `${t("bot")}`
+            : `${company.name} ${t("admin")}`}
         </div>
         <Dialog>
           <DialogTrigger asChild>

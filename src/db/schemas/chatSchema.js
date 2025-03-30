@@ -11,12 +11,7 @@ const messageSchema = new Schema({
   isBotQuery: { type: Boolean, default: false },
   action: {
     type: String,
-    enum: [
-      "SELECT_ORDER",
-      "SELECT_SUBSCRIPTION",
-      "SELECT_PRODUCT",
-      "CONTACT_HUMAN",
-    ],
+    enum: ["SELECT_ORDER", "SELECT_SUBSCRIPTION", "CONTACT_HUMAN"],
     required() {
       return this.isAction
     },
@@ -57,7 +52,7 @@ export const chatSchema = new Schema(
       default: "CHAT_BOT",
     },
     messages: [messageSchema],
-    adminSummary: { type: String, default: null },
+    adminSummary: { type: String, default: "" },
     orders: [{ type: Schema.Types.ObjectId, ref: "Order" }],
     subscriptions: [{ type: Schema.Types.ObjectId, ref: "Subscription" }],
     products: [{ type: Schema.Types.ObjectId, ref: "Product" }],

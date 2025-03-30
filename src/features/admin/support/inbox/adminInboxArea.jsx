@@ -101,7 +101,7 @@ export default function AdminInboxArea({ chat }) {
 
   return (
     <div className="flex-1 flex flex-col h-full">
-      <div className="p-4 border-b flex items-center justify-between">
+      <div className="px-4 h-16 border-b flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Avatar className="h-10 w-10">
             <AvatarFallback>
@@ -188,7 +188,7 @@ export default function AdminInboxArea({ chat }) {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="p-4 border-t">
+      <div className="p-4 h-16 border-t">
         {!chat.isActive && (
           <div className="text-center text-sm text-muted-foreground">
             {t("chatClosed")}
@@ -216,7 +216,10 @@ export default function AdminInboxArea({ chat }) {
                 <Send className="h-4 w-4" />
               )}
             </Button>
-            <AdminMessageActions onSendAction={handleSendAction} />
+            <AdminMessageActions
+              onSendAction={handleSendAction}
+              isLoggedIn={chat?.user}
+            />
           </form>
         )}
       </div>

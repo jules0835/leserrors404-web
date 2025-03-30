@@ -1,36 +1,36 @@
 import { logKeys } from "@/assets/options/config"
-import {
-  findChatByIdForChatBot,
-  findChatByUserIdForChatBot,
-  markUserMessagesAsRead,
-} from "@/db/crud/chatCrud"
-import { getReqUserId } from "@/features/auth/utils/getAuthParam"
+import { updateChatAdminSummary } from "@/db/crud/chatCrud"
+import { getReqIsAdmin, getReqUserId } from "@/features/auth/utils/getAuthParam"
 import log from "@/lib/log"
 import { NextResponse } from "next/server"
 
 export async function POST(req) {
   try {
-    const userId = getReqUserId(req)
-    const chatId = req.cookies.get("chatId")?.value
-    let chat = null
+    const isAdmin = getReqIsAdmin(req)
+    const { chatId, adminSummary } = await req.json()
 
-    if (userId) {
-      chat = await findChatByUserIdForChatBot(userId)
-    } else if (chatId) {
-      chat = await findChatByIdForChatBot(chatId)
+    if (!isAdmin) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
+
+    if (!chatId) {
+      return NextResponse.json(
+        { error: "Chat ID is required" },
+        { status: 400 }
+      )
+    }
+
+    const chat = await updateChatAdminSummary(chatId, adminSummary)
 
     if (!chat) {
       return NextResponse.json({ error: "Chat not found" }, { status: 404 })
     }
 
-    await markUserMessagesAsRead(chat._id)
-
     return NextResponse.json({ success: true })
   } catch (error) {
     log.systemError({
       logKey: logKeys.chatbotError.key,
-      message: "Failed to mark messages as read",
+      message: "Failed to end chat",
       technicalMessage: error.message,
       isError: true,
       data: { error },

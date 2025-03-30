@@ -1173,7 +1173,8 @@
         "confirm": "Bestätigen",
         "description": "Sind Sie sicher, dass Sie dieses Gespräch beenden möchten? \nAdmin oder Client kann danach keine Nachrichten senden.",
         "ending": "Ende Chat",
-        "title": "Dieses Gespräch beenden?"
+        "title": "Dieses Gespräch beenden?",
+        "titleBtn": "Ende des Gesprächs"
       },
       "ended": "Beendet",
       "enterLink": "Geben Sie die Link -URL ein",
@@ -1215,7 +1216,16 @@
       "userNotLoggedIn": "Benutzer nicht angemeldet",
       "userOrders": "Benutzerbestellungen",
       "userProfile": "Benutzerprofil",
-      "userSubscriptions": "Benutzerabonnements"
+      "userSubscriptions": "Benutzerabonnements",
+      "actionDone": "Aktion durchgeführt",
+      "adminSummaryPlaceholder": "Zusammenfassung des Chats für Administrator",
+      "closedBy": "Geschlossen von",
+      "loginRequiredActions": "Der Benutzer ist nicht angemeldet, einige Aktionen sind möglicherweise nicht verfügbar.",
+      "noStripeCustomerId": "Koraner ist noch nicht auf Streifen registriert",
+      "saveAdminSummary": "Zusammenfassung speichern",
+      "viewOnStripe": "Blick auf Streifen",
+      "waitingAction": "Warten auf Aktion",
+      "you": "Du"
     }
   },
   "DefaultNotFound": "FEHLER: Übersetzung nicht gefunden",
@@ -1921,7 +1931,12 @@
           "noResults": "Keine Bestellungen gefunden",
           "orderNumber": "Befehl",
           "searchPlaceholder": "Suchbestellungen ...",
-          "title": "Wählen Sie eine Bestellung"
+          "title": "Wählen Sie eine Bestellung",
+          "error": "Fehler bei der Auswahl der Reihenfolge",
+          "loading": "Laden",
+          "next": "Nächste",
+          "noOrders": "Keine Bestellungen",
+          "previous": "Vorherige"
         },
         "SELECT_PRODUCT": {
           "annual": "Jahr",
@@ -1936,7 +1951,23 @@
           "noResults": "Keine Abonnements gefunden",
           "searchPlaceholder": "Suchen Sie Abonnements ...",
           "subscriptionNumber": "Abonnement",
-          "title": "Wählen Sie ein Abonnement"
+          "title": "Wählen Sie ein Abonnement",
+          "error": "Erreur lors du Ladegeräte des Abonnements",
+          "loading": "Lessel des Abonnements ...",
+          "next": "Suivant",
+          "noSubscriptions": "Aucun Abonnement Trouvé",
+          "previous": "Präzedenzfall"
+        },
+        "status": {
+          "active": "Aktiv",
+          "canceled": "Abgesagt",
+          "cancelled": "Abgesagt",
+          "completed": "Vollendet",
+          "expired": "Abgelaufen",
+          "failed": "Fehlgeschlagen",
+          "inactive": "Inaktiv",
+          "pending": "Ausstehend",
+          "refunded": "Erstattet"
         }
       },
       "Messages": {

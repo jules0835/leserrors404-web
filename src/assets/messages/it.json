@@ -1173,7 +1173,8 @@
         "confirm": "Confermare",
         "description": "Sei sicuro di voler terminare questa conversazione? \nL'amministratore o il cliente non saranno in grado di inviare messaggi dopo questo.",
         "ending": "Fine chat",
-        "title": "Termina questa conversazione?"
+        "title": "Termina questa conversazione?",
+        "titleBtn": "Termina la conversazione"
       },
       "ended": "Concluso",
       "enterLink": "Immettere l'URL del collegamento",
@@ -1215,7 +1216,16 @@
       "userNotLoggedIn": "L'utente non ha effettuato l'accesso",
       "userOrders": "Ordini utente",
       "userProfile": "Profilo utente",
-      "userSubscriptions": "Abbonamenti utente"
+      "userSubscriptions": "Abbonamenti utente",
+      "actionDone": "Azione fatta",
+      "adminSummaryPlaceholder": "Riepilogo della chat per l'amministratore",
+      "closedBy": "Chiuso da",
+      "loginRequiredActions": "L'utente non è effettuato l'accesso, alcune azioni potrebbero non essere disponibili.",
+      "noStripeCustomerId": "Custromer non è ancora registrato su Stripe",
+      "saveAdminSummary": "Salva riassunto",
+      "viewOnStripe": "Visualizza su Stripe",
+      "waitingAction": "In attesa di azione",
+      "you": "Voi"
     }
   },
   "DefaultNotFound": "Errore: traduzione non trovata",
@@ -1921,7 +1931,12 @@
           "noResults": "Nessun ordine trovato",
           "orderNumber": "Ordine",
           "searchPlaceholder": "Ordini di ricerca ...",
-          "title": "Seleziona un ordine"
+          "title": "Seleziona un ordine",
+          "error": "Errore durante la selezione dell'ordine",
+          "loading": "Caricamento",
+          "next": "Prossimo",
+          "noOrders": "Nessun ordine",
+          "previous": "Precedente"
         },
         "SELECT_PRODUCT": {
           "annual": "anno",
@@ -1936,7 +1951,23 @@
           "noResults": "Nessun abbonamento trovato",
           "searchPlaceholder": "Abbonamenti di ricerca ...",
           "subscriptionNumber": "Sottoscrizione",
-          "title": "Seleziona un abbonamento"
+          "title": "Seleziona un abbonamento",
+          "error": "Erreur Lors du Chargement des Abonnements",
+          "loading": "Chargement des Abonnements ...",
+          "next": "SUIVANT",
+          "noSubscriptions": "Aucun Abonnement Trouvé",
+          "previous": "Precedente"
+        },
+        "status": {
+          "active": "Attivo",
+          "canceled": "Annullato",
+          "cancelled": "Annullato",
+          "completed": "Completato",
+          "expired": "Scaduto",
+          "failed": "Fallito",
+          "inactive": "Inattivo",
+          "pending": "In attesa di",
+          "refunded": "Rimborsato"
         }
       },
       "Messages": {

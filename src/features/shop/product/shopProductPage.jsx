@@ -78,7 +78,7 @@ export default function ShopProductPage() {
               src={product.picture}
               alt={getLocalizedValue(product.label)}
               className="w-full h-auto rounded-lg shadow-md"
-              wIdth={400}
+              width={400}
               height={400}
             />
           </div>

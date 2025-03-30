@@ -1036,7 +1036,8 @@
         "confirm": "Confirmer",
         "description": "Êtes-vous sûr de vouloir mettre fin à cette conversation? \nL'administrateur ou le client ne pourra pas envoyer de messages après cela.",
         "ending": "Terminer le chat",
-        "title": "Mettre fin à cette conversation?"
+        "title": "Mettre fin à cette conversation?",
+        "titleBtn": "Conversation de fin"
       },
       "ended": "Terminé",
       "enterLink": "Entrez l'URL du lien",
@@ -1078,7 +1079,16 @@
       "userNotLoggedIn": "L'utilisateur n'est pas connecté",
       "userOrders": "Commandes utilisateur",
       "userProfile": "Profil d'utilisateur",
-      "userSubscriptions": "Abonnements utilisateur"
+      "userSubscriptions": "Abonnements utilisateur",
+      "actionDone": "Action effectuée",
+      "adminSummaryPlaceholder": "Résumé du chat pour admin",
+      "closedBy": "Fermé par",
+      "loginRequiredActions": "L'utilisateur n'est pas connecté, une action ne peut pas être disponible.",
+      "noStripeCustomerId": "Custrromer n'est pas encore inscrit sur Stripe",
+      "saveAdminSummary": "Sauver le résumé",
+      "viewOnStripe": "Vue sur Stripe",
+      "waitingAction": "En attente d'action",
+      "you": "Toi"
     }
   },
   "Auth": {
@@ -1921,7 +1931,12 @@
           "noResults": "Aucune commande trouvée",
           "orderNumber": "Commande",
           "searchPlaceholder": "Commandes de recherche ...",
-          "title": "Sélectionnez une commande"
+          "title": "Sélectionnez une commande",
+          "error": "Erreur lors de la sélection de la commande",
+          "loading": "Chargement",
+          "next": "Suivant",
+          "noOrders": "Pas de commandes",
+          "previous": "Précédent"
         },
         "SELECT_PRODUCT": {
           "annual": "année",
@@ -1936,7 +1951,23 @@
           "noResults": "Aucun abonnements trouvé",
           "searchPlaceholder": "Rechercher des abonnements ...",
           "subscriptionNumber": "Abonnement",
-          "title": "Sélectionnez un abonnement"
+          "title": "Sélectionnez un abonnement",
+          "error": "Erreur Lors du Charment des Abonctions",
+          "loading": "Chargement des abonments ...",
+          "next": "Suivant",
+          "noSubscriptions": "AUCUN abonement Trouvé",
+          "previous": "Précédent"
+        },
+        "status": {
+          "active": "Actif",
+          "canceled": "Annulé",
+          "cancelled": "Annulé",
+          "completed": "Complété",
+          "expired": "Expiré",
+          "failed": "Échoué",
+          "inactive": "Inactif",
+          "pending": "En attente",
+          "refunded": "Remboursé"
         }
       },
       "Messages": {

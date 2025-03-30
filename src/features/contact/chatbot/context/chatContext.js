@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import { createContext, useContext, useState, useEffect } from "react"
@@ -13,6 +14,7 @@ import {
   switchToAdmin,
   markMessagesAsRead,
 } from "@/features/contact/chatbot/service/chatService"
+import { completeAction } from "@/features/contact/chatbot/service/chatActionService"
 
 const ChatContext = createContext()
 
@@ -28,6 +30,7 @@ export const ChatProvider = ({ children }) => {
   const [shouldReset, setShouldReset] = useState(false)
   const [unreadCount, setUnreadCount] = useState(0)
   const [isSwitchingToAdmin, setIsSwitchingToAdmin] = useState(false)
+  const [isCompletingAction, setIsCompletingAction] = useState(false)
   const {
     data: chatData,
     refetch: refetchChatData,
@@ -221,6 +224,27 @@ export const ChatProvider = ({ children }) => {
     Cookies.remove("chatId")
     refetchChatData()
   }
+  const completeSelectedAction = async (
+    completedChatId,
+    completedMessageId,
+    completedSelectedItem,
+    completedAction
+  ) => {
+    try {
+      setIsCompletingAction(true)
+      await completeAction(
+        completedChatId,
+        completedMessageId,
+        completedSelectedItem,
+        completedAction
+      )
+      await refetchChatData()
+    } catch (errorCompleteSelectedAction) {
+      handleError(errorCompleteSelectedAction)
+    } finally {
+      setIsCompletingAction(false)
+    }
+  }
 
   return (
     <ChatContext.Provider
@@ -246,6 +270,8 @@ export const ChatProvider = ({ children }) => {
         unreadCount,
         isSwitchingToAdmin,
         reloadChat,
+        completeSelectedAction,
+        isCompletingAction,
       }}
     >
       {children}

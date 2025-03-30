@@ -37,13 +37,6 @@ export async function POST(req) {
         }
 
         break
-
-      case "SELECT_PRODUCT":
-        if (!chat.products.includes(selectedItem._id)) {
-          chat.products.push(selectedItem._id)
-        }
-
-        break
     }
 
     await chat.save()

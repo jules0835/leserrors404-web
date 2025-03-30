@@ -7,26 +7,24 @@ import {
 } from "@/components/ui/dialog"
 import { useTranslations } from "next-intl"
 import DButton from "@/components/ui/DButton"
-import { Package, CreditCard, ShoppingBag } from "lucide-react"
+import { Package, CreditCard } from "lucide-react"
 import SelectOrder from "@/features/contact/chatbot/actions/selectOrder"
 import SelectSubscription from "@/features/contact/chatbot/actions/selectSubscription"
-import SelectProduct from "@/features/contact/chatbot/actions/selectProduct"
 
 const actionIcons = {
   SELECT_ORDER: Package,
   SELECT_SUBSCRIPTION: CreditCard,
-  SELECT_PRODUCT: ShoppingBag,
 }
 const actionComponents = {
   SELECT_ORDER: SelectOrder,
   SELECT_SUBSCRIPTION: SelectSubscription,
-  SELECT_PRODUCT: SelectProduct,
 }
 
 export default function ChatActionButton({
   action,
   onActionComplete,
   isDisabled,
+  isLoading,
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const t = useTranslations("Contact.Chatbot.Actions")
@@ -44,6 +42,7 @@ export default function ChatActionButton({
         styles="gap-2"
         onClickBtn={() => setIsOpen(true)}
         isDisabled={isDisabled}
+        isLoading={isLoading}
       >
         <Icon size={18} />
         {t(`${action}.buttonText`)}

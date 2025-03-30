@@ -1,5 +1,6 @@
+import { trimString } from "@/lib/utils"
 import { formatDistanceToNow } from "date-fns"
-import { FileQuestion, Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff, Package, CreditCard } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useRef } from "react"
 
@@ -30,7 +31,12 @@ export default function AdminChatMessage({
             message.isActionDone ? "bg-green-200" : "bg-orange-200"
           }`}
         >
-          <FileQuestion className="w-4 h-4 mr-2" />
+          {message.action === "SELECT_ORDER" && (
+            <Package className="w-4 h-4 mr-2" />
+          )}
+          {message.action === "SELECT_SUBSCRIPTION" && (
+            <CreditCard className="w-4 h-4 mr-2" />
+          )}
           <p className="font-medium">
             {t("actionRequired")}: {t(message.action)}
           </p>
@@ -70,7 +76,7 @@ export default function AdminChatMessage({
             rel="noopener noreferrer"
             className="text-primary underline text-sm mt-1 block"
           >
-            {message.link}
+            {trimString(message.link, 50)}
             {message.linkNeedLogin && ` (${t("loginRequired")})`}
           </a>
         </div>

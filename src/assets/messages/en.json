@@ -235,7 +235,16 @@
       "userActions": "User Actions",
       "userOrders": "User Orders",
       "userSubscriptions": "User Subscriptions",
-      "userProfile": "User Profil"
+      "userProfile": "User Profil",
+      "loginRequiredActions": "User is not logged-in, some action may be not available.",
+      "viewOnStripe": "View on Stripe",
+      "noStripeCustomerId": "Custromer is not yet register on Stripe",
+      "closedBy": "Closed by",
+      "saveAdminSummary": "Save summary",
+      "adminSummaryPlaceholder": "Summary of the chat for admin",
+      "you": "You",
+      "waitingAction": "Waiting for action",
+      "actionDone": "Action done"
     },
     "Security": {
       "Users": {
@@ -1928,19 +1937,40 @@
         "error": "An error occured, please reload the page or try again later."
       },
       "Actions": {
+        "status": {
+          "cancelled": "Cancelled",
+          "canceled": "Canceled",
+          "pending": "Pending",
+          "completed": "Completed",
+          "refunded": "Refunded",
+          "failed": "Failed",
+          "expired": "Expired",
+          "active": "Active",
+          "inactive": "Inactive"
+        },
         "SELECT_ORDER": {
           "buttonText": "Select an order",
           "title": "Select an order",
           "searchPlaceholder": "Search orders...",
           "noResults": "No orders found",
-          "orderNumber": "Order #{number}"
+          "orderNumber": "Order #{number}",
+          "previous": "Previous",
+          "next": "Next",
+          "loading": "Loading",
+          "error": "Error while selecting order",
+          "noOrders": "No orders"
         },
         "SELECT_SUBSCRIPTION": {
           "buttonText": "Select a subscription",
           "title": "Select a subscription",
           "searchPlaceholder": "Search subscriptions...",
           "noResults": "No subscriptions found",
-          "subscriptionNumber": "Subscription #{number}"
+          "loading": "Chargement des abonnements...",
+          "error": "Erreur lors du chargement des abonnements",
+          "noSubscriptions": "Aucun abonnement trouvé",
+          "subscriptionNumber": "Abonnement #{number}",
+          "previous": "Précédent",
+          "next": "Suivant"
         },
         "SELECT_PRODUCT": {
           "buttonText": "Select a product",
@@ -1957,8 +1987,8 @@
   },
   "chat": {
     "chatWith": "You are chatting with",
-    "bot": "our support Bot",
-    "admin": "a membre of our support team",
+    "bot": "Matthys Support Bot",
+    "admin": "Support Team",
     "endChat": {
       "title": "Terminer la conversation",
       "description": "Êtes-vous sûr de vouloir terminer cette conversation ? Vous ne pourrez plus envoyer de messages une fois la conversation terminée.",

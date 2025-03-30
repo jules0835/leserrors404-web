@@ -1173,7 +1173,8 @@
         "confirm": "Tiyisisa",
         "description": "Xana u tiyisile leswaku u lava ku herisa mbulavurisano lowu ? \nAdmin kumbe client a yi nge swi koti ku rhumela marungula endzhaku ka leswi.",
         "ending": "Ku vulavula hi ku hetelela .",
-        "title": "Ku heta mbulavurisano lowu ?"
+        "title": "Ku heta mbulavurisano lowu ?",
+        "titleBtn": "Bulo ra makumu ."
       },
       "ended": "Ku hela .",
       "enterLink": "Nghenisa URL ya xihlanganisi .",
@@ -1215,7 +1216,16 @@
       "userNotLoggedIn": "Mutirhisi a nga nghenanga-in .",
       "userOrders": "Tioda ta vatirhisi .",
       "userProfile": "Mutirhisi Profil .",
-      "userSubscriptions": "Swikhokhelo swa vatirhisi ."
+      "userSubscriptions": "Swikhokhelo swa vatirhisi .",
+      "actionDone": "Xiendlo xi endliwile .",
+      "adminSummaryPlaceholder": "Nkatsakanyo wa mbulavurisano wa Admin .",
+      "closedBy": "swi pfariwile hi .",
+      "loginRequiredActions": "Mutirhisi a nga ngheni-in, xiendlo xin’wana xi nga ha va xi nga ri kona.",
+      "noStripeCustomerId": "Custromer a yi si tsarisa eka Stripe .",
+      "saveAdminSummary": "Hlayisa Nkatsakanyo .",
+      "viewOnStripe": "Xivono xa stripe .",
+      "waitingAction": "Ku rindzela xiendlo .",
+      "you": "Wena"
     }
   },
   "DefaultNotFound": "Xihoxo: Vuhundzuluxi a byi kumekanga .",
@@ -1921,7 +1931,12 @@
           "noResults": "Ku hava ti oda leti kumiweke .",
           "orderNumber": "Xileriso",
           "searchPlaceholder": "Tioda to lavisisa...",
-          "title": "Hlawula odara ."
+          "title": "Hlawula odara .",
+          "error": "Xihoxo loko u ri karhi u hlawula Odara .",
+          "loading": "Ku layicha .",
+          "next": "Landzelaka",
+          "noOrders": "Ku hava Tioda .",
+          "previous": "Endzhaku"
         },
         "SELECT_PRODUCT": {
           "annual": "lembe",
@@ -1936,7 +1951,23 @@
           "noResults": "Ku hava swikhokhelo leswi kumiweke .",
           "searchPlaceholder": "Swikhokhelo swa ku lavisisa...",
           "subscriptionNumber": "Xikhokhelo .",
-          "title": "Hlawula xikhokhelo ."
+          "title": "Hlawula xikhokhelo .",
+          "error": "Erreur Lors du Chargement des Ku hlangana ka swilo .",
+          "loading": "Chargement des Abonnements...",
+          "next": "Suivant .",
+          "noSubscriptions": "Aucun Ku hlangana ka swirho swa le ndzeni ka khwiri Trouvé .",
+          "previous": "Précédent ."
+        },
+        "status": {
+          "active": "Hanya",
+          "canceled": "Ku khanseriwa .",
+          "cancelled": "Ku khanseriwa .",
+          "completed": "Ku hetiwa .",
+          "expired": "Hundzele hi nkarhi",
+          "failed": "Hluleka",
+          "inactive": "Inactive .",
+          "pending": "Rindzerile",
+          "refunded": "Ku tlheriseriwa mali ."
         }
       },
       "Messages": {

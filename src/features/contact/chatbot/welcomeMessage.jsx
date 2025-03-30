@@ -33,7 +33,9 @@ export default function WelcomeMessage() {
       formData.userName &&
       formData.email &&
       formData.userName.trim() !== "" &&
-      formData.email.trim() !== ""
+      formData.email.trim() !== "" &&
+      formData.email.includes("@") &&
+      formData.email.includes(".")
     ) {
       handleStartChat()
     } else {

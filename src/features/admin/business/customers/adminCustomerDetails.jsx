@@ -202,6 +202,7 @@ export default function AdminCustomerDetails() {
                 <Button
                   variant="outline"
                   className="w-full"
+                  disabled={!customer?.account?.stripe?.customerId}
                   onClick={() => {
                     openClientPortal()
                   }}

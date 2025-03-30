@@ -56,10 +56,11 @@ export const findAdminChats = async () => {
     state: { $in: ["CHAT_ADMIN", "INBOX"] },
     isActive: true,
   })
-    .populate("user", "firstName lastName email phone company")
+    .populate("user")
+    .populate("orders")
+    .populate("subscriptions")
     .lean()
 
-  // Sort chats by last message date
   return chats.sort((a, b) => {
     const lastMessageA =
       a.messages[a.messages.length - 1]?.sendDate || a.createdAt
@@ -73,17 +74,17 @@ export const findAdminChats = async () => {
 export const findAdminChatById = async (chatId) => {
   await mwdb()
 
-  return await ChatModel.findById(chatId).populate(
-    "user",
-    "firstName lastName email phone company"
-  )
+  return await ChatModel.findById(chatId)
+    .populate("user")
+    .populate("orders")
+    .populate("subscriptions")
 }
 
 export const findAdminChatByIdWithMessages = async (chatId) => {
   await mwdb()
 
   return await ChatModel.findById(chatId)
-    .populate("user", "firstName lastName email phone company")
+    .populate("user")
     .populate("orders")
     .populate("subscriptions")
     .populate("products")
@@ -99,7 +100,7 @@ export const updateChatAction = async (
 
   const chat = await ChatModel.findById(chatId)
 
-  if (!chat) {
+  if (!chat || !chat.isActive) {
     return null
   }
 
@@ -125,13 +126,6 @@ export const updateChatAction = async (
       }
 
       break
-
-    case "SELECT_PRODUCT":
-      if (!chat.products.includes(selectedItem._id)) {
-        chat.products.push(selectedItem._id)
-      }
-
-      break
   }
 
   return await chat.save()
@@ -142,7 +136,7 @@ export const addAdminMessage = async (chatId, messageData) => {
 
   const chat = await ChatModel.findById(chatId)
 
-  if (!chat) {
+  if (!chat || !chat.isActive) {
     return null
   }
 
@@ -192,12 +186,12 @@ export const markUserMessagesAsRead = async (chatId) => {
   return await chat.save()
 }
 
-export const endChat = async (chatId, closedBy) => {
+export const endChat = async (chatId, closedBy = "ADMIN") => {
   await mwdb()
 
   const chat = await ChatModel.findById(chatId)
 
-  if (!chat) {
+  if (!chat || !chat.isActive) {
     return null
   }
 
@@ -205,7 +199,12 @@ export const endChat = async (chatId, closedBy) => {
   chat.closeBy = closedBy
   chat.endedAt = new Date()
 
-  return await chat.save()
+  const updatedChat = await chat.save()
+
+  await markAdminMessagesAsRead(chatId)
+  await markUserMessagesAsRead(chatId)
+
+  return updatedChat
 }
 
 export const switchChatToAdmin = async (chatId) => {
@@ -213,7 +212,7 @@ export const switchChatToAdmin = async (chatId) => {
 
   const chat = await ChatModel.findById(chatId)
 
-  if (!chat) {
+  if (!chat || !chat.isActive) {
     return null
   }
 
@@ -227,7 +226,7 @@ export const updateUserTypingStatus = async (chatId, isTyping) => {
 
   const chat = await ChatModel.findById(chatId)
 
-  if (!chat) {
+  if (!chat || !chat.isActive) {
     return null
   }
 
@@ -245,13 +244,29 @@ export const updateAdminTypingStatus = async (chatId, isTyping) => {
 
   const chat = await ChatModel.findById(chatId)
 
-  if (!chat) {
+  if (!chat || !chat.isActive) {
     return null
   }
 
   chat.isAdminTyping = isTyping
   chat.isAdminTypingLastUpdate = isTyping ? new Date() : null
 
+  const updatedChat = await chat.save()
+  await markAdminMessagesAsRead(chatId)
+
+  return updatedChat
+}
+
+export const updateChatAdminSummary = async (chatId, adminSummary) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat || !chat.isActive) {
+    return null
+  }
+
+  chat.adminSummary = adminSummary
   const updatedChat = await chat.save()
   await markAdminMessagesAsRead(chatId)
 
