@@ -1,13 +1,12 @@
 "use client"
 
 import { useState, useRef, useEffect, useCallback } from "react"
-import { Send, User } from "lucide-react"
+import { MailCheck, MailX, Send, User } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useAdminChat } from "@/features/admin/support/context/adminChatContext"
 import { useTranslations } from "next-intl"
-import ErrorFront from "@/components/navigation/error"
 import AdminChatMessage from "@/features/admin/support/inbox/adminChatMessage"
 import AdminMessageActions from "@/features/admin/support/inbox/adminMessageActions"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
@@ -16,6 +15,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 export default function AdminInboxArea({ chat }) {
   const { sendMessage, isSendingMessage, error, handleTyping } = useAdminChat()
   const [newMessage, setNewMessage] = useState("")
+  const [sendAsEmail, setSendAsEmail] = useState(false)
   const messagesEndRef = useRef(null)
   const t = useTranslations("Admin.Chat")
   const typingTimeoutRef = useRef(null)
@@ -63,7 +63,6 @@ export default function AdminInboxArea({ chat }) {
     },
     []
   )
-
   const handleChange = (e) => {
     setNewMessage(e.target.value)
     handleTypingChange(true)
@@ -73,7 +72,9 @@ export default function AdminInboxArea({ chat }) {
 
     if (newMessage.trim()) {
       setNewMessage("")
-      await sendMessage(newMessage)
+      await sendMessage(newMessage, {
+        sendAsEmail,
+      })
       handleTypingChange(false)
     }
   }
@@ -95,12 +96,13 @@ export default function AdminInboxArea({ chat }) {
     }
   }
 
-  if (error) {
-    return <ErrorFront />
-  }
-
   return (
     <div className="flex-1 flex flex-col h-full">
+      {error && (
+        <div className="border border-red-500 rounded-lg p-4">
+          <p className="text-red-500">{t("error")}</p>
+        </div>
+      )}
       <div className="px-4 h-16 border-b flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Avatar className="h-10 w-10">
@@ -187,7 +189,12 @@ export default function AdminInboxArea({ chat }) {
         )}
         <div ref={messagesEndRef} />
       </div>
-
+      {chat.isActive && sendAsEmail && (
+        <div className="text-center text-sm rounded-lg border-t border-red-500 p-2 flex items-center justify-center gap-2">
+          <MailCheck className="h-4 w-4" />
+          {t("sendAsEmail")}
+        </div>
+      )}
       <div className="p-4 h-16 border-t">
         {!chat.isActive && (
           <div className="text-center text-sm text-muted-foreground">
@@ -214,6 +221,18 @@ export default function AdminInboxArea({ chat }) {
                 <AnimatedReload />
               ) : (
                 <Send className="h-4 w-4" />
+              )}
+            </Button>
+            <Button
+              type="button"
+              onClick={() => setSendAsEmail(!sendAsEmail)}
+              variant="outline"
+              className={sendAsEmail ? "border-red-500" : ""}
+            >
+              {sendAsEmail ? (
+                <MailX className="h-4 w-4" />
+              ) : (
+                <MailCheck className="h-4 w-4" />
               )}
             </Button>
             <AdminMessageActions

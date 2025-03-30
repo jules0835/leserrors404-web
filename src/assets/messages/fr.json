@@ -867,6 +867,18 @@
           "ShopStripeCustomerError": {
             "description": "Une erreur s'est produite avec le client Stripe",
             "title": "Erreur du client Stripe de magasin"
+          },
+          "ChatbotError": {
+            "description": "Une erreur s'est produite avec le chatbot",
+            "title": "Erreur de chatbot"
+          },
+          "ChatbotInfo": {
+            "description": "Une information s'est produite avec le chatbot",
+            "title": "Info chatbot"
+          },
+          "OrderUpdate": {
+            "description": "Une commande a été mise à jour",
+            "title": "Mise à jour de la commande"
           }
         },
         "LogDetails": {
@@ -1088,7 +1100,8 @@
       "saveAdminSummary": "Sauver le résumé",
       "viewOnStripe": "Vue sur Stripe",
       "waitingAction": "En attente d'action",
-      "you": "Toi"
+      "you": "Toi",
+      "sendAsEmail": "Ce message sera également envoyé par e-mail à l'e-mail utilisateur."
     }
   },
   "Auth": {
@@ -1226,7 +1239,12 @@
     "resetEmailMessage": "Pour réinitialiser votre mot de passe, cliquez sur le bouton ci-dessous et suivez les instructions. \nCe lien expirera dans 1 heure. \nSi vous n'avez pas demandé de réinitialisation de mot de passe, vous pouvez ignorer en toute sécurité cet e-mail ou contacter notre équipe d'assistance.",
     "userEmail": "Vous pouvez me joindre au {email}",
     "userMessage": "Je vous souhaite une excellente journée!",
-    "userSignature": "Meilleures salutations, {FirstName} {LastName}"
+    "userSignature": "Meilleures salutations, {FirstName} {LastName}",
+    "Support": {
+      "newMessage": "Vous avez reçu un nouveau message dans l'une de vos conversations avec notre équipe de support client. \nVoici un résumé:",
+      "newMessageSubject": "{Company} - nouveau message de l'équipe d'assistance",
+      "openChatButton": "Conversation ouverte"
+    }
   },
   "HomeAdmin": {
     "about": "Allez sur la page",

@@ -1004,6 +1004,18 @@
           "ShopStripeCustomerError": {
             "description": "Xihoxo xi humelerile eka muxavi wa stripe .",
             "title": "Shop Stripe Xihoxo xa Muxavi ."
+          },
+          "ChatbotError": {
+            "description": "Xihoxo xi humelerile hi chatbot .",
+            "title": "Xihoxo xa chatbot ."
+          },
+          "ChatbotInfo": {
+            "description": "Info yi humelerile hi chatbot .",
+            "title": "chatbot info ."
+          },
+          "OrderUpdate": {
+            "description": "Xileriso xi pfuxetiwile .",
+            "title": "Ku pfuxetiwa ka oda ."
           }
         },
         "LogDetails": {
@@ -1225,7 +1237,8 @@
       "saveAdminSummary": "Hlayisa Nkatsakanyo .",
       "viewOnStripe": "Xivono xa stripe .",
       "waitingAction": "Ku rindzela xiendlo .",
-      "you": "Wena"
+      "you": "Wena",
+      "sendAsEmail": "Rungula leri ri ta tlhela ri rhumeriwa tanihi email eka email ya mutirhisi."
     }
   },
   "DefaultNotFound": "Xihoxo: Vuhundzuluxi a byi kumekanga .",
@@ -1305,7 +1318,12 @@
     "resetEmailMessage": "Leswaku u tlhela u veka phaswedi ya wena, ti-click eka buti leyi nga laha hansi ivi u landzela swiletelo. \nLink leyi yi ta hela hi awara yin'we. \nLoko u nga kombela ku tlheriseriwa ka phaswedi, u nga honisa imeyili leyi hi ku hlayiseka kumbe u tihlanganisa na ntlawa wa hina wa nseketelo.",
     "userEmail": "U nga ndzi fikelela eka {Email}",
     "userMessage": "Ndzi mi navelela siku ra kahle swinene!",
-    "userSignature": "Hi mayelana na swinene, {vito ro sungula} {vito ro hetelela}"
+    "userSignature": "Hi mayelana na swinene, {vito ro sungula} {vito ro hetelela}",
+    "Support": {
+      "newMessage": "U amukerile rungula lerintshwa eka rin’wana ra mabulo ya wena na ntlawa wa hina wa nseketelo wa vaxavi. \nHi leswi swi katsakanya:",
+      "newMessageSubject": "{Company} - Rungula lerintshwa ku suka eka ntlawa wa nseketelo .",
+      "openChatButton": "Vulavula hi ku vulavula ."
+    }
   },
   "User": {
     "Business": {

@@ -64,8 +64,17 @@ export const ChatProvider = ({ children }) => {
 
   useEffect(() => {
     if (session?.user) {
-      Cookies.remove("chatId")
-      setNeedLogin(false)
+      const handleSessionChange = async () => {
+        if (Cookies.get("chatId")) {
+          setNeedLogin(false)
+          await endChat()
+          await refetchChatData()
+        }
+      }
+
+      if (session?.user) {
+        handleSessionChange()
+      }
     }
   }, [session])
 

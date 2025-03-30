@@ -20,7 +20,7 @@ export async function POST(req) {
     }
 
     if (!chat) {
-      return NextResponse.json({ error: "Chat not found" }, { status: 404 })
+      return NextResponse.json({ success: true })
     }
 
     if (!chat.isActive) {

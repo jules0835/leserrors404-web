@@ -1004,6 +1004,18 @@
           "ShopStripeCustomerError": {
             "description": "Si è verificato un errore con il cliente Stripe",
             "title": "Shop Stripe Errore del cliente"
+          },
+          "ChatbotError": {
+            "description": "Si è verificato un errore con il chatbot",
+            "title": "Errore di chatbot"
+          },
+          "ChatbotInfo": {
+            "description": "Si sono verificate informazioni con il chatbot",
+            "title": "Informazioni di chatbot"
+          },
+          "OrderUpdate": {
+            "description": "Un ordine è stato aggiornato",
+            "title": "Aggiornamento dell'ordine"
           }
         },
         "LogDetails": {
@@ -1225,7 +1237,8 @@
       "saveAdminSummary": "Salva riassunto",
       "viewOnStripe": "Visualizza su Stripe",
       "waitingAction": "In attesa di azione",
-      "you": "Voi"
+      "you": "Voi",
+      "sendAsEmail": "Questo messaggio verrà inoltre inviato come e -mail all'e -mail utente."
     }
   },
   "DefaultNotFound": "Errore: traduzione non trovata",
@@ -1302,7 +1315,12 @@
     "otpWarningMessage": "Si prega di non condividere questo codice con nessuno. \nNon lo chiederemo mai. \nSe non hai richiesto questo codice, ignora questa e -mail.",
     "userMessage": "Ti auguro una giornata eccellente!",
     "resetButton": "Reimpostare la mia password",
-    "resetEmailMessage": "Per reimpostare la password, fare clic sul pulsante in basso e seguire le istruzioni. \nQuesto link scadrà tra 1 ora. \nSe non hai richiesto un reimpostazione della password, è possibile ignorare in sicurezza questa e -mail o contattare il nostro team di supporto."
+    "resetEmailMessage": "Per reimpostare la password, fare clic sul pulsante in basso e seguire le istruzioni. \nQuesto link scadrà tra 1 ora. \nSe non hai richiesto un reimpostazione della password, è possibile ignorare in sicurezza questa e -mail o contattare il nostro team di supporto.",
+    "Support": {
+      "newMessage": "Hai ricevuto un nuovo messaggio in una delle tue conversazioni con il nostro team di assistenza clienti. \nEcco un riepilogo:",
+      "newMessageSubject": "{Company} - Nuovo messaggio dal team di supporto",
+      "openChatButton": "Conversazione aperta"
+    }
   },
   "isSuperAdminRequired": "È richiesto Super Admin",
   "Confirmation": {

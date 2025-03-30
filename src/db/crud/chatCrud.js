@@ -134,7 +134,7 @@ export const updateChatAction = async (
 export const addAdminMessage = async (chatId, messageData) => {
   await mwdb()
 
-  const chat = await ChatModel.findById(chatId)
+  const chat = await ChatModel.findById(chatId).populate("user")
 
   if (!chat || !chat.isActive) {
     return null

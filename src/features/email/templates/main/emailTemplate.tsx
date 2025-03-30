@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
-import BotTemplate from "@/features/email/templates/botTemplate"
-import TopTemplate from "@/features/email/templates/topTemplate"
+import BotTemplate from "@/features/email/templates/main/botTemplate"
+import TopTemplate from "@/features/email/templates/main/topTemplate"
 import * as React from "react"
 import { Html, Head, Body, Container, Section } from "@react-email/components"
 
