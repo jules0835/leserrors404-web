@@ -1013,6 +1013,82 @@
         "yes": "Oui",
         "zipCode": "Code postal"
       }
+    },
+    "Chat": {
+      "SELECT_ORDER": "Sélectionner la commande",
+      "SELECT_PRODUCT": "Sélectionner le produit",
+      "SELECT_SUBSCRIPTION": "Sélectionner l'abonnement",
+      "actionRequired": "Action demandée",
+      "active": "Actif",
+      "adminSummary": "Résumé de l'administrateur",
+      "all": "Tous",
+      "chatAdmin": "CHAT",
+      "chatClosed": "Cette conversation a été fermée, vous ne pouvez pas envoyer un nouveau message",
+      "chatInbox": "Boîte de réception",
+      "closed": "Fermé",
+      "company": "Entreprise",
+      "completed": "Complété",
+      "conversationDetails": "Détails de la conversation",
+      "conversationStats": "Statistiques de conversation",
+      "email": "E-mail",
+      "endChat": {
+        "cancel": "Annuler",
+        "confirm": "Confirmer",
+        "description": "Êtes-vous sûr de vouloir mettre fin à cette conversation? \nL'administrateur ou le client ne pourra pas envoyer de messages après cela.",
+        "ending": "Terminer le chat",
+        "title": "Mettre fin à cette conversation?",
+        "titleBtn": "Conversation de fin"
+      },
+      "ended": "Terminé",
+      "enterLink": "Entrez l'URL du lien",
+      "enterLinkMessage": "Entrez le message pour le lien",
+      "error": "Une erreur s'est produite, veuillez essayer de recharger la page ou réessayer plus tard.",
+      "externalLink": "Lien externe",
+      "internalLink": "Lien interne",
+      "location": "Emplacement",
+      "loginRequired": "Connexion requise",
+      "noConversations": "Pas de conversations",
+      "noEmail": "Pas de courriel",
+      "notProvided": "Non fourni",
+      "order": "Commande",
+      "orders": "Ordres",
+      "pending": "En attente",
+      "phone": "Téléphone",
+      "product": "Produit",
+      "products": "Produits",
+      "relatedItems": "Articles connexes",
+      "reload": "Recharger",
+      "requireLogin": "Exiger la connexion pour accéder",
+      "searchPlaceholder": "Rechercher une conversation",
+      "selectAction": "Sélectionnez une action",
+      "selectConversation": "Sélectionnez une conversation",
+      "selectOrder": "Demande la sélection des commandes",
+      "selectProduct": "Demander la sélection des produits",
+      "selectSubscription": "Demander la sélection de l'abonnement",
+      "send": "Envoyer",
+      "sendLink": "Envoyer un lien",
+      "sendingMessage": "[? \n] - Envoi de votre message ...",
+      "started": "Commencé",
+      "status": "Statut",
+      "subscription": "Abonnement",
+      "subscriptions": "Abonnements",
+      "totalMessages": "Messages totaux",
+      "typeMessage": "Tapez un message",
+      "unread": "Non lu",
+      "userActions": "Actions des utilisateurs",
+      "userNotLoggedIn": "L'utilisateur n'est pas connecté",
+      "userOrders": "Commandes utilisateur",
+      "userProfile": "Profil d'utilisateur",
+      "userSubscriptions": "Abonnements utilisateur",
+      "actionDone": "Action effectuée",
+      "adminSummaryPlaceholder": "Résumé du chat pour admin",
+      "closedBy": "Fermé par",
+      "loginRequiredActions": "L'utilisateur n'est pas connecté, une action ne peut pas être disponible.",
+      "noStripeCustomerId": "Custrromer n'est pas encore inscrit sur Stripe",
+      "saveAdminSummary": "Sauver le résumé",
+      "viewOnStripe": "Vue sur Stripe",
+      "waitingAction": "En attente d'action",
+      "you": "Toi"
     }
   },
   "Auth": {
@@ -1213,7 +1289,9 @@
     "subscriptions": "Abonnements",
     "support": "Soutien",
     "users": "Utilisateurs",
-    "vouchers": "Portes"
+    "vouchers": "Portes",
+    "inbox": "Boîte de réception",
+    "tickets": "Billets"
   },
   "NoSubTitle": "Pas de sous-titre",
   "User": {
@@ -1727,5 +1805,202 @@
       "description": "Le mot de passe de l'utilisateur a été modifié",
       "title": "Mot de passe de changement d'utilisateur"
     }
-  }
+  },
+  "Contact": {
+    "Chatbot": {
+      "Bot": {
+        "Account": {
+          "Questions": {
+            "blocked": "Mon compte a été bloqué, que dois-je faire?",
+            "confirm": "Comment confirmer mon adresse e-mail?",
+            "create": "Comment créer un compte?",
+            "reset": "J'ai oublié mon mot de passe, comment puis-je le réinitialiser?"
+          },
+          "Responses": {
+            "blocked": "Veuillez contacter l'assistance pour résoudre les problèmes avec votre compte.",
+            "confirm": "Nous vous avons envoyé un e-mail de confirmation. \nCliquez sur le lien à l'intérieur pour vérifier votre adresse.",
+            "create": "Cliquez sur «Inscrivez-vous» et remplissez vos coordonnées pour créer un compte.",
+            "reset": "Cliquez sur «Mot de passe oublié? \nsur la page de connexion pour réinitialiser vos informations d'identification."
+          },
+          "question": "Que voulez-vous savoir sur votre compte?",
+          "title": "J'ai une question sur mon compte"
+        },
+        "CustomerService": {
+          "Questions": {
+            "contact": "Comment contacter le service client?",
+            "human": "Je veux parler à un agent humain.",
+            "legal": "Où puis-je lire les termes et conditions juridiques?",
+            "tickets": "Comment puis-je voir mes billets de support?"
+          },
+          "Responses": {
+            "contact": "Vous pouvez atteindre le support client via le formulaire de contact ou le chat en direct.",
+            "human": "Bien sûr! \nUn agent humain rejoindra la conversation sous peu.",
+            "legal": "Vous pouvez trouver tous nos documents juridiques et politiques dans le pied de page du site Web.",
+            "tickets": "Vos billets d'assistance sont disponibles dans votre tableau de bord utilisateur."
+          },
+          "question": "Que voulez-vous savoir sur notre service client et / ou votre support?",
+          "title": "J'ai une question sur le service client"
+        },
+        "MyOrder": {
+          "Questions": {
+            "cancel": "Je voudrais annuler ma commande.",
+            "delay": "Quand ma commande sera-t-elle traitée?",
+            "missing": "Je ne trouve pas ma commande dans mon compte.",
+            "question": "J'ai une question sur ma récente commande.",
+            "refund": "Comment puis-je obtenir un remboursement pour ma commande?"
+          },
+          "Responses": {
+            "cancel": "Vous pouvez annuler votre commande à partir de votre tableau de bord s'il est toujours en traitement.",
+            "delay": "Les commandes sont généralement traitées dans les 24 à 48 heures.",
+            "missing": "Veuillez vous assurer que vous êtes connecté et vérifiez l'onglet Historique des commandes.",
+            "question": "Bien sûr! \nPourriez-vous s'il vous plaît spécifier votre question sur votre commande?",
+            "refund": "Des remboursements sont émis dans les 5-7 jours suivant l'approbation."
+          },
+          "question": "Que voulez-vous savoir sur vos commandes?",
+          "title": "J'ai une question sur mes commandes"
+        },
+        "Shop": {
+          "Questions": {
+            "difference": "Quelle est la différence entre l'achat unique et l'abonnement?",
+            "methods": "Quels méthodes de paiement sont disponibles?",
+            "negociate": "Puis-je négocier le prix d'un produit?",
+            "pay": "Comment effectuer un paiement?",
+            "product": "J'ai une question sur un produit.",
+            "voucher": "Comment puis-je utiliser une remise ou un code de bon?"
+          },
+          "Responses": {
+            "difference": "Les achats uniques sont facturés une fois, les abonnements se renouvellent automatiquement.",
+            "methods": "Nous acceptons les cartes de crédit, PayPal et plus en fonction de votre région.",
+            "negociate": "Pour les commandes en vrac ou B2B, n'hésitez pas à contacter notre équipe de vente.",
+            "pay": "Vous pouvez payer en utilisant votre méthode préférée à la caisse.",
+            "product": "Bien sûr! \nFaites-moi savoir quel produit qui vous intéresse.",
+            "voucher": "Vous pouvez saisir votre code de bon pendant le paiement pour appliquer une remise."
+          },
+          "question": "Que voulez-vous savoir sur notre boutique?",
+          "title": "J'ai une question sur la boutique"
+        },
+        "Subscriptions": {
+          "Questions": {
+            "cancel": "Je voudrais annuler mon abonnement.",
+            "how": "Comment fonctionne le système d'abonnement?",
+            "question": "J'ai une question sur mon abonnement.",
+            "refund": "Comment puis-je demander un remboursement pour mon abonnement?",
+            "where": "Où puis-je trouver mon abonnement?"
+          },
+          "Responses": {
+            "cancel": "Vous pouvez annuler votre abonnement à tout moment dans les paramètres de votre compte.",
+            "how": "Les abonnements se renouvellent automatiquement mensuellement ou annuellement, selon votre plan.",
+            "question": "Bien sûr, faites-moi savoir ce que vous aimeriez savoir sur votre abonnement.",
+            "refund": "Les remboursements pour les abonnements dépendent des termes et du temps d'annulation.",
+            "where": "Vos détails d'abonnement sont disponibles dans votre compte dans l'onglet Abonnements."
+          },
+          "question": "Que voulez-vous savoir sur vos abonnements?",
+          "title": "J'ai une question sur mes abonnements"
+        }
+      },
+      "bot": {
+        "message": {
+          "error": "Je n'ai pas pu trouver de réponse, pouvez-vous sélectionner une autre option s'il vous plaît?",
+          "hello": "Salut {nom d'utilisateur}, comment puis-je vous aider aujourd'hui?"
+        },
+        "selector": {
+          "cancel": "Annuler",
+          "selectOption": "Sélectionnez une option"
+        }
+      },
+      "error": {
+        "userNameAndEmailRequired": "Le nom d'utilisateur et le courrier électronique sont requis."
+      },
+      "welcome": {
+        "description": "Salut, Mathys ici, je suis là pour vous aider avec vos questions. \nSi je ne peux pas répondre à votre question, je vais vous transférer à un humain. \nC'est OK pour toi? \nCliquez sur le bouton ci-dessous pour démarrer une nouvelle conversation.",
+        "disclaimer": "En indiquant une nouvelle conversation, vous acceptez nos conditions générales et notre politique de confidentialité",
+        "emailPlaceholder": "Votre e-mail",
+        "error": {
+          "needNameAndEmail": "Votre nom et votre e-mail sont requis"
+        },
+        "namePlaceholder": "Votre nom",
+        "startButton": "Commencer à discuter",
+        "title": "Commencez maintenant une nouvelle conversation"
+      },
+      "widget": {
+        "title": "Discuter avec nous"
+      },
+      "Actions": {
+        "SELECT_ORDER": {
+          "buttonText": "Sélectionnez une commande",
+          "noResults": "Aucune commande trouvée",
+          "orderNumber": "Commande",
+          "searchPlaceholder": "Commandes de recherche ...",
+          "title": "Sélectionnez une commande",
+          "error": "Erreur lors de la sélection de la commande",
+          "loading": "Chargement",
+          "next": "Suivant",
+          "noOrders": "Pas de commandes",
+          "previous": "Précédent"
+        },
+        "SELECT_PRODUCT": {
+          "annual": "année",
+          "buttonText": "Sélectionnez un produit",
+          "monthly": "mois",
+          "noResults": "Aucun produit trouvé",
+          "searchPlaceholder": "Produits de recherche ...",
+          "title": "Sélectionnez un produit"
+        },
+        "SELECT_SUBSCRIPTION": {
+          "buttonText": "Sélectionnez un abonnement",
+          "noResults": "Aucun abonnements trouvé",
+          "searchPlaceholder": "Rechercher des abonnements ...",
+          "subscriptionNumber": "Abonnement",
+          "title": "Sélectionnez un abonnement",
+          "error": "Erreur Lors du Charment des Abonctions",
+          "loading": "Chargement des abonments ...",
+          "next": "Suivant",
+          "noSubscriptions": "AUCUN abonement Trouvé",
+          "previous": "Précédent"
+        },
+        "status": {
+          "active": "Actif",
+          "canceled": "Annulé",
+          "cancelled": "Annulé",
+          "completed": "Complété",
+          "expired": "Expiré",
+          "failed": "Échoué",
+          "inactive": "Inactif",
+          "pending": "En attente",
+          "refunded": "Remboursé"
+        }
+      },
+      "Messages": {
+        "SELECT_ORDER": "Afin de vous aider, veuillez sélectionner une commande liée à votre question en cliquant sur le bouton ci-dessous",
+        "SELECT_PRODUCT": "Afin de vous aider, veuillez sélectionner un produit lié à votre question en cliquant sur le bouton ci-dessous",
+        "SELECT_SUBSCRIPTION": "Afin de vous aider, veuillez sélectionner un abonnement lié à votre question en cliquant sur le bouton ci-dessous",
+        "actionCompleted": "Action terminée",
+        "actionRequired": "Veuillez cliquer sur le bouton ci-dessous pour sélectionner une option",
+        "contactHuman": "Discuter avec notre équipe d'assistance",
+        "error": "Une erreur s'est produite, veuillez recharger la page ou réessayer plus tard.",
+        "seeLink": "Lien ouvert",
+        "seeLinkLogin": "Vous devez vous connecter pour accéder à cette page"
+      },
+      "actionCompleted": "Action terminée",
+      "adminModeEnabled": "Message reçu. \nJe vais vous transférer à mes collègues. \nIls répondront dès que possible. \nEn attendant, veuillez fournir autant d'informations que possible."
+    }
+  },
+  "chat": {
+    "admin": "Une membrane de notre équipe de soutien",
+    "bot": "Notre bot de soutien",
+    "chatEnded": {
+      "closeButton": "Fermer",
+      "description": "Conversation de cette A Été terminée. \nVous Pouvez Fermer Cette Fenêtre.",
+      "title": "Conversation Terminee"
+    },
+    "chatWith": "Vous discutez avec",
+    "chatWithHuman": "Discuter avec un humain",
+    "endChat": {
+      "cancel": "Anuler",
+      "confirm": "Termine la conversation",
+      "description": "Les êtes-vous sûr de Vouloir terminer la conversation de cille? \nVous ne pourrez plus envoyé de messages une fois la conversation terminée.",
+      "title": "Termine la conversation"
+    }
+  },
+  "error": "Une erreur s'est produite, veuillez essayer de recharger la page ou réessayer plus tard."
 }

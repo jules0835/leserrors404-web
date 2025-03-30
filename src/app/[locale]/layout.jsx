@@ -5,6 +5,8 @@ import { getMessages } from "next-intl/server"
 import { SessionProvider } from "next-auth/react"
 import { Toaster } from "react-hot-toast"
 import { CartProvider } from "@/features/shop/cart/context/cartContext"
+import WidgetChatbot from "@/features/contact/chatbot/widgetChatbot"
+import { ChatProvider } from "@/features/contact/chatbot/context/chatContext"
 
 export const metadata = {
   title: "Cyna",
@@ -20,13 +22,16 @@ export default async function RootLayout({ children }) {
   return (
     <SessionProvider>
       <NextIntlClientProvider messages={messages}>
-        <CartProvider>
-          <div>
-            <Toaster position="top-right" />
-          </div>
-          <Header />
-          <div className="bg-gray-100">{children}</div>
-        </CartProvider>
+        <ChatProvider>
+          <CartProvider>
+            <div>
+              <Toaster position="top-right" />
+            </div>
+            <Header />
+            <div className="bg-gray-100">{children}</div>
+          </CartProvider>
+          <WidgetChatbot />
+        </ChatProvider>
       </NextIntlClientProvider>
     </SessionProvider>
   )

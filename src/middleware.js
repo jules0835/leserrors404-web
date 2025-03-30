@@ -34,16 +34,13 @@ const authMiddleware = auth((req) => {
   const currentPath = req.nextUrl.pathname
   const locale = req.cookies.get("NEXT_LOCALE")?.value || "en"
   const isShopApi = currentPath.includes("/api/shop/")
+  const isContactApi = currentPath.includes("/api/contact/chat")
   const { isAdmin, userId } = req?.auth?.user || {}
   req.headers.set("x-int-auth-userId", userId)
   req.headers.set("x-int-auth-isAdmin", isAdmin)
 
-  if (isShopApi) {
+  if (isShopApi || isContactApi) {
     return intlMiddleware(req)
-  }
-
-  if (!checkTokenExpiration(req)) {
-    return NextResponse.redirect(new URL(`/${locale}/auth/logout`, req.url))
   }
 
   if (!req.auth) {
@@ -56,6 +53,12 @@ const authMiddleware = auth((req) => {
 
     return NextResponse.redirect(
       new URL(`/${locale}/auth/login?next=${currentPath}`, req.url)
+    )
+  }
+
+  if (!checkTokenExpiration(req)) {
+    return NextResponse.redirect(
+      new URL(`/${locale}/auth/logout?next=${currentPath}`, req.url)
     )
   }
 

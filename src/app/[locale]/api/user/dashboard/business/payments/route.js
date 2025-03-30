@@ -23,10 +23,10 @@ export async function GET(req) {
     }
 
     if (!user.account.stripe.customerId) {
-      return NextResponse.json(
-        { error: "No stripe customer id", hasPortalAccess: false },
-        { status: 400 }
-      )
+      return NextResponse.json({
+        error: "No stripe customer id",
+        hasPortalAccess: false,
+      })
     }
 
     const [paymentMethods, invoices] = await Promise.all([

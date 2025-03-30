@@ -104,6 +104,7 @@ export async function POST(req, { params }) {
       logKey: logKeys.shopUserCart.key,
       message: "Checkout session created",
       data: session,
+      authorId: userId,
     })
 
     return NextResponse.json({
@@ -115,6 +116,7 @@ export async function POST(req, { params }) {
       logKey: logKeys.shopUserCartError.key,
       message: "Failed to checkout",
       technicalMessage: error,
+      authorId: getReqUserId(req),
     })
 
     return NextResponse.json(

@@ -164,6 +164,28 @@ export const adminNavItems = [
     ],
   },
   {
+    title: "Support",
+    translationKey: "support",
+    url: "#",
+    icon: Headset,
+    isActive: true,
+    isSuperAdmin: false,
+    items: [
+      {
+        title: "Inbox",
+        translationKey: "inbox",
+        url: "/admin/support/inbox",
+        isSuperAdmin: false,
+      },
+      {
+        title: "Tickets",
+        translationKey: "tickets",
+        url: "/admin/support/tickets",
+        isSuperAdmin: false,
+      },
+    ],
+  },
+  {
     title: "Security",
     translationKey: "security",
     url: "#",
@@ -641,6 +663,18 @@ export const logKeys = {
     key: "orderUpdate",
     titleKey: "Log.OrderUpdate.title",
     descriptionKey: "Log.OrderUpdate.description",
+  },
+  chatbotError: {
+    name: "Chatbot Error",
+    key: "chatbotError",
+    titleKey: "Log.ChatbotError.title",
+    descriptionKey: "Log.ChatbotError.description",
+  },
+  chatbotInfo: {
+    name: "Chatbot Info",
+    key: "chatbotInfo",
+    titleKey: "Log.ChatbotInfo.title",
+    descriptionKey: "Log.ChatbotInfo.description",
   },
 }
 

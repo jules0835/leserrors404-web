@@ -27,7 +27,7 @@ export function returnPageSubTitleTranslation(pathname) {
     return regex.test(path)
   })
 
-  return pageSubTitle?.subTitleKey ?? "NoSubTitle"
+  return pageSubTitle?.subTitleKey ?? ""
 }
 
 export async function getHomeCarouselData() {
