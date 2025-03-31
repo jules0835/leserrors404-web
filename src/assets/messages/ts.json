@@ -1238,7 +1238,17 @@
       "viewOnStripe": "Xivono xa stripe .",
       "waitingAction": "Ku rindzela xiendlo .",
       "you": "Wena",
-      "sendAsEmail": "Rungula leri ri ta tlhela ri rhumeriwa tanihi email eka email ya mutirhisi."
+      "sendAsEmail": "Rungula leri ri ta tlhela ri rhumeriwa tanihi email eka email ya mutirhisi.",
+      "createNewChat": "Sungula mbulavurisano na .",
+      "errorLoadingUsers": "Xihoxo loko u ri karhi u layicha mutirhisi .",
+      "new": "XINTSHWA",
+      "next": "Landzelaka",
+      "noMessage": "Ku hava rungula .",
+      "noUsersFound": "Ku hava mutirhisi loyi a kumiweke .",
+      "previous": "Endzhaku",
+      "searchUser": "Mutirhisi wa ku lavisisa .",
+      "selectUser": "Hlawula mutirhisi .",
+      "supportInbox": "Nseketelo Inbox ."
     }
   },
   "DefaultNotFound": "Xihoxo: Vuhundzuluxi a byi kumekanga .",

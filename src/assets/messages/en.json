@@ -245,7 +245,17 @@
       "you": "You",
       "waitingAction": "Waiting for action",
       "actionDone": "Action done",
-      "sendAsEmail": "This message will also be send as email to the user email."
+      "sendAsEmail": "This message will also be send as email to the user email.",
+      "supportInbox": "Support inbox",
+      "createNewChat": "Start a conversation with",
+      "selectUser": "Select a user",
+      "searchUser": "Search user",
+      "errorLoadingUsers": "Error while loading user",
+      "noUsersFound": "No user found",
+      "previous": "Previous",
+      "next": "Next",
+      "noMessage": "No message",
+      "new": "NEW"
     },
     "Security": {
       "Users": {
@@ -1643,7 +1653,7 @@
     "Support": {
       "newMessage": "You've received a new message in one of your conversations with our customer support team. Here is a summary:",
       "openChatButton": "Open Conversation",
-      "newMessageSubject": "{company}  - New Message from support team"
+      "newMessageSubject": "{company}  - New message from Support Team"
     }
   },
   "Confirmation": {

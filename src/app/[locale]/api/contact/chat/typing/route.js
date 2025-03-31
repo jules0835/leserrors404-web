@@ -25,7 +25,11 @@ export async function POST(req) {
       return NextResponse.json({ error: "Chat not found" }, { status: 404 })
     }
 
-    if (chat.state !== "CHAT_ADMIN" || !chat.isActive) {
+    if (
+      chat.state !== "CHAT_ADMIN" &&
+      chat.state !== "INBOX" &&
+      !chat.isActive
+    ) {
       return NextResponse.json(
         { error: "Chat not available for typing" },
         { status: 404 }

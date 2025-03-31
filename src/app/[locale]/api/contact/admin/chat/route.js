@@ -112,9 +112,9 @@ export async function POST(req) {
         )
       }
 
-      if (chat.state !== "CHAT_ADMIN") {
+      if (chat.state !== "CHAT_ADMIN" && chat.state !== "INBOX") {
         return NextResponse.json(
-          { error: "Chat is not in admin mode" },
+          { error: "Chat is not in admin or inbox mode" },
           { status: 400 }
         )
       }

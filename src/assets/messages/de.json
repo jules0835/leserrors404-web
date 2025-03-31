@@ -1238,7 +1238,17 @@
       "viewOnStripe": "Blick auf Streifen",
       "waitingAction": "Warten auf Aktion",
       "you": "Du",
-      "sendAsEmail": "Diese Nachricht wird auch als E -Mail an die Benutzer -E -Mail gesendet."
+      "sendAsEmail": "Diese Nachricht wird auch als E -Mail an die Benutzer -E -Mail gesendet.",
+      "createNewChat": "Beginnen Sie ein Gespräch mit",
+      "errorLoadingUsers": "Fehler beim Laden des Benutzers",
+      "new": "NEU",
+      "next": "Nächste",
+      "noMessage": "Keine Nachricht",
+      "noUsersFound": "Kein Benutzer gefunden",
+      "previous": "Vorherige",
+      "searchUser": "Benutzer suchen",
+      "selectUser": "Wählen Sie einen Benutzer aus",
+      "supportInbox": "Posteingang unterstützen"
     }
   },
   "DefaultNotFound": "FEHLER: Übersetzung nicht gefunden",

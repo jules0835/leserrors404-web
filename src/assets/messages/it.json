@@ -1238,7 +1238,17 @@
       "viewOnStripe": "Visualizza su Stripe",
       "waitingAction": "In attesa di azione",
       "you": "Voi",
-      "sendAsEmail": "Questo messaggio verrà inoltre inviato come e -mail all'e -mail utente."
+      "sendAsEmail": "Questo messaggio verrà inoltre inviato come e -mail all'e -mail utente.",
+      "createNewChat": "Inizia una conversazione con",
+      "errorLoadingUsers": "Errore durante il caricamento dell'utente",
+      "new": "NUOVO",
+      "next": "Prossimo",
+      "noMessage": "Nessun messaggio",
+      "noUsersFound": "Nessun utente trovato",
+      "previous": "Precedente",
+      "searchUser": "Cerca l'utente",
+      "selectUser": "Seleziona un utente",
+      "supportInbox": "Supporto Posta in arrivo"
     }
   },
   "DefaultNotFound": "Errore: traduzione non trovata",

@@ -1101,7 +1101,17 @@
       "viewOnStripe": "Vue sur Stripe",
       "waitingAction": "En attente d'action",
       "you": "Toi",
-      "sendAsEmail": "Ce message sera également envoyé par e-mail à l'e-mail utilisateur."
+      "sendAsEmail": "Ce message sera également envoyé par e-mail à l'e-mail utilisateur.",
+      "createNewChat": "Entamer une conversation avec",
+      "errorLoadingUsers": "Erreur lors du chargement de l'utilisateur",
+      "new": "NOUVEAU",
+      "next": "Suivant",
+      "noMessage": "Pas de message",
+      "noUsersFound": "Aucun utilisateur trouvé",
+      "previous": "Précédent",
+      "searchUser": "Rechercher un utilisateur",
+      "selectUser": "Sélectionnez un utilisateur",
+      "supportInbox": "Prise en charge de la boîte de réception"
     }
   },
   "Auth": {
