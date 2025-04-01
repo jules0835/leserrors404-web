@@ -19,15 +19,16 @@ const unprotectedApiRoutes = [
 ]
 
 function checkTokenExpiration(req) {
-  const userExp = req?.auth?.user?.exp
+  const userExp = req?.auth?.expires
 
   if (!userExp) {
     return false
   }
 
+  const expirationTime = new Date(userExp).getTime() / 1000
   const currentTime = Math.floor(Date.now() / 1000)
 
-  return userExp > currentTime
+  return expirationTime > currentTime
 }
 
 const authMiddleware = auth((req) => {

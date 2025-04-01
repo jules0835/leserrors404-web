@@ -1,7 +1,7 @@
 "use client"
 import { useSession } from "next-auth/react"
 import { useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import Image from "next/image"
 import logo from "@/assets/images/logo.webp"
 import { useTranslations } from "next-intl"
@@ -12,23 +12,45 @@ export default function Page() {
   const { data: session, status } = useSession()
   const router = useRouter()
   const t = useTranslations("Auth")
+  const searchParams = useSearchParams()
+  const reval = searchParams.get("reval")
+  const reloadCounter = searchParams.get("reloadCounter") || 0
 
   useEffect(() => {
+    if (reval) {
+      const params = new URLSearchParams(searchParams)
+      params.delete("reval")
+      const newUrl = `${window.location.pathname}?${params.toString()}`
+      window.location.replace(newUrl)
+
+      return
+    }
+
     if (status === "loading") {
       return
     }
 
-    if (!session?.user?.tokenMobile) {
-      router.push("/auth/login?appMobileLogin=true")
+    if (status === "unauthenticated") {
+      if (reloadCounter > 3) {
+        const params = new URLSearchParams(searchParams)
+        router.push(`/auth/login?${params.toString()}`)
+
+        return
+      }
+
+      const params = new URLSearchParams(searchParams)
+      const newReloadCounter = parseInt(reloadCounter, 10) + 1
+      params.set("reloadCounter", newReloadCounter)
+      const newUrl = `${window.location.pathname}?${params.toString()}`
+      window.location.replace(newUrl)
 
       return
     }
 
-    const mobileCallbackUrl = "com.Draskeer.Cynapp.Cynapp://auth"
-    const redirectUrl = `${mobileCallbackUrl}?token=${session.user.tokenMobile}`
+    const redirectUrl = `${webAppSettings.urls.mobileCallbackLogin}${session.user.tokenMobile}`
 
     window.location.href = redirectUrl
-  }, [session, status, router])
+  }, [session, status, router, searchParams, reval, reloadCounter])
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-[#2F1F80]">
