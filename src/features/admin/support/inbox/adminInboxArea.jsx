@@ -10,7 +10,6 @@ import { useTranslations } from "next-intl"
 import AdminChatMessage from "@/features/admin/support/inbox/adminChatMessage"
 import AdminMessageActions from "@/features/admin/support/inbox/adminMessageActions"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
-import { Skeleton } from "@/components/ui/skeleton"
 
 export default function AdminInboxArea({ chat }) {
   const { sendMessage, isSendingMessage, error, handleTyping } = useAdminChat()
@@ -122,7 +121,7 @@ export default function AdminInboxArea({ chat }) {
           </div>
         </div>
 
-        <div className="mt-1 flex items-center">
+        <div className="mt-1 flex items-center gap-2">
           <span
             className={`text-xs px-2 py-0.5 rounded-full ${
               chat.state === "CHAT_ADMIN"
@@ -157,19 +156,6 @@ export default function AdminInboxArea({ chat }) {
           />
         ))}
 
-        {isSendingMessage && (
-          <AdminChatMessage
-            message={{
-              sender: "ADMIN",
-              message: <Skeleton className="w-full h-10" />,
-              sendDate: new Date(),
-              isBotReply: false,
-              readByUser: false,
-            }}
-            isAdmin={true}
-            isBot={false}
-          />
-        )}
         {chat.isUserTyping && (
           <div className="flex justify-start">
             <div className="bg-muted p-3 rounded-lg rounded-bl-none">

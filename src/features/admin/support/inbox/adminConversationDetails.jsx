@@ -43,7 +43,9 @@ export default function AdminConversationDetails({ chat }) {
   const [adminSummary, setAdminSummary] = useState(chat.adminSummary || "")
   const { endChat, isEndingChat, saveAdminSummary, isSavingAdminSummary } =
     useAdminChat()
-  const firstMessageDate = new Date(chat.messages[0].sendDate)
+  const firstMessageDate = chat.messages[0]?.sendDate
+    ? new Date(chat.messages[0].sendDate)
+    : null
   const messageCount = chat.messages.length
   const user = chat.user || {}
   const router = useRouter()
@@ -186,7 +188,11 @@ export default function AdminConversationDetails({ chat }) {
           <DetailItem
             icon={<Calendar size={16} />}
             label={t("started")}
-            value={formatDistanceToNow(firstMessageDate, { addSuffix: true })}
+            value={
+              firstMessageDate
+                ? formatDistanceToNow(firstMessageDate, { addSuffix: true })
+                : t("noMessage")
+            }
           />
           <DetailItem
             icon={<Tag size={16} />}

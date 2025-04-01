@@ -11,20 +11,35 @@ export async function handleCredentialsSignin({
   otp,
   redirect,
   keepLogin,
+  appMobileLogin,
 }) {
   const t = await getTranslations("Auth.LoginPage")
 
   try {
-    await signIn("credentials", {
+    const result = await signIn("credentials", {
       email,
       password,
       otp,
       redirectTo: redirect ? `${redirect}?reval=1` : "/?reval=1",
       callbackUrl: redirect ? `${redirect}?reval=1` : "/?reval=1",
       keepLogin,
+      appMobileLogin,
     })
 
-    return { message: "Sign in successful" }
+    if (result?.error) {
+      throw new AuthError("SignInError", {
+        cause: { err: { message: result.error } },
+      })
+    }
+
+    if (appMobileLogin && result?.ok) {
+      return {
+        success: true,
+        tokenMobile: result.tokenMobile,
+      }
+    }
+
+    return { success: true }
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.cause.err.message) {

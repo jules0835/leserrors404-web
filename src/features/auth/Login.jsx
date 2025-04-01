@@ -17,6 +17,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp"
 import { LockKeyhole } from "lucide-react"
+import { company } from "@/assets/options/config"
 
 // eslint-disable-next-line max-lines-per-function
 export default function Login() {
@@ -38,6 +39,7 @@ export default function Login() {
     }),
   })
   const redirectUrl = searchParams.get("next") || "/"
+  const isAppMobileLogin = searchParams.get("appMobileLogin")
   const isResetSuccess = searchParams.get("resetSuccess")
   const isLogout = searchParams.get("logout")
 
@@ -48,14 +50,18 @@ export default function Login() {
   }, [otpOpen])
 
   if (session && !isLogout) {
-    router.push("/")
+    if (isAppMobileLogin) {
+      router.push(redirectUrl)
+    } else {
+      router.push(redirectUrl)
+    }
   }
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-[#2F1F80]">
       <Link
         className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
-        href="/"
+        href={isAppMobileLogin ? "#" : redirectUrl}
       >
         <div className="p-4 rounded-2xl">
           <Image src={logo} alt="logo" width={132} height={132} />
@@ -65,7 +71,9 @@ export default function Login() {
       <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-            {t("title")}
+            {isAppMobileLogin
+              ? t("titleMobile", { company: company.name })
+              : t("title", { company: company.name })}
           </h1>
 
           {error && (
@@ -92,10 +100,14 @@ export default function Login() {
               password: "",
               otp: "",
               keepLogin: false,
+              appMobileLogin: Boolean(isAppMobileLogin),
             }}
             validationSchema={LoginSchema}
             onSubmit={async (values, { setSubmitting }) => {
-              values.redirect = redirectUrl
+              values.redirect = isAppMobileLogin
+                ? `/auth/login/mobile?appMobileLogin=${isAppMobileLogin}`
+                : redirectUrl
+
               const res = await handleCredentialsSignin(values)
 
               if (res.error) {
@@ -215,7 +227,7 @@ export default function Login() {
                         </div>
                       </div>
                       <Link
-                        href="/auth/password"
+                        href={`/auth/password?next=${redirectUrl}&appMobileLogin=${isAppMobileLogin}`}
                         className="text-sm font-medium text-primary-600 hover:underline"
                       >
                         {t("forgotPassword")}
@@ -232,7 +244,7 @@ export default function Login() {
                   {t("noAccount")}{" "}
                   <Link
                     className="font-medium text-primary-600 hover:underline"
-                    href="/auth/register"
+                    href={`/auth/register?next=${redirectUrl}&appMobileLogin=${isAppMobileLogin}`}
                   >
                     {t("register")}
                   </Link>

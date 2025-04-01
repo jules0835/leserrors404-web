@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import { createContext, useContext, useState, useEffect, useRef } from "react"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { useSession } from "next-auth/react"
-import { useParams } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import {
   getAdminChats,
   getAdminChat,
@@ -12,6 +12,7 @@ import {
   updateAdminTypingStatus,
   endAdminChat,
   saveAdminSummary,
+  createAdminChat,
 } from "@/features/admin/support/service/adminChatService"
 
 const AdminChatContext = createContext()
@@ -19,6 +20,7 @@ const AdminChatContext = createContext()
 export const AdminChatProvider = ({ children }) => {
   const { data: session } = useSession()
   const params = useParams()
+  const router = useRouter()
   const selectedChatId = params?.Id
   const [isSendingMessage, setIsSendingMessage] = useState(false)
   const [isFirstLoading, setIsFirstLoading] = useState(true)
@@ -31,6 +33,7 @@ export const AdminChatProvider = ({ children }) => {
   const typingTimeoutRef = useRef(null)
   const [isEndingChat, setIsEndingChat] = useState(false)
   const [isSavingAdminSummary, setIsSavingAdminSummary] = useState(false)
+  const [isCreatingChat, setIsCreatingChat] = useState(false)
   const {
     data: chatsData,
     refetch: refetchChats,
@@ -53,6 +56,7 @@ export const AdminChatProvider = ({ children }) => {
     enabled: Boolean(selectedChatId) && Boolean(session?.user?.isAdmin),
     refetchInterval: 5000,
   })
+  const queryClient = useQueryClient()
 
   useEffect(() => {
     if (selectedChatId && lastSelectedChatId !== selectedChatId) {
@@ -82,10 +86,10 @@ export const AdminChatProvider = ({ children }) => {
 
   useEffect(() => {
     if (chatsData?.chats) {
-      const count = chatsData.chats.reduce(
+      const count = chatsData?.chats?.reduce(
         (total, chat) =>
           total +
-          chat.messages.filter(
+          chat?.messages?.filter(
             (msg) => msg.sender === "USER" && !msg.readByAdmin
           ).length,
         0
@@ -121,11 +125,49 @@ export const AdminChatProvider = ({ children }) => {
 
     setError(null)
 
+    const newMessage = {
+      _id: Date.now().toString(),
+      sender: "ADMIN",
+      message,
+      sendDate: new Date(),
+      readByUser: false,
+      ...options,
+    }
+
+    if (selectedChatData?.chat) {
+      const updatedChat = {
+        ...selectedChatData.chat,
+        messages: [...selectedChatData.chat.messages, newMessage],
+      }
+      queryClient.setQueryData(["admin-chat", selectedChatId], {
+        chat: updatedChat,
+      })
+    }
+
+    if (chatsData?.chats) {
+      const updatedChats = chatsData.chats.map((chat) => {
+        if (chat._id === selectedChatId) {
+          return {
+            ...chat,
+            messages: [...chat.messages, newMessage],
+          }
+        }
+
+        return chat
+      })
+      queryClient.setQueryData(["admin-chats"], {
+        chats: updatedChats,
+      })
+    }
+
     try {
       setIsSendingMessage(true)
       await sendAdminMessage(selectedChatId, message, options)
       await refetchSelectedChat()
+      await refetchChats()
     } catch (errorSendMessage) {
+      await refetchSelectedChat()
+      await refetchChats()
       setError(
         errorSendMessage?.response?.data?.error || errorSendMessage.message
       )
@@ -207,6 +249,26 @@ export const AdminChatProvider = ({ children }) => {
       setIsEndingChat(false)
     }
   }
+  const handleCreateChat = async (userId) => {
+    if (!userId) {
+      return
+    }
+
+    setError(null)
+    setIsCreatingChat(true)
+
+    try {
+      const { chatId } = await createAdminChat(userId)
+
+      router.push(`/admin/support/inbox/${chatId}`)
+    } catch (errorCreateChat) {
+      setError(
+        errorCreateChat?.response?.data?.error || errorCreateChat.message
+      )
+    } finally {
+      setIsCreatingChat(false)
+    }
+  }
 
   return (
     <AdminChatContext.Provider
@@ -229,6 +291,8 @@ export const AdminChatProvider = ({ children }) => {
         isEndingChat,
         isSavingAdminSummary,
         saveAdminSummary: handleSaveAdminSummary,
+        createChat: handleCreateChat,
+        isCreatingChat,
       }}
     >
       {children}

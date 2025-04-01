@@ -9,6 +9,7 @@ import {
   sendAuthConfirmationEmail,
   verifyAuthUserOtp,
 } from "@/features/auth/utils/loginUtils"
+import jwt from "jsonwebtoken"
 
 // eslint-disable-next-line new-cap
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -23,6 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
         otp: { label: "OTP", type: "text" },
         keepLogin: { label: "Keep me logged in", type: "checkbox" },
+        appMobileLogin: { label: "App Mobile Login", type: "checkbox" },
       },
       authorize: async (credentials) => {
         await logEvent({
@@ -138,6 +140,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         await handleAuthLoginSuccess(user._id)
 
+        if (credentials.appMobileLogin) {
+          const secret = process.env.MOBILE_JWT_SECRET
+
+          if (!secret) {
+            throw new Error(
+              "MOBILE_JWT_SECRET environment variable is not configured"
+            )
+          }
+
+          user.tokenMobile = jwt.sign(
+            { userId: user._id, type: "mobile" },
+            secret,
+            { expiresIn: "30d" }
+          )
+        }
+
         return user
       },
     }),
@@ -156,6 +174,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.image = user.image
         token.isAdmin = user.isAdmin
         token.keepLogin = account?.keepLogin || false
+
+        if (user.tokenMobile) {
+          token.tokenMobile = user.tokenMobile
+        }
       }
 
       let expirationTime = 0
@@ -183,7 +205,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         session.user.lastName = token.lastName
         session.user.image = token.image
         session.user.isAdmin = token.isAdmin
-        session.user.exp = token.exp
+        session.user.exp = token.expires
+
+        if (token.tokenMobile) {
+          session.user.tokenMobile = token.tokenMobile
+        }
       }
 
       return session

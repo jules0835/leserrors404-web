@@ -12,6 +12,14 @@ export const getAdminChat = async (chatId) => {
   return response.data
 }
 
+export const createAdminChat = async (userId) => {
+  const response = await axios.post("/api/contact/admin/chat/new", {
+    userId,
+  })
+
+  return response.data
+}
+
 export const sendAdminMessage = async (chatId, message, options = {}) => {
   const response = await axios.post("/api/contact/admin/chat", {
     chatId,
