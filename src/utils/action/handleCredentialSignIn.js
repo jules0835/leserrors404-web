@@ -25,20 +25,12 @@ export async function handleCredentialsSignin({
       callbackUrl: redirect ? `${redirect}${separator}reval=1` : "/?reval=1",
       keepLogin,
       appMobileLogin,
-      redirect: !appMobileLogin,
     })
 
     if (result?.error) {
       throw new AuthError("SignInError", {
         cause: { err: { message: result.error } },
       })
-    }
-
-    if (appMobileLogin && result?.ok) {
-      return {
-        success: true,
-        tokenMobile: result.tokenMobile,
-      }
     }
 
     return { success: true }
