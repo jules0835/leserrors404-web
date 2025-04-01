@@ -45,7 +45,8 @@
       "otpRequired": "Ihr einmaliges Kennwort ist erforderlich, um sich in Ihrem Konto anzumelden. Geben Sie bitte den Code ein, den Ihre Authenticator -App zur Verfügung stellt",
       "requiredOtp": "Der OTP -Code mit 6 Ziffern ist erforderlich",
       "resetSuccess": "Ihr Passwort war erfolgreicher Reset, Sie können sich jetzt anmelden",
-      "logoutAutoSuccess": "Sie wurden automatisch angemeldet. \nBitte melden Sie sich erneut an."
+      "logoutAutoSuccess": "Sie wurden automatisch angemeldet. \nBitte melden Sie sich erneut an.",
+      "titleMobile": "Melden Sie sich bei {Company} -Anwendung bei Ihrem {Company} -Konto an"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -129,7 +130,9 @@
       "title": "Setzen Sie Ihr Passwort zurück"
     },
     "loggingYouOut": "Anmeldung dich raus",
-    "loggingYouOutMessage": "Wenn Sie nicht weitergeleitet werden, klicken Sie bitte hier"
+    "loggingYouOutMessage": "Wenn Sie nicht weitergeleitet werden, klicken Sie bitte hier",
+    "clickToOpenMobileApp": "Klicken Sie hier, wenn Sie nicht automatisch umgeleitet sind",
+    "redirectingToMobile": "Sie zur {Company} mobilen App umleiten"
   },
   "other": "Andere",
   "socialMedia": "Soziale Medien",
@@ -1692,7 +1695,22 @@
     "error": "Beim Abrufen von Produkten ist ein Fehler aufgetreten, bitte versuchen Sie Angain",
     "searchResultsFor": "Ergebnisse für",
     "title": "Unsere Produkte",
-    "noResults": "Oh nein! \nWir können keine Produkte für Ihre Suche finden. \nVersuchen Sie es erneut mit einem anderen Schlüsselwort."
+    "noResults": "Oh nein! \nWir können keine Produkte für Ihre Suche finden. \nVersuchen Sie es erneut mit einem anderen Schlüsselwort.",
+    "all": "Alle",
+    "applyFilters": "Filter anwenden",
+    "availability": "Verfügbarkeit",
+    "categories": "Kategorien",
+    "dateRange": "Datumsbereich",
+    "filters": "Filter",
+    "inStock": "Auf Lager",
+    "mostPopular": "Am beliebtesten",
+    "newest": "Neueste",
+    "outOfStock": "Aus dem Bestand",
+    "priceAsc": "Preis ASC",
+    "priceDesc": "Preis Desc",
+    "priceRange": "Preisklasse",
+    "reset": "Zurücksetzen",
+    "sortBy": "Sortieren"
   },
   "Error": {
     "Front": {

@@ -45,7 +45,8 @@
       "requiredOtp": "Khodi ya OTP leyi nga na 6 wa tidijithali ta laveka .",
       "resetSuccess": "Password ya wena a yi ri succesfuly reset, sweswi u nga nghena .",
       "unknownError": "Ku na leswi nga famba kahle, hi kombela u ringeta nakambe kumbe u tihlanganisa na nseketelo.",
-      "logoutAutoSuccess": "U humesiwile hi ku tisungulela. \nHi kombela mi nghena nakambe."
+      "logoutAutoSuccess": "U humesiwile hi ku tisungulela. \nHi kombela mi nghena nakambe.",
+      "titleMobile": "Nghena eka {Company} xitirhisiwa hi akhawunti ya wena ya {khamphani} ."
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -129,7 +130,9 @@
     "confirmEmailSuccess": "Email ya wena yi tiyisisiwile hi ndlela leyi humelelaka, sweswi u nga nghena.",
     "login": "Vuya eka tluka ro nghena .",
     "loggingYouOut": "Ku logging ku ku huma",
-    "loggingYouOutMessage": "Loko u nga kongomisiwanga, hi kombela u tikhoma laha ."
+    "loggingYouOutMessage": "Loko u nga kongomisiwanga, hi kombela u tikhoma laha .",
+    "clickToOpenMobileApp": "Click laha loko u nga ri automaticly redirect .",
+    "redirectingToMobile": "Ku ku kongomisa eka {Company} Mobile App ."
   },
   "other": "Xin'wana",
   "socialMedia": "Social Media",
@@ -1698,7 +1701,22 @@
     "error": "Xihoxo xi humelerile loko u ri karhi u teka switirhisiwa, hi kombela u ringeta Angain .",
     "noResults": "Oh hayi! \nA hi nge kumi swilo swo karhi leswi u swi lavaka. \nRingeta nakambe hi rito rin’wana ra nkoka.",
     "searchResultsFor": "Vuyelo bya .",
-    "title": "Switirhisiwa swa hina ."
+    "title": "Switirhisiwa swa hina .",
+    "all": "Hinkwaswo",
+    "applyFilters": "Tirhisa swisefo .",
+    "availability": "Ku kumeka .",
+    "categories": "Swiyenge .",
+    "dateRange": "Xirhendzevutani xa siku .",
+    "filters": "Swisefo .",
+    "inStock": "Eka xitoko",
+    "mostPopular": "Swi tsakeriwa ngopfu .",
+    "newest": "Xintshwa .",
+    "outOfStock": "Ku huma exitokweni",
+    "priceAsc": "Ntsengo wa ASC .",
+    "priceDesc": "Price Desc .",
+    "priceRange": "Nxaxamelo wa minxavo .",
+    "reset": "Reset .",
+    "sortBy": "Hlela hi ."
   },
   "Shop": {
     "Cart": {

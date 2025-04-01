@@ -45,7 +45,8 @@
       "otpRequired": "La tua password a un tempo è richiesta per accedere al tuo account, inserisci il codice fornito dalla tua app di autenticazione",
       "requiredOtp": "È richiesto il codice OTP con 6 cifre",
       "resetSuccess": "La tua password è stata ripristinata di successo, ora puoi accedere",
-      "logoutAutoSuccess": "Sei stato automaticamente disconnesso. \nAccedi di nuovo."
+      "logoutAutoSuccess": "Sei stato automaticamente disconnesso. \nAccedi di nuovo.",
+      "titleMobile": "Accedi all'applicazione {Company} con il tuo account {Company}"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -129,7 +130,9 @@
       "title": "Reimpostare la password"
     },
     "loggingYouOut": "Disconnettendoti",
-    "loggingYouOutMessage": "Se non sei reindirizzato, fai clic qui"
+    "loggingYouOutMessage": "Se non sei reindirizzato, fai clic qui",
+    "clickToOpenMobileApp": "Clicca qui se non sei reindirizzato automatico",
+    "redirectingToMobile": "Reindirizzandoti all'app mobile {Company}"
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
@@ -1692,7 +1695,22 @@
     "error": "Si è verificato un errore durante il recupero di prodotti, prova ad Angain",
     "searchResultsFor": "Risultati per",
     "title": "I nostri prodotti",
-    "noResults": "Oh no! \nNon possiamo trovare prodotti per la tua ricerca. \nRiprova con un'altra parola chiave."
+    "noResults": "Oh no! \nNon possiamo trovare prodotti per la tua ricerca. \nRiprova con un'altra parola chiave.",
+    "all": "Tutto",
+    "applyFilters": "Applicare i filtri",
+    "availability": "Disponibilità",
+    "categories": "Categorie",
+    "dateRange": "Intervallo di date",
+    "filters": "Filtri",
+    "inStock": "In magazzino",
+    "mostPopular": "Più popolare",
+    "newest": "Più recente",
+    "outOfStock": "Esaurito",
+    "priceAsc": "Price Asc",
+    "priceDesc": "Price Desc",
+    "priceRange": "Fascia di prezzo",
+    "reset": "Reset",
+    "sortBy": "Ordinare da"
   },
   "Error": {
     "Front": {

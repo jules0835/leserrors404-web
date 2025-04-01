@@ -4,14 +4,16 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import ChatBox from "@/features/contact/chatbot/chatBox"
 import { MessagesSquare } from "lucide-react"
 import { useTranslations } from "next-intl"
-import { usePathname } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 
 export default function WidgetChatbot() {
   const { isOpen, openChat, closeChat, unreadCount } = useChat()
   const t = useTranslations("Contact.Chatbot")
+  const searchParams = useSearchParams()
   const pathname = usePathname()
+  const isAppMobileLogin = searchParams.get("appMobileLogin")
 
-  if (pathname.includes("/admin")) {
+  if (pathname.includes("/admin") || isAppMobileLogin) {
     return null
   }
 

@@ -1137,7 +1137,8 @@
       "resetSuccess": "Votre mot de passe a été réinitialisé avec succès, vous pouvez maintenant vous connecter",
       "title": "Connectez-vous à votre compte Cyna",
       "unknownError": "Quelque chose s'est mal passé, veuillez réessayer ou contacter le support.",
-      "logoutAutoSuccess": "Vous avez été automatiquement déconnecté. \nVeuillez vous connecter à nouveau."
+      "logoutAutoSuccess": "Vous avez été automatiquement déconnecté. \nVeuillez vous connecter à nouveau.",
+      "titleMobile": "Connectez-vous à une application {Company} avec votre compte {Company}"
     },
     "RegisterPage": {
       "acceptTermsEnd": "termes et conditions",
@@ -1221,7 +1222,9 @@
     "confirmEmailSuccess": "Votre e-mail a été confirmé avec succès, vous pouvez désormais vous connecter.",
     "login": "Retour à la page de connexion",
     "loggingYouOut": "Vous enregistrer",
-    "loggingYouOutMessage": "Si vous n'êtes pas redirigé, veuillez cliquer ici"
+    "loggingYouOutMessage": "Si vous n'êtes pas redirigé, veuillez cliquer ici",
+    "clickToOpenMobileApp": "Cliquez ici si vous n'êtes pas automatiquement redirigé",
+    "redirectingToMobile": "Vous rediriger vers {company} application mobile"
   },
   "Confirmation": {
     "subject": "Cyna - Confirmez votre e-mail"
@@ -1692,7 +1695,22 @@
     "error": "Une erreur s'est produite tout en récupérant les produits, veuillez essayer",
     "searchResultsFor": "Résultats pour",
     "title": "Nos produits",
-    "noResults": "Oh non! \nNous ne trouvons aucun produit pour votre recherche. \nRéessayez avec un autre mot-clé."
+    "noResults": "Oh non! \nNous ne trouvons aucun produit pour votre recherche. \nRéessayez avec un autre mot-clé.",
+    "all": "Tous",
+    "applyFilters": "Appliquer des filtres",
+    "availability": "Disponibilité",
+    "categories": "Catégories",
+    "dateRange": "Plage de dates",
+    "filters": "Filtres",
+    "inStock": "En stock",
+    "mostPopular": "Le plus populaire",
+    "newest": "Plus récent",
+    "outOfStock": "En rupture de stock",
+    "priceAsc": "Prix ​​ASC",
+    "priceDesc": "Prix",
+    "priceRange": "Fourchette",
+    "reset": "Réinitialiser",
+    "sortBy": "Trier par"
   },
   "Error": {
     "Front": {

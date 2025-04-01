@@ -9,11 +9,15 @@ import { Link } from "@/i18n/routing"
 import { webAppSettings } from "@/assets/options/config"
 import Image from "next/image"
 import { MailCheck } from "lucide-react"
+import { useSearchParams } from "next/navigation"
 
 export default function ResetPasswordPage() {
   const t = useTranslations("Auth.ResetPasswordPage")
   const [message, setMessage] = useState(null)
   const [emailSent, setEmailSent] = useState(false)
+  const searchParams = useSearchParams()
+  const redirectUrl = searchParams.get("next") || "/"
+  const isAppMobileLogin = searchParams.get("appMobileLogin")
   const ResetSchema = Yup.object().shape({
     email: Yup.string().email(t("invalidEmail")).required(t("requiredEmail")),
   })
@@ -22,7 +26,7 @@ export default function ResetPasswordPage() {
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-[#2F1F80]">
       <Link
         className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
-        href="/"
+        href={isAppMobileLogin ? "#" : redirectUrl}
       >
         <div className="p-4 rounded-2xl">
           <Image
@@ -99,7 +103,7 @@ export default function ResetPasswordPage() {
                 {t("rememberYourPassword")}{" "}
                 <Link
                   className="font-medium text-primary-600 hover:underline"
-                  href="/auth/login"
+                  href={`/auth/login?next=${redirectUrl}&appMobileLogin=${isAppMobileLogin}`}
                 >
                   {t("register")}
                 </Link>
@@ -113,7 +117,9 @@ export default function ResetPasswordPage() {
                 {message}
               </p>
 
-              <Link href="/auth/login">
+              <Link
+                href={`/auth/login?next=${redirectUrl}&appMobileLogin=${isAppMobileLogin}`}
+              >
                 <DButton isMain>{t("goToLogin")}</DButton>
               </Link>
             </div>

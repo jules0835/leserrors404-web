@@ -24,7 +24,7 @@
   },
   "Auth": {
     "LoginPage": {
-      "title": "Sign in to your Cyna account",
+      "title": "Sign in to your {company} account",
       "email": "Your email",
       "password": "Your password",
       "login": "Sign in",
@@ -45,7 +45,8 @@
       "requiredOtp": "The OTP code with 6 digits is required",
       "otpRequired": "Your one time password is required to log into your account, please enter the code provide by your authenticator app",
       "resetSuccess": "Your password was successfully reset, you can now login",
-      "logoutAutoSuccess": "You have been automatically logged out. Please log in again."
+      "logoutAutoSuccess": "You have been automatically logged out. Please log in again.",
+      "titleMobile": "Sign in to {company} Application with your {company} account"
     },
     "RegisterPage": {
       "title": "Register",
@@ -129,7 +130,9 @@
       "passwordResetSuccess": "Password has been reset successfully, you can now login"
     },
     "loggingYouOut": "Logging you out",
-    "loggingYouOutMessage": "If you are not redirected, please click here"
+    "loggingYouOutMessage": "If you are not redirected, please click here",
+    "redirectingToMobile": "Redirecting you to {company} Mobile App",
+    "clickToOpenMobileApp": "Click here if you are not automaticly redirect"
   },
   "Navigation": {
     "home": "Home",
@@ -1685,7 +1688,22 @@
     "title": "Our products",
     "error": "An error occurred while fetching products, please try again",
     "searchResultsFor": "Results for",
-    "noResults": "Oh no! We can't find any products for your search. Try again with another keyword."
+    "noResults": "Oh no! We can't find any products for your search. Try again with another keyword.",
+    "filters": "Filters",
+    "reset": "Reset",
+    "priceRange": "Price range",
+    "sortBy": "Sort by",
+    "newest": "Newest",
+    "priceAsc": "Price Asc",
+    "priceDesc": "Price Desc",
+    "mostPopular": "Most Popular",
+    "availability": "Availability",
+    "all": "All",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "categories": "Categories",
+    "dateRange": "Date Range",
+    "applyFilters": "Apply Filters"
   },
   "NavSearchBar": {
     "categories": "Categories",
