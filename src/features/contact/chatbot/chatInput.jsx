@@ -11,31 +11,34 @@ export default function ChatInput() {
   const { sendMessageToAdmin, isSendingMessage, reloadChat } = useChat()
   const typingTimeoutRef = useRef(null)
   const debounceTimeoutRef = useRef(null)
-  const handleTyping = useCallback((isTyping) => {
-    if (debounceTimeoutRef.current) {
-      clearTimeout(debounceTimeoutRef.current)
-    }
-
-    debounceTimeoutRef.current = setTimeout(async () => {
-      if (typingTimeoutRef.current) {
-        clearTimeout(typingTimeoutRef.current)
+  const handleTyping = useCallback(
+    (isTyping) => {
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current)
       }
 
-      try {
-        await updateUserTypingStatus(isTyping)
-      } catch (error) {
-        if (error.response.status === 400) {
-          reloadChat()
+      debounceTimeoutRef.current = setTimeout(async () => {
+        if (typingTimeoutRef.current) {
+          clearTimeout(typingTimeoutRef.current)
         }
-      }
 
-      if (isTyping) {
-        typingTimeoutRef.current = setTimeout(() => {
-          updateUserTypingStatus(false)
-        }, 30000)
-      }
-    }, 500)
-  }, [])
+        try {
+          await updateUserTypingStatus(isTyping)
+        } catch (error) {
+          if (error.response.status === 400) {
+            reloadChat()
+          }
+        }
+
+        if (isTyping) {
+          typingTimeoutRef.current = setTimeout(() => {
+            updateUserTypingStatus(false)
+          }, 30000)
+        }
+      }, 500)
+    },
+    [reloadChat]
+  )
 
   useEffect(
     () => () => {

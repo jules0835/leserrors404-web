@@ -1,0 +1,246 @@
+"use client"
+import { useState } from "react"
+import { useRouter } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
+import { Card } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Checkbox } from "@/components/ui/checkbox"
+import { useQuery } from "@tanstack/react-query"
+import { fetchCategories } from "@/features/shop/product/utils/product"
+import { useSearchParams } from "next/navigation"
+
+export default function SidebarProductList() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const t = useTranslations("ProductPage")
+  const [priceRange, setPriceRange] = useState([
+    Number(searchParams.get("minPrice")) || 0,
+    Number(searchParams.get("maxPrice")) || 1000,
+  ])
+  const [selectedCategories, setSelectedCategories] = useState(
+    searchParams.get("categories")?.split(",") || []
+  )
+  const [sortBy, setSortBy] = useState(searchParams.get("sort") || "newest")
+  const [availability, setAvailability] = useState(
+    searchParams.get("availability") || "all"
+  )
+  const [dateRange, setDateRange] = useState({
+    from: searchParams.get("dateFrom") || "",
+    to: searchParams.get("dateTo") || "",
+  })
+  const { data: categoriesData } = useQuery({
+    queryKey: ["categories"],
+    queryFn: fetchCategories,
+  })
+  const updateFilters = () => {
+    const params = new URLSearchParams(searchParams.toString())
+
+    if (priceRange[0] > 0) {
+      params.set("minPrice", priceRange[0])
+    } else {
+      params.delete("minPrice")
+    }
+
+    if (priceRange[1] < 1000) {
+      params.set("maxPrice", priceRange[1])
+    } else {
+      params.delete("maxPrice")
+    }
+
+    if (selectedCategories.length > 0) {
+      params.set("categories", selectedCategories.join(","))
+    } else {
+      params.delete("categories")
+    }
+
+    if (sortBy !== "newest") {
+      params.set("sort", sortBy)
+    } else {
+      params.delete("sort")
+    }
+
+    if (availability !== "all") {
+      params.set("availability", availability)
+    } else {
+      params.delete("availability")
+    }
+
+    if (dateRange.from) {
+      params.set("dateFrom", dateRange.from)
+    } else {
+      params.delete("dateFrom")
+    }
+
+    if (dateRange.to) {
+      params.set("dateTo", dateRange.to)
+    } else {
+      params.delete("dateTo")
+    }
+
+    router.push(`?${params.toString()}`)
+  }
+  const resetFilters = () => {
+    setPriceRange([0, 1000])
+    setSelectedCategories([])
+    setSortBy("newest")
+    setAvailability("all")
+    setDateRange({ from: "", to: "" })
+    router.push("/shop/products")
+  }
+
+  return (
+    <Card className="p-4">
+      <div className="space-y-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-semibold">{t("filters")}</h2>
+          <Button variant="outline" size="sm" onClick={resetFilters}>
+            {t("reset")}
+          </Button>
+        </div>
+
+        <div className="space-y-2">
+          <Label>{t("categories")}</Label>
+          <div className="h-[200px] border rounded-md p-2 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+            {categoriesData?.categories?.map((category) => (
+              <div
+                key={category._id}
+                className="flex items-center space-x-2 py-1"
+              >
+                <Checkbox
+                  id={category._id}
+                  checked={selectedCategories.includes(category._id)}
+                  onCheckedChange={(checked) => {
+                    if (checked) {
+                      setSelectedCategories([
+                        ...selectedCategories,
+                        category._id,
+                      ])
+                    } else {
+                      setSelectedCategories(
+                        selectedCategories.filter((id) => id !== category._id)
+                      )
+                    }
+                  }}
+                />
+                <Label htmlFor={category._id}>{category.label}</Label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <Label>{t("priceRange")}</Label>
+          <div className="flex items-center space-x-2">
+            <Input
+              type="number"
+              value={priceRange[0]}
+              onChange={(e) =>
+                setPriceRange([Number(e.target.value), priceRange[1]])
+              }
+              className="w-20"
+              min="0"
+              max={priceRange[1]}
+            />
+            <span>-</span>
+            <Input
+              type="number"
+              value={priceRange[1]}
+              onChange={(e) =>
+                setPriceRange([priceRange[0], Number(e.target.value)])
+              }
+              className="w-20"
+              min={priceRange[0]}
+              max="1000"
+            />
+            <span>€</span>
+          </div>
+          <div className="space-y-3">
+            <input
+              type="range"
+              min="0"
+              max="1000"
+              value={priceRange[0]}
+              onChange={(e) =>
+                setPriceRange([Number(e.target.value), priceRange[1]])
+              }
+              className="w-full"
+            />
+            <input
+              type="range"
+              min="0"
+              max="1000"
+              value={priceRange[1]}
+              onChange={(e) =>
+                setPriceRange([priceRange[0], Number(e.target.value)])
+              }
+              className="w-full"
+            />
+          </div>
+        </div>
+
+        {/* Sort By */}
+        <div className="space-y-2">
+          <Label>{t("sortBy")}</Label>
+          <Select value={sortBy} onValueChange={setSortBy}>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="newest">{t("newest")}</SelectItem>
+              <SelectItem value="price-asc">{t("priceAsc")}</SelectItem>
+              <SelectItem value="price-desc">{t("priceDesc")}</SelectItem>
+              <SelectItem value="popular">{t("mostPopular")}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <Label>{t("availability")}</Label>
+          <Select value={availability} onValueChange={setAvailability}>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">{t("all")}</SelectItem>
+              <SelectItem value="in-stock">{t("inStock")}</SelectItem>
+              <SelectItem value="out-of-stock">{t("outOfStock")}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <Label>{t("dateRange")}</Label>
+          <div className="space-y-2">
+            <Input
+              type="date"
+              value={dateRange.from}
+              onChange={(e) =>
+                setDateRange({ ...dateRange, from: e.target.value })
+              }
+            />
+            <Input
+              type="date"
+              value={dateRange.to}
+              onChange={(e) =>
+                setDateRange({ ...dateRange, to: e.target.value })
+              }
+            />
+          </div>
+        </div>
+
+        <Button className="w-full" onClick={updateFilters}>
+          {t("applyFilters")}
+        </Button>
+      </div>
+    </Card>
+  )
+}

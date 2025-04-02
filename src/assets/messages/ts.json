@@ -132,7 +132,11 @@
     "loggingYouOut": "Ku logging ku ku huma",
     "loggingYouOutMessage": "Loko u nga kongomisiwanga, hi kombela u tikhoma laha .",
     "clickToOpenMobileApp": "Click laha loko u nga ri automaticly redirect .",
-    "redirectingToMobile": "Ku ku kongomisa eka {Company} Mobile App ."
+    "redirectingToMobile": "Ku ku kongomisa eka {Company} Mobile App .",
+    "application": "App .",
+    "mobile": "Famba-famba",
+    "phone": "Riqingho",
+    "redirectingToMobileMessage": "Loko u nga kongomisiwanga hi 5 seconds, hi kombela u click button leyi nga laha hansi."
   },
   "other": "Xin'wana",
   "socialMedia": "Social Media",
@@ -1809,7 +1813,8 @@
       "tax": "Xibalo xa xibalo .",
       "total": "Hinkwaswo",
       "viewAllOrders": "Vona tioda hinkwato .",
-      "viewSubscription": "View Subscription ."
+      "viewSubscription": "View Subscription .",
+      "yourBank": "Bangi ya wena ."
     }
   },
   "Log": {

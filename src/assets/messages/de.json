@@ -132,7 +132,11 @@
     "loggingYouOut": "Anmeldung dich raus",
     "loggingYouOutMessage": "Wenn Sie nicht weitergeleitet werden, klicken Sie bitte hier",
     "clickToOpenMobileApp": "Klicken Sie hier, wenn Sie nicht automatisch umgeleitet sind",
-    "redirectingToMobile": "Sie zur {Company} mobilen App umleiten"
+    "redirectingToMobile": "Sie zur {Company} mobilen App umleiten",
+    "application": "App",
+    "mobile": "Mobile",
+    "phone": "Telefon",
+    "redirectingToMobileMessage": "Wenn Sie in 5 Sekunden nicht umgeleitet werden, klicken Sie bitte auf die Schaltfläche unten."
   },
   "other": "Andere",
   "socialMedia": "Soziale Medien",
@@ -1809,7 +1813,8 @@
       "tax": "Steuer",
       "total": "Gesamt",
       "viewAllOrders": "Alle Bestellungen anzeigen",
-      "viewSubscription": "Abonnement anzeigen"
+      "viewSubscription": "Abonnement anzeigen",
+      "yourBank": "Ihre Bank"
     }
   },
   "Log": {

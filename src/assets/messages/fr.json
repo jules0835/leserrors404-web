@@ -1224,7 +1224,11 @@
     "loggingYouOut": "Vous enregistrer",
     "loggingYouOutMessage": "Si vous n'êtes pas redirigé, veuillez cliquer ici",
     "clickToOpenMobileApp": "Cliquez ici si vous n'êtes pas automatiquement redirigé",
-    "redirectingToMobile": "Vous rediriger vers {company} application mobile"
+    "redirectingToMobile": "Vous rediriger vers {company} application mobile",
+    "application": "Appliquer",
+    "mobile": "Mobile",
+    "phone": "Téléphone",
+    "redirectingToMobileMessage": "Si vous n'êtes pas redirigé en 5 secondes, veuillez cliquer sur le bouton ci-dessous."
   },
   "Confirmation": {
     "subject": "Cyna - Confirmez votre e-mail"
@@ -1809,7 +1813,8 @@
       "tax": "Impôt",
       "total": "Total",
       "viewAllOrders": "Afficher toutes les commandes",
-      "viewSubscription": "Afficher l'abonnement"
+      "viewSubscription": "Afficher l'abonnement",
+      "yourBank": "Votre banque"
     }
   },
   "Log": {

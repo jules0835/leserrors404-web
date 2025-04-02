@@ -31,6 +31,7 @@ export const ChatProvider = ({ children }) => {
   const [unreadCount, setUnreadCount] = useState(0)
   const [isSwitchingToAdmin, setIsSwitchingToAdmin] = useState(false)
   const [isCompletingAction, setIsCompletingAction] = useState(false)
+  const [tempMessage, setTempMessage] = useState(null)
   const {
     data: chatData,
     refetch: refetchChatData,
@@ -65,8 +66,9 @@ export const ChatProvider = ({ children }) => {
   useEffect(() => {
     if (session?.user) {
       const handleSessionChange = async () => {
+        setNeedLogin(false)
+
         if (Cookies.get("chatId")) {
-          setNeedLogin(false)
           await endChat()
           await refetchChatData()
         }
@@ -135,7 +137,6 @@ export const ChatProvider = ({ children }) => {
   const closeChat = () => {
     setError(null)
     setIsOpen(false)
-    Cookies.remove("chatId")
   }
   const handleStartChat = async (formData) => {
     setError(null)
@@ -178,16 +179,30 @@ export const ChatProvider = ({ children }) => {
   const handleSendMessageToBot = async (message, isBotReply = false) => {
     setError(null)
 
+    const newMessage = {
+      _id: Date.now().toString(),
+      sender: "USER",
+      message,
+      sendDate: new Date(),
+      readByBot: false,
+      isTemp: true,
+    }
+
+    setTempMessage(newMessage)
+
     try {
       setIsSendingMessage(true)
       await sendMessageToBot(message, isBotReply)
       await refetchChatData()
+      setTempMessage(null)
     } catch (errorSendMessage) {
       if (!handleError(errorSendMessage)) {
         setError(
           errorSendMessage?.response?.data?.error || errorSendMessage.message
         )
       }
+
+      setTempMessage(null)
     } finally {
       setIsSendingMessage(false)
     }
@@ -212,10 +227,22 @@ export const ChatProvider = ({ children }) => {
   const handleSendMessageToAdmin = async (message) => {
     setError(null)
 
+    const newMessage = {
+      _id: Date.now().toString(),
+      sender: "USER",
+      message,
+      sendDate: new Date(),
+      readByAdmin: false,
+      isTemp: true,
+    }
+
+    setTempMessage(newMessage)
+
     try {
       setIsSendingMessage(true)
       await sendMessageToAdmin(message)
       await refetchChatData()
+      setTempMessage(null)
     } catch (errorSendMessageToAdmin) {
       if (!handleError(errorSendMessageToAdmin)) {
         setError(
@@ -223,6 +250,8 @@ export const ChatProvider = ({ children }) => {
             errorSendMessageToAdmin.message
         )
       }
+
+      setTempMessage(null)
     } finally {
       setIsSendingMessage(false)
     }
@@ -281,6 +310,7 @@ export const ChatProvider = ({ children }) => {
         reloadChat,
         completeSelectedAction,
         isCompletingAction,
+        tempMessage,
       }}
     >
       {children}

@@ -77,7 +77,7 @@ export default function RedirectCheckout() {
             <div className="flex items-center gap-12 md:gap-16">
               <div className="flex flex-col items-center justify-center font-semibold">
                 <Landmark className="w-10 h-10  md:w-12 md:h-12" />
-                <p>Your bank</p>
+                <p>{t("yourBank")}</p>
               </div>
               <div className="dotsLoader mx-auto" />
               <div className="flex flex-col items-center justify-center font-semibold">
