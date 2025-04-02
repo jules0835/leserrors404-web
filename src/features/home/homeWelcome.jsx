@@ -90,7 +90,7 @@ export default function HomeWelcome({ animationReverse, isLoggedIn }) {
             {t("welcomeMessage")}
           </motion.p>
           <motion.p
-            className="mt-1 text-xl text-center text-white md:mx-20 mx-5"
+            className="mt-1 text-xl text-center text-white md:mx-20 mx-5 h-16"
             initial={{ opacity: 0, y: 50 }}
             animate={reverse ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}

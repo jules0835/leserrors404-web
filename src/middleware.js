@@ -55,9 +55,9 @@ async function verifyMobileToken(token) {
     const data = await response.json()
 
     return {
-      isValid: true,
-      userId: data.userId,
-      isAdmin: data.user?.isAdmin || false,
+      isValid: data.isValid,
+      userIdMobile: data.userId,
+      isAdminMobile: data.isAdmin || false,
     }
   } catch (error) {
     return { isValid: false, error: error.message }
@@ -74,46 +74,50 @@ function extractBearerToken(req) {
   return authHeader.split(" ")[1]
 }
 
-const authMiddleware = auth((req) => {
+const authMiddleware = auth(async (req) => {
   const currentPath = req.nextUrl.pathname
   const locale = req.cookies.get("NEXT_LOCALE")?.value || "en"
   const isShopApi = currentPath.includes("/api/shop/")
   const isContactApi = currentPath.includes("/api/contact/chat")
-  const { isAdmin, userId } = req?.auth?.user || {}
+  const mobileToken = extractBearerToken(req)
 
   if (currentPath.includes("/api/") && !currentPath.includes("/api/auth/")) {
-    const mobileToken = extractBearerToken(req)
-
     if (mobileToken) {
-      return verifyMobileToken(mobileToken).then(
-        ({ isValid, userIdMobile, isAdminMobile }) => {
-          if (isValid) {
-            req.headers.set("x-int-auth-userId", userIdMobile)
-            req.headers.set("x-int-auth-isAdmin", isAdminMobile)
+      const mobileAuth = await verifyMobileToken(mobileToken)
 
-            return NextResponse.next()
-          }
-
-          return new NextResponse(
-            JSON.stringify({ error: "Invalid mobile token" }),
-            {
-              status: 401,
-              headers: { "Content-Type": "application/json" },
-            }
-          )
+      if (mobileAuth.isValid) {
+        req.auth = {
+          ...req.auth,
+          user: {
+            ...req.auth?.user,
+            userId: mobileAuth.userIdMobile,
+            isAdmin: mobileAuth.isAdminMobile,
+          },
         }
-      )
+      } else {
+        return new NextResponse(
+          JSON.stringify({ error: "Invalid mobile token" }),
+          {
+            status: 401,
+            headers: { "Content-Type": "application/json" },
+          }
+        )
+      }
     }
   }
 
-  req.headers.set("x-int-auth-userId", userId)
-  req.headers.set("x-int-auth-isAdmin", isAdmin)
+  const { isAdmin, userId } = req?.auth?.user || {}
+
+  if (userId) {
+    req.headers.set("x-int-auth-userId", userId)
+    req.headers.set("x-int-auth-isAdmin", isAdmin)
+  }
 
   if (isShopApi || isContactApi) {
     return intlMiddleware(req)
   }
 
-  if (!req.auth) {
+  if (!req.auth && !mobileToken) {
     if (currentPath.includes("/api/")) {
       return new NextResponse(JSON.stringify({ error: "Access denied" }), {
         status: 401,
@@ -126,7 +130,7 @@ const authMiddleware = auth((req) => {
     )
   }
 
-  if (!checkTokenExpiration(req)) {
+  if (!checkTokenExpiration(req) && !mobileToken) {
     return NextResponse.redirect(
       new URL(`/${locale}/auth/logout?next=${currentPath}`, req.url)
     )
