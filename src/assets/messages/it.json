@@ -132,7 +132,11 @@
     "loggingYouOut": "Disconnettendoti",
     "loggingYouOutMessage": "Se non sei reindirizzato, fai clic qui",
     "clickToOpenMobileApp": "Clicca qui se non sei reindirizzato automatico",
-    "redirectingToMobile": "Reindirizzandoti all'app mobile {Company}"
+    "redirectingToMobile": "Reindirizzandoti all'app mobile {Company}",
+    "application": "App",
+    "mobile": "Mobile",
+    "phone": "Telefono",
+    "redirectingToMobileMessage": "Se non sei reindirizzato in 5 secondi, fai clic sul pulsante in basso."
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
@@ -1809,7 +1813,8 @@
       "tax": "Tassare",
       "total": "Totale",
       "viewAllOrders": "Visualizza tutti gli ordini",
-      "viewSubscription": "Visualizza l'abbonamento"
+      "viewSubscription": "Visualizza l'abbonamento",
+      "yourBank": "La tua banca"
     }
   },
   "Log": {
