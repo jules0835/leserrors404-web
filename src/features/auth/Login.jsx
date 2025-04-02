@@ -50,9 +50,7 @@ export default function Login() {
   }, [otpOpen])
 
   if (session && !isLogout) {
-    if (isAppMobileLogin) {
-      router.push(redirectUrl)
-    } else {
+    if (!isAppMobileLogin) {
       router.push(redirectUrl)
     }
   }

@@ -32,11 +32,13 @@ export default function MessagesList() {
     error,
     completeSelectedAction,
     isCompletingAction,
+    tempMessage,
   } = useChat()
-  const messages = useMemo(
-    () => chatData?.chat?.messages || [],
-    [chatData?.chat?.messages]
-  )
+  const messages = useMemo(() => {
+    const chatMessages = chatData?.chat?.messages || []
+
+    return tempMessage ? [...chatMessages, tempMessage] : chatMessages
+  }, [chatData?.chat?.messages, tempMessage])
   const messagesEndRef = useRef(null)
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -281,17 +283,6 @@ export default function MessagesList() {
           transition={{ duration: 0.2 }}
           className="flex flex-col gap-3"
         >
-          <div className="flex flex-row-reverse gap-3">
-            <Avatar className="h-8 w-8">
-              <AvatarFallback>
-                <User className="h-4 w-4" />
-              </AvatarFallback>
-            </Avatar>
-            <div className="rounded-lg px-4 py-2 max-w-[80%] bg-muted">
-              <Skeleton className="h-4 w-[200px]" />
-              <Skeleton className="h-4 w-[150px] mt-2" />
-            </div>
-          </div>
           {chatData?.chat?.state === "CHAT_BOT" && (
             <div className="flex items-start gap-3">
               <Avatar className="h-8 w-8">

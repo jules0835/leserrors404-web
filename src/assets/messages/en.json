@@ -132,7 +132,11 @@
     "loggingYouOut": "Logging you out",
     "loggingYouOutMessage": "If you are not redirected, please click here",
     "redirectingToMobile": "Redirecting you to {company} Mobile App",
-    "clickToOpenMobileApp": "Click here if you are not automaticly redirect"
+    "clickToOpenMobileApp": "Click here if you are not automaticly redirect",
+    "redirectingToMobileMessage": "If you are not redirected in 5 seconds, please click the button below.",
+    "phone": "Phone",
+    "mobile": "Mobile",
+    "application": "App"
   },
   "Navigation": {
     "home": "Home",
@@ -1809,7 +1813,8 @@
       "tax": "Tax",
       "discount": "Discount",
       "total": "Total",
-      "continueShopping": "Continue Shopping"
+      "continueShopping": "Continue Shopping",
+      "yourBank": "Your bank"
     }
   },
   "Log": {

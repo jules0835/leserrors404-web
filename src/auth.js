@@ -141,19 +141,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         await handleAuthLoginSuccess(user._id)
 
         if (credentials.appMobileLogin) {
-          const secret = process.env.MOBILE_JWT_SECRET
-
-          if (!secret) {
-            throw new Error(
-              "MOBILE_JWT_SECRET environment variable is not configured"
-            )
-          }
-
-          user.tokenMobile = jwt.sign(
-            { userId: user._id, type: "mobile" },
-            secret,
-            { expiresIn: "30d" }
-          )
+          user.needsMobileToken = true
         }
 
         return user
@@ -162,6 +150,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   session: {
     strategy: "jwt",
+    maxAge: 24 * 60 * 60,
+    updateAge: 24 * 60 * 60,
+  },
+  jwt: {
+    maxAge: 24 * 60 * 60,
   },
   callbacks: {
     jwt({ token, user, account }) {
@@ -174,10 +167,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.image = user.image
         token.isAdmin = user.isAdmin
         token.keepLogin = account?.keepLogin || false
-
-        if (user.tokenMobile) {
-          token.tokenMobile = user.tokenMobile
-        }
       }
 
       let expirationTime = 0
@@ -194,6 +183,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       token.exp = Math.floor(Date.now() / 1000) + expirationTime
 
+      if (user?.needsMobileToken) {
+        const mobileTokenPayload = {
+          userId: token.userId,
+          email: token.email,
+          firstName: token.firstName,
+          lastName: token.lastName,
+          isAdmin: token.isAdmin,
+          exp: token.exp,
+        }
+        const mobileJwtSecret = process.env.MOBILE_JWT_SECRET
+
+        token.tokenMobile = jwt.sign(mobileTokenPayload, mobileJwtSecret)
+      }
+
       return token
     },
     session({ session, token }) {
@@ -205,7 +208,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         session.user.lastName = token.lastName
         session.user.image = token.image
         session.user.isAdmin = token.isAdmin
-        session.user.exp = token.expires
+        session.user.exp = token.exp
 
         if (token.tokenMobile) {
           session.user.tokenMobile = token.tokenMobile

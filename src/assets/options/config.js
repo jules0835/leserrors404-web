@@ -36,7 +36,7 @@ export const webAppSettings = {
     adminDashboard: "/admin",
     userProfile: "/user/dashboard/profile",
     supportChat: "/user/dashboard/support/tickets/",
-    mobileCallbackLogin: "com.Draskeer.Cynapp.Cynapp://auth?authToken=",
+    mobileCallbackLogin: "cynapp://auth?authToken=",
   },
   translation: {
     locales: ["en", "fr", "de", "ts"],

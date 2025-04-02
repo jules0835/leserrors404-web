@@ -66,18 +66,66 @@ export const getProducts = async (size = 10, page = 1, query = "") => {
   }
 }
 
-export const getShopProducts = async (query = "", size = 10, page = 1) => {
+export const getShopProducts = async ({
+  query = "",
+  size = 10,
+  page = 1,
+  minPrice,
+  maxPrice,
+  categories,
+  sort,
+  availability,
+  keywords,
+  dateFrom,
+  dateTo,
+}) => {
   try {
     await mwdb()
 
     const searchQuery = { isActive: true }
 
-    if (query) {
-      const searchRegex = new RegExp(query.split("").join(".*"), "i")
+    if (minPrice || maxPrice) {
+      searchQuery.price = {}
+
+      if (minPrice) {
+        searchQuery.price.$gte = Number(minPrice)
+      }
+
+      if (maxPrice) {
+        searchQuery.price.$lte = Number(maxPrice)
+      }
+    }
+
+    if (categories) {
+      const categoryIds = categories.split(",")
+      searchQuery.category = { $in: categoryIds }
+    }
+
+    if (availability === "in-stock") {
+      searchQuery.stock = { $gt: 0 }
+    } else if (availability === "out-of-stock") {
+      searchQuery.stock = { $eq: 0 }
+    }
+
+    if (dateFrom || dateTo) {
+      searchQuery.createdAt = {}
+
+      if (dateFrom) {
+        searchQuery.createdAt.$gte = new Date(dateFrom)
+      }
+
+      if (dateTo) {
+        searchQuery.createdAt.$lte = new Date(dateTo)
+      }
+    }
+
+    if (query || keywords) {
+      const searchText = query || keywords
+      const searchRegex = new RegExp(searchText.split("").join(".*"), "i")
       const { locales } = webAppSettings.translation
       const searchableFields = ["label", "description", "characteristics"]
 
-      searchQuery.$or = []
+      searchQuery.$or ||= []
 
       locales.forEach((locale) => {
         searchableFields.forEach((field) => {
@@ -88,8 +136,31 @@ export const getShopProducts = async (query = "", size = 10, page = 1) => {
       })
     }
 
+    let sortOptions = {}
+
+    switch (sort) {
+      case "price-asc":
+        sortOptions = { price: 1 }
+
+        break
+
+      case "price-desc":
+        sortOptions = { price: -1 }
+
+        break
+
+      case "popular":
+        sortOptions = { salesCount: -1 }
+
+        break
+
+      default:
+        sortOptions = { createdAt: -1 }
+    }
+
     const total = await ProductModel.countDocuments(searchQuery)
     const Products = await ProductModel.find(searchQuery)
+      .sort(sortOptions)
       .limit(size)
       .skip(size * (page - 1))
       .lean()
