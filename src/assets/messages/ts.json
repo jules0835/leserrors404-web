@@ -1814,7 +1814,9 @@
       "total": "Hinkwaswo",
       "viewAllOrders": "Vona tioda hinkwato .",
       "viewSubscription": "View Subscription .",
-      "yourBank": "Bangi ya wena ."
+      "yourBank": "Bangi ya wena .",
+      "redirectingToCheckoutMessageMobile": "U ta kongomisa hi ku tisungulela eka {Company} Mobile App loko hakelo yi hetisiwile.",
+      "yourPayment": "Bangi"
     }
   },
   "Log": {

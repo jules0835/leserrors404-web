@@ -1814,7 +1814,9 @@
       "total": "Gesamt",
       "viewAllOrders": "Alle Bestellungen anzeigen",
       "viewSubscription": "Abonnement anzeigen",
-      "yourBank": "Ihre Bank"
+      "yourBank": "Ihre Bank",
+      "redirectingToCheckoutMessageMobile": "Sie werden nach Abschluss der Zahlung automatisch in die {Company} Mobile App umgeleitet.",
+      "yourPayment": "Bank"
     }
   },
   "Log": {

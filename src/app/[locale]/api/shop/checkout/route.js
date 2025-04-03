@@ -6,12 +6,13 @@ import { NextResponse } from "next/server"
 import { checkCartEligibilityForCheckout } from "@/db/crud/cartCrud"
 import { getTranslations } from "next-intl/server"
 import log from "@/lib/log"
-import { logKeys } from "@/assets/options/config"
+import { logKeys, webAppSettings } from "@/assets/options/config"
 
 export async function POST(req, { params }) {
   const t = await getTranslations("Shop.Cart")
   const { searchParams } = req.nextUrl
   const saveCardForFuture = searchParams.get("saveCardForFuture") || false
+  const isMobileApp = searchParams.get("appMobileCheckout") || false
 
   try {
     const userId = getReqUserId(req)
@@ -77,8 +78,10 @@ export async function POST(req, { params }) {
         ? "subscription"
         : "payment",
       customer: user?.account?.stripe?.customerId,
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/checkout/redirect?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/cart`,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/checkout/redirect?session_id={CHECKOUT_SESSION_ID}&appMobileCheckout=${isMobileApp}`,
+      cancel_url: isMobileApp
+        ? `${webAppSettings.urls.cancelCheckoutMobileRedirect}`
+        : `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/cart`,
       discounts: cart.voucher?.stripeCouponId
         ? [{ promotion_code: cart.voucher.stripeCouponId }]
         : [],

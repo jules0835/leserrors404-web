@@ -1814,7 +1814,9 @@
       "discount": "Discount",
       "total": "Total",
       "continueShopping": "Continue Shopping",
-      "yourBank": "Your bank"
+      "yourBank": "Your bank",
+      "redirectingToCheckoutMessageMobile": "You will be automaticly redirect to the {company} mobile app once the payment is completed.",
+      "yourPayment": "Bank"
     }
   },
   "Log": {

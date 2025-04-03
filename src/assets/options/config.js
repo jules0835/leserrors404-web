@@ -37,6 +37,9 @@ export const webAppSettings = {
     userProfile: "/user/dashboard/profile",
     supportChat: "/user/dashboard/support/tickets/",
     mobileCallbackLogin: "cynapp://auth?authToken=",
+    failedCheckoutMobileRedirect: "cynapp://checkout?failed=true",
+    successCheckoutMobileRedirect: "cynapp://checkout?success=true",
+    cancelCheckoutMobileRedirect: "cynapp://checkout?userCancel=true",
   },
   translation: {
     locales: ["en", "fr", "de", "ts"],
