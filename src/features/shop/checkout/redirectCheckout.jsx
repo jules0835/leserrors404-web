@@ -9,7 +9,8 @@ import { Landmark, Store } from "lucide-react"
 import { useSearchParams } from "next/navigation"
 import { Separator } from "@/components/ui/separator"
 import { useQuery } from "@tanstack/react-query"
-import { company } from "@/assets/options/config"
+import { company, webAppSettings } from "@/assets/options/config"
+import { fetchCheckoutOrder } from "@/features/shop/checkout/utils/userCheckout"
 
 export default function RedirectCheckout() {
   const [isErrorMessage, setIsErrorMessage] = useState(false)
@@ -17,23 +18,17 @@ export default function RedirectCheckout() {
   const t = useTranslations("Shop.Checkout")
   const searchParams = useSearchParams()
   const sessionId = searchParams.get("session_id")
-  const fetchCheckoutOrder = async () => {
-    const response = await fetch(`/api/shop/checkout/redirect/${sessionId}`)
-
-    if (!response.ok) {
-      throw new Error("Network response was not ok")
-    }
-
-    return response.json()
-  }
+  const isMobileApp = searchParams.get("appMobileCheckout")
   const { data } = useQuery({
     queryKey: ["checkoutOrder", sessionId],
-    queryFn: fetchCheckoutOrder,
+    queryFn: () => fetchCheckoutOrder(sessionId),
     enabled: Boolean(sessionId),
     retry: false,
     refetchInterval: (dataRefetch) => {
-      if (dataRefetch?.isSessionReady) {
+      if (dataRefetch?.isSessionReady && !isMobileApp) {
         router.push(`/shop/checkout/success/${dataRefetch.orderId}`)
+      } else if (dataRefetch?.isSessionReady && isMobileApp) {
+        window.location.href = `${webAppSettings.urls.successCheckoutMobileRedirect}&orderId=${dataRefetch.orderId}`
       }
 
       return 5000
@@ -41,8 +36,10 @@ export default function RedirectCheckout() {
   })
 
   useEffect(() => {
-    if (!sessionId) {
+    if (!sessionId && !isMobileApp) {
       router.push("/shop/cart")
+    } else if (!sessionId && isMobileApp) {
+      window.location.href = webAppSettings.urls.failedCheckoutMobileRedirect
     }
 
     const timer = setTimeout(() => {
@@ -50,19 +47,23 @@ export default function RedirectCheckout() {
     }, 30000)
 
     return () => clearTimeout(timer)
-  }, [router, sessionId])
+  }, [router, sessionId, isMobileApp])
 
   useEffect(() => {
     if (!data) {
       return
     }
 
-    if (data?.isSessionReady) {
+    if (data?.isSessionReady && !isMobileApp) {
       router.push(`/shop/checkout/success/${data.orderId}`)
-    } else if (!data?.isSessionExist) {
+    } else if (data?.isSessionReady && isMobileApp) {
+      window.location.href = `${webAppSettings.urls.successCheckoutMobileRedirect}&orderId=${data.orderId}`
+    } else if (!data?.isSessionExist && !isMobileApp) {
       router.push("/shop/cart")
+    } else if (!data?.isSessionExist && isMobileApp) {
+      window.location.href = webAppSettings.urls.failedCheckoutMobileRedirect
     }
-  }, [data, router])
+  }, [data, router, isMobileApp])
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0 bg-[#2F1F80]">
@@ -77,7 +78,7 @@ export default function RedirectCheckout() {
             <div className="flex items-center gap-12 md:gap-16">
               <div className="flex flex-col items-center justify-center font-semibold">
                 <Landmark className="w-10 h-10  md:w-12 md:h-12" />
-                <p>{t("yourBank")}</p>
+                <p>{t("yourPayment")}</p>
               </div>
               <div className="dotsLoader mx-auto" />
               <div className="flex flex-col items-center justify-center font-semibold">
@@ -95,17 +96,31 @@ export default function RedirectCheckout() {
               <p className="text-gray-500 text-sm text-center">
                 {t("redirectingToCheckoutMessage")}
               </p>
-              <DButton isMain withLink="/">
+              <DButton
+                isMain
+                withLink={
+                  isMobileApp
+                    ? webAppSettings.urls.failedCheckoutMobileRedirect
+                    : "/"
+                }
+              >
                 {t("myOrders")}
               </DButton>
             </div>
           )}
-          {!isErrorMessage && (
+          {!isErrorMessage && !isMobileApp && (
             <div>
               <p className="text-gray-500 text-sm text-center">
                 {t("redirectingMessage")}
               </p>
             </div>
+          )}
+          {!isErrorMessage && isMobileApp && (
+            <p className="text-gray-500 text-sm text-center mt-4">
+              {t("redirectingToCheckoutMessageMobile", {
+                company: company.name,
+              })}
+            </p>
           )}
         </div>
       </div>

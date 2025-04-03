@@ -47,6 +47,32 @@ export const getCategories = async (size = 10, page = 1, query = "") => {
   }
 }
 
+export const getActiveCategories = async (size = 10, page = 1, query = "") => {
+  try {
+    await mwdb()
+    const searchQuery = {
+      isActive: true,
+      ...(query
+        ? {
+            $or: [
+              { label: { $regex: query, $options: "i" } },
+              { description: { $regex: query, $options: "i" } },
+              { picture: { $regex: query, $options: "i" } },
+            ],
+          }
+        : {}),
+    }
+    const total = await CategorieModel.countDocuments(searchQuery)
+    const Categories = await CategorieModel.find(searchQuery)
+      .limit(size)
+      .skip(size * (page - 1))
+
+    return { Categories, total }
+  } catch (error) {
+    return { Categories: [], total: 0 }
+  }
+}
+
 export const updateCategorie = async (id, data) => {
   await mwdb()
 

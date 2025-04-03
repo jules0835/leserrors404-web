@@ -16,6 +16,10 @@ export const findCart = async (query) => {
     "products.product voucher"
   )
 
+  if (!cart) {
+    return null
+  }
+
   return await calculateCartTotals(cart)
 }
 

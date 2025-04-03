@@ -104,6 +104,10 @@ export const getCart = async () => {
 
     const data = await response.json()
 
+    if (data.code === "CART_NOT_FOUND") {
+      return null
+    }
+
     return data
   } catch {
     return false

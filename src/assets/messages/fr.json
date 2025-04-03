@@ -1814,7 +1814,9 @@
       "total": "Total",
       "viewAllOrders": "Afficher toutes les commandes",
       "viewSubscription": "Afficher l'abonnement",
-      "yourBank": "Votre banque"
+      "yourBank": "Votre banque",
+      "redirectingToCheckoutMessageMobile": "Vous serez redirigé automatiquement vers l'application mobile {Company} une fois le paiement terminé.",
+      "yourPayment": "Banque"
     }
   },
   "Log": {

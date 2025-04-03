@@ -13,7 +13,11 @@ export default function WidgetChatbot() {
   const pathname = usePathname()
   const isAppMobileLogin = searchParams.get("appMobileLogin")
 
-  if (pathname.includes("/admin") || isAppMobileLogin) {
+  if (
+    pathname.includes("/admin") ||
+    isAppMobileLogin ||
+    pathname.includes("/shop/checkout/redirect")
+  ) {
     return null
   }
 

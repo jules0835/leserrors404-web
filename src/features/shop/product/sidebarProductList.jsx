@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import { useRouter } from "@/i18n/routing"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
@@ -20,6 +20,7 @@ import { useSearchParams } from "next/navigation"
 
 export default function SidebarProductList() {
   const router = useRouter()
+  const locale = useLocale()
   const searchParams = useSearchParams()
   const t = useTranslations("ProductPage")
   const [priceRange, setPriceRange] = useState([
@@ -27,7 +28,7 @@ export default function SidebarProductList() {
     Number(searchParams.get("maxPrice")) || 1000,
   ])
   const [selectedCategories, setSelectedCategories] = useState(
-    searchParams.get("categories")?.split(",") || []
+    searchParams.get("categories")?.split(",").filter(Boolean) || []
   )
   const [sortBy, setSortBy] = useState(searchParams.get("sort") || "newest")
   const [availability, setAvailability] = useState(
@@ -120,18 +121,19 @@ export default function SidebarProductList() {
                   checked={selectedCategories.includes(category._id)}
                   onCheckedChange={(checked) => {
                     if (checked) {
-                      setSelectedCategories([
-                        ...selectedCategories,
-                        category._id,
-                      ])
+                      setSelectedCategories((prev) => [...prev, category._id])
                     } else {
-                      setSelectedCategories(
-                        selectedCategories.filter((id) => id !== category._id)
+                      setSelectedCategories((prev) =>
+                        prev.filter((id) => id !== category._id)
                       )
                     }
                   }}
                 />
-                <Label htmlFor={category._id}>{category.label}</Label>
+                <Label htmlFor={category._id}>
+                  {category.label[locale] ||
+                    category.label.en ||
+                    "Untitled Category"}
+                </Label>
               </div>
             ))}
           </div>
