@@ -54,28 +54,31 @@ export default function NavSearchBar() {
   return (
     <div
       ref={ref}
-      className="relative w-full md:w-auto md:absolute md:left-1/2 md:transform md:-translate-x-1/2 mb-4 md:mb-0 transition-all z-30"
+      className="w-full md:max-w-[calc(100%-60%)]  transition-all z-30 items-center"
     >
       <form
         onSubmit={handleSearch}
-        className={`bg-white px-4 py-2 flex md:flex-row md:w-[500px]  ${
+        className={`px-4 py-2 bg-white flex items-center rounded-t-xls ${
           isOpen && debouncedSearchTerm ? "rounded-t-xl" : "rounded-xl"
         }`}
       >
         <input
           type="text"
-          className="focus:outline-none w-full"
-          placeholder="Search"
+          className="focus:outline-none w-full bg-transparent text-black placeholder-black/70"
+          placeholder={t("searchPlaceholder")}
           value={searchTerm}
           onChange={handleInputChange}
           onFocus={() => setIsOpen(true)}
         />
-        <button type="submit">
-          <Search className="text-[#2F1F80] hover:scale-125 transition-all hover:cursor-pointer" />
+        <button
+          type="submit"
+          className="text-black/70 hover:text-black transition-colors"
+        >
+          <Search className="h-5 w-5" />
         </button>
       </form>
       {isOpen && debouncedSearchTerm && (
-        <div className="absolute bg-white shadow-lg rounded-b-xl w-full md:w-[500px] border-t-2 border-[#7059e7] z-30">
+        <div className="absolute bg-white shadow-lg rounded-b-xl w-full border-t-2 border-primary z-30  md:max-w-[calc(100%-60%)] ">
           {!isLoading && error && (
             <div className="p-4 text-red-500">{t("error")}</div>
           )}

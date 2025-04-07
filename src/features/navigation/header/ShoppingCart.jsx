@@ -44,6 +44,24 @@ export default function ShoppingCart() {
   })
   const [isUpdating, setIsUpdating] = useState(false)
   const pathname = usePathname()
+  const getPrice = (product, billingCycle) => {
+    if (product.subscription && billingCycle) {
+      return billingCycle === "year"
+        ? product.priceAnnual
+        : product.priceMonthly
+    }
+
+    return product.price
+  }
+  const getPriceDisplay = (product, billingCycle) => {
+    if (product.subscription && billingCycle) {
+      const cycle = billingCycle === "year" ? t("year") : t("month")
+
+      return `${getPrice(product, billingCycle)}€/${cycle}`
+    }
+
+    return `${getPrice(product, billingCycle)}€`
+  }
 
   useEffect(() => {
     if (
@@ -132,7 +150,10 @@ export default function ShoppingCart() {
             onClick={() => router.push("/shop/cart")}
           />
           {cartCount > 0 && (
-            <span className="absolute -top-2 -right-2 bg-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+            <span
+              className="absolute -top-2 -right-2 bg-white text-xs rounded-full h-5 w-5 flex items-center justify-center cursor-pointer"
+              onClick={() => router.push("/shop/cart")}
+            >
               {cartCount}
             </span>
           )}
@@ -201,7 +222,7 @@ export default function ShoppingCart() {
                         {trimString(item.product.label.en, 20)}
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        {item.product.price}€
+                        {getPriceDisplay(item.product, item.billingCycle)}
                       </p>
                     </div>
                     <div

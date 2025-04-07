@@ -287,44 +287,62 @@ const ProductAdd = ({ setProducts }) => {
                   required
                 />
               </div>
-              <div className="space-y-1 flex justify-between">
-                <div>
-                  <Label htmlFor="price">{t("price")}</Label>
-                  <Input
-                    id="price"
-                    name="price"
-                    type="number"
-                    value={formData.price}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <Label htmlFor="subscription">{t("subscription")}</Label>
+              {!formData.subscription && (
+                <div className="space-y-1 flex justify-between">
                   <div>
-                    <Switch
-                      id="subscription"
-                      name="subscription"
-                      checked={formData.subscription}
-                      onCheckedChange={(checked) =>
-                        handleSwitchChange("subscription", checked)
-                      }
-                    />
-                  </div>
-                </div>
-              </div>
-              {formData.subscription && (
-                <>
-                  <div className="space-y-1">
-                    <Label htmlFor="priceMonthly">{t("priceMonthly")}</Label>
+                    <Label htmlFor="price">{t("price")}</Label>
                     <Input
-                      id="priceMonthly"
-                      name="priceMonthly"
+                      id="price"
+                      name="price"
                       type="number"
-                      value={formData.priceMonthly}
+                      value={formData.price}
                       onChange={handleChange}
                       required
                     />
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Label htmlFor="subscription">{t("subscription")}</Label>
+                    <div>
+                      <Switch
+                        id="subscription"
+                        name="subscription"
+                        checked={formData.subscription}
+                        onCheckedChange={(checked) =>
+                          handleSwitchChange("subscription", checked)
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {formData.subscription && (
+                <>
+                  <div className="space-y-1 flex justify-between">
+                    <div className="space-y-1">
+                      <Label htmlFor="priceMonthly">{t("priceMonthly")}</Label>
+                      <Input
+                        id="priceMonthly"
+                        name="priceMonthly"
+                        type="number"
+                        value={formData.priceMonthly}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Label htmlFor="subscription">{t("subscription")}</Label>
+                      <div>
+                        <Switch
+                          id="subscription"
+                          name="subscription"
+                          checked={formData.subscription}
+                          onCheckedChange={(checked) =>
+                            handleSwitchChange("subscription", checked)
+                          }
+                        />
+                      </div>
+                    </div>
                   </div>
                   <div className="space-y-1">
                     <Label htmlFor="priceAnnual">{t("priceAnnual")}</Label>

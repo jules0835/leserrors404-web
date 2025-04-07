@@ -18,7 +18,7 @@ export default function RedirectCheckout() {
   const t = useTranslations("Shop.Checkout")
   const searchParams = useSearchParams()
   const sessionId = searchParams.get("session_id")
-  const isMobileApp = searchParams.get("appMobileCheckout")
+  const isMobileApp = searchParams.get("appMobileCheckout") === "true"
   const { data } = useQuery({
     queryKey: ["checkoutOrder", sessionId],
     queryFn: () => fetchCheckoutOrder(sessionId),

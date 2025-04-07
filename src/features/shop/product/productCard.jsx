@@ -24,6 +24,20 @@ export default function ProductCard({ product }) {
   const locale = useLocale()
   const t = useTranslations("ProductCard")
   const router = useRouter()
+  const getPrice = (productGetPrice) => {
+    if (productGetPrice.subscription) {
+      return productGetPrice.priceMonthly
+    }
+
+    return productGetPrice.price
+  }
+  const getPriceDisplay = (productPrice) => {
+    if (productPrice.subscription) {
+      return `${getPrice(productPrice)}€/${t("month")}`
+    }
+
+    return `${getPrice(productPrice)}€`
+  }
   const handleAddToCart = async (id) => {
     setIsLoading(true)
     await addProdToCart(id)
@@ -63,7 +77,7 @@ export default function ProductCard({ product }) {
       </CardContent>
       <CardFooter className="flex flex-col justify-between mt-auto">
         <div>
-          <p>{product.price} €</p>
+          <p>{getPriceDisplay(product)}</p>
         </div>
         <div className="flex w-full">
           <div className="flex-grow">

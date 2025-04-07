@@ -68,13 +68,13 @@ export default function SuccessCheckout() {
       <Card className="p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
-            <Badge className={getStatusColor(order.orderStatus)}>
-              {order.orderStatus}
-            </Badge>
             <div>
               <h2 className="font-semibold text-xl mb-2">
                 {t("orderInformation")}
               </h2>
+              <Badge className={`${getStatusColor(order.orderStatus)} mb-2`}>
+                {order.orderStatus}
+              </Badge>
               <p className="text-gray-600">
                 {t("orderId")}: <span className="font-medium">{order._id}</span>
               </p>

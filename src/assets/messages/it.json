@@ -550,7 +550,9 @@
           "stock": "Azione",
           "subscription": "Sottoscrizione",
           "taxe": "Taxe",
-          "technicalCaracteristics": "Caracteristiche tecniche"
+          "technicalCaracteristics": "Caracteristiche tecniche",
+          "priceAnnual": "Prezzo annuale",
+          "priceMonthly": "Prezzo mensile"
         },
         "Delete": {
           "deletingProduct": "Eliminazione del prodotto",
@@ -1690,10 +1692,12 @@
     "error": "Errore durante la ricerca di prodotti",
     "noCategoriesFound": "Nessuna categorie",
     "noResults": "Nessun prodotto trovato per {SearchTerm}",
-    "products": "Prodotti"
+    "products": "Prodotti",
+    "searchPlaceholder": "Cerca un prodotto o una categoria"
   },
   "ProductCard": {
-    "seeMore": "Vedere di più"
+    "seeMore": "Vedere di più",
+    "month": "Mese"
   },
   "ProductPage": {
     "error": "Si è verificato un errore durante il recupero di prodotti, prova ad Angain",
@@ -1769,7 +1773,18 @@
       "productNotActive": "Alcuni prodotti non sono disponibili",
       "productNotActiveSubtitle": "Rimuovere il prodotto che non è disponibile per procedere al checkout.",
       "subscription": "Sottoscrizione",
-      "checkoutDescription": "Quando fai clic su Checkout, accetti termini e condizioni OU. \nI prezzi sono forniti solo come informazioni e il prezzo finale sarà confermato alla fine del processo di pagamento."
+      "checkoutDescription": "Quando fai clic su Checkout, accetti termini e condizioni OU. \nI prezzi sono forniti solo come informazioni e il prezzo finale sarà confermato alla fine del processo di pagamento.",
+      "PRODUCT_OUT_OF_STOCK": "Uno dei prodotti nel carrello è esaurito, aggiorna la quantità o rimuovi il prodotto",
+      "PRODUCT_OUT_OF_STOCK_USER_QUANTITY": "La quantità di un prodotto nel carrello è troppo al passo rispetto al nostro stock, aggiorna la quantità o rimuovi il prodotto",
+      "annual": "Annuale",
+      "month": "Mese",
+      "monthly": "Mensile",
+      "outOfStock": "Esaurito",
+      "productOutOfStock": "Prodotto fuori stock",
+      "productOutOfStockSubtitle": "Uno dei prodotti nella tua carte è esaurito, rimuovilo tonnellata al pagamento",
+      "productOutOfStockUserQuantity": "Anche la quantità del prodotto",
+      "productOutOfStockUserQuantitySubtitle": "La quantità di un prodotto nel carrello è troppo al passo rispetto al nostro stock, aggiorna la quantità o rimuovi il prodotto",
+      "year": "Anno"
     },
     "Product": {
       "addToCart": {
@@ -1777,7 +1792,26 @@
       },
       "outOfStock": "Esaurito",
       "price": "Prezzo",
-      "quantity": "Quantità"
+      "quantity": "Quantità",
+      "addToCartTitle": "Aggiungi al carrello",
+      "annual": "Annuale",
+      "bestValue": "Miglior valore",
+      "billingCycle": "Ciclo di fatturazione",
+      "characteristics": "Caratteristiche",
+      "comparedToMonthly": "Rispetto a mensile",
+      "goBack": "Torna indietro",
+      "inStock": "In magazzino",
+      "lowStock": "Stock basso",
+      "lowStockDescription": "Non c'è molto prodotto in stock, è tempo di ordinare!",
+      "month": "Mese",
+      "monthly": "Mensile",
+      "monthlyDescription": "Mensile",
+      "outOfStockDescription": "Questo prodotto non è disponibile per il momento, per favore torna più tardi",
+      "save": "Salva",
+      "stock": "Azione",
+      "subscription": "Sottoscrizione",
+      "total": "Totale",
+      "year": "Anno"
     },
     "Checkout": {
       "myOrders": "I miei ordini",
@@ -2055,5 +2089,13 @@
       "title": "Conversazione Terminer LA"
     }
   },
-  "error": "Si è verificato un errore, prova a ricaricare la pagina o riprovare più tardi."
+  "error": "Si è verificato un errore, prova a ricaricare la pagina o riprovare più tardi.",
+  "aboutUs": "Chi siamo",
+  "categories": "Categorie",
+  "header": {
+    "aboutUs": "Chi siamo",
+    "categories": "Categorie",
+    "products": "Prodotti"
+  },
+  "products": "Prodotti"
 }

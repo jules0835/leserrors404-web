@@ -857,7 +857,9 @@
           "stock": "Aktie",
           "subscription": "Abonnement",
           "taxe": "Steuern",
-          "technicalCaracteristics": "Technische Karaccteristics"
+          "technicalCaracteristics": "Technische Karaccteristics",
+          "priceAnnual": "Preis jährlich",
+          "priceMonthly": "Preis monatlich"
         },
         "Delete": {
           "deletingProduct": "Produkt löschen",
@@ -1690,10 +1692,12 @@
     "error": "Fehler bei der Suche nach Produkten",
     "noCategoriesFound": "Keine Kategorien",
     "noResults": "Kein Produkt für {Suchterm} gefunden",
-    "products": "Produkte"
+    "products": "Produkte",
+    "searchPlaceholder": "Suche nach einem Produkt oder einer Kategorie"
   },
   "ProductCard": {
-    "seeMore": "Sehen Sie mehr"
+    "seeMore": "Sehen Sie mehr",
+    "month": "Monat"
   },
   "ProductPage": {
     "error": "Beim Abrufen von Produkten ist ein Fehler aufgetreten, bitte versuchen Sie Angain",
@@ -1769,7 +1773,18 @@
       "productNotActive": "Einige Produkte sind nicht verfügbar",
       "productNotActiveSubtitle": "Bitte entfernen Sie das Produkt, das nicht zur Verfügung steht, um zum Checkout fortzufahren.",
       "subscription": "Abonnement",
-      "checkoutDescription": "Beim Klicken auf die Kasse akzeptieren Sie OU -Allgemeinen Geschäftsbedingungen. \nDie Preise werden nur als Informationen bereitgestellt und der endgültige Preis wird am Ende des Kasseprozesses bestätigt."
+      "checkoutDescription": "Beim Klicken auf die Kasse akzeptieren Sie OU -Allgemeinen Geschäftsbedingungen. \nDie Preise werden nur als Informationen bereitgestellt und der endgültige Preis wird am Ende des Kasseprozesses bestätigt.",
+      "PRODUCT_OUT_OF_STOCK": "Eines der Produkte in Ihrem Karren ist nicht vorhanden. Bitte aktualisieren Sie die Menge oder entfernen Sie das Produkt",
+      "PRODUCT_OUT_OF_STOCK_USER_QUANTITY": "Die Menge eines Produkts in Ihrem Warenkorb ist zu sehr verglichen mit unserer Aktie. Bitte aktualisieren Sie die Menge oder entfernen Sie das Produkt",
+      "annual": "Jährlich",
+      "month": "Monat",
+      "monthly": "Monatlich",
+      "outOfStock": "Aus dem Bestand",
+      "productOutOfStock": "Produkt aus dem Vorrat",
+      "productOutOfStockSubtitle": "Eines der Produkte in Ihrem Carte ist nicht vorrätig.",
+      "productOutOfStockUserQuantity": "Produktmenge auch Hight",
+      "productOutOfStockUserQuantitySubtitle": "Die Menge eines Produkts in Ihrem Warenkorb ist zu sehr verglichen mit unserer Aktie. Bitte aktualisieren Sie die Menge oder entfernen Sie das Produkt",
+      "year": "Jahr"
     },
     "Product": {
       "addToCart": {
@@ -1777,7 +1792,26 @@
       },
       "outOfStock": "Aus dem Bestand",
       "price": "Preis",
-      "quantity": "Menge"
+      "quantity": "Menge",
+      "addToCartTitle": "In den Warenkorb legen",
+      "annual": "Jährlich",
+      "bestValue": "Bester Wert",
+      "billingCycle": "Abrechnungszyklus",
+      "characteristics": "Eigenschaften",
+      "comparedToMonthly": "Im Vergleich zu monatlich",
+      "goBack": "Geh zurück",
+      "inStock": "Auf Lager",
+      "lowStock": "Niedriger Bestand",
+      "lowStockDescription": "Es gibt nicht viel Produkt auf Lager, es ist Zeit, zu bestellen!",
+      "month": "Monat",
+      "monthly": "Monatlich",
+      "monthlyDescription": "Monatlich",
+      "outOfStockDescription": "Dieses Produkt ist momentan nicht auf Lager, bitte kommen Sie später zurück",
+      "save": "Speichern",
+      "stock": "Aktie",
+      "subscription": "Abonnement",
+      "total": "Gesamt",
+      "year": "Jahr"
     },
     "Checkout": {
       "myOrders": "Meine Bestellungen",
@@ -2055,5 +2089,13 @@
       "title": "Terminer la Gespräch"
     }
   },
-  "error": "Bei einem Fehler treten Sie auf, bitte versuchen Sie, die Seite neu zu laden oder später erneut zu versuchen."
+  "error": "Bei einem Fehler treten Sie auf, bitte versuchen Sie, die Seite neu zu laden oder später erneut zu versuchen.",
+  "aboutUs": "Über uns",
+  "categories": "Kategorien",
+  "header": {
+    "aboutUs": "Über uns",
+    "categories": "Kategorien",
+    "products": "Produkte"
+  },
+  "products": "Produkte"
 }

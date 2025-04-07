@@ -165,7 +165,9 @@
           "stock": "Action",
           "subscription": "Abonnement",
           "taxe": "Taxer",
-          "technicalCaracteristics": "Caractéristiques techniques"
+          "technicalCaracteristics": "Caractéristiques techniques",
+          "priceAnnual": "Prix ​​annuel",
+          "priceMonthly": "Prix ​​mensuellement"
         },
         "Delete": {
           "deletingProduct": "Suppression du produit",
@@ -1686,14 +1688,16 @@
   "resetPasswordEmailSubject": "Cyna - Reposez votre mot de passe",
   "socialMedia": "Réseaux sociaux",
   "ProductCard": {
-    "seeMore": "Voir plus"
+    "seeMore": "Voir plus",
+    "month": "Mois"
   },
   "NavSearchBar": {
     "categories": "Catégories",
     "error": "Erreur lors de la recherche de produits",
     "noCategoriesFound": "Pas de catégories",
     "noResults": "Aucun produit trouvé pour {searchterm}",
-    "products": "Produits"
+    "products": "Produits",
+    "searchPlaceholder": "Rechercher un produit ou une catégorie"
   },
   "ProductPage": {
     "error": "Une erreur s'est produite tout en récupérant les produits, veuillez essayer",
@@ -1769,7 +1773,18 @@
       "productNotActive": "Certains produits ne sont pas disponibles",
       "productNotActiveSubtitle": "Veuillez supprimer le produit qui n'est pas disponible pour passer à la caisse.",
       "subscription": "Abonnement",
-      "checkoutDescription": "Lorsque vous cliquez sur la caisse, vous acceptez les termes et conditions de l'OU. \nLes prix sont fournis comme information uniquement et le prix final sera confirmé à la fin du processus de paiement."
+      "checkoutDescription": "Lorsque vous cliquez sur la caisse, vous acceptez les termes et conditions de l'OU. \nLes prix sont fournis comme information uniquement et le prix final sera confirmé à la fin du processus de paiement.",
+      "PRODUCT_OUT_OF_STOCK": "L'un des produits de votre panier est en rupture de stock, veuillez mettre à jour la quantité ou supprimer le produit",
+      "PRODUCT_OUT_OF_STOCK_USER_QUANTITY": "La quantité d'un produit dans votre panier est trop comparé à notre stock, veuillez mettre à jour la quantité ou supprimer le produit",
+      "annual": "Annuel",
+      "month": "Mois",
+      "monthly": "Mensuel",
+      "outOfStock": "En rupture de stock",
+      "productOutOfStock": "Produit en rupture de stock",
+      "productOutOfStockSubtitle": "L'un des produits de votre carte est en rupture de stock, retirez-le Ton procrét au paiement",
+      "productOutOfStockUserQuantity": "Quantité du produit trop à la hauteur",
+      "productOutOfStockUserQuantitySubtitle": "La quantité d'un produit dans votre panier est trop comparé à notre stock, veuillez mettre à jour la quantité ou supprimer le produit",
+      "year": "Année"
     },
     "Product": {
       "addToCart": {
@@ -1777,7 +1792,26 @@
       },
       "outOfStock": "En rupture de stock",
       "price": "Prix",
-      "quantity": "Quantité"
+      "quantity": "Quantité",
+      "addToCartTitle": "Ajouter au panier",
+      "annual": "Annuel",
+      "bestValue": "Meilleur rapport qualité-prix",
+      "billingCycle": "Cycle de facturation",
+      "characteristics": "Caractéristiques",
+      "comparedToMonthly": "Par rapport à",
+      "goBack": "Remonter",
+      "inStock": "En stock",
+      "lowStock": "Stock bas",
+      "lowStockDescription": "Il n'y a pas beaucoup de produit en stock, il est temps de commander!",
+      "month": "Mois",
+      "monthly": "Mensuel",
+      "monthlyDescription": "Mensuel",
+      "outOfStockDescription": "Ce produit n'est pas en stock pour le moment, veuillez revenir plus tard",
+      "save": "Sauvegarder",
+      "stock": "Action",
+      "subscription": "Abonnement",
+      "total": "Total",
+      "year": "Année"
     },
     "Checkout": {
       "redirectingToCheckout": "Nous traitons votre paiement, veuillez patienter ...",
@@ -2055,5 +2089,13 @@
       "title": "Termine la conversation"
     }
   },
-  "error": "Une erreur s'est produite, veuillez essayer de recharger la page ou réessayer plus tard."
+  "error": "Une erreur s'est produite, veuillez essayer de recharger la page ou réessayer plus tard.",
+  "aboutUs": "À propos de nous",
+  "categories": "Catégories",
+  "header": {
+    "aboutUs": "À propos de nous",
+    "categories": "Catégories",
+    "products": "Produits"
+  },
+  "products": "Produits"
 }

@@ -550,7 +550,9 @@
           "stock": "Xitoko",
           "subscription": "Xikhokhelo .",
           "taxe": "Taxe .",
-          "technicalCaracteristics": "Swifaniso swa vutshila ."
+          "technicalCaracteristics": "Swifaniso swa vutshila .",
+          "priceAnnual": "Ntsengo wa lembe na lembe .",
+          "priceMonthly": "Ntsengo wa n’hweti na n’hweti ."
         },
         "Delete": {
           "deletingProduct": "Ku Susa Xiendliwa .",
@@ -1696,10 +1698,12 @@
     "error": "Xihoxo loko u ri karhi u lava swilo leswi endliweke .",
     "noCategoriesFound": "Ku hava swiyenge .",
     "noResults": "Ku hava xitirhisiwa lexi kumiweke xa {searchterm}",
-    "products": "Swihumelerisiwa ."
+    "products": "Swihumelerisiwa .",
+    "searchPlaceholder": "Ku lavisisa xitirhisiwa kumbe xiyenge ."
   },
   "ProductCard": {
-    "seeMore": "Vona swin'wana"
+    "seeMore": "Vona swin'wana",
+    "month": "N'hweti"
   },
   "ProductPage": {
     "error": "Xihoxo xi humelerile loko u ri karhi u teka switirhisiwa, hi kombela u ringeta Angain .",
@@ -1769,7 +1773,18 @@
       "productNotActive": "Switirhisiwa swin’wana a swi kumeki .",
       "productNotActiveSubtitle": "Hi kombela u susa xitirhisiwa lexi nga kumekiki ku ya emahlweni u huma.",
       "subscription": "Xikhokhelo .",
-      "checkoutDescription": "Loko u tikhoma eka ku xava, u amukela milawu na swipimelo swa OU. \nMinxavo yi nyikiwa tani hi mahungu ntsena naswona ntsengo wo hetelela wu ta tiyisisiwa eku heleni ka endlelo ro huma."
+      "checkoutDescription": "Loko u tikhoma eka ku xava, u amukela milawu na swipimelo swa OU. \nMinxavo yi nyikiwa tani hi mahungu ntsena naswona ntsengo wo hetelela wu ta tiyisisiwa eku heleni ka endlelo ro huma.",
+      "PRODUCT_OUT_OF_STOCK": "Xin’wana xa swilo leswi nga eka xigolonyana xa wena xi huma exitokweni, hi kombela u pfuxeta nhlayo kumbe u susa xitirhisiwa .",
+      "PRODUCT_OUT_OF_STOCK_USER_QUANTITY": "Nhlayo ya xitirhisiwa eka xigolonyana xa wena yi le henhla swinene loko u pimanisiwa na xitoko xa hina, hi kombela u pfuxeta nhlayo kumbe u susa xitirhisiwa .",
+      "annual": "Lembe na lembe",
+      "month": "N'hweti",
+      "monthly": "N’hweti na n’hweti .",
+      "outOfStock": "Ku huma exitokweni",
+      "productOutOfStock": "Xiendliwa lexi humaka exitokweni",
+      "productOutOfStockSubtitle": "Xin’wana xa switirhisiwa eka carte ya wena xi huma exitokweni, xi susa thani leyi procced eka hakelo .",
+      "productOutOfStockUserQuantity": "Nhlayo ya swikumiwa yi le henhla swinene .",
+      "productOutOfStockUserQuantitySubtitle": "Nhlayo ya xitirhisiwa eka xigolonyana xa wena yi le henhla swinene loko u pimanisiwa na xitoko xa hina, hi kombela u pfuxeta nhlayo kumbe u susa xitirhisiwa .",
+      "year": "Lembe"
     },
     "Product": {
       "addToCart": {
@@ -1777,7 +1792,26 @@
       },
       "outOfStock": "Ku huma exitokweni",
       "price": "Nxavo",
-      "quantity": "Ntsengo"
+      "quantity": "Ntsengo",
+      "addToCartTitle": "Ku engetela eka xigwitsirisi .",
+      "annual": "Lembe na lembe",
+      "bestValue": "Nxavo lowunene ngopfu .",
+      "billingCycle": "Xirhendzevutana xa ku hakela mali .",
+      "characteristics": "Swihlawulekisi",
+      "comparedToMonthly": "loko ku pimanisiwa na n’hweti na n’hweti .",
+      "goBack": "tlhelela endzhaku .",
+      "inStock": "Eka xitoko",
+      "lowStock": "Xitoko xa le hansi .",
+      "lowStockDescription": "Akuna xitirhisiwa xo tala lexi nga kona exitokweni, i nkarhi wo oda !",
+      "month": "N'hweti",
+      "monthly": "N’hweti na n’hweti .",
+      "monthlyDescription": "N’hweti na n’hweti .",
+      "outOfStockDescription": "Xiendliwa lexi a xi le xitokweni xa sweswi, hi kombela u vuya endzhaku ka nkarhi .",
+      "save": "Hlayisa",
+      "stock": "Xitoko",
+      "subscription": "Xikhokhelo .",
+      "total": "Hinkwaswo",
+      "year": "Lembe"
     },
     "Checkout": {
       "myOrders": "Tioda ta mina .",
@@ -2055,5 +2089,13 @@
       "title": "Terminer LA Ku vulavula hi ."
     }
   },
-  "error": "Xihoxo xi humelerile, hi kombela u ringeta ku tlhela u layicha pheji kumbe u ringeta nakambe endzhaku."
+  "error": "Xihoxo xi humelerile, hi kombela u ringeta ku tlhela u layicha pheji kumbe u ringeta nakambe endzhaku.",
+  "aboutUs": "Malunghana na hina .",
+  "categories": "Swiyenge .",
+  "header": {
+    "aboutUs": "Malunghana na hina .",
+    "categories": "Swiyenge .",
+    "products": "Swihumelerisiwa ."
+  },
+  "products": "Swihumelerisiwa ."
 }

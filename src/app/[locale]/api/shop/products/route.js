@@ -11,8 +11,7 @@ export async function GET(req) {
   const query = searchParams.get("q") || ""
   const minPrice = searchParams.get("minPrice")
   const maxPrice = searchParams.get("maxPrice")
-  const categories =
-    searchParams.get("categories")?.split(",").filter(Boolean) || []
+  const category = searchParams.get("categories") || ""
   const sort = searchParams.get("sort")
   const availability = searchParams.get("availability")
   const keywords = searchParams.get("keywords")
@@ -26,7 +25,7 @@ export async function GET(req) {
       page,
       minPrice,
       maxPrice,
-      categories,
+      category,
       sort,
       availability,
       keywords,

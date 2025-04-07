@@ -91,7 +91,7 @@ export default function ShopProductList() {
         <h1 className="text-2xl font-bold mb-4">{t("title")}</h1>
       )}
       <div className="mt-4">
-        {isLoading && <GridProductsSkeleton cells={5} rows={2} />}
+        {isLoading && <GridProductsSkeleton cells={4} rows={2} />}
         {error && (
           <div className="bg-orange-300 border border-orange-500 m-4 rounded-md">
             <p className="text-center m-2">{t("error")}</p>

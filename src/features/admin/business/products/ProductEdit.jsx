@@ -240,6 +240,19 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
                   required
                 />
               </div>
+              <div className="space-y-1">
+                <Label htmlFor="isActive">{t("Add.isActive")}</Label>
+                <div>
+                  <Switch
+                    id="isActive"
+                    name="isActive"
+                    checked={formData.isActive}
+                    onCheckedChange={(checked) =>
+                      handleSwitchChange("isActive", checked)
+                    }
+                  />
+                </div>
+              </div>
             </div>
             <div className="space-y-4">
               <div className="space-y-1">
@@ -276,44 +289,63 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
                   required
                 />
               </div>
-              <div className="space-y-1 flex justify-between">
-                <div>
-                  <Label htmlFor="price">{t("Add.price")}</Label>
-                  <Input
-                    id="price"
-                    name="price"
-                    type="number"
-                    value={formData.price}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <Label htmlFor="subscription">{t("Add.subscription")}</Label>
-                  <Switch
-                    id="subscription"
-                    name="subscription"
-                    checked={formData.subscription}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("subscription", checked)
-                    }
-                  />
-                </div>
-              </div>
-              {formData.subscription && (
-                <>
-                  <div className="space-y-1">
-                    <Label htmlFor="priceMonthly">
-                      {t("Add.priceMonthly")}
-                    </Label>
+              {!formData.subscription && (
+                <div className="space-y-1 flex justify-between">
+                  <div>
+                    <Label htmlFor="price">{t("Add.price")}</Label>
                     <Input
-                      id="priceMonthly"
-                      name="priceMonthly"
+                      id="price"
+                      name="price"
                       type="number"
-                      value={formData.priceMonthly}
+                      value={formData.price}
                       onChange={handleChange}
                       required
                     />
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Label htmlFor="subscription">
+                      {t("Add.subscription")}
+                    </Label>
+                    <Switch
+                      id="subscription"
+                      name="subscription"
+                      checked={formData.subscription}
+                      onCheckedChange={(checked) =>
+                        handleSwitchChange("subscription", checked)
+                      }
+                    />
+                  </div>
+                </div>
+              )}
+              {formData.subscription && (
+                <>
+                  <div className="flex justify-between">
+                    <div className="space-y-1">
+                      <Label htmlFor="priceMonthly">
+                        {t("Add.priceMonthly")}
+                      </Label>
+                      <Input
+                        id="priceMonthly"
+                        name="priceMonthly"
+                        type="number"
+                        value={formData.priceMonthly}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Label htmlFor="subscription">
+                        {t("Add.subscription")}
+                      </Label>
+                      <Switch
+                        id="subscription"
+                        name="subscription"
+                        checked={formData.subscription}
+                        onCheckedChange={(checked) =>
+                          handleSwitchChange("subscription", checked)
+                        }
+                      />
+                    </div>
                   </div>
                   <div className="space-y-1">
                     <Label htmlFor="priceAnnual">{t("Add.priceAnnual")}</Label>
@@ -360,19 +392,6 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
                   onChange={handleChange}
                   required
                 />
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor="isActive">{t("Add.isActive")}</Label>
-                <div>
-                  <Switch
-                    id="isActive"
-                    name="isActive"
-                    checked={formData.isActive}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("isActive", checked)
-                    }
-                  />
-                </div>
               </div>
               <div className="space-y-1">
                 <Label htmlFor="image-upload">{t("Add.picture")}</Label>

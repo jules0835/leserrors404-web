@@ -22,8 +22,12 @@ export const CartProvider = ({ children }) => {
     const count = await getCartItemsCount()
     setCartCount(count)
   }
-  const addProdToCart = async (productId, quantity = 1) => {
-    const result = await addProductToCart(productId, quantity)
+  const addProdToCart = async (
+    productId,
+    quantity = 1,
+    billingCycle = undefined
+  ) => {
+    const result = await addProductToCart(productId, quantity, billingCycle)
 
     if (result) {
       updateCartCount()
@@ -36,8 +40,16 @@ export const CartProvider = ({ children }) => {
       updateCartCount()
     }
   }
-  const updateProdCart = async (productId, quantity) => {
-    const result = await updateProductQuantity(productId, quantity)
+  const updateProdCart = async (
+    productId,
+    quantity,
+    billingCycle = undefined
+  ) => {
+    const result = await updateProductQuantity(
+      productId,
+      quantity,
+      billingCycle
+    )
 
     if (result) {
       updateCartCount()

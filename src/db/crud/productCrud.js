@@ -3,7 +3,6 @@
 import { ProductModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { webAppSettings } from "@/assets/options/config"
-import mongoose from "mongoose"
 
 export const existingProduct = async (label) => {
   await mwdb()
@@ -73,7 +72,7 @@ export const getShopProducts = async ({
   page = 1,
   minPrice,
   maxPrice,
-  categories,
+  category,
   sort,
   availability,
   keywords,
@@ -97,11 +96,8 @@ export const getShopProducts = async ({
       }
     }
 
-    if (categories && categories.length > 0) {
-      const categoryObjectIds = categories.map(
-        (id) => new mongoose.Types.ObjectId(id)
-      )
-      searchQuery.category = { $in: categoryObjectIds }
+    if (category) {
+      searchQuery.categorie = category
     }
 
     if (availability === "in-stock") {

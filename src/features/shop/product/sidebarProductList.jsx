@@ -27,8 +27,8 @@ export default function SidebarProductList() {
     Number(searchParams.get("minPrice")) || 0,
     Number(searchParams.get("maxPrice")) || 1000,
   ])
-  const [selectedCategories, setSelectedCategories] = useState(
-    searchParams.get("categories")?.split(",").filter(Boolean) || []
+  const [selectedCategory, setSelectedCategory] = useState(
+    searchParams.get("categories") || ""
   )
   const [sortBy, setSortBy] = useState(searchParams.get("sort") || "newest")
   const [availability, setAvailability] = useState(
@@ -57,8 +57,8 @@ export default function SidebarProductList() {
       params.delete("maxPrice")
     }
 
-    if (selectedCategories.length > 0) {
-      params.set("categories", selectedCategories.join(","))
+    if (selectedCategory) {
+      params.set("categories", selectedCategory)
     } else {
       params.delete("categories")
     }
@@ -91,7 +91,7 @@ export default function SidebarProductList() {
   }
   const resetFilters = () => {
     setPriceRange([0, 1000])
-    setSelectedCategories([])
+    setSelectedCategory("")
     setSortBy("newest")
     setAvailability("all")
     setDateRange({ from: "", to: "" })
@@ -118,15 +118,9 @@ export default function SidebarProductList() {
               >
                 <Checkbox
                   id={category._id}
-                  checked={selectedCategories.includes(category._id)}
+                  checked={selectedCategory === category._id}
                   onCheckedChange={(checked) => {
-                    if (checked) {
-                      setSelectedCategories((prev) => [...prev, category._id])
-                    } else {
-                      setSelectedCategories((prev) =>
-                        prev.filter((id) => id !== category._id)
-                      )
-                    }
+                    setSelectedCategory(checked ? category._id : "")
                   }}
                 />
                 <Label htmlFor={category._id}>
@@ -189,7 +183,6 @@ export default function SidebarProductList() {
           </div>
         </div>
 
-        {/* Sort By */}
         <div className="space-y-2">
           <Label>{t("sortBy")}</Label>
           <Select value={sortBy} onValueChange={setSortBy}>
