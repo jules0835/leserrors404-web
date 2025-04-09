@@ -1,12 +1,14 @@
 import { findProduct, getProducts, createProduct } from "@/db/crud/productCrud"
 import { getTranslations } from "next-intl/server"
-import { getProductSchema } from "@/features/admin/business/products/utils/product"
+import {
+  getProductSchema,
+  createStripeProduct,
+} from "@/features/admin/business/products/utils/product"
 import { NextResponse } from "next/server"
 import * as yup from "yup"
 import { uploadPublicPicture } from "@/utils/database/blobService"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
-
 export async function getProductsList(size = 10, page = 1, query = "") {
   try {
     const res = await getProducts(size, page, query)
@@ -29,10 +31,13 @@ export async function GET(req) {
     return Response.json(res)
   } catch (error) {
     log.systemError({
-      logKey: logKeys.internalError.key,
-      message: "Failed to fetch Products",
-      isError: true,
+      logKey: logKeys.shopSettingsError.key,
+      message: "Failed to fetch products",
       technicalMessage: error.message,
+      isError: true,
+      data: {
+        error,
+      },
     })
 
     return Response.json({ error: "Failed to fetch Products" }, { status: 500 })
@@ -87,6 +92,20 @@ export async function POST(req) {
       )
     }
 
+    const labelObj = JSON.parse(label)
+    const descriptionObj = JSON.parse(description)
+    const name = labelObj.en || Object.values(labelObj)[0]
+    const desc = descriptionObj.en || Object.values(descriptionObj)[0]
+    const stripeData = await createStripeProduct({
+      name,
+      description: desc,
+      price: JSON.parse(price),
+      priceMonthly: JSON.parse(priceMonthly),
+      priceAnnual: JSON.parse(priceAnnual),
+      subscription: JSON.parse(subscription),
+      taxe: JSON.parse(taxe),
+    })
+
     let product = {
       label: JSON.parse(label),
       description: JSON.parse(description),
@@ -100,6 +119,11 @@ export async function POST(req) {
       taxe: JSON.parse(taxe),
       subscription: JSON.parse(subscription),
       picture,
+      stripeProductId: stripeData.stripeProductId,
+      stripePriceIdMonthly: stripeData.stripePriceIdMonthly,
+      stripePriceIdAnnual: stripeData.stripePriceIdAnnual,
+      stripePriceId: stripeData.stripePriceId,
+      stripeTaxId: stripeData.stripeTaxId,
     }
     product = await createProduct(product)
 
@@ -126,8 +150,11 @@ export async function POST(req) {
     log.systemError({
       logKey: logKeys.shopSettingsError.key,
       message: "Failed to create product",
-      isError: true,
       technicalMessage: error.message,
+      isError: true,
+      data: {
+        error,
+      },
     })
 
     return NextResponse.json(

@@ -836,7 +836,9 @@
           "productAdded": "Product added",
           "errorAddingProduct": "Error adding product",
           "add": "Add",
-          "isActive": "Active"
+          "isActive": "Active",
+          "priceMonthly": "Price Monthly",
+          "priceAnnual": "Price Annualy"
         },
         "Edit": {
           "update": "Update",
@@ -1686,7 +1688,8 @@
   },
   "resetPasswordEmailSubject": "Cyna - reset your password",
   "ProductCard": {
-    "seeMore": "See more"
+    "seeMore": "See more",
+    "month": "Month"
   },
   "ProductPage": {
     "title": "Our products",
@@ -1714,7 +1717,8 @@
     "products": "Products",
     "noCategoriesFound": "No categories",
     "noResults": "No product found for {searchTerm}",
-    "error": "Error while searching for products"
+    "error": "Error while searching for products",
+    "searchPlaceholder": "Search for a product or category"
   },
   "Error": {
     "Front": {
@@ -1769,7 +1773,18 @@
       "voucherNotActive": "Voucher not valid",
       "subscription": "Subscription",
       "oneTimePurchase": "One-time purchase",
-      "checkoutDescription": "When clicking on checkout, you accept ou terms and conditions. Prices are provided as information only and the final price will be confirmed at the end of the checkout process."
+      "checkoutDescription": "When clicking on checkout, you accept ou terms and conditions. Prices are provided as information only and the final price will be confirmed at the end of the checkout process.",
+      "year": "Year",
+      "month": "Month",
+      "annual": "Annual",
+      "monthly": "Monthly",
+      "productOutOfStockUserQuantity": "Product quantity too hight",
+      "productOutOfStockUserQuantitySubtitle": "The quantity of a product in your cart is too hight compare to our stock, please update the quantity or remove the product",
+      "productOutOfStock": "Product Out Of Stock",
+      "productOutOfStockSubtitle": "One of the product in your carte is Out Of Stock, remove it ton procced to the payment",
+      "PRODUCT_OUT_OF_STOCK": "One of the product in your cart is Out Of Stock, please update the quantity or remove the product",
+      "PRODUCT_OUT_OF_STOCK_USER_QUANTITY": "The quantity of a product in your cart is too hight compare to our stock, please update the quantity or remove the product",
+      "outOfStock": "Out Of Stock"
     },
     "Product": {
       "outOfStock": "Out of stock",
@@ -1777,7 +1792,26 @@
         "button": "Add to cart"
       },
       "quantity": "Quantity",
-      "price": "Price"
+      "price": "Price",
+      "total": "Total",
+      "comparedToMonthly": "Compared to monthly",
+      "save": "Save",
+      "year": "Year",
+      "monthlyDescription": "Monthly",
+      "month": "Month",
+      "annual": "Annual",
+      "monthly": "Monthly",
+      "billingCycle": "Billing cycle",
+      "characteristics": "Characteristics",
+      "inStock": "In stock",
+      "stock": "Stock",
+      "subscription": "Subscription",
+      "outOfStockDescription": "This product is not in stock for the moment, please come back later",
+      "lowStock": "Low Stock",
+      "lowStockDescription": "There is not much product in stock, it's time to order !",
+      "bestValue": "Best value",
+      "addToCartTitle": "Add to cart",
+      "goBack": "Go back"
     },
     "Checkout": {
       "redirectingToCheckout": "We are processing your payment, please wait...",
@@ -2055,5 +2089,13 @@
     },
     "chatWithHuman": "Chat with a human"
   },
-  "error": "An error occured, please try to reload the page or try again later."
+  "error": "An error occured, please try to reload the page or try again later.",
+  "aboutUs": "About Us",
+  "categories": "Categories",
+  "products": "Products",
+  "header": {
+    "aboutUs": "About Us",
+    "categories": "Categories",
+    "products": "Products"
+  }
 }

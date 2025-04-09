@@ -90,11 +90,24 @@ export async function POST(req, { params }) {
         !saveCardForFuture
           ? undefined
           : { setup_future_usage: "off_session" },
-      line_items: cart.products?.map((item) => ({
-        price: item.product.stripePriceId || item.product.stripePriceIdMonthly,
-        quantity: item.quantity,
-        tax_rates: item.product.stripeTaxId ? [item.product.stripeTaxId] : [],
-      })),
+      line_items: cart.products?.map((item) => {
+        let price = 0
+
+        if (item.product.subscription) {
+          price =
+            item.billingCycle === "year"
+              ? item.product.stripePriceIdAnnual
+              : item.product.stripePriceIdMonthly
+        } else {
+          price = item.product.stripePriceId
+        }
+
+        return {
+          price,
+          quantity: item.quantity,
+          tax_rates: item.product.stripeTaxId ? [item.product.stripeTaxId] : [],
+        }
+      }),
       invoice_creation: cart.products?.some((item) => item.product.subscription)
         ? undefined
         : {

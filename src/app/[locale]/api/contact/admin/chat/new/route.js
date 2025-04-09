@@ -7,8 +7,8 @@ import { logKeys } from "@/assets/options/config"
 
 export async function POST(req) {
   try {
-    const isAdmin = getReqIsAdmin()
-    const adminUser = await findUserById(getReqUserId())
+    const isAdmin = getReqIsAdmin(req)
+    const adminUser = await findUserById(getReqUserId(req))
 
     if (!isAdmin || !adminUser) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })

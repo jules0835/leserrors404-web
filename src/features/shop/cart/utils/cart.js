@@ -15,6 +15,12 @@ export const returnError = (t, reason) => {
     case "PRODUCT_NOT_ACTIVE":
       return t("ProductNotActive")
 
+    case "PRODUCT_OUT_OF_STOCK":
+      return t("ProductOutOfStock")
+
+    case "PRODUCT_OUT_OF_STOCK_USER_QUANTITY":
+      return t("ProductOutOfStockUserQuantity")
+
     default:
       return t("cantCheckout")
   }

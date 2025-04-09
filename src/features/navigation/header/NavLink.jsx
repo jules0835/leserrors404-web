@@ -22,7 +22,7 @@ export default function NavLink() {
   return (
     <>
       {links.map((link) => (
-        <div key={link.name} className="mx-1">
+        <div key={link.name} className="mx-4">
           {link.href ? (
             <Link href={link.href}>
               <div className="flex hover:cursor-pointer transition-all text-3xl items-center">

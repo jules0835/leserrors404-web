@@ -80,7 +80,7 @@ export const webAppSettings = {
   },
   shop: {
     products: {
-      itemsPerPage: 10,
+      itemsPerPage: 8,
     },
   },
 }

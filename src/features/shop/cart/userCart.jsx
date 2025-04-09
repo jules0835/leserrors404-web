@@ -41,7 +41,22 @@ export default function UserCart() {
         ? currentItem.quantity + 1
         : Math.max(1, currentItem.quantity - 1)
 
-      await updateProdCart(productId, newQuantity)
+      if (currentItem.product.stock === 0) {
+        toast.error(t("productOutOfStock"))
+
+        return
+      }
+
+      if (
+        newQuantity > currentItem.product.stock &&
+        !currentItem.quantity > newQuantity
+      ) {
+        toast.error(t("productOutOfStockUserQuantity"))
+
+        return
+      }
+
+      await updateProdCart(productId, newQuantity, currentItem.billingCycle)
       await queryClient.invalidateQueries({ queryKey: ["cart"] })
       await queryClient.refetchQueries({ queryKey: ["cart"] })
     } catch (errorQt) {

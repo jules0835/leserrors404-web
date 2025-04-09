@@ -40,7 +40,7 @@ export const subscriptionSchema = new Schema(
         },
         billingCycle: {
           type: String,
-          enum: ["monthly", "annual"],
+          enum: ["month", "year"],
           required: true,
         },
         stripe: {

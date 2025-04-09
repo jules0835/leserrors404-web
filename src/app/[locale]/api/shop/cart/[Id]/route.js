@@ -14,12 +14,13 @@ export async function GET(req, { params }) {
   const action = url.searchParams.get("action")
   const productId = url.searchParams.get("productId")
   const quantity = parseInt(url.searchParams.get("quantity") || "1", 10)
+  const billingCycle = url.searchParams.get("billingCycle")
   let result = null
 
   try {
     switch (action) {
       case "add":
-        result = await addToCart(Id, productId, quantity)
+        result = await addToCart(Id, productId, quantity, billingCycle)
 
         break
 
@@ -29,7 +30,7 @@ export async function GET(req, { params }) {
         break
 
       case "update":
-        result = await updateQuantity(Id, productId, quantity)
+        result = await updateQuantity(Id, productId, quantity, billingCycle)
 
         break
 

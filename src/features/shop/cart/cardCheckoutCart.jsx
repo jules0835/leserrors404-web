@@ -87,7 +87,7 @@ export default function CardCheckoutCart({
 
   return (
     <Card className="p-6 sticky top-24">
-      <div className="space-y-6">
+      <div className="space-y-2">
         <TopCartMessages cart={cart} isLoading={isLoading} session={session} />
         <div>
           <h2 className="text-xl font-bold mb-4">{t("orderSummary")}</h2>

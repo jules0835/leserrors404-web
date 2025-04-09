@@ -1,4 +1,11 @@
-import { Info, TicketPercent, UserRoundX, FileX2, UserPlus } from "lucide-react"
+import {
+  Info,
+  TicketPercent,
+  UserRoundX,
+  FileX2,
+  UserPlus,
+  AlertCircle,
+} from "lucide-react"
 import { useTranslations } from "next-intl"
 import { Separator } from "@/components/ui/separator"
 import DButton from "@/components/ui/DButton"
@@ -83,6 +90,44 @@ export default function TopCartMessages({ cart, isLoading, session }) {
 
             <p className="text-muted-foreground mt-2 text-center">
               {t("productNotActiveSubtitle")}
+            </p>
+          </div>
+        )}
+      {cart?.checkout?.reason &&
+        cart?.checkout?.reason === "PRODUCT_OUT_OF_STOCK" && (
+          <div className="bg-red-200 p-4 rounded-md border border-red-600">
+            <div className="flex items-center justify-center space-x-4">
+              <div>
+                <AlertCircle size={48} className="text-red-600" />
+              </div>
+              <div>
+                <h2 className="text-xl text-center font-bold text-red-800">
+                  {t("productOutOfStock")}
+                </h2>
+              </div>
+            </div>
+
+            <p className="text-red-700 mt-2 text-center">
+              {t("productOutOfStockSubtitle")}
+            </p>
+          </div>
+        )}
+      {cart?.checkout?.reason &&
+        cart?.checkout?.reason === "PRODUCT_OUT_OF_STOCK_USER_QUANTITY" && (
+          <div className="bg-red-200 p-4 rounded-md border border-red-600">
+            <div className="flex items-center justify-center space-x-4">
+              <div>
+                <AlertCircle size={48} className="text-red-600" />
+              </div>
+              <div>
+                <h2 className="text-xl text-center font-bold text-red-800">
+                  {t("productOutOfStockUserQuantity")}
+                </h2>
+              </div>
+            </div>
+
+            <p className="text-red-700 mt-2 text-center">
+              {t("productOutOfStockUserQuantitySubtitle")}
             </p>
           </div>
         )}

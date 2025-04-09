@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 import { CartModel, VoucherModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { hasMixedProductTypes } from "@/features/shop/cart/utils/cartService"
@@ -23,7 +24,12 @@ export const findCart = async (query) => {
   return await calculateCartTotals(cart)
 }
 
-export const addToCart = async (cartId, productId, quantity) => {
+export const addToCart = async (
+  cartId,
+  productId,
+  quantity,
+  billingCycle = undefined
+) => {
   await mwdb()
   const cart = await CartModel.findById(cartId)
   const existingProduct = cart.products.find(
@@ -32,8 +38,16 @@ export const addToCart = async (cartId, productId, quantity) => {
 
   if (existingProduct) {
     existingProduct.quantity += quantity
+
+    if (billingCycle) {
+      existingProduct.billingCycle = billingCycle
+    }
   } else {
-    cart.products.push({ product: productId, quantity })
+    cart.products.push({
+      product: productId,
+      quantity,
+      billingCycle: billingCycle || "month",
+    })
   }
 
   cart.updatedAt = new Date()
@@ -58,15 +72,28 @@ export const removeFromCart = async (cartId, productId) => {
   return calculateCartTotals(cart)
 }
 
-export const updateQuantity = async (cartId, productId, quantity) => {
+export const updateQuantity = async (
+  cartId,
+  productId,
+  quantity,
+  billingCycle = undefined
+) => {
   await mwdb()
+
+  const updateQuery = {
+    $set: {
+      "products.$.quantity": quantity,
+      updatedAt: new Date(),
+    },
+  }
+
+  if (billingCycle) {
+    updateQuery.$set["products.$.billingCycle"] = billingCycle
+  }
 
   const cart = await CartModel.findOneAndUpdate(
     { _id: cartId, "products.product": productId },
-    {
-      $set: { "products.$.quantity": quantity },
-      updatedAt: new Date(),
-    },
+    updateQuery,
     { new: true }
   ).populate("products.product")
 
@@ -199,6 +226,22 @@ export const checkCartEligibilityForCheckout = async (cart, query) => {
       canCheckout: false,
       cart: cartToCheck,
       reason: "PRODUCT_NOT_ACTIVE",
+    }
+  }
+
+  if (cartToCheck.products.some((item) => item.product.stock < 1)) {
+    return {
+      canCheckout: false,
+      cart: cartToCheck,
+      reason: "PRODUCT_OUT_OF_STOCK",
+    }
+  }
+
+  if (cartToCheck.products.some((item) => item.quantity > item.product.stock)) {
+    return {
+      canCheckout: false,
+      cart: cartToCheck,
+      reason: "PRODUCT_OUT_OF_STOCK_USER_QUANTITY",
     }
   }
 

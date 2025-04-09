@@ -22,7 +22,11 @@ export const initializeCart = async () => {
   }
 }
 
-export const addProductToCart = async (productId, quantity = 1) => {
+export const addProductToCart = async (
+  productId,
+  quantity = 1,
+  billingCycle = undefined
+) => {
   try {
     let cart = await getCart()
 
@@ -32,8 +36,18 @@ export const addProductToCart = async (productId, quantity = 1) => {
       return false
     }
 
+    const params = new URLSearchParams({
+      action: "add",
+      productId,
+      quantity: quantity.toString(),
+    })
+
+    if (billingCycle) {
+      params.append("billingCycle", billingCycle)
+    }
+
     const response = await fetch(
-      `/api/shop/cart/${cart._id}?action=add&productId=${productId}&quantity=${quantity}`
+      `/api/shop/cart/${cart._id}?${params.toString()}`
     )
 
     return response.ok
@@ -60,7 +74,11 @@ export const removeProductFromCart = async (productId) => {
   }
 }
 
-export const updateProductQuantity = async (productId, quantity) => {
+export const updateProductQuantity = async (
+  productId,
+  quantity,
+  billingCycle = undefined
+) => {
   try {
     const cart = await getCart()
 
@@ -68,8 +86,18 @@ export const updateProductQuantity = async (productId, quantity) => {
       return false
     }
 
+    const params = new URLSearchParams({
+      action: "update",
+      productId,
+      quantity: quantity.toString(),
+    })
+
+    if (billingCycle) {
+      params.append("billingCycle", billingCycle)
+    }
+
     const response = await fetch(
-      `/api/shop/cart/${cart._id}?action=update&productId=${productId}&quantity=${quantity}`
+      `/api/shop/cart/${cart._id}?${params.toString()}`
     )
 
     return response.ok
