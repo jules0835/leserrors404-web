@@ -2,12 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 export default function ProductPageSkeleton() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center gap-2 mb-8">
-        <Skeleton className="h-5 w-5" />
-        <Skeleton className="h-5 w-20" />
-      </div>
-
+    <div className="container mx-auto">
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="lg:w-1/3">
           <div className="sticky top-8">

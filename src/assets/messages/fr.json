@@ -1652,6 +1652,32 @@
         "title": "Billet ouvert"
       },
       "title": "Soutien"
+    },
+    "Chat": {
+      "actionCompleted": "Action terminée",
+      "actionDone": "Action effectuée",
+      "active": "Actif",
+      "adminSupport": "Équipe de soutien",
+      "chatClosed": "Chat fermé",
+      "closed": "Fermé",
+      "endChat": {
+        "cancel": "Annuler",
+        "confirm": "Confirmer",
+        "description": "Vous et l'équipe d'assistance ne pourrez plus envoyer un nouveau message. \nEs-tu sûr ?",
+        "title": "Mettre fin à cette conversation"
+      },
+      "error": "Une erreur s'est produite, veuillez réessayer plus tard!",
+      "new": "Nouveau",
+      "noConversations": "Pas de conversations",
+      "open": "Ouvrir",
+      "seeLink": "Voir le lien",
+      "selectConversation": "Sélectionner la conversation",
+      "sending": "Envoi",
+      "supportInbox": "Vos billets",
+      "typeMessage": "Tapez un message",
+      "unread": "Non lu",
+      "waitingAction": "Action à faire",
+      "you": "Toi"
     }
   },
   "advertisement": "Avertissement",

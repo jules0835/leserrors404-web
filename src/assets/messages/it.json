@@ -1666,6 +1666,32 @@
         "title": "Biglietto aperto"
       },
       "title": "Supporto"
+    },
+    "Chat": {
+      "actionCompleted": "Azione completata",
+      "actionDone": "Azione fatta",
+      "active": "Attivo",
+      "adminSupport": "Team di supporto",
+      "chatClosed": "Chat chiusa",
+      "closed": "Chiuso",
+      "endChat": {
+        "cancel": "Cancellare",
+        "confirm": "Confermare",
+        "description": "Tu e il team di supporto non sarete di nuovo in grado di inviare un nuovo messaggio. \nSei sicuro ?",
+        "title": "Termina questa conversazione"
+      },
+      "error": "Si è verificato un errore, riprova più tardi!",
+      "new": "Nuovo",
+      "noConversations": "Nessuna conversazione",
+      "open": "Aprire",
+      "seeLink": "Vedi link",
+      "selectConversation": "Seleziona la conversazione",
+      "sending": "Invio",
+      "supportInbox": "I tuoi biglietti",
+      "typeMessage": "Digita un messaggio",
+      "unread": "Non letto",
+      "waitingAction": "Azione da fare",
+      "you": "Voi"
     }
   },
   "pagesNames": {

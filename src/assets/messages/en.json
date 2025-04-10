@@ -1614,6 +1614,32 @@
       "saving": "Saving your profil",
       "error": "Error while saving profile",
       "saved": "Profile saved"
+    },
+    "Chat": {
+      "noConversations": "No conversations",
+      "adminSupport": "Support Team",
+      "you": "You",
+      "waitingAction": "Action to do",
+      "actionDone": "Action done",
+      "new": "New",
+      "unread": "Unread",
+      "closed": "Closed",
+      "error": "An error occured, please try again later !",
+      "active": "Active",
+      "chatClosed": "Chat closed",
+      "typeMessage": "Type a message",
+      "supportInbox": "Your Tickets",
+      "selectConversation": "Select conversation",
+      "open": "Open",
+      "actionCompleted": "Action completed",
+      "seeLink": "See link",
+      "sending": "Sending",
+      "endChat": {
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "description": "You and the Support Team will not be able to send a new message again. Are you sure ?",
+        "title": "End this conversation"
+      }
     }
   },
   "DefaultNotFound": "ERROR: Translation not found",

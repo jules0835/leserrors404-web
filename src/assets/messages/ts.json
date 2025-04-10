@@ -1665,6 +1665,32 @@
         "title": "Vula thikithi ."
       },
       "title": "Nseketelo"
+    },
+    "Chat": {
+      "actionCompleted": "Xiendlo xi hetisiwile .",
+      "actionDone": "Xiendlo xi endliwile .",
+      "active": "Hanya",
+      "adminSupport": "Xipano xa Nseketelo .",
+      "chatClosed": "Chat yi pfariwile .",
+      "closed": "Xi pfariwile .",
+      "endChat": {
+        "cancel": "Khansela",
+        "confirm": "Tiyisisa",
+        "description": "Wena na ntlawa wa nseketelo a mi nge swi koti ku tlhela mi rhumela rungula lerintshwa. \nXana u tiyisile ?",
+        "title": "Hetisa mbulavurisano lowu ."
+      },
+      "error": "Xihoxo xi humelerile, hi kombela u ringeta nakambe endzhaku !",
+      "new": "Xintshwa",
+      "noConversations": "Ku hava mabulo .",
+      "open": "Pfuleka",
+      "seeLink": "Vona Link .",
+      "selectConversation": "Hlawula Bulo .",
+      "sending": "Ku rhumela .",
+      "supportInbox": "Mathikithi ya wena .",
+      "typeMessage": "Thayipha rungula .",
+      "unread": "Ku nga hlayiwi .",
+      "waitingAction": "Goza ro endla .",
+      "you": "Wena"
     }
   },
   "isSuperAdminRequired": "is super admin ya laveka .",
