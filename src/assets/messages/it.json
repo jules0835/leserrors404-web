@@ -1691,7 +1691,21 @@
       "typeMessage": "Digita un messaggio",
       "unread": "Non letto",
       "waitingAction": "Azione da fare",
-      "you": "Voi"
+      "you": "Voi",
+      "cancel": "Cancellare",
+      "chatNow": "Chatta con noi",
+      "chatNowBtn": "Chatta ora",
+      "chatNowDesc": "Chatta con il nostro team di supporto per assistenza immediata.",
+      "errorSendingMessage": "Si è verificato un errore durante l'invio di questo messaggio, riprova.",
+      "getNeedHelp": "Hai una domanda, un suggerimento o un problema? \nSiamo qui per aiutarti!",
+      "getNeedHelpDesc": "Puoi trovare risposte alle tue domande nella nostra sezione FAQ. \nSe non trovi quello che stai cercando, sentiti libero di contattarci direttamente attraverso la chat o inviandoci un messaggio.",
+      "messageToSupportPlaceholder": "Spiega il tuo problema, domanda o suggerimento qui ...",
+      "send": "Inviare",
+      "sendMessage": "Invia un messaggio",
+      "sendMessageBtn": "Invia un messaggio",
+      "sendMessageDesc": "Invia un messaggio al nostro team di supporto e ti ricontatteremo il prima possibile.",
+      "sendMessageToSupport": "Invia un messaggio al nostro team di supporto",
+      "sendMessageToSupportDesc": "Qui puoi inviare un messaggio al nostro team di supporto. \nTi torneremo il prima possibile. \nFornire il maggior numero possibile di dettagli per aiutarci ad aiutarti meglio."
     }
   },
   "pagesNames": {
@@ -1876,7 +1890,11 @@
       "viewSubscription": "Visualizza l'abbonamento",
       "yourBank": "La tua banca",
       "redirectingToCheckoutMessageMobile": "Verrai automatico reindirizzarsi all'app mobile {Company} una volta completato il pagamento.",
-      "yourPayment": "Banca"
+      "yourPayment": "Banca",
+      "application": "Mobile",
+      "returnToApp": "Torna all'app mobile",
+      "transactionFailed": "Transazione non riuscita",
+      "transactionFailedMessage": "Questa transazione non è riuscita perché l'hai annullata o si è verificato un errore durante il check -out. \nPer favore, aspetta che ti stiamo reindirizzando all'app mobile."
     }
   },
   "Log": {

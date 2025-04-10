@@ -1677,7 +1677,21 @@
       "typeMessage": "Tapez un message",
       "unread": "Non lu",
       "waitingAction": "Action à faire",
-      "you": "Toi"
+      "you": "Toi",
+      "cancel": "Annuler",
+      "chatNow": "Discuter avec nous",
+      "chatNowBtn": "Discuter maintenant",
+      "chatNowDesc": "Discutez avec notre équipe d'assistance pour une assistance immédiate.",
+      "errorSendingMessage": "Une erreur s'est produite lors de l'envoi de ce message, veuillez réessayer.",
+      "getNeedHelp": "Vous avez une question, une suggestion ou un problème? \nNous sommes là pour aider!",
+      "getNeedHelpDesc": "Vous pouvez trouver des réponses à vos questions dans notre section FAQ. \nSi vous ne trouvez pas ce que vous recherchez, n'hésitez pas à nous contacter directement par le chat ou en nous envoyant un message.",
+      "messageToSupportPlaceholder": "Expliquez ici votre problème, votre question ou votre suggestion ...",
+      "send": "Envoyer",
+      "sendMessage": "Envoyer un message",
+      "sendMessageBtn": "Envoyer un message",
+      "sendMessageDesc": "Envoyez un message à notre équipe d'assistance et nous vous répondrons dès que possible.",
+      "sendMessageToSupport": "Envoyez un message à notre équipe d'assistance",
+      "sendMessageToSupportDesc": "Ici, vous pouvez envoyer un message à notre équipe d'assistance. \nNous vous répondrons dès que possible. \nVeuillez fournir autant de détails que possible pour nous aider à mieux vous aider."
     }
   },
   "advertisement": "Avertissement",
@@ -1876,7 +1890,11 @@
       "viewSubscription": "Afficher l'abonnement",
       "yourBank": "Votre banque",
       "redirectingToCheckoutMessageMobile": "Vous serez redirigé automatiquement vers l'application mobile {Company} une fois le paiement terminé.",
-      "yourPayment": "Banque"
+      "yourPayment": "Banque",
+      "application": "Mobile",
+      "returnToApp": "Retour à l'application mobile",
+      "transactionFailed": "Échec de la transaction",
+      "transactionFailedMessage": "Cette transaction a échoué parce que vous l'avez annulée ou il y a eu une erreur lors de la vérification. \nVeuillez patienter que nous vous redirigeons vers l'application mobile."
     }
   },
   "Log": {

@@ -1,7 +1,9 @@
+import UserNewTicket from "@/features/user/support/inbox/userNewTicket"
+
 export default function Page() {
   return (
     <div>
-      <h1>Support base </h1>
+      <UserNewTicket />
     </div>
   )
 }

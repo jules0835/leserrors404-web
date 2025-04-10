@@ -1691,7 +1691,21 @@
       "typeMessage": "Geben Sie eine Nachricht ein",
       "unread": "Ungelesen",
       "waitingAction": "Aktion zu tun",
-      "you": "Du"
+      "you": "Du",
+      "cancel": "Stornieren",
+      "chatNow": "Chatten mit uns",
+      "chatNowBtn": "Chatten Sie jetzt",
+      "chatNowDesc": "Chatten Sie mit unserem Support -Team für sofortige Hilfe.",
+      "errorSendingMessage": "Beim Senden dieser Nachricht treten ein Fehler auf. Bitte versuchen Sie es erneut.",
+      "getNeedHelp": "Sie haben eine Frage, einen Vorschlag oder ein Problem? \nWir sind hier, um zu helfen!",
+      "getNeedHelpDesc": "Sie können Antworten auf Ihre Fragen in unserem FAQ -Abschnitt finden. \nWenn Sie nicht finden, wonach Sie suchen, können Sie uns direkt durch den Chat oder durch Senden einer Nachricht an uns wenden.",
+      "messageToSupportPlaceholder": "Erläutern Sie hier Ihr Problem, Ihre Frage oder Ihr Vorschlag ...",
+      "send": "Schicken",
+      "sendMessage": "Senden Sie eine Nachricht",
+      "sendMessageBtn": "Senden Sie eine Nachricht",
+      "sendMessageDesc": "Senden Sie eine Nachricht an unser Support -Team und wir werden uns so schnell wie möglich bei Ihnen melden.",
+      "sendMessageToSupport": "Senden Sie eine Nachricht an unser Support -Team",
+      "sendMessageToSupportDesc": "Hier können Sie eine Nachricht an unser Support -Team senden. \nWir werden uns so schnell wie möglich bei Ihnen melden. \nBitte geben Sie so viel Detail wie möglich an, um Ihnen zu helfen, Ihnen besser zu helfen."
     }
   },
   "pagesNames": {
@@ -1876,7 +1890,11 @@
       "viewSubscription": "Abonnement anzeigen",
       "yourBank": "Ihre Bank",
       "redirectingToCheckoutMessageMobile": "Sie werden nach Abschluss der Zahlung automatisch in die {Company} Mobile App umgeleitet.",
-      "yourPayment": "Bank"
+      "yourPayment": "Bank",
+      "application": "Mobile",
+      "returnToApp": "Kehren Sie zur mobilen App zurück",
+      "transactionFailed": "Transaktion fehlgeschlagen",
+      "transactionFailedMessage": "Diese Transaktion ist fehlgeschlagen, da Sie sie abgebrochen haben oder beim Auschecken ein Fehler vorliegt. \nBitte warten Sie, dass wir Sie zur mobilen App umleiten."
     }
   },
   "Log": {

@@ -1639,7 +1639,21 @@
         "cancel": "Cancel",
         "description": "You and the Support Team will not be able to send a new message again. Are you sure ?",
         "title": "End this conversation"
-      }
+      },
+      "errorSendingMessage": "An error occured while sending this message, please try again.",
+      "send": "Send",
+      "cancel": "Cancel",
+      "messageToSupportPlaceholder": "Explain your probleme, question or suggestion here...",
+      "sendMessageToSupport": "Send a message to our Support Team",
+      "sendMessageToSupportDesc": "Here you can send a message to our support team. We will get back to you as soon as possible. Please provide as much detail as possible to help us assist you better. ",
+      "sendMessageBtn": "Send a message",
+      "chatNowBtn": "Chat now",
+      "sendMessage": "Send a message",
+      "chatNow": "Chat with us",
+      "chatNowDesc": "Chat with our support team for immediate assistance.",
+      "sendMessageDesc": "Send a message to our support team and we will get back to you as soon as possible.",
+      "getNeedHelp": "You have a question, suggestion, or issue? We are here to help!",
+      "getNeedHelpDesc": "You can find answers to your questions in our FAQ section. If you don't find what you're looking for, feel free to reach out to us directly through the chat or by sending us a message."
     }
   },
   "DefaultNotFound": "ERROR: Translation not found",
@@ -1876,7 +1890,11 @@
       "continueShopping": "Continue Shopping",
       "yourBank": "Your bank",
       "redirectingToCheckoutMessageMobile": "You will be automaticly redirect to the {company} mobile app once the payment is completed.",
-      "yourPayment": "Bank"
+      "yourPayment": "Bank",
+      "application": "Mobile",
+      "returnToApp": "Return to Mobile App",
+      "transactionFailedMessage": "This transaction failed because you canceled it or there was an error while checking out. Please wait we are redirection you to the Mobile App.",
+      "transactionFailed": "Transaction Failed"
     }
   },
   "Log": {
