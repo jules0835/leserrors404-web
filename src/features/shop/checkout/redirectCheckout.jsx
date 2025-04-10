@@ -5,7 +5,7 @@ import Image from "next/image"
 import logo from "@/assets/images/logo.webp"
 import { useTranslations } from "next-intl"
 import DButton from "@/components/ui/DButton"
-import { Landmark, Store } from "lucide-react"
+import { Landmark, Shield, Smartphone, Store } from "lucide-react"
 import { useSearchParams } from "next/navigation"
 import { Separator } from "@/components/ui/separator"
 import { useQuery } from "@tanstack/react-query"
@@ -19,6 +19,7 @@ export default function RedirectCheckout() {
   const searchParams = useSearchParams()
   const sessionId = searchParams.get("session_id")
   const isMobileApp = searchParams.get("appMobileCheckout") === "true"
+  const isMobileFailed = searchParams.get("isMobileFailed") === "true"
   const { data } = useQuery({
     queryKey: ["checkoutOrder", sessionId],
     queryFn: () => fetchCheckoutOrder(sessionId),
@@ -36,9 +37,15 @@ export default function RedirectCheckout() {
   })
 
   useEffect(() => {
+    if (isMobileFailed && isMobileApp) {
+      window.location.href = `${webAppSettings.urls.cancelCheckoutMobileRedirect}`
+    }
+  }, [isMobileFailed, isMobileApp])
+
+  useEffect(() => {
     if (!sessionId && !isMobileApp) {
       router.push("/shop/cart")
-    } else if (!sessionId && isMobileApp) {
+    } else if (!sessionId && isMobileApp && !isMobileFailed) {
       window.location.href = webAppSettings.urls.failedCheckoutMobileRedirect
     }
 
@@ -74,53 +81,87 @@ export default function RedirectCheckout() {
       </div>
       <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-          <div className="flex flex-col items-center ">
-            <div className="flex items-center gap-12 md:gap-16">
-              <div className="flex flex-col items-center justify-center font-semibold">
-                <Landmark className="w-10 h-10  md:w-12 md:h-12" />
-                <p>{t("yourPayment")}</p>
+          {isMobileFailed ? (
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-12 mx-4">
+                <div className="flex flex-col items-center justify-center font-semibold">
+                  <Shield className="w-10 h-10 md:w-12 md:h-12" />
+                  <p>{company.name}</p>
+                </div>
+                <div className="dotsLoader mx-auto" />
+                <div className="flex flex-col items-center justify-center font-semibold">
+                  <Smartphone className="w-10 h-10 md:w-12 md:h-12" />
+                  <p>{t("application")}</p>
+                </div>
               </div>
-              <div className="dotsLoader mx-auto" />
-              <div className="flex flex-col items-center justify-center font-semibold">
-                <Store className="w-10 h-10 md:w-12 md:h-12" />
-                <p>{company.name}</p>
-              </div>
-            </div>
-            <Separator className="w-full mt-4" />
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center mt-4">
-              {t("redirectingToCheckout")}
-            </h1>
-          </div>
-          {isErrorMessage && (
-            <div>
-              <p className="text-gray-500 text-sm text-center">
-                {t("redirectingToCheckoutMessage")}
+              <Separator className="w-full mt-4" />
+
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center mt-2">
+                {t("transactionFailed")}
+              </h1>
+              <p className="text-gray-500 text-sm text-center mt-4">
+                {t("transactionFailedMessage")}
               </p>
               <DButton
                 isMain
-                withLink={
-                  isMobileApp
-                    ? webAppSettings.urls.failedCheckoutMobileRedirect
-                    : "/"
-                }
+                className="mt-4"
+                onClickBtn={() => {
+                  window.location.href = `${webAppSettings.urls.cancelCheckoutMobileRedirect}`
+                }}
               >
-                {t("myOrders")}
+                {t("returnToApp")}
               </DButton>
             </div>
-          )}
-          {!isErrorMessage && !isMobileApp && (
-            <div>
-              <p className="text-gray-500 text-sm text-center">
-                {t("redirectingMessage")}
-              </p>
+          ) : (
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-12 md:gap-16">
+                <div className="flex flex-col items-center justify-center font-semibold">
+                  <Landmark className="w-10 h-10 md:w-12 md:h-12" />
+                  <p>{t("yourPayment")}</p>
+                </div>
+                <div className="dotsLoader mx-auto" />
+                <div className="flex flex-col items-center justify-center font-semibold">
+                  <Store className="w-10 h-10 md:w-12 md:h-12" />
+                  <p>{company.name}</p>
+                </div>
+              </div>
+              <Separator className="w-full mt-4" />
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center mt-4">
+                {t("redirectingToCheckout")}
+              </h1>
+
+              {isErrorMessage && (
+                <div>
+                  <p className="text-gray-500 text-sm text-center">
+                    {t("redirectingToCheckoutMessage")}
+                  </p>
+                  <DButton
+                    isMain
+                    withLink={
+                      isMobileApp
+                        ? webAppSettings.urls.failedCheckoutMobileRedirect
+                        : "/"
+                    }
+                  >
+                    {t("myOrders")}
+                  </DButton>
+                </div>
+              )}
+              {!isErrorMessage && !isMobileApp && (
+                <div>
+                  <p className="text-gray-500 text-sm text-center">
+                    {t("redirectingMessage")}
+                  </p>
+                </div>
+              )}
+              {!isErrorMessage && isMobileApp && (
+                <p className="text-gray-500 text-sm text-center mt-4">
+                  {t("redirectingToCheckoutMessageMobile", {
+                    company: company.name,
+                  })}
+                </p>
+              )}
             </div>
-          )}
-          {!isErrorMessage && isMobileApp && (
-            <p className="text-gray-500 text-sm text-center mt-4">
-              {t("redirectingToCheckoutMessageMobile", {
-                company: company.name,
-              })}
-            </p>
           )}
         </div>
       </div>

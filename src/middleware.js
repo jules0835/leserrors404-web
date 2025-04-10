@@ -16,19 +16,6 @@ const unprotectedApiRoutes = [
   "/api/stripe/webhook/subscription",
 ]
 
-function checkTokenExpiration(req) {
-  const userExp = req?.auth?.expires
-
-  if (!userExp) {
-    return false
-  }
-
-  const expirationTime = new Date(userExp).getTime() / 1000
-  const currentTime = Math.floor(Date.now() / 1000)
-
-  return expirationTime > currentTime
-}
-
 async function verifyMobileToken(token) {
   try {
     if (!token) {
@@ -117,9 +104,12 @@ const authMiddleware = auth(async (req) => {
     return intlMiddleware(req)
   }
 
-  if (!req.auth && !mobileToken) {
+  if ((!req.auth || req.auth?.error === "JWTExpired") && !mobileToken) {
     if (currentPath.includes("/api/")) {
-      return new NextResponse(JSON.stringify({ error: "Access denied" }), {
+      const errorMessage =
+        req.auth?.error === "JWTExpired" ? "Token expired" : "Access denied"
+
+      return new NextResponse(JSON.stringify({ error: errorMessage }), {
         status: 401,
         headers: { "Content-Type": "application/json" },
       })
@@ -127,12 +117,6 @@ const authMiddleware = auth(async (req) => {
 
     return NextResponse.redirect(
       new URL(`/${locale}/auth/login?next=${currentPath}`, req.url)
-    )
-  }
-
-  if (!checkTokenExpiration(req) && !mobileToken) {
-    return NextResponse.redirect(
-      new URL(`/${locale}/auth/logout?next=${currentPath}`, req.url)
     )
   }
 

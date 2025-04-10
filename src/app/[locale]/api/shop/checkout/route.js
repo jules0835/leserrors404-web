@@ -6,7 +6,7 @@ import { NextResponse } from "next/server"
 import { checkCartEligibilityForCheckout } from "@/db/crud/cartCrud"
 import { getTranslations } from "next-intl/server"
 import log from "@/lib/log"
-import { logKeys, webAppSettings } from "@/assets/options/config"
+import { logKeys } from "@/assets/options/config"
 
 export async function POST(req, { params }) {
   const t = await getTranslations("Shop.Cart")
@@ -80,7 +80,7 @@ export async function POST(req, { params }) {
       customer: user?.account?.stripe?.customerId,
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/checkout/redirect?session_id={CHECKOUT_SESSION_ID}&appMobileCheckout=${isMobileApp}`,
       cancel_url: isMobileApp
-        ? `${webAppSettings.urls.cancelCheckoutMobileRedirect}`
+        ? `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/checkout/redirect?isMobileFailed=true&appMobileCheckout=${isMobileApp}`
         : `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/shop/cart`,
       discounts: cart.voucher?.stripeCouponId
         ? [{ promotion_code: cart.voucher.stripeCouponId }]
@@ -133,6 +133,10 @@ export async function POST(req, { params }) {
       message: "Failed to checkout",
       technicalMessage: error,
       authorId: getReqUserId(req),
+      data: {
+        error,
+      },
+      isError: true,
     })
 
     return NextResponse.json(
