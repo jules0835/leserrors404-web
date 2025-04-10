@@ -272,3 +272,42 @@ export const updateChatAdminSummary = async (chatId, adminSummary) => {
 
   return updatedChat
 }
+
+export const findUserChats = async (userId) => {
+  await mwdb()
+  const chats = await ChatModel.find({
+    user: userId,
+    state: { $in: ["CHAT_ADMIN", "INBOX"] },
+  })
+    .populate("orders")
+    .populate("subscriptions")
+    .lean()
+
+  return chats.sort((a, b) => {
+    const lastMessageA =
+      a.messages[a.messages.length - 1]?.sendDate || a.createdAt
+    const lastMessageB =
+      b.messages[b.messages.length - 1]?.sendDate || b.createdAt
+
+    return new Date(lastMessageB) - new Date(lastMessageA)
+  })
+}
+
+export const addMessageToChat = async (chatId, messageData) => {
+  await mwdb()
+
+  const chat = await ChatModel.findById(chatId)
+
+  if (!chat || !chat.isActive) {
+    return null
+  }
+
+  const messageWithDate = {
+    ...messageData,
+    sendDate: new Date(),
+  }
+
+  chat.messages.push(messageWithDate)
+
+  return await chat.save()
+}

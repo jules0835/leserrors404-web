@@ -1666,6 +1666,32 @@
         "title": "Offenes Ticket"
       },
       "title": "Unterstützung"
+    },
+    "Chat": {
+      "actionCompleted": "Aktion abgeschlossen",
+      "actionDone": "Aktion durchgeführt",
+      "active": "Aktiv",
+      "adminSupport": "Support -Team",
+      "chatClosed": "Chat geschlossen",
+      "closed": "Geschlossen",
+      "endChat": {
+        "cancel": "Stornieren",
+        "confirm": "Bestätigen",
+        "description": "Sie und das Support -Team können keine neue Nachricht erneut senden. \nBist du sicher ?",
+        "title": "Beende dieses Gespräch"
+      },
+      "error": "Ein Fehler trat auf, bitte versuchen Sie es später erneut!",
+      "new": "Neu",
+      "noConversations": "Keine Gespräche",
+      "open": "Offen",
+      "seeLink": "Siehe Link",
+      "selectConversation": "Wählen Sie Konversation",
+      "sending": "Senden",
+      "supportInbox": "Ihre Tickets",
+      "typeMessage": "Geben Sie eine Nachricht ein",
+      "unread": "Ungelesen",
+      "waitingAction": "Aktion zu tun",
+      "you": "Du"
     }
   },
   "pagesNames": {
