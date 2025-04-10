@@ -287,11 +287,6 @@ export const userNavItems = [
         url: "/user/dashboard/support",
       },
       {
-        title: "Open Ticket",
-        translationKey: "openNewTicket",
-        url: "/user/dashboard/support/new",
-      },
-      {
         title: "My Tickets",
         translationKey: "myTickets",
         url: "/user/dashboard/support/tickets",

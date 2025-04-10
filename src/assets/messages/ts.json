@@ -1690,7 +1690,21 @@
       "typeMessage": "Thayipha rungula .",
       "unread": "Ku nga hlayiwi .",
       "waitingAction": "Goza ro endla .",
-      "you": "Wena"
+      "you": "Wena",
+      "cancel": "Khansela",
+      "chatNow": "Chat na hina",
+      "chatNowBtn": "Chat sweswi .",
+      "chatNowDesc": "Chat na ntlawa wa hina wa nseketelo ku kuma mpfuneto wa xihatla.",
+      "errorSendingMessage": "Xihoxo xi humelerile loko u ri karhi u rhumela rungula leri, hi kombela u ringeta nakambe.",
+      "getNeedHelp": "U na xivutiso, xitsundzuxo kumbe mhaka? \nHi laha ku ta pfuna!",
+      "getNeedHelpDesc": "U nga kuma tinhlamulo ta swivutiso swa wena eka xiyenge xa ​​hina xa FAQ. \nLoko u nga kumi leswi u swi lavaka, titwe u ntshunxekile ku hi fikelela hi ku kongoma hi ku tirhisa mbulavurisano kumbe hi ku hi rhumela rungula.",
+      "messageToSupportPlaceholder": "Hlamusela xiphiqo xa wena, xivutiso kumbe xiringanyeto laha...",
+      "send": "Rhumela",
+      "sendMessage": "Rhumela rungula .",
+      "sendMessageBtn": "Rhumela rungula .",
+      "sendMessageDesc": "Rhumela rungula eka ntlawa wa hina wa nseketelo naswona hi ta tlhelela eka wena hi ku hatlisa hilaha swi nga kotekaka hakona.",
+      "sendMessageToSupport": "Rhumela rungula eka ntlawa wa hina wa nseketelo .",
+      "sendMessageToSupportDesc": "Laha u nga rhumela rungula eka ntlawa wa hina wa nseketelo. \nHi ta tlhelela eka wena hi ku hatlisa hilaha swi nga kotekaka hakona. \nHi kombela mi nyika vuxokoxoko byo tala hilaha swi nga kotekaka hakona ku hi pfuna ku mi pfuna ku antswa."
     }
   },
   "isSuperAdminRequired": "is super admin ya laveka .",
@@ -1876,7 +1890,11 @@
       "viewSubscription": "View Subscription .",
       "yourBank": "Bangi ya wena .",
       "redirectingToCheckoutMessageMobile": "U ta kongomisa hi ku tisungulela eka {Company} Mobile App loko hakelo yi hetisiwile.",
-      "yourPayment": "Bangi"
+      "yourPayment": "Bangi",
+      "application": "Famba-famba",
+      "returnToApp": "Vuya eka Mobile App .",
+      "transactionFailed": "Nxaviselano wu tsandzekile .",
+      "transactionFailedMessage": "Nxaviselano lowu wu tsandzekile hikuva u wu khansele kutani ku va na xihoxo loko u ri karhi u kambela. \nHi kombela mi yimela hi redirection n'wina eka mobile app."
     }
   },
   "Log": {
