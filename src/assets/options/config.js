@@ -11,6 +11,7 @@ import {
   UserRoundX,
   UserRound,
   Headset,
+  ChartNoAxesCombined,
 } from "lucide-react"
 
 export const company = {
@@ -20,7 +21,7 @@ export const company = {
 }
 
 export const emailConfig = {
-  noReplySender: "Cyna B3 <no-reply@cyna-b3.machackhub.online>",
+  noReplySender: "Cyna B3 <contact@cyna-b3.machackhub.online>",
 }
 
 export const defaultProfile = {
@@ -164,6 +165,52 @@ export const adminNavItems = [
         title: "Vouchers",
         translationKey: "vouchers",
         url: "/admin/business/vouchers",
+        isSuperAdmin: false,
+      },
+    ],
+  },
+  {
+    title: "Stats",
+    translationKey: "stats",
+    url: "/admin/stats",
+    isSuperAdmin: false,
+    icon: ChartNoAxesCombined,
+    isActive: true,
+    items: [
+      {
+        title: "Sales",
+        translationKey: "sales",
+        url: "/admin/stats/sales",
+        isSuperAdmin: false,
+      },
+      {
+        title: "Subscriptions",
+        translationKey: "subscriptions",
+        url: "/admin/stats/subscriptions",
+        isSuperAdmin: false,
+      },
+      {
+        title: "Carts",
+        translationKey: "carts",
+        url: "/admin/stats/carts",
+        isSuperAdmin: false,
+      },
+      {
+        title: "Products",
+        translationKey: "products",
+        url: "/admin/stats/products",
+        isSuperAdmin: false,
+      },
+      {
+        title: "Categories",
+        translationKey: "categories",
+        url: "/admin/stats/categories",
+        isSuperAdmin: false,
+      },
+      {
+        title: "Tickets",
+        translationKey: "tickets",
+        url: "/admin/stats/tickets",
         isSuperAdmin: false,
       },
     ],
@@ -462,6 +509,48 @@ export const pagesNames = [
     titleKey: "Admin.Business.Customers.CustomerDetails.title",
     subTitleKey: "Admin.Business.Customers.CustomerDetails.subTitle",
     url: "/admin/business/customers/[Id]",
+  },
+  {
+    title: "Products stats",
+    titleKey: "Admin.Stats.Products.title",
+    subTitleKey: "Admin.Stats.Products.subTitle",
+    url: "/admin/stats/products",
+  },
+  {
+    title: "Categories stats",
+    titleKey: "Admin.Stats.Categories.title",
+    subTitleKey: "Admin.Stats.Categories.subTitle",
+    url: "/admin/stats/categories",
+  },
+  {
+    title: "Sales stats",
+    titleKey: "Admin.Stats.Sales.title",
+    subTitleKey: "Admin.Stats.Sales.subTitle",
+    url: "/admin/stats/sales",
+  },
+  {
+    title: "Tickets stats",
+    titleKey: "Admin.Stats.Tickets.title",
+    subTitleKey: "Admin.Stats.Tickets.subTitle",
+    url: "/admin/stats/tickets",
+  },
+  {
+    title: "Subscriptions stats",
+    titleKey: "Admin.Stats.Subscriptions.title",
+    subTitleKey: "Admin.Stats.Subscriptions.subTitle",
+    url: "/admin/stats/subscriptions",
+  },
+  {
+    title: "Tickets stats",
+    titleKey: "Admin.Stats.Tickets.title",
+    subTitleKey: "Admin.Stats.Tickets.subTitle",
+    url: "/admin/stats/tickets",
+  },
+  {
+    title: "Carts stats",
+    titleKey: "Admin.Stats.Carts.title",
+    subTitleKey: "Admin.Stats.Carts.subTitle",
+    url: "/admin/stats/carts",
   },
 ]
 

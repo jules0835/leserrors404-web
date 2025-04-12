@@ -1,5 +1,5 @@
 /* eslint-disable max-params */
-import { CartModel, VoucherModel } from "@/db/models/indexModels"
+import { CartModel, VoucherModel, OrderModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { hasMixedProductTypes } from "@/features/shop/cart/utils/cartService"
 import { checkUserOrderEligibility } from "@/db/crud/userCrud"
@@ -340,4 +340,152 @@ const calculateCartTotals = async (cart) => {
   }
 
   return cart
+}
+
+export const getCartStats = async ({ period = "7d", realTime = false }) => {
+  await mwdb()
+
+  const startDate = new Date()
+
+  switch (period) {
+    case "7d":
+      startDate.setDate(startDate.getDate() - 7)
+
+      break
+
+    case "30d":
+      startDate.setDate(startDate.getDate() - 30)
+
+      break
+
+    case "90d":
+      startDate.setDate(startDate.getDate() - 90)
+
+      break
+  }
+
+  if (realTime) {
+    startDate.setDate(startDate.getDate() - 365 * 5)
+  }
+
+  const activeCarts = await CartModel.aggregate([
+    {
+      $match: {
+        updatedAt: { $gte: startDate },
+        "products.0": { $exists: true },
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        totalActiveCarts: { $sum: 1 },
+        avgPreOrderValue: { $avg: "$total" },
+        avgPreOrderSubtotal: { $avg: "$subtotal" },
+        avgPreOrderTax: { $avg: "$tax" },
+        avgPreOrderDiscount: { $avg: "$discount" },
+        totalPreOrderValue: { $sum: "$total" },
+        totalPreOrderSubtotal: { $sum: "$subtotal" },
+        totalPreOrderTax: { $sum: "$tax" },
+        totalPreOrderDiscount: { $sum: "$discount" },
+        userCarts: {
+          $sum: { $cond: [{ $ne: ["$user", null] }, 1, 0] },
+        },
+        guestCarts: {
+          $sum: { $cond: [{ $eq: ["$user", null] }, 1, 0] },
+        },
+      },
+    },
+  ])
+  const convertedCarts = await OrderModel.aggregate([
+    {
+      $match: {
+        createdAt: { $gte: startDate },
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        totalConvertedCarts: { $sum: 1 },
+        avgPostOrderValue: { $avg: "$stripe.amountTotal" },
+        avgPostOrderSubtotal: { $avg: "$stripe.amountSubtotal" },
+        avgPostOrderTax: { $avg: "$stripe.amountTax" },
+        avgPostOrderDiscount: { $avg: "$stripe.amountDiscount" },
+        totalPostOrderValue: { $sum: "$stripe.amountTotal" },
+        totalPostOrderSubtotal: { $sum: "$stripe.amountSubtotal" },
+        totalPostOrderTax: { $sum: "$stripe.amountTax" },
+        totalPostOrderDiscount: { $sum: "$stripe.amountDiscount" },
+      },
+    },
+  ])
+  const productDistribution = await CartModel.aggregate([
+    {
+      $match: {
+        updatedAt: { $gte: startDate },
+        "products.0": { $exists: true },
+      },
+    },
+    {
+      $unwind: "$products",
+    },
+    {
+      $group: {
+        _id: "$products.product",
+        count: { $sum: 1 },
+        totalQuantity: { $sum: "$products.quantity" },
+      },
+    },
+    {
+      $lookup: {
+        from: "products",
+        localField: "_id",
+        foreignField: "_id",
+        as: "productDetails",
+      },
+    },
+    {
+      $unwind: "$productDetails",
+    },
+    {
+      $project: {
+        productId: "$_id",
+        productName: "$productDetails.label",
+        count: 1,
+        totalQuantity: 1,
+      },
+    },
+    {
+      $sort: { count: -1 },
+    },
+    {
+      $limit: 10,
+    },
+  ])
+
+  return {
+    activeCarts: activeCarts[0] || {
+      totalActiveCarts: 0,
+      avgPreOrderValue: 0,
+      avgPreOrderSubtotal: 0,
+      avgPreOrderTax: 0,
+      avgPreOrderDiscount: 0,
+      totalPreOrderValue: 0,
+      totalPreOrderSubtotal: 0,
+      totalPreOrderTax: 0,
+      totalPreOrderDiscount: 0,
+      userCarts: 0,
+      guestCarts: 0,
+    },
+    convertedCarts: convertedCarts[0] || {
+      totalConvertedCarts: 0,
+      avgPostOrderValue: 0,
+      avgPostOrderSubtotal: 0,
+      avgPostOrderTax: 0,
+      avgPostOrderDiscount: 0,
+      totalPostOrderValue: 0,
+      totalPostOrderSubtotal: 0,
+      totalPostOrderTax: 0,
+      totalPostOrderDiscount: 0,
+    },
+    productDistribution,
+  }
 }

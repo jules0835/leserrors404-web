@@ -10,7 +10,10 @@ export async function GET(req) {
     const cartId = req.cookies.get("cartId")?.value
 
     if (!cartId && !userId) {
-      return NextResponse.json({ error: "Cart not found", code: "CART_NOT_FOUND" })
+      return NextResponse.json({
+        error: "Cart not found",
+        code: "CART_NOT_FOUND",
+      })
     }
 
     let cart = await findCart(userId ? { user: userId } : { _id: cartId })
@@ -20,7 +23,10 @@ export async function GET(req) {
     }
 
     if (!cart) {
-      return NextResponse.json({ error: "Cart not found", code: "CART_NOT_FOUND" })
+      return NextResponse.json({
+        error: "Cart not found",
+        code: "CART_NOT_FOUND",
+      })
     }
 
     return NextResponse.json(cart)

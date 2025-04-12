@@ -174,9 +174,169 @@
     "mySupport": "My tickets",
     "coupons": "Vouchers",
     "inbox": "Inbox",
-    "tickets": "Tickets"
+    "tickets": "Tickets",
+    "stats": "Statistics",
+    "sales": "Sales",
+    "carts": "Carts"
   },
   "Admin": {
+    "Stats": {
+      "title": "Statistics",
+      "period": "Period",
+      "groupBy": "Group by",
+      "Periods": {
+        "7d": "7 last days",
+        "30d": "30 last days",
+        "90d": "90 last days"
+      },
+      "GroupByOptions": {
+        "day": "Day",
+        "week": "Week",
+        "month": "Month"
+      },
+      "Sales": {
+        "title": "Sales statistics",
+        "subTitle": "View the sales statistics by period",
+        "totalSales": "Total sales",
+        "totalOrders": "Total orders",
+        "averageOrderValue": "Average order value",
+        "productsSold": "Products sold",
+        "salesOverTime": "Sales over time",
+        "ordersOverTime": "Orders over time",
+        "realTime": "Real Time"
+      },
+      "periods": {
+        "7d": "7 days",
+        "30d": "30 days",
+        "90d": "90 days"
+      },
+      "groupByOptions": {
+        "day": "Day",
+        "month": "Month",
+        "week": "Week"
+      },
+      "stats": {
+        "groupByOptions": {
+          "week": "Week"
+        }
+      },
+      "Products": {
+        "title": "Products statistics",
+        "subTitle": "View the products statistics by stock and sales",
+        "totalStock": "Total Stock",
+        "totalValue": "Total Value",
+        "totalSales": "Total Sales",
+        "totalRevenue": "Total Revenue",
+        "topStockedProducts": "Top Stocked Product",
+        "topSellingProducts": "Top Selling Products",
+        "table": {
+          "product": "Product",
+          "stock": "Stock",
+          "value": "Value",
+          "sales": "Sales",
+          "revenue": "Revenue"
+        }
+      },
+      "Categories": {
+        "title": "Categories statistics",
+        "subTitle": "View the categories statistics by stock and sales",
+        "totalCategories": "Total Categories",
+        "averageStockPerCategory": "Average Stock Per Category",
+        "stockByCategory": "Stock By Category",
+        "salesByCategory": "Sales By Category",
+        "table": {
+          "category": "Category",
+          "stock": "Stock",
+          "value": "Value",
+          "sales": "Sales",
+          "revenue": "Revenue"
+        }
+      },
+      "Tickets": {
+        "title": "Tickets statistics",
+        "subTitle": "View the tickets statistics by period",
+        "activeTickets": "Active Tickets",
+        "closedTickets": "Closed Tickets",
+        "botOnlyChats": "Bot Only Chat",
+        "activeBotChats": "Active Bot Chat",
+        "responseTime": "Response Time",
+        "averageResponseTime": "Average Response Time",
+        "minResolutionTime": "Min Resolution Time",
+        "maxResolutionTime": "Max Resolution Time",
+        "ticketDistribution": "Ticket Distribution",
+        "closureDistribution": "Closure Distribution",
+        "topUsers": "Top Users",
+        "table": {
+          "user": "User",
+          "email": "Email",
+          "totalTickets": "Total Tickets",
+          "openTickets": "Open Tickets",
+          "closedTickets": "Closed Tickets"
+        },
+        "realTime": "Real Time",
+        "closureBy": {
+          "ADMIN": "Admin",
+          "USER": "User",
+          "unknown": "Unknown"
+        },
+        "states": {
+          "INBOX": "Inbox",
+          "CHAT_ADMIN": "Chat Admin",
+          "CHAT_BOT": "Chat Bot",
+          "UNKNOWN": "Unknown"
+        }
+      },
+      "Subscriptions": {
+        "title": "Subscriptions statistics",
+        "subTitle": "View the subscriptions statistics by period",
+        "realTime": "Real Time",
+        "totalSubscriptions": "Total Subscriptions",
+        "activeSubscriptions": "Active Subscriptions",
+        "canceledSubscriptions": "Canceled Subscriptions",
+        "statusDistribution": "Status Distribution",
+        "billingCycleDistribution": "Billing Cycle Distribution",
+        "topProducts": "Top Products",
+        "table": {
+          "product": "Product",
+          "subscriptionCount": "Subscription Count",
+          "totalQuantity": "Total Quantity"
+        },
+        "status": {
+          "active": "Active",
+          "canceled": "Canceled",
+          "pending": "Pending",
+          "preCanceled": "Pre-Cancelled",
+          "unknown": "Unknown"
+        },
+        "billingCycle": {
+          "monthly": "Monthly",
+          "annual": "Annual",
+          "unknown": "Unknown"
+        }
+      },
+      "Carts": {
+        "realTime": "Real Time",
+        "totalActiveCarts": "Total Active Carts",
+        "totalConvertedCarts": "Total Converted Carts",
+        "avgPreOrderValue": "Average Carts",
+        "avgPostOrderValue": "Average Order",
+        "userCarts": "User Carts",
+        "guestCarts": "Guest Carts",
+        "cartDistribution": "Cart Distribution",
+        "topProducts": "Top Products",
+        "table": {
+          "product": "Product",
+          "cartCount": "Cart Count",
+          "totalQuantity": "Quantity"
+        },
+        "preOrderStats": "Carts Stats",
+        "totalValue": "Total",
+        "totalSubtotal": "Sub-Total",
+        "totalTax": "Tax",
+        "totalDiscount": "Discount",
+        "postOrderStats": "Orders Stats"
+      }
+    },
     "Chat": {
       "selectAction": "Select an action",
       "sendLink": "Send a link",
