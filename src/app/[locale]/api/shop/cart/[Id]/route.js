@@ -4,6 +4,7 @@ import {
   removeFromCart,
   updateQuantity,
   clearCartProducts,
+  updateBillingCycle,
 } from "@/db/crud/cartCrud"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
@@ -34,6 +35,11 @@ export async function GET(req, { params }) {
 
         break
 
+      case "updateBillingCycle":
+        result = await updateBillingCycle(Id, productId, billingCycle)
+
+        break
+
       case "clear":
         result = await clearCartProducts(Id)
 
@@ -47,7 +53,7 @@ export async function GET(req, { params }) {
   } catch (error) {
     log.systemError({
       logKey: logKeys.shopUserCartError.key,
-      message: "Failed to get cart",
+      message: "Failed to update cart on /api/shop/cart/[Id]",
       error,
     })
 

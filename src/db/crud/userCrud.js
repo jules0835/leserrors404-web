@@ -330,3 +330,14 @@ export const findUserByStripeId = async (stripeId) => {
 
   return user
 }
+
+export const getTodayRegistrationsCount = async () => {
+  await mwdb()
+
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  return await UserModel.countDocuments({
+    createdAt: { $gte: today },
+  })
+}

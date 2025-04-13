@@ -5,9 +5,14 @@ import {
 } from "@/db/crud/productCrud"
 import { NextResponse } from "next/server"
 import { getTranslations } from "next-intl/server"
-import { getProductSchema } from "@/features/admin/business/products/utils/product"
+import {
+  getProductSchema,
+  updateStripeProduct,
+} from "@/features/admin/business/products/utils/product"
 import * as yup from "yup"
 import { uploadPublicPicture } from "@/utils/database/blobService"
+import log from "@/lib/log"
+import { logKeys } from "@/assets/options/config"
 
 export async function DELETE(req, { params }) {
   const { Id } = params
@@ -88,6 +93,29 @@ export async function PUT(req, { params }) {
       )
     }
 
+    const labelObj = JSON.parse(label)
+    const descriptionObj = JSON.parse(description)
+    const name = labelObj.en || Object.values(labelObj)[0]
+    const desc = descriptionObj.en || Object.values(descriptionObj)[0]
+    const currentProduct = await findProduct({ _id: Id })
+
+    if (!currentProduct) {
+      return NextResponse.json(
+        { error: "ProductNotFound", message: "Product not found" },
+        { status: 404 }
+      )
+    }
+
+    const stripeData = await updateStripeProduct({
+      stripeProductId: currentProduct.stripeProductId,
+      name,
+      description: desc,
+      price: JSON.parse(price),
+      priceMonthly: JSON.parse(priceMonthly),
+      priceAnnual: JSON.parse(priceAnnual),
+      subscription: JSON.parse(subscription),
+      taxe: JSON.parse(taxe),
+    })
     const updatedData = {
       label: JSON.parse(label),
       description: JSON.parse(description),
@@ -102,6 +130,11 @@ export async function PUT(req, { params }) {
       isActive,
       subscription: JSON.parse(subscription),
       ...(picture && { picture }),
+      stripeProductId: stripeData.stripeProductId,
+      stripePriceIdMonthly: stripeData.stripePriceIdMonthly,
+      stripePriceIdAnnual: stripeData.stripePriceIdAnnual,
+      stripePriceId: stripeData.stripePriceId,
+      stripeTaxId: stripeData.stripeTaxId,
     }
     const updatedProduct = await updateProduct(Id, updatedData)
 
@@ -111,6 +144,12 @@ export async function PUT(req, { params }) {
         { status: 404 }
       )
     }
+
+    log.systemInfo({
+      logKey: logKeys.shopSettingsEdit.key,
+      message: "Product updated",
+      data: updatedProduct,
+    })
 
     return NextResponse.json(
       { success: true, product: updatedProduct },
@@ -128,6 +167,16 @@ export async function PUT(req, { params }) {
         { status: 400 }
       )
     }
+
+    log.systemError({
+      logKey: logKeys.shopSettingsError.key,
+      message: "Failed to update product",
+      technicalMessage: error.message,
+      isError: true,
+      data: {
+        error,
+      },
+    })
 
     return NextResponse.json(
       { error: "InternalServerError", message: "Something went wrong" },

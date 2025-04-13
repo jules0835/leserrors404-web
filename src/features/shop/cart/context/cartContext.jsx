@@ -6,6 +6,7 @@ import {
   removeProductFromCart,
   updateProductQuantity,
   removeVoucher,
+  updateBillingCycle,
 } from "@/features/shop/cart/utils/cartService"
 import { createContext, useContext, useState, useEffect } from "react"
 
@@ -77,6 +78,13 @@ export const CartProvider = ({ children }) => {
       throw new Error(error.message)
     }
   }
+  const updateProdBillingCycle = async (productId, billingCycle) => {
+    const result = await updateBillingCycle(productId, billingCycle)
+
+    if (result) {
+      updateCartCount()
+    }
+  }
 
   return (
     <CartContext.Provider
@@ -89,6 +97,7 @@ export const CartProvider = ({ children }) => {
         updateProdCart,
         applyCartVoucher,
         removeCartVoucher,
+        updateProdBillingCycle,
       }}
     >
       {children}

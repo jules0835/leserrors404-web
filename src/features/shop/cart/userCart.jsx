@@ -1,6 +1,6 @@
 "use client"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
-import { getCart } from "./utils/cartService"
+import { getCart } from "@/features/shop/cart/utils/cartService"
 import { useCart } from "@/features/shop/cart/context/cartContext"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
@@ -19,7 +19,8 @@ export default function UserCart() {
   const [isUpdating, setIsUpdating] = useState(false)
   const { data: session } = useSession()
   const queryClient = useQueryClient()
-  const { updateProdCart, removeProdFromCart } = useCart()
+  const { updateProdCart, removeProdFromCart, updateProdBillingCycle } =
+    useCart()
   const {
     data: cart,
     isLoading,
@@ -77,6 +78,18 @@ export default function UserCart() {
       setIsUpdating(false)
     }
   }
+  const handleBillingCycleChange = async (productId, billingCycle) => {
+    try {
+      setIsUpdating(true)
+      await updateProdBillingCycle(productId, billingCycle)
+      await queryClient.invalidateQueries({ queryKey: ["cart"] })
+      await queryClient.refetchQueries({ queryKey: ["cart"] })
+    } catch (errorUpdate) {
+      toast.error(`An error occurred, please try again.${errorUpdate}`)
+    } finally {
+      setIsUpdating(false)
+    }
+  }
 
   return (
     <div className="container mx-auto pb-20 pt-10">
@@ -116,6 +129,7 @@ export default function UserCart() {
                   item={item}
                   handleQuantityChange={handleQuantityChange}
                   handleRemoveProduct={handleRemoveProduct}
+                  handleBillingCycleChange={handleBillingCycleChange}
                   isUpdating={isUpdating}
                 />
               ))}

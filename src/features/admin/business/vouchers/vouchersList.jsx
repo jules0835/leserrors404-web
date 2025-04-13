@@ -35,7 +35,7 @@ import {
 import DataGridSkeleton from "@/components/skeleton/DataGridSkeleton"
 import { useTranslations } from "next-intl"
 import { useRouter } from "@/i18n/routing"
-import NewVoucher from "./newVoucher"
+import NewVoucher from "@/features/admin/business/vouchers/newVoucher"
 import toast from "react-hot-toast"
 
 export default function VouchersList() {

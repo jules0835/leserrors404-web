@@ -269,6 +269,27 @@ export const resetUserCart = async (userId) => {
     { new: true }
   )
 }
+
+export const updateBillingCycle = async (cartId, productId, billingCycle) => {
+  await mwdb()
+
+  const cart = await CartModel.findOneAndUpdate(
+    { _id: cartId, "products.product": productId },
+    {
+      $set: {
+        "products.$.billingCycle": billingCycle,
+        updatedAt: new Date(),
+      },
+    },
+    { new: true }
+  ).populate("products.product voucher")
+
+  if (!cart) {
+    throw new Error("Cart or product not found")
+  }
+
+  return calculateCartTotals(cart)
+}
 const calculateCartTotals = async (cart) => {
   await cart.populate("products.product voucher")
   const subtotal = cart.products.reduce((sum, item) => {

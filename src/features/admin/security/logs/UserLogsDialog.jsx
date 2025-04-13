@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import UserLogsList from "./UserLogsList"
+import UserLogsList from "@/features/admin/security/logs/UserLogsList"
 import { useTranslations } from "next-intl"
 
 export default function UserLogsDialog({ userId, isOpen, onClose }) {

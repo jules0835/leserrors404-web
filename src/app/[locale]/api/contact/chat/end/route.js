@@ -1,5 +1,6 @@
 import { logKeys } from "@/assets/options/config"
 import {
+  endChat,
   findChatByIdForChatBot,
   findChatByUserIdForChatBot,
 } from "@/db/crud/chatCrud"
@@ -27,10 +28,7 @@ export async function POST(req) {
       return NextResponse.json({ success: true })
     }
 
-    chat.isActive = false
-    chat.closeBy = "USER"
-    chat.endedAt = new Date()
-    await chat.save()
+    await endChat(chat._id, "USER")
 
     return NextResponse.json({ success: true })
   } catch (error) {

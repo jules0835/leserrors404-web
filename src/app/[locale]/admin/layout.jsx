@@ -13,6 +13,7 @@ export default function AdminLayout({ children }) {
   const t = useTranslations("")
   const pathname = usePathname()
   const isAdminInbox = pathname.includes("/admin/support/inbox")
+  const isHomeAdmin = pathname.endsWith("/admin")
 
   return (
     <div className="flex flex-col">
@@ -24,7 +25,7 @@ export default function AdminLayout({ children }) {
             className={isAdminInbox ? "flex-1 overflow-hidden" : "min-h-screen"}
           >
             <div className={`${isAdminInbox ? "" : "mx-7 my-2"}`}>
-              {!isAdminInbox && (
+              {!isAdminInbox && !isHomeAdmin && (
                 <div>
                   <h1 className="text-2xl font-semibold">
                     {t(returnPageTitleTranslation(pathname))}

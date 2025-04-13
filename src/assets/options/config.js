@@ -552,6 +552,12 @@ export const pagesNames = [
     subTitleKey: "Admin.Stats.Carts.subTitle",
     url: "/admin/stats/carts",
   },
+  {
+    title: "Tickets",
+    titleKey: "Admin.Support.Tickets.title",
+    subTitleKey: "Admin.Support.Tickets.subTitle",
+    url: "/admin/support/tickets",
+  },
 ]
 
 export const emptyCarouselPart = {

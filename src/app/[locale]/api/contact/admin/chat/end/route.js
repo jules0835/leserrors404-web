@@ -20,16 +20,7 @@ export async function POST(req) {
       )
     }
 
-    const chat = await endChat(chatId)
-
-    if (!chat.isActive) {
-      return NextResponse.json({ success: true })
-    }
-
-    chat.isActive = false
-    chat.closeBy = "ADMIN"
-    chat.endedAt = new Date()
-    await chat.save()
+    await endChat(chatId, "ADMIN")
 
     log.systemInfo({
       logKey: logKeys.chatbotInfo.key,

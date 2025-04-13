@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl"
-import { useChat } from "./context/chatContext"
+import { useChat } from "@/features/contact/chatbot/context/chatContext"
 import DButton from "@/components/ui/DButton"
 import { BotMessageSquare } from "lucide-react"
 import { useState } from "react"

@@ -12,11 +12,19 @@ import {
 import Image from "next/image"
 import { useTranslations } from "next-intl"
 import { useRouter } from "@/i18n/routing"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function CartProduct({
   item,
   handleQuantityChange,
   handleRemoveProduct,
+  handleBillingCycleChange,
   isUpdating,
 }) {
   const t = useTranslations("Shop.Cart")
@@ -160,6 +168,25 @@ export default function CartProduct({
                     <Plus className="h-4 w-4" />
                   </Button>
                 </div>
+                {item.product.subscription && (
+                  <Select
+                    value={item.billingCycle}
+                    onValueChange={(value) =>
+                      handleBillingCycleChange(item.product._id, value)
+                    }
+                    disabled={
+                      isUpdating || !item.product.isActive || isOutOfStock
+                    }
+                  >
+                    <SelectTrigger className="w-[120px]">
+                      <SelectValue placeholder={t("selectBillingCycle")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="month">{t("monthly")}</SelectItem>
+                      <SelectItem value="year">{t("annual")}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                )}
               </div>
             </div>
           </div>

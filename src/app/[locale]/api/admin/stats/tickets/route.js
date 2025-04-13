@@ -2,13 +2,14 @@ import { NextResponse } from "next/server"
 import { findTicketsStats } from "@/features/admin/stats/services/statsBackService"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
-import { getReqUserId } from "@/features/auth/utils/getAuthParam"
+import { getReqIsAdmin, getReqUserId } from "@/features/auth/utils/getAuthParam"
 
 export async function GET(req) {
   try {
     const userId = getReqUserId(req)
+    const isAdmin = getReqIsAdmin(req)
 
-    if (!userId) {
+    if (!userId || !isAdmin) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
