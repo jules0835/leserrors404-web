@@ -9,7 +9,7 @@ export default async function ChatMessageEmail({
   chatId,
 }) {
   const t = await getTranslations({ locale, namespace: "Email" })
-  const chatUrl = `${process.env.NEXT_PUBLIC_APP_URL}/${webAppSettings.urls.supportChat}/${chatId}`
+  const chatUrl = `${process.env.NEXT_PUBLIC_APP_URL}/${locale}/${webAppSettings.urls.supportChat}/${chatId}`
 
   return (
     <Section

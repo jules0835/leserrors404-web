@@ -8,7 +8,7 @@ export default function ErrorFront() {
   const t = useTranslations("Error.Front")
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center">
       <h1 className="text-2xl font-bold text-center mt-4">
         {t("errorFrontTitle")}
       </h1>

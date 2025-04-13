@@ -12,7 +12,7 @@ export const metadata = {
   title: "Cyna",
   description: "Web App For Cyna",
   icons: {
-    icon: "/public/favicon.ico",
+    icon: "/icon.png",
   },
 }
 

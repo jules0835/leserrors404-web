@@ -12,7 +12,7 @@ import { getSubscriptionStatusColor } from "@/features/user/business/subscriptio
 import { ArrowRight, CheckCircle2, FileText } from "lucide-react"
 import { useRouter } from "@/i18n/routing"
 import ErrorFront from "@/components/navigation/error"
-import SuccessCheckoutSkeleton from "./SuccessCheckoutSkeleton"
+import SuccessCheckoutSkeleton from "@/features/shop/checkout/SuccessCheckoutSkeleton"
 
 export default function SuccessCheckout() {
   const t = useTranslations("Shop.Checkout")

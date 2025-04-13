@@ -71,6 +71,25 @@ export const findAdminChats = async () => {
   })
 }
 
+export const findAdminChatsForTickets = async () => {
+  await mwdb()
+
+  const chats = await ChatModel.find({
+    state: { $in: ["CHAT_ADMIN", "INBOX"] },
+  })
+    .populate("user")
+    .lean()
+
+  return chats.sort((a, b) => {
+    const lastMessageA =
+      a.messages[a.messages.length - 1]?.sendDate || a.createdAt
+    const lastMessageB =
+      b.messages[b.messages.length - 1]?.sendDate || b.createdAt
+
+    return new Date(lastMessageB) - new Date(lastMessageA)
+  })
+}
+
 export const findAdminChatById = async (chatId) => {
   await mwdb()
 
@@ -191,9 +210,19 @@ export const endChat = async (chatId, closedBy = "ADMIN") => {
 
   const chat = await ChatModel.findById(chatId)
 
-  if (!chat || !chat.isActive) {
+  if (!chat) {
     return null
   }
+
+  if (!chat.isActive) {
+    return chat
+  }
+
+  chat.messages.push({
+    sender: "BOT",
+    message: closedBy === "ADMIN" ? "Closed by admin" : "Closed by user",
+    sendDate: new Date(),
+  })
 
   chat.isActive = false
   chat.closeBy = closedBy
@@ -504,4 +533,17 @@ export const getChatStats = async ({ period = "7d", realTime = false }) => {
       maxResolutionTime: 0,
     },
   }
+}
+
+export const getTodayOpenTicketsCount = async () => {
+  await mwdb()
+
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  return await ChatModel.countDocuments({
+    state: { $in: ["CHAT_ADMIN", "INBOX"] },
+    isActive: true,
+    createdAt: { $gte: today },
+  })
 }

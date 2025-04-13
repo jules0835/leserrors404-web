@@ -66,7 +66,6 @@ export default function AdminSideNavbar() {
                 <Collapsible
                   key={item.title}
                   asChild
-                  defaultOpen={item.isActive}
                   className="group/collapsible"
                 >
                   <SidebarMenuItem>

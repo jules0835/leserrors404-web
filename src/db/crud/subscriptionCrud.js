@@ -193,3 +193,11 @@ export const getSubscriptionStats = async ({
     totalSubscriptions,
   }
 }
+
+export const getActiveSubscriptionsCount = async () => {
+  await mwdb()
+
+  return await SubscriptionModel.countDocuments({
+    "stripe.status": "active",
+  })
+}

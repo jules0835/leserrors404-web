@@ -21,7 +21,7 @@ import DButton from "@/components/ui/DButton"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import ProductPageSkeleton from "./productPageSkeleton"
+import ProductPageSkeleton from "@/features/shop/product/productPageSkeleton"
 import { useRouter } from "@/i18n/routing"
 
 export default function ShopProductPage() {

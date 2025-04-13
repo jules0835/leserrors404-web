@@ -63,3 +63,23 @@ export const saveAdminSummary = async (chatId, adminSummary) => {
 
   return response.data
 }
+
+export const getTicketsList = async ({
+  limit = 10,
+  page = 1,
+  query = "",
+  sortField = "createdAt",
+  sortOrder = "desc",
+} = {}) => {
+  const response = await axios.get("/api/admin/support/tickets", {
+    params: {
+      limit,
+      page,
+      query,
+      sortField,
+      sortOrder,
+    },
+  })
+
+  return response.data
+}

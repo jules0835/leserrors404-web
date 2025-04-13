@@ -1,13 +1,5 @@
-import { useTranslations } from "next-intl"
-import { Link } from "@/i18n/routing"
+import AdminDashboard from "@/features/admin/dashboard/adminDashboard"
 
 export default function Home() {
-  const t = useTranslations("HomeAdmin")
-
-  return (
-    <div>
-      <h1>{t("title")}</h1>
-      <Link href="/about">{t("about")}</Link>
-    </div>
-  )
+  return <AdminDashboard />
 }

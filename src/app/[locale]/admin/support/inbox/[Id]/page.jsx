@@ -1,11 +1,9 @@
-"use client"
-
-import AdminInbox from "@/features/admin/support/inbox/adminInbox"
+import AdminConversation from "@/features/admin/support/inbox/adminConversation"
 
 export default function AdminInboxPage() {
   return (
-    <div className="h-full">
-      <AdminInbox />
+    <div className="flex-1 flex">
+      <AdminConversation />
     </div>
   )
 }

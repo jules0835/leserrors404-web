@@ -5,11 +5,11 @@ import { Send, Headset, MessageSquareOff } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { useUserInbox } from "./context/userInboxContext"
+import { useUserInbox } from "@/features/user/support/inbox/context/userInboxContext"
 import { useTranslations } from "next-intl"
-import UserChatMessage from "./userChatMessage"
+import UserChatMessage from "@/features/user/support/inbox/userChatMessage"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
-import { updateUserTypingStatus } from "./service/userInboxService"
+import { updateUserTypingStatus } from "@/features/user/support/inbox/service/userInboxService"
 import {
   Dialog,
   DialogContent,

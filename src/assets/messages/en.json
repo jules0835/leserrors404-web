@@ -315,6 +315,8 @@
         }
       },
       "Carts": {
+        "title": "Carts statistics",
+        "subTitle": "View the carts statistics by period",
         "realTime": "Real Time",
         "totalActiveCarts": "Total Active Carts",
         "totalConvertedCarts": "Total Converted Carts",
@@ -728,7 +730,8 @@
         "userLogs": "User Logs",
         "userLogsDescription": "View the logs for the selected user.",
         "authorName": "Author",
-        "author": "Author"
+        "author": "Author",
+        "latestLogs": "Latest Logs"
       }
     },
     "Business": {
@@ -1135,7 +1138,9 @@
           "cancel": "Cancelled",
           "failed": "Failed",
           "refund": "Refunded"
-        }
+        },
+        "customer": "Customer",
+        "latestOrders": "Latest Orders"
       },
       "Customers": {
         "CustomerDetails": {
@@ -1451,6 +1456,41 @@
         "voucherType": "Type of good",
         "yes": "Yes"
       }
+    },
+    "Support": {
+      "Tickets": {
+        "title": "Tickets",
+        "subTitle": "View all tickets",
+        "user": "User",
+        "status": "Status",
+        "open": "Open",
+        "closed": "Closed",
+        "responseTime": "Response Time",
+        "createdAt": "Created At",
+        "lastMessageType": "Last Message",
+        "actionDone": "Action Done",
+        "waitingAction": "Waiting Action",
+        "viewDetails": "View Details",
+        "searchPlaceholder": "Search for a ticket",
+        "columns": "Columns",
+        "errorLoadingData": "Error while loading tickets",
+        "noResults": "No Results",
+        "previous": "Previous",
+        "next": "Next",
+        "bot": "Bot",
+        "admin": "Admin",
+        "latestTickets": "Latest Tickets"
+      }
+    },
+    "Dashboard": {
+      "welcome": "Hi {userName}",
+      "welcomeMessage": "Here is a summary of the business activity",
+      "errorTitle": "Error",
+      "errorDescription": "Error while loading datas",
+      "todayOrders": "Today Orders",
+      "todayRegistrations": "Today Registrations",
+      "todayOpenTickets": "Today Open Tickets",
+      "activeSubscriptions": "Active Subscriptions"
     }
   },
   "User": {
@@ -1739,7 +1779,6 @@
       }
     },
     "Support": {
-      "title": "Support",
       "OpenNewTicket": {
         "title": "Open Ticket"
       },
@@ -1813,7 +1852,9 @@
       "chatNowDesc": "Chat with our support team for immediate assistance.",
       "sendMessageDesc": "Send a message to our support team and we will get back to you as soon as possible.",
       "getNeedHelp": "You have a question, suggestion, or issue? We are here to help!",
-      "getNeedHelpDesc": "You can find answers to your questions in our FAQ section. If you don't find what you're looking for, feel free to reach out to us directly through the chat or by sending us a message."
+      "getNeedHelpDesc": "You can find answers to your questions in our FAQ section. If you don't find what you're looking for, feel free to reach out to us directly through the chat or by sending us a message.",
+      "SELECT_ORDER": "In order to help you, please select an order related to your question by clicking on the button below",
+      "SELECT_SUBSCRIPTION": "In order to help you, please select a subscription related to your question by clicking on the button below"
     }
   },
   "DefaultNotFound": "ERROR: Translation not found",
@@ -1963,7 +2004,7 @@
       "VoucherNotActive": "Voucher not valid",
       "VoucherNotActiveSubtitle": "The voucher applied to your cart is expired or not available for your order, please remove to proceed to checkout.",
       "mixedProductTypes": "Please separate your orders for different products.",
-      "mixedProductTypesSubtitle": "You can't checkout with mixed product types. Please separate different subscription and on time buy product.",
+      "mixedProductTypesSubtitle": "You cannot proceed to checkout with mixed product types or billing periods. Please separate subscriptions and one-time purchases, and ensure all products share the same billing cycle (monthly or yearly).",
       "userProfileIncomplete": "Your profile is incomplete, some fields are missing.",
       "productNotActive": "Some products are not available",
       "productNotActiveSubtitle": "Please remove the product that is not available to proceed to checkout.",
@@ -1984,7 +2025,14 @@
       "productOutOfStockSubtitle": "One of the product in your carte is Out Of Stock, remove it ton procced to the payment",
       "PRODUCT_OUT_OF_STOCK": "One of the product in your cart is Out Of Stock, please update the quantity or remove the product",
       "PRODUCT_OUT_OF_STOCK_USER_QUANTITY": "The quantity of a product in your cart is too hight compare to our stock, please update the quantity or remove the product",
-      "outOfStock": "Out Of Stock"
+      "outOfStock": "Out Of Stock",
+      "VOUCHER_NOT_ACTIVE": "Voucher not valid, please remove it to proceed to checkout",
+      "MIXED_PRODUCT_TYPES": "The products in your cart have different billing periods, please separate them to proceed to checkout",
+      "USER_PROFILE_INCOMPLETE": "Your profile is incomplete, please complete it to proceed to checkout",
+      "PRODUCT_NOT_ACTIVE": "One of the product in your cart is not available, please remove it to proceed to checkout",
+      "ProductOutOfStock": "Product Out Of Stock",
+      "ProductNotActive": "One of the product is not available",
+      "ProductOutOfStockUserQuantity": "One of the product is not available with the quantity selected"
     },
     "Product": {
       "outOfStock": "Out of stock",

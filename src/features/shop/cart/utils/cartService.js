@@ -230,6 +230,19 @@ export const hasMixedProductTypes = (cart) => {
     (item) => !item.product.subscription
   )
 
+  if (hasSubscription) {
+    const billingCycles = new Set()
+    cart.products.forEach((item) => {
+      if (item.product.subscription) {
+        billingCycles.add(item.billingCycle)
+      }
+    })
+
+    if (billingCycles.size > 1) {
+      return true
+    }
+  }
+
   return hasSubscription && hasOneTimePurchase
 }
 
@@ -239,4 +252,27 @@ export const hasSubscriptions = (cart) => {
   }
 
   return cart.products.some((item) => item.product.subscription)
+}
+
+export const updateBillingCycle = async (productId, billingCycle) => {
+  try {
+    const cart = await getCart()
+
+    if (!cart) {
+      return false
+    }
+
+    const params = new URLSearchParams({
+      action: "updateBillingCycle",
+      productId,
+      billingCycle,
+    })
+    const response = await fetch(
+      `/api/shop/cart/${cart._id}?${params.toString()}`
+    )
+
+    return response.ok
+  } catch {
+    return false
+  }
 }

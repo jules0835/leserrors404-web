@@ -22,7 +22,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
-import AdminSubscriptionsFilterBar from "./adminSubscriptionFilterBar"
+import AdminSubscriptionsFilterBar from "@/features/admin/business/subscriptions/adminSubscriptionFilterBar"
 import { useState } from "react"
 
 export default function AdminSubscriptionList() {

@@ -14,7 +14,7 @@ import {
 } from "@/features/user/business/orders/utils/userOrder"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
 import ErrorFront from "@/components/navigation/error"
-import AdminOrderTreatment from "./adminOrderTreatment"
+import AdminOrderTreatment from "@/features/admin/business/orders/adminOrderTreatment"
 import AdminOrderDetailsSkeleton from "@/features/admin/business/orders/AdminOrderDetailsSkeleton"
 import { useState } from "react"
 import {

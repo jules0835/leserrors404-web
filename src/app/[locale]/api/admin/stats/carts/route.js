@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server"
 import { getCartStats } from "@/db/crud/cartCrud"
-import { getReqUserId } from "@/features/auth/utils/getAuthParam"
+import { getReqIsAdmin, getReqUserId } from "@/features/auth/utils/getAuthParam"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
 
 export async function GET(req) {
   try {
     const userId = getReqUserId(req)
+    const isAdmin = getReqIsAdmin(req)
 
-    if (!userId) {
+    if (!userId || !isAdmin) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 

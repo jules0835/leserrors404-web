@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query"
 import { useTranslations } from "next-intl"
 import { Link } from "@/i18n/routing"
 import { useSearchParams, useRouter } from "next/navigation"
-import { getStatusColor } from "./utils/userOrder"
+import { getStatusColor } from "@/features/user/business/orders/utils/userOrder"
 import {
   Table,
   TableBody,

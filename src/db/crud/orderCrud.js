@@ -206,3 +206,14 @@ export const getSalesStats = async ({
     size,
   }
 }
+
+export const getTodayOrdersCount = async () => {
+  await mwdb()
+
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  return await OrderModel.countDocuments({
+    createdAt: { $gte: today },
+  })
+}
