@@ -1,6 +1,6 @@
 /* eslint-disable require-unicode-regexp */
 /* eslint-disable max-params */
-import { ProductModel } from "@/db/models/indexModels"
+import { ProductModel, OrderModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { webAppSettings } from "@/assets/options/config"
 
@@ -205,4 +205,142 @@ export const getProductByStripeId = async (stripeId) => {
   const product = await ProductModel.findOne({ stripeProductId: stripeId })
 
   return product
+}
+
+export const getProductStats = async () => {
+  await mwdb()
+
+  const stockStats = await ProductModel.aggregate([
+    { $match: { isActive: true } },
+    {
+      $lookup: {
+        from: "categories",
+        localField: "categorie",
+        foreignField: "_id",
+        as: "categorieDetails",
+      },
+    },
+    { $unwind: "$categorieDetails" },
+    {
+      $group: {
+        _id: "$_id",
+        totalStock: { $sum: "$stock" },
+        totalValue: { $sum: { $multiply: ["$price", "$stock"] } },
+        product: { $first: "$$ROOT" },
+        categorie: { $first: "$categorieDetails" },
+      },
+    },
+    { $sort: { totalStock: -1 } },
+    { $limit: 10 },
+  ])
+  const salesStats = await OrderModel.aggregate([
+    { $unwind: "$products" },
+    {
+      $lookup: {
+        from: "products",
+        localField: "products.productId",
+        foreignField: "_id",
+        as: "productDetails",
+      },
+    },
+    { $unwind: "$productDetails" },
+    {
+      $lookup: {
+        from: "categories",
+        localField: "productDetails.categorie",
+        foreignField: "_id",
+        as: "categorieDetails",
+      },
+    },
+    { $unwind: "$categorieDetails" },
+    {
+      $group: {
+        _id: "$products.productId",
+        totalSales: { $sum: "$products.quantity" },
+        totalRevenue: {
+          $sum: { $multiply: ["$products.quantity", "$products.price"] },
+        },
+        product: { $first: "$productDetails" },
+        categorie: { $first: "$categorieDetails" },
+      },
+    },
+    { $sort: { totalSales: -1 } },
+    { $limit: 10 },
+  ])
+
+  return {
+    stockStats,
+    salesStats,
+  }
+}
+
+export const getCategoriesStats = async () => {
+  await mwdb()
+
+  const stockStats = await ProductModel.aggregate([
+    { $match: { isActive: true } },
+    {
+      $lookup: {
+        from: "categories",
+        localField: "categorie",
+        foreignField: "_id",
+        as: "categorieDetails",
+      },
+    },
+    { $unwind: "$categorieDetails" },
+    {
+      $group: {
+        _id: "$categorie",
+        totalStock: { $sum: "$stock" },
+        totalValue: { $sum: { $multiply: ["$price", "$stock"] } },
+        products: { $push: "$$ROOT" },
+        categorie: { $first: "$categorieDetails" },
+        productCount: { $sum: 1 },
+      },
+    },
+    { $sort: { totalStock: -1 } },
+  ])
+  const salesStats = await OrderModel.aggregate([
+    { $unwind: "$products" },
+    {
+      $lookup: {
+        from: "products",
+        localField: "products.productId",
+        foreignField: "_id",
+        as: "productDetails",
+      },
+    },
+    { $unwind: "$productDetails" },
+    {
+      $lookup: {
+        from: "categories",
+        localField: "productDetails.categorie",
+        foreignField: "_id",
+        as: "categorieDetails",
+      },
+    },
+    { $unwind: "$categorieDetails" },
+    {
+      $group: {
+        _id: "$productDetails.categorie",
+        totalSales: { $sum: "$products.quantity" },
+        totalRevenue: {
+          $sum: { $multiply: ["$products.quantity", "$products.price"] },
+        },
+        products: { $push: "$productDetails" },
+        categorie: { $first: "$categorieDetails" },
+      },
+    },
+    { $sort: { totalSales: -1 } },
+  ])
+  const totalCategories = stockStats.length
+  const averageStockPerCategory =
+    stockStats.reduce((sum, item) => sum + item.totalStock, 0) / totalCategories
+
+  return {
+    stockStats,
+    salesStats,
+    totalCategories,
+    averageStockPerCategory,
+  }
 }

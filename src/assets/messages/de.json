@@ -1258,6 +1258,163 @@
       "searchUser": "Benutzer suchen",
       "selectUser": "Wählen Sie einen Benutzer aus",
       "supportInbox": "Posteingang unterstützen"
+    },
+    "Stats": {
+      "Carts": {
+        "avgPostOrderValue": "Durchschnittliche Reihenfolge",
+        "avgPreOrderValue": "Durchschnittliche Karren",
+        "cartDistribution": "Karrenverteilung",
+        "guestCarts": "Gästewagen",
+        "postOrderStats": "Bestellstatistiken",
+        "preOrderStats": "Karren Statistiken",
+        "realTime": "Echtzeit",
+        "table": {
+          "cartCount": "Wagen zählen",
+          "product": "Produkt",
+          "totalQuantity": "Menge"
+        },
+        "topProducts": "Top -Produkte",
+        "totalActiveCarts": "Gesamt aktive Karren",
+        "totalConvertedCarts": "Total konvertierte Karren",
+        "totalDiscount": "Rabatt",
+        "totalSubtotal": "Zwischensumme",
+        "totalTax": "Steuer",
+        "totalValue": "Gesamt",
+        "userCarts": "Benutzerwagen"
+      },
+      "Categories": {
+        "averageStockPerCategory": "Durchschnittliche Aktien pro Kategorie",
+        "salesByCategory": "Verkäufe nach Kategorie",
+        "stockByCategory": "Aktien nach Kategorie",
+        "subTitle": "Sehen Sie sich die Kategorienstatistiken nach Aktien und Verkäufen an",
+        "table": {
+          "category": "Kategorie",
+          "revenue": "Einnahmen",
+          "sales": "Verkäufe",
+          "stock": "Aktie",
+          "value": "Wert"
+        },
+        "title": "Kategorien Statistiken",
+        "totalCategories": "Gesamtkategorien"
+      },
+      "GroupByOptions": {
+        "day": "Tag",
+        "month": "Monat",
+        "week": "Woche"
+      },
+      "Periods": {
+        "30d": "30 letzte Tage",
+        "7d": "7 Letzte Tage",
+        "90d": "90 Letzte Tage"
+      },
+      "Products": {
+        "subTitle": "Sehen Sie sich die Produktstatistiken nach Aktien und Verkäufen an",
+        "table": {
+          "product": "Produkt",
+          "revenue": "Einnahmen",
+          "sales": "Verkäufe",
+          "stock": "Aktie",
+          "value": "Wert"
+        },
+        "title": "Produktstatistiken",
+        "topSellingProducts": "Mast -Selling -Produkte",
+        "topStockedProducts": "Erstklassiges Produkt",
+        "totalRevenue": "Gesamtumsatz",
+        "totalSales": "Gesamtumsatz",
+        "totalStock": "Gesamtbestand",
+        "totalValue": "Gesamtwert"
+      },
+      "Sales": {
+        "averageOrderValue": "Durchschnittlicher Bestellwert",
+        "ordersOverTime": "Bestellungen im Laufe der Zeit",
+        "productsSold": "Produkte verkauft",
+        "realTime": "Echtzeit",
+        "salesOverTime": "Umsatz im Laufe der Zeit",
+        "subTitle": "Sehen Sie sich die Verkaufsstatistiken nach Zeitraum an",
+        "title": "Verkaufsstatistik",
+        "totalOrders": "Gesamtbestellungen",
+        "totalSales": "Gesamtumsatz"
+      },
+      "Subscriptions": {
+        "activeSubscriptions": "Aktive Abonnements",
+        "billingCycle": {
+          "annual": "Jährlich",
+          "monthly": "Monatlich",
+          "unknown": "Unbekannt"
+        },
+        "billingCycleDistribution": "Abrechnungszyklusverteilung",
+        "canceledSubscriptions": "Stornierte Abonnements",
+        "realTime": "Echtzeit",
+        "status": {
+          "active": "Aktiv",
+          "canceled": "Abgesagt",
+          "pending": "Ausstehend",
+          "preCanceled": "Vorgezogen",
+          "unknown": "Unbekannt"
+        },
+        "statusDistribution": "Statusverteilung",
+        "subTitle": "Sehen Sie sich die Abonnementstatistiken nach Zeitraum an",
+        "table": {
+          "product": "Produkt",
+          "subscriptionCount": "Abonnementzahl",
+          "totalQuantity": "Gesamtmenge"
+        },
+        "title": "Abonnementstatistiken",
+        "topProducts": "Top -Produkte",
+        "totalSubscriptions": "Gesamtabonnements"
+      },
+      "Tickets": {
+        "activeBotChats": "Aktiver Bot -Chat",
+        "activeTickets": "Aktive Tickets",
+        "averageResponseTime": "Durchschnittliche Reaktionszeit",
+        "botOnlyChats": "Bot nur Chat",
+        "closedTickets": "Geschlossene Tickets",
+        "closureBy": {
+          "ADMIN": "Administrator",
+          "USER": "Benutzer",
+          "unknown": "Unbekannt"
+        },
+        "closureDistribution": "Schließverteilung",
+        "maxResolutionTime": "Maximale Auflösungszeit",
+        "minResolutionTime": "Min Auflösungszeit",
+        "realTime": "Echtzeit",
+        "responseTime": "Ansprechzeit",
+        "states": {
+          "CHAT_ADMIN": "Chat Admin",
+          "CHAT_BOT": "Chat -Bot",
+          "INBOX": "Posteingang",
+          "UNKNOWN": "Unbekannt"
+        },
+        "subTitle": "Sehen Sie sich die Tickets -Statistiken nach Zeitraum an",
+        "table": {
+          "closedTickets": "Geschlossene Tickets",
+          "email": "E-Mail",
+          "openTickets": "Tickets öffnen",
+          "totalTickets": "Gesamtkarten",
+          "user": "Benutzer"
+        },
+        "ticketDistribution": "Ticketverteilung",
+        "title": "Tickets Statistiken",
+        "topUsers": "Top -Benutzer"
+      },
+      "groupBy": "Gruppe von",
+      "groupByOptions": {
+        "day": "Tag",
+        "month": "Monat",
+        "week": "Woche"
+      },
+      "period": "Zeitraum",
+      "periods": {
+        "30d": "30 Tage",
+        "7d": "7 Tage",
+        "90d": "90 Tage"
+      },
+      "stats": {
+        "groupByOptions": {
+          "week": "Woche"
+        }
+      },
+      "title": "Statistiken"
     }
   },
   "DefaultNotFound": "FEHLER: Übersetzung nicht gefunden",
@@ -1301,7 +1458,10 @@
     "support": "Unterstützung",
     "vouchers": "Gutscheine",
     "inbox": "Posteingang",
-    "tickets": "Tickets"
+    "tickets": "Tickets",
+    "carts": "Karren",
+    "sales": "Verkäufe",
+    "stats": "Statistiken"
   },
   "navigation": {
     "admin": "Admin",

@@ -311,3 +311,197 @@ export const addMessageToChat = async (chatId, messageData) => {
 
   return await chat.save()
 }
+
+export const getChatStats = async ({ period = "7d", realTime = false }) => {
+  await mwdb()
+  const matchQuery = {}
+
+  if (!realTime) {
+    const startDate = new Date()
+
+    switch (period) {
+      case "7d":
+        startDate.setDate(startDate.getDate() - 7)
+
+        break
+
+      case "30d":
+        startDate.setDate(startDate.getDate() - 30)
+
+        break
+
+      case "90d":
+        startDate.setDate(startDate.getDate() - 90)
+
+        break
+    }
+
+    matchQuery.createdAt = { $gte: startDate }
+  }
+
+  const activeTickets = await ChatModel.countDocuments({
+    ...matchQuery,
+    state: { $in: ["INBOX", "CHAT_ADMIN"] },
+    isActive: true,
+  })
+  const closedTickets = await ChatModel.countDocuments({
+    ...matchQuery,
+    state: { $in: ["INBOX", "CHAT_ADMIN"] },
+    isActive: false,
+  })
+  const botOnlyChats = await ChatModel.countDocuments({
+    ...matchQuery,
+    state: "CHAT_BOT",
+    isActive: false,
+  })
+  const activeBotChats = await ChatModel.countDocuments({
+    ...matchQuery,
+    state: "CHAT_BOT",
+    isActive: true,
+  })
+  const avgResponseTime = await ChatModel.aggregate([
+    {
+      $match: {
+        ...matchQuery,
+        state: { $in: ["INBOX", "CHAT_ADMIN"] },
+        isActive: false,
+      },
+    },
+    {
+      $project: {
+        responseTime: {
+          $subtract: ["$endedAt", "$createdAt"],
+        },
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        avgResponseTime: { $avg: "$responseTime" },
+      },
+    },
+  ])
+  const topUsers = await ChatModel.aggregate([
+    {
+      $match: {
+        ...matchQuery,
+        state: { $in: ["INBOX", "CHAT_ADMIN"] },
+      },
+    },
+    {
+      $group: {
+        _id: "$user",
+        ticketCount: { $sum: 1 },
+        closedTickets: {
+          $sum: { $cond: [{ $eq: ["$isActive", false] }, 1, 0] },
+        },
+        openTickets: {
+          $sum: { $cond: [{ $eq: ["$isActive", true] }, 1, 0] },
+        },
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "_id",
+        foreignField: "_id",
+        as: "userDetails",
+      },
+    },
+    {
+      $unwind: {
+        path: "$userDetails",
+        preserveNullAndEmptyArrays: true,
+      },
+    },
+    {
+      $project: {
+        userId: "$_id",
+        userName: {
+          $ifNull: [
+            {
+              $concat: ["$userDetails.firstName", " ", "$userDetails.lastName"],
+            },
+            "Unknown",
+          ],
+        },
+        userEmail: { $ifNull: ["$userDetails.email", "N/A"] },
+        ticketCount: 1,
+        closedTickets: 1,
+        openTickets: 1,
+      },
+    },
+    {
+      $sort: { ticketCount: -1 },
+    },
+    {
+      $limit: 10,
+    },
+  ])
+  const ticketDistribution = await ChatModel.aggregate([
+    {
+      $match: matchQuery,
+    },
+    {
+      $group: {
+        _id: "$state",
+        count: { $sum: 1 },
+      },
+    },
+  ])
+  const closureDistribution = await ChatModel.aggregate([
+    {
+      $match: {
+        ...matchQuery,
+        state: { $in: ["INBOX", "CHAT_ADMIN"] },
+        isActive: false,
+      },
+    },
+    {
+      $group: {
+        _id: "$closeBy",
+        count: { $sum: 1 },
+      },
+    },
+  ])
+  const resolutionTimeStats = await ChatModel.aggregate([
+    {
+      $match: {
+        ...matchQuery,
+        state: { $in: ["INBOX", "CHAT_ADMIN"] },
+        isActive: false,
+      },
+    },
+    {
+      $project: {
+        resolutionTime: {
+          $subtract: ["$endedAt", "$createdAt"],
+        },
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        avgResolutionTime: { $avg: "$resolutionTime" },
+        minResolutionTime: { $min: "$resolutionTime" },
+        maxResolutionTime: { $max: "$resolutionTime" },
+      },
+    },
+  ])
+
+  return {
+    activeTickets,
+    closedTickets,
+    botOnlyChats,
+    activeBotChats,
+    avgResponseTime: avgResponseTime[0]?.avgResponseTime || 0,
+    topUsers,
+    ticketDistribution,
+    closureDistribution,
+    resolutionTimeStats: resolutionTimeStats[0] || {
+      avgResolutionTime: 0,
+      minResolutionTime: 0,
+      maxResolutionTime: 0,
+    },
+  }
+}

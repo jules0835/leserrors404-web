@@ -1258,6 +1258,163 @@
       "searchUser": "Mutirhisi wa ku lavisisa .",
       "selectUser": "Hlawula mutirhisi .",
       "supportInbox": "Nseketelo Inbox ."
+    },
+    "Stats": {
+      "Carts": {
+        "avgPostOrderValue": "Xiringaniso xa oda .",
+        "avgPreOrderValue": "Swigolonyana swa le xikarhi .",
+        "cartDistribution": "Ku hangalasiwa ka xigolonyana .",
+        "guestCarts": "swigolonyana swa vaendzi .",
+        "postOrderStats": "Tioda ta switatimende .",
+        "preOrderStats": "Switatimende swa swigolonyana .",
+        "realTime": "Nkarhi wa xiviri .",
+        "table": {
+          "cartCount": "Nhlayo ya xigolonyana .",
+          "product": "Ximakiwa",
+          "totalQuantity": "Ntsengo"
+        },
+        "topProducts": "Switirhisiwa swa le henhla .",
+        "totalActiveCarts": "Nhlayo hinkwayo ya swigolonyana leswi tirhaka .",
+        "totalConvertedCarts": "Nhlayo hinkwayo ya swigolonyana leswi hundzuriweke .",
+        "totalDiscount": "Mbhukuto",
+        "totalSubtotal": "Nhlayo ya le hansi .",
+        "totalTax": "Xibalo xa xibalo .",
+        "totalValue": "Hinkwaswo",
+        "userCarts": "swigolonyana swa vatirhisi ."
+      },
+      "Categories": {
+        "averageStockPerCategory": "Xiringaniso xa xitoko hi xiyenge .",
+        "salesByCategory": "Ku xavisiwa hi xiyenge .",
+        "stockByCategory": "Xitoko hi xiyenge .",
+        "subTitle": "Languta tinhlayo ta tinhlayo hi switoko na ku xavisa .",
+        "table": {
+          "category": "Xiyenge",
+          "revenue": "Muholo",
+          "sales": "Ku Xavisiwa .",
+          "stock": "Xitoko",
+          "value": "Nkoka"
+        },
+        "title": "Tinhlayohlayo ta swiyenge .",
+        "totalCategories": "Swiyenge hinkwaswo ."
+      },
+      "GroupByOptions": {
+        "day": "Siku",
+        "month": "N'hweti",
+        "week": "Vhiki"
+      },
+      "Periods": {
+        "30d": "30 wa masiku yo hetelela .",
+        "7d": "7 wa masiku yo hetelela .",
+        "90d": "90 wa masiku yo hetelela ."
+      },
+      "Products": {
+        "subTitle": "Languta tinhlayo ta swikumiwa hi xitoko na ku xavisiwa .",
+        "table": {
+          "product": "Ximakiwa",
+          "revenue": "Muholo",
+          "sales": "Ku Xavisiwa .",
+          "stock": "Xitoko",
+          "value": "Nkoka"
+        },
+        "title": "Tinhlayo ta swilo leswi endliweke .",
+        "topSellingProducts": "Switirhisiwa swa le henhla swa ku xavisa .",
+        "topStockedProducts": "Xiendliwa lexi nga ni switoko swa le henhla .",
+        "totalRevenue": "Mali hinkwayo leyi nghenaka .",
+        "totalSales": "Nhlayo hinkwayo ya ku xavisiwa .",
+        "totalStock": "Xitoko hinkwaxo .",
+        "totalValue": "Ntsengo hinkwawo ."
+      },
+      "Sales": {
+        "averageOrderValue": "Ntsengo wa odara ya le xikarhi .",
+        "ordersOverTime": "Tioda hi ku famba ka nkarhi .",
+        "productsSold": "Switirhisiwa swi xavisiwile .",
+        "realTime": "Nkarhi wa xiviri .",
+        "salesOverTime": "Ku xavisiwa hi ku famba ka nkarhi .",
+        "subTitle": "Languta tinhlayo ta ku xavisiwa hi nkarhi .",
+        "title": "Tinhlayo ta ku xavisa .",
+        "totalOrders": "Tioda hinkwato .",
+        "totalSales": "Nhlayo hinkwayo ya ku xavisiwa ."
+      },
+      "Subscriptions": {
+        "activeSubscriptions": "Swikhokhelo leswi tirhaka .",
+        "billingCycle": {
+          "annual": "Lembe na lembe",
+          "monthly": "N’hweti na n’hweti .",
+          "unknown": "Tiviweki"
+        },
+        "billingCycleDistribution": "Ku hangalasiwa ka xirhendzevutani xa swibalo .",
+        "canceledSubscriptions": "Swikhokhelo leswi khanseleriweke .",
+        "realTime": "Nkarhi wa xiviri .",
+        "status": {
+          "active": "Hanya",
+          "canceled": "Ku khanseriwa .",
+          "pending": "Rindzerile",
+          "preCanceled": "Pre-Cancelled",
+          "unknown": "Tiviweki"
+        },
+        "statusDistribution": "Ku hangalasiwa ka xiyimo .",
+        "subTitle": "Languta tinhlayo ta swikhokhelo hi nkarhi .",
+        "table": {
+          "product": "Ximakiwa",
+          "subscriptionCount": "Nhlayo ya xikhokhelo .",
+          "totalQuantity": "Nhlayo hinkwayo ."
+        },
+        "title": "Tinhlayohlayo ta swikhokhelo .",
+        "topProducts": "Switirhisiwa swa le henhla .",
+        "totalSubscriptions": "Swikhokhelo leswi heleleke ."
+      },
+      "Tickets": {
+        "activeBotChats": "Active Bot Chat .",
+        "activeTickets": "Mathikithi lama tirhaka .",
+        "averageResponseTime": "Nkarhi wa le xikarhi wo hlamula .",
+        "botOnlyChats": "Bot Ntsena Chat .",
+        "closedTickets": "Mathikithi lama pfariweke .",
+        "closureBy": {
+          "ADMIN": "Admin .",
+          "USER": "Mutirhisi .",
+          "unknown": "Tiviweki"
+        },
+        "closureDistribution": "Ku hangalasiwa ka ku pfala .",
+        "maxResolutionTime": "Max nkarhi wa xiboho .",
+        "minResolutionTime": "Min Nkarhi wa xiboho .",
+        "realTime": "Nkarhi wa xiviri .",
+        "responseTime": "Nkarhi wa ku hlamula .",
+        "states": {
+          "CHAT_ADMIN": "Chat Admin .",
+          "CHAT_BOT": "Chat Bot .",
+          "INBOX": "Inbox .",
+          "UNKNOWN": "Tiviweki"
+        },
+        "subTitle": "Languta tinhlayo ta mathikithi hi nkarhi .",
+        "table": {
+          "closedTickets": "Mathikithi lama pfariweke .",
+          "email": "Imeyili .",
+          "openTickets": "Tickets leti pfulekeke .",
+          "totalTickets": "Mathikithi ya nhlayo hinkwayo .",
+          "user": "Mutirhisi ."
+        },
+        "ticketDistribution": "Ku hangalasiwa ka mathikithi .",
+        "title": "Tinhlayo ta mathikithi .",
+        "topUsers": "Vatirhisi va le henhla"
+      },
+      "groupBy": "ntlawa hi .",
+      "groupByOptions": {
+        "day": "Siku",
+        "month": "N'hweti",
+        "week": "Vhiki"
+      },
+      "period": "Nkarhi",
+      "periods": {
+        "30d": "30 wa masiku .",
+        "7d": "7 wa masiku .",
+        "90d": "Masiku ya 90 ."
+      },
+      "stats": {
+        "groupByOptions": {
+          "week": "Vhiki"
+        }
+      },
+      "title": "Tinhlayohlayo ."
     }
   },
   "DefaultNotFound": "Xihoxo: Vuhundzuluxi a byi kumekanga .",
@@ -1301,7 +1458,10 @@
     "users": "vatirhisi va switirhisiwa .",
     "vouchers": "Tivhawuchara .",
     "inbox": "Inbox .",
-    "tickets": "Mathikithi ."
+    "tickets": "Mathikithi .",
+    "carts": "Swigolonyana .",
+    "sales": "Ku Xavisiwa .",
+    "stats": "Tinhlayohlayo ."
   },
   "navigation": {
     "about": "Hi",

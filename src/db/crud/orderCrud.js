@@ -126,3 +126,83 @@ export const updateOrderStatus = async (
 
   return updatedOrder
 }
+
+export const getSalesStats = async ({
+  size = 10,
+  page = 1,
+  groupBy = "day",
+  period = "7d",
+  productType = null,
+  realTime = false,
+}) => {
+  await mwdb()
+
+  const startDate = new Date()
+
+  if (!realTime) {
+    switch (period) {
+      case "7d":
+        startDate.setDate(startDate.getDate() - 7)
+
+        break
+
+      case "30d":
+        startDate.setDate(startDate.getDate() - 30)
+
+        break
+
+      case "90d":
+        startDate.setDate(startDate.getDate() - 90)
+
+        break
+    }
+  }
+
+  const matchQuery = {}
+
+  if (!realTime) {
+    matchQuery.createdAt = { $gte: startDate }
+  }
+
+  if (productType && productType !== null) {
+    matchQuery["products.productId.type"] = productType
+  }
+
+  const groupQuery = {
+    _id: {
+      $dateToString: {
+        format: (() => {
+          if (groupBy === "day") {
+            return "%Y-%m-%d"
+          }
+
+          if (groupBy === "week") {
+            return "%Y-%U"
+          }
+
+          return "%Y-%m"
+        })(),
+        date: "$createdAt",
+      },
+    },
+    totalSales: { $sum: "$stripe.amountTotal" },
+    orderCount: { $sum: 1 },
+    averageOrderValue: { $avg: "$stripe.amountTotal" },
+    products: { $push: "$products" },
+  }
+  const stats = await OrderModel.aggregate([
+    { $match: matchQuery },
+    { $group: groupQuery },
+    { $sort: { _id: 1 } },
+    { $skip: (page - 1) * size },
+    { $limit: size },
+  ])
+  const total = await OrderModel.countDocuments(matchQuery)
+
+  return {
+    stats,
+    total,
+    page,
+    size,
+  }
+}

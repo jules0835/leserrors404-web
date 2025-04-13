@@ -1,5 +1,162 @@
 {
   "Admin": {
+    "Stats": {
+      "title": "Statistiques",
+      "period": "Période",
+      "groupBy": "Grouper par",
+      "Periods": {
+        "7d": "7 derniers jours",
+        "30d": "30 derniers jours",
+        "90d": "90 derniers jours"
+      },
+      "GroupByOptions": {
+        "day": "Jour",
+        "week": "Semaine",
+        "month": "Mois"
+      },
+      "Sales": {
+        "title": "Statistiques des ventes",
+        "totalSales": "Ventes totales",
+        "totalOrders": "Commandes totales",
+        "averageOrderValue": "Valeur moyenne des commandes",
+        "productsSold": "Produits vendus",
+        "salesOverTime": "Ventes dans le temps",
+        "ordersOverTime": "Commandes dans le temps",
+        "realTime": "Temps réel",
+        "subTitle": "Voir les statistiques de vente par période"
+      },
+      "Carts": {
+        "avgPostOrderValue": "Commande moyenne",
+        "avgPreOrderValue": "Chariots moyens",
+        "cartDistribution": "Distribution de chariot",
+        "guestCarts": "Chariots invités",
+        "postOrderStats": "Commandes statistiques",
+        "preOrderStats": "Statistiques de chariots",
+        "realTime": "Temps réel",
+        "table": {
+          "cartCount": "Décompte des chariots",
+          "product": "Produit",
+          "totalQuantity": "Quantité"
+        },
+        "topProducts": "Meilleurs produits",
+        "totalActiveCarts": "Chariots actifs totaux",
+        "totalConvertedCarts": "Chariots convertis totaux",
+        "totalDiscount": "Rabais",
+        "totalSubtotal": "Total",
+        "totalTax": "Impôt",
+        "totalValue": "Total",
+        "userCarts": "Chariots utilisateurs"
+      },
+      "Categories": {
+        "averageStockPerCategory": "Stock moyen par catégorie",
+        "salesByCategory": "Ventes par catégorie",
+        "stockByCategory": "Stock par catégorie",
+        "subTitle": "Voir les catégories Statistiques par actions et ventes",
+        "table": {
+          "category": "Catégorie",
+          "revenue": "Revenu",
+          "sales": "Ventes",
+          "stock": "Action",
+          "value": "Valeur"
+        },
+        "title": "Catégories Statistiques",
+        "totalCategories": "Catégories totales"
+      },
+      "Products": {
+        "subTitle": "Voir les statistiques des produits par actions et ventes",
+        "table": {
+          "product": "Produit",
+          "revenue": "Revenu",
+          "sales": "Ventes",
+          "stock": "Action",
+          "value": "Valeur"
+        },
+        "title": "Statistiques des produits",
+        "topSellingProducts": "Produits les plus vendus",
+        "topStockedProducts": "Produit le plus approprié",
+        "totalRevenue": "Revenus totaux",
+        "totalSales": "Ventes totales",
+        "totalStock": "Stock total",
+        "totalValue": "Valeur totale"
+      },
+      "Subscriptions": {
+        "activeSubscriptions": "Abonnements actifs",
+        "billingCycle": {
+          "annual": "Annuel",
+          "monthly": "Mensuel",
+          "unknown": "Inconnu"
+        },
+        "billingCycleDistribution": "Distribution du cycle de facturation",
+        "canceledSubscriptions": "Abonnements annulés",
+        "realTime": "Temps réel",
+        "status": {
+          "active": "Actif",
+          "canceled": "Annulé",
+          "pending": "En attente",
+          "preCanceled": "Pré-ancré",
+          "unknown": "Inconnu"
+        },
+        "statusDistribution": "Distribution de statut",
+        "subTitle": "Voir les statistiques des abonnements par période",
+        "table": {
+          "product": "Produit",
+          "subscriptionCount": "Comptage d'abonnement",
+          "totalQuantity": "Quantité totale"
+        },
+        "title": "Statistiques des abonnements",
+        "topProducts": "Meilleurs produits",
+        "totalSubscriptions": "Abonnements totaux"
+      },
+      "Tickets": {
+        "activeBotChats": "Chat de bot actif",
+        "activeTickets": "Billets actifs",
+        "averageResponseTime": "Temps de réponse moyen",
+        "botOnlyChats": "Bot seulement chat",
+        "closedTickets": "Billets fermés",
+        "closureBy": {
+          "ADMIN": "Administrer",
+          "USER": "Utilisateur",
+          "unknown": "Inconnu"
+        },
+        "closureDistribution": "Distribution de fermeture",
+        "maxResolutionTime": "Temps de résolution maximum",
+        "minResolutionTime": "Temps de résolution min",
+        "realTime": "Temps réel",
+        "responseTime": "Temps de réponse",
+        "states": {
+          "CHAT_ADMIN": "Admin de chat",
+          "CHAT_BOT": "Bot de chat",
+          "INBOX": "Boîte de réception",
+          "UNKNOWN": "Inconnu"
+        },
+        "subTitle": "Voir les statistiques des billets par période",
+        "table": {
+          "closedTickets": "Billets fermés",
+          "email": "E-mail",
+          "openTickets": "Billets ouverts",
+          "totalTickets": "Total des billets",
+          "user": "Utilisateur"
+        },
+        "ticketDistribution": "Distribution de billets",
+        "title": "Statistiques des billets",
+        "topUsers": "Utilisateurs supérieurs"
+      },
+      "groupByOptions": {
+        "day": "Jour",
+        "month": "Mois",
+        "week": "Semaine"
+      },
+      "periods": {
+        "30d": "30 jours",
+        "7d": "7 jours",
+        "90d": "90 jours"
+      },
+      "stats": {
+        "groupByOptions": {
+          "week": "Semaine"
+        }
+      }
+    },
     "Business": {
       "Coupons": {
         "title": "Coupons"
@@ -1328,7 +1485,10 @@
     "users": "Utilisateurs",
     "vouchers": "Portes",
     "inbox": "Boîte de réception",
-    "tickets": "Billets"
+    "tickets": "Billets",
+    "carts": "Chariots",
+    "sales": "Ventes",
+    "stats": "Statistiques"
   },
   "NoSubTitle": "Pas de sous-titre",
   "User": {
