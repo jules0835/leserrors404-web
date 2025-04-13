@@ -102,7 +102,7 @@ export const createPaymentOrder = async (sessionId, origin) => {
           subscriptionItems.data.map(async (item) => {
             const dbProduct = await getProductByStripeId(item.price.product.id)
             const billingCycle =
-              item.price.recurring.interval === "month" ? "monthly" : "annual"
+              item.price.recurring.interval === "month" ? "month" : "year"
 
             return {
               productId: dbProduct._id,
@@ -143,7 +143,6 @@ export const createPaymentOrder = async (sessionId, origin) => {
           ],
         }
         const subscriptionResult = await createSubscription(subscriptionData)
-
         order.stripe.subscriptionId = subscriptionResult.stripe.subscriptionId
         order.stripe.isSubscription = true
 
@@ -161,28 +160,41 @@ export const createPaymentOrder = async (sessionId, origin) => {
           },
           isError: true,
         })
-
-        if (stripeSubscription) {
-          await stripe.subscriptions.del(stripeSubscription.id)
-        }
-
         order.orderStatus = "CANCEL"
         order.statusHistory.push({
           status: "CANCEL",
           updatedBy: "system",
           details: `Order cancelled due to subscription creation failure: ${subscriptionError.message}`,
         })
-        await order.save()
 
-        const paymentIntent = await stripe.paymentIntents.retrieve(
-          session.payment_intent
-        )
-
-        if (paymentIntent.status === "succeeded") {
+        if (stripeSubscription) {
+          await stripe.subscriptions.cancel(stripeSubscription.id)
+          const invoice = await stripe.invoices.retrieve(
+            stripeSubscription.latest_invoice
+          )
           await stripe.refunds.create({
-            payment_intent: session.payment_intent,
+            charge: invoice.charge,
           })
+        } else {
+          const paymentIntent = await stripe.paymentIntents.retrieve(
+            session.payment_intent
+          )
+
+          if (paymentIntent.status === "succeeded") {
+            await stripe.refunds.create({
+              payment_intent: session.payment_intent,
+            })
+          }
         }
+
+        order.orderStatus = "REFUNDED"
+        order.statusHistory.push({
+          status: "REFUNDED",
+          updatedBy: "system",
+          details: `Order refunded due to subscription creation failure: ${subscriptionError.message}`,
+        })
+
+        await order.save()
 
         return {
           isOrderCreated: true,
@@ -220,7 +232,7 @@ export const createPaymentOrder = async (sessionId, origin) => {
 
       log.systemError({
         logKey: logKeys.shopStripeWebhookError.key,
-        message: "Refunded payment because of error during order creation",
+        message: "Order cancelled because of error during order creation",
         technicalMessage: error.message,
         data: { error, sessionId, orderId: order?._id },
         isError: true,

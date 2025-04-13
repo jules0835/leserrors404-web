@@ -500,7 +500,9 @@
         },
         "subTitle": "Lawula tioda ta wena .",
         "total": "Hinkwaswo",
-        "viewDetails": "Vona vuxokoxoko ."
+        "viewDetails": "Vona vuxokoxoko .",
+        "customer": "Khasimende",
+        "latestOrders": "Tioda ta sweswinyana ."
       },
       "Payments": {
         "title": "Ku hakela .",
@@ -1068,7 +1070,8 @@
         "userLogs": "Tilogu ta vatirhisi .",
         "userLogsDescription": "Languta tilog ta mutirhisi loyi a hlawuriweke.",
         "userName": "Mutirhisi .",
-        "yes": "Ina"
+        "yes": "Ina",
+        "latestLogs": "Swilo swa sweswinyana leswi tsariweke ."
       },
       "Users": {
         "User": {
@@ -1280,7 +1283,9 @@
         "totalSubtotal": "Nhlayo ya le hansi .",
         "totalTax": "Xibalo xa xibalo .",
         "totalValue": "Hinkwaswo",
-        "userCarts": "swigolonyana swa vatirhisi ."
+        "userCarts": "swigolonyana swa vatirhisi .",
+        "subTitle": "Languta tinhlayo ta swigolonyana hi nkarhi .",
+        "title": "Tinhlayo ta swigolonyana ."
       },
       "Categories": {
         "averageStockPerCategory": "Xiringaniso xa xitoko hi xiyenge .",
@@ -1415,6 +1420,41 @@
         }
       },
       "title": "Tinhlayohlayo ."
+    },
+    "Dashboard": {
+      "activeSubscriptions": "Swikhokhelo leswi tirhaka .",
+      "errorDescription": "Xihoxo loko u ri karhi u layicha tidata .",
+      "errorTitle": "Xihoxo",
+      "todayOpenTickets": "Namuntlha Ku Pfuleka Mathikithi .",
+      "todayOrders": "namuntlha ti oda .",
+      "todayRegistrations": "Namuntlha ku tsarisa .",
+      "welcome": "Hi {vito ra mutirhisi} .",
+      "welcomeMessage": "Hi lowu nkatsakanyo wa ntirho wa bindzu ."
+    },
+    "Support": {
+      "Tickets": {
+        "actionDone": "Xiendlo xi endliwile .",
+        "admin": "Admin .",
+        "bot": "Bot .",
+        "closed": "Xi pfariwile .",
+        "columns": "Tikholomu .",
+        "createdAt": "Xi tumbuluxiwile eka .",
+        "errorLoadingData": "Xihoxo loko u ri karhi u layicha mathikithi .",
+        "lastMessageType": "Rungula ro hetelela .",
+        "latestTickets": "Mathikithi ya sweswinyana .",
+        "next": "Landzelaka",
+        "noResults": "Ku hava vuyelo .",
+        "open": "Pfuleka",
+        "previous": "Endzhaku",
+        "responseTime": "Nkarhi wa ku hlamula .",
+        "searchPlaceholder": "Kuma thikithi .",
+        "status": "Xiyimo",
+        "subTitle": "Vona mathikithi hinkwawo .",
+        "title": "Mathikithi .",
+        "user": "Mutirhisi .",
+        "viewDetails": "Vona vuxokoxoko .",
+        "waitingAction": "Xiendlo xo rindza ."
+      }
     }
   },
   "DefaultNotFound": "Xihoxo: Vuhundzuluxi a byi kumekanga .",
@@ -1762,7 +1802,11 @@
       "savingChanges": "Ku hlayisa ku cinca...",
       "street": "Xitarata",
       "twoFactorAuth": "Ku tiyisisiwa ka swivangelo swimbirhi .",
-      "zipCode": "Khodi ya zip ."
+      "zipCode": "Khodi ya zip .",
+      "advertisement": "Vunavetisi",
+      "friend": "Munghana .",
+      "other": "Xin'wana",
+      "socialMedia": "Swihangalasamahungu swa le ka social media ."
     },
     "Security": {
       "OtpConfig": {
@@ -1864,7 +1908,9 @@
       "sendMessageBtn": "Rhumela rungula .",
       "sendMessageDesc": "Rhumela rungula eka ntlawa wa hina wa nseketelo naswona hi ta tlhelela eka wena hi ku hatlisa hilaha swi nga kotekaka hakona.",
       "sendMessageToSupport": "Rhumela rungula eka ntlawa wa hina wa nseketelo .",
-      "sendMessageToSupportDesc": "Laha u nga rhumela rungula eka ntlawa wa hina wa nseketelo. \nHi ta tlhelela eka wena hi ku hatlisa hilaha swi nga kotekaka hakona. \nHi kombela mi nyika vuxokoxoko byo tala hilaha swi nga kotekaka hakona ku hi pfuna ku mi pfuna ku antswa."
+      "sendMessageToSupportDesc": "Laha u nga rhumela rungula eka ntlawa wa hina wa nseketelo. \nHi ta tlhelela eka wena hi ku hatlisa hilaha swi nga kotekaka hakona. \nHi kombela mi nyika vuxokoxoko byo tala hilaha swi nga kotekaka hakona ku hi pfuna ku mi pfuna ku antswa.",
+      "SELECT_ORDER": "Leswaku u ku pfuna, hi kombela u hlawula oda leyi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi .",
+      "SELECT_SUBSCRIPTION": "Leswaku u ta ku pfuna, hi kombela u hlawula xikhokhelo lexi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi ."
     }
   },
   "isSuperAdminRequired": "is super admin ya laveka .",
@@ -1984,7 +2030,14 @@
       "productOutOfStockSubtitle": "Xin’wana xa switirhisiwa eka carte ya wena xi huma exitokweni, xi susa thani leyi procced eka hakelo .",
       "productOutOfStockUserQuantity": "Nhlayo ya swikumiwa yi le henhla swinene .",
       "productOutOfStockUserQuantitySubtitle": "Nhlayo ya xitirhisiwa eka xigolonyana xa wena yi le henhla swinene loko u pimanisiwa na xitoko xa hina, hi kombela u pfuxeta nhlayo kumbe u susa xitirhisiwa .",
-      "year": "Lembe"
+      "year": "Lembe",
+      "MIXED_PRODUCT_TYPES": "Switirhisiwa leswi nga eka xigolonyana xa wena swi na minkarhi yo hambana ya swibalo, hi kombela u swi hambanyisa leswaku u ya emahlweni u xava .",
+      "PRODUCT_NOT_ACTIVE": "Xin’wana xa switirhisiwa eka xigolonyana xa wena a xi kumeki, hi kombela u xi susa leswaku u ya emahlweni u xava",
+      "ProductNotActive": "Xin’wana xa switirhisiwa a xi kumeki .",
+      "ProductOutOfStock": "Xiendliwa lexi humaka exitokweni",
+      "ProductOutOfStockUserQuantity": "Xin’wana xa switirhisiwa a xi kumeki hi nhlayo leyi hlawuriweke .",
+      "USER_PROFILE_INCOMPLETE": "Profile ya wena a yi helelanga, hi kombela u yi tata ku ya emahlweni u huma",
+      "VOUCHER_NOT_ACTIVE": "VOUCHER A yi tirhi, hi kombela u yi susa ku ya emahlweni u huma"
     },
     "Product": {
       "addToCart": {

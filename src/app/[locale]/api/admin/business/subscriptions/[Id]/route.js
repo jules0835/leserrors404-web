@@ -148,9 +148,7 @@ export async function POST(req, { params }) {
 
         if (invoice.amount_paid > 0) {
           await stripe.refunds.create({
-            payment_intent: invoice.payment_intent,
-            amount: invoice.amount_paid,
-            reason: "requested_by_customer",
+            charge: invoice.charge,
           })
         }
 

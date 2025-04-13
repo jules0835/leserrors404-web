@@ -7,7 +7,7 @@ export const subscriptionSchema = new Schema(
     orderId: { type: Schema.Types.ObjectId, ref: "Order", required: true },
 
     stripe: {
-      subscriptionId: { type: String, required: true },
+      subscriptionId: { type: String, required: true, unique: true },
       status: {
         type: String,
         enum: [

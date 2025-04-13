@@ -24,7 +24,7 @@ export const orderSchema = new Schema(
     ],
 
     stripe: {
-      sessionId: { type: String, required: true },
+      sessionId: { type: String, required: true, unique: true },
       subscriptionId: { type: String },
       amountTotal: { type: Number, required: true },
       amountSubtotal: { type: Number, required: true },

@@ -1787,7 +1787,8 @@
       },
       "NeedHelp": {
         "title": "Support Center"
-      }
+      },
+      "title": "Support"
     },
     "Profile": {
       "firstName": "First Name",
@@ -1812,7 +1813,11 @@
       "emailExists": "Email already exist.",
       "saving": "Saving your profil",
       "error": "Error while saving profile",
-      "saved": "Profile saved"
+      "saved": "Profile saved",
+      "socialMedia": "Social Media",
+      "friend": "Friend",
+      "advertisement": "Advertisement",
+      "other": "Other"
     },
     "Chat": {
       "noConversations": "No conversations",
