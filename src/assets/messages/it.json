@@ -500,7 +500,9 @@
         },
         "subTitle": "Gestisci i tuoi ordini",
         "total": "Totale",
-        "viewDetails": "Visualizza i dettagli"
+        "viewDetails": "Visualizza i dettagli",
+        "customer": "Cliente",
+        "latestOrders": "Ultimi ordini"
       },
       "Payments": {
         "title": "Pagamenti",
@@ -1068,7 +1070,8 @@
         "userName": "Utente",
         "yes": "SÌ",
         "author": "Autore",
-        "authorName": "Autore"
+        "authorName": "Autore",
+        "latestLogs": "Ultimi registri"
       },
       "Users": {
         "User": {
@@ -1280,7 +1283,9 @@
         "totalSubtotal": "Sub-totale",
         "totalTax": "Tassare",
         "totalValue": "Totale",
-        "userCarts": "Carrelli utente"
+        "userCarts": "Carrelli utente",
+        "subTitle": "Visualizza le statistiche dei carrelli per periodo",
+        "title": "Statistiche dei carrelli"
       },
       "Categories": {
         "averageStockPerCategory": "Stock medio per categoria",
@@ -1415,6 +1420,41 @@
         }
       },
       "title": "Statistiche"
+    },
+    "Dashboard": {
+      "activeSubscriptions": "Abbonamenti attivi",
+      "errorDescription": "Errore durante il caricamento di dati",
+      "errorTitle": "Errore",
+      "todayOpenTickets": "Oggi i biglietti aperti",
+      "todayOrders": "Oggi ordini",
+      "todayRegistrations": "Oggi registrazioni",
+      "welcome": "Ciao {nome utente}",
+      "welcomeMessage": "Ecco un riepilogo dell'attività commerciale"
+    },
+    "Support": {
+      "Tickets": {
+        "actionDone": "Azione fatta",
+        "admin": "Amministratore",
+        "bot": "Bot",
+        "closed": "Chiuso",
+        "columns": "Colonne",
+        "createdAt": "Creato a",
+        "errorLoadingData": "Errore durante il caricamento dei biglietti",
+        "lastMessageType": "Ultimo messaggio",
+        "latestTickets": "Ultimi biglietti",
+        "next": "Prossimo",
+        "noResults": "Nessun risultato",
+        "open": "Aprire",
+        "previous": "Precedente",
+        "responseTime": "Tempo di risposta",
+        "searchPlaceholder": "Cerca un biglietto",
+        "status": "Stato",
+        "subTitle": "Visualizza tutti i biglietti",
+        "title": "Biglietti",
+        "user": "Utente",
+        "viewDetails": "Visualizza i dettagli",
+        "waitingAction": "Azione in attesa"
+      }
     }
   },
   "DefaultNotFound": "Errore: traduzione non trovata",
@@ -1813,7 +1853,11 @@
       "savingChanges": "Salvare le modifiche ...",
       "street": "Strada",
       "twoFactorAuth": "Autenticazione a due fattori",
-      "zipCode": "Cap"
+      "zipCode": "Cap",
+      "advertisement": "Annuncio",
+      "friend": "Amico",
+      "other": "Altro",
+      "socialMedia": "Social media"
     },
     "Support": {
       "MyTickets": {
@@ -1865,7 +1909,9 @@
       "sendMessageBtn": "Invia un messaggio",
       "sendMessageDesc": "Invia un messaggio al nostro team di supporto e ti ricontatteremo il prima possibile.",
       "sendMessageToSupport": "Invia un messaggio al nostro team di supporto",
-      "sendMessageToSupportDesc": "Qui puoi inviare un messaggio al nostro team di supporto. \nTi torneremo il prima possibile. \nFornire il maggior numero possibile di dettagli per aiutarci ad aiutarti meglio."
+      "sendMessageToSupportDesc": "Qui puoi inviare un messaggio al nostro team di supporto. \nTi torneremo il prima possibile. \nFornire il maggior numero possibile di dettagli per aiutarci ad aiutarti meglio.",
+      "SELECT_ORDER": "Per aiutarti, seleziona un ordine relativo alla tua domanda facendo clic sul pulsante seguente",
+      "SELECT_SUBSCRIPTION": "Per aiutarti, selezionare un abbonamento relativo alla tua domanda facendo clic sul pulsante seguente"
     }
   },
   "pagesNames": {
@@ -1984,7 +2030,14 @@
       "productOutOfStockSubtitle": "Uno dei prodotti nella tua carte è esaurito, rimuovilo tonnellata al pagamento",
       "productOutOfStockUserQuantity": "Anche la quantità del prodotto",
       "productOutOfStockUserQuantitySubtitle": "La quantità di un prodotto nel carrello è troppo al passo rispetto al nostro stock, aggiorna la quantità o rimuovi il prodotto",
-      "year": "Anno"
+      "year": "Anno",
+      "MIXED_PRODUCT_TYPES": "I prodotti nel carrello hanno diversi periodi di fatturazione, si prega di separarli per procedere al checkout",
+      "PRODUCT_NOT_ACTIVE": "Uno dei prodotti nel carrello non è disponibile, rimuovilo per procedere al checkout",
+      "ProductNotActive": "Uno dei prodotti non è disponibile",
+      "ProductOutOfStock": "Prodotto fuori stock",
+      "ProductOutOfStockUserQuantity": "Uno dei prodotti non è disponibile con la quantità selezionata",
+      "USER_PROFILE_INCOMPLETE": "Il tuo profilo è incompleto, completalo per procedere al checkout",
+      "VOUCHER_NOT_ACTIVE": "Voucher non valido, rimuoverlo per procedere al checkout"
     },
     "Product": {
       "addToCart": {

@@ -45,7 +45,9 @@
         "totalSubtotal": "Total",
         "totalTax": "Impôt",
         "totalValue": "Total",
-        "userCarts": "Chariots utilisateurs"
+        "userCarts": "Chariots utilisateurs",
+        "subTitle": "Voir les statistiques des chariots par période",
+        "title": "Statistiques des chariots"
       },
       "Categories": {
         "averageStockPerCategory": "Stock moyen par catégorie",
@@ -272,7 +274,9 @@
         },
         "subTitle": "Gérez vos commandes",
         "total": "Total",
-        "viewDetails": "Afficher les détails"
+        "viewDetails": "Afficher les détails",
+        "customer": "Client",
+        "latestOrders": "Dernières commandes"
       },
       "Payments": {
         "title": "Paiements",
@@ -1081,7 +1085,8 @@
         "userLogs": "Journaux utilisateurs",
         "userLogsDescription": "Affichez les journaux de l'utilisateur sélectionné.",
         "userName": "Utilisateur",
-        "yes": "Oui"
+        "yes": "Oui",
+        "latestLogs": "Derniers journaux"
       },
       "Users": {
         "User": {
@@ -1271,6 +1276,41 @@
       "searchUser": "Rechercher un utilisateur",
       "selectUser": "Sélectionnez un utilisateur",
       "supportInbox": "Prise en charge de la boîte de réception"
+    },
+    "Dashboard": {
+      "activeSubscriptions": "Abonnements actifs",
+      "errorDescription": "Erreur lors du chargement des données",
+      "errorTitle": "Erreur",
+      "todayOpenTickets": "Aujourd'hui billets ouverts",
+      "todayOrders": "Aujourd'hui commandes",
+      "todayRegistrations": "Aujourd'hui les inscriptions",
+      "welcome": "Salut {nom d'utilisateur}",
+      "welcomeMessage": "Voici un résumé de l'activité commerciale"
+    },
+    "Support": {
+      "Tickets": {
+        "actionDone": "Action effectuée",
+        "admin": "Administrer",
+        "bot": "Bot",
+        "closed": "Fermé",
+        "columns": "Colonnes",
+        "createdAt": "Créé à",
+        "errorLoadingData": "Erreur lors du chargement des billets",
+        "lastMessageType": "Dernier message",
+        "latestTickets": "Dernier billets",
+        "next": "Suivant",
+        "noResults": "Aucun résultat",
+        "open": "Ouvrir",
+        "previous": "Précédent",
+        "responseTime": "Temps de réponse",
+        "searchPlaceholder": "Rechercher un billet",
+        "status": "Statut",
+        "subTitle": "Voir tous les billets",
+        "title": "Billets",
+        "user": "Utilisateur",
+        "viewDetails": "Afficher les détails",
+        "waitingAction": "Action d'attente"
+      }
     }
   },
   "Auth": {
@@ -1749,7 +1789,11 @@
       "savingChanges": "Économie des changements ...",
       "street": "Rue",
       "twoFactorAuth": "Authentification à deux facteurs",
-      "zipCode": "Code postal"
+      "zipCode": "Code postal",
+      "advertisement": "Publicité",
+      "friend": "Ami",
+      "other": "Autre",
+      "socialMedia": "Réseaux sociaux"
     },
     "Security": {
       "OtpConfig": {
@@ -1851,7 +1895,9 @@
       "sendMessageBtn": "Envoyer un message",
       "sendMessageDesc": "Envoyez un message à notre équipe d'assistance et nous vous répondrons dès que possible.",
       "sendMessageToSupport": "Envoyez un message à notre équipe d'assistance",
-      "sendMessageToSupportDesc": "Ici, vous pouvez envoyer un message à notre équipe d'assistance. \nNous vous répondrons dès que possible. \nVeuillez fournir autant de détails que possible pour nous aider à mieux vous aider."
+      "sendMessageToSupportDesc": "Ici, vous pouvez envoyer un message à notre équipe d'assistance. \nNous vous répondrons dès que possible. \nVeuillez fournir autant de détails que possible pour nous aider à mieux vous aider.",
+      "SELECT_ORDER": "Afin de vous aider, veuillez sélectionner une commande liée à votre question en cliquant sur le bouton ci-dessous",
+      "SELECT_SUBSCRIPTION": "Afin de vous aider, veuillez sélectionner un abonnement lié à votre question en cliquant sur le bouton ci-dessous"
     }
   },
   "advertisement": "Avertissement",
@@ -1984,7 +2030,14 @@
       "productOutOfStockSubtitle": "L'un des produits de votre carte est en rupture de stock, retirez-le Ton procrét au paiement",
       "productOutOfStockUserQuantity": "Quantité du produit trop à la hauteur",
       "productOutOfStockUserQuantitySubtitle": "La quantité d'un produit dans votre panier est trop comparé à notre stock, veuillez mettre à jour la quantité ou supprimer le produit",
-      "year": "Année"
+      "year": "Année",
+      "MIXED_PRODUCT_TYPES": "Les produits de votre panier ont des périodes de facturation différentes, veuillez les séparer pour procéder à la caisse",
+      "PRODUCT_NOT_ACTIVE": "L'un des produits de votre panier n'est pas disponible, veuillez le retirer pour procéder à la caisse",
+      "ProductNotActive": "L'un des produits n'est pas disponible",
+      "ProductOutOfStock": "Produit en rupture de stock",
+      "ProductOutOfStockUserQuantity": "L'un des produits n'est pas disponible avec la quantité sélectionnée",
+      "USER_PROFILE_INCOMPLETE": "Votre profil est incomplet, veuillez le terminer pour passer à la caisse",
+      "VOUCHER_NOT_ACTIVE": "Bon non valide, veuillez le retirer pour procéder à la caisse"
     },
     "Product": {
       "addToCart": {

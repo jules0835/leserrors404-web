@@ -689,7 +689,8 @@
         "userName": "Benutzer",
         "yes": "Ja",
         "author": "Autor",
-        "authorName": "Autor"
+        "authorName": "Autor",
+        "latestLogs": "Neueste Protokolle"
       }
     },
     "Business": {
@@ -807,7 +808,9 @@
         },
         "subTitle": "Verwalten Sie Ihre Bestellungen",
         "total": "Gesamt",
-        "viewDetails": "Details anzeigen"
+        "viewDetails": "Details anzeigen",
+        "customer": "Kunde",
+        "latestOrders": "Neueste Bestellungen"
       },
       "Payments": {
         "title": "Zahlungen",
@@ -1280,7 +1283,9 @@
         "totalSubtotal": "Zwischensumme",
         "totalTax": "Steuer",
         "totalValue": "Gesamt",
-        "userCarts": "Benutzerwagen"
+        "userCarts": "Benutzerwagen",
+        "subTitle": "Sehen Sie sich die CARTS -Statistiken nach Zeitraum an",
+        "title": "Karren Statistiken"
       },
       "Categories": {
         "averageStockPerCategory": "Durchschnittliche Aktien pro Kategorie",
@@ -1415,6 +1420,41 @@
         }
       },
       "title": "Statistiken"
+    },
+    "Dashboard": {
+      "activeSubscriptions": "Aktive Abonnements",
+      "errorDescription": "Fehler beim Laden von Daten",
+      "errorTitle": "Fehler",
+      "todayOpenTickets": "Heute offene Tickets",
+      "todayOrders": "Heute Bestellungen",
+      "todayRegistrations": "Heute Registrierungen",
+      "welcome": "Hallo {Benutzername}",
+      "welcomeMessage": "Hier ist eine Zusammenfassung der Geschäftstätigkeit"
+    },
+    "Support": {
+      "Tickets": {
+        "actionDone": "Aktion durchgeführt",
+        "admin": "Administrator",
+        "bot": "Bot",
+        "closed": "Geschlossen",
+        "columns": "Spalten",
+        "createdAt": "Erstellt at",
+        "errorLoadingData": "Fehler beim Laden von Tickets",
+        "lastMessageType": "Letzte Nachricht",
+        "latestTickets": "Neueste Tickets",
+        "next": "Nächste",
+        "noResults": "Keine Ergebnisse",
+        "open": "Offen",
+        "previous": "Vorherige",
+        "responseTime": "Ansprechzeit",
+        "searchPlaceholder": "Suche nach einem Ticket",
+        "status": "Status",
+        "subTitle": "Alle Tickets anzeigen",
+        "title": "Tickets",
+        "user": "Benutzer",
+        "viewDetails": "Details anzeigen",
+        "waitingAction": "Warteaktion"
+      }
     }
   },
   "DefaultNotFound": "FEHLER: Übersetzung nicht gefunden",
@@ -1813,7 +1853,11 @@
       "savingChanges": "Veränderungen sparen ...",
       "street": "Straße",
       "twoFactorAuth": "Zwei -Faktor -Authentifizierung",
-      "zipCode": "PLZ"
+      "zipCode": "PLZ",
+      "advertisement": "Werbung",
+      "friend": "Freund",
+      "other": "Andere",
+      "socialMedia": "Social Media"
     },
     "Support": {
       "MyTickets": {
@@ -1865,7 +1909,9 @@
       "sendMessageBtn": "Senden Sie eine Nachricht",
       "sendMessageDesc": "Senden Sie eine Nachricht an unser Support -Team und wir werden uns so schnell wie möglich bei Ihnen melden.",
       "sendMessageToSupport": "Senden Sie eine Nachricht an unser Support -Team",
-      "sendMessageToSupportDesc": "Hier können Sie eine Nachricht an unser Support -Team senden. \nWir werden uns so schnell wie möglich bei Ihnen melden. \nBitte geben Sie so viel Detail wie möglich an, um Ihnen zu helfen, Ihnen besser zu helfen."
+      "sendMessageToSupportDesc": "Hier können Sie eine Nachricht an unser Support -Team senden. \nWir werden uns so schnell wie möglich bei Ihnen melden. \nBitte geben Sie so viel Detail wie möglich an, um Ihnen zu helfen, Ihnen besser zu helfen.",
+      "SELECT_ORDER": "Um Ihnen zu helfen, wählen Sie bitte eine Bestellung zu Ihrer Frage aus, indem Sie auf die Schaltfläche unten klicken",
+      "SELECT_SUBSCRIPTION": "Um Ihnen zu helfen, wählen Sie bitte ein Abonnement für Ihre Frage aus, indem Sie auf die Schaltfläche unten klicken"
     }
   },
   "pagesNames": {
@@ -1984,7 +2030,14 @@
       "productOutOfStockSubtitle": "Eines der Produkte in Ihrem Carte ist nicht vorrätig.",
       "productOutOfStockUserQuantity": "Produktmenge auch Hight",
       "productOutOfStockUserQuantitySubtitle": "Die Menge eines Produkts in Ihrem Warenkorb ist zu sehr verglichen mit unserer Aktie. Bitte aktualisieren Sie die Menge oder entfernen Sie das Produkt",
-      "year": "Jahr"
+      "year": "Jahr",
+      "MIXED_PRODUCT_TYPES": "Die Produkte in Ihrem Karren haben unterschiedliche Abrechnungszeiten. Bitte trennen Sie sie, um zum Checkout fortzufahren",
+      "PRODUCT_NOT_ACTIVE": "Eines der Produkte in Ihrem Karren ist nicht verfügbar. Bitte entfernen Sie es, um zum Checkout fortzufahren",
+      "ProductNotActive": "Eines der Produkte ist nicht verfügbar",
+      "ProductOutOfStock": "Produkt aus dem Vorrat",
+      "ProductOutOfStockUserQuantity": "Eines der Produkte ist nicht mit der ausgewählten Menge verfügbar",
+      "USER_PROFILE_INCOMPLETE": "Ihr Profil ist unvollständig. Führen Sie es bitte aus, um zum Checkout fortzufahren",
+      "VOUCHER_NOT_ACTIVE": "Gutschein nicht gültig, bitte entfernen Sie es, um zum Checkout fortzufahren"
     },
     "Product": {
       "addToCart": {

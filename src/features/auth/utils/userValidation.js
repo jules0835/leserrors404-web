@@ -10,6 +10,7 @@ export const getRegisterSchema = (t) =>
       .min(6, t("passwordMinLength"))
       .required(t("passwordRequired")),
     confirmPassword: Yup.string()
+      .min(12, t("passwordMinLength"))
       .oneOf([Yup.ref("password"), null], t("passwordsMustMatch"))
       .required(t("confirmPasswordRequired")),
     terms: Yup.bool().oneOf([true], t("termsRequired")),
