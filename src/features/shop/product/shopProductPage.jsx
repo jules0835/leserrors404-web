@@ -23,6 +23,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import ProductPageSkeleton from "@/features/shop/product/productPageSkeleton"
 import { useRouter } from "@/i18n/routing"
+import { getLocalizedValue } from "@/lib/utils"
+import SuggestedProducts from "@/features/suggestions/suggestedProducts"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function ShopProductPage() {
   const { addProdToCart } = useCart()
@@ -43,18 +46,13 @@ export default function ShopProductPage() {
     queryFn: () => fetchProduct(Id),
     enabled: Boolean(Id),
   })
+  const { setTitle } = useTitle()
+  setTitle(getLocalizedValue(product?.label, locale) || t("title"))
 
   useEffect(() => {
     setQuantity(1)
   }, [Id])
 
-  const getLocalizedValue = (value) => {
-    if (typeof value === "object" && value !== null) {
-      return value[locale] || value.en || ""
-    }
-
-    return value
-  }
   const handleQuantityChange = (increment) => {
     if (increment) {
       setQuantity((prev) => Math.min(prev + 1, product?.stock || 1))
@@ -168,7 +166,7 @@ export default function ShopProductPage() {
               <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg bg-white">
                 <Image
                   src={product.picture}
-                  alt={getLocalizedValue(product.label)}
+                  alt={getLocalizedValue(product.label, locale)}
                   className="object-cover transition-transform hover:scale-105 duration-500"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -193,10 +191,10 @@ export default function ShopProductPage() {
             <div className="space-y-6">
               <div>
                 <h1 className="text-3xl font-bold tracking-tight mb-2">
-                  {getLocalizedValue(product.label)}
+                  {getLocalizedValue(product.label, locale)}
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                  {getLocalizedValue(product.description)}
+                  {getLocalizedValue(product.description, locale)}
                 </p>
               </div>
 
@@ -228,7 +226,7 @@ export default function ShopProductPage() {
                             <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                             <div>
                               <span className="text-muted-foreground">
-                                {getLocalizedValue(value)}
+                                {getLocalizedValue(value, locale)}
                               </span>
                             </div>
                           </div>
@@ -361,6 +359,9 @@ export default function ShopProductPage() {
           </div>
         </div>
       )}
+      <div className="mt-8">
+        <SuggestedProducts isProductPage />
+      </div>
     </div>
   )
 }

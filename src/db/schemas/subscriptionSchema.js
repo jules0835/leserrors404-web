@@ -1,7 +1,13 @@
-import { Schema } from "mongoose"
+import mongoose, { Schema } from "mongoose"
+import { generateUniqueShortId } from "@/lib/utils"
 
 export const subscriptionSchema = new Schema(
   {
+    shortId: {
+      type: String,
+      unique: true,
+      index: true,
+    },
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
     userEmail: { type: String, required: true },
     orderId: { type: Schema.Types.ObjectId, ref: "Order", required: true },
@@ -76,3 +82,24 @@ export const subscriptionSchema = new Schema(
   },
   { timestamps: true }
 )
+
+subscriptionSchema.pre("save", async function ValidateShortId(next) {
+  if (!this.shortId) {
+    const generateAndCheckId = async () => {
+      const newId = generateUniqueShortId()
+      const exists = await mongoose.models.Subscription.exists({
+        shortId: newId,
+      })
+
+      if (exists) {
+        return generateAndCheckId()
+      }
+
+      return newId
+    }
+
+    this.shortId = await generateAndCheckId()
+  }
+
+  next()
+})

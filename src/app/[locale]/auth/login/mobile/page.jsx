@@ -9,6 +9,7 @@ import { company, webAppSettings } from "@/assets/options/config"
 import DButton from "@/components/ui/DButton"
 import { Shield, Smartphone } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function Page() {
   const { data: session, status } = useSession()
@@ -17,6 +18,8 @@ export default function Page() {
   const searchParams = useSearchParams()
   const reval = searchParams.get("reval")
   const reloadCounter = searchParams.get("reloadCounter") || 0
+  const { setTitle } = useTitle()
+  setTitle(t("titleMobile"))
 
   useEffect(() => {
     if (status === "loading") {

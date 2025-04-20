@@ -18,6 +18,7 @@ import { AnimatedReload } from "@/components/actions/AnimatedReload"
 import toast from "react-hot-toast"
 import axios from "axios"
 import { useChat } from "@/features/contact/chatbot/context/chatContext"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function UserNewTicket() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -26,6 +27,8 @@ export default function UserNewTicket() {
   const { openChat } = useChat()
   const t = useTranslations("User.Chat")
   const router = useRouter()
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const handleSendMessage = async () => {
     if (!message.trim()) {
       return

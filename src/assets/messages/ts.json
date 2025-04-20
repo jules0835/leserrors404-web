@@ -123,7 +123,8 @@
       "resetPasswordEmailSent": "Loko email yi ri kona, reset link yi rhumeriwile. \nHi kombela u languta folda ya wena ya inbox kumbe spam.",
       "sendEmail": "Rhumela xihlanganisi xa reset .",
       "somethingWentWrong": "Leswi a swi nge swi koti ku rhumela email ya reset, hi kombela u ringeta nakambe.",
-      "title": "Seta phaswedi ya wena ."
+      "title": "Seta phaswedi ya wena .",
+      "emailSent": "Loko akhawunti yi ri kona na email leyi, rungula leri nga na link yo tlherisela password ya wena ri ta rhumeriwa. \nU nga yi tirhisa ku tlhela u veka password ya wena."
     },
     "confirmEmail": "Ku tiyisisiwa ka imeyili .",
     "confirmEmailFailed": "Ku tiyisisiwa ka imeyili ku tsandzekile. \nHi kombela u ringeta nakambe kumbe u tihlanganisa na ntlawa wa hina wa nseketelo.",
@@ -136,7 +137,10 @@
     "application": "App .",
     "mobile": "Famba-famba",
     "phone": "Riqingho",
-    "redirectingToMobileMessage": "Loko u nga kongomisiwanga hi 5 seconds, hi kombela u click button leyi nga laha hansi."
+    "redirectingToMobileMessage": "Loko u nga kongomisiwanga hi 5 seconds, hi kombela u click button leyi nga laha hansi.",
+    "title": "Ku tiyisisiwa ka imeyili .",
+    "titleLogout": "Ku kongomisiwa nakambe ka logout .",
+    "titleMobile": "Ku nghena ka movha ."
   },
   "other": "Xin'wana",
   "socialMedia": "Social Media",
@@ -1260,7 +1264,9 @@
       "previous": "Endzhaku",
       "searchUser": "Mutirhisi wa ku lavisisa .",
       "selectUser": "Hlawula mutirhisi .",
-      "supportInbox": "Nseketelo Inbox ."
+      "supportInbox": "Nseketelo Inbox .",
+      "ticketId": "Thikithi/Chat ID .",
+      "title": "Mahungu ya Inbox ."
     },
     "Stats": {
       "Carts": {
@@ -1429,7 +1435,8 @@
       "todayOrders": "namuntlha ti oda .",
       "todayRegistrations": "Namuntlha ku tsarisa .",
       "welcome": "Hi {vito ra mutirhisi} .",
-      "welcomeMessage": "Hi lowu nkatsakanyo wa ntirho wa bindzu ."
+      "welcomeMessage": "Hi lowu nkatsakanyo wa ntirho wa bindzu .",
+      "title": "Admin Dashboard ."
     },
     "Support": {
       "Tickets": {
@@ -1453,7 +1460,9 @@
         "title": "Mathikithi .",
         "user": "Mutirhisi .",
         "viewDetails": "Vona vuxokoxoko .",
-        "waitingAction": "Xiendlo xo rindza ."
+        "waitingAction": "Xiendlo xo rindza .",
+        "activeTickets": "Mathikithi lama tirhaka .",
+        "ticketId": "ID ya thikithi ."
       }
     }
   },
@@ -1758,7 +1767,24 @@
     },
     "Dashboard": {
       "subTitle": "Lawula akhawunti ya wena, swiyimiso, swikhokhelo na swin’wana .",
-      "title": "Dashboard ya wena ."
+      "title": "Dashboard ya wena .",
+      "activeSubscriptions": "Swikhokhelo leswi tirhaka .",
+      "activeTickets": "Mathikithi lama tirhaka .",
+      "lastMessage": "Rungula ro hetelela .",
+      "nextBilling": "Ku hakela mali leyi landzelaka .",
+      "noActiveTickets": "Ku hava mathikithi lama tirhaka .",
+      "noOrders": "Ku hava Tioda .",
+      "noSubscriptions": "Ku hava xikhokhelo .",
+      "orderId": "ID ya oda .",
+      "product": "Swihumelerisiwa .",
+      "recentOrders": "Tioda ta sweswinyana .",
+      "recentSubscriptions": "Swikhokhelo swa sweswinyana .",
+      "status": "Xiyimo",
+      "subject": "Nhlokomhaka",
+      "ticketId": "ID ya thikithi .",
+      "total": "Hinkwaswo",
+      "totalOrders": "Tioda hinkwato .",
+      "totalSpent": "Total yi tirhisiwile ."
     },
     "MyAccount": {
       "PaymentMethods": {
@@ -1806,7 +1832,8 @@
       "advertisement": "Vunavetisi",
       "friend": "Munghana .",
       "other": "Xin'wana",
-      "socialMedia": "Swihangalasamahungu swa le ka social media ."
+      "socialMedia": "Swihangalasamahungu swa le ka social media .",
+      "title": "Pfuxeta xivumbeko xa wena ."
     },
     "Security": {
       "OtpConfig": {
@@ -1910,7 +1937,9 @@
       "sendMessageToSupport": "Rhumela rungula eka ntlawa wa hina wa nseketelo .",
       "sendMessageToSupportDesc": "Laha u nga rhumela rungula eka ntlawa wa hina wa nseketelo. \nHi ta tlhelela eka wena hi ku hatlisa hilaha swi nga kotekaka hakona. \nHi kombela mi nyika vuxokoxoko byo tala hilaha swi nga kotekaka hakona ku hi pfuna ku mi pfuna ku antswa.",
       "SELECT_ORDER": "Leswaku u ku pfuna, hi kombela u hlawula oda leyi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi .",
-      "SELECT_SUBSCRIPTION": "Leswaku u ta ku pfuna, hi kombela u hlawula xikhokhelo lexi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi ."
+      "SELECT_SUBSCRIPTION": "Leswaku u ta ku pfuna, hi kombela u hlawula xikhokhelo lexi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi .",
+      "ticketId": "ID ya thikithi .",
+      "title": "Inbox ya mutirhisi ."
     }
   },
   "isSuperAdminRequired": "is super admin ya laveka .",
@@ -2037,7 +2066,8 @@
       "ProductOutOfStock": "Xiendliwa lexi humaka exitokweni",
       "ProductOutOfStockUserQuantity": "Xin’wana xa switirhisiwa a xi kumeki hi nhlayo leyi hlawuriweke .",
       "USER_PROFILE_INCOMPLETE": "Profile ya wena a yi helelanga, hi kombela u yi tata ku ya emahlweni u huma",
-      "VOUCHER_NOT_ACTIVE": "VOUCHER A yi tirhi, hi kombela u yi susa ku ya emahlweni u huma"
+      "VOUCHER_NOT_ACTIVE": "VOUCHER A yi tirhi, hi kombela u yi susa ku ya emahlweni u huma",
+      "title": "Xigolonyana ."
     },
     "Product": {
       "addToCart": {
@@ -2064,7 +2094,8 @@
       "stock": "Xitoko",
       "subscription": "Xikhokhelo .",
       "total": "Hinkwaswo",
-      "year": "Lembe"
+      "year": "Lembe",
+      "title": "Ximakiwa"
     },
     "Checkout": {
       "myOrders": "Tioda ta mina .",
@@ -2107,7 +2138,9 @@
       "application": "Famba-famba",
       "returnToApp": "Vuya eka Mobile App .",
       "transactionFailed": "Nxaviselano wu tsandzekile .",
-      "transactionFailedMessage": "Nxaviselano lowu wu tsandzekile hikuva u wu khansele kutani ku va na xihoxo loko u ri karhi u kambela. \nHi kombela mi yimela hi redirection n'wina eka mobile app."
+      "transactionFailedMessage": "Nxaviselano lowu wu tsandzekile hikuva u wu khansele kutani ku va na xihoxo loko u ri karhi u kambela. \nHi kombela mi yimela hi redirection n'wina eka mobile app.",
+      "title": "Ku kambela hakelo ya wena .",
+      "titleSuccess": "Ku humelela ka oda ."
     }
   },
   "Log": {
@@ -2354,5 +2387,29 @@
     "categories": "Swiyenge .",
     "products": "Swihumelerisiwa ."
   },
-  "products": "Swihumelerisiwa ."
+  "products": "Swihumelerisiwa .",
+  "CompanyPage": {
+    "title": "Malunghana na hina .",
+    "farewellButton": "Tihlanganisi na hina",
+    "farewellMessage": "Tihlanganisi na hina hi ku tikhoma eka buti leyi nga laha hansi hi ta hlamula swivutiso swa wena hinkwaswo.",
+    "farewellTitle": "A wu khorwisiwi ?",
+    "heroDescription": "Cyna yi simekiwile hi 2021, yi velekiwile endzhaku ko endla tinhlamulo to tala ta timhangu eFurwa na le Yuropa hikwalaho ka vutshila lebyi amukeriweke bya vasunguri.",
+    "history": {
+      "description": "Tinhlamulo to hambana ta timhangu ti hi pfumelerile ku twisisa swifaniso swa nhlaselo na swiendlakalo leswi tirhisiwaka hi vahlaseri. \nKutani Cyna yi tumbuluxiwile, hi xikongomelo xo nyika nsirhelelo lowu heleleke na lowu tirhaka eka minhlaselo ya xiyenge xa ​​inthanete eka ti-SME na mabindzu ya le xikarhi.",
+      "title": "Xitori xa hina ."
+    },
+    "mission": {
+      "description": "Nous Plaçons vos Priorités au cœur de Notre Mission. \nnous comprenos les défis uniques auxquels sont confrontés les pme et mSP xikandza xa aux menaces toujours plus sophistiquées.",
+      "title": "Ku tinyiketela ka hina eka Cyna ."
+    },
+    "values": {
+      "description": "Ku fikelela hi ndlela leyinene mintlhontlho ya hina ya siku na siku, Cyna u ti rhendzerile hi vativi, a hleriwile eka swipano leswi tinyiketeleke ku fikelela swilaveko swa wena hi ndlela leyinene.",
+      "title": "Kuma swipano swa hina ."
+    }
+  },
+  "pageTitle": {
+    "admin": "Admin .",
+    "default": "Mutlangi wo basa eka cyber ."
+  },
+  "title": "Nxaxamelo wa vatirhisi ."
 }

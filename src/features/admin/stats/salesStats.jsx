@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl"
 import ErrorFront from "@/components/navigation/error"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function SalesStats() {
   const t = useTranslations("Admin.Stats.Sales")
@@ -26,6 +27,8 @@ export default function SalesStats() {
     queryKey: ["salesStats", filters],
     queryFn: () => getSalesStats(filters),
   })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (error) {
     return <ErrorFront />

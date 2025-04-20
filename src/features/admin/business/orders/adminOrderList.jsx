@@ -24,7 +24,8 @@ import {
 } from "@tanstack/react-table"
 import AdminOrdersFilterBar from "@/features/admin/business/orders/adminOrdersFilterBar"
 import { useState } from "react"
-
+import { formatIdForDisplay } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 export default function AdminOrderList() {
   const t = useTranslations("Admin.Business.Orders")
   const searchParams = useSearchParams()
@@ -36,6 +37,8 @@ export default function AdminOrderList() {
   const status = searchParams.get("status") || "all"
   const search = searchParams.get("search") || ""
   const [date, setDate] = useState(null)
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const { data, isLoading, error } = useQuery({
     queryKey: ["adminOrders", page, sortField, sortOrder, status, search, date],
     queryFn: async () => {
@@ -94,7 +97,7 @@ export default function AdminOrderList() {
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="font-medium">{row.getValue("_id")}</div>
+        <div className="font-medium">#{formatIdForDisplay(row.original)}</div>
       ),
     },
     {

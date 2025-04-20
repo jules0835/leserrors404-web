@@ -1,9 +1,5 @@
 import AdminSubscriptionList from "@/features/admin/business/subscriptions/adminSubscriptionList"
 
 export default function SubscriptionsPage() {
-  return (
-    <div>
-      <AdminSubscriptionList />
-    </div>
-  )
+  return <AdminSubscriptionList />
 }

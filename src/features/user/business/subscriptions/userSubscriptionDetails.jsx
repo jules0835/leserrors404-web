@@ -28,6 +28,8 @@ import { Separator } from "@/components/ui/separator"
 import { ArrowRight, FileText } from "lucide-react"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
 import { useRouter } from "@/i18n/routing"
+import { formatIdForDisplay } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function SubscriptionDetails() {
   const t = useTranslations("User.Business.Subscriptions.SubscriptionDetails")
@@ -43,6 +45,8 @@ export default function SubscriptionDetails() {
     queryKey: ["subscription", subscriptionId],
     queryFn: () => fetchSubscriptionDetails(subscriptionId),
   })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const { mutateAsync: fetchInvoice, isPending: isFetchingInvoice } =
     useMutation({
       mutationFn: async () => {
@@ -109,7 +113,7 @@ export default function SubscriptionDetails() {
               {t("subscriptionInformation")}
             </h2>
             <p>
-              {t("subscriptionId")}: {subscription._id}
+              {t("subscriptionId")}: #{formatIdForDisplay(subscription)}
             </p>
             <p>
               {t("periodStart")}:{" "}

@@ -15,6 +15,7 @@ import {
   UserRoundPlus,
   UserRound,
   Eye,
+  Ticket,
 } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { useTranslations } from "next-intl"
@@ -36,6 +37,7 @@ import { getSubscriptionStatusColor } from "@/features/user/business/subscriptio
 import { Badge } from "@/components/ui/badge"
 import { getStatusColor } from "@/features/user/business/orders/utils/userOrder"
 import { Textarea } from "@/components/ui/textarea"
+import { formatIdForDisplay } from "@/lib/utils"
 
 export default function AdminConversationDetails({ chat }) {
   const t = useTranslations("Admin.Chat")
@@ -118,6 +120,11 @@ export default function AdminConversationDetails({ chat }) {
               />
             </div>
           )}
+          <DetailItem
+            icon={<Ticket size={16} />}
+            label={t("ticketId")}
+            value={`#${formatIdForDisplay(chat)}`}
+          />
         </div>
 
         <div className="space-y-2 w-full">
@@ -237,7 +244,7 @@ export default function AdminConversationDetails({ chat }) {
                       key={index}
                       className="text-sm bg-muted p-1 rounded flex items-center justify-between"
                     >
-                      <div>#{order._id.toString().slice(-6)}</div>
+                      <div>#{formatIdForDisplay(order)}</div>
                       <Badge className={getStatusColor(order.orderStatus)}>
                         {order.orderStatus}
                       </Badge>
@@ -269,7 +276,7 @@ export default function AdminConversationDetails({ chat }) {
                       key={index}
                       className="text-sm bg-muted p-1 rounded flex items-center justify-between"
                     >
-                      <div>#{sub._id.toString().slice(-6)}</div>
+                      <div>#{formatIdForDisplay(sub)}</div>
                       <Badge
                         className={getSubscriptionStatusColor(
                           sub.stripe.status

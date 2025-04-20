@@ -18,6 +18,7 @@ export async function getCustomersList(
             { lastName: { $regex: query, $options: "i" } },
             { email: { $regex: query, $options: "i" } },
             { phone: { $regex: query, $options: "i" } },
+            { shortId: { $regex: query, $options: "i" } },
           ],
         }
       : {}

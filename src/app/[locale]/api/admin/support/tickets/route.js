@@ -1,3 +1,4 @@
+import { logKeys } from "@/assets/options/config"
 import { getTicketsList } from "@/features/admin/support/service/tickets"
 import { getReqIsAdmin, getReqUserId } from "@/features/auth/utils/getAuthParam"
 import log from "@/lib/log"
@@ -9,6 +10,7 @@ export async function GET(req) {
   const query = searchParams.get("query") || ""
   const sortField = searchParams.get("sortField") || "createdAt"
   const sortOrder = searchParams.get("sortOrder") || "desc"
+  const isActive = searchParams.get("isActive")
 
   try {
     const { tickets, total } = await getTicketsList(
@@ -16,17 +18,22 @@ export async function GET(req) {
       page,
       query,
       sortField,
-      sortOrder
+      sortOrder,
+      isActive
     )
 
     return Response.json({ tickets, total })
   } catch (error) {
     log.systemError({
+      logKey: logKeys.internalError.key,
       message: "Failed to fetch tickets",
       isError: true,
       technicalMessage: error.message,
       authorId: getReqUserId(req),
       isAdminAction: getReqIsAdmin(req),
+      data: {
+        error,
+      },
     })
 
     return Response.json({ error: "Failed to fetch tickets" }, { status: 500 })

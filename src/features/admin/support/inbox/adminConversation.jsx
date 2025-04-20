@@ -6,10 +6,13 @@ import AdminInboxSkeleton from "@/features/admin/support/inbox/adminInboxSkeleto
 import { useAdminChat } from "@/features/admin/support/context/adminChatContext"
 import { useTranslations } from "next-intl"
 import { MessageSquareOff } from "lucide-react"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function AdminConversation() {
   const { selectedChat, isFirstFetchingSelectedChat } = useAdminChat()
   const t = useTranslations("Admin.Chat")
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (isFirstFetchingSelectedChat) {
     return <AdminInboxSkeleton />

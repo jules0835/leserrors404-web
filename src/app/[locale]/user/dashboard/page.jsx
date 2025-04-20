@@ -1,7 +1,5 @@
+import UserDashboard from "@/features/user/dashboard/userDashboard"
+
 export default function Page() {
-  return (
-    <div>
-      <h1>Dashboard</h1>
-    </div>
-  )
+  return <UserDashboard />
 }

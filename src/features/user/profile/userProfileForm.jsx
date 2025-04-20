@@ -9,6 +9,7 @@ import { getHowDidYouHearOptions } from "@/features/auth/utils/register"
 import { useTranslations } from "next-intl"
 import toast from "react-hot-toast"
 import axios from "axios"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export function UserProfileForm({ user }) {
   const [isEditing, setIsEditing] = useState(false)
@@ -55,6 +56,8 @@ export function UserProfileForm({ user }) {
       formikRef.current.resetForm({ values: newUser })
     }
   }
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   useEffect(() => {
     axios.get("/api/public/countries").then((response) => {

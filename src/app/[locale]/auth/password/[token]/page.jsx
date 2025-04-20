@@ -6,11 +6,14 @@ import { Link } from "@/i18n/routing"
 import { ShieldX } from "lucide-react"
 import { getTranslations } from "next-intl/server"
 import Image from "next/image"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default async function Page({ params }) {
   const t = await getTranslations("Auth.ResetPasswordPage")
   const { token } = await params
   const isValidToken = await checkResetToken(token)
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (!isValidToken) {
     return (

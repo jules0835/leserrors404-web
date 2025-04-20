@@ -13,7 +13,7 @@ import ErrorFront from "@/components/navigation/error"
 import toast from "react-hot-toast"
 import CartProduct from "@/features/shop/cart/cartProduct"
 import CardCheckoutCart from "@/features/shop/cart/cardCheckoutCart"
-
+import { useTitle } from "@/components/navigation/titleContext"
 export default function UserCart() {
   const t = useTranslations("Shop.Cart")
   const [isUpdating, setIsUpdating] = useState(false)
@@ -21,6 +21,8 @@ export default function UserCart() {
   const queryClient = useQueryClient()
   const { updateProdCart, removeProdFromCart, updateProdBillingCycle } =
     useCart()
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const {
     data: cart,
     isLoading,

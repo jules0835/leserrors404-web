@@ -6,8 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useTranslations } from "next-intl"
+import { useTitle } from "@/components/navigation/titleContext"
 
-export default function VoucherDetails({ voucherId }) {
+export default function VoucherDetails({ params }) {
+  const { Id: voucherId } = params
   const {
     data: voucher,
     isLoading,
@@ -46,6 +48,8 @@ export default function VoucherDetails({ voucherId }) {
       toast.error("Failed to change voucher status")
     }
   }
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   return (
     <div className="">

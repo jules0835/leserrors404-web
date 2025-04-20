@@ -33,6 +33,7 @@ export async function GET(req) {
           { "user.email": { $regex: new RegExp(search, "iu") } },
           { "stripe.subscriptionId": { $regex: new RegExp(search, "iu") } },
           { "stripe.customerId": { $regex: new RegExp(search, "iu") } },
+          { shortId: { $regex: new RegExp(search, "iu") } },
         ]
       }
     }

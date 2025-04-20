@@ -23,7 +23,9 @@ import {
 import { Skeleton } from "@/components/ui/skeleton"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { cn, getLocalizedValue } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
+
 export default function CartStats() {
   const t = useTranslations("Admin.Stats.Carts")
   const locale = useLocale()
@@ -35,18 +37,13 @@ export default function CartStats() {
     queryKey: ["cartStats", filters],
     queryFn: () => getCartStats(filters),
   })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (error) {
     return <ErrorFront />
   }
 
-  const getLocalizedValue = (value) => {
-    if (typeof value === "object" && value !== null) {
-      return value[locale] || value.en || ""
-    }
-
-    return value
-  }
   const activeCarts = data?.activeCarts || {}
   const convertedCarts = data?.convertedCarts || {}
   const productDistribution = data?.productDistribution || []
@@ -154,7 +151,7 @@ export default function CartStats() {
                   productDistribution.map((product) => (
                     <TableRow key={product.productId}>
                       <TableCell>
-                        {getLocalizedValue(product.productName)}
+                        {getLocalizedValue(product.productName, locale)}
                       </TableCell>
                       <TableCell className="text-right">
                         {product.count}

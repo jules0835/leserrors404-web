@@ -13,11 +13,14 @@ import { ArrowRight, CheckCircle2, FileText } from "lucide-react"
 import { useRouter } from "@/i18n/routing"
 import ErrorFront from "@/components/navigation/error"
 import SuccessCheckoutSkeleton from "@/features/shop/checkout/SuccessCheckoutSkeleton"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function SuccessCheckout() {
   const t = useTranslations("Shop.Checkout")
   const { Id: orderId } = useParams()
   const router = useRouter()
+  const { setTitle } = useTitle()
+  setTitle(t("titleSuccess"))
   const { data: order, isLoading } = useQuery({
     queryKey: ["order", orderId],
     queryFn: async () => {

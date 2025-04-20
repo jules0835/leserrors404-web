@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/input-otp"
 import { LockKeyhole } from "lucide-react"
 import { company } from "@/assets/options/config"
+import { useTitle } from "@/components/navigation/titleContext"
 
 // eslint-disable-next-line max-lines-per-function
 export default function Login() {
@@ -42,6 +43,8 @@ export default function Login() {
   const isAppMobileLogin = searchParams.get("appMobileLogin")
   const isResetSuccess = searchParams.get("resetSuccess")
   const isLogout = searchParams.get("logout")
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   useEffect(() => {
     if (otpOpen && otpInputRef.current) {

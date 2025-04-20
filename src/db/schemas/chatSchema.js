@@ -1,4 +1,5 @@
-import { Schema } from "mongoose"
+import mongoose, { Schema } from "mongoose"
+import { generateUniqueShortId } from "@/lib/utils"
 
 const messageSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User", required: false },
@@ -37,6 +38,11 @@ const messageSchema = new Schema({
 
 export const chatSchema = new Schema(
   {
+    shortId: {
+      type: String,
+      unique: true,
+      index: true,
+    },
     user: { type: Schema.Types.ObjectId, ref: "User", required: false },
     userName: { type: String, required: false },
     email: { type: String, required: false },
@@ -62,3 +68,22 @@ export const chatSchema = new Schema(
   },
   { timestamps: true }
 )
+
+chatSchema.pre("save", async function ValidateShortId(next) {
+  if (this.isNew && !this.shortId) {
+    const generateAndCheckId = async () => {
+      const newId = generateUniqueShortId()
+      const exists = await mongoose.models.Chat.exists({ shortId: newId })
+
+      if (exists) {
+        return generateAndCheckId()
+      }
+
+      return newId
+    }
+
+    this.shortId = await generateAndCheckId()
+  }
+
+  next()
+})

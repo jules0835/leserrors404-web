@@ -5,11 +5,13 @@ import { Link } from "@/i18n/routing"
 import { MailCheck, MailWarning } from "lucide-react"
 import { getTranslations } from "next-intl/server"
 import Image from "next/image"
-
+import { useTitle } from "@/components/navigation/titleContext"
 export default async function Page({ params }) {
   const t = await getTranslations("Auth")
   const { token } = await params
   const confirmResult = await confirmEmailWithToken(token)
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-[#2F1F80]">

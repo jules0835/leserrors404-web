@@ -1275,7 +1275,9 @@
       "previous": "Précédent",
       "searchUser": "Rechercher un utilisateur",
       "selectUser": "Sélectionnez un utilisateur",
-      "supportInbox": "Prise en charge de la boîte de réception"
+      "supportInbox": "Prise en charge de la boîte de réception",
+      "ticketId": "ID de billet / chat",
+      "title": "Messages de boîte de réception"
     },
     "Dashboard": {
       "activeSubscriptions": "Abonnements actifs",
@@ -1285,7 +1287,8 @@
       "todayOrders": "Aujourd'hui commandes",
       "todayRegistrations": "Aujourd'hui les inscriptions",
       "welcome": "Salut {nom d'utilisateur}",
-      "welcomeMessage": "Voici un résumé de l'activité commerciale"
+      "welcomeMessage": "Voici un résumé de l'activité commerciale",
+      "title": "Tableau de bord administratif"
     },
     "Support": {
       "Tickets": {
@@ -1309,7 +1312,9 @@
         "title": "Billets",
         "user": "Utilisateur",
         "viewDetails": "Afficher les détails",
-        "waitingAction": "Action d'attente"
+        "waitingAction": "Action d'attente",
+        "activeTickets": "Billets actifs",
+        "ticketId": "Carte d'identité"
       }
     }
   },
@@ -1414,7 +1419,8 @@
       "resetPasswordEmailSent": "Si l'e-mail existe, un lien de réinitialisation a été envoyé. \nVeuillez cocher votre boîte de réception ou votre dossier de spam.",
       "sendEmail": "Envoyer un lien de réinitialisation",
       "somethingWentWrong": "Incapable d'envoyer l'e-mail de réinitialisation, veuillez réessayer.",
-      "title": "Réinitialisez votre mot de passe"
+      "title": "Réinitialisez votre mot de passe",
+      "emailSent": "Si un compte existait avec cet e-mail, un message avec un lien pour réinitialiser votre mot de passe sera envoyé. \nVous pouvez l'utiliser pour réinitialiser votre mot de passe."
     },
     "confirmEmail": "Confirmation par e-mail",
     "confirmEmailFailed": "La confirmation par e-mail a échoué. \nVeuillez réessayer ou contacter notre équipe d'assistance.",
@@ -1427,7 +1433,10 @@
     "application": "Appliquer",
     "mobile": "Mobile",
     "phone": "Téléphone",
-    "redirectingToMobileMessage": "Si vous n'êtes pas redirigé en 5 secondes, veuillez cliquer sur le bouton ci-dessous."
+    "redirectingToMobileMessage": "Si vous n'êtes pas redirigé en 5 secondes, veuillez cliquer sur le bouton ci-dessous.",
+    "title": "Confirmation par e-mail",
+    "titleLogout": "Redirection déconnectée",
+    "titleMobile": "Connexion mobile"
   },
   "Confirmation": {
     "subject": "Cyna - Confirmez votre e-mail"
@@ -1745,7 +1754,24 @@
     },
     "Dashboard": {
       "subTitle": "Gérez votre compte, paramètres, abonnements et plus",
-      "title": "Votre tableau de bord"
+      "title": "Votre tableau de bord",
+      "activeSubscriptions": "Abonnements actifs",
+      "activeTickets": "Billets actifs",
+      "lastMessage": "Dernier message",
+      "nextBilling": "Prochaine facturation",
+      "noActiveTickets": "Pas de billets actifs",
+      "noOrders": "Pas de commandes",
+      "noSubscriptions": "Aucun abonnement",
+      "orderId": "ID de commande",
+      "product": "Produits",
+      "recentOrders": "Commandes récentes",
+      "status": "Statut",
+      "subject": "Sujet",
+      "ticketId": "Carte d'identité",
+      "total": "Total",
+      "totalOrders": "Commandes totales",
+      "totalSpent": "Total dépensé",
+      "recentSubscriptions": "Abonnements récents"
     },
     "MyAccount": {
       "PaymentMethods": {
@@ -1793,7 +1819,8 @@
       "advertisement": "Publicité",
       "friend": "Ami",
       "other": "Autre",
-      "socialMedia": "Réseaux sociaux"
+      "socialMedia": "Réseaux sociaux",
+      "title": "Mettez à jour votre profil"
     },
     "Security": {
       "OtpConfig": {
@@ -1897,7 +1924,9 @@
       "sendMessageToSupport": "Envoyez un message à notre équipe d'assistance",
       "sendMessageToSupportDesc": "Ici, vous pouvez envoyer un message à notre équipe d'assistance. \nNous vous répondrons dès que possible. \nVeuillez fournir autant de détails que possible pour nous aider à mieux vous aider.",
       "SELECT_ORDER": "Afin de vous aider, veuillez sélectionner une commande liée à votre question en cliquant sur le bouton ci-dessous",
-      "SELECT_SUBSCRIPTION": "Afin de vous aider, veuillez sélectionner un abonnement lié à votre question en cliquant sur le bouton ci-dessous"
+      "SELECT_SUBSCRIPTION": "Afin de vous aider, veuillez sélectionner un abonnement lié à votre question en cliquant sur le bouton ci-dessous",
+      "ticketId": "Carte d'identité",
+      "title": "Boîte de réception utilisateur"
     }
   },
   "advertisement": "Avertissement",
@@ -2037,7 +2066,8 @@
       "ProductOutOfStock": "Produit en rupture de stock",
       "ProductOutOfStockUserQuantity": "L'un des produits n'est pas disponible avec la quantité sélectionnée",
       "USER_PROFILE_INCOMPLETE": "Votre profil est incomplet, veuillez le terminer pour passer à la caisse",
-      "VOUCHER_NOT_ACTIVE": "Bon non valide, veuillez le retirer pour procéder à la caisse"
+      "VOUCHER_NOT_ACTIVE": "Bon non valide, veuillez le retirer pour procéder à la caisse",
+      "title": "Chariot"
     },
     "Product": {
       "addToCart": {
@@ -2064,7 +2094,8 @@
       "stock": "Action",
       "subscription": "Abonnement",
       "total": "Total",
-      "year": "Année"
+      "year": "Année",
+      "title": "Produit"
     },
     "Checkout": {
       "redirectingToCheckout": "Nous traitons votre paiement, veuillez patienter ...",
@@ -2107,7 +2138,9 @@
       "application": "Mobile",
       "returnToApp": "Retour à l'application mobile",
       "transactionFailed": "Échec de la transaction",
-      "transactionFailedMessage": "Cette transaction a échoué parce que vous l'avez annulée ou il y a eu une erreur lors de la vérification. \nVeuillez patienter que nous vous redirigeons vers l'application mobile."
+      "transactionFailedMessage": "Cette transaction a échoué parce que vous l'avez annulée ou il y a eu une erreur lors de la vérification. \nVeuillez patienter que nous vous redirigeons vers l'application mobile.",
+      "title": "Vérification de votre paiement",
+      "titleSuccess": "Réussir à commander"
     }
   },
   "Log": {
@@ -2354,5 +2387,29 @@
     "categories": "Catégories",
     "products": "Produits"
   },
-  "products": "Produits"
+  "products": "Produits",
+  "CompanyPage": {
+    "title": "À propos de nous",
+    "farewellButton": "Contactez-nous",
+    "farewellMessage": "Contactez-nous en cliquant sur le bouton ci-dessous et nous répondrons à toutes vos questions.",
+    "farewellTitle": "Vous n'êtes pas convaincu?",
+    "heroDescription": "Fondée en 2021, Cyna est née après avoir réalisé de nombreuses réponses d'incident en France et en Europe grâce à l'expertise reconnue des fondateurs.",
+    "history": {
+      "description": "Les différentes réponses des incidents nous ont permis de comprendre les vecteurs d'attaque et les scénarios utilisés par les attaquants. \nCyna a ensuite été créée, dans le but de fournir une protection complète et pragmatique contre les cyberattaques pour les PME et les entreprises de taille moyenne.",
+      "title": "Notre histoire"
+    },
+    "mission": {
+      "description": "Les Plaçons de Nous vos priorités aU Cœr de Notre Mission. \nNous Comprenons Les Défis uniques aux axquel Sont confronts les pMe et msp face aux menaces aux toujours plus des sophistiques.",
+      "title": "Nos engagements à Cyna"
+    },
+    "values": {
+      "description": "Pour relever efficacement nos défis quotidiens, Cyna s'est entouré d'experts, organisé en équipes dédiées pour répondre au mieux à vos besoins.",
+      "title": "Découvrez nos équipes"
+    }
+  },
+  "pageTitle": {
+    "admin": "Administrer",
+    "default": "Joueur pur en cyber"
+  },
+  "title": "Liste des utilisateurs"
 }

@@ -22,6 +22,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function UserSubscriptionList() {
   const t = useTranslations("User.Business.Subscriptions")
@@ -31,6 +32,8 @@ export default function UserSubscriptionList() {
   const limit = 10
   const sortField = searchParams.get("sortField") || "createdAt"
   const sortOrder = searchParams.get("sortOrder") || "desc"
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const { data, isLoading, error } = useQuery({
     queryKey: ["subscriptions", page, sortField, sortOrder],
     queryFn: async () => {

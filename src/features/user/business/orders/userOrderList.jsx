@@ -22,6 +22,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function UserOrderList() {
   const t = useTranslations("User.Business.Orders")
@@ -31,6 +32,8 @@ export default function UserOrderList() {
   const limit = 10
   const sortField = searchParams.get("sortField") || "createdAt"
   const sortOrder = searchParams.get("sortOrder") || "desc"
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const { data, isLoading, error } = useQuery({
     queryKey: ["orders", page, sortField, sortOrder],
     queryFn: async () => {

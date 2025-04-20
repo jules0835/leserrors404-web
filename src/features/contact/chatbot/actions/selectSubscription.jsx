@@ -7,6 +7,7 @@ import { format } from "date-fns"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
+import { formatIdForDisplay } from "@/lib/utils"
 
 export default function SelectSubscription({ onSelect }) {
   const [page, setPage] = useState(1)
@@ -72,7 +73,7 @@ export default function SelectSubscription({ onSelect }) {
               <div className="flex flex-col items-start">
                 <span className="font-medium">
                   {t("SELECT_SUBSCRIPTION.subscriptionNumber", {
-                    number: subscription._id.slice(-6),
+                    number: formatIdForDisplay(subscription),
                   })}
                 </span>
                 <span className="text-sm text-muted-foreground">

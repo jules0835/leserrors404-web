@@ -1,9 +1,5 @@
 import AdminOrderList from "@/features/admin/business/orders/adminOrderList"
 
 export default function Orders() {
-  return (
-    <div>
-      <AdminOrderList />
-    </div>
-  )
+  return <AdminOrderList />
 }

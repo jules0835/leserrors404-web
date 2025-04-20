@@ -119,7 +119,10 @@ export async function POST(req) {
     log.systemError({
       logKey: logKeys.shopSettingsError.key,
       message: "Failed to create Categorie",
-      error,
+      technicalMessage: error.message,
+      data: {
+        error,
+      },
     })
 
     return NextResponse.json(

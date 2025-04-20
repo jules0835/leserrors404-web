@@ -28,6 +28,8 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
 import toast from "react-hot-toast"
+import { formatIdForDisplay, trimString } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function AdminOrderDetails() {
   const t = useTranslations("Admin.Business.Orders.OrderDetails")
@@ -44,6 +46,8 @@ export default function AdminOrderDetails() {
     queryKey: ["order", Id],
     queryFn: () => fetchOrderDetails(Id),
   })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (isLoading) {
     return <AdminOrderDetailsSkeleton />
@@ -109,7 +113,7 @@ export default function AdminOrderDetails() {
             </Badge>
             <h2 className="font-semibold mb-2">{t("orderInformation")}</h2>
             <p>
-              {t("orderId")}: {order._id}
+              {t("orderId")}: #{formatIdForDisplay(order)}
             </p>
             <p>
               {t("date")}: {format(new Date(order.createdAt), "PPP")}
@@ -220,14 +224,14 @@ export default function AdminOrderDetails() {
               <div className="flex justify-between items-center">
                 <p>{t("sessionId")}</p>
                 <p className="text-sm text-gray-600">
-                  {order.stripe.sessionId}
+                  {trimString(order.stripe.sessionId, 40)}
                 </p>
               </div>
               {order.stripe.paymentIntentId && (
                 <div className="flex justify-between items-center mt-2">
                   <p>{t("paymentIntentId")}</p>
                   <p className="text-sm text-gray-600">
-                    {order.stripe.paymentIntentId}
+                    {trimString(order.stripe.paymentIntentId, 40)}
                   </p>
                 </div>
               )}

@@ -10,6 +10,7 @@ import { webAppSettings } from "@/assets/options/config"
 import Image from "next/image"
 import { MailCheck } from "lucide-react"
 import { useSearchParams } from "next/navigation"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function ResetPasswordPage() {
   const t = useTranslations("Auth.ResetPasswordPage")
@@ -21,6 +22,8 @@ export default function ResetPasswordPage() {
   const ResetSchema = Yup.object().shape({
     email: Yup.string().email(t("invalidEmail")).required(t("requiredEmail")),
   })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-[#2F1F80]">
@@ -114,7 +117,7 @@ export default function ResetPasswordPage() {
               <MailCheck size={48} />
 
               <p className="text-green-600 text-sm font-medium text-center">
-                {message}
+                {t("emailSent")}
               </p>
 
               <Link

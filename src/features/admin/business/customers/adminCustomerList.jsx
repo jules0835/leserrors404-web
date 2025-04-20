@@ -29,11 +29,14 @@ import {
 import DataGridSkeleton from "@/components/skeleton/DataGridSkeleton"
 import { useTranslations } from "next-intl"
 import { useRouter, useSearchParams } from "next/navigation"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function AdminCustomerList() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const t = useTranslations("Admin.Business.Customers")
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const page = parseInt(searchParams.get("page"), 10) || 1
   const limit = 10
   const query = searchParams.get("query") || ""

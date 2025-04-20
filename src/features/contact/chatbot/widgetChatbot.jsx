@@ -17,7 +17,7 @@ export default function WidgetChatbot() {
     pathname.includes("/admin") ||
     isAppMobileLogin ||
     pathname.includes("/shop/checkout/redirect") ||
-    pathname.includes("/user/dashboard/support/tickets")
+    pathname.includes("/user/dashboard")
   ) {
     return null
   }

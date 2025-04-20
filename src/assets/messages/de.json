@@ -127,7 +127,8 @@
       "resetPasswordEmailSent": "Wenn die E -Mail vorhanden ist, wurde ein Reset -Link gesendet. \nBitte überprüfen Sie Ihren Posteingang oder Spamordner.",
       "sendEmail": "Senden Sie einen Reset -Link",
       "somethingWentWrong": "Bitte versuchen Sie es nicht erneut.",
-      "title": "Setzen Sie Ihr Passwort zurück"
+      "title": "Setzen Sie Ihr Passwort zurück",
+      "emailSent": "Wenn mit dieser E -Mail ein Konto vorhanden ist, wird eine Nachricht mit einem Link zum Zurücksetzen Ihres Passworts gesendet. \nSie können es verwenden, um Ihr Passwort zurückzusetzen."
     },
     "loggingYouOut": "Anmeldung dich raus",
     "loggingYouOutMessage": "Wenn Sie nicht weitergeleitet werden, klicken Sie bitte hier",
@@ -136,7 +137,10 @@
     "application": "App",
     "mobile": "Mobile",
     "phone": "Telefon",
-    "redirectingToMobileMessage": "Wenn Sie in 5 Sekunden nicht umgeleitet werden, klicken Sie bitte auf die Schaltfläche unten."
+    "redirectingToMobileMessage": "Wenn Sie in 5 Sekunden nicht umgeleitet werden, klicken Sie bitte auf die Schaltfläche unten.",
+    "title": "E -Mail -Bestätigung",
+    "titleLogout": "Anmeldungsumleitung",
+    "titleMobile": "Mobiler Login"
   },
   "other": "Andere",
   "socialMedia": "Soziale Medien",
@@ -1260,7 +1264,9 @@
       "previous": "Vorherige",
       "searchUser": "Benutzer suchen",
       "selectUser": "Wählen Sie einen Benutzer aus",
-      "supportInbox": "Posteingang unterstützen"
+      "supportInbox": "Posteingang unterstützen",
+      "ticketId": "Ticket/Chat -ID",
+      "title": "Posteingangsnachrichten"
     },
     "Stats": {
       "Carts": {
@@ -1429,7 +1435,8 @@
       "todayOrders": "Heute Bestellungen",
       "todayRegistrations": "Heute Registrierungen",
       "welcome": "Hallo {Benutzername}",
-      "welcomeMessage": "Hier ist eine Zusammenfassung der Geschäftstätigkeit"
+      "welcomeMessage": "Hier ist eine Zusammenfassung der Geschäftstätigkeit",
+      "title": "Admin -Dashboard"
     },
     "Support": {
       "Tickets": {
@@ -1453,7 +1460,9 @@
         "title": "Tickets",
         "user": "Benutzer",
         "viewDetails": "Details anzeigen",
-        "waitingAction": "Warteaktion"
+        "waitingAction": "Warteaktion",
+        "activeTickets": "Aktive Tickets",
+        "ticketId": "Ticket -ID"
       }
     }
   },
@@ -1809,7 +1818,24 @@
     },
     "Dashboard": {
       "subTitle": "Verwalten Sie Ihr Konto, Ihre Einstellungen, Abonnements und mehr",
-      "title": "Dein Dashboard"
+      "title": "Dein Dashboard",
+      "activeSubscriptions": "Aktive Abonnements",
+      "activeTickets": "Aktive Tickets",
+      "lastMessage": "Letzte Nachricht",
+      "nextBilling": "Nächste Abrechnung",
+      "noActiveTickets": "Keine aktiven Tickets",
+      "noOrders": "Keine Bestellungen",
+      "noSubscriptions": "Kein Abonnement",
+      "orderId": "Bestellausweis",
+      "product": "Produkte",
+      "recentOrders": "Jüngste Bestellungen",
+      "recentSubscriptions": "Neuere Abonnements",
+      "status": "Status",
+      "subject": "Thema",
+      "ticketId": "Ticket -ID",
+      "total": "Gesamt",
+      "totalOrders": "Gesamtbestellungen",
+      "totalSpent": "Total ausgegeben"
     },
     "MyAccount": {
       "PaymentMethods": {
@@ -1857,7 +1883,8 @@
       "advertisement": "Werbung",
       "friend": "Freund",
       "other": "Andere",
-      "socialMedia": "Social Media"
+      "socialMedia": "Social Media",
+      "title": "Aktualisieren Sie Ihr Profil"
     },
     "Support": {
       "MyTickets": {
@@ -1911,7 +1938,9 @@
       "sendMessageToSupport": "Senden Sie eine Nachricht an unser Support -Team",
       "sendMessageToSupportDesc": "Hier können Sie eine Nachricht an unser Support -Team senden. \nWir werden uns so schnell wie möglich bei Ihnen melden. \nBitte geben Sie so viel Detail wie möglich an, um Ihnen zu helfen, Ihnen besser zu helfen.",
       "SELECT_ORDER": "Um Ihnen zu helfen, wählen Sie bitte eine Bestellung zu Ihrer Frage aus, indem Sie auf die Schaltfläche unten klicken",
-      "SELECT_SUBSCRIPTION": "Um Ihnen zu helfen, wählen Sie bitte ein Abonnement für Ihre Frage aus, indem Sie auf die Schaltfläche unten klicken"
+      "SELECT_SUBSCRIPTION": "Um Ihnen zu helfen, wählen Sie bitte ein Abonnement für Ihre Frage aus, indem Sie auf die Schaltfläche unten klicken",
+      "ticketId": "Ticket -ID",
+      "title": "Benutzereingang"
     }
   },
   "pagesNames": {
@@ -2037,7 +2066,8 @@
       "ProductOutOfStock": "Produkt aus dem Vorrat",
       "ProductOutOfStockUserQuantity": "Eines der Produkte ist nicht mit der ausgewählten Menge verfügbar",
       "USER_PROFILE_INCOMPLETE": "Ihr Profil ist unvollständig. Führen Sie es bitte aus, um zum Checkout fortzufahren",
-      "VOUCHER_NOT_ACTIVE": "Gutschein nicht gültig, bitte entfernen Sie es, um zum Checkout fortzufahren"
+      "VOUCHER_NOT_ACTIVE": "Gutschein nicht gültig, bitte entfernen Sie es, um zum Checkout fortzufahren",
+      "title": "Wagen"
     },
     "Product": {
       "addToCart": {
@@ -2064,7 +2094,8 @@
       "stock": "Aktie",
       "subscription": "Abonnement",
       "total": "Gesamt",
-      "year": "Jahr"
+      "year": "Jahr",
+      "title": "Produkt"
     },
     "Checkout": {
       "myOrders": "Meine Bestellungen",
@@ -2107,7 +2138,9 @@
       "application": "Mobile",
       "returnToApp": "Kehren Sie zur mobilen App zurück",
       "transactionFailed": "Transaktion fehlgeschlagen",
-      "transactionFailedMessage": "Diese Transaktion ist fehlgeschlagen, da Sie sie abgebrochen haben oder beim Auschecken ein Fehler vorliegt. \nBitte warten Sie, dass wir Sie zur mobilen App umleiten."
+      "transactionFailedMessage": "Diese Transaktion ist fehlgeschlagen, da Sie sie abgebrochen haben oder beim Auschecken ein Fehler vorliegt. \nBitte warten Sie, dass wir Sie zur mobilen App umleiten.",
+      "title": "Überprüfen Sie Ihre Zahlung",
+      "titleSuccess": "Erfolg"
     }
   },
   "Log": {
@@ -2354,5 +2387,29 @@
     "categories": "Kategorien",
     "products": "Produkte"
   },
-  "products": "Produkte"
+  "products": "Produkte",
+  "CompanyPage": {
+    "title": "Über uns",
+    "farewellButton": "Kontaktieren Sie uns",
+    "farewellMessage": "Kontaktieren Sie uns, indem Sie auf die Schaltfläche unten klicken, und wir beantworten alle Ihre Fragen.",
+    "farewellTitle": "Sie sind nicht überzeugt?",
+    "heroDescription": "Cyna wurde 2021 gegründet und wurde dank der anerkannten Fachkenntnisse der Gründer nach zahlreichen Vorfällen in Frankreich und Europa geboren.",
+    "history": {
+      "description": "Die verschiedenen Vorfälleantworten ermöglichten es uns, die Angriffsvektoren und Szenarien zu verstehen, die von Angreifern verwendet wurden. \nAnschließend wurde Cyna geschaffen, mit dem Ziel, einen umfassenden und pragmatischen Schutz gegen Cyberangriffe für KMU und mittelgroße Unternehmen zu bieten.",
+      "title": "Unsere Geschichte"
+    },
+    "mission": {
+      "description": "Nous Plaçons Vos Prioritäten der Mission von Notre. \nNous Comprenons Les Défis Uniques Auxquels",
+      "title": "Unsere Verpflichtungen bei Cyna"
+    },
+    "values": {
+      "description": "Um unsere täglichen Herausforderungen effektiv zu begegnen, hat sich Cyna mit Experten umgeben, die sich in engagierte Teams organisiert haben, um Ihre Bedürfnisse am besten zu erfüllen.",
+      "title": "Entdecken Sie unsere Teams"
+    }
+  },
+  "pageTitle": {
+    "admin": "Administrator",
+    "default": "Reiner Spieler im Cyber"
+  },
+  "title": "Benutzerliste"
 }

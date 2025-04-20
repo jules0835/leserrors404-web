@@ -7,10 +7,13 @@ import AdminDashboardStats from "@/features/admin/dashboard/adminDashboardStats"
 import AdminDashboardTickets from "@/features/admin/dashboard/adminDashboardTickets"
 import { useSession } from "next-auth/react"
 import { useTranslations } from "use-intl"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function AdminDashboard() {
   const t = useTranslations("Admin.Dashboard")
   const { data: session } = useSession()
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   return (
     <div className="space-y-4 p-4">

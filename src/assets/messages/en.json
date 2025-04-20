@@ -70,7 +70,7 @@
       "cityRequired": "City is required",
       "street": "Street",
       "emailRequired": "Email is required",
-      "passwordMinLength": "Password must be at least 6 characters long",
+      "passwordMinLength": "Password must be at least 12 characters long",
       "passwordRequired": "Password is required",
       "passwordsMustMatch": "Passwords must match",
       "confirmPasswordRequired": "Confirm password is required",
@@ -127,7 +127,8 @@
       "requiredPassword": "Password is required",
       "passwordMinLength": "A password with 12 letters is required",
       "invalidOrExpiredToken": "The reset token is invalid or has expired",
-      "passwordResetSuccess": "Password has been reset successfully, you can now login"
+      "passwordResetSuccess": "Password has been reset successfully, you can now login",
+      "emailSent": "If an account existed with this email, a message with a link to reset your password will be sent. You can use it to reset your password."
     },
     "loggingYouOut": "Logging you out",
     "loggingYouOutMessage": "If you are not redirected, please click here",
@@ -136,7 +137,10 @@
     "redirectingToMobileMessage": "If you are not redirected in 5 seconds, please click the button below.",
     "phone": "Phone",
     "mobile": "Mobile",
-    "application": "App"
+    "application": "App",
+    "title": "Email Confirmation",
+    "titleMobile": "Mobile Login",
+    "titleLogout": "Logout Redirection"
   },
   "Navigation": {
     "home": "Home",
@@ -302,11 +306,11 @@
           "totalQuantity": "Total Quantity"
         },
         "status": {
-          "active": "Active",
-          "canceled": "Canceled",
-          "pending": "Pending",
-          "preCanceled": "Pre-Cancelled",
-          "unknown": "Unknown"
+          "active": "ACTIVE",
+          "canceled": "CANCELED",
+          "pending": "PENDING",
+          "preCanceled": "PRE-CANCELED",
+          "unknown": "UNKNOWN"
         },
         "billingCycle": {
           "monthly": "Monthly",
@@ -424,7 +428,9 @@
       "previous": "Previous",
       "next": "Next",
       "noMessage": "No message",
-      "new": "NEW"
+      "new": "NEW",
+      "ticketId": "Ticket/Chat Id",
+      "title": "Inbox Messages"
     },
     "Security": {
       "Users": {
@@ -796,14 +802,14 @@
           "title": "Status",
           "all": "All Status",
           "incomplete": "Incomplete",
-          "incomplete_expired": "Incomplete Expired",
-          "trialing": "Trial",
-          "active": "Active",
-          "past_due": "Past Due",
-          "canceled": "Canceled",
-          "unpaid": "Unpaid",
-          "paused": "Paused",
-          "preCanceled": "Pre-cancel"
+          "incomplete_expired": "INCOMPLETE EXPIRED",
+          "trialing": "TRIAL",
+          "active": "ACTIVE",
+          "past_due": "PAST DUE",
+          "canceled": "CANCELED",
+          "unpaid": "UNPAID",
+          "paused": "PAUSED",
+          "preCanceled": "PRE-CANCELED"
         },
         "products": "Products",
         "searchPlaceholder": "Search by ID, name or email...",
@@ -861,12 +867,12 @@
             "incomplete": "Incomplete",
             "incomplete_expired": "Incomplete Expired",
             "trialing": "Trial",
-            "active": "Active",
-            "past_due": "Past Due",
-            "canceled": "Canceled",
-            "unpaid": "Unpaid",
-            "paused": "Paused",
-            "preCanceled": "Pre-Canceled"
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED",
+            "preCanceled": "PRE-CANCELED"
           },
           "cancelAtPeriodEndDescription2": "Your subscription will already be canceled at the end of the current period. If you are not sure about this, please contact our support team.",
           "updateSuccess": "Your subscription was successfuly updated",
@@ -1038,12 +1044,12 @@
         "noOrders": "No orders found",
         "status": {
           "title": "Status",
-          "paid": "Paid",
-          "pending": "Pending",
-          "processing": "Processing",
-          "completed": "Completed",
-          "cancelled": "Cancelled",
-          "failed": "Failed"
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancelled": "CANCELLED",
+          "failed": "FAILED"
         },
         "OrderDetails": {
           "title": "Order Details",
@@ -1070,14 +1076,14 @@
           "subscriptionInformation": "Subscription Information",
           "subscriptionId": "Subscription ID",
           "subscriptionStatus": {
-            "incomplete": "Incomplete",
-            "incomplete_expired": "Incomplete Expired",
-            "trialing": "Trial",
-            "active": "Active",
-            "past_due": "Past Due",
-            "canceled": "Canceled",
-            "unpaid": "Unpaid",
-            "paused": "Paused"
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED"
           },
           "orderActions": "Actions",
           "openUserInvoice": "Open user invoice",
@@ -1131,13 +1137,13 @@
         "next": "Next",
         "Status": {
           "all": "All Status",
-          "paid": "Paid",
-          "pending": "Pending",
-          "processing": "Processing",
-          "completed": "Completed",
-          "cancel": "Cancelled",
-          "failed": "Failed",
-          "refund": "Refunded"
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancel": "CANCELLED",
+          "failed": "FAILED",
+          "refund": "REFUNDED"
         },
         "customer": "Customer",
         "latestOrders": "Latest Orders"
@@ -1175,22 +1181,22 @@
           "title": "Status"
         },
         "Status": {
-          "paid": "Paid",
-          "pending": "Pending",
-          "processing": "Processing",
-          "completed": "Completed",
-          "cancel": "Cancelled",
-          "failed": "Failed",
-          "refund": "Refunded",
-          "active": "Active",
-          "canceled": "Canceled",
-          "past_due": "Past Due",
-          "unpaid": "Unpaid",
-          "incomplete": "Incomplete",
-          "incomplete_expired": "Incomplete Expired",
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancel": "CANCELLED",
+          "failed": "FAILED",
+          "refund": "REFUNDED",
+          "active": "ACTIVE",
+          "canceled": "CANCELED",
+          "past_due": "PAST DUE",
+          "unpaid": "UNPAID",
+          "incomplete": "INCOMPLETE",
+          "incomplete_expired": "INCOMPLETE EXPIRED",
           "trialing": "Trial",
-          "paused": "Paused",
-          "preCanceled": "Pre-Canceled"
+          "paused": "PAUSED",
+          "preCanceled": "PRE-CANCELED"
         },
         "total": "Total",
         "actions": "Actions",
@@ -1479,7 +1485,9 @@
         "next": "Next",
         "bot": "Bot",
         "admin": "Admin",
-        "latestTickets": "Latest Tickets"
+        "latestTickets": "Latest Tickets",
+        "ticketId": "Ticket Id",
+        "activeTickets": "Active Tickets"
       }
     },
     "Dashboard": {
@@ -1490,13 +1498,31 @@
       "todayOrders": "Today Orders",
       "todayRegistrations": "Today Registrations",
       "todayOpenTickets": "Today Open Tickets",
-      "activeSubscriptions": "Active Subscriptions"
+      "activeSubscriptions": "Active Subscriptions",
+      "title": "Admin Dashboard"
     }
   },
   "User": {
     "Dashboard": {
       "title": "Your dashboard",
-      "subTitle": "Manage your account, settings, subscriptions and more"
+      "subTitle": "Manage your account, settings, subscriptions and more",
+      "totalOrders": "Total Orders",
+      "activeSubscriptions": "Active Subscriptions",
+      "activeTickets": "Active Tickets",
+      "totalSpent": "Total Spent",
+      "recentOrders": "Recent Orders",
+      "orderId": "Order Id",
+      "status": "Status",
+      "total": "Total",
+      "noOrders": "No Orders",
+      "product": "Products",
+      "nextBilling": "Next Billing",
+      "noSubscriptions": "No Subscription",
+      "subject": "Subject",
+      "lastMessage": "Last Message",
+      "noActiveTickets": "No Active Tickets",
+      "recentSubscriptions": "Recent Subscriptions",
+      "ticketId": "Ticket Id"
     },
     "Security": {
       "title": "Security",
@@ -1557,14 +1583,14 @@
         "date": "Date",
         "status": {
           "title": "Status",
-          "active": "Active",
-          "canceled": "Canceled",
-          "past_due": "Past Due",
-          "unpaid": "Unpaid",
-          "incomplete": "Incomplete",
-          "incomplete_expired": "Incomplete Expired",
-          "trialing": "Trial",
-          "paused": "Paused"
+          "active": "ACTIVE",
+          "canceled": "CANCELED",
+          "past_due": "PAST DUE",
+          "unpaid": "UNPAID",
+          "incomplete": "INCOMPLETE",
+          "incomplete_expired": "INCOMPLETE EXPIRED",
+          "trialing": "TRIAL",
+          "paused": "PAUSED"
         },
         "products": "Products",
         "errorLoadingSubscriptions": "Error loading subscriptions",
@@ -1610,15 +1636,15 @@
           "cancelError": "Failed to cancel subscription",
           "subscriptionId": "Id",
           "Status": {
-            "incomplete": "Incomplete",
-            "incomplete_expired": "Incomplete Expired",
-            "trialing": "Trial",
-            "active": "Active",
-            "past_due": "Past Due",
-            "canceled": "Canceled",
-            "unpaid": "Unpaid",
-            "paused": "Paused",
-            "preCanceled": "Pre-Canceled"
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED",
+            "preCanceled": "PRE-CANCELED"
           },
           "cancelAtPeriodEndDescription2": "Your subscription will already be canceled at the end of the current period. If you are not sure about this, please contact our support team.",
           "updateSuccess": "Your subscription was successfuly updated",
@@ -1673,13 +1699,13 @@
         "noOrders": "No orders found",
         "Status": {
           "title": "Status",
-          "paid": "Paid",
-          "pending": "Pending",
-          "processing": "Processing",
-          "completed": "Completed",
-          "cancel": "Cancelled",
-          "failed": "Failed",
-          "refund": "Refunded"
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancel": "CANCELLED",
+          "failed": "FAILED",
+          "refund": "REFUNDED"
         },
         "OrderDetails": {
           "title": "Order Details",
@@ -1707,14 +1733,14 @@
           "subscriptionInformation": "Subscription Information",
           "subscriptionId": "Subscription ID",
           "subscriptionStatus": {
-            "incomplete": "Incomplete",
-            "incomplete_expired": "Incomplete Expired",
-            "trialing": "Trial",
-            "active": "Active",
-            "past_due": "Past Due",
-            "canceled": "Canceled",
-            "unpaid": "Unpaid",
-            "paused": "Paused"
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED"
           },
           "billingPeriod": "Billing Period",
           "viewSubscription": "View Subscription Details",
@@ -1750,12 +1776,12 @@
         "next": "Next",
         "status": {
           "cancelled": "Cancelled",
-          "failed": "Failed",
-          "pending": "Pending",
-          "paid": "Paid",
+          "failed": "FAILED",
+          "pending": "PENDING",
+          "paid": "PAID",
           "title": "Title",
-          "completed": "Completed",
-          "processing": "Processing"
+          "completed": "COMPLETED",
+          "processing": "PROCESSING"
         }
       }
     },
@@ -1817,7 +1843,8 @@
       "socialMedia": "Social Media",
       "friend": "Friend",
       "advertisement": "Advertisement",
-      "other": "Other"
+      "other": "Other",
+      "title": "Update Your Profile"
     },
     "Chat": {
       "noConversations": "No conversations",
@@ -1859,7 +1886,9 @@
       "getNeedHelp": "You have a question, suggestion, or issue? We are here to help!",
       "getNeedHelpDesc": "You can find answers to your questions in our FAQ section. If you don't find what you're looking for, feel free to reach out to us directly through the chat or by sending us a message.",
       "SELECT_ORDER": "In order to help you, please select an order related to your question by clicking on the button below",
-      "SELECT_SUBSCRIPTION": "In order to help you, please select a subscription related to your question by clicking on the button below"
+      "SELECT_SUBSCRIPTION": "In order to help you, please select a subscription related to your question by clicking on the button below",
+      "ticketId": "Ticket Id",
+      "title": "User Inbox"
     }
   },
   "DefaultNotFound": "ERROR: Translation not found",
@@ -2037,7 +2066,8 @@
       "PRODUCT_NOT_ACTIVE": "One of the product in your cart is not available, please remove it to proceed to checkout",
       "ProductOutOfStock": "Product Out Of Stock",
       "ProductNotActive": "One of the product is not available",
-      "ProductOutOfStockUserQuantity": "One of the product is not available with the quantity selected"
+      "ProductOutOfStockUserQuantity": "One of the product is not available with the quantity selected",
+      "title": "Cart"
     },
     "Product": {
       "outOfStock": "Out of stock",
@@ -2064,7 +2094,8 @@
       "lowStockDescription": "There is not much product in stock, it's time to order !",
       "bestValue": "Best value",
       "addToCartTitle": "Add to cart",
-      "goBack": "Go back"
+      "goBack": "Go back",
+      "title": "Product"
     },
     "Checkout": {
       "redirectingToCheckout": "We are processing your payment, please wait...",
@@ -2081,15 +2112,15 @@
       "viewAllOrders": "View All Orders",
       "subscriptionInformation": "Subscription Information",
       "subscriptionStatus": {
-        "incomplete": "Incomplete",
-        "incomplete_expired": "Incomplete Expired",
-        "trialing": "Trial",
-        "active": "Active",
-        "past_due": "Past Due",
-        "canceled": "Canceled",
-        "unpaid": "Unpaid",
-        "paused": "Paused",
-        "preCanceled": "Pre-Canceled"
+        "incomplete": "INCOMPLETE",
+        "incomplete_expired": "INCOMPLETE EXPIRED",
+        "trialing": "TRIAL",
+        "active": "ACTIVE",
+        "past_due": "PAST DUE",
+        "canceled": "CANCELED",
+        "unpaid": "UNPAID",
+        "paused": "PAUSED",
+        "preCanceled": "PRE-CANCELED"
       },
       "billingPeriod": "Billing Period",
       "viewSubscription": "View Subscription",
@@ -2107,7 +2138,9 @@
       "application": "Mobile",
       "returnToApp": "Return to Mobile App",
       "transactionFailedMessage": "This transaction failed because you canceled it or there was an error while checking out. Please wait we are redirection you to the Mobile App.",
-      "transactionFailed": "Transaction Failed"
+      "transactionFailed": "Transaction Failed",
+      "title": "Checking your payment",
+      "titleSuccess": "Order Success"
     }
   },
   "Log": {
@@ -2282,15 +2315,15 @@
       },
       "Actions": {
         "status": {
-          "cancelled": "Cancelled",
-          "canceled": "Canceled",
-          "pending": "Pending",
-          "completed": "Completed",
-          "refunded": "Refunded",
-          "failed": "Failed",
-          "expired": "Expired",
-          "active": "Active",
-          "inactive": "Inactive"
+          "cancelled": "CANCELLED",
+          "canceled": "CANCELED",
+          "pending": "PENDING",
+          "completed": "COMPLETED",
+          "refunded": "REFUNDED",
+          "failed": "FAILED",
+          "expired": "EXPIRED",
+          "active": "ACTIVE",
+          "inactive": "INACTIVE"
         },
         "SELECT_ORDER": {
           "buttonText": "Select an order",
@@ -2354,5 +2387,29 @@
     "aboutUs": "About Us",
     "categories": "Categories",
     "products": "Products"
-  }
+  },
+  "CompanyPage": {
+    "title": "About Us",
+    "heroDescription": "Founded in 2021, Cyna was born after carrying out numerous incident responses in France and Europe thanks to the recognized expertise of the founders.",
+    "history": {
+      "description": "The various incident responses allowed us to understand the attack vectors and scenarios used by attackers. Cyna was then created, with the goal of providing comprehensive and pragmatic protection against cyberattacks for SMEs and mid-sized businesses.",
+      "title": "Our Story"
+    },
+    "mission": {
+      "title": "Our commitments at Cyna",
+      "description": "Nous plaçons vos priorités au cœur de notre mission. Nous comprenons les défis uniques auxquels sont confrontés les PME et MSP face aux menaces toujours plus sophistiquées."
+    },
+    "values": {
+      "title": "Discover our teams",
+      "description": "To effectively meet our daily challenges, Cyna has surrounded itself with experts, organized into dedicated teams to best meet your needs."
+    },
+    "farewellTitle": "You are not convinced ?",
+    "farewellMessage": "Contact us by clicking on the button below and we will answer all your questions.",
+    "farewellButton": "Contact Us"
+  },
+  "pageTitle": {
+    "default": "Pure player in Cyber",
+    "admin": "Admin"
+  },
+  "title": "Users List"
 }

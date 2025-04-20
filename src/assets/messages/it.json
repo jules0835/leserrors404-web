@@ -127,7 +127,8 @@
       "resetPasswordEmailSent": "Se l'e -mail esiste, è stato inviato un collegamento di ripristino. \nControlla la cartella della posta in arrivo o dello spam.",
       "sendEmail": "Invia un collegamento di ripristino",
       "somethingWentWrong": "Impossibile inviare l'e -mail di ripristino, riprova.",
-      "title": "Reimpostare la password"
+      "title": "Reimpostare la password",
+      "emailSent": "Se esisteva un account con questa e -mail, verrà inviato un messaggio con un link per reimpostare la password. \nPuoi usarlo per reimpostare la password."
     },
     "loggingYouOut": "Disconnettendoti",
     "loggingYouOutMessage": "Se non sei reindirizzato, fai clic qui",
@@ -136,7 +137,10 @@
     "application": "App",
     "mobile": "Mobile",
     "phone": "Telefono",
-    "redirectingToMobileMessage": "Se non sei reindirizzato in 5 secondi, fai clic sul pulsante in basso."
+    "redirectingToMobileMessage": "Se non sei reindirizzato in 5 secondi, fai clic sul pulsante in basso.",
+    "title": "Conferma e -mail",
+    "titleLogout": "Reindirizzamento logout",
+    "titleMobile": "Accesso mobile"
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
@@ -1260,7 +1264,9 @@
       "previous": "Precedente",
       "searchUser": "Cerca l'utente",
       "selectUser": "Seleziona un utente",
-      "supportInbox": "Supporto Posta in arrivo"
+      "supportInbox": "Supporto Posta in arrivo",
+      "ticketId": "Ticket/Chat ID",
+      "title": "Messaggi della posta in arrivo"
     },
     "Stats": {
       "Carts": {
@@ -1429,7 +1435,8 @@
       "todayOrders": "Oggi ordini",
       "todayRegistrations": "Oggi registrazioni",
       "welcome": "Ciao {nome utente}",
-      "welcomeMessage": "Ecco un riepilogo dell'attività commerciale"
+      "welcomeMessage": "Ecco un riepilogo dell'attività commerciale",
+      "title": "Dashboard di amministrazione"
     },
     "Support": {
       "Tickets": {
@@ -1453,7 +1460,9 @@
         "title": "Biglietti",
         "user": "Utente",
         "viewDetails": "Visualizza i dettagli",
-        "waitingAction": "Azione in attesa"
+        "waitingAction": "Azione in attesa",
+        "activeTickets": "Biglietti attivi",
+        "ticketId": "Ticket ID"
       }
     }
   },
@@ -1809,7 +1818,24 @@
     },
     "Dashboard": {
       "subTitle": "Gestisci il tuo account, impostazioni, abbonamenti e altro ancora",
-      "title": "La tua dashboard"
+      "title": "La tua dashboard",
+      "activeSubscriptions": "Abbonamenti attivi",
+      "activeTickets": "Biglietti attivi",
+      "lastMessage": "Ultimo messaggio",
+      "nextBilling": "Prossima fatturazione",
+      "noActiveTickets": "Nessun biglietto attivo",
+      "noOrders": "Nessun ordine",
+      "noSubscriptions": "Nessun abbonamento",
+      "orderId": "Ordine ID",
+      "product": "Prodotti",
+      "recentOrders": "Ordini recenti",
+      "recentSubscriptions": "Abbonamenti recenti",
+      "status": "Stato",
+      "subject": "Soggetto",
+      "ticketId": "Ticket ID",
+      "total": "Totale",
+      "totalOrders": "Ordini totali",
+      "totalSpent": "Totale speso"
     },
     "MyAccount": {
       "PaymentMethods": {
@@ -1857,7 +1883,8 @@
       "advertisement": "Annuncio",
       "friend": "Amico",
       "other": "Altro",
-      "socialMedia": "Social media"
+      "socialMedia": "Social media",
+      "title": "Aggiorna il tuo profilo"
     },
     "Support": {
       "MyTickets": {
@@ -1911,7 +1938,9 @@
       "sendMessageToSupport": "Invia un messaggio al nostro team di supporto",
       "sendMessageToSupportDesc": "Qui puoi inviare un messaggio al nostro team di supporto. \nTi torneremo il prima possibile. \nFornire il maggior numero possibile di dettagli per aiutarci ad aiutarti meglio.",
       "SELECT_ORDER": "Per aiutarti, seleziona un ordine relativo alla tua domanda facendo clic sul pulsante seguente",
-      "SELECT_SUBSCRIPTION": "Per aiutarti, selezionare un abbonamento relativo alla tua domanda facendo clic sul pulsante seguente"
+      "SELECT_SUBSCRIPTION": "Per aiutarti, selezionare un abbonamento relativo alla tua domanda facendo clic sul pulsante seguente",
+      "ticketId": "Ticket ID",
+      "title": "Posta in arrivo dell'utente"
     }
   },
   "pagesNames": {
@@ -2037,7 +2066,8 @@
       "ProductOutOfStock": "Prodotto fuori stock",
       "ProductOutOfStockUserQuantity": "Uno dei prodotti non è disponibile con la quantità selezionata",
       "USER_PROFILE_INCOMPLETE": "Il tuo profilo è incompleto, completalo per procedere al checkout",
-      "VOUCHER_NOT_ACTIVE": "Voucher non valido, rimuoverlo per procedere al checkout"
+      "VOUCHER_NOT_ACTIVE": "Voucher non valido, rimuoverlo per procedere al checkout",
+      "title": "Carrello"
     },
     "Product": {
       "addToCart": {
@@ -2064,7 +2094,8 @@
       "stock": "Azione",
       "subscription": "Sottoscrizione",
       "total": "Totale",
-      "year": "Anno"
+      "year": "Anno",
+      "title": "Prodotto"
     },
     "Checkout": {
       "myOrders": "I miei ordini",
@@ -2107,7 +2138,9 @@
       "application": "Mobile",
       "returnToApp": "Torna all'app mobile",
       "transactionFailed": "Transazione non riuscita",
-      "transactionFailedMessage": "Questa transazione non è riuscita perché l'hai annullata o si è verificato un errore durante il check -out. \nPer favore, aspetta che ti stiamo reindirizzando all'app mobile."
+      "transactionFailedMessage": "Questa transazione non è riuscita perché l'hai annullata o si è verificato un errore durante il check -out. \nPer favore, aspetta che ti stiamo reindirizzando all'app mobile.",
+      "title": "Controllando il pagamento",
+      "titleSuccess": "Ordina successo"
     }
   },
   "Log": {
@@ -2354,5 +2387,29 @@
     "categories": "Categorie",
     "products": "Prodotti"
   },
-  "products": "Prodotti"
+  "products": "Prodotti",
+  "CompanyPage": {
+    "title": "Chi siamo",
+    "farewellButton": "Contattaci",
+    "farewellMessage": "Contattaci facendo clic sul pulsante in basso e risponderemo a tutte le tue domande.",
+    "farewellTitle": "Non sei convinto?",
+    "heroDescription": "Fondata nel 2021, Cyna è nato dopo aver effettuato numerose risposte incidenti in Francia e in Europa grazie alla competenza riconosciuta dei fondatori.",
+    "history": {
+      "description": "Le varie risposte agli incidenti ci hanno permesso di comprendere i vettori di attacco e gli scenari usati dagli aggressori. \nCyna è stato quindi creato, con l'obiettivo di fornire una protezione completa e pragmatica contro gli attacchi informatici per le PMI e le imprese di medie dimensioni.",
+      "title": "La nostra storia"
+    },
+    "mission": {
+      "description": "Nous Plaçons Vos priorités au cœur de Notre Mission. \nNous Comprenons les défis uniques auxquels sont confrontés les pme et msp faccia aux minaces toujours più sofistiquées.",
+      "title": "I nostri impegni a Cyna"
+    },
+    "values": {
+      "description": "Per affrontare efficacemente le nostre sfide quotidiane, Cyna si è circondata da esperti, organizzata in team dedicati per soddisfare al meglio le tue esigenze.",
+      "title": "Scopri i nostri team"
+    }
+  },
+  "pageTitle": {
+    "admin": "Amministratore",
+    "default": "Parente puro nel cyber"
+  },
+  "title": "Elenco degli utenti"
 }

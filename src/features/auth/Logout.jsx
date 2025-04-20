@@ -5,10 +5,12 @@ import { Link, useRouter } from "@/i18n/routing"
 import Image from "next/image"
 import logo from "@/assets/images/logo.webp"
 import { useTranslations } from "next-intl"
-
+import { useTitle } from "@/components/navigation/titleContext"
 export default function Logout() {
   const router = useRouter()
   const t = useTranslations("Auth")
+  const { setTitle } = useTitle()
+  setTitle(t("titleLogout"))
 
   useEffect(() => {
     signOut({ redirect: false })

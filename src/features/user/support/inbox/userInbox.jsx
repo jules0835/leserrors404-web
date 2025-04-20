@@ -9,6 +9,7 @@ import UserInboxArea from "@/features/user/support/inbox/userInboxArea"
 import UserInboxSkeleton from "@/features/user/support/inbox/userInboxSkeleton"
 import { useEffect, useMemo } from "react"
 import { useRouter } from "@/i18n/routing"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function UserInbox() {
   const { inboxData, isLoading, error, setSelectedChat, selectedChat } =
@@ -18,6 +19,8 @@ export default function UserInbox() {
   const params = useParams()
   const selectedChatId = params?.Id
   const chats = useMemo(() => inboxData?.chats || [], [inboxData?.chats])
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   useEffect(() => {
     if (selectedChatId && chats.length > 0) {

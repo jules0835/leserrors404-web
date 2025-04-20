@@ -15,7 +15,8 @@ import { getSubscriptionStatusColor } from "@/features/user/business/subscriptio
 import ErrorFront from "@/components/navigation/error"
 import OrderDetailsSkeleton from "@/features/user/business/orders/OrderDetailsSkeleton"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
-
+import { formatIdForDisplay } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 export default function OrderDetails() {
   const t = useTranslations("User.Business.Orders.OrderDetails")
   const { Id: orderId } = useParams()
@@ -38,6 +39,8 @@ export default function OrderDetails() {
         window.open(data.invoiceUrl, "_blank")
       },
     })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (isLoading) {
     return <OrderDetailsSkeleton />
@@ -66,7 +69,7 @@ export default function OrderDetails() {
             </Badge>
             <h2 className="font-semibold">{t("orderInformation")}</h2>
             <p>
-              {t("orderId")}: {order._id}
+              {t("orderId")}: #{formatIdForDisplay(order)}
             </p>
             <p>
               {t("date")}: {format(new Date(order.createdAt), "PPP")}
@@ -115,7 +118,9 @@ export default function OrderDetails() {
           <div className="space-y-3">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
               <p>{t("subscriptionId")}</p>
-              <p className="text-gray-600">{order.subscription._id}</p>
+              <p className="text-gray-600">
+                #{formatIdForDisplay(order.subscription)}
+              </p>
             </div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
               <p>{t("status")}</p>

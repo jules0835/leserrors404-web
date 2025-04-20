@@ -70,6 +70,7 @@ export const getTicketsList = async ({
   query = "",
   sortField = "createdAt",
   sortOrder = "desc",
+  isActive = true,
 } = {}) => {
   const response = await axios.get("/api/admin/support/tickets", {
     params: {
@@ -78,6 +79,7 @@ export const getTicketsList = async ({
       query,
       sortField,
       sortOrder,
+      isActive,
     },
   })
 
