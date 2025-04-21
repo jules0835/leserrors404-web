@@ -1,45 +1,116 @@
+import { useTranslations } from "next-intl"
+
 export default function Page() {
+  const t = useTranslations("legals")
+
   return (
-    <div>
-      <div>Terms and Conditions</div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-        voluptates numquam ratione ducimus quas error aperiam magni veritatis
-        earum omnis laudantium rerum quidem odit impedit sequi, iste, animi cum
-        ab! Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-        beatae, alias id, voluptatibus sit temporibus fugit illo amet blanditiis
-        cum ratione unde ad atque distinctio a? Autem perferendis aspernatur
-        enim! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
-        eveniet vero laudantium perspiciatis, odit nesciunt sit facere
-        aspernatur omnis quibusdam illo, voluptatem id corrupti nisi quo dolore
-        reiciendis numquam iusto! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Aut ducimus expedita ullam dolorum culpa, explicabo
-        dolores aspernatur, quibusdam animi nam officia sunt eum delectus quod
-        quas vel enim id fugit. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Vero, expedita. Quae, itaque deserunt sequi tempora
-        consequatur, aperiam repellendus laudantium reiciendis praesentium
-        facere ipsam non? Quibusdam error necessitatibus itaque quos adipisci.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore rerum
-        illo inventore totam eius impedit harum fuga necessitatibus, provident
-        sapiente optio beatae voluptatibus eligendi deleniti magni voluptate
-        nihil vero a. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Sunt dolor tempore, labore sequi totam inventore quos illo. Repellat
-        eaque harum reiciendis? Perferendis mollitia tempore provident ea quasi
-        incidunt asperiores vitae? Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Saepe quibusdam adipisci harum! Mollitia corrupti
-        molestiae unde perferendis, harum laborum repellat soluta molestias?
-        Eveniet nemo quia, asperiores libero expedita commodi id. Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Nulla dignissimos nobis
-        facere, corporis fuga officia! Adipisci aperiam sapiente animi. Error
-        unde delectus laborum excepturi culpa ipsum, eligendi eaque enim ipsa?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed adipisci
-        aut, beatae ipsum libero assumenda perspiciatis odio facere omnis fuga
-        amet ad eligendi perferendis nobis? Dignissimos esse quae dolore
-        repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Quae distinctio, nam quas voluptatibus doloribus aliquid rerum,
-        perspiciatis autem, fuga quasi magni dolorum illo. Omnis neque nihil,
-        ullam illo culpa provident.
-      </div>
+    <div className="max-w-4xl mx-auto px-4 py-8 mt-16">
+      <h1 className="text-3xl font-bold mb-8">{t("title")}</h1>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">
+          {t("definitions.title")}
+        </h2>
+        <div className="space-y-4">
+          <p>{t("definitions.client")}</p>
+          <p>{t("definitions.services")}</p>
+          <p>{t("definitions.content")}</p>
+          <p>{t("definitions.clientInfo")}</p>
+          <p>{t("definitions.user")}</p>
+          <p>{t("definitions.personalInfo")}</p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">
+          {t("presentation.title")}
+        </h2>
+        <div className="space-y-4">
+          <p>{t("presentation.owner")}</p>
+          <p>{t("presentation.publisher")}</p>
+          <p>{t("presentation.host")}</p>
+          <p>{t("presentation.dpo")}</p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">{t("conditions.title")}</h2>
+        <div className="space-y-4">
+          <p>{t("conditions.intellectualProperty")}</p>
+          <p>{t("conditions.acceptance")}</p>
+          <p>{t("conditions.accessibility")}</p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">{t("services.title")}</h2>
+        <p>{t("services.description")}</p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">
+          {t("technicalLimitations.title")}
+        </h2>
+        <p>{t("technicalLimitations.description")}</p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">
+          {t("intellectualProperty.title")}
+        </h2>
+        <div className="space-y-4">
+          <p>{t("intellectualProperty.rights")}</p>
+          <p>{t("intellectualProperty.consequences")}</p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">{t("liability.title")}</h2>
+        <div className="space-y-4">
+          <p>{t("liability.publisher")}</p>
+          <p>{t("liability.damages")}</p>
+          <p>{t("liability.interactiveSpaces")}</p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">{t("privacy.title")}</h2>
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">
+            {t("privacy.dataController.title")}
+          </h3>
+          <p>{t("privacy.dataController.description")}</p>
+
+          <h3 className="text-xl font-semibold">
+            {t("privacy.purpose.title")}
+          </h3>
+          <ul className="list-disc pl-6">
+            <li>{t("privacy.purpose.navigation")}</li>
+            <li>{t("privacy.purpose.fraud")}</li>
+            <li>{t("privacy.purpose.improvement")}</li>
+            <li>{t("privacy.purpose.communication")}</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold">{t("privacy.rights.title")}</h3>
+          <p>{t("privacy.rights.description")}</p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">{t("cookies.title")}</h2>
+        <div className="space-y-4">
+          <p>{t("cookies.definition")}</p>
+          <p>{t("cookies.purpose")}</p>
+          <p>{t("cookies.management")}</p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">
+          {t("applicableLaw.title")}
+        </h2>
+        <p>{t("applicableLaw.description")}</p>
+      </section>
     </div>
   )
 }

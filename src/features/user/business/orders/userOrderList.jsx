@@ -23,6 +23,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { useTitle } from "@/components/navigation/titleContext"
+import { formatIdForDisplay } from "@/lib/utils"
 
 export default function UserOrderList() {
   const t = useTranslations("User.Business.Orders")
@@ -69,7 +70,9 @@ export default function UserOrderList() {
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="font-medium">{row.getValue("_id")}</div>
+        <div className="font-medium">
+          #{formatIdForDisplay(row.original)}
+        </div>
       ),
     },
     {

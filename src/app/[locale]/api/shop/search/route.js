@@ -2,6 +2,7 @@ import { getShopProducts } from "@/db/crud/productCrud"
 import { getCategories } from "@/db/crud/categorieCrud"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
+import { NextResponse } from "next/server"
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url)
@@ -11,12 +12,7 @@ export async function GET(req) {
     const { Products } = await getShopProducts({ query, size: 5, page: 1 })
     const { Categories } = await getCategories(3, 1, query)
 
-    return new Response(
-      JSON.stringify({ products: Products, categories: Categories }),
-      {
-        status: 200,
-      }
-    )
+    return NextResponse.json({ products: Products, categories: Categories })
   } catch (error) {
     log.systemError({
       logKey: logKeys.shopUserCartError.key,
@@ -29,11 +25,9 @@ export async function GET(req) {
       isError: true,
     })
 
-    return new Response(
-      JSON.stringify({ error: "Failed to fetch search results" }),
-      {
-        status: 500,
-      }
+    return NextResponse.json(
+      { error: "Failed to fetch search results" },
+      { status: 500 }
     )
   }
 }

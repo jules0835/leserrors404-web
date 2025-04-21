@@ -45,15 +45,23 @@ export async function POST(req, { params }) {
 
     let user = await findUserById(userId)
 
+    const billingAddress = cart.billingAddress || {
+      name: `${user.firstName} ${user.lastName}`,
+      country: user.address.country,
+      city: user.address.city,
+      zipCode: user.address.zipCode,
+      street: user.address.street,
+    }
+
     if (!user?.account?.stripe?.customerId) {
       const customer = await stripe.customers.create({
         email: user.email,
         name: `${user.firstName} ${user.lastName}`,
         address: {
-          country: user.address.country,
-          city: user.address.city,
-          postal_code: user.address.zipCode,
-          line1: user.address.street,
+          country: billingAddress.country,
+          city: billingAddress.city,
+          postal_code: billingAddress.zipCode,
+          line1: billingAddress.street,
         },
         metadata: {
           userId: user._id.toString(),
@@ -69,6 +77,7 @@ export async function POST(req, { params }) {
         message: "Stripe customer created",
         newData: customer,
         oldData: user,
+        authorId: userId,
       })
     }
 
@@ -132,7 +141,7 @@ export async function POST(req, { params }) {
       logKey: logKeys.shopUserCartError.key,
       message: "Failed to checkout",
       technicalMessage: error,
-      authorId: getReqUserId(req),
+      userId: getReqUserId(req),
       data: {
         error,
       },

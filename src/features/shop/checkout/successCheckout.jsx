@@ -88,6 +88,25 @@ export default function SuccessCheckout() {
                 </span>
               </p>
             </div>
+            <div>
+              <h2 className="font-semibold text-xl mb-2">
+                {t("billingAddress")}
+              </h2>
+              {order.billingAddress ? (
+                <div className="space-y-1">
+                  <p className="text-gray-600">{order.billingAddress.name}</p>
+                  <p className="text-gray-600">{order.billingAddress.street}</p>
+                  <p className="text-gray-600">
+                    {order.billingAddress.zipCode} {order.billingAddress.city}
+                  </p>
+                  <p className="text-gray-600">
+                    {order.billingAddress.country}
+                  </p>
+                </div>
+              ) : (
+                <p className="text-muted-foreground">{t("noBillingAddress")}</p>
+              )}
+            </div>
             <div className="flex space-x-3">
               <Button variant="outline" onClick={() => fetchInvoice()}>
                 {isFetchingInvoice ? (

@@ -3,7 +3,7 @@
 import stripe from "@/utils/stripe/stripe"
 import { createOrder } from "@/db/crud/orderCrud"
 import { findUserByStripeId } from "@/db/crud/userCrud"
-import { getProductByStripeId } from "@/db/crud/productCrud"
+import { getProductByStripeId, updateProductStock } from "@/db/crud/productCrud"
 import { resetUserCart } from "@/db/crud/cartCrud"
 import { createSubscription } from "@/db/crud/subscriptionCrud"
 import log from "@/lib/log"
@@ -38,7 +38,7 @@ export const createPaymentOrder = async (sessionId, origin) => {
       await stripe.checkout.sessions.listLineItems(sessionId)
     const products = await Promise.all(
       sessionProducts.data.map(async (product) => {
-        const dbProduct = await getProductByStripeId(product.price.product.id)
+        const dbProduct = await getProductByStripeId(product.price.product)
         const getBillingCycle = (recurring) => {
           if (!recurring) {
             return "one_time"
@@ -86,8 +86,21 @@ export const createPaymentOrder = async (sessionId, origin) => {
           details: `Payment successful. Started by ${origin}`,
         },
       ],
+      billingAddress: {
+        name: session.customer_details.name,
+        country: session.customer_details.address.country,
+        city: session.customer_details.address.city,
+        zipCode: session.customer_details.address.postal_code,
+        street: session.customer_details.address.line1,
+      },
     }
     order = await createOrder(orderData)
+
+    await Promise.all(
+      products.map((product) =>
+        updateProductStock(product.productId, product.quantity)
+      )
+    )
 
     if (session.mode === "subscription") {
       try {

@@ -8,6 +8,7 @@ import ListSkeleton from "@/components/skeleton/ListSkeleton"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
 import { formatIdForDisplay } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
 
 export default function SelectSubscription({ onSelect }) {
   const [page, setPage] = useState(1)
@@ -78,13 +79,13 @@ export default function SelectSubscription({ onSelect }) {
                 </span>
                 <span className="text-sm text-muted-foreground">
                   {format(new Date(subscription.createdAt), "PPP")} -{" "}
-                  <span
-                    className={`text-sm rounded-md text-white px-2 py-1 ${getSubscriptionStatusColor(
+                  <Badge
+                    className={getSubscriptionStatusColor(
                       subscription.stripe.status
-                    )}`}
+                    )}
                   >
-                    {t(`status.${subscription.stripe.status}`)}
-                  </span>
+                    {t(`status.${subscription.stripe.status}`).toLowerCase()}
+                  </Badge>
                 </span>
               </div>
             </Button>

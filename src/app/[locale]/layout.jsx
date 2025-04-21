@@ -9,6 +9,8 @@ import WidgetChatbot from "@/features/contact/chatbot/widgetChatbot"
 import { ChatProvider } from "@/features/contact/chatbot/context/chatContext"
 import { TitleProvider } from "@/components/navigation/titleContext"
 import { company } from "@/assets/options/config"
+import Footer from "@/features/navigation/footer/footer"
+import CookieBanner from "@/components/navigation/cookieBanner"
 export const metadata = {
   title: company.name,
   description: `${company.name} | Web App`,
@@ -26,11 +28,11 @@ export default async function RootLayout({ children }) {
         <TitleProvider>
           <ChatProvider>
             <CartProvider>
-              <div>
-                <Toaster position="top-right" />
-              </div>
+              <CookieBanner />
+              <Toaster position="top-right" />
               <Header />
               <div className="bg-gray-100">{children}</div>
+              <Footer />
             </CartProvider>
             <WidgetChatbot />
           </ChatProvider>

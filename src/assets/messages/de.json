@@ -782,7 +782,9 @@
           "suspendOrderReasonPlaceholder": "Geben Sie den Grund für die Suspendierung ein ...",
           "suspendOrderSuccess": "Bestellung erfolgreich ausgesetzt",
           "suspendOrderTitle": "Aufhebung der Bestellung",
-          "viewCustomer": "Kunden anzeigen"
+          "viewCustomer": "Kunden anzeigen",
+          "billingAddress": "Abrechnungsadresse",
+          "noBillingAddress": "Keine Abrechnungsadresse"
         },
         "Status": {
           "all": "All Status",
@@ -1670,7 +1672,9 @@
           "suspendOrder": "Aufhebung der Bestellung",
           "suspendOrderDescription": "Bitte geben Sie einen Grund für die Aussetzung dieser Bestellung an.",
           "suspendOrderReasonPlaceholder": "Geben Sie den Grund für die Suspendierung ein ...",
-          "suspendOrderTitle": "Aufhebung der Bestellung"
+          "suspendOrderTitle": "Aufhebung der Bestellung",
+          "billingAddress": "Abrechnungsadresse",
+          "noBillingAddress": "Keine Abrechnungsadresse"
         },
         "date": "Datum",
         "errorLoadingOrders": "Fehlerladungsaufträge",
@@ -1884,7 +1888,10 @@
       "friend": "Freund",
       "other": "Andere",
       "socialMedia": "Social Media",
-      "title": "Aktualisieren Sie Ihr Profil"
+      "title": "Aktualisieren Sie Ihr Profil",
+      "BillingAddresses": {
+        "save": "Speichern"
+      }
     },
     "Support": {
       "MyTickets": {
@@ -2067,7 +2074,26 @@
       "ProductOutOfStockUserQuantity": "Eines der Produkte ist nicht mit der ausgewählten Menge verfügbar",
       "USER_PROFILE_INCOMPLETE": "Ihr Profil ist unvollständig. Führen Sie es bitte aus, um zum Checkout fortzufahren",
       "VOUCHER_NOT_ACTIVE": "Gutschein nicht gültig, bitte entfernen Sie es, um zum Checkout fortzufahren",
-      "title": "Wagen"
+      "title": "Wagen",
+      "BillingAddressIncomplete": "Die Abrechnungsadresse ist unvollständig",
+      "BillingAddressIncompleteShop": "Bitte vervollständigen Sie Ihre Abrechnungsadresse, um zum Checkout fortzufahren",
+      "addAddress": "Adresse hinzufügen",
+      "addNewAddress": "Neue Adresse hinzufügen",
+      "addressName": "Adressname",
+      "addressStreet": "Straße",
+      "billingAddress": "Abrechnungsadresse",
+      "billingAddressIncomplete": "Die Abrechnungsadresse ist unvollständig",
+      "billingAddressIncompleteSubtitle": "Bitte vervollständigen Sie Ihre Abrechnungsadresse, um zum Checkout fortzufahren",
+      "cancel": "Stornieren",
+      "changeAddress": "Adresse ändern",
+      "checkoutSummary": "Überprüfungszusammenfassung",
+      "city": "Stadt",
+      "confirmCheckout": "Checkout bestätigen",
+      "country": "Land",
+      "noBillingAddress": "Keine Abrechnungsadresse",
+      "selectBillingAddress": "Wählen Sie Abrechnungsadresse",
+      "yourProducts": "Ihre Produkte",
+      "zipCode": "PLZ"
     },
     "Product": {
       "addToCart": {
@@ -2140,7 +2166,9 @@
       "transactionFailed": "Transaktion fehlgeschlagen",
       "transactionFailedMessage": "Diese Transaktion ist fehlgeschlagen, da Sie sie abgebrochen haben oder beim Auschecken ein Fehler vorliegt. \nBitte warten Sie, dass wir Sie zur mobilen App umleiten.",
       "title": "Überprüfen Sie Ihre Zahlung",
-      "titleSuccess": "Erfolg"
+      "titleSuccess": "Erfolg",
+      "billingAddress": "Abrechnungsadresse",
+      "noBillingAddress": "Keine Abrechnungsadresse"
     }
   },
   "Log": {
@@ -2344,7 +2372,9 @@
           "failed": "Fehlgeschlagen",
           "inactive": "Inaktiv",
           "pending": "Ausstehend",
-          "refunded": "Erstattet"
+          "refunded": "Erstattet",
+          "paid": "BEZAHLT",
+          "unpaid": "Unbezahlt"
         }
       },
       "Messages": {
@@ -2411,5 +2441,89 @@
     "admin": "Administrator",
     "default": "Reiner Spieler im Cyber"
   },
-  "title": "Benutzerliste"
+  "title": "Benutzerliste",
+  "cookieBanner": {
+    "accept": "Akzeptieren",
+    "acceptAll": "Akzeptiere alle",
+    "message": "Diese Website verwendet Cookies, um Ihre Erfahrung und für technische Zwecke zu verbessern. \nDurch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu. \nSie können mehr in unserem lesen",
+    "privacyPolicy": "Bedingungen und Zustand"
+  },
+  "footer": {
+    "allRightsReserved": "Alle Rechte vorbehalten",
+    "contact": "Kontakt",
+    "legalNotice": "Rechtliche Bekanntmachung",
+    "termsOfUse": "Nutzungsbedingungen"
+  },
+  "legals": {
+    "applicableLaw": {
+      "description": "Jeder Streit im Zusammenhang mit der Verwendung der Cyna -Site unterliegt dem französischen Recht. \nAußer in Fällen, in denen das Gesetz es nicht zulässt, wird der zuständigen Gerichte von Paris ausschließlich zuständig.",
+      "title": "10. anwendbares Recht und Gerichtsstand"
+    },
+    "conditions": {
+      "acceptance": "Die Verwendung der Cyna -Stelle impliziert die volle und vollständige Akzeptanz der nachstehend beschriebenen allgemeinen Verwendungsbedingungen. \nDiese Verwendungsbedingungen können jederzeit modifiziert oder ergänzt werden.",
+      "accessibility": "Diese Website ist normalerweise jederzeit für Benutzer zugänglich. \nEine Unterbrechung aufgrund technischer Wartung kann jedoch von CYNA entschieden werden.",
+      "intellectualProperty": "Der Standort stellt eine Arbeit des Geistes dar, die durch die Bestimmungen des Code des geistigen Eigentums und den geltenden internationalen Vorschriften geschützt sind. \nDer Kunde darf in keiner Weise für sein eigenes Konto alle oder einen Teil der Elemente oder Arbeiten der Website wiederverwenden, übertragen oder ausgenutzt werden.",
+      "title": "2. Allgemeine Nutzungsbedingungen der angebotenen Website und Dienstleistungen"
+    },
+    "cookies": {
+      "definition": "Ein \"Cookie\" ist eine kleine Informationsdatei, die an den Browser des Benutzers gesendet und im Terminal des Benutzers gespeichert ist.",
+      "management": "Der Benutzer kann seinen Browser so konfigurieren, dass er entscheiden kann, ob sie akzeptiert werden oder nicht.",
+      "purpose": "Cookies erleichtern die Navigation und/oder die Bereitstellung von Dienstleistungen, die von der Website angeboten werden.",
+      "title": "9. Hypertext -Links, Cookies und Internet -Tags"
+    },
+    "definitions": {
+      "client": "Kunde: Jede professionelle oder natürliche Person, die im Sinne der Artikel 1123 und der Befolgung des Zivilgesetzbuchs oder der juristischen Person in der Lage ist, die die Website unter diesen allgemeinen Bedingungen besucht.",
+      "clientInfo": "Kundeninformationen: im Folgenden als \"Informationen) bezeichnet, die allen personenbezogenen Daten entspricht, die von Cyna für die Verwaltung Ihres Kontos, Ihr Kundenbeziehungsmanagement sowie für analytische und statistische Zwecke erhalten werden können.",
+      "content": "Inhalt: Alle Elemente, die die auf der Website vorhandenen Informationen ausmachen, in bestimmten Texten, Bildern, Videos.",
+      "personalInfo": "Persönliche Informationen: „Informationen, die in jeder Form direkt oder indirekt die Identifizierung der natürlichen Personen ermöglichen, auf die sie sich bewerben“ (Artikel 4 des Gesetzes Nr. 78-17 vom 6. Januar 1978).",
+      "services": "Dienstleistungen: Cyna bietet Kunden mit:",
+      "title": "Definitionen",
+      "user": "Benutzer: Internetbenutzer verbinden sich mit der oben genannten Site."
+    },
+    "intellectualProperty": {
+      "consequences": "Jede nicht autorisierte Nutzung des Standorts oder eines der enthält Elemente wird als Verstoß angesehen und gemäß den Bestimmungen der Artikel L.335-2 und der Befolgung des Kodex für geistiges Eigentum verfolgt.",
+      "rights": "Cyna besitzt die Rechte an geistigem Eigentum und hält die Nutzungsrechte für alle auf der Website zugänglichen Elemente.",
+      "title": "5. geistiges Eigentum und Fälschung"
+    },
+    "liability": {
+      "damages": "Cyna kann nicht für direkte und indirekte Schäden für die Geräte des Benutzers verantwortlich gemacht werden.",
+      "interactiveSpaces": "Interaktive Räume stehen den Benutzern zur Verfügung. \nCyna behält sich das Recht vor, ohne vorherige Ankündigung alle in diesem Bereich veröffentlichten Inhalte zu entfernen, die gegen das geltende Gesetz in Frankreich verstoßen.",
+      "publisher": "Cyna fungiert als Herausgeber der Website. \nCyna ist verantwortlich für die Qualität und Richtigkeit der von ihm veröffentlichten Inhalte.",
+      "title": "6. Haftungsbeschränkungen"
+    },
+    "presentation": {
+      "dpo": "Datenschutzbeauftragter: Nathan Bramli - nathan.bramli@cyna-it.fr",
+      "host": "Gastgeber: Ovh - 2 Rue Kellermann 59100 Roubaix 1007",
+      "owner": "Eigentümer: SAS CYNA -IT - Aktienkapital von 1000 Euro - Mehrwertsteuer: FR20913711032 - 10 Rue de Penthièvre 75008 Paris",
+      "publisher": "Publikationsmanager: Alexandre Elbaz - Alexandre.elbaz@cyna-it.fr",
+      "title": "1. Website -Präsentation"
+    },
+    "privacy": {
+      "dataController": {
+        "description": "Für personenbezogene Daten, die im Kontext der Erstellung des persönlichen Kontos des Benutzers und ihrer Navigation auf der Website erstellt wurden, ist die für die Verarbeitung personenbezogene Daten verantwortliche Person: Cyna-it.",
+        "title": "7.1 Manager für personenbezogene Datenerfassungen"
+      },
+      "purpose": {
+        "communication": "Kommunikationskampagnen durchführen",
+        "fraud": "Um den Computerbetrug zu verhindern und gegen Computerbetrug zu kämpfen",
+        "improvement": "Verbesserung der Navigation auf der Website",
+        "navigation": "Um die Navigation auf der Website sowie die Verwaltung und Rückverfolgbarkeit der vom Benutzer bestellten Dienste zu ermöglichen",
+        "title": "7.2 Zweck gesammelter Daten"
+      },
+      "rights": {
+        "description": "In Übereinstimmung mit den aktuellen europäischen Vorschriften haben Benutzer von CYNA die folgenden Rechte: Zugriffsrecht, Berichtigung, Aktualisierung, Vollständigkeit von Daten, Recht, Daten zu blockieren oder zu löschen.",
+        "title": "7.3 Recht auf Zugang, Berichtigung und Opposition"
+      },
+      "title": "7. Personal Datenverwaltung"
+    },
+    "services": {
+      "description": "Die Cyna -Website zielt darauf ab, Informationen über alle Aktivitäten des Unternehmens bereitzustellen. \nCyna ist bestrebt, auf der Website so genau wie möglich zu Informationen bereitzustellen.",
+      "title": "3. Beschreibung der erbrachten Dienstleistungen"
+    },
+    "technicalLimitations": {
+      "description": "Die Website verwendet die JavaScript -Technologie. \nDie Website kann nicht für materielle Schäden im Zusammenhang mit der Nutzung der Website verantwortlich gemacht werden.",
+      "title": "4. Vertragliche Einschränkungen für technische Daten"
+    },
+    "title": "Rechtliche Bekanntmachung"
+  }
 }

@@ -116,7 +116,7 @@ export default function UserDashboard() {
               {isLoading ? (
                 <div className="h-8 w-16 animate-pulse rounded bg-muted" />
               ) : (
-                `${data?.stats?.totalSpent} €`
+                `${data?.stats?.totalSpent.toFixed(3)} €`
               )}
             </div>
           </CardContent>
@@ -167,7 +167,7 @@ export default function UserDashboard() {
                           </Badge>
                         </TableCell>
                         <TableCell>
-                          {order.stripe.amountTotal / 100} €
+                          {order.stripe.amountTotal.toFixed(2)} €
                         </TableCell>
                         <TableCell>
                           <Button

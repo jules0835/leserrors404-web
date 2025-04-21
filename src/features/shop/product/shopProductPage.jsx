@@ -92,27 +92,70 @@ export default function ShopProductPage() {
       return "0€"
     }
 
+    const getPriceWithoutTax = () => {
+      if (product.subscription) {
+        return billingCycle === "year"
+          ? product.priceAnnual
+          : product.priceMonthly
+      }
+
+      return product.price
+    }
+    const priceWithoutTax = getPriceWithoutTax()
+    const priceWithTax = priceWithoutTax * (1 + (product.taxe || 0) / 100)
+
     if (product.subscription) {
-      const monthlyPrice = product.priceMonthly
-      const annualPrice = product.priceAnnual
+      const monthlyPriceWithoutTax = product.priceMonthly
+      const monthlyPriceWithTax =
+        monthlyPriceWithoutTax * (1 + (product.taxe || 0) / 100)
+      const annualPriceWithoutTax = product.priceAnnual
+      const annualPriceWithTax =
+        annualPriceWithoutTax * (1 + (product.taxe || 0) / 100)
 
       if (billingCycle === "year") {
-        const savings = (monthlyPrice * 12 - annualPrice).toFixed(2)
+        const savings = (monthlyPriceWithTax * 12 - annualPriceWithTax).toFixed(
+          2
+        )
 
         return (
-          <span className="flex items-center">
-            {annualPrice}€ / {t("year")}
-            <Badge className="text-xs ml-2">
-              {t("save")} {savings}€
-            </Badge>
-          </span>
+          <div className="space-y-1">
+            <div className="text-sm text-muted-foreground">
+              <p>
+                {annualPriceWithoutTax.toFixed(2)}€ HT/{t("year")}
+              </p>
+              <p>
+                {annualPriceWithTax.toFixed(2)}€ TTC/{t("year")}
+              </p>
+            </div>
+            <div className="flex items-center">
+              <Badge className="text-xs ml-2">
+                {t("save")} {savings}€
+              </Badge>
+            </div>
+          </div>
         )
       }
 
-      return `${monthlyPrice}€ / ${t("month")}`
+      return (
+        <div className="space-y-1">
+          <p className="text-sm text-muted-foreground">
+            {monthlyPriceWithoutTax.toFixed(2)}€ HT/{t("month")}
+          </p>
+          <p className="font-semibold">
+            {monthlyPriceWithTax.toFixed(2)}€ TTC/{t("month")}
+          </p>
+        </div>
+      )
     }
 
-    return `${product.price}€`
+    return (
+      <div className="space-y-1">
+        <p className="text-sm text-muted-foreground">
+          {priceWithoutTax.toFixed(2)}€ HT
+        </p>
+        <p className="font-semibold">{priceWithTax.toFixed(2)}€ TTC</p>
+      </div>
+    )
   }
   const getStockStatus = () => {
     if (!product) {
@@ -341,7 +384,19 @@ export default function ShopProductPage() {
               <div className="mb-6 p-4 bg-muted/30 rounded-lg">
                 <p className="text-lg font-semibold flex justify-between">
                   <span>{t("total")}:</span>
-                  <span>{getCurrentPrice() * quantity}€</span>
+                  <div className="text-right">
+                    <p className="text-sm text-muted-foreground">
+                      {(getCurrentPrice() * quantity).toFixed(2)}€ HT
+                    </p>
+                    <p className="font-semibold">
+                      {(
+                        getCurrentPrice() *
+                        quantity *
+                        (1 + (product.taxe || 0) / 100)
+                      ).toFixed(2)}
+                      € TTC
+                    </p>
+                  </div>
                 </p>
               </div>
 

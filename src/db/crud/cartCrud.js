@@ -290,6 +290,27 @@ export const updateBillingCycle = async (cartId, productId, billingCycle) => {
 
   return calculateCartTotals(cart)
 }
+
+export const updateCartBillingAddress = async (cartId, billingAddress) => {
+  await mwdb()
+
+  const cart = await CartModel.findByIdAndUpdate(
+    cartId,
+    {
+      $set: {
+        billingAddress,
+        updatedAt: new Date(),
+      },
+    },
+    { new: true }
+  ).populate("products.product voucher")
+
+  if (!cart) {
+    throw new Error("Cart not found")
+  }
+
+  return calculateCartTotals(cart)
+}
 const calculateCartTotals = async (cart) => {
   await cart.populate("products.product voucher")
   const subtotal = cart.products.reduce((sum, item) => {

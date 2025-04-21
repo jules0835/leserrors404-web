@@ -14,6 +14,7 @@ import toast from "react-hot-toast"
 import CartProduct from "@/features/shop/cart/cartProduct"
 import CardCheckoutCart from "@/features/shop/cart/cardCheckoutCart"
 import { useTitle } from "@/components/navigation/titleContext"
+
 export default function UserCart() {
   const t = useTranslations("Shop.Cart")
   const [isUpdating, setIsUpdating] = useState(false)

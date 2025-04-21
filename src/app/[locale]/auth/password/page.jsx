@@ -18,7 +18,7 @@ export default function ResetPasswordPage() {
   const [emailSent, setEmailSent] = useState(false)
   const searchParams = useSearchParams()
   const redirectUrl = searchParams.get("next") || "/"
-  const isAppMobileLogin = searchParams.get("appMobileLogin")
+  const isAppMobileLogin = searchParams.get("appMobileLogin") === "true"
   const ResetSchema = Yup.object().shape({
     email: Yup.string().email(t("invalidEmail")).required(t("requiredEmail")),
   })

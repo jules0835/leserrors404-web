@@ -345,3 +345,19 @@ export const getCategoriesStats = async () => {
     averageStockPerCategory,
   }
 }
+
+export const updateProductStock = async (productId, quantity) => {
+  await mwdb()
+
+  try {
+    const product = await ProductModel.findByIdAndUpdate(
+      productId,
+      { $inc: { stock: -quantity } },
+      { new: true }
+    )
+
+    return product
+  } catch (error) {
+    return null
+  }
+}

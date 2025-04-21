@@ -40,7 +40,7 @@ export default function Login() {
     }),
   })
   const redirectUrl = searchParams.get("next") || "/"
-  const isAppMobileLogin = searchParams.get("appMobileLogin")
+  const isAppMobileLogin = searchParams.get("appMobileLogin") === "true"
   const isResetSuccess = searchParams.get("resetSuccess")
   const isLogout = searchParams.get("logout")
   const { setTitle } = useTitle()

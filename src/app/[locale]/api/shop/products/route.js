@@ -1,6 +1,7 @@
 import { getShopProducts } from "@/db/crud/productCrud"
 import { logKeys, webAppSettings } from "@/assets/options/config"
 import log from "@/lib/log"
+import { NextResponse } from "next/server"
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url)
@@ -33,9 +34,7 @@ export async function GET(req) {
       dateTo,
     })
 
-    return new Response(JSON.stringify({ products: Products, total }), {
-      status: 200,
-    })
+    return NextResponse.json({ products: Products, total })
   } catch (error) {
     log.systemError({
       logKey: logKeys.shopProductError.key,
@@ -46,8 +45,9 @@ export async function GET(req) {
       },
     })
 
-    return new Response(JSON.stringify({ error: "Failed to fetch products" }), {
-      status: 500,
-    })
+    return NextResponse.json(
+      { error: "Failed to fetch products" },
+      { status: 500 }
+    )
   }
 }

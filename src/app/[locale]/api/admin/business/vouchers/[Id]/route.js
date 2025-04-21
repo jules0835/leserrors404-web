@@ -3,6 +3,7 @@ import stripe from "@/utils/stripe/stripe"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
 import { findVoucherById } from "@/db/crud/voucherCrud"
+import { NextResponse } from "next/server"
 
 export async function PUT(req, { params }) {
   const { Id } = params
@@ -12,19 +13,13 @@ export async function PUT(req, { params }) {
     const voucher = await findVoucherById(Id)
 
     if (!voucher) {
-      return new Response(JSON.stringify({ error: "Voucher not found" }), {
-        status: 404,
-        headers: { "Content-Type": "application/json" },
-      })
+      return NextResponse.json({ error: "Voucher not found" }, { status: 404 })
     }
 
     if (!voucher.stripeCouponId) {
-      return new Response(
-        JSON.stringify({ error: "Stripe coupon ID not found" }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
+      return NextResponse.json(
+        { error: "Stripe coupon ID not found" },
+        { status: 400 }
       )
     }
 
@@ -44,10 +39,7 @@ export async function PUT(req, { params }) {
       },
     })
 
-    return new Response(JSON.stringify(voucher), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    })
+    return NextResponse.json(voucher)
   } catch (error) {
     log.systemError({
       logKey: logKeys.shopSettingsError.key,
@@ -55,12 +47,9 @@ export async function PUT(req, { params }) {
       error,
     })
 
-    return new Response(
-      JSON.stringify({ error: "Failed to update voucher status" }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      }
+    return NextResponse.json(
+      { error: "Failed to update voucher status" },
+      { status: 500 }
     )
   }
 }
@@ -73,14 +62,10 @@ export async function GET(req, { params }) {
     const voucher = await findVoucherById(Id)
 
     if (!voucher) {
-      return new Response(JSON.stringify({ error: "Voucher not found" }), {
-        status: 404,
-      })
+      return NextResponse.json({ error: "Voucher not found" }, { status: 404 })
     }
 
-    return new Response(JSON.stringify(voucher), {
-      status: 200,
-    })
+    return NextResponse.json(voucher)
   } catch (error) {
     log.systemError({
       logKey: logKeys.shopSettingsError.key,
@@ -88,8 +73,9 @@ export async function GET(req, { params }) {
       error,
     })
 
-    return new Response(JSON.stringify({ error: "Failed to get voucher" }), {
-      status: 500,
-    })
+    return NextResponse.json(
+      { error: "Failed to get voucher" },
+      { status: 500 }
+    )
   }
 }

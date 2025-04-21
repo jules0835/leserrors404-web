@@ -28,7 +28,7 @@ export default function Register() {
   const validationSchema = getRegisterSchema(t)
   const howDidYouHearOptions = getHowDidYouHearOptions(t)
   const redirectUrl = searchParams.get("next") || "/"
-  const isAppMobileLogin = searchParams.get("appMobileLogin")
+  const isAppMobileLogin = searchParams.get("appMobileLogin") === "true"
   const { setTitle } = useTitle()
   setTitle(t("title"))
 

@@ -1,5 +1,5 @@
 "use client"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { motion } from "motion/react"
 import Image from "next/image"
 import { useInView } from "react-intersection-observer"
@@ -15,9 +15,11 @@ import { Link } from "@/i18n/routing"
 import { useQuery } from "@tanstack/react-query"
 import { fetchProducts } from "@/features/suggestions/services/suggested"
 import ProductSkeleton from "@/features/suggestions/productSkeleton"
+import { trimString, getLocalizedValue } from "@/lib/utils"
 
 export default function SuggestedProducts({ isProductPage = false }) {
   const t = useTranslations("HomePage")
+  const locale = useLocale()
   const { ref, inView } = useInView({ triggerOnce: true })
   const {
     data: products = [],
@@ -65,17 +67,20 @@ export default function SuggestedProducts({ isProductPage = false }) {
                       {product.picture && (
                         <Image
                           src={product.picture}
-                          alt={product.label?.en || "Product image"}
+                          alt={getLocalizedValue(product.label, locale)}
                           width={300}
                           height={200}
                           className="w-full h-48 object-cover rounded-t-lg"
                         />
                       )}
                       <h2 className="text-xl font-bold mt-4">
-                        {product.label?.en || "Product"}
+                        {getLocalizedValue(product.label, locale)}
                       </h2>
                       <p className="mt-2">
-                        {product.description?.en || "No description available"}
+                        {trimString(
+                          getLocalizedValue(product.description, locale),
+                          20
+                        )}
                       </p>
                       <Link
                         href={`/shop/products/${product._id}`}

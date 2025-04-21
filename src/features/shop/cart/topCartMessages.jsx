@@ -93,6 +93,18 @@ export default function TopCartMessages({ cart, isLoading, session }) {
             </AlertDescription>
           </Alert>
         )}
+      {cart?.checkout?.reason &&
+        cart?.checkout?.reason === "BILLING_ADDRESS_INCOMPLETE" && (
+          <Alert variant="destructive" className="border-2">
+            <AlertCircle className="h-5 w-5" />
+            <AlertTitle className="text-lg font-semibold">
+              {t("billingAddressIncomplete")}
+            </AlertTitle>
+            <AlertDescription className="text-sm">
+              {t("billingAddressIncompleteSubtitle")}
+            </AlertDescription>
+          </Alert>
+        )}
       {!isLoading && !session && (
         <div className="space-y-4">
           <div className="flex justify-center flex-col items-center space-y-4">

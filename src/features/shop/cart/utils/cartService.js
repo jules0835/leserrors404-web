@@ -276,3 +276,21 @@ export const updateBillingCycle = async (productId, billingCycle) => {
     return false
   }
 }
+
+export const updateCartBillingAddress = async (cartId, address) => {
+  try {
+    const response = await fetch(`/api/shop/cart/${cartId}/billing-address`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(address),
+    })
+
+    if (!response.ok) {
+      throw new Error("Failed to update billing address")
+    }
+
+    return await response.json()
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}

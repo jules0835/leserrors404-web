@@ -130,6 +130,20 @@ export default function AdminOrderDetails() {
             <p>
               {t("email")}: {order.user.email}
             </p>
+
+            <h2 className="font-semibold mb-2 mt-2">{t("billingAddress")}</h2>
+            {order.billingAddress ? (
+              <div className="space-y-1">
+                <p>{order.billingAddress.name}</p>
+                <p>{order.billingAddress.street}</p>
+                <p>
+                  {order.billingAddress.zipCode} {order.billingAddress.city}
+                </p>
+                <p>{order.billingAddress.country}</p>
+              </div>
+            ) : (
+              <p className="text-muted-foreground">{t("noBillingAddress")}</p>
+            )}
           </div>
           <div className="flex flex-col gap-2">
             <h2 className="font-semibold mb-2">{t("orderActions")}</h2>

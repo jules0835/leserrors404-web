@@ -1130,7 +1130,9 @@
           "cancelSuccess": "Order canceled successfully",
           "cancelError": "Failed to cancel order",
           "noRefundAvailable": "This order cannot be refunded. This may be because it was paid with a voucher or is not eligible for a refund.",
-          "viewCustomer": "View Customer"
+          "viewCustomer": "View Customer",
+          "billingAddress": "Billing Address",
+          "noBillingAddress": "No Billing Address"
         },
         "searchPlaceholder": "Search for an order",
         "previous": "Previous",
@@ -1769,7 +1771,9 @@
           "cancelOrder": "Cancel order",
           "openUserInvoice": "Open user invoice",
           "goToOrderStripe": "Go to stripe order",
-          "orderActions": "Order Actions\n"
+          "orderActions": "Order Actions\n",
+          "billingAddress": "Billing Address",
+          "noBillingAddress": "No Billing Address"
         },
         "searchPlaceholder": "Search for an order",
         "previous": "Previous",
@@ -1844,7 +1848,10 @@
       "friend": "Friend",
       "advertisement": "Advertisement",
       "other": "Other",
-      "title": "Update Your Profile"
+      "title": "Update Your Profile",
+      "BillingAddresses": {
+        "save": "Save"
+      }
     },
     "Chat": {
       "noConversations": "No conversations",
@@ -2054,6 +2061,10 @@
       "annual": "Annual",
       "monthly": "Monthly",
       "productOutOfStockUserQuantity": "Product quantity too hight",
+      "billingAddressIncomplete": "Billing address is incomplete",
+      "billingAddressIncompleteSubtitle": "Please complete your billing address to proceed to checkout",
+      "BillingAddressIncomplete": "Billing address is incomplete",
+      "BillingAddressIncompleteShop": "Please complete your billing address to proceed to checkout",
       "productOutOfStockUserQuantitySubtitle": "The quantity of a product in your cart is too hight compare to our stock, please update the quantity or remove the product",
       "productOutOfStock": "Product Out Of Stock",
       "productOutOfStockSubtitle": "One of the product in your carte is Out Of Stock, remove it ton procced to the payment",
@@ -2067,7 +2078,22 @@
       "ProductOutOfStock": "Product Out Of Stock",
       "ProductNotActive": "One of the product is not available",
       "ProductOutOfStockUserQuantity": "One of the product is not available with the quantity selected",
-      "title": "Cart"
+      "title": "Cart",
+      "noBillingAddress": "No billing address",
+      "billingAddress": "Billing address",
+      "changeAddress": "Change address",
+      "selectBillingAddress": "Select billing address",
+      "addNewAddress": "Add new address",
+      "addressName": "Address name",
+      "country": "Country",
+      "city": "City",
+      "zipCode": "Zip Code",
+      "addressStreet": "Street",
+      "addAddress": "Add address",
+      "checkoutSummary": "Checkout Summary",
+      "yourProducts": "Your Products",
+      "cancel": "Cancel",
+      "confirmCheckout": "Confirm Checkout"
     },
     "Product": {
       "outOfStock": "Out of stock",
@@ -2140,7 +2166,9 @@
       "transactionFailedMessage": "This transaction failed because you canceled it or there was an error while checking out. Please wait we are redirection you to the Mobile App.",
       "transactionFailed": "Transaction Failed",
       "title": "Checking your payment",
-      "titleSuccess": "Order Success"
+      "titleSuccess": "Order Success",
+      "billingAddress": "Billing Address",
+      "noBillingAddress": "No Billing Address"
     }
   },
   "Log": {
@@ -2323,7 +2351,9 @@
           "failed": "FAILED",
           "expired": "EXPIRED",
           "active": "ACTIVE",
-          "inactive": "INACTIVE"
+          "inactive": "INACTIVE",
+          "paid": "PAID",
+          "unpaid": "UNPAID"
         },
         "SELECT_ORDER": {
           "buttonText": "Select an order",
@@ -2411,5 +2441,89 @@
     "default": "Pure player in Cyber",
     "admin": "Admin"
   },
-  "title": "Users List"
+  "title": "Users List",
+  "footer": {
+    "termsOfUse": "Terms Of Use",
+    "legalNotice": "Legal Notice",
+    "contact": "Contact",
+    "allRightsReserved": "All Rights Reserved"
+  },
+  "legals": {
+    "title": "Legal Notice",
+    "definitions": {
+      "title": "Definitions",
+      "client": "Client: any professional or natural person capable within the meaning of Articles 1123 and following of the Civil Code, or legal entity, who visits the website subject to these general conditions.",
+      "services": "Services: Cyna provides clients with:",
+      "content": "Content: all elements constituting the information present on the site, in particular texts, images, videos.",
+      "clientInfo": "Client Information: hereinafter referred to as 'Information(s)' which corresponds to all personal data that may be held by Cyna for the management of your account, customer relationship management and for analytical and statistical purposes.",
+      "user": "User: Internet user connecting, using the aforementioned site.",
+      "personalInfo": "Personal Information: 'information that allows, in any form whatsoever, directly or indirectly, the identification of the natural persons to whom they apply' (Article 4 of Law No. 78-17 of January 6, 1978)."
+    },
+    "presentation": {
+      "title": "1. Website Presentation",
+      "owner": "Owner: SAS Cyna-IT - Share capital of 1000 euros - VAT number: FR20913711032 - 10 rue de Penthièvre 75008 Paris",
+      "publisher": "Publication Manager: Alexandre Elbaz - alexandre.elbaz@cyna-it.fr",
+      "host": "Host: OVH - 2 rue Kellermann 59100 Roubaix 1007",
+      "dpo": "Data Protection Officer: Nathan Bramli - nathan.bramli@cyna-it.fr"
+    },
+    "conditions": {
+      "title": "2. General Conditions of Use of the Site and Services Offered",
+      "intellectualProperty": "The site constitutes a work of the mind protected by the provisions of the Intellectual Property Code and applicable international regulations. The Client may not in any way reuse, transfer or exploit for his own account all or part of the elements or works of the site.",
+      "acceptance": "The use of the Cyna site implies full and complete acceptance of the general conditions of use described below. These conditions of use may be modified or supplemented at any time.",
+      "accessibility": "This website is normally accessible to users at any time. An interruption due to technical maintenance may however be decided by Cyna."
+    },
+    "services": {
+      "title": "3. Description of Services Provided",
+      "description": "The Cyna website aims to provide information about all of the company's activities. Cyna strives to provide as accurate information as possible on the site."
+    },
+    "technicalLimitations": {
+      "title": "4. Contractual Limitations on Technical Data",
+      "description": "The site uses JavaScript technology. The website cannot be held responsible for material damage related to the use of the site."
+    },
+    "intellectualProperty": {
+      "title": "5. Intellectual Property and Counterfeiting",
+      "rights": "Cyna owns the intellectual property rights and holds the usage rights on all elements accessible on the website.",
+      "consequences": "Any unauthorized use of the site or any of the elements it contains will be considered as constituting an infringement and prosecuted in accordance with the provisions of Articles L.335-2 and following of the Intellectual Property Code."
+    },
+    "liability": {
+      "title": "6. Limitations of Liability",
+      "publisher": "Cyna acts as the publisher of the site. Cyna is responsible for the quality and veracity of the content it publishes.",
+      "damages": "Cyna cannot be held responsible for direct and indirect damage caused to the user's equipment.",
+      "interactiveSpaces": "Interactive spaces are available to users. Cyna reserves the right to remove, without prior notice, any content posted in this space that would violate the applicable law in France."
+    },
+    "privacy": {
+      "title": "7. Personal Data Management",
+      "dataController": {
+        "title": "7.1 Personal Data Collection Managers",
+        "description": "For personal data collected in the context of the creation of the user's personal account and their navigation on the site, the person responsible for processing personal data is: Cyna-IT."
+      },
+      "purpose": {
+        "title": "7.2 Purpose of Collected Data",
+        "navigation": "To allow navigation on the site and the management and traceability of services ordered by the user",
+        "fraud": "To prevent and fight against computer fraud",
+        "improvement": "To improve navigation on the site",
+        "communication": "To conduct communication campaigns"
+      },
+      "rights": {
+        "title": "7.3 Right of Access, Rectification and Opposition",
+        "description": "In accordance with current European regulations, users of Cyna have the following rights: right of access, rectification, updating, completeness of data, right to block or erase data."
+      }
+    },
+    "cookies": {
+      "title": "9. Hypertext Links, Cookies and Internet Tags",
+      "definition": "A 'cookie' is a small information file sent to the User's browser and stored in the User's terminal.",
+      "purpose": "Cookies facilitate navigation and/or the provision of services offered by the site.",
+      "management": "The User can configure their browser to allow them to decide whether or not to accept them."
+    },
+    "applicableLaw": {
+      "title": "10. Applicable Law and Jurisdiction",
+      "description": "Any dispute in connection with the use of the Cyna site is subject to French law. Except in cases where the law does not allow it, exclusive jurisdiction is given to the competent courts of Paris."
+    }
+  },
+  "cookieBanner": {
+    "message": "This website uses cookies to enhance your experience and for technical purposes. By using our website, you consent to the use of cookies. You can read more in our",
+    "privacyPolicy": "Terms And Condition",
+    "acceptAll": "Accept All",
+    "accept": "Accept"
+  }
 }

@@ -62,7 +62,7 @@ export default function OrderDetails() {
   return (
     <div className="space-y-6">
       <Card className="p-4 sm:p-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="space-y-2">
             <Badge className={getStatusColor(order.orderStatus)}>
               {order.orderStatus}
@@ -94,6 +94,21 @@ export default function OrderDetails() {
             <p>
               {t("email")}: {order.user.email}
             </p>
+          </div>
+          <div className="space-y-2">
+            <h2 className="font-semibold">{t("billingAddress")}</h2>
+            {order.billingAddress ? (
+              <>
+                <p>{order.billingAddress.name}</p>
+                <p>{order.billingAddress.street}</p>
+                <p>
+                  {order.billingAddress.zipCode} {order.billingAddress.city}
+                </p>
+                <p>{order.billingAddress.country}</p>
+              </>
+            ) : (
+              <p className="text-muted-foreground">{t("noBillingAddress")}</p>
+            )}
           </div>
         </div>
       </Card>

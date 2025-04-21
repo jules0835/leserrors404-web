@@ -82,6 +82,14 @@ export const orderSchema = new Schema(
         details: { type: String },
       },
     ],
+
+    billingAddress: {
+      name: { type: String },
+      country: { type: String },
+      city: { type: String },
+      zipCode: { type: String },
+      street: { type: String },
+    },
   },
   { timestamps: true }
 )

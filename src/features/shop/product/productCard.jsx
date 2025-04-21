@@ -32,11 +32,30 @@ export default function ProductCard({ product }) {
     return productGetPrice.price
   }
   const getPriceDisplay = (productPrice) => {
+    const priceWithoutTax = getPrice(productPrice)
+    const priceWithTax = priceWithoutTax * (1 + (productPrice.taxe || 0) / 100)
+
     if (productPrice.subscription) {
-      return `${getPrice(productPrice)}€/${t("month")}`
+      return (
+        <div className="space-y-1">
+          <p className="text-sm text-muted-foreground">
+            {priceWithoutTax.toFixed(2)}€ HT/{t("month")}
+          </p>
+          <p className="font-semibold">
+            {priceWithTax.toFixed(2)}€ TTC/{t("month")}
+          </p>
+        </div>
+      )
     }
 
-    return `${getPrice(productPrice)}€`
+    return (
+      <div className="space-y-1">
+        <p className="text-sm text-muted-foreground">
+          {priceWithoutTax.toFixed(2)}€ HT
+        </p>
+        <p className="font-semibold">{priceWithTax.toFixed(2)}€ TTC</p>
+      </div>
+    )
   }
   const handleAddToCart = async (id) => {
     setIsLoading(true)
@@ -45,7 +64,9 @@ export default function ProductCard({ product }) {
   }
 
   return (
-    <Card className="text-left flex flex-col h-full ">
+    <Card
+      className={`text-left flex flex-col h-full ${product.stock <= 0 ? "opacity-50" : ""}`}
+    >
       <CardHeader>
         <CardTitle className="flex items-center h-7">
           <p>
@@ -76,10 +97,8 @@ export default function ProductCard({ product }) {
         </CardDescription>
       </CardContent>
       <CardFooter className="flex flex-col justify-between mt-auto">
-        <div>
-          <p>{getPriceDisplay(product)}</p>
-        </div>
-        <div className="flex w-full">
+        <div>{getPriceDisplay(product)}</div>
+        <div className="flex w-full space-x-2">
           <div className="flex-grow">
             <DButton
               isMain
@@ -90,8 +109,8 @@ export default function ProductCard({ product }) {
           </div>
           <div>
             <DButton
-              styles={"ml-2"}
               onClickBtn={() => handleAddToCart(product._id)}
+              isDisabled={product.stock <= 0}
             >
               {isLoading ? <AnimatedReload /> : <SquarePlus size={20} />}
             </DButton>

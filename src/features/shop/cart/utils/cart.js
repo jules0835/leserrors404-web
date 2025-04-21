@@ -21,6 +21,9 @@ export const returnError = (t, reason) => {
     case "PRODUCT_OUT_OF_STOCK_USER_QUANTITY":
       return t("ProductOutOfStockUserQuantity")
 
+    case "BILLING_ADDRESS_INCOMPLETE":
+      return t("BillingAddressIncomplete")
+
     default:
       return t("cantCheckout")
   }

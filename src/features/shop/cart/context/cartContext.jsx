@@ -7,13 +7,19 @@ import {
   updateProductQuantity,
   removeVoucher,
   updateBillingCycle,
+  updateCartBillingAddress,
+  getCart,
 } from "@/features/shop/cart/utils/cartService"
 import { createContext, useContext, useState, useEffect } from "react"
+import { useQueryClient } from "@tanstack/react-query"
+import toast from "react-hot-toast"
 
 const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0)
+  const [isUpdating, setIsUpdating] = useState(false)
+  const queryClient = useQueryClient()
 
   useEffect(() => {
     updateCartCount()
@@ -85,6 +91,59 @@ export const CartProvider = ({ children }) => {
       updateCartCount()
     }
   }
+  const updateBillingAddress = async (address) => {
+    try {
+      setIsUpdating(true)
+      const cart = await getCart()
+
+      if (!cart) {
+        return false
+      }
+
+      const result = await updateCartBillingAddress(cart._id, address)
+
+      if (result) {
+        await queryClient.invalidateQueries({ queryKey: ["cart"] })
+        await queryClient.refetchQueries({ queryKey: ["cart"] })
+        updateCartCount()
+      }
+
+      return result
+    } catch (error) {
+      toast.error(error.message)
+      throw new Error(error.message)
+    } finally {
+      setIsUpdating(false)
+    }
+  }
+  const addNewAddress = async (address) => {
+    try {
+      setIsUpdating(true)
+      const response = await fetch("/api/user/profile/addresses", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(address),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to add address")
+      }
+
+      const addedAddress = await response.json()
+      await updateBillingAddress(addedAddress[addedAddress.length - 1])
+      await queryClient.invalidateQueries({
+        queryKey: ["userBillingAddresses"],
+      })
+      await queryClient.refetchQueries({ queryKey: ["userBillingAddresses"] })
+
+      return addedAddress
+    } catch (error) {
+      toast.error(error.message)
+      throw new Error(error.message)
+    } finally {
+      setIsUpdating(false)
+    }
+  }
 
   return (
     <CartContext.Provider
@@ -98,6 +157,10 @@ export const CartProvider = ({ children }) => {
         applyCartVoucher,
         removeCartVoucher,
         updateProdBillingCycle,
+        updateBillingAddress,
+        addNewAddress,
+        isUpdating,
+        setIsUpdating,
       }}
     >
       {children}

@@ -50,6 +50,16 @@ export const userSchema = new Schema({
       expires: { type: Date },
     },
   },
+  billingAddresses: [
+    {
+      name: { type: String, required: true },
+      country: { type: String, required: true },
+      city: { type: String, required: true },
+      zipCode: { type: String, required: true },
+      street: { type: String, required: true },
+      isDefault: { type: Boolean, default: false },
+    },
+  ],
 })
 
 userSchema.pre("save", async function ValidateShortId(next) {
