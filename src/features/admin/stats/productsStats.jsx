@@ -20,6 +20,8 @@ import {
 import { Skeleton } from "@/components/ui/skeleton"
 import Camembert from "@/features/admin/stats/components/Camembert"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { getLocalizedValue } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function ProductsStats() {
   const t = useTranslations("Admin.Stats.Products")
@@ -28,18 +30,13 @@ export default function ProductsStats() {
     queryKey: ["productsStats"],
     queryFn: () => getProductsStats(),
   })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (error) {
     return <ErrorFront />
   }
 
-  const getLocalizedValue = (value) => {
-    if (typeof value === "object" && value !== null) {
-      return value[locale] || value.en || ""
-    }
-
-    return value
-  }
   const stockStats = data?.stockStats || []
   const salesStats = data?.salesStats || []
   const totalStock = stockStats.reduce((sum, item) => sum + item.totalStock, 0)
@@ -72,7 +69,7 @@ export default function ProductsStats() {
       <div className="grid gap-4 md:grid-cols-2">
         <Camembert
           data={stockStats.slice(0, 8).map((item) => ({
-            name: getLocalizedValue(item.product?.label) || "Unknown",
+            name: getLocalizedValue(item.product?.label, locale) || "Unknown",
             value: item.totalStock,
           }))}
           title={t("topStockedProducts")}
@@ -82,7 +79,7 @@ export default function ProductsStats() {
         />
         <Camembert
           data={salesStats.slice(0, 8).map((item) => ({
-            name: getLocalizedValue(item.product?.label) || "Unknown",
+            name: getLocalizedValue(item.product?.label, locale) || "Unknown",
             value: item.totalSales,
           }))}
           title={t("topSellingProducts")}
@@ -125,7 +122,7 @@ export default function ProductsStats() {
                   stockStats.slice(0, 10).map((stat) => (
                     <TableRow key={stat._id}>
                       <TableCell>
-                        {getLocalizedValue(stat.product?.label)}
+                        {getLocalizedValue(stat.product?.label, locale)}
                       </TableCell>
                       <TableCell className="text-right">
                         {stat.totalStock}
@@ -173,7 +170,7 @@ export default function ProductsStats() {
                   salesStats.slice(0, 10).map((stat) => (
                     <TableRow key={stat._id}>
                       <TableCell>
-                        {getLocalizedValue(stat.product?.label)}
+                        {getLocalizedValue(stat.product?.label, locale)}
                       </TableCell>
                       <TableCell className="text-right">
                         {stat.totalSales}

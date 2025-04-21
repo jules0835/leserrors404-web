@@ -7,7 +7,7 @@ export const getRegisterSchema = (t) =>
     company: Yup.string().required(t("companyRequired")),
     email: Yup.string().email(t("invalidEmail")).required(t("emailRequired")),
     password: Yup.string()
-      .min(6, t("passwordMinLength"))
+      .min(12, t("passwordMinLength"))
       .required(t("passwordRequired")),
     confirmPassword: Yup.string()
       .min(12, t("passwordMinLength"))

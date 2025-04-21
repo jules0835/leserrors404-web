@@ -10,7 +10,7 @@ import { Users, AlertCircle, Clock4 } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
 import ErrorFront from "@/components/navigation/error"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { cn, getLocalizedValue } from "@/lib/utils"
 import {
   Table,
   TableBody,
@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/table"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function SubscriptionsStats() {
   const t = useTranslations("Admin.Stats.Subscriptions")
@@ -33,17 +34,11 @@ export default function SubscriptionsStats() {
     queryKey: ["subscriptionsStats", filters],
     queryFn: () => getSubscriptionsStats(filters),
   })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (error) {
     return <ErrorFront />
-  }
-
-  const getLocalizedValue = (value) => {
-    if (typeof value === "object" && value !== null) {
-      return value[locale] || value.en || ""
-    }
-
-    return value
   }
 
   return (
@@ -153,7 +148,7 @@ export default function SubscriptionsStats() {
                   data?.topProducts?.map((product) => (
                     <TableRow key={product.productId}>
                       <TableCell>
-                        {getLocalizedValue(product.productName)}
+                        {getLocalizedValue(product.productName, locale)}
                       </TableCell>
                       <TableCell className="text-right">
                         {product.subscriptionCount}

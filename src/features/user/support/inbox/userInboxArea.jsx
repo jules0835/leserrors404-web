@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect, useCallback } from "react"
+import { useState, useRef, useEffect, useCallback, useMemo } from "react"
 import { Send, Headset, MessageSquareOff } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
@@ -19,6 +19,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { formatIdForDisplay } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
 
 export default function UserInboxArea({ chat }) {
   const {
@@ -36,7 +38,7 @@ export default function UserInboxArea({ chat }) {
   const t = useTranslations("User.Chat")
   const typingTimeoutRef = useRef(null)
   const debounceTimeoutRef = useRef(null)
-  const allMessages = chat.messages || []
+  const allMessages = useMemo(() => chat.messages || [], [chat.messages])
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
@@ -119,11 +121,17 @@ export default function UserInboxArea({ chat }) {
         </div>
 
         <div className="mt-1 flex items-center gap-2">
+          <Badge variant="outline">
+            {t("ticketId")}: #{formatIdForDisplay(chat)}
+          </Badge>
           {chat.isActive ? (
             <>
-              <span className="text-xs text-green-600 px-2 py-1 bg-green-50 rounded-full">
+              <Badge
+                variant="outline"
+                className="text-xs text-green-600 px-2 py-1 bg-green-50 rounded-full"
+              >
                 {t("active")}
-              </span>
+              </Badge>
               <Dialog>
                 <DialogTrigger asChild>
                   <Button variant="destructive" size="icon" className="ml-2">

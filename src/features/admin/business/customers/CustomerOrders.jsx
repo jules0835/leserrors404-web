@@ -15,6 +15,7 @@ import {
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import { formatIdForDisplay } from "@/lib/utils"
 
 export default function CustomerOrders({ orders }) {
   const t = useTranslations("Admin.Business.Customers")
@@ -53,7 +54,9 @@ export default function CustomerOrders({ orders }) {
           <TableBody>
             {currentOrders.map((order) => (
               <TableRow key={order._id}>
-                <TableCell className="font-medium">{order._id}</TableCell>
+                <TableCell className="font-medium">
+                  #{formatIdForDisplay(order)}
+                </TableCell>
                 <TableCell>
                   {new Date(order.createdAt).toLocaleString("fr-FR")}
                 </TableCell>

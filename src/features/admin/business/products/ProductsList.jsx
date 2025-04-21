@@ -35,8 +35,8 @@ import {
   DropdownMenuCheckboxItem,
 } from "@/components/ui/dropdown-menu"
 import toast from "react-hot-toast"
-import { trimString } from "@/lib/utils"
-
+import { getLocalizedValue, trimString } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 export default function ProductsList() {
   const locale = useLocale()
   const t = useTranslations("Admin.Business.Products")
@@ -63,6 +63,8 @@ export default function ProductsList() {
   const [limit] = useState(10)
   const [total, setTotal] = useState(0)
   const [editProduct, setEditProduct] = useState(null)
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -122,13 +124,6 @@ export default function ProductsList() {
 
     return ""
   }
-  const getLocalizedValue = (value) => {
-    if (typeof value === "object" && value !== null) {
-      return value[locale] || value.en || ""
-    }
-
-    return value
-  }
   const columns = [
     {
       id: "picture",
@@ -158,7 +153,7 @@ export default function ProductsList() {
       ),
       cell: ({ row }) => (
         <div className="text-center">
-          {getLocalizedValue(row.getValue("label"))}
+          {getLocalizedValue(row.getValue("label"), locale)}
         </div>
       ),
     },
@@ -168,7 +163,10 @@ export default function ProductsList() {
       accessorKey: "description",
       cell: ({ row }) => (
         <div className="text-center">
-          {trimString(getLocalizedValue(row.getValue("description")), 180)}
+          {trimString(
+            getLocalizedValue(row.getValue("description"), locale),
+            180
+          )}
         </div>
       ),
     },
@@ -177,7 +175,10 @@ export default function ProductsList() {
       header: t("Add.characteristics"),
       cell: ({ row }) => (
         <div className="text-center">
-          {trimString(getLocalizedValue(row.getValue("characteristics")), 180)}
+          {trimString(
+            getLocalizedValue(row.getValue("characteristics"), locale),
+            180
+          )}
         </div>
       ),
     },

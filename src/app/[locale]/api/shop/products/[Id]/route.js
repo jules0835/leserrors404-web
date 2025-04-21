@@ -1,6 +1,7 @@
 import { findShopProductById } from "@/db/crud/productCrud"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
+import { NextResponse } from "next/server"
 
 export async function GET(req, { params }) {
   const { Id } = await params
@@ -9,10 +10,10 @@ export async function GET(req, { params }) {
     const product = await findShopProductById(Id)
 
     if (!product) {
-      return new Response("Product not found", { status: 404 })
+      return NextResponse.json({ error: "Product not found" }, { status: 404 })
     }
 
-    return new Response(JSON.stringify(product), { status: 200 })
+    return NextResponse.json(product)
   } catch (error) {
     log.systemError({
       logKey: logKeys.shopProductError.key,
@@ -23,6 +24,9 @@ export async function GET(req, { params }) {
       },
     })
 
-    return new Response("Failed to fetch product", { status: 500 })
+    return NextResponse.json(
+      { error: "Failed to fetch product" },
+      { status: 500 }
+    )
   }
 }

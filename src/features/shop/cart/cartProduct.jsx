@@ -39,13 +39,45 @@ export default function CartProduct({
     return item.product.price
   }
   const getPriceDisplay = () => {
+    const priceWithoutTax = getPrice()
+    const priceWithTax = priceWithoutTax * (1 + (item.product.taxe || 0) / 100)
+
     if (item.product.subscription && item.billingCycle) {
       const cycle = item.billingCycle === "year" ? t("year") : t("month")
 
-      return `${getPrice()}€/${cycle}`
+      return (
+        <div className="space-y-1">
+          <p className="text-sm text-muted-foreground">
+            {priceWithoutTax.toFixed(2)}€ HT/{cycle}
+          </p>
+          <p className="font-semibold">
+            {priceWithTax.toFixed(2)}€ TTC/{cycle}
+          </p>
+        </div>
+      )
     }
 
-    return `${getPrice()}€`
+    return (
+      <div className="space-y-1">
+        <p className="text-sm text-muted-foreground">
+          {priceWithoutTax.toFixed(2)}€ HT
+        </p>
+        <p className="font-semibold">{priceWithTax.toFixed(2)}€ TTC</p>
+      </div>
+    )
+  }
+  const getTotalPriceDisplay = () => {
+    const priceWithoutTax = getPrice() * item.quantity
+    const priceWithTax = priceWithoutTax * (1 + (item.product.taxe || 0) / 100)
+
+    return (
+      <div className="space-y-1">
+        <p className="text-sm text-muted-foreground">
+          {priceWithoutTax.toFixed(2)}€ HT
+        </p>
+        <p className="font-semibold text-xl">{priceWithTax.toFixed(2)}€ TTC</p>
+      </div>
+    )
   }
   const isOutOfStock = item.product.stock === 0
   const isQuantityExceedingStock = item.quantity > item.product.stock
@@ -123,20 +155,16 @@ export default function CartProduct({
                   )}
                 </div>
                 <div className="text-right">
-                  <p className="text-lg font-bold">
-                    {item.quantity > 1 ? (
-                      <span>
-                        <span className="text-foreground text-xl">
-                          {(getPrice() * item.quantity).toFixed(2)}€
-                        </span>
-                        <span className="text-muted-foreground text-sm block">
-                          {getPriceDisplay()} × {item.quantity}
-                        </span>
-                      </span>
-                    ) : (
-                      <span className="text-xl">{getPriceDisplay()}</span>
-                    )}
-                  </p>
+                  {item.quantity > 1 ? (
+                    <div className="space-y-1">
+                      {getTotalPriceDisplay()}
+                      <p className="text-sm text-muted-foreground">
+                        {getPriceDisplay()} × {item.quantity}
+                      </p>
+                    </div>
+                  ) : (
+                    getPriceDisplay()
+                  )}
                 </div>
               </div>
               <div className="flex items-center gap-4 mt-2">

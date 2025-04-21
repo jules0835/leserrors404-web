@@ -55,7 +55,7 @@ export const UserInboxProvider = ({ children }) => {
         setSelectedChat(selectedChatData)
       }
     }
-  }, [selectedChatData, tempMessage])
+  }, [selectedChatData, tempMessage, selectedChat])
 
   const handleSendMessage = async (message) => {
     if (!selectedChat) {

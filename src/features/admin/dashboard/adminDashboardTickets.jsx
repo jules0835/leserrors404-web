@@ -22,6 +22,7 @@ import {
   getMessageTypeText,
   getLatestTickets,
 } from "@/features/admin/dashboard/service/statsFrontService"
+import { formatIdForDisplay } from "@/lib/utils"
 
 export default function AdminDashboardTickets() {
   const t = useTranslations("Admin.Support.Tickets")
@@ -64,6 +65,7 @@ export default function AdminDashboardTickets() {
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead>{t("ticketId")}</TableHead>
                 <TableHead>{t("user")}</TableHead>
                 <TableHead>{t("status")}</TableHead>
                 <TableHead>{t("lastMessageType")}</TableHead>
@@ -91,6 +93,7 @@ export default function AdminDashboardTickets() {
 
                   return (
                     <TableRow key={ticket._id}>
+                      <TableCell>#{formatIdForDisplay(ticket)}</TableCell>
                       <TableCell>
                         {ticket.user
                           ? `${ticket.user.firstName} ${ticket.user.lastName}`

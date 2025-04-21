@@ -33,7 +33,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import toast from "react-hot-toast"
-import { trimString } from "@/lib/utils"
+import { getLocalizedValue, trimString } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function CategoriesList() {
   const locale = useLocale()
@@ -48,6 +49,8 @@ export default function CategoriesList() {
   const [limit] = useState(10)
   const [total, setTotal] = useState(0)
   const [editCategory, setEditCategory] = useState(null)
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const { isLoading, error } = useQuery({
     queryKey: ["categories", page, limit, query],
     queryFn: async () => {
@@ -85,13 +88,6 @@ export default function CategoriesList() {
       toast.error(t("Delete.errorDeletingCategory"))
     }
   }
-  const getLocalizedValue = (value) => {
-    if (typeof value === "object" && value !== null) {
-      return value[locale] || value.en || ""
-    }
-
-    return value
-  }
   const columns = [
     {
       id: "picture",
@@ -121,7 +117,7 @@ export default function CategoriesList() {
       ),
       cell: ({ row }) => (
         <div className="text-center">
-          {getLocalizedValue(row.getValue("label"))}
+          {getLocalizedValue(row.getValue("label"), locale)}
         </div>
       ),
     },
@@ -131,7 +127,10 @@ export default function CategoriesList() {
       accessorKey: "description",
       cell: ({ row }) => (
         <div className="text-center">
-          {trimString(getLocalizedValue(row.getValue("description")), 180)}
+          {trimString(
+            getLocalizedValue(row.getValue("description"), locale),
+            180
+          )}
         </div>
       ),
     },

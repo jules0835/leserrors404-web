@@ -1,6 +1,7 @@
 import { getLogs } from "@/db/crud/logCrud"
 import { getReqUserId } from "@/features/auth/utils/getAuthParam"
 import log from "@/lib/log"
+import { NextResponse } from "next/server"
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url)
@@ -29,10 +30,7 @@ export async function GET(req) {
       logKeys
     )
 
-    return new Response(JSON.stringify({ logs, total }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    })
+    return NextResponse.json({ logs, total })
   } catch (error) {
     log.systemError({
       message: "Failed to get logs",
@@ -42,9 +40,6 @@ export async function GET(req) {
       authorId: getReqUserId(req),
     })
 
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    })
+    return NextResponse.json({ error: error.message }, { status: 500 })
   }
 }

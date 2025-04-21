@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Package } from "lucide-react"
 import { format } from "date-fns"
 import ListSkeleton from "@/components/skeleton/ListSkeleton"
+import { formatIdForDisplay } from "@/lib/utils"
 
 export default function SelectOrder({ onSelect }) {
   const [page, setPage] = useState(1)
@@ -53,7 +54,7 @@ export default function SelectOrder({ onSelect }) {
               <div className="flex flex-col items-start">
                 <span className="font-medium">
                   {t("SELECT_ORDER.orderNumber", {
-                    number: order._id.slice(-6),
+                    number: formatIdForDisplay(order),
                   })}
                 </span>
                 <span className="text-sm text-muted-foreground">

@@ -10,9 +10,5 @@ export default async function UserPage({ params }) {
 
   const plainUser = JSON.parse(JSON.stringify(user))
 
-  return (
-    <div>
-      <UserDetailsForm user={plainUser} />
-    </div>
-  )
+  return <UserDetailsForm user={plainUser} />
 }

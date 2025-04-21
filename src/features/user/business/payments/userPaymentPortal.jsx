@@ -24,6 +24,7 @@ import DButton from "@/components/ui/DButton"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { useRouter } from "@/i18n/routing"
 import ErrorFront from "@/components/navigation/error"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function UserPaymentPortal() {
   const t = useTranslations("User.Business.Payments")
@@ -31,6 +32,8 @@ export default function UserPaymentPortal() {
   const itemsPerPage = 10
   const router = useRouter()
   const locale = useLocale()
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const { data, isLoading, error } = useQuery({
     queryKey: ["payments"],
     queryFn: async () => {

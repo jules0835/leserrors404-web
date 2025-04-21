@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator"
 import { useQuery } from "@tanstack/react-query"
 import { company, webAppSettings } from "@/assets/options/config"
 import { fetchCheckoutOrder } from "@/features/shop/checkout/utils/userCheckout"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function RedirectCheckout() {
   const [isErrorMessage, setIsErrorMessage] = useState(false)
@@ -20,6 +21,8 @@ export default function RedirectCheckout() {
   const sessionId = searchParams.get("session_id")
   const isMobileApp = searchParams.get("appMobileCheckout") === "true"
   const isMobileFailed = searchParams.get("isMobileFailed") === "true"
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const { data } = useQuery({
     queryKey: ["checkoutOrder", sessionId],
     queryFn: () => fetchCheckoutOrder(sessionId),
@@ -54,7 +57,7 @@ export default function RedirectCheckout() {
     }, 30000)
 
     return () => clearTimeout(timer)
-  }, [router, sessionId, isMobileApp])
+  }, [router, sessionId, isMobileApp, isMobileFailed])
 
   useEffect(() => {
     if (!data) {

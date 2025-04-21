@@ -7,10 +7,13 @@ import { Toaster } from "react-hot-toast"
 import { CartProvider } from "@/features/shop/cart/context/cartContext"
 import WidgetChatbot from "@/features/contact/chatbot/widgetChatbot"
 import { ChatProvider } from "@/features/contact/chatbot/context/chatContext"
-
+import { TitleProvider } from "@/components/navigation/titleContext"
+import { company } from "@/assets/options/config"
+import Footer from "@/features/navigation/footer/footer"
+import CookieBanner from "@/components/navigation/cookieBanner"
 export const metadata = {
-  title: "Cyna",
-  description: "Web App For Cyna",
+  title: company.name,
+  description: `${company.name} | Web App`,
   icons: {
     icon: "/icon.png",
   },
@@ -22,16 +25,18 @@ export default async function RootLayout({ children }) {
   return (
     <SessionProvider>
       <NextIntlClientProvider messages={messages}>
-        <ChatProvider>
-          <CartProvider>
-            <div>
+        <TitleProvider>
+          <ChatProvider>
+            <CartProvider>
+              <CookieBanner />
               <Toaster position="top-right" />
-            </div>
-            <Header />
-            <div className="bg-gray-100">{children}</div>
-          </CartProvider>
-          <WidgetChatbot />
-        </ChatProvider>
+              <Header />
+              <div className="bg-gray-100">{children}</div>
+              <Footer />
+            </CartProvider>
+            <WidgetChatbot />
+          </ChatProvider>
+        </TitleProvider>
       </NextIntlClientProvider>
     </SessionProvider>
   )

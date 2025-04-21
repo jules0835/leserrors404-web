@@ -14,8 +14,9 @@ import "react-phone-number-input/style.css"
 import { useEffect, useState } from "react"
 import { getRegisterSchema } from "@/features/auth/utils/userValidation"
 import { getHowDidYouHearOptions } from "@/features/auth/utils/register"
-import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead"
 import { useSearchParams } from "next/navigation"
+import { useTitle } from "@/components/navigation/titleContext"
+import { MailCheck } from "lucide-react"
 
 export default function Register() {
   const [countries, setCountries] = useState([{ name: "Loading", id: 1 }])
@@ -27,7 +28,9 @@ export default function Register() {
   const validationSchema = getRegisterSchema(t)
   const howDidYouHearOptions = getHowDidYouHearOptions(t)
   const redirectUrl = searchParams.get("next") || "/"
-  const isAppMobileLogin = searchParams.get("appMobileLogin")
+  const isAppMobileLogin = searchParams.get("appMobileLogin") === "true"
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   useEffect(() => {
     axios.get("/api/public/countries").then((response) => {
@@ -53,7 +56,7 @@ export default function Register() {
                 {t("title")}
               </h1>
               <div className="flex flex-col space-y-5 items-center justify-center text-center w-full h-96">
-                <MarkEmailReadIcon className="text-9xl text-primary-600" />
+                <MailCheck size={48} />
 
                 <h1 className="text-3xl font-bold text-gray-900">
                   {t("successMessage")}

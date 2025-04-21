@@ -70,7 +70,7 @@
       "cityRequired": "City is required",
       "street": "Street",
       "emailRequired": "Email is required",
-      "passwordMinLength": "Password must be at least 6 characters long",
+      "passwordMinLength": "Password must be at least 12 characters long",
       "passwordRequired": "Password is required",
       "passwordsMustMatch": "Passwords must match",
       "confirmPasswordRequired": "Confirm password is required",
@@ -127,7 +127,8 @@
       "requiredPassword": "Password is required",
       "passwordMinLength": "A password with 12 letters is required",
       "invalidOrExpiredToken": "The reset token is invalid or has expired",
-      "passwordResetSuccess": "Password has been reset successfully, you can now login"
+      "passwordResetSuccess": "Password has been reset successfully, you can now login",
+      "emailSent": "If an account existed with this email, a message with a link to reset your password will be sent. You can use it to reset your password."
     },
     "loggingYouOut": "Logging you out",
     "loggingYouOutMessage": "If you are not redirected, please click here",
@@ -136,7 +137,10 @@
     "redirectingToMobileMessage": "If you are not redirected in 5 seconds, please click the button below.",
     "phone": "Phone",
     "mobile": "Mobile",
-    "application": "App"
+    "application": "App",
+    "title": "Email Confirmation",
+    "titleMobile": "Mobile Login",
+    "titleLogout": "Logout Redirection"
   },
   "Navigation": {
     "home": "Home",
@@ -302,11 +306,11 @@
           "totalQuantity": "Total Quantity"
         },
         "status": {
-          "active": "Active",
-          "canceled": "Canceled",
-          "pending": "Pending",
-          "preCanceled": "Pre-Cancelled",
-          "unknown": "Unknown"
+          "active": "ACTIVE",
+          "canceled": "CANCELED",
+          "pending": "PENDING",
+          "preCanceled": "PRE-CANCELED",
+          "unknown": "UNKNOWN"
         },
         "billingCycle": {
           "monthly": "Monthly",
@@ -424,7 +428,9 @@
       "previous": "Previous",
       "next": "Next",
       "noMessage": "No message",
-      "new": "NEW"
+      "new": "NEW",
+      "ticketId": "Ticket/Chat Id",
+      "title": "Inbox Messages"
     },
     "Security": {
       "Users": {
@@ -796,14 +802,14 @@
           "title": "Status",
           "all": "All Status",
           "incomplete": "Incomplete",
-          "incomplete_expired": "Incomplete Expired",
-          "trialing": "Trial",
-          "active": "Active",
-          "past_due": "Past Due",
-          "canceled": "Canceled",
-          "unpaid": "Unpaid",
-          "paused": "Paused",
-          "preCanceled": "Pre-cancel"
+          "incomplete_expired": "INCOMPLETE EXPIRED",
+          "trialing": "TRIAL",
+          "active": "ACTIVE",
+          "past_due": "PAST DUE",
+          "canceled": "CANCELED",
+          "unpaid": "UNPAID",
+          "paused": "PAUSED",
+          "preCanceled": "PRE-CANCELED"
         },
         "products": "Products",
         "searchPlaceholder": "Search by ID, name or email...",
@@ -861,12 +867,12 @@
             "incomplete": "Incomplete",
             "incomplete_expired": "Incomplete Expired",
             "trialing": "Trial",
-            "active": "Active",
-            "past_due": "Past Due",
-            "canceled": "Canceled",
-            "unpaid": "Unpaid",
-            "paused": "Paused",
-            "preCanceled": "Pre-Canceled"
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED",
+            "preCanceled": "PRE-CANCELED"
           },
           "cancelAtPeriodEndDescription2": "Your subscription will already be canceled at the end of the current period. If you are not sure about this, please contact our support team.",
           "updateSuccess": "Your subscription was successfuly updated",
@@ -1038,12 +1044,12 @@
         "noOrders": "No orders found",
         "status": {
           "title": "Status",
-          "paid": "Paid",
-          "pending": "Pending",
-          "processing": "Processing",
-          "completed": "Completed",
-          "cancelled": "Cancelled",
-          "failed": "Failed"
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancelled": "CANCELLED",
+          "failed": "FAILED"
         },
         "OrderDetails": {
           "title": "Order Details",
@@ -1070,14 +1076,14 @@
           "subscriptionInformation": "Subscription Information",
           "subscriptionId": "Subscription ID",
           "subscriptionStatus": {
-            "incomplete": "Incomplete",
-            "incomplete_expired": "Incomplete Expired",
-            "trialing": "Trial",
-            "active": "Active",
-            "past_due": "Past Due",
-            "canceled": "Canceled",
-            "unpaid": "Unpaid",
-            "paused": "Paused"
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED"
           },
           "orderActions": "Actions",
           "openUserInvoice": "Open user invoice",
@@ -1124,20 +1130,22 @@
           "cancelSuccess": "Order canceled successfully",
           "cancelError": "Failed to cancel order",
           "noRefundAvailable": "This order cannot be refunded. This may be because it was paid with a voucher or is not eligible for a refund.",
-          "viewCustomer": "View Customer"
+          "viewCustomer": "View Customer",
+          "billingAddress": "Billing Address",
+          "noBillingAddress": "No Billing Address"
         },
         "searchPlaceholder": "Search for an order",
         "previous": "Previous",
         "next": "Next",
         "Status": {
           "all": "All Status",
-          "paid": "Paid",
-          "pending": "Pending",
-          "processing": "Processing",
-          "completed": "Completed",
-          "cancel": "Cancelled",
-          "failed": "Failed",
-          "refund": "Refunded"
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancel": "CANCELLED",
+          "failed": "FAILED",
+          "refund": "REFUNDED"
         },
         "customer": "Customer",
         "latestOrders": "Latest Orders"
@@ -1175,22 +1183,22 @@
           "title": "Status"
         },
         "Status": {
-          "paid": "Paid",
-          "pending": "Pending",
-          "processing": "Processing",
-          "completed": "Completed",
-          "cancel": "Cancelled",
-          "failed": "Failed",
-          "refund": "Refunded",
-          "active": "Active",
-          "canceled": "Canceled",
-          "past_due": "Past Due",
-          "unpaid": "Unpaid",
-          "incomplete": "Incomplete",
-          "incomplete_expired": "Incomplete Expired",
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancel": "CANCELLED",
+          "failed": "FAILED",
+          "refund": "REFUNDED",
+          "active": "ACTIVE",
+          "canceled": "CANCELED",
+          "past_due": "PAST DUE",
+          "unpaid": "UNPAID",
+          "incomplete": "INCOMPLETE",
+          "incomplete_expired": "INCOMPLETE EXPIRED",
           "trialing": "Trial",
-          "paused": "Paused",
-          "preCanceled": "Pre-Canceled"
+          "paused": "PAUSED",
+          "preCanceled": "PRE-CANCELED"
         },
         "total": "Total",
         "actions": "Actions",
@@ -1479,7 +1487,9 @@
         "next": "Next",
         "bot": "Bot",
         "admin": "Admin",
-        "latestTickets": "Latest Tickets"
+        "latestTickets": "Latest Tickets",
+        "ticketId": "Ticket Id",
+        "activeTickets": "Active Tickets"
       }
     },
     "Dashboard": {
@@ -1490,13 +1500,31 @@
       "todayOrders": "Today Orders",
       "todayRegistrations": "Today Registrations",
       "todayOpenTickets": "Today Open Tickets",
-      "activeSubscriptions": "Active Subscriptions"
+      "activeSubscriptions": "Active Subscriptions",
+      "title": "Admin Dashboard"
     }
   },
   "User": {
     "Dashboard": {
       "title": "Your dashboard",
-      "subTitle": "Manage your account, settings, subscriptions and more"
+      "subTitle": "Manage your account, settings, subscriptions and more",
+      "totalOrders": "Total Orders",
+      "activeSubscriptions": "Active Subscriptions",
+      "activeTickets": "Active Tickets",
+      "totalSpent": "Total Spent",
+      "recentOrders": "Recent Orders",
+      "orderId": "Order Id",
+      "status": "Status",
+      "total": "Total",
+      "noOrders": "No Orders",
+      "product": "Products",
+      "nextBilling": "Next Billing",
+      "noSubscriptions": "No Subscription",
+      "subject": "Subject",
+      "lastMessage": "Last Message",
+      "noActiveTickets": "No Active Tickets",
+      "recentSubscriptions": "Recent Subscriptions",
+      "ticketId": "Ticket Id"
     },
     "Security": {
       "title": "Security",
@@ -1557,14 +1585,14 @@
         "date": "Date",
         "status": {
           "title": "Status",
-          "active": "Active",
-          "canceled": "Canceled",
-          "past_due": "Past Due",
-          "unpaid": "Unpaid",
-          "incomplete": "Incomplete",
-          "incomplete_expired": "Incomplete Expired",
-          "trialing": "Trial",
-          "paused": "Paused"
+          "active": "ACTIVE",
+          "canceled": "CANCELED",
+          "past_due": "PAST DUE",
+          "unpaid": "UNPAID",
+          "incomplete": "INCOMPLETE",
+          "incomplete_expired": "INCOMPLETE EXPIRED",
+          "trialing": "TRIAL",
+          "paused": "PAUSED"
         },
         "products": "Products",
         "errorLoadingSubscriptions": "Error loading subscriptions",
@@ -1610,15 +1638,15 @@
           "cancelError": "Failed to cancel subscription",
           "subscriptionId": "Id",
           "Status": {
-            "incomplete": "Incomplete",
-            "incomplete_expired": "Incomplete Expired",
-            "trialing": "Trial",
-            "active": "Active",
-            "past_due": "Past Due",
-            "canceled": "Canceled",
-            "unpaid": "Unpaid",
-            "paused": "Paused",
-            "preCanceled": "Pre-Canceled"
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED",
+            "preCanceled": "PRE-CANCELED"
           },
           "cancelAtPeriodEndDescription2": "Your subscription will already be canceled at the end of the current period. If you are not sure about this, please contact our support team.",
           "updateSuccess": "Your subscription was successfuly updated",
@@ -1673,13 +1701,13 @@
         "noOrders": "No orders found",
         "Status": {
           "title": "Status",
-          "paid": "Paid",
-          "pending": "Pending",
-          "processing": "Processing",
-          "completed": "Completed",
-          "cancel": "Cancelled",
-          "failed": "Failed",
-          "refund": "Refunded"
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancel": "CANCELLED",
+          "failed": "FAILED",
+          "refund": "REFUNDED"
         },
         "OrderDetails": {
           "title": "Order Details",
@@ -1707,14 +1735,14 @@
           "subscriptionInformation": "Subscription Information",
           "subscriptionId": "Subscription ID",
           "subscriptionStatus": {
-            "incomplete": "Incomplete",
-            "incomplete_expired": "Incomplete Expired",
-            "trialing": "Trial",
-            "active": "Active",
-            "past_due": "Past Due",
-            "canceled": "Canceled",
-            "unpaid": "Unpaid",
-            "paused": "Paused"
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED"
           },
           "billingPeriod": "Billing Period",
           "viewSubscription": "View Subscription Details",
@@ -1743,19 +1771,21 @@
           "cancelOrder": "Cancel order",
           "openUserInvoice": "Open user invoice",
           "goToOrderStripe": "Go to stripe order",
-          "orderActions": "Order Actions\n"
+          "orderActions": "Order Actions\n",
+          "billingAddress": "Billing Address",
+          "noBillingAddress": "No Billing Address"
         },
         "searchPlaceholder": "Search for an order",
         "previous": "Previous",
         "next": "Next",
         "status": {
           "cancelled": "Cancelled",
-          "failed": "Failed",
-          "pending": "Pending",
-          "paid": "Paid",
+          "failed": "FAILED",
+          "pending": "PENDING",
+          "paid": "PAID",
           "title": "Title",
-          "completed": "Completed",
-          "processing": "Processing"
+          "completed": "COMPLETED",
+          "processing": "PROCESSING"
         }
       }
     },
@@ -1817,7 +1847,11 @@
       "socialMedia": "Social Media",
       "friend": "Friend",
       "advertisement": "Advertisement",
-      "other": "Other"
+      "other": "Other",
+      "title": "Update Your Profile",
+      "BillingAddresses": {
+        "save": "Save"
+      }
     },
     "Chat": {
       "noConversations": "No conversations",
@@ -1859,7 +1893,9 @@
       "getNeedHelp": "You have a question, suggestion, or issue? We are here to help!",
       "getNeedHelpDesc": "You can find answers to your questions in our FAQ section. If you don't find what you're looking for, feel free to reach out to us directly through the chat or by sending us a message.",
       "SELECT_ORDER": "In order to help you, please select an order related to your question by clicking on the button below",
-      "SELECT_SUBSCRIPTION": "In order to help you, please select a subscription related to your question by clicking on the button below"
+      "SELECT_SUBSCRIPTION": "In order to help you, please select a subscription related to your question by clicking on the button below",
+      "ticketId": "Ticket Id",
+      "title": "User Inbox"
     }
   },
   "DefaultNotFound": "ERROR: Translation not found",
@@ -2025,6 +2061,10 @@
       "annual": "Annual",
       "monthly": "Monthly",
       "productOutOfStockUserQuantity": "Product quantity too hight",
+      "billingAddressIncomplete": "Billing address is incomplete",
+      "billingAddressIncompleteSubtitle": "Please complete your billing address to proceed to checkout",
+      "BillingAddressIncomplete": "Billing address is incomplete",
+      "BillingAddressIncompleteShop": "Please complete your billing address to proceed to checkout",
       "productOutOfStockUserQuantitySubtitle": "The quantity of a product in your cart is too hight compare to our stock, please update the quantity or remove the product",
       "productOutOfStock": "Product Out Of Stock",
       "productOutOfStockSubtitle": "One of the product in your carte is Out Of Stock, remove it ton procced to the payment",
@@ -2037,7 +2077,23 @@
       "PRODUCT_NOT_ACTIVE": "One of the product in your cart is not available, please remove it to proceed to checkout",
       "ProductOutOfStock": "Product Out Of Stock",
       "ProductNotActive": "One of the product is not available",
-      "ProductOutOfStockUserQuantity": "One of the product is not available with the quantity selected"
+      "ProductOutOfStockUserQuantity": "One of the product is not available with the quantity selected",
+      "title": "Cart",
+      "noBillingAddress": "No billing address",
+      "billingAddress": "Billing address",
+      "changeAddress": "Change address",
+      "selectBillingAddress": "Select billing address",
+      "addNewAddress": "Add new address",
+      "addressName": "Address name",
+      "country": "Country",
+      "city": "City",
+      "zipCode": "Zip Code",
+      "addressStreet": "Street",
+      "addAddress": "Add address",
+      "checkoutSummary": "Checkout Summary",
+      "yourProducts": "Your Products",
+      "cancel": "Cancel",
+      "confirmCheckout": "Confirm Checkout"
     },
     "Product": {
       "outOfStock": "Out of stock",
@@ -2064,7 +2120,8 @@
       "lowStockDescription": "There is not much product in stock, it's time to order !",
       "bestValue": "Best value",
       "addToCartTitle": "Add to cart",
-      "goBack": "Go back"
+      "goBack": "Go back",
+      "title": "Product"
     },
     "Checkout": {
       "redirectingToCheckout": "We are processing your payment, please wait...",
@@ -2081,15 +2138,15 @@
       "viewAllOrders": "View All Orders",
       "subscriptionInformation": "Subscription Information",
       "subscriptionStatus": {
-        "incomplete": "Incomplete",
-        "incomplete_expired": "Incomplete Expired",
-        "trialing": "Trial",
-        "active": "Active",
-        "past_due": "Past Due",
-        "canceled": "Canceled",
-        "unpaid": "Unpaid",
-        "paused": "Paused",
-        "preCanceled": "Pre-Canceled"
+        "incomplete": "INCOMPLETE",
+        "incomplete_expired": "INCOMPLETE EXPIRED",
+        "trialing": "TRIAL",
+        "active": "ACTIVE",
+        "past_due": "PAST DUE",
+        "canceled": "CANCELED",
+        "unpaid": "UNPAID",
+        "paused": "PAUSED",
+        "preCanceled": "PRE-CANCELED"
       },
       "billingPeriod": "Billing Period",
       "viewSubscription": "View Subscription",
@@ -2107,7 +2164,11 @@
       "application": "Mobile",
       "returnToApp": "Return to Mobile App",
       "transactionFailedMessage": "This transaction failed because you canceled it or there was an error while checking out. Please wait we are redirection you to the Mobile App.",
-      "transactionFailed": "Transaction Failed"
+      "transactionFailed": "Transaction Failed",
+      "title": "Checking your payment",
+      "titleSuccess": "Order Success",
+      "billingAddress": "Billing Address",
+      "noBillingAddress": "No Billing Address"
     }
   },
   "Log": {
@@ -2282,15 +2343,17 @@
       },
       "Actions": {
         "status": {
-          "cancelled": "Cancelled",
-          "canceled": "Canceled",
-          "pending": "Pending",
-          "completed": "Completed",
-          "refunded": "Refunded",
-          "failed": "Failed",
-          "expired": "Expired",
-          "active": "Active",
-          "inactive": "Inactive"
+          "cancelled": "CANCELLED",
+          "canceled": "CANCELED",
+          "pending": "PENDING",
+          "completed": "COMPLETED",
+          "refunded": "REFUNDED",
+          "failed": "FAILED",
+          "expired": "EXPIRED",
+          "active": "ACTIVE",
+          "inactive": "INACTIVE",
+          "paid": "PAID",
+          "unpaid": "UNPAID"
         },
         "SELECT_ORDER": {
           "buttonText": "Select an order",
@@ -2354,5 +2417,113 @@
     "aboutUs": "About Us",
     "categories": "Categories",
     "products": "Products"
+  },
+  "CompanyPage": {
+    "title": "About Us",
+    "heroDescription": "Founded in 2021, Cyna was born after carrying out numerous incident responses in France and Europe thanks to the recognized expertise of the founders.",
+    "history": {
+      "description": "The various incident responses allowed us to understand the attack vectors and scenarios used by attackers. Cyna was then created, with the goal of providing comprehensive and pragmatic protection against cyberattacks for SMEs and mid-sized businesses.",
+      "title": "Our Story"
+    },
+    "mission": {
+      "title": "Our commitments at Cyna",
+      "description": "Nous plaçons vos priorités au cœur de notre mission. Nous comprenons les défis uniques auxquels sont confrontés les PME et MSP face aux menaces toujours plus sophistiquées."
+    },
+    "values": {
+      "title": "Discover our teams",
+      "description": "To effectively meet our daily challenges, Cyna has surrounded itself with experts, organized into dedicated teams to best meet your needs."
+    },
+    "farewellTitle": "You are not convinced ?",
+    "farewellMessage": "Contact us by clicking on the button below and we will answer all your questions.",
+    "farewellButton": "Contact Us"
+  },
+  "pageTitle": {
+    "default": "Pure player in Cyber",
+    "admin": "Admin"
+  },
+  "title": "Users List",
+  "footer": {
+    "termsOfUse": "Terms Of Use",
+    "legalNotice": "Legal Notice",
+    "contact": "Contact",
+    "allRightsReserved": "All Rights Reserved"
+  },
+  "legals": {
+    "title": "Legal Notice",
+    "definitions": {
+      "title": "Definitions",
+      "client": "Client: any professional or natural person capable within the meaning of Articles 1123 and following of the Civil Code, or legal entity, who visits the website subject to these general conditions.",
+      "services": "Services: Cyna provides clients with:",
+      "content": "Content: all elements constituting the information present on the site, in particular texts, images, videos.",
+      "clientInfo": "Client Information: hereinafter referred to as 'Information(s)' which corresponds to all personal data that may be held by Cyna for the management of your account, customer relationship management and for analytical and statistical purposes.",
+      "user": "User: Internet user connecting, using the aforementioned site.",
+      "personalInfo": "Personal Information: 'information that allows, in any form whatsoever, directly or indirectly, the identification of the natural persons to whom they apply' (Article 4 of Law No. 78-17 of January 6, 1978)."
+    },
+    "presentation": {
+      "title": "1. Website Presentation",
+      "owner": "Owner: SAS Cyna-IT - Share capital of 1000 euros - VAT number: FR20913711032 - 10 rue de Penthièvre 75008 Paris",
+      "publisher": "Publication Manager: Alexandre Elbaz - alexandre.elbaz@cyna-it.fr",
+      "host": "Host: OVH - 2 rue Kellermann 59100 Roubaix 1007",
+      "dpo": "Data Protection Officer: Nathan Bramli - nathan.bramli@cyna-it.fr"
+    },
+    "conditions": {
+      "title": "2. General Conditions of Use of the Site and Services Offered",
+      "intellectualProperty": "The site constitutes a work of the mind protected by the provisions of the Intellectual Property Code and applicable international regulations. The Client may not in any way reuse, transfer or exploit for his own account all or part of the elements or works of the site.",
+      "acceptance": "The use of the Cyna site implies full and complete acceptance of the general conditions of use described below. These conditions of use may be modified or supplemented at any time.",
+      "accessibility": "This website is normally accessible to users at any time. An interruption due to technical maintenance may however be decided by Cyna."
+    },
+    "services": {
+      "title": "3. Description of Services Provided",
+      "description": "The Cyna website aims to provide information about all of the company's activities. Cyna strives to provide as accurate information as possible on the site."
+    },
+    "technicalLimitations": {
+      "title": "4. Contractual Limitations on Technical Data",
+      "description": "The site uses JavaScript technology. The website cannot be held responsible for material damage related to the use of the site."
+    },
+    "intellectualProperty": {
+      "title": "5. Intellectual Property and Counterfeiting",
+      "rights": "Cyna owns the intellectual property rights and holds the usage rights on all elements accessible on the website.",
+      "consequences": "Any unauthorized use of the site or any of the elements it contains will be considered as constituting an infringement and prosecuted in accordance with the provisions of Articles L.335-2 and following of the Intellectual Property Code."
+    },
+    "liability": {
+      "title": "6. Limitations of Liability",
+      "publisher": "Cyna acts as the publisher of the site. Cyna is responsible for the quality and veracity of the content it publishes.",
+      "damages": "Cyna cannot be held responsible for direct and indirect damage caused to the user's equipment.",
+      "interactiveSpaces": "Interactive spaces are available to users. Cyna reserves the right to remove, without prior notice, any content posted in this space that would violate the applicable law in France."
+    },
+    "privacy": {
+      "title": "7. Personal Data Management",
+      "dataController": {
+        "title": "7.1 Personal Data Collection Managers",
+        "description": "For personal data collected in the context of the creation of the user's personal account and their navigation on the site, the person responsible for processing personal data is: Cyna-IT."
+      },
+      "purpose": {
+        "title": "7.2 Purpose of Collected Data",
+        "navigation": "To allow navigation on the site and the management and traceability of services ordered by the user",
+        "fraud": "To prevent and fight against computer fraud",
+        "improvement": "To improve navigation on the site",
+        "communication": "To conduct communication campaigns"
+      },
+      "rights": {
+        "title": "7.3 Right of Access, Rectification and Opposition",
+        "description": "In accordance with current European regulations, users of Cyna have the following rights: right of access, rectification, updating, completeness of data, right to block or erase data."
+      }
+    },
+    "cookies": {
+      "title": "9. Hypertext Links, Cookies and Internet Tags",
+      "definition": "A 'cookie' is a small information file sent to the User's browser and stored in the User's terminal.",
+      "purpose": "Cookies facilitate navigation and/or the provision of services offered by the site.",
+      "management": "The User can configure their browser to allow them to decide whether or not to accept them."
+    },
+    "applicableLaw": {
+      "title": "10. Applicable Law and Jurisdiction",
+      "description": "Any dispute in connection with the use of the Cyna site is subject to French law. Except in cases where the law does not allow it, exclusive jurisdiction is given to the competent courts of Paris."
+    }
+  },
+  "cookieBanner": {
+    "message": "This website uses cookies to enhance your experience and for technical purposes. By using our website, you consent to the use of cookies. You can read more in our",
+    "privacyPolicy": "Terms And Condition",
+    "acceptAll": "Accept All",
+    "accept": "Accept"
   }
 }

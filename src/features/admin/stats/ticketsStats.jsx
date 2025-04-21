@@ -24,6 +24,7 @@ import PeriodFilter from "@/features/admin/stats/components/PeriodFilter"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function TicketsStats() {
   const t = useTranslations("Admin.Stats.Tickets")
@@ -35,6 +36,8 @@ export default function TicketsStats() {
     queryKey: ["ticketsStats", filters.period, filters.realTime],
     queryFn: () => getTicketsStats(filters),
   })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (error) {
     return <ErrorFront />

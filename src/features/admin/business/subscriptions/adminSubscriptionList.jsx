@@ -24,6 +24,8 @@ import {
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
 import AdminSubscriptionsFilterBar from "@/features/admin/business/subscriptions/adminSubscriptionFilterBar"
 import { useState } from "react"
+import { formatIdForDisplay } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function AdminSubscriptionList() {
   const t = useTranslations("Admin.Business.Subscriptions")
@@ -36,6 +38,8 @@ export default function AdminSubscriptionList() {
   const status = searchParams.get("status") || "all"
   const search = searchParams.get("search") || ""
   const [date, setDate] = useState(null)
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const { data, isLoading, error } = useQuery({
     queryKey: [
       "adminSubscriptions",
@@ -105,7 +109,7 @@ export default function AdminSubscriptionList() {
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="font-medium">{row.getValue("_id")}</div>
+        <div className="font-medium">#{formatIdForDisplay(row.original)}</div>
       ),
     },
     {

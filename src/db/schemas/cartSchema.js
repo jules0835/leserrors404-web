@@ -24,4 +24,11 @@ export const cartSchema = new Schema({
     isEligible: { type: Boolean, default: false },
     reason: { type: String, default: "" },
   },
+  billingAddress: {
+    name: { type: String },
+    country: { type: String },
+    city: { type: String },
+    zipCode: { type: String },
+    street: { type: String },
+  },
 })

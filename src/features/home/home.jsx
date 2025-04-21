@@ -1,7 +1,7 @@
 "use client"
 import HomeCarousel from "@/features/home/HomeCarousel"
 import HomeClients from "@/features/home/homeClients"
-import HomeProducts from "@/features/home/homeProducts"
+import SuggestedProducts from "@/features/suggestions/suggestedProducts"
 import HomeServices from "@/features/home/homeServices"
 import HomeWelcome from "@/features/home/homeWelcome"
 import { useState, useEffect } from "react"
@@ -31,7 +31,7 @@ export default function Home({ carouselData, isLoggedIn }) {
   }
 
   return (
-    <div className="bg-indigo-600">
+    <div className="bg-indigo-600 min-h-screen">
       <div className="md:flex md:items-center md:justify-center md:w-full md:pt-10 md:pb-10">
         <HomeWelcome isLoggedIn={isLoggedIn} />
         {carouselData && <HomeCarousel initialCarouselData={carouselData} />}
@@ -43,7 +43,7 @@ export default function Home({ carouselData, isLoggedIn }) {
         <HomeServices />
       </div>
       <div>
-        <HomeProducts />
+        <SuggestedProducts />
       </div>
     </div>
   )

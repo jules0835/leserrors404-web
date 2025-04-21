@@ -17,6 +17,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { useQuery } from "@tanstack/react-query"
 import { fetchCategories } from "@/features/shop/product/utils/product"
 import { useSearchParams } from "next/navigation"
+import DButton from "@/components/ui/DButton"
 
 export default function SidebarProductList() {
   const router = useRouter()
@@ -25,7 +26,7 @@ export default function SidebarProductList() {
   const t = useTranslations("ProductPage")
   const [priceRange, setPriceRange] = useState([
     Number(searchParams.get("minPrice")) || 0,
-    Number(searchParams.get("maxPrice")) || 1000,
+    Number(searchParams.get("maxPrice")) || 50000,
   ])
   const [selectedCategory, setSelectedCategory] = useState(
     searchParams.get("categories") || ""
@@ -34,10 +35,6 @@ export default function SidebarProductList() {
   const [availability, setAvailability] = useState(
     searchParams.get("availability") || "all"
   )
-  const [dateRange, setDateRange] = useState({
-    from: searchParams.get("dateFrom") || "",
-    to: searchParams.get("dateTo") || "",
-  })
   const { data: categoriesData } = useQuery({
     queryKey: ["categories"],
     queryFn: fetchCategories,
@@ -51,7 +48,7 @@ export default function SidebarProductList() {
       params.delete("minPrice")
     }
 
-    if (priceRange[1] < 1000) {
+    if (priceRange[1] < 50000) {
       params.set("maxPrice", priceRange[1])
     } else {
       params.delete("maxPrice")
@@ -75,26 +72,13 @@ export default function SidebarProductList() {
       params.delete("availability")
     }
 
-    if (dateRange.from) {
-      params.set("dateFrom", dateRange.from)
-    } else {
-      params.delete("dateFrom")
-    }
-
-    if (dateRange.to) {
-      params.set("dateTo", dateRange.to)
-    } else {
-      params.delete("dateTo")
-    }
-
     router.push(`?${params.toString()}`)
   }
   const resetFilters = () => {
-    setPriceRange([0, 1000])
+    setPriceRange([0, 5000])
     setSelectedCategory("")
     setSortBy("newest")
     setAvailability("all")
-    setDateRange({ from: "", to: "" })
     router.push("/shop/products")
   }
 
@@ -155,31 +139,9 @@ export default function SidebarProductList() {
               }
               className="w-20"
               min={priceRange[0]}
-              max="1000"
+              max="50000"
             />
             <span>€</span>
-          </div>
-          <div className="space-y-3">
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value={priceRange[0]}
-              onChange={(e) =>
-                setPriceRange([Number(e.target.value), priceRange[1]])
-              }
-              className="w-full"
-            />
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value={priceRange[1]}
-              onChange={(e) =>
-                setPriceRange([priceRange[0], Number(e.target.value)])
-              }
-              className="w-full"
-            />
           </div>
         </div>
 
@@ -212,29 +174,9 @@ export default function SidebarProductList() {
           </Select>
         </div>
 
-        <div className="space-y-2">
-          <Label>{t("dateRange")}</Label>
-          <div className="space-y-2">
-            <Input
-              type="date"
-              value={dateRange.from}
-              onChange={(e) =>
-                setDateRange({ ...dateRange, from: e.target.value })
-              }
-            />
-            <Input
-              type="date"
-              value={dateRange.to}
-              onChange={(e) =>
-                setDateRange({ ...dateRange, to: e.target.value })
-              }
-            />
-          </div>
-        </div>
-
-        <Button className="w-full" onClick={updateFilters}>
+        <DButton isMain onClickBtn={updateFilters}>
           {t("applyFilters")}
-        </Button>
+        </DButton>
       </div>
     </Card>
   )

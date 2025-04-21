@@ -15,7 +15,8 @@ import { getSubscriptionStatusColor } from "@/features/user/business/subscriptio
 import ErrorFront from "@/components/navigation/error"
 import OrderDetailsSkeleton from "@/features/user/business/orders/OrderDetailsSkeleton"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
-
+import { formatIdForDisplay } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 export default function OrderDetails() {
   const t = useTranslations("User.Business.Orders.OrderDetails")
   const { Id: orderId } = useParams()
@@ -38,6 +39,8 @@ export default function OrderDetails() {
         window.open(data.invoiceUrl, "_blank")
       },
     })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (isLoading) {
     return <OrderDetailsSkeleton />
@@ -59,14 +62,14 @@ export default function OrderDetails() {
   return (
     <div className="space-y-6">
       <Card className="p-4 sm:p-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="space-y-2">
             <Badge className={getStatusColor(order.orderStatus)}>
               {order.orderStatus}
             </Badge>
             <h2 className="font-semibold">{t("orderInformation")}</h2>
             <p>
-              {t("orderId")}: {order._id}
+              {t("orderId")}: #{formatIdForDisplay(order)}
             </p>
             <p>
               {t("date")}: {format(new Date(order.createdAt), "PPP")}
@@ -92,6 +95,21 @@ export default function OrderDetails() {
               {t("email")}: {order.user.email}
             </p>
           </div>
+          <div className="space-y-2">
+            <h2 className="font-semibold">{t("billingAddress")}</h2>
+            {order.billingAddress ? (
+              <>
+                <p>{order.billingAddress.name}</p>
+                <p>{order.billingAddress.street}</p>
+                <p>
+                  {order.billingAddress.zipCode} {order.billingAddress.city}
+                </p>
+                <p>{order.billingAddress.country}</p>
+              </>
+            ) : (
+              <p className="text-muted-foreground">{t("noBillingAddress")}</p>
+            )}
+          </div>
         </div>
       </Card>
 
@@ -115,7 +133,9 @@ export default function OrderDetails() {
           <div className="space-y-3">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
               <p>{t("subscriptionId")}</p>
-              <p className="text-gray-600">{order.subscription._id}</p>
+              <p className="text-gray-600">
+                #{formatIdForDisplay(order.subscription)}
+              </p>
             </div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
               <p>{t("status")}</p>

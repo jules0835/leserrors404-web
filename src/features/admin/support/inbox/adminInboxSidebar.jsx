@@ -39,7 +39,10 @@ export default function AdminInboxSidebar() {
         chat?.user?.email?.toLowerCase().includes(query) ||
         chat?.messages?.some((msg) =>
           msg.message?.toLowerCase().includes(query)
-        )
+        ) ||
+        chat?.user?.company?.toLowerCase().includes(query) ||
+        chat?.shortId?.toLowerCase().includes(query) ||
+        chat?.adminSummary?.toLowerCase().includes(query)
       )
     }
 

@@ -13,11 +13,14 @@ import { ArrowRight, CheckCircle2, FileText } from "lucide-react"
 import { useRouter } from "@/i18n/routing"
 import ErrorFront from "@/components/navigation/error"
 import SuccessCheckoutSkeleton from "@/features/shop/checkout/SuccessCheckoutSkeleton"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function SuccessCheckout() {
   const t = useTranslations("Shop.Checkout")
   const { Id: orderId } = useParams()
   const router = useRouter()
+  const { setTitle } = useTitle()
+  setTitle(t("titleSuccess"))
   const { data: order, isLoading } = useQuery({
     queryKey: ["order", orderId],
     queryFn: async () => {
@@ -84,6 +87,25 @@ export default function SuccessCheckout() {
                   {format(new Date(order.createdAt), "PPP")}
                 </span>
               </p>
+            </div>
+            <div>
+              <h2 className="font-semibold text-xl mb-2">
+                {t("billingAddress")}
+              </h2>
+              {order.billingAddress ? (
+                <div className="space-y-1">
+                  <p className="text-gray-600">{order.billingAddress.name}</p>
+                  <p className="text-gray-600">{order.billingAddress.street}</p>
+                  <p className="text-gray-600">
+                    {order.billingAddress.zipCode} {order.billingAddress.city}
+                  </p>
+                  <p className="text-gray-600">
+                    {order.billingAddress.country}
+                  </p>
+                </div>
+              ) : (
+                <p className="text-muted-foreground">{t("noBillingAddress")}</p>
+              )}
             </div>
             <div className="flex space-x-3">
               <Button variant="outline" onClick={() => fetchInvoice()}>

@@ -547,3 +547,36 @@ export const getTodayOpenTicketsCount = async () => {
     createdAt: { $gte: today },
   })
 }
+
+export const findAdminChatsForTicketsWithSearch = async (
+  query = "",
+  isActive = true
+) => {
+  await mwdb()
+
+  const searchQuery = query
+    ? {
+        state: { $in: ["CHAT_ADMIN", "INBOX"] },
+        $or: [
+          { "user.firstName": { $regex: query, $options: "i" } },
+          { "user.lastName": { $regex: query, $options: "i" } },
+          { "user.email": { $regex: query, $options: "i" } },
+          { userName: { $regex: query, $options: "i" } },
+          { email: { $regex: query, $options: "i" } },
+          { shortId: { $regex: query, $options: "i" } },
+        ],
+      }
+    : { state: { $in: ["CHAT_ADMIN", "INBOX"] } }
+
+  searchQuery.isActive = isActive
+  const chats = await ChatModel.find(searchQuery).populate("user").lean()
+
+  return chats.sort((a, b) => {
+    const lastMessageA =
+      a.messages[a.messages.length - 1]?.sendDate || a.createdAt
+    const lastMessageB =
+      b.messages[b.messages.length - 1]?.sendDate || b.createdAt
+
+    return new Date(lastMessageB) - new Date(lastMessageA)
+  })
+}

@@ -32,16 +32,21 @@ import { useTranslations } from "next-intl"
 import { useRouter } from "@/i18n/routing"
 import { getTicketsList } from "@/features/admin/support/service/adminChatService"
 import { useSearchParams } from "next/navigation"
+import { formatIdForDisplay } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function TicketsList() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const t = useTranslations("Admin.Support.Tickets")
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const page = parseInt(searchParams.get("page"), 10) || 1
   const limit = 10
   const query = searchParams.get("query") || ""
   const sortField = searchParams.get("sortField") || "createdAt"
   const sortOrder = searchParams.get("sortOrder") || "desc"
+  const isActive = searchParams.get("isActive") === "true"
   const [columnVisibility, setColumnVisibility] = useState({
     user: true,
     status: true,
@@ -53,7 +58,7 @@ export default function TicketsList() {
   const [tickets, setTickets] = useState([])
   const [total, setTotal] = useState(0)
   const { isLoading, error } = useQuery({
-    queryKey: ["tickets", page, limit, query, sortField, sortOrder],
+    queryKey: ["tickets", page, limit, query, sortField, sortOrder, isActive],
     queryFn: async () => {
       const { tickets: ticketsList, total: totalList } = await getTicketsList({
         limit,
@@ -61,6 +66,7 @@ export default function TicketsList() {
         query,
         sortField,
         sortOrder,
+        isActive,
       })
 
       setTickets(ticketsList)
@@ -85,6 +91,12 @@ export default function TicketsList() {
   const handleSearch = (e) => {
     const params = new URLSearchParams(searchParams)
     params.set("query", e.target.value)
+    params.set("page", "1")
+    router.push(`?${params.toString()}`)
+  }
+  const toggleActiveFilter = () => {
+    const params = new URLSearchParams(searchParams)
+    params.set("isActive", (!isActive).toString())
     params.set("page", "1")
     router.push(`?${params.toString()}`)
   }
@@ -126,6 +138,15 @@ export default function TicketsList() {
     }
   }
   const columns = [
+    {
+      accessorKey: "ticketId",
+      header: t("ticketId"),
+      cell: ({ row }) => {
+        const ticket = row.original
+
+        return <div>#{formatIdForDisplay(ticket)}</div>
+      },
+    },
     {
       accessorKey: "user",
       header: t("user"),
@@ -260,6 +281,13 @@ export default function TicketsList() {
           onChange={handleSearch}
           className="max-w-sm"
         />
+        <Button
+          variant={isActive ? "default" : "outline"}
+          onClick={toggleActiveFilter}
+          className="ml-2"
+        >
+          {t("activeTickets")}
+        </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">

@@ -66,7 +66,7 @@ export function UserNav() {
             <DropdownMenuLabel>{t("account")}</DropdownMenuLabel>
             <DropdownMenuItem
               className="ml-3"
-              onClick={() => router.push(webAppSettings.urls.userProfile)}
+              onClick={() => router.push("/user/dashboard")}
             >
               {t("dashboard")}
             </DropdownMenuItem>

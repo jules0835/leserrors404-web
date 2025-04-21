@@ -18,11 +18,14 @@ import {
 import { Button } from "@/components/ui/button"
 import toast from "react-hot-toast"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function AdminCustomerDetails() {
   const params = useParams()
   const t = useTranslations("Admin.Business.Customers")
   const locale = useLocale()
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const { data, isLoading, error } = useQuery({
     queryKey: ["customer", params.Id],
     queryFn: async () => {

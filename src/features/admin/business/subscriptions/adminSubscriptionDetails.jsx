@@ -28,6 +28,8 @@ import { ArrowRight } from "lucide-react"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
 import { useRouter } from "@/i18n/routing"
 import AdminSubscriptionDetailsSkeleton from "@/features/admin/business/subscriptions/AdminSubscriptionDetailsSkeleton"
+import { formatIdForDisplay } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function AdminSubscriptionDetails() {
   const t = useTranslations("Admin.Business.Subscriptions.SubscriptionDetails")
@@ -35,6 +37,8 @@ export default function AdminSubscriptionDetails() {
   const [showCancelDialog, setShowCancelDialog] = useState(false)
   const queryClient = useQueryClient()
   const router = useRouter()
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const {
     data: subscription,
     isLoading,
@@ -115,7 +119,7 @@ export default function AdminSubscriptionDetails() {
               {t("subscriptionInformation")}
             </h2>
             <p>
-              {t("subscriptionId")}: {subscription._id}
+              {t("subscriptionId")}: #{formatIdForDisplay(subscription)}
             </p>
             <p>
               {t("periodStart")}:{" "}
@@ -142,7 +146,7 @@ export default function AdminSubscriptionDetails() {
               {t("email")}: {subscription.user.email}
             </p>
             <p>
-              {t("customerId")}: {subscription.stripe.customerId}
+              {t("customerId")}: #{subscription.stripe.customerId}
             </p>
             {subscription.stripe.defaultPaymentMethod && (
               <p>

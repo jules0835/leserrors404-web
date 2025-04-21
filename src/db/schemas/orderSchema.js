@@ -1,9 +1,17 @@
-import { Schema } from "mongoose"
+import { generateUniqueShortId } from "@/lib/utils"
+import mongoose, { Schema } from "mongoose"
 
 export const orderSchema = new Schema(
   {
+    shortId: {
+      type: String,
+      unique: true,
+      index: true,
+    },
+
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
     userEmail: { type: String, required: true },
+
     products: [
       {
         productId: {
@@ -74,6 +82,33 @@ export const orderSchema = new Schema(
         details: { type: String },
       },
     ],
+
+    billingAddress: {
+      name: { type: String },
+      country: { type: String },
+      city: { type: String },
+      zipCode: { type: String },
+      street: { type: String },
+    },
   },
   { timestamps: true }
 )
+
+orderSchema.pre("save", async function ValidateShortId(next) {
+  if (!this.shortId) {
+    const generateAndCheckId = async () => {
+      const newId = generateUniqueShortId()
+      const exists = await mongoose.models.Order.exists({ shortId: newId })
+
+      if (exists) {
+        return generateAndCheckId()
+      }
+
+      return newId
+    }
+
+    this.shortId = await generateAndCheckId()
+  }
+
+  next()
+})

@@ -54,6 +54,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function LogsList() {
   const [page, setPage] = useState(1)
@@ -84,6 +85,8 @@ export default function LogsList() {
   const t = useTranslations("Admin.Security.Logs")
   const [filter, setFilter] = useState("")
   const router = useRouter()
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const handleFilterChange = (newFilter) => {
     setFilter(newFilter)
   }

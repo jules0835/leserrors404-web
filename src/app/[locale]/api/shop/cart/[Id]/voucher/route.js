@@ -15,7 +15,9 @@ export async function POST(req, { params }) {
     log.systemError({
       logKey: logKeys.shopUserCartError.key,
       message: "Failed to apply voucher to cart",
-      error,
+      data: {
+        error,
+      },
     })
 
     return NextResponse.json({ error: error.message }, { status: 500 })
@@ -33,7 +35,9 @@ export async function DELETE(req, { params }) {
     log.systemError({
       logKey: logKeys.shopUserCartError.key,
       message: "Failed to remove voucher from cart",
-      error,
+      data: {
+        error,
+      },
     })
 
     return NextResponse.json({ error: error.message }, { status: 500 })

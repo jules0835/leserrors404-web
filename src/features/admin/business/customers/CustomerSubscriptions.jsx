@@ -15,6 +15,7 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import { getSubscriptionStatusColor } from "@/features/user/business/subscriptions/utils/subscription"
+import { formatIdForDisplay } from "@/lib/utils"
 
 export default function CustomerSubscriptions({ subscriptions }) {
   const t = useTranslations("Admin.Business.Customers")
@@ -55,7 +56,7 @@ export default function CustomerSubscriptions({ subscriptions }) {
             {currentSubscriptions.map((subscription) => (
               <TableRow key={subscription._id}>
                 <TableCell className="font-medium">
-                  {subscription._id}
+                  #{formatIdForDisplay(subscription)}
                 </TableCell>
                 <TableCell>
                   {new Date(subscription.stripe.periodStart).toLocaleString(
@@ -73,7 +74,7 @@ export default function CustomerSubscriptions({ subscriptions }) {
                       subscription.stripe.status
                     )}`}
                   >
-                    {t(`Status.${subscription.stripe.status.toLowerCase()}`)}
+                    {t(`Status.${subscription.stripe.status}`)}
                   </span>
                 </TableCell>
                 <TableCell>

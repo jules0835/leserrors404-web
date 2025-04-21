@@ -57,12 +57,6 @@ export default function Header() {
                 {t("products")}
               </Link>
               <Link
-                href="/shop/categories"
-                className="text-white hover:underline transition-colors font-medium"
-              >
-                {t("categories")}
-              </Link>
-              <Link
                 href="/company"
                 className="text-white hover:underline transition-colors font-medium"
               >

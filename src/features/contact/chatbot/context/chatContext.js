@@ -15,6 +15,7 @@ import {
   markMessagesAsRead,
 } from "@/features/contact/chatbot/service/chatService"
 import { completeAction } from "@/features/contact/chatbot/service/chatActionService"
+import { useTitle } from "@/components/navigation/titleContext"
 
 const ChatContext = createContext()
 
@@ -42,6 +43,11 @@ export const ChatProvider = ({ children }) => {
     enabled: true,
     refetchOnWindowFocus: true,
   })
+  const { setCount } = useTitle()
+
+  useEffect(() => {
+    setCount(unreadCount)
+  }, [unreadCount])
 
   useEffect(() => {
     const interval = setInterval(() => {

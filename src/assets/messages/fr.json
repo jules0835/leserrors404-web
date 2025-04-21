@@ -244,7 +244,9 @@
           "suspendOrderReasonPlaceholder": "Entrez la raison de la suspension ...",
           "suspendOrderSuccess": "Commander avec succès",
           "suspendOrderTitle": "Ordonnance de suspension",
-          "viewCustomer": "Afficher le client"
+          "viewCustomer": "Afficher le client",
+          "billingAddress": "adresse de facturation",
+          "noBillingAddress": "Aucune adresse de facturation"
         },
         "Status": {
           "all": "Tout statut",
@@ -1275,7 +1277,9 @@
       "previous": "Précédent",
       "searchUser": "Rechercher un utilisateur",
       "selectUser": "Sélectionnez un utilisateur",
-      "supportInbox": "Prise en charge de la boîte de réception"
+      "supportInbox": "Prise en charge de la boîte de réception",
+      "ticketId": "ID de billet / chat",
+      "title": "Messages de boîte de réception"
     },
     "Dashboard": {
       "activeSubscriptions": "Abonnements actifs",
@@ -1285,7 +1289,8 @@
       "todayOrders": "Aujourd'hui commandes",
       "todayRegistrations": "Aujourd'hui les inscriptions",
       "welcome": "Salut {nom d'utilisateur}",
-      "welcomeMessage": "Voici un résumé de l'activité commerciale"
+      "welcomeMessage": "Voici un résumé de l'activité commerciale",
+      "title": "Tableau de bord administratif"
     },
     "Support": {
       "Tickets": {
@@ -1309,7 +1314,9 @@
         "title": "Billets",
         "user": "Utilisateur",
         "viewDetails": "Afficher les détails",
-        "waitingAction": "Action d'attente"
+        "waitingAction": "Action d'attente",
+        "activeTickets": "Billets actifs",
+        "ticketId": "Carte d'identité"
       }
     }
   },
@@ -1414,7 +1421,8 @@
       "resetPasswordEmailSent": "Si l'e-mail existe, un lien de réinitialisation a été envoyé. \nVeuillez cocher votre boîte de réception ou votre dossier de spam.",
       "sendEmail": "Envoyer un lien de réinitialisation",
       "somethingWentWrong": "Incapable d'envoyer l'e-mail de réinitialisation, veuillez réessayer.",
-      "title": "Réinitialisez votre mot de passe"
+      "title": "Réinitialisez votre mot de passe",
+      "emailSent": "Si un compte existait avec cet e-mail, un message avec un lien pour réinitialiser votre mot de passe sera envoyé. \nVous pouvez l'utiliser pour réinitialiser votre mot de passe."
     },
     "confirmEmail": "Confirmation par e-mail",
     "confirmEmailFailed": "La confirmation par e-mail a échoué. \nVeuillez réessayer ou contacter notre équipe d'assistance.",
@@ -1427,7 +1435,10 @@
     "application": "Appliquer",
     "mobile": "Mobile",
     "phone": "Téléphone",
-    "redirectingToMobileMessage": "Si vous n'êtes pas redirigé en 5 secondes, veuillez cliquer sur le bouton ci-dessous."
+    "redirectingToMobileMessage": "Si vous n'êtes pas redirigé en 5 secondes, veuillez cliquer sur le bouton ci-dessous.",
+    "title": "Confirmation par e-mail",
+    "titleLogout": "Redirection déconnectée",
+    "titleMobile": "Connexion mobile"
   },
   "Confirmation": {
     "subject": "Cyna - Confirmez votre e-mail"
@@ -1597,7 +1608,9 @@
           "suspendOrder": "Ordonnance de suspension",
           "suspendOrderDescription": "Veuillez fournir une raison de suspendre cette commande.",
           "suspendOrderReasonPlaceholder": "Entrez la raison de la suspension ...",
-          "suspendOrderTitle": "Ordonnance de suspension"
+          "suspendOrderTitle": "Ordonnance de suspension",
+          "billingAddress": "adresse de facturation",
+          "noBillingAddress": "Aucune adresse de facturation"
         },
         "date": "Date",
         "errorLoadingOrders": "Commandes de chargement d'erreur",
@@ -1745,7 +1758,24 @@
     },
     "Dashboard": {
       "subTitle": "Gérez votre compte, paramètres, abonnements et plus",
-      "title": "Votre tableau de bord"
+      "title": "Votre tableau de bord",
+      "activeSubscriptions": "Abonnements actifs",
+      "activeTickets": "Billets actifs",
+      "lastMessage": "Dernier message",
+      "nextBilling": "Prochaine facturation",
+      "noActiveTickets": "Pas de billets actifs",
+      "noOrders": "Pas de commandes",
+      "noSubscriptions": "Aucun abonnement",
+      "orderId": "ID de commande",
+      "product": "Produits",
+      "recentOrders": "Commandes récentes",
+      "status": "Statut",
+      "subject": "Sujet",
+      "ticketId": "Carte d'identité",
+      "total": "Total",
+      "totalOrders": "Commandes totales",
+      "totalSpent": "Total dépensé",
+      "recentSubscriptions": "Abonnements récents"
     },
     "MyAccount": {
       "PaymentMethods": {
@@ -1793,7 +1823,11 @@
       "advertisement": "Publicité",
       "friend": "Ami",
       "other": "Autre",
-      "socialMedia": "Réseaux sociaux"
+      "socialMedia": "Réseaux sociaux",
+      "title": "Mettez à jour votre profil",
+      "BillingAddresses": {
+        "save": "Sauvegarder"
+      }
     },
     "Security": {
       "OtpConfig": {
@@ -1897,7 +1931,9 @@
       "sendMessageToSupport": "Envoyez un message à notre équipe d'assistance",
       "sendMessageToSupportDesc": "Ici, vous pouvez envoyer un message à notre équipe d'assistance. \nNous vous répondrons dès que possible. \nVeuillez fournir autant de détails que possible pour nous aider à mieux vous aider.",
       "SELECT_ORDER": "Afin de vous aider, veuillez sélectionner une commande liée à votre question en cliquant sur le bouton ci-dessous",
-      "SELECT_SUBSCRIPTION": "Afin de vous aider, veuillez sélectionner un abonnement lié à votre question en cliquant sur le bouton ci-dessous"
+      "SELECT_SUBSCRIPTION": "Afin de vous aider, veuillez sélectionner un abonnement lié à votre question en cliquant sur le bouton ci-dessous",
+      "ticketId": "Carte d'identité",
+      "title": "Boîte de réception utilisateur"
     }
   },
   "advertisement": "Avertissement",
@@ -2037,7 +2073,27 @@
       "ProductOutOfStock": "Produit en rupture de stock",
       "ProductOutOfStockUserQuantity": "L'un des produits n'est pas disponible avec la quantité sélectionnée",
       "USER_PROFILE_INCOMPLETE": "Votre profil est incomplet, veuillez le terminer pour passer à la caisse",
-      "VOUCHER_NOT_ACTIVE": "Bon non valide, veuillez le retirer pour procéder à la caisse"
+      "VOUCHER_NOT_ACTIVE": "Bon non valide, veuillez le retirer pour procéder à la caisse",
+      "title": "Chariot",
+      "BillingAddressIncomplete": "L'adresse de facturation est incomplète",
+      "BillingAddressIncompleteShop": "Veuillez compléter votre adresse de facturation pour passer à la caisse",
+      "addAddress": "Ajouter l'adresse",
+      "addNewAddress": "Ajouter une nouvelle adresse",
+      "addressName": "Nom d'adresse",
+      "addressStreet": "Rue",
+      "billingAddress": "Adresse de facturation",
+      "billingAddressIncomplete": "L'adresse de facturation est incomplète",
+      "billingAddressIncompleteSubtitle": "Veuillez compléter votre adresse de facturation pour passer à la caisse",
+      "cancel": "Annuler",
+      "changeAddress": "Modification de l'adresse",
+      "checkoutSummary": "Résumé de la caisse",
+      "city": "Ville",
+      "confirmCheckout": "Confirmer la caisse",
+      "country": "Pays",
+      "noBillingAddress": "Aucune adresse de facturation",
+      "selectBillingAddress": "Sélectionnez l'adresse de facturation",
+      "yourProducts": "Vos produits",
+      "zipCode": "Code postal"
     },
     "Product": {
       "addToCart": {
@@ -2064,7 +2120,8 @@
       "stock": "Action",
       "subscription": "Abonnement",
       "total": "Total",
-      "year": "Année"
+      "year": "Année",
+      "title": "Produit"
     },
     "Checkout": {
       "redirectingToCheckout": "Nous traitons votre paiement, veuillez patienter ...",
@@ -2107,7 +2164,11 @@
       "application": "Mobile",
       "returnToApp": "Retour à l'application mobile",
       "transactionFailed": "Échec de la transaction",
-      "transactionFailedMessage": "Cette transaction a échoué parce que vous l'avez annulée ou il y a eu une erreur lors de la vérification. \nVeuillez patienter que nous vous redirigeons vers l'application mobile."
+      "transactionFailedMessage": "Cette transaction a échoué parce que vous l'avez annulée ou il y a eu une erreur lors de la vérification. \nVeuillez patienter que nous vous redirigeons vers l'application mobile.",
+      "title": "Vérification de votre paiement",
+      "titleSuccess": "Réussir à commander",
+      "billingAddress": "adresse de facturation",
+      "noBillingAddress": "Aucune adresse de facturation"
     }
   },
   "Log": {
@@ -2311,7 +2372,9 @@
           "failed": "Échoué",
           "inactive": "Inactif",
           "pending": "En attente",
-          "refunded": "Remboursé"
+          "refunded": "Remboursé",
+          "paid": "PAYÉ",
+          "unpaid": "NON RÉMUNÉRÉ"
         }
       },
       "Messages": {
@@ -2354,5 +2417,113 @@
     "categories": "Catégories",
     "products": "Produits"
   },
-  "products": "Produits"
+  "products": "Produits",
+  "CompanyPage": {
+    "title": "À propos de nous",
+    "farewellButton": "Contactez-nous",
+    "farewellMessage": "Contactez-nous en cliquant sur le bouton ci-dessous et nous répondrons à toutes vos questions.",
+    "farewellTitle": "Vous n'êtes pas convaincu?",
+    "heroDescription": "Fondée en 2021, Cyna est née après avoir réalisé de nombreuses réponses d'incident en France et en Europe grâce à l'expertise reconnue des fondateurs.",
+    "history": {
+      "description": "Les différentes réponses des incidents nous ont permis de comprendre les vecteurs d'attaque et les scénarios utilisés par les attaquants. \nCyna a ensuite été créée, dans le but de fournir une protection complète et pragmatique contre les cyberattaques pour les PME et les entreprises de taille moyenne.",
+      "title": "Notre histoire"
+    },
+    "mission": {
+      "description": "Les Plaçons de Nous vos priorités aU Cœr de Notre Mission. \nNous Comprenons Les Défis uniques aux axquel Sont confronts les pMe et msp face aux menaces aux toujours plus des sophistiques.",
+      "title": "Nos engagements à Cyna"
+    },
+    "values": {
+      "description": "Pour relever efficacement nos défis quotidiens, Cyna s'est entouré d'experts, organisé en équipes dédiées pour répondre au mieux à vos besoins.",
+      "title": "Découvrez nos équipes"
+    }
+  },
+  "pageTitle": {
+    "admin": "Administrer",
+    "default": "Joueur pur en cyber"
+  },
+  "title": "Liste des utilisateurs",
+  "legals": {
+    "title": "Mentions Légales",
+    "definitions": {
+      "title": "Définitions",
+      "client": "Client : tout professionnel ou personne physique capable au sens des articles 1123 et suivants du code civil, ou personne morale, qui visite le site objet des présentes conditions générales.",
+      "services": "Prestations et services : Cyna met à disposition des clients :",
+      "content": "Contenu : ensemble des éléments constituants l'information présente sur le site, notamment textes, images, vidéos.",
+      "clientInfo": "Informations clients : ci-après dénommé « information(s) » qui correspondent à l'ensemble des données personnelles susceptibles d'être détenues par Cyna pour la gestion de votre compte, de la gestion de la relation client et à des fins d'analyses et de statistiques.",
+      "user": "Utilisateur : internaute se connectant, utilisant le site susnommé.",
+      "personalInfo": "Informations personnelles : « les informations qui permettent, sous quelque forme que ce soit, directement ou non, l'identification des personnes physiques auxquelles elles s'appliquent » (article 4 de la loi n° 78-17 du 6 janvier 1978)."
+    },
+    "presentation": {
+      "title": "1. Présentation du site internet",
+      "owner": "Propriétaire : SAS Cyna-IT - Capital social de 1000 euros - Numéro de TVA : FR20913711032 - 10 rue de Penthièvre 75008 Paris",
+      "publisher": "Responsable publication : Alexandre Elbaz - alexandre.elbaz@cyna-it.fr",
+      "host": "Hébergeur : OVH - 2 rue Kellermann 59100 Roubaix 1007",
+      "dpo": "Délégué à la protection des données : Nathan Bramli - nathan.bramli@cyna-it.fr"
+    },
+    "conditions": {
+      "title": "2. Conditions générales d'utilisation du site et des services proposés",
+      "intellectualProperty": "Le site constitue une œuvre de l'esprit protégée par les dispositions du code de la propriété intellectuelle et des réglementations internationales applicables. Le client ne peut en aucune manière réutiliser, céder ou exploiter pour son propre compte tout ou partie des éléments ou travaux du site.",
+      "acceptance": "L'utilisation du site Cyna implique l'acceptation pleine et entière des conditions générales d'utilisation ci-après décrites. Ces conditions d'utilisation sont susceptibles d'être modifiées ou complétées à tout moment.",
+      "accessibility": "Ce site internet est normalement accessible à tout moment aux utilisateurs. Une interruption pour raison de maintenance technique peut être toutefois décidée par Cyna."
+    },
+    "services": {
+      "title": "3. Description des services fournis",
+      "description": "Le site internet Cyna a pour objet de fournir une information concernant l'ensemble des activités de la société. Cyna s'efforce de fournir sur le site des informations aussi précises que possible."
+    },
+    "technicalLimitations": {
+      "title": "4. Limitations contractuelles sur les données techniques",
+      "description": "Le site utilise la technologie JavaScript. Le site internet ne pourra être tenu responsable de dommages matériels liés à l'utilisation du site."
+    },
+    "intellectualProperty": {
+      "title": "5. Propriété intellectuelle et contrefaçons",
+      "rights": "Cyna est propriétaire des droits de propriété intellectuelle et détient les droits d'usage sur tous les éléments accessibles sur le site internet.",
+      "consequences": "Toute exploitation non autorisée du site ou de l'un quelconque des éléments qu'il contient sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du code de propriété intellectuelle."
+    },
+    "liability": {
+      "title": "6. Limitations de responsabilité",
+      "publisher": "Cyna agit en tant qu'éditeur du site. Cyna est responsable de la qualité et de la véracité du contenu qu'il publie.",
+      "damages": "Cyna ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l'utilisateur.",
+      "interactiveSpaces": "Des espaces interactifs sont à la disposition des utilisateurs. Cyna se réserve le droit de supprimer, sans mise en demeure préalable, tout contenu déposé dans cet espace qui contreviendrait à la législation applicable en France."
+    },
+    "privacy": {
+      "title": "7. Gestion des données personnelles",
+      "dataController": {
+        "title": "7.1 Responsables de la collecte des données personnelles",
+        "description": "Pour les données personnelles collectées dans le cadre de la création du compte personnel de l'utilisateur et de sa navigation sur le site, le responsable du traitement des données personnelles est : Cyna-IT."
+      },
+      "purpose": {
+        "title": "7.2 Finalité des données collectées",
+        "navigation": "Pour permettre la navigation sur le site et la gestion et la traçabilité des prestations et services commandés par l'utilisateur",
+        "fraud": "Pour prévenir et lutter contre la fraude informatique",
+        "improvement": "Pour améliorer la navigation sur le site",
+        "communication": "Pour mener des campagnes de communication"
+      },
+      "rights": {
+        "title": "7.3 Droit d'accès, de rectification et d'opposition",
+        "description": "Conformément à la réglementation européenne en vigueur, les utilisateurs de Cyna disposent des droits suivants : droit d'accès, de rectification, de mise à jour, de complétude des données, droit de verrouillage ou d'effacement des données."
+      }
+    },
+    "cookies": {
+      "title": "9. Liens hypertextes, cookies et balises internet",
+      "definition": "Un « cookie » est un petit fichier d'information envoyé sur le navigateur de l'utilisateur et enregistré au sein du terminal de l'utilisateur.",
+      "purpose": "Les cookies facilitant la navigation et/ou la fourniture des services proposés par le site.",
+      "management": "L'utilisateur peut configurer son navigateur pour qu'il lui permette de décider s'il souhaite ou non les accepter."
+    },
+    "applicableLaw": {
+      "title": "10. Droit applicable et attribution de juridiction",
+      "description": "Tout litige en relation avec l'utilisation du site Cyna est soumis au droit français. En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de Paris."
+    }
+  },
+  "cookieBanner": {
+    "accept": "Accepter",
+    "acceptAll": "Accepter tout",
+    "message": "Ce site Web utilise des cookies pour améliorer votre expérience et à des fins techniques. \nEn utilisant notre site Web, vous consentez à l'utilisation des cookies. \nVous pouvez en savoir plus dans notre",
+    "privacyPolicy": "Conditions et conditions"
+  },
+  "footer": {
+    "allRightsReserved": "Tous droits réservés",
+    "contact": "Contact",
+    "legalNotice": "Avis juridique",
+    "termsOfUse": "Conditions d'utilisation"
+  }
 }

@@ -20,6 +20,8 @@ import {
 import { Skeleton } from "@/components/ui/skeleton"
 import Camembert from "@/features/admin/stats/components/Camembert"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { getLocalizedValue } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function CategoriesStats() {
   const t = useTranslations("Admin.Stats.Categories")
@@ -28,18 +30,13 @@ export default function CategoriesStats() {
     queryKey: ["categoriesStats"],
     queryFn: () => getCategoriesStats(),
   })
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   if (error) {
     return <ErrorFront />
   }
 
-  const getLocalizedValue = (value) => {
-    if (typeof value === "object" && value !== null) {
-      return value[locale] || value.en || ""
-    }
-
-    return value
-  }
   const stockStats = data?.stockStats || []
   const salesStats = data?.salesStats || []
   const totalCategories = data?.totalCategories || 0
@@ -65,7 +62,7 @@ export default function CategoriesStats() {
       <div className="grid gap-4 md:grid-cols-2">
         <Camembert
           data={stockStats.map((item) => ({
-            name: getLocalizedValue(item.categorie?.label) || "Unknown",
+            name: getLocalizedValue(item.categorie?.label, locale) || "Unknown",
             value: item.totalStock,
           }))}
           title={t("stockByCategory")}
@@ -75,7 +72,7 @@ export default function CategoriesStats() {
         />
         <Camembert
           data={salesStats.map((item) => ({
-            name: getLocalizedValue(item.categorie?.label) || "Unknown",
+            name: getLocalizedValue(item.categorie?.label, locale) || "Unknown",
             value: item.totalSales,
           }))}
           title={t("salesByCategory")}
@@ -118,7 +115,8 @@ export default function CategoriesStats() {
                   stockStats.map((stat) => (
                     <TableRow key={stat._id}>
                       <TableCell>
-                        {getLocalizedValue(stat.categorie?.label) || "Unknown"}
+                        {getLocalizedValue(stat.categorie?.label, locale) ||
+                          "Unknown"}
                       </TableCell>
                       <TableCell className="text-right">
                         {stat.totalStock}
@@ -166,7 +164,8 @@ export default function CategoriesStats() {
                   salesStats.map((stat) => (
                     <TableRow key={stat._id}>
                       <TableCell>
-                        {getLocalizedValue(stat.categorie?.label) || "Unknown"}
+                        {getLocalizedValue(stat.categorie?.label, locale) ||
+                          "Unknown"}
                       </TableCell>
                       <TableCell className="text-right">
                         {stat.totalSales}

@@ -17,15 +17,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import DButton from "@/components/ui/DButton"
-import {
-  checkOutStripe,
-  hasSubscriptions,
-} from "@/features/shop/cart/utils/cartService"
-import { useRouter } from "@/i18n/routing"
+import { hasSubscriptions } from "@/features/shop/cart/utils/cartService"
 import { useQueryClient } from "@tanstack/react-query"
 import toast from "react-hot-toast"
 import { useState } from "react"
 import { useCart } from "@/features/shop/cart/context/cartContext"
+import CartCheckoutSummary from "@/features/shop/cart/cartCheckoutSummary"
 
 export default function CardCheckoutCart({
   cart,
@@ -37,9 +34,8 @@ export default function CardCheckoutCart({
   const t = useTranslations("Shop.Cart")
   const [isApplyingVoucher, setIsApplyingVoucher] = useState(false)
   const [voucherCode, setVoucherCode] = useState("")
-  const [isCheckingOut, setIsCheckingOut] = useState(false)
+  const [isCheckoutSummaryOpen, setIsCheckoutSummaryOpen] = useState(false)
   const [saveCardForFuture, setSaveCardForFuture] = useState(true)
-  const router = useRouter()
   const queryClient = useQueryClient()
   const { applyCartVoucher, removeCartVoucher } = useCart()
   const handleApplyVoucher = async () => {
@@ -72,24 +68,15 @@ export default function CardCheckoutCart({
       setIsUpdating(false)
     }
   }
-  const handleCheckout = async () => {
-    setIsCheckingOut(true)
-    const response = await checkOutStripe(saveCardForFuture)
-
-    if (response.canCheckout) {
-      router.push(response.url)
-    } else {
-      toast.error(response.message)
-    }
-
-    setIsCheckingOut(false)
+  const handleCheckout = () => {
+    setIsCheckoutSummaryOpen(true)
   }
 
   return (
     <Card className="p-6 sticky top-24">
       <div className="space-y-2">
         <TopCartMessages cart={cart} isLoading={isLoading} session={session} />
-        <div>
+        <div className="space-y-4">
           <h2 className="text-xl font-bold mb-4">{t("orderSummary")}</h2>
           <div className="space-y-4">
             <div className="flex justify-between">
@@ -146,7 +133,7 @@ export default function CardCheckoutCart({
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 pt-2">
           {!cart?.voucher && (
             <div className="flex gap-2 items-center">
               <input
@@ -223,14 +210,8 @@ export default function CardCheckoutCart({
                     isDisabled={cart?.products?.length === 0}
                     onClickBtn={handleCheckout}
                   >
-                    {isCheckingOut ? (
-                      <div className="dotsLoader" />
-                    ) : (
-                      <>
-                        <ShoppingBag className="mr-2 h-4 w-4" />
-                        {t("checkout")}
-                      </>
-                    )}
+                    <ShoppingBag className="mr-2 h-4 w-4" />
+                    {t("checkout")}
                   </DButton>
                   <p className="text-sm text-muted-foreground text-center">
                     {t("checkoutDescription")}
@@ -241,6 +222,16 @@ export default function CardCheckoutCart({
           )}
         </div>
       </div>
+
+      <CartCheckoutSummary
+        cart={cart}
+        isLoading={isLoading}
+        session={session}
+        isUpdating={isUpdating}
+        setIsUpdating={setIsUpdating}
+        isOpen={isCheckoutSummaryOpen}
+        onClose={() => setIsCheckoutSummaryOpen(false)}
+      />
     </Card>
   )
 }

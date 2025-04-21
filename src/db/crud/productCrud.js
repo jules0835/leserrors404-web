@@ -52,6 +52,7 @@ export const getProducts = async (size = 10, page = 1, query = "") => {
             { label: { $regex: query, $options: "i" } },
             { description: { $regex: query, $options: "i" } },
             { picture: { $regex: query, $options: "i" } },
+            { shortId: { $regex: query, $options: "i" } },
           ],
         }
       : {}
@@ -68,7 +69,7 @@ export const getProducts = async (size = 10, page = 1, query = "") => {
 
 export const getShopProducts = async ({
   query = "",
-  size = 10,
+  size = 9,
   page = 1,
   minPrice,
   maxPrice,
@@ -342,5 +343,21 @@ export const getCategoriesStats = async () => {
     salesStats,
     totalCategories,
     averageStockPerCategory,
+  }
+}
+
+export const updateProductStock = async (productId, quantity) => {
+  await mwdb()
+
+  try {
+    const product = await ProductModel.findByIdAndUpdate(
+      productId,
+      { $inc: { stock: -quantity } },
+      { new: true }
+    )
+
+    return product
+  } catch (error) {
+    return null
   }
 }

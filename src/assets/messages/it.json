@@ -127,7 +127,8 @@
       "resetPasswordEmailSent": "Se l'e -mail esiste, è stato inviato un collegamento di ripristino. \nControlla la cartella della posta in arrivo o dello spam.",
       "sendEmail": "Invia un collegamento di ripristino",
       "somethingWentWrong": "Impossibile inviare l'e -mail di ripristino, riprova.",
-      "title": "Reimpostare la password"
+      "title": "Reimpostare la password",
+      "emailSent": "Se esisteva un account con questa e -mail, verrà inviato un messaggio con un link per reimpostare la password. \nPuoi usarlo per reimpostare la password."
     },
     "loggingYouOut": "Disconnettendoti",
     "loggingYouOutMessage": "Se non sei reindirizzato, fai clic qui",
@@ -136,7 +137,10 @@
     "application": "App",
     "mobile": "Mobile",
     "phone": "Telefono",
-    "redirectingToMobileMessage": "Se non sei reindirizzato in 5 secondi, fai clic sul pulsante in basso."
+    "redirectingToMobileMessage": "Se non sei reindirizzato in 5 secondi, fai clic sul pulsante in basso.",
+    "title": "Conferma e -mail",
+    "titleLogout": "Reindirizzamento logout",
+    "titleMobile": "Accesso mobile"
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
@@ -470,7 +474,9 @@
           "suspendOrderReasonPlaceholder": "Inserisci il motivo della sospensione ...",
           "suspendOrderSuccess": "Ordine sospeso con successo",
           "suspendOrderTitle": "Sospendere l'ordine",
-          "viewCustomer": "Visualizza il cliente"
+          "viewCustomer": "Visualizza il cliente",
+          "billingAddress": "Indirizzo di fatturazione",
+          "noBillingAddress": "Nessun indirizzo di fatturazione"
         },
         "Status": {
           "all": "Tutto lo stato",
@@ -1260,7 +1266,9 @@
       "previous": "Precedente",
       "searchUser": "Cerca l'utente",
       "selectUser": "Seleziona un utente",
-      "supportInbox": "Supporto Posta in arrivo"
+      "supportInbox": "Supporto Posta in arrivo",
+      "ticketId": "Ticket/Chat ID",
+      "title": "Messaggi della posta in arrivo"
     },
     "Stats": {
       "Carts": {
@@ -1429,7 +1437,8 @@
       "todayOrders": "Oggi ordini",
       "todayRegistrations": "Oggi registrazioni",
       "welcome": "Ciao {nome utente}",
-      "welcomeMessage": "Ecco un riepilogo dell'attività commerciale"
+      "welcomeMessage": "Ecco un riepilogo dell'attività commerciale",
+      "title": "Dashboard di amministrazione"
     },
     "Support": {
       "Tickets": {
@@ -1453,7 +1462,9 @@
         "title": "Biglietti",
         "user": "Utente",
         "viewDetails": "Visualizza i dettagli",
-        "waitingAction": "Azione in attesa"
+        "waitingAction": "Azione in attesa",
+        "activeTickets": "Biglietti attivi",
+        "ticketId": "Ticket ID"
       }
     }
   },
@@ -1661,7 +1672,9 @@
           "suspendOrder": "Sospendere l'ordine",
           "suspendOrderDescription": "Si prega di fornire un motivo per sospendere questo ordine.",
           "suspendOrderReasonPlaceholder": "Inserisci il motivo della sospensione ...",
-          "suspendOrderTitle": "Sospendere l'ordine"
+          "suspendOrderTitle": "Sospendere l'ordine",
+          "billingAddress": "Indirizzo di fatturazione",
+          "noBillingAddress": "Nessun indirizzo di fatturazione"
         },
         "date": "Data",
         "errorLoadingOrders": "Ordini di caricamento degli errori",
@@ -1809,7 +1822,24 @@
     },
     "Dashboard": {
       "subTitle": "Gestisci il tuo account, impostazioni, abbonamenti e altro ancora",
-      "title": "La tua dashboard"
+      "title": "La tua dashboard",
+      "activeSubscriptions": "Abbonamenti attivi",
+      "activeTickets": "Biglietti attivi",
+      "lastMessage": "Ultimo messaggio",
+      "nextBilling": "Prossima fatturazione",
+      "noActiveTickets": "Nessun biglietto attivo",
+      "noOrders": "Nessun ordine",
+      "noSubscriptions": "Nessun abbonamento",
+      "orderId": "Ordine ID",
+      "product": "Prodotti",
+      "recentOrders": "Ordini recenti",
+      "recentSubscriptions": "Abbonamenti recenti",
+      "status": "Stato",
+      "subject": "Soggetto",
+      "ticketId": "Ticket ID",
+      "total": "Totale",
+      "totalOrders": "Ordini totali",
+      "totalSpent": "Totale speso"
     },
     "MyAccount": {
       "PaymentMethods": {
@@ -1857,7 +1887,11 @@
       "advertisement": "Annuncio",
       "friend": "Amico",
       "other": "Altro",
-      "socialMedia": "Social media"
+      "socialMedia": "Social media",
+      "title": "Aggiorna il tuo profilo",
+      "BillingAddresses": {
+        "save": "Salva"
+      }
     },
     "Support": {
       "MyTickets": {
@@ -1911,7 +1945,9 @@
       "sendMessageToSupport": "Invia un messaggio al nostro team di supporto",
       "sendMessageToSupportDesc": "Qui puoi inviare un messaggio al nostro team di supporto. \nTi torneremo il prima possibile. \nFornire il maggior numero possibile di dettagli per aiutarci ad aiutarti meglio.",
       "SELECT_ORDER": "Per aiutarti, seleziona un ordine relativo alla tua domanda facendo clic sul pulsante seguente",
-      "SELECT_SUBSCRIPTION": "Per aiutarti, selezionare un abbonamento relativo alla tua domanda facendo clic sul pulsante seguente"
+      "SELECT_SUBSCRIPTION": "Per aiutarti, selezionare un abbonamento relativo alla tua domanda facendo clic sul pulsante seguente",
+      "ticketId": "Ticket ID",
+      "title": "Posta in arrivo dell'utente"
     }
   },
   "pagesNames": {
@@ -2037,7 +2073,27 @@
       "ProductOutOfStock": "Prodotto fuori stock",
       "ProductOutOfStockUserQuantity": "Uno dei prodotti non è disponibile con la quantità selezionata",
       "USER_PROFILE_INCOMPLETE": "Il tuo profilo è incompleto, completalo per procedere al checkout",
-      "VOUCHER_NOT_ACTIVE": "Voucher non valido, rimuoverlo per procedere al checkout"
+      "VOUCHER_NOT_ACTIVE": "Voucher non valido, rimuoverlo per procedere al checkout",
+      "title": "Carrello",
+      "BillingAddressIncomplete": "L'indirizzo di fatturazione è incompleto",
+      "BillingAddressIncompleteShop": "Completa il tuo indirizzo di fatturazione per procedere al checkout",
+      "addAddress": "Aggiungi indirizzo",
+      "addNewAddress": "Aggiungi nuovo indirizzo",
+      "addressName": "Nome indirizzo",
+      "addressStreet": "Strada",
+      "billingAddress": "Indirizzo di fatturazione",
+      "billingAddressIncomplete": "L'indirizzo di fatturazione è incompleto",
+      "billingAddressIncompleteSubtitle": "Completa il tuo indirizzo di fatturazione per procedere al checkout",
+      "cancel": "Cancellare",
+      "changeAddress": "Indirizzo di modifica",
+      "checkoutSummary": "Riepilogo checkout",
+      "city": "Città",
+      "confirmCheckout": "Conferma il checkout",
+      "country": "Paese",
+      "noBillingAddress": "Nessun indirizzo di fatturazione",
+      "selectBillingAddress": "Selezionare l'indirizzo di fatturazione",
+      "yourProducts": "I tuoi prodotti",
+      "zipCode": "Cap"
     },
     "Product": {
       "addToCart": {
@@ -2064,7 +2120,8 @@
       "stock": "Azione",
       "subscription": "Sottoscrizione",
       "total": "Totale",
-      "year": "Anno"
+      "year": "Anno",
+      "title": "Prodotto"
     },
     "Checkout": {
       "myOrders": "I miei ordini",
@@ -2107,7 +2164,11 @@
       "application": "Mobile",
       "returnToApp": "Torna all'app mobile",
       "transactionFailed": "Transazione non riuscita",
-      "transactionFailedMessage": "Questa transazione non è riuscita perché l'hai annullata o si è verificato un errore durante il check -out. \nPer favore, aspetta che ti stiamo reindirizzando all'app mobile."
+      "transactionFailedMessage": "Questa transazione non è riuscita perché l'hai annullata o si è verificato un errore durante il check -out. \nPer favore, aspetta che ti stiamo reindirizzando all'app mobile.",
+      "title": "Controllando il pagamento",
+      "titleSuccess": "Ordina successo",
+      "billingAddress": "Indirizzo di fatturazione",
+      "noBillingAddress": "Nessun indirizzo di fatturazione"
     }
   },
   "Log": {
@@ -2311,7 +2372,9 @@
           "failed": "Fallito",
           "inactive": "Inattivo",
           "pending": "In attesa di",
-          "refunded": "Rimborsato"
+          "refunded": "Rimborsato",
+          "paid": "PAGATO",
+          "unpaid": "Non pagato"
         }
       },
       "Messages": {
@@ -2354,5 +2417,113 @@
     "categories": "Categorie",
     "products": "Prodotti"
   },
-  "products": "Prodotti"
+  "products": "Prodotti",
+  "CompanyPage": {
+    "title": "Chi siamo",
+    "farewellButton": "Contattaci",
+    "farewellMessage": "Contattaci facendo clic sul pulsante in basso e risponderemo a tutte le tue domande.",
+    "farewellTitle": "Non sei convinto?",
+    "heroDescription": "Fondata nel 2021, Cyna è nato dopo aver effettuato numerose risposte incidenti in Francia e in Europa grazie alla competenza riconosciuta dei fondatori.",
+    "history": {
+      "description": "Le varie risposte agli incidenti ci hanno permesso di comprendere i vettori di attacco e gli scenari usati dagli aggressori. \nCyna è stato quindi creato, con l'obiettivo di fornire una protezione completa e pragmatica contro gli attacchi informatici per le PMI e le imprese di medie dimensioni.",
+      "title": "La nostra storia"
+    },
+    "mission": {
+      "description": "Nous Plaçons Vos priorités au cœur de Notre Mission. \nNous Comprenons les défis uniques auxquels sont confrontés les pme et msp faccia aux minaces toujours più sofistiquées.",
+      "title": "I nostri impegni a Cyna"
+    },
+    "values": {
+      "description": "Per affrontare efficacemente le nostre sfide quotidiane, Cyna si è circondata da esperti, organizzata in team dedicati per soddisfare al meglio le tue esigenze.",
+      "title": "Scopri i nostri team"
+    }
+  },
+  "pageTitle": {
+    "admin": "Amministratore",
+    "default": "Parente puro nel cyber"
+  },
+  "title": "Elenco degli utenti",
+  "cookieBanner": {
+    "accept": "Accettare",
+    "acceptAll": "Accetta tutto",
+    "message": "Questo sito Web utilizza i cookie per migliorare la tua esperienza e per scopi tecnici. \nUtilizzando il nostro sito Web, acconsenti all'uso dei cookie. \nPuoi leggere di più nel nostro",
+    "privacyPolicy": "Termini e condizioni"
+  },
+  "footer": {
+    "allRightsReserved": "Tutti i diritti riservati",
+    "contact": "Contatto",
+    "legalNotice": "Avviso legale",
+    "termsOfUse": "Termini di utilizzo"
+  },
+  "legals": {
+    "applicableLaw": {
+      "description": "Qualsiasi controversia in relazione all'uso del sito Cyna è soggetta alla legge francese. \nTranne nei casi in cui la legge non lo consente, viene data una giurisdizione esclusiva ai tribunali competenti di Parigi.",
+      "title": "10. Legge e giurisdizione applicabili"
+    },
+    "conditions": {
+      "acceptance": "L'uso del sito Cyna implica l'accettazione completa e completa delle condizioni generali di utilizzo descritte di seguito. \nQueste condizioni d'uso possono essere modificate o integrate in qualsiasi momento.",
+      "accessibility": "Questo sito Web è normalmente accessibile agli utenti in qualsiasi momento. \nUn'interruzione dovuta alla manutenzione tecnica può tuttavia essere decisa da Cyna.",
+      "intellectualProperty": "Il sito costituisce un'opera della mente protetta dalle disposizioni del codice di proprietà intellettuale e dalle normative internazionali applicabili. \nIl cliente non può in alcun modo riutilizzare, trasferire o sfruttare per il proprio account o parte degli elementi o delle opere del sito.",
+      "title": "2. Condizioni generali di utilizzo del sito e servizi offerti"
+    },
+    "cookies": {
+      "definition": "Un \"cookie\" è un piccolo file di informazioni inviato al browser dell'utente e memorizzato nel terminale dell'utente.",
+      "management": "L'utente può configurare il proprio browser per consentire loro di decidere se accettarli o meno.",
+      "purpose": "I cookie facilitano la navigazione e/o la fornitura di servizi offerti dal sito.",
+      "title": "9. Collegamenti ipertestuali, cookie e tag Internet"
+    },
+    "definitions": {
+      "client": "Cliente: qualsiasi persona professionale o naturale capace ai sensi degli articoli 1123 e seguendo il codice civile, o entità giuridica, che visita il sito Web soggetto a queste condizioni generali.",
+      "clientInfo": "Informazioni sul cliente: di seguito indicati come \"informazioni (s)\" che corrisponde a tutti i dati personali che possono essere detenuti da Cyna per la gestione del tuo account, la gestione delle relazioni con i clienti e per scopi analitici e statistici.",
+      "content": "Contenuto: tutti gli elementi che costituiscono le informazioni presenti sul sito, in particolare testi, immagini, video.",
+      "personalInfo": "Informazioni personali: \"Informazioni che consentono, in qualsiasi forma, direttamente o indirettamente, l'identificazione delle persone naturali a cui si applicano\" (articolo 4 della legge n. 78-17 del 6 gennaio 1978).",
+      "services": "Servizi: Cyna fornisce ai clienti:",
+      "title": "Definizioni",
+      "user": "Utente: connessione utente Internet, utilizzando il sito di cui sopra."
+    },
+    "intellectualProperty": {
+      "consequences": "Qualsiasi uso non autorizzato del sito o di uno qualsiasi degli elementi che contiene sarà considerato come una violazione e perseguito in conformità con le disposizioni degli articoli L.335-2 e in seguito al codice di proprietà intellettuale.",
+      "rights": "Cyna possiede i diritti di proprietà intellettuale e detiene i diritti di utilizzo su tutti gli elementi accessibili sul sito Web.",
+      "title": "5. Proprietà intellettuale e contraffazione"
+    },
+    "liability": {
+      "damages": "Cyna non può essere ritenuto responsabile per danni diretti e indiretti causati all'apparecchiatura dell'utente.",
+      "interactiveSpaces": "Gli spazi interattivi sono disponibili per gli utenti. \nCyna si riserva il diritto di rimuovere, senza preavviso, qualsiasi contenuto pubblicato in questo spazio che violi la legge applicabile in Francia.",
+      "publisher": "Cyna funge da editore del sito. \nCyna è responsabile della qualità e della veridicità del contenuto che pubblica.",
+      "title": "6. Limitazioni di responsabilità"
+    },
+    "presentation": {
+      "dpo": "Ufficiale di protezione dei dati: Nathan Bramli - nathan.bramli@cyna-it.fr",
+      "host": "Host: OVH - 2 Rue Kellermann 59100 ROUBAIX 1007",
+      "owner": "Proprietario: SAS Cyna -it - Capitale azionario di 1000 euro - Numero IVA: FR20913711032 - 10 Rue de Penthièvre 75008 Parigi",
+      "publisher": "Responsabile della pubblicazione: Alexandre Elbaz - Alexandre.elbaz@cyna-it.fr",
+      "title": "1. Presentazione del sito web"
+    },
+    "privacy": {
+      "dataController": {
+        "description": "Per i dati personali raccolti nel contesto della creazione dell'account personale dell'utente e della loro navigazione sul sito, la persona responsabile dell'elaborazione dei dati personali è: cyna-it.",
+        "title": "7.1 gestori di raccolta di dati personali"
+      },
+      "purpose": {
+        "communication": "Per condurre campagne di comunicazione",
+        "fraud": "Per prevenire e combattere contro la frode informatica",
+        "improvement": "Per migliorare la navigazione sul sito",
+        "navigation": "Per consentire la navigazione sul sito e la gestione e la tracciabilità dei servizi ordinati dall'utente",
+        "title": "7.2 Scopo dei dati raccolti"
+      },
+      "rights": {
+        "description": "In conformità con gli attuali regolamenti europei, gli utenti di Cyna hanno i seguenti diritti: diritto di accesso, rettifica, aggiornamento, completezza dei dati, diritto di bloccare o cancellare i dati.",
+        "title": "7.3 diritto di accesso, rettifica e opposizione"
+      },
+      "title": "7. Gestione dei dati personali"
+    },
+    "services": {
+      "description": "Il sito Web Cyna mira a fornire informazioni su tutte le attività dell'azienda. \nCyna si impegna a fornire informazioni il più accurate possibile sul sito.",
+      "title": "3. Descrizione dei servizi forniti"
+    },
+    "technicalLimitations": {
+      "description": "Il sito utilizza la tecnologia JavaScript. \nIl sito Web non può essere ritenuto responsabile per danni ai materiali relativi all'uso del sito.",
+      "title": "4. Limitazioni contrattuali sui dati tecnici"
+    },
+    "title": "Avviso legale"
+  }
 }

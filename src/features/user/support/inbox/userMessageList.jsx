@@ -6,6 +6,7 @@ import { Headset } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useTranslations } from "next-intl"
 import { Badge } from "@/components/ui/badge"
+import { formatIdForDisplay } from "@/lib/utils"
 
 export default function UserMessageList({
   chats,
@@ -114,6 +115,7 @@ export default function UserMessageList({
                   )}
 
                   <div className="mt-1 flex items-center gap-2">
+                    <Badge variant="outline">#{formatIdForDisplay(chat)}</Badge>
                     {!lastMessage && (
                       <Badge
                         variant="outline"
@@ -140,6 +142,7 @@ export default function UserMessageList({
                         {t("open")}
                       </Badge>
                     )}
+
                     {!chat?.isActive && (
                       <Badge
                         variant="outline"
