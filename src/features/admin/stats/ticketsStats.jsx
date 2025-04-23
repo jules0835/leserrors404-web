@@ -52,9 +52,9 @@ export default function TicketsStats() {
   }
 
   return (
-    <div className="space-y-4 p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
+    <div className="space-y-4 p-2 sm:p-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
           <PeriodFilter
             value={filters}
             onChange={(newFilters) =>
@@ -67,7 +67,7 @@ export default function TicketsStats() {
             variant="outline"
             size="sm"
             className={cn(
-              "flex items-center gap-2",
+              "flex items-center gap-2 w-full sm:w-auto",
               filters.realTime && "bg-primary text-primary-foreground"
             )}
             onClick={() =>
@@ -80,7 +80,7 @@ export default function TicketsStats() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           title={t("activeTickets")}
           value={data?.activeTickets || 0}
@@ -111,7 +111,7 @@ export default function TicketsStats() {
           <CardTitle>{t("responseTime")}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
             <StatCard
               title={t("averageResponseTime")}
               value={formatTime(data?.avgResponseTime)}
@@ -133,7 +133,7 @@ export default function TicketsStats() {
           </div>
         </CardContent>
       </Card>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         <Camembert
           data={data?.closureDistribution?.map((item) => ({
             name: t(`closureBy.${item._id || "unknown"}`),
@@ -163,52 +163,54 @@ export default function TicketsStats() {
             <CardTitle>{t("topUsers")}</CardTitle>
           </CardHeader>
           <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>{t("table.user")}</TableHead>
-                  <TableHead>{t("table.email")}</TableHead>
-                  <TableHead className="text-right">
-                    {t("table.totalTickets")}
-                  </TableHead>
-                  <TableHead className="text-right">
-                    {t("table.openTickets")}
-                  </TableHead>
-                  <TableHead className="text-right">
-                    {t("table.closedTickets")}
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {isLoading ? (
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
                   <TableRow>
-                    <TableCell colSpan={5}>
-                      <div className="space-y-2">
-                        <Skeleton className="h-4 w-full" />
-                        <Skeleton className="h-4 w-full" />
-                        <Skeleton className="h-4 w-full" />
-                      </div>
-                    </TableCell>
+                    <TableHead>{t("table.user")}</TableHead>
+                    <TableHead>{t("table.email")}</TableHead>
+                    <TableHead className="text-right">
+                      {t("table.totalTickets")}
+                    </TableHead>
+                    <TableHead className="text-right">
+                      {t("table.openTickets")}
+                    </TableHead>
+                    <TableHead className="text-right">
+                      {t("table.closedTickets")}
+                    </TableHead>
                   </TableRow>
-                ) : (
-                  data?.topUsers?.map((user) => (
-                    <TableRow key={user.userId}>
-                      <TableCell>{user.userName}</TableCell>
-                      <TableCell>{user.userEmail}</TableCell>
-                      <TableCell className="text-right">
-                        {user.ticketCount}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        {user.openTickets}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        {user.closedTickets}
+                </TableHeader>
+                <TableBody>
+                  {isLoading ? (
+                    <TableRow>
+                      <TableCell colSpan={5}>
+                        <div className="space-y-2">
+                          <Skeleton className="h-4 w-full" />
+                          <Skeleton className="h-4 w-full" />
+                          <Skeleton className="h-4 w-full" />
+                        </div>
                       </TableCell>
                     </TableRow>
-                  ))
-                )}
-              </TableBody>
-            </Table>
+                  ) : (
+                    data?.topUsers?.map((user) => (
+                      <TableRow key={user.userId}>
+                        <TableCell>{user.userName}</TableCell>
+                        <TableCell>{user.userEmail}</TableCell>
+                        <TableCell className="text-right">
+                          {user.ticketCount}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {user.openTickets}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {user.closedTickets}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+              </Table>
+            </div>
           </CardContent>
         </Card>
       </div>

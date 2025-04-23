@@ -8,8 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { useTranslations } from "next-intl"
 import { useTitle } from "@/components/navigation/titleContext"
 
-export default function VoucherDetails({ params }) {
-  const { Id: voucherId } = params
+export default function VoucherDetails({ voucherId }) {
   const {
     data: voucher,
     isLoading,

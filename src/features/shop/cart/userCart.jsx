@@ -95,10 +95,12 @@ export default function UserCart() {
   }
 
   return (
-    <div className="container mx-auto pb-20 pt-10">
+    <div className="container mx-auto pb-20 pt-10 px-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2">
-          <h1 className="text-2xl font-bold mb-6">{t("yourCart")}</h1>
+        <div className="md:col-span-2 order-2 md:order-1">
+          <h1 className="text-2xl font-bold mb-6 text-center md:text-left">
+            {t("yourCart")}
+          </h1>
           <div className="space-y-4">
             {error && <ErrorFront />}
             {isLoading && <ListSkeleton rows={3} height={12} />}
@@ -114,7 +116,7 @@ export default function UserCart() {
                       height={200}
                     />
                     <h2 className="text-2xl font-bold">{t("emptyCart")}</h2>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-center">
                       {t("emptyCartSubtitle")}
                     </p>
                     <DButton isMain withLink="/shop/products">
@@ -139,7 +141,7 @@ export default function UserCart() {
           </div>
         </div>
 
-        <div className="md:col-span-1">
+        <div className="md:col-span-1 order-1 md:order-2">
           <CardCheckoutCart
             cart={cart}
             isLoading={isLoading}

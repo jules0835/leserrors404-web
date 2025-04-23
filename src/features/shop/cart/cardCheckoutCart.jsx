@@ -77,7 +77,9 @@ export default function CardCheckoutCart({
       <div className="space-y-2">
         <TopCartMessages cart={cart} isLoading={isLoading} session={session} />
         <div className="space-y-4">
-          <h2 className="text-xl font-bold mb-4">{t("orderSummary")}</h2>
+          <h2 className="text-xl font-bold mb-4 text-center md:text-left">
+            {t("orderSummary")}
+          </h2>
           <div className="space-y-4">
             <div className="flex justify-between">
               <span className="text-muted-foreground">{t("subtotal")}</span>
@@ -135,7 +137,7 @@ export default function CardCheckoutCart({
 
         <div className="space-y-4 pt-2">
           {!cart?.voucher && (
-            <div className="flex gap-2 items-center">
+            <div className="flex flex-col md:flex-row gap-2 items-center">
               <input
                 type="text"
                 placeholder={t("voucherCode")}
@@ -146,6 +148,7 @@ export default function CardCheckoutCart({
               <Button
                 onClick={handleApplyVoucher}
                 disabled={isApplyingVoucher || !voucherCode}
+                className="w-full md:w-auto"
               >
                 {t("apply")}
               </Button>
@@ -174,6 +177,7 @@ export default function CardCheckoutCart({
                           !cart?.checkout?.isEligible
                         }
                         onClickBtn={handleCheckout}
+                        className="w-full"
                       >
                         <ShoppingBag className="mr-2 h-4 w-4" />
                         {t("checkout")}

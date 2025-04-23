@@ -205,7 +205,7 @@ export default function ShopProductPage() {
       {product && (
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/3">
-            <div className="sticky top-8">
+            <div className="lg:sticky lg:top-8">
               <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg bg-white">
                 <Image
                   src={product.picture}
@@ -233,19 +233,21 @@ export default function ShopProductPage() {
           <div className="lg:w-1/3">
             <div className="space-y-6">
               <div>
-                <h1 className="text-3xl font-bold tracking-tight mb-2">
+                <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-2 text-center lg:text-left">
                   {getLocalizedValue(product.label, locale)}
                 </h1>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base md:text-lg text-muted-foreground text-center lg:text-left">
                   {getLocalizedValue(product.description, locale)}
                 </p>
               </div>
 
-              <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-bold">{getPriceDisplay()}</span>
+              <div className="flex items-baseline gap-2 justify-center lg:justify-start">
+                <span className="text-2xl md:text-3xl font-bold">
+                  {getPriceDisplay()}
+                </span>
               </div>
 
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground justify-center lg:justify-start">
                 <div
                   className={`w-3 h-3 rounded-full ${product.stock > 0 ? "bg-green-500" : "bg-red-500"}`}
                 ></div>
@@ -259,7 +261,7 @@ export default function ShopProductPage() {
               {product.characteristics &&
                 Object.keys(product.characteristics).length > 0 && (
                   <div className="space-y-3">
-                    <h2 className="text-xl font-semibold">
+                    <h2 className="text-xl font-semibold text-center lg:text-left">
                       {t("characteristics")}
                     </h2>
                     <div className="grid grid-cols-1 gap-3">
@@ -282,8 +284,8 @@ export default function ShopProductPage() {
           </div>
 
           <div className="lg:w-1/3">
-            <div className="p-6 border rounded-xl shadow-sm bg-white">
-              <h2 className="text-xl font-semibold mb-6">
+            <div className="p-4 md:p-6 border rounded-xl shadow-sm bg-white">
+              <h2 className="text-xl font-semibold mb-6 text-center lg:text-left">
                 {t("addToCartTitle")}
               </h2>
               {getStockStatus()}

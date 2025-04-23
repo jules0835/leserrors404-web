@@ -1,5 +1,9 @@
 "use client"
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
 import UserSidebar from "@/features/user/layout/userSidebar"
 import { usePathname } from "next/navigation"
 import {
@@ -20,15 +24,20 @@ export default function UserLayout({ children }) {
         <div
           className={
             isUserInbox
-              ? "flex-1 overflow-hidden mt-16"
-              : "mx-7 my-2 md:mt-16 mt-40"
+              ? "flex-1 overflow-hidden mt-2 md:mt-16"
+              : "mx-7 my-2 md:mt-16"
           }
         >
           {!isUserInbox && (
-            <div className="md:mt-4 mt-8">
-              <h1 className="text-2xl font-semibold">
-                {t(returnPageTitleTranslation(pathname))}
-              </h1>
+            <div className="md:mt-4 mt-2">
+              <div className="flex items-center gap-2">
+                <div className="md:hidden">
+                  <SidebarTrigger className="-ml-1" />
+                </div>
+                <h1 className="text-2xl font-semibold">
+                  {t(returnPageTitleTranslation(pathname))}
+                </h1>
+              </div>
               <p className="text-sm text-muted-foreground">
                 {t(returnPageSubTitleTranslation(pathname))}
               </p>

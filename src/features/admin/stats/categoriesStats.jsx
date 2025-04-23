@@ -43,8 +43,8 @@ export default function CategoriesStats() {
   const averageStockPerCategory = data?.averageStockPerCategory || 0
 
   return (
-    <div className="space-y-4 p-4">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+    <div className="space-y-4 p-2 sm:p-4">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
         <StatCard
           title={t("totalCategories")}
           value={totalCategories}
@@ -59,7 +59,7 @@ export default function CategoriesStats() {
         />
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         <Camembert
           data={stockStats.map((item) => ({
             name: getLocalizedValue(item.categorie?.label, locale) || "Unknown",
@@ -82,53 +82,55 @@ export default function CategoriesStats() {
         />
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         <Card>
           <CardHeader>
             <CardTitle>{t("stockByCategory")}</CardTitle>
           </CardHeader>
           <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>{t("table.category")}</TableHead>
-                  <TableHead className="text-right">
-                    {t("table.stock")}
-                  </TableHead>
-                  <TableHead className="text-right">
-                    {t("table.value")}
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {isLoading ? (
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
                   <TableRow>
-                    <TableCell colSpan={3}>
-                      <div className="space-y-2">
-                        <Skeleton className="h-4 w-full" />
-                        <Skeleton className="h-4 w-full" />
-                        <Skeleton className="h-4 w-full" />
-                      </div>
-                    </TableCell>
+                    <TableHead>{t("table.category")}</TableHead>
+                    <TableHead className="text-right">
+                      {t("table.stock")}
+                    </TableHead>
+                    <TableHead className="text-right">
+                      {t("table.value")}
+                    </TableHead>
                   </TableRow>
-                ) : (
-                  stockStats.map((stat) => (
-                    <TableRow key={stat._id}>
-                      <TableCell>
-                        {getLocalizedValue(stat.categorie?.label, locale) ||
-                          "Unknown"}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        {stat.totalStock}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        {formatCurrency(stat.totalValue)}
+                </TableHeader>
+                <TableBody>
+                  {isLoading ? (
+                    <TableRow>
+                      <TableCell colSpan={3}>
+                        <div className="space-y-2">
+                          <Skeleton className="h-4 w-full" />
+                          <Skeleton className="h-4 w-full" />
+                          <Skeleton className="h-4 w-full" />
+                        </div>
                       </TableCell>
                     </TableRow>
-                  ))
-                )}
-              </TableBody>
-            </Table>
+                  ) : (
+                    stockStats.map((stat) => (
+                      <TableRow key={stat._id}>
+                        <TableCell>
+                          {getLocalizedValue(stat.categorie?.label, locale) ||
+                            "Unknown"}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {stat.totalStock}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {formatCurrency(stat.totalValue)}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+              </Table>
+            </div>
           </CardContent>
         </Card>
 
@@ -137,47 +139,49 @@ export default function CategoriesStats() {
             <CardTitle>{t("salesByCategory")}</CardTitle>
           </CardHeader>
           <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>{t("table.category")}</TableHead>
-                  <TableHead className="text-right">
-                    {t("table.sales")}
-                  </TableHead>
-                  <TableHead className="text-right">
-                    {t("table.revenue")}
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {isLoading ? (
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
                   <TableRow>
-                    <TableCell colSpan={3}>
-                      <div className="space-y-2">
-                        <Skeleton className="h-4 w-full" />
-                        <Skeleton className="h-4 w-full" />
-                        <Skeleton className="h-4 w-full" />
-                      </div>
-                    </TableCell>
+                    <TableHead>{t("table.category")}</TableHead>
+                    <TableHead className="text-right">
+                      {t("table.sales")}
+                    </TableHead>
+                    <TableHead className="text-right">
+                      {t("table.revenue")}
+                    </TableHead>
                   </TableRow>
-                ) : (
-                  salesStats.map((stat) => (
-                    <TableRow key={stat._id}>
-                      <TableCell>
-                        {getLocalizedValue(stat.categorie?.label, locale) ||
-                          "Unknown"}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        {stat.totalSales}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        {formatCurrency(stat.totalRevenue)}
+                </TableHeader>
+                <TableBody>
+                  {isLoading ? (
+                    <TableRow>
+                      <TableCell colSpan={3}>
+                        <div className="space-y-2">
+                          <Skeleton className="h-4 w-full" />
+                          <Skeleton className="h-4 w-full" />
+                          <Skeleton className="h-4 w-full" />
+                        </div>
                       </TableCell>
                     </TableRow>
-                  ))
-                )}
-              </TableBody>
-            </Table>
+                  ) : (
+                    salesStats.map((stat) => (
+                      <TableRow key={stat._id}>
+                        <TableCell>
+                          {getLocalizedValue(stat.categorie?.label, locale) ||
+                            "Unknown"}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {stat.totalSales}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {formatCurrency(stat.totalRevenue)}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+              </Table>
+            </div>
           </CardContent>
         </Card>
       </div>

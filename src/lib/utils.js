@@ -56,6 +56,25 @@ export async function getHomeCarouselData() {
   return null
 }
 
+export async function getHomeBannerData() {
+  try {
+    const salesfront = await findSalesfront({
+      name: webAppSettings.salesfront.homepage.alertBannerId,
+    })
+
+    return salesfront.alertBanner
+  } catch (error) {
+    log.systemError({
+      logKey: logKeys.settingsEdit.key,
+      message: "Failed to get home banner data",
+      technicalMessage: error.message,
+      isError: true,
+    })
+  }
+
+  return null
+}
+
 export function trimString(string, length) {
   if (string === null || string === undefined) {
     return string

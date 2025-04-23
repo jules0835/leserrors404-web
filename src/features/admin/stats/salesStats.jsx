@@ -41,8 +41,8 @@ export default function SalesStats() {
   const averageOrderValue = totalSales / (totalOrders || 1)
 
   return (
-    <div className="space-y-4 p-4">
-      <div className="flex items-center space-x-4">
+    <div className="space-y-4 p-2 sm:p-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
         <PeriodFilter
           value={filters}
           onChange={(newFilters) =>
@@ -53,7 +53,7 @@ export default function SalesStats() {
           variant="outline"
           size="sm"
           className={cn(
-            "flex items-center gap-2",
+            "flex items-center gap-2 w-full sm:w-auto",
             filters.realTime && "bg-primary text-primary-foreground"
           )}
           onClick={() =>
@@ -65,7 +65,7 @@ export default function SalesStats() {
         </Button>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           title={t("totalSales")}
           value={formatCurrency(totalSales)}
@@ -95,7 +95,7 @@ export default function SalesStats() {
         />
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         <StatsChart
           title={t("salesOverTime")}
           data={data?.stats || []}

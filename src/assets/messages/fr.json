@@ -278,7 +278,8 @@
         "total": "Total",
         "viewDetails": "Afficher les détails",
         "customer": "Client",
-        "latestOrders": "Dernières commandes"
+        "latestOrders": "Dernières commandes",
+        "filters": "Filtres"
       },
       "Payments": {
         "title": "Paiements",
@@ -460,7 +461,8 @@
         "resetFilters": "Réinitialiser les filtres",
         "searchPlaceholder": "Recherche par identifiant, nom ou e-mail ...",
         "subTitle": "Gérer les abonnements",
-        "subscriptionId": "ID d'abonnement"
+        "subscriptionId": "ID d'abonnement",
+        "filters": "Filtres"
       },
       "title": "Entreprise",
       "Categories": {
@@ -700,7 +702,20 @@
           "titleSection": "Carrousel"
         },
         "subTitle": "Gérer le contenu de la page d'accueil, le carrousel, l'alerte et plus",
-        "title": "Paramètres de la page d'accueil"
+        "title": "Paramètres de la page d'accueil",
+        "Banner": {
+          "active": "Actif",
+          "description": "Description",
+          "descriptionPlaceholder": "Description de la bannière",
+          "error": "Erreur",
+          "save": "Sauvegarder",
+          "saved": "Sauvé",
+          "saving": "Banner d'alerte de sauvegarde",
+          "style": "Style",
+          "title": "Titre",
+          "titlePlaceholder": "Le titre de la bannière",
+          "titleSection": "Bannière d'alerte"
+        }
       },
       "Categories": {
         "Add": {
@@ -1088,7 +1103,8 @@
         "userLogsDescription": "Affichez les journaux de l'utilisateur sélectionné.",
         "userName": "Utilisateur",
         "yes": "Oui",
-        "latestLogs": "Derniers journaux"
+        "latestLogs": "Derniers journaux",
+        "filters": "Filtres"
       },
       "Users": {
         "User": {
@@ -1933,7 +1949,8 @@
       "SELECT_ORDER": "Afin de vous aider, veuillez sélectionner une commande liée à votre question en cliquant sur le bouton ci-dessous",
       "SELECT_SUBSCRIPTION": "Afin de vous aider, veuillez sélectionner un abonnement lié à votre question en cliquant sur le bouton ci-dessous",
       "ticketId": "Carte d'identité",
-      "title": "Boîte de réception utilisateur"
+      "title": "Boîte de réception utilisateur",
+      "allOpenInbox": "Voir d'autres billets"
     }
   },
   "advertisement": "Avertissement",
@@ -2524,6 +2541,21 @@
     "allRightsReserved": "Tous droits réservés",
     "contact": "Contact",
     "legalNotice": "Avis juridique",
-    "termsOfUse": "Conditions d'utilisation"
+    "termsOfUse": "Conditions d'utilisation",
+    "aboutUs": "À propos de nous",
+    "products": "Produits"
+  },
+  "Home": {
+    "Banner": {
+      "noTitle": "Pas de titre"
+    }
+  },
+  "admin": {
+    "support": {
+      "inbox": {
+        "noMobileSupport": "Désolé, cette fonctionnalité n'est pas disponible sur mobile.",
+        "noMobileSupportDescription": "Pour accéder à la boîte de réception et des billets, veuillez utiliser un ordinateur de bureau."
+      }
+    }
   }
 }

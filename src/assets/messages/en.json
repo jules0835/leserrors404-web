@@ -737,7 +737,8 @@
         "userLogsDescription": "View the logs for the selected user.",
         "authorName": "Author",
         "author": "Author",
-        "latestLogs": "Latest Logs"
+        "latestLogs": "Latest Logs",
+        "filters": "Filters"
       }
     },
     "Business": {
@@ -801,7 +802,7 @@
         "Status": {
           "title": "Status",
           "all": "All Status",
-          "incomplete": "Incomplete",
+          "incomplete": "INCOMPLETE",
           "incomplete_expired": "INCOMPLETE EXPIRED",
           "trialing": "TRIAL",
           "active": "ACTIVE",
@@ -864,9 +865,9 @@
           "cancelError": "Failed to cancel subscription",
           "subscriptionId": "Id",
           "Status": {
-            "incomplete": "Incomplete",
-            "incomplete_expired": "Incomplete Expired",
-            "trialing": "Trial",
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
             "active": "ACTIVE",
             "past_due": "PAST DUE",
             "canceled": "CANCELED",
@@ -885,7 +886,8 @@
           "openSubscriptionStripe": "View on stripe",
           "viewOrder": "View order",
           "viewCustomer": "View Customer"
-        }
+        },
+        "filters": "Filters"
       },
       "Payments": {
         "title": "Payments",
@@ -1148,7 +1150,8 @@
           "refund": "REFUNDED"
         },
         "customer": "Customer",
-        "latestOrders": "Latest Orders"
+        "latestOrders": "Latest Orders",
+        "filters": "Filters"
       },
       "Customers": {
         "CustomerDetails": {
@@ -1281,6 +1284,19 @@
           "socialMedia": "Form social media",
           "other": "An other option",
           "nothingSelected": "Nothing selected"
+        },
+        "Banner": {
+          "saving": "Saving alert banner",
+          "saved": "Saved",
+          "error": "Error",
+          "active": "Active",
+          "style": "Style",
+          "title": "Title",
+          "titlePlaceholder": "The title of the banner",
+          "description": "Description",
+          "descriptionPlaceholder": "Description of the banner",
+          "save": "Save",
+          "titleSection": "Alert Banner"
         }
       },
       "Categories": {
@@ -1895,7 +1911,8 @@
       "SELECT_ORDER": "In order to help you, please select an order related to your question by clicking on the button below",
       "SELECT_SUBSCRIPTION": "In order to help you, please select a subscription related to your question by clicking on the button below",
       "ticketId": "Ticket Id",
-      "title": "User Inbox"
+      "title": "User Inbox",
+      "allOpenInbox": "See Other Tickets"
     }
   },
   "DefaultNotFound": "ERROR: Translation not found",
@@ -2446,7 +2463,9 @@
     "termsOfUse": "Terms Of Use",
     "legalNotice": "Legal Notice",
     "contact": "Contact",
-    "allRightsReserved": "All Rights Reserved"
+    "allRightsReserved": "All Rights Reserved",
+    "products": "Products",
+    "aboutUs": "About Us"
   },
   "legals": {
     "title": "Legal Notice",
@@ -2525,5 +2544,18 @@
     "privacyPolicy": "Terms And Condition",
     "acceptAll": "Accept All",
     "accept": "Accept"
+  },
+  "admin": {
+    "support": {
+      "inbox": {
+        "noMobileSupport": " Sorry, this feature is not available on mobile.",
+        "noMobileSupportDescription": "To access Admin Inbox and Tickets, please use a desktop computer."
+      }
+    }
+  },
+  "Home": {
+    "Banner": {
+      "noTitle": "No Title"
+    }
   }
 }

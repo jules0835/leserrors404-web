@@ -4,9 +4,10 @@ import HomeClients from "@/features/home/homeClients"
 import SuggestedProducts from "@/features/suggestions/suggestedProducts"
 import HomeServices from "@/features/home/homeServices"
 import HomeWelcome from "@/features/home/homeWelcome"
+import HomeBanner from "@/features/home/homeBanner"
 import { useState, useEffect } from "react"
 
-export default function Home({ carouselData, isLoggedIn }) {
+export default function Home({ carouselData, bannerData, isLoggedIn }) {
   const [showWelcome, setShowWelcome] = useState(true)
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function Home({ carouselData, isLoggedIn }) {
         <HomeWelcome isLoggedIn={isLoggedIn} />
         {carouselData && <HomeCarousel initialCarouselData={carouselData} />}
       </div>
+      {bannerData && <HomeBanner initialBannerData={bannerData} />}
       <div className="md:flex md:items-center md:justify-center">
         <HomeClients />
       </div>

@@ -91,7 +91,7 @@ export default function CartCheckoutAddresses({ cart, session, isLoading }) {
 
     if (cart?.billingAddress) {
       return (
-        <div className="space-y-1">
+        <div className="space-y-1 text-center md:text-left">
           <p className="font-medium">{cart.billingAddress.name}</p>
           <p>{cart.billingAddress.street}</p>
           <p>
@@ -102,115 +102,132 @@ export default function CartCheckoutAddresses({ cart, session, isLoading }) {
       )
     }
 
-    return <p className="text-muted-foreground">{t("noBillingAddress")}</p>
+    return (
+      <p className="text-muted-foreground text-center md:text-left">
+        {t("noBillingAddress")}
+      </p>
+    )
   }
 
   return (
     <div className="border rounded-md p-4">
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="font-semibold">{t("billingAddress")}</h3>
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-2 gap-2">
+        <h3 className="font-semibold text-center md:text-left">
+          {t("billingAddress")}
+        </h3>
         <Dialog
           open={isAddressDialogOpen}
           onOpenChange={setIsAddressDialogOpen}
         >
           <DialogTrigger asChild>
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" className="w-full md:w-auto">
               <Edit2 className="h-4 w-4 mr-2" />
               {t("changeAddress")}
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-4xl">
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
             <DialogHeader>
-              <DialogTitle>{t("selectBillingAddress")}</DialogTitle>
+              <DialogTitle className="text-center md:text-left">
+                {t("selectBillingAddress")}
+              </DialogTitle>
             </DialogHeader>
-            <div className="flex gap-4">
-              <div className="w-1/2 space-y-4 max-h-[500px] overflow-y-auto">
-                {isLoadingAddresses ? (
-                  <>
-                    <Skeleton className="h-24 w-full" />
-                    <Skeleton className="h-24 w-full" />
-                    <Skeleton className="h-24 w-full" />
-                  </>
-                ) : (
-                  addresses?.map((address) => (
-                    <Card
-                      key={address._id}
-                      className={`p-4 cursor-pointer ${
-                        selectedAddress?._id === address._id
-                          ? "border-primary"
-                          : ""
-                      }`}
-                      onClick={() => handleAddressSelect(address)}
+            <div className="overflow-y-auto flex-1 pr-2">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="w-full md:w-1/2 space-y-4 max-h-[300px] overflow-y-auto pr-2">
+                  {isLoadingAddresses ? (
+                    <>
+                      <Skeleton className="h-24 w-full" />
+                      <Skeleton className="h-24 w-full" />
+                      <Skeleton className="h-24 w-full" />
+                    </>
+                  ) : (
+                    addresses?.map((address) => (
+                      <Card
+                        key={address._id}
+                        className={`p-4 cursor-pointer ${
+                          selectedAddress?._id === address._id
+                            ? "border-primary"
+                            : ""
+                        }`}
+                        onClick={() => handleAddressSelect(address)}
+                      >
+                        <div className="space-y-1 text-center md:text-left">
+                          <h4 className="font-semibold">{address.name}</h4>
+                          <p>{address.street}</p>
+                          <p>
+                            {address.zipCode} {address.city}
+                          </p>
+                          <p>{address.country}</p>
+                        </div>
+                      </Card>
+                    ))
+                  )}
+                </div>
+                <div className="w-full md:w-1/2 border-t md:border-t-0 md:border-l pt-4 md:pt-0 md:pl-4">
+                  <h4 className="font-semibold mb-4 text-center md:text-left">
+                    {t("addNewAddress")}
+                  </h4>
+                  <form onSubmit={handleAddNewAddress} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">{t("addressName")}</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={newAddress.name}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="country">{t("country")}</Label>
+                      <Input
+                        id="country"
+                        name="country"
+                        value={newAddress.country}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="city">{t("city")}</Label>
+                      <Input
+                        id="city"
+                        name="city"
+                        value={newAddress.city}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="zipCode">{t("zipCode")}</Label>
+                      <Input
+                        id="zipCode"
+                        name="zipCode"
+                        value={newAddress.zipCode}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="street">{t("addressStreet")}</Label>
+                      <Input
+                        id="street"
+                        name="street"
+                        value={newAddress.street}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <DButton
+                      isLoading={isUpdating}
+                      isSubmit
+                      isMain
+                      className="w-full"
                     >
-                      <div className="space-y-1">
-                        <h4 className="font-semibold">{address.name}</h4>
-                        <p>{address.street}</p>
-                        <p>
-                          {address.zipCode} {address.city}
-                        </p>
-                        <p>{address.country}</p>
-                      </div>
-                    </Card>
-                  ))
-                )}
-              </div>
-              <div className="w-1/2 border-l pl-4">
-                <h4 className="font-semibold mb-4">{t("addNewAddress")}</h4>
-                <form onSubmit={handleAddNewAddress} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">{t("addressName")}</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={newAddress.name}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="country">{t("country")}</Label>
-                    <Input
-                      id="country"
-                      name="country"
-                      value={newAddress.country}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="city">{t("city")}</Label>
-                    <Input
-                      id="city"
-                      name="city"
-                      value={newAddress.city}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="zipCode">{t("zipCode")}</Label>
-                    <Input
-                      id="zipCode"
-                      name="zipCode"
-                      value={newAddress.zipCode}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="street">{t("addressStreet")}</Label>
-                    <Input
-                      id="street"
-                      name="street"
-                      value={newAddress.street}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <DButton isLoading={isUpdating} isSubmit isMain>
-                    {t("addAddress")}
-                  </DButton>
-                </form>
+                      {t("addAddress")}
+                    </DButton>
+                  </form>
+                </div>
               </div>
             </div>
           </DialogContent>

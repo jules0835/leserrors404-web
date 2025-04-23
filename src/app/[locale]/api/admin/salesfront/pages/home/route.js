@@ -15,38 +15,32 @@ export async function GET(req) {
   const name = searchParams.get("name")
   let salesfrontSettings = await findSalesfront({ name })
 
-  if (
-    !salesfrontSettings ||
-    salesfrontSettings.key === webAppSettings.salesfront.homepage.carouselId
-  ) {
-    log.systemInfo({
-      logKey: logKeys.shopSettingsEdit.key,
-      message: "Carousel created",
-      data: {
-        salesfrontSettings,
-      },
-    })
-    salesfrontSettings = await createSalesfront({
-      name: webAppSettings.salesfront.homepage.carouselId,
-      isCarousel: true,
-    })
-  }
-
-  if (
-    !salesfrontSettings ||
-    salesfrontSettings.key === webAppSettings.salesfront.homepage.alertBannerId
-  ) {
-    log.systemInfo({
-      logKey: logKeys.shopSettingsEdit.key,
-      message: "Alert banner created",
-      data: {
-        salesfrontSettings,
-      },
-    })
-    salesfrontSettings = await createSalesfront({
-      name: webAppSettings.salesfront.homepage.alertBannerId,
-      isBanner: true,
-    })
+  if (!salesfrontSettings) {
+    if (name === webAppSettings.salesfront.homepage.carouselId) {
+      log.systemInfo({
+        logKey: logKeys.shopSettingsEdit.key,
+        message: "Carousel created",
+        data: {
+          name,
+        },
+      })
+      salesfrontSettings = await createSalesfront({
+        name: webAppSettings.salesfront.homepage.carouselId,
+        isCarousel: true,
+      })
+    } else if (name === webAppSettings.salesfront.homepage.alertBannerId) {
+      log.systemInfo({
+        logKey: logKeys.shopSettingsEdit.key,
+        message: "Alert banner created",
+        data: {
+          name,
+        },
+      })
+      salesfrontSettings = await createSalesfront({
+        name: webAppSettings.salesfront.homepage.alertBannerId,
+        isBanner: true,
+      })
+    }
   }
 
   return Response.json(salesfrontSettings)
@@ -62,31 +56,43 @@ export async function PUT(req) {
     return Response.error("Salesfront settings not found")
   }
 
-  await Promise.all(
-    body.carouselParts.map(async (part) => {
-      if (part.uploadImage) {
-        const imageBuffer = Buffer.from(part.uploadImage, "base64")
-        part.image = await uploadPublicPicture(imageBuffer)
-      }
+  if (body.carouselParts && Array.isArray(body.carouselParts)) {
+    await Promise.all(
+      body.carouselParts.map(async (part) => {
+        if (part.uploadImage) {
+          const imageBuffer = Buffer.from(part.uploadImage, "base64")
+          part.image = await uploadPublicPicture(imageBuffer)
+        }
 
-      if (typeof part.image !== "string") {
-        part.image = ""
-      }
-    })
-  )
+        if (typeof part.image !== "string") {
+          part.image = ""
+        }
+      })
+    )
+  }
 
   const updatedSalesfrontSettings = await updateSalesfront(
-    salesfrontSettings._id,
+    { _id: salesfrontSettings._id },
     body
   )
 
-  log.systemInfo({
-    logKey: logKeys.frontSettingsEdit.key,
-    message: "Salesfront home carousel updated",
-    newData: { updatedSalesfrontSettings },
-    isAdminAction: getReqIsAdmin(req),
-    authorId: getReqUserId(req),
-  })
+  if (name === webAppSettings.salesfront.homepage.carouselId) {
+    log.systemInfo({
+      logKey: logKeys.frontSettingsEdit.key,
+      message: "Salesfront home carousel updated",
+      newData: { updatedSalesfrontSettings },
+      isAdminAction: getReqIsAdmin(req),
+      authorId: getReqUserId(req),
+    })
+  } else if (name === webAppSettings.salesfront.homepage.alertBannerId) {
+    log.systemInfo({
+      logKey: logKeys.frontSettingsEdit.key,
+      message: "Salesfront home alert banner updated",
+      newData: { updatedSalesfrontSettings },
+      isAdminAction: getReqIsAdmin(req),
+      authorId: getReqUserId(req),
+    })
+  }
 
   return Response.json(updatedSalesfrontSettings)
 }

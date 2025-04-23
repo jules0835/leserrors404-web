@@ -21,6 +21,22 @@ export const salesfrontSchema = new Schema({
     type: Object,
     default: {},
   },
+  alertBanner: {
+    isActive: { type: Boolean, default: false },
+    style: {
+      type: String,
+      enum: ["info", "promo", "warning", "error"],
+      default: "info",
+    },
+    titleTrans: {
+      type: Object,
+      default: {},
+    },
+    descriptionTrans: {
+      type: Object,
+      default: {},
+    },
+  },
   carouselParts: [
     {
       titleTrans: {

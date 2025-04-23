@@ -4,7 +4,7 @@ export default function Page() {
   const t = useTranslations("legals")
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 mt-16">
+    <div className="max-w-4xl mx-auto px-4 py-8 md:mt-16 mt-0">
       <h1 className="text-3xl font-bold mb-8">{t("title")}</h1>
 
       <section className="mb-8">

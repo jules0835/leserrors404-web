@@ -43,12 +43,10 @@ export const webAppSettings = {
     cancelCheckoutMobileRedirect: "cynapp://checkout?userCancel=true",
   },
   translation: {
-    locales: ["en", "fr", "de", "ts"],
+    locales: ["en", "fr"],
     titles: {
       en: "English",
       fr: "Français",
-      de: "Deutsch",
-      ts: "TEST LANGUAGE",
     },
     defaultLocale: "en",
   },

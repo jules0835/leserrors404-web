@@ -213,8 +213,8 @@ export default function AdminSubscriptionList() {
         handleSearch={handleSearch}
       />
 
-      <div className="rounded-md border">
-        <Table>
+      <div className="rounded-md border grid">
+        <Table className="overflow-auto">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

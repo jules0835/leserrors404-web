@@ -205,7 +205,20 @@
           "subTitle": "Lawula vuxokoxoko bya mutirhisi, mintirho na mpfumelelo ."
         },
         "subTitle": "Lawula nhundzu ya pheji ya le kaya, carousel, alert na swin'wana",
-        "title": "Switirhisiwa swa pheji ya le kaya"
+        "title": "Switirhisiwa swa pheji ya le kaya",
+        "Banner": {
+          "active": "Hanya",
+          "description": "Nhlamuselo",
+          "descriptionPlaceholder": "Nhlamuselo ya xifaniso xa xifaniso .",
+          "error": "Xihoxo",
+          "save": "Hlayisa",
+          "saved": "Ku ponisiwa .",
+          "saving": "Ku hlayisa xitsundzuxo xa banner .",
+          "style": "Xitayili",
+          "title": "Xirhangi",
+          "titlePlaceholder": "Xihloko xa xifaniso xa xifaniso .",
+          "titleSection": "Banner ya xitsundzuxo ."
+        }
       },
       "Categories": {
         "Add": {
@@ -508,7 +521,8 @@
         "total": "Hinkwaswo",
         "viewDetails": "Vona vuxokoxoko .",
         "customer": "Khasimende",
-        "latestOrders": "Tioda ta sweswinyana ."
+        "latestOrders": "Tioda ta sweswinyana .",
+        "filters": "Swisefo ."
       },
       "Payments": {
         "title": "Ku hakela .",
@@ -690,7 +704,8 @@
         "resetFilters": "Swisefo swa Reset .",
         "searchPlaceholder": "Ku lavisisa hi ID, vito kumbe email...",
         "subTitle": "Lawula swikhokhelo .",
-        "subscriptionId": "ID ya xikhokhelo ."
+        "subscriptionId": "ID ya xikhokhelo .",
+        "filters": "Swisefo ."
       },
       "title": "Bindzu",
       "Categories": {
@@ -1077,7 +1092,8 @@
         "userLogsDescription": "Languta tilog ta mutirhisi loyi a hlawuriweke.",
         "userName": "Mutirhisi .",
         "yes": "Ina",
-        "latestLogs": "Swilo swa sweswinyana leswi tsariweke ."
+        "latestLogs": "Swilo swa sweswinyana leswi tsariweke .",
+        "filters": "Swisefo ."
       },
       "Users": {
         "User": {
@@ -1946,7 +1962,8 @@
       "SELECT_ORDER": "Leswaku u ku pfuna, hi kombela u hlawula oda leyi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi .",
       "SELECT_SUBSCRIPTION": "Leswaku u ta ku pfuna, hi kombela u hlawula xikhokhelo lexi fambisanaka ni xivutiso xa wena hi ku tikhoma eka buti leyi nga laha hansi .",
       "ticketId": "ID ya thikithi .",
-      "title": "Inbox ya mutirhisi ."
+      "title": "Inbox ya mutirhisi .",
+      "allOpenInbox": "Vona mathikithi man’wana ."
     }
   },
   "isSuperAdminRequired": "is super admin ya laveka .",
@@ -2452,7 +2469,9 @@
     "allRightsReserved": "Timfanelo hinkwato ti hlayisiwile .",
     "contact": "Hlanganisa",
     "legalNotice": "Xitiviso xa nawu .",
-    "termsOfUse": "Mimpimanyeto ya ku tirhisa ."
+    "termsOfUse": "Mimpimanyeto ya ku tirhisa .",
+    "aboutUs": "Malunghana na hina .",
+    "products": "Swihumelerisiwa ."
   },
   "legals": {
     "applicableLaw": {
@@ -2525,5 +2544,18 @@
       "title": "4. Swipimelo swa kontiraka eka datha ya xithekiniki ."
     },
     "title": "Xitiviso xa nawu ."
+  },
+  "Home": {
+    "Banner": {
+      "noTitle": "Ku hava xihloko ."
+    }
+  },
+  "admin": {
+    "support": {
+      "inbox": {
+        "noMobileSupport": "Sorry, xiyenge lexi a xi kumeki eka mobile.",
+        "noMobileSupportDescription": "Ku nghena eka Admin Inbox na Mathikithi, hi kombela u tirhisa khompyuta ya desktop."
+      }
+    }
   }
 }

@@ -42,9 +42,9 @@ export default function SubscriptionsStats() {
   }
 
   return (
-    <div className="space-y-4 p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
+    <div className="space-y-4 p-2 sm:p-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
           <PeriodFilter
             value={filters}
             onChange={(newFilters) =>
@@ -57,7 +57,7 @@ export default function SubscriptionsStats() {
             variant="outline"
             size="sm"
             className={cn(
-              "flex items-center gap-2",
+              "flex items-center gap-2 w-full sm:w-auto",
               filters.realTime && "bg-primary text-primary-foreground"
             )}
             onClick={() =>
@@ -70,7 +70,7 @@ export default function SubscriptionsStats() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <StatCard
           title={t("totalSubscriptions")}
           value={data?.totalSubscriptions || 0}
@@ -91,7 +91,7 @@ export default function SubscriptionsStats() {
         />
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         <Camembert
           data={data?.statusDistribution?.map((item) => ({
             name: t(`status.${item._id}`),
@@ -121,46 +121,48 @@ export default function SubscriptionsStats() {
             <CardTitle>{t("topProducts")}</CardTitle>
           </CardHeader>
           <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>{t("table.product")}</TableHead>
-                  <TableHead className="text-right">
-                    {t("table.subscriptionCount")}
-                  </TableHead>
-                  <TableHead className="text-right">
-                    {t("table.totalQuantity")}
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {isLoading ? (
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
                   <TableRow>
-                    <TableCell colSpan={3}>
-                      <div className="space-y-2">
-                        <Skeleton className="h-4 w-full" />
-                        <Skeleton className="h-4 w-full" />
-                        <Skeleton className="h-4 w-full" />
-                      </div>
-                    </TableCell>
+                    <TableHead>{t("table.product")}</TableHead>
+                    <TableHead className="text-right">
+                      {t("table.subscriptionCount")}
+                    </TableHead>
+                    <TableHead className="text-right">
+                      {t("table.totalQuantity")}
+                    </TableHead>
                   </TableRow>
-                ) : (
-                  data?.topProducts?.map((product) => (
-                    <TableRow key={product.productId}>
-                      <TableCell>
-                        {getLocalizedValue(product.productName, locale)}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        {product.subscriptionCount}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        {product.totalQuantity}
+                </TableHeader>
+                <TableBody>
+                  {isLoading ? (
+                    <TableRow>
+                      <TableCell colSpan={3}>
+                        <div className="space-y-2">
+                          <Skeleton className="h-4 w-full" />
+                          <Skeleton className="h-4 w-full" />
+                          <Skeleton className="h-4 w-full" />
+                        </div>
                       </TableCell>
                     </TableRow>
-                  ))
-                )}
-              </TableBody>
-            </Table>
+                  ) : (
+                    data?.topProducts?.map((product) => (
+                      <TableRow key={product.productId}>
+                        <TableCell>
+                          {getLocalizedValue(product.productName, locale)}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {product.subscriptionCount}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {product.totalQuantity}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+              </Table>
+            </div>
           </CardContent>
         </Card>
       </div>

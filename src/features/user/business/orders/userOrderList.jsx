@@ -70,9 +70,7 @@ export default function UserOrderList() {
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="font-medium">
-          #{formatIdForDisplay(row.original)}
-        </div>
+        <div className="font-medium">#{formatIdForDisplay(row.original)}</div>
       ),
     },
     {
@@ -139,8 +137,8 @@ export default function UserOrderList() {
   })
 
   return (
-    <div className="space-y-6">
-      <div className="rounded-md border">
+    <div className="space-y-6 grid">
+      <div className="rounded-md border overflow-auto">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -212,7 +210,7 @@ export default function UserOrderList() {
       </div>
 
       {data?.total > limit && (
-        <div className="flex justify-center space-x-2">
+        <div className="flex justify-center space-x-2 overflow-auto">
           {Array.from(
             { length: Math.ceil(data.total / limit) },
             (_, i) => i + 1

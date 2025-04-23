@@ -3,7 +3,14 @@
 import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
-import { Search, SquareX, Calendar as CalendarIcon } from "lucide-react"
+import {
+  Search,
+  SquareX,
+  Calendar as CalendarIcon,
+  Filter,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Calendar } from "@/components/ui/calendar"
 import {
@@ -34,12 +41,33 @@ export default function AdminSubscriptionsFilterBar({
   handleResetClick,
 }) {
   const t = useTranslations("Admin.Business.Subscriptions")
+  const [showFilters, setShowFilters] = React.useState(false)
 
   return (
     <div>
-      <div className="flex items-center">
-        <div className="flex items-center space-x-4">
-          <div className="relative w-1/2">
+      <div className="md:hidden mb-4">
+        <Button
+          variant="outline"
+          className="w-full flex justify-between items-center"
+          onClick={() => setShowFilters(!showFilters)}
+        >
+          <span className="flex items-center">
+            <Filter className="mr-2 h-4 w-4" />
+            {t("filters")}
+          </span>
+          {showFilters ? (
+            <ChevronUp className="h-4 w-4" />
+          ) : (
+            <ChevronDown className="h-4 w-4" />
+          )}
+        </Button>
+      </div>
+
+      <div
+        className={cn("flex items-center", !showFilters && "hidden md:flex")}
+      >
+        <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-4 w-full">
+          <div className="relative w-full md:w-1/2">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
             <Input
               placeholder={t("searchPlaceholder")}
@@ -53,12 +81,12 @@ export default function AdminSubscriptionsFilterBar({
               <Button
                 variant={"outline"}
                 className={cn(
-                  "w-[240px] justify-start text-left font-normal",
+                  "w-full md:w-[240px] justify-start text-left font-normal",
                   !date && "text-muted-foreground"
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {date ? format(date, "PPP") : <span>Pick a date</span>}
+                {date ? format(date, "PPP") : <span>{t("pickDate")}</span>}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
@@ -70,13 +98,22 @@ export default function AdminSubscriptionsFilterBar({
               />
             </PopoverContent>
           </Popover>
-          <Button variant="outline" onClick={handleResetClick}>
+          <Button
+            variant="outline"
+            onClick={handleResetClick}
+            className="w-full md:w-auto"
+          >
             <SquareX className="mr-2 h-4 w-4" />
-            Reset Filters
+            {t("resetFilters")}
           </Button>
         </div>
       </div>
-      <div className="flex flex-wrap items-center space-x-2 w-full mt-4">
+      <div
+        className={cn(
+          "items-center space-y-2 md:space-y-0 md:space-x-2 w-full mt-4",
+          !showFilters && "hidden md:flex"
+        )}
+      >
         {subscriptionStatuses.map((subscriptionStatus) => (
           <Button
             key={subscriptionStatus.value}
@@ -85,7 +122,7 @@ export default function AdminSubscriptionsFilterBar({
               status === subscriptionStatus.value
                 ? "bg-black text-white"
                 : "bg-white text-black hover:text-white"
-            } flex-grow`}
+            } w-full md:flex-grow mb-2 md:mb-0`}
           >
             {t(`Status.${subscriptionStatus.value}`)}
           </Button>

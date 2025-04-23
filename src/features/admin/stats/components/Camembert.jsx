@@ -25,11 +25,11 @@ export default function Camembert({
       </CardHeader>
       <CardContent>
         {isLoading ? (
-          <div className="w-full h-[300px] flex items-center justify-center">
-            <Skeleton className="w-[300px] h-[300px] rounded-full" />
+          <div className="w-full h-[250px] sm:h-[300px] flex items-center justify-center">
+            <Skeleton className="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] rounded-full" />
           </div>
         ) : (
-          <div className="w-full h-[300px]">
+          <div className="w-full h-[250px] sm:h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -37,7 +37,7 @@ export default function Camembert({
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  outerRadius={80}
+                  outerRadius={60}
                   fill="#8884d8"
                   dataKey={dataKey}
                   nameKey={nameKey}
@@ -53,7 +53,12 @@ export default function Camembert({
                   ))}
                 </Pie>
                 <Tooltip />
-                <Legend />
+                <Legend
+                  layout="horizontal"
+                  verticalAlign="bottom"
+                  align="center"
+                  wrapperStyle={{ fontSize: "12px" }}
+                />
               </PieChart>
             </ResponsiveContainer>
           </div>

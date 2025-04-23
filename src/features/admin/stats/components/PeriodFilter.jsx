@@ -11,12 +11,12 @@ export default function PeriodFilter({ value, onChange, showGroupBy = true }) {
   const t = useTranslations("Admin.Stats")
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
       <Select
         value={value.period}
         onValueChange={(val) => onChange({ ...value, period: val })}
       >
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-full sm:w-[180px]">
           <SelectValue placeholder={t("period")} />
         </SelectTrigger>
         <SelectContent>
@@ -31,7 +31,7 @@ export default function PeriodFilter({ value, onChange, showGroupBy = true }) {
           value={value.groupBy}
           onValueChange={(val) => onChange({ ...value, groupBy: val })}
         >
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-full sm:w-[180px]">
             <SelectValue placeholder={t("groupBy")} />
           </SelectTrigger>
           <SelectContent>

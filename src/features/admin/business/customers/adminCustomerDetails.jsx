@@ -131,7 +131,7 @@ export default function AdminCustomerDetails() {
 
       <Card>
         <CardContent className="mt-3">
-          <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row justify-between">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-3 w-full items-center">
               <div className="space-y-2">
                 <p className="text-sm font-medium text-gray-500">
@@ -186,7 +186,7 @@ export default function AdminCustomerDetails() {
                 <p className="text-sm">{customer.company}</p>
               </div>
             </div>
-            <div className="w-[500px]">
+            <div className="w-full md:w-[500px] mt-6 md:mt-0">
               <h1 className="text-lg font-semibold">{t("actions")}</h1>
               <div className="gap-2 flex flex-col mt-2">
                 <Button

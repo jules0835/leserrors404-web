@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint-disable max-lines-per-function */
 "use client"
 import * as React from "react"
@@ -17,6 +18,8 @@ import {
   SquareX,
   CalendarIcon,
   RefreshCcw,
+  Filter,
+  ChevronUp,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -66,6 +69,7 @@ export default function LogsList() {
   const [selectedLogKeys, setSelectedLogKeys] = useState([])
   const [selectedCriticalityKey, setSelectedCriticalityKey] = useState("")
   const [isReloading, setIsReloading] = useState(false)
+  const [showFilters, setShowFilters] = useState(false)
   const [columnVisibility, setColumnVisibility] = useState({
     logLevel: true,
     logKey: true,
@@ -293,7 +297,95 @@ export default function LogsList() {
 
   return (
     <div className="w-full">
-      <div className="flex items-center py-4">
+      <div className="md:hidden mb-4">
+        <Button
+          variant="outline"
+          className="w-full flex justify-between items-center mb-2"
+          onClick={() => setShowFilters(!showFilters)}
+        >
+          <span className="flex items-center">
+            <Filter className="mr-2 h-4 w-4" />
+            {t("filters")}
+          </span>
+          {showFilters ? (
+            <ChevronUp className="h-4 w-4" />
+          ) : (
+            <ChevronDown className="h-4 w-4" />
+          )}
+        </Button>
+
+        {showFilters && (
+          <div className="flex flex-col space-y-2">
+            <Input
+              placeholder={t("searchPlaceholder")}
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              className="w-full"
+            />
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant={"outline"} className="w-full">
+                  {selectedDate ? (
+                    format(selectedDate, "PPP")
+                  ) : (
+                    <span>{t("pickDate")}</span>
+                  )}
+                  <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0" align="start">
+                <Calendar
+                  mode="single"
+                  selected={selectedDate}
+                  onSelect={setSelectedDate}
+                  disabled={(date) =>
+                    date > new Date() || date < new Date("1900-01-01")
+                  }
+                  initialFocus
+                />
+              </PopoverContent>
+            </Popover>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="w-full">
+                  {t("columns")} <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {table
+                  .getAllColumns()
+                  .filter((column) => column.getCanHide())
+                  .map((column) => (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      checked={column.getIsVisible()}
+                      onCheckedChange={(value) =>
+                        column.toggleVisibility(Boolean(value))
+                      }
+                    >
+                      {t(column.id)}
+                    </DropdownMenuCheckboxItem>
+                  ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <div className="flex space-x-2">
+              <Button variant="outline" className="flex-1" onClick={reloadData}>
+                {isReloading ? <AnimatedReload /> : <RefreshCcw />}
+              </Button>
+              <Button
+                variant="outline"
+                className="flex-1"
+                onClick={handleResetClick}
+              >
+                <SquareX />
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="hidden md:flex items-center py-4">
         <Input
           placeholder={t("searchPlaceholder")}
           value={query}
@@ -354,6 +446,7 @@ export default function LogsList() {
           <SquareX />
         </Button>
       </div>
+
       <div className="w-full">
         <LogsFilterBar
           onFilterChange={handleFilterChange}
@@ -364,8 +457,9 @@ export default function LogsList() {
           setSelectedCriticalityKey={setSelectedCriticalityKey}
         />
       </div>
-      <div className="rounded-md border mt-4 overflow-x-auto">
-        <Table>
+
+      <div className="rounded-md border mt-4 grid">
+        <Table className="overflow-auto">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -449,6 +543,7 @@ export default function LogsList() {
           </TableBody>
         </Table>
       </div>
+
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="space-x-2">
           <Button
