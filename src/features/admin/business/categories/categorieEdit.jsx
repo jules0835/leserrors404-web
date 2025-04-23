@@ -40,8 +40,14 @@ const CategorieEdit = ({ setCategories, editCategory, setEditCategory }) => {
   useEffect(() => {
     if (editCategory) {
       setFormData({
-        label: JSON.parse(editCategory.label),
-        description: JSON.parse(editCategory.description),
+        label:
+          typeof editCategory.label === "string"
+            ? JSON.parse(editCategory.label)
+            : editCategory.label,
+        description:
+          typeof editCategory.description === "string"
+            ? JSON.parse(editCategory.description)
+            : editCategory.description,
         isActive: editCategory.isActive,
         image: null,
       })

@@ -205,7 +205,20 @@
           "subTitle": "Verwalten Sie Benutzerdetails, Rollen und Berechtigungen"
         },
         "subTitle": "Verwalten Sie den Inhalt der Startseite, Karussell, Alarm und mehr",
-        "title": "Homepage -Einstellungen"
+        "title": "Homepage -Einstellungen",
+        "Banner": {
+          "active": "Aktiv",
+          "description": "Beschreibung",
+          "descriptionPlaceholder": "Beschreibung des Banners",
+          "error": "Fehler",
+          "save": "Speichern",
+          "saved": "Gerettet",
+          "saving": "Rettung von Alarmbanner",
+          "style": "Stil",
+          "title": "Titel",
+          "titlePlaceholder": "Der Titel des Banners",
+          "titleSection": "Alarmbanner"
+        }
       },
       "Categories": {
         "Add": {
@@ -694,7 +707,8 @@
         "yes": "Ja",
         "author": "Autor",
         "authorName": "Autor",
-        "latestLogs": "Neueste Protokolle"
+        "latestLogs": "Neueste Protokolle",
+        "filters": "Filter"
       }
     },
     "Business": {
@@ -816,7 +830,8 @@
         "total": "Gesamt",
         "viewDetails": "Details anzeigen",
         "customer": "Kunde",
-        "latestOrders": "Neueste Bestellungen"
+        "latestOrders": "Neueste Bestellungen",
+        "filters": "Filter"
       },
       "Payments": {
         "title": "Zahlungen",
@@ -998,7 +1013,8 @@
         "resetFilters": "Filter zurücksetzen",
         "searchPlaceholder": "Suche nach ID, Name oder E -Mail ...",
         "subTitle": "Abonnements verwalten",
-        "subscriptionId": "Abonnement -ID"
+        "subscriptionId": "Abonnement -ID",
+        "filters": "Filter"
       },
       "title": "Geschäft",
       "Categories": {
@@ -1947,7 +1963,8 @@
       "SELECT_ORDER": "Um Ihnen zu helfen, wählen Sie bitte eine Bestellung zu Ihrer Frage aus, indem Sie auf die Schaltfläche unten klicken",
       "SELECT_SUBSCRIPTION": "Um Ihnen zu helfen, wählen Sie bitte ein Abonnement für Ihre Frage aus, indem Sie auf die Schaltfläche unten klicken",
       "ticketId": "Ticket -ID",
-      "title": "Benutzereingang"
+      "title": "Benutzereingang",
+      "allOpenInbox": "Siehe andere Tickets"
     }
   },
   "pagesNames": {
@@ -2452,7 +2469,9 @@
     "allRightsReserved": "Alle Rechte vorbehalten",
     "contact": "Kontakt",
     "legalNotice": "Rechtliche Bekanntmachung",
-    "termsOfUse": "Nutzungsbedingungen"
+    "termsOfUse": "Nutzungsbedingungen",
+    "aboutUs": "Über uns",
+    "products": "Produkte"
   },
   "legals": {
     "applicableLaw": {
@@ -2525,5 +2544,18 @@
       "title": "4. Vertragliche Einschränkungen für technische Daten"
     },
     "title": "Rechtliche Bekanntmachung"
+  },
+  "Home": {
+    "Banner": {
+      "noTitle": "Kein Titel"
+    }
+  },
+  "admin": {
+    "support": {
+      "inbox": {
+        "noMobileSupport": "Entschuldigung, diese Funktion ist auf Mobilgeräten nicht verfügbar.",
+        "noMobileSupportDescription": "Um auf den Administratoreingang und Tickets zuzugreifen, verwenden Sie bitte einen Desktop -Computer."
+      }
+    }
   }
 }

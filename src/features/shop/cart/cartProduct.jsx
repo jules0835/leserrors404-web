@@ -85,9 +85,9 @@ export default function CartProduct({
   return (
     <div>
       <Card className="p-4 hover:shadow-lg transition-shadow">
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col md:flex-row items-center gap-4">
           <div
-            className={`flex-1 flex items-center gap-4 ${
+            className={`flex-1 flex flex-col md:flex-row items-center md:items-start gap-4 ${
               !item.product.isActive || isOutOfStock ? "opacity-50" : ""
             }`}
           >
@@ -98,9 +98,9 @@ export default function CartProduct({
               height={120}
               className="rounded-lg object-cover"
             />
-            <div className="flex-1 space-y-2">
-              <div className="flex justify-between items-start">
-                <div className="space-y-2">
+            <div className="flex-1 space-y-2 w-full">
+              <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-2">
+                <div className="space-y-2 text-center md:text-left w-full">
                   <h3
                     className="font-semibold text-lg hover:underline cursor-pointer"
                     onClick={() =>
@@ -109,7 +109,7 @@ export default function CartProduct({
                   >
                     {item.product.label.en}
                   </h3>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap justify-center md:justify-start gap-2">
                     <Badge
                       variant={
                         item.product.subscription ? "default" : "secondary"
@@ -144,7 +144,7 @@ export default function CartProduct({
                     )}
                   </div>
                   {(isOutOfStock || isQuantityExceedingStock) && (
-                    <div className="flex items-center gap-2 text-red-600 text-sm mt-2">
+                    <div className="flex items-center gap-2 text-red-600 text-sm mt-2 justify-center md:justify-start">
                       <AlertCircle className="h-4 w-4" />
                       <span>
                         {isOutOfStock
@@ -154,7 +154,7 @@ export default function CartProduct({
                     </div>
                   )}
                 </div>
-                <div className="text-right">
+                <div className="text-center md:text-right w-full md:w-auto">
                   {item.quantity > 1 ? (
                     <div className="space-y-1">
                       {getTotalPriceDisplay()}
@@ -167,7 +167,7 @@ export default function CartProduct({
                   )}
                 </div>
               </div>
-              <div className="flex items-center gap-4 mt-2">
+              <div className="flex flex-col md:flex-row items-center gap-4 mt-2 justify-center md:justify-start">
                 <div className="flex items-center border rounded-md">
                   <Button
                     variant="ghost"
@@ -223,6 +223,7 @@ export default function CartProduct({
             size="icon"
             onClick={() => handleRemoveProduct(item.product._id)}
             disabled={isUpdating}
+            className="self-end md:self-start"
           >
             <Trash2 className="h-4 w-4" />
           </Button>

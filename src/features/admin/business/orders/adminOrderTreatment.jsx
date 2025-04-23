@@ -184,7 +184,7 @@ export default function AdminOrderTreatment({ order, orderId }) {
         open={isSuspensionDialogOpen}
         onOpenChange={setIsSuspensionDialogOpen}
       >
-        <DialogContent>
+        <DialogContent className="w-full max-w-md mx-auto">
           <DialogHeader>
             <DialogTitle>{t("suspendOrderTitle")}</DialogTitle>
             <DialogDescription>
@@ -197,17 +197,19 @@ export default function AdminOrderTreatment({ order, orderId }) {
             placeholder={t("suspendOrderReasonPlaceholder")}
             required
           />
-          <DialogFooter>
+          <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0">
             <Button
               variant="outline"
               onClick={() => setIsSuspensionDialogOpen(false)}
               disabled={isLoading}
+              className="w-full sm:w-auto"
             >
               {t("cancel")}
             </Button>
             <Button
               onClick={handleSuspendOrder}
               disabled={!suspensionReason || isLoading}
+              className="w-full sm:w-auto"
             >
               {isLoading ? t("loading") : t("confirm")}
             </Button>

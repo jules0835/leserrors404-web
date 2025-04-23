@@ -126,24 +126,27 @@ export default function UserPaymentPortal() {
   const totalPages = Math.ceil(invoices.length / itemsPerPage)
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
-        <div className="flex items-center justify-between">
-          <div className="space-y-2">
+    <div className="space-y-6 px-4">
+      <Card className="p-4 md:p-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-2 text-center md:text-left">
             <h2 className="text-2xl font-bold">{t("paymentPortal")}</h2>
             <p className="text-muted-foreground">
               {t("paymentPortalDescription")}
             </p>
           </div>
-          <DButton
-            onClickBtn={() => openPortal()}
-            isDisabled={!hasPortalAccess || isOpeningPortal}
-            isLoading={isOpeningPortal}
-            isMain
-          >
-            <ExternalLink className="mr-2 h-4 w-4" />
-            {t("openStripePortal")}
-          </DButton>
+          <div className="flex justify-center md:justify-start">
+            <DButton
+              onClickBtn={() => openPortal()}
+              isDisabled={!hasPortalAccess || isOpeningPortal}
+              isLoading={isOpeningPortal}
+              isMain
+              className="w-full md:w-auto"
+            >
+              <ExternalLink className="mr-2 h-4 w-4" />
+              {t("openStripePortal")}
+            </DButton>
+          </div>
         </div>
         {!hasPortalAccess && (
           <Alert className="mt-4 border-green-500">
@@ -156,8 +159,8 @@ export default function UserPaymentPortal() {
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card className="p-6">
-          <div className="flex items-center gap-2 mb-4">
+        <Card className="p-4 md:p-6">
+          <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
             <CreditCard className="h-5 w-5" />
             <h3 className="text-lg font-semibold">
               {t("savedPaymentMethods")}
@@ -172,9 +175,9 @@ export default function UserPaymentPortal() {
               paymentMethods.map((method) => (
                 <div
                   key={method.id}
-                  className="flex items-center justify-between p-3 border rounded-lg"
+                  className="flex flex-col md:flex-row items-center justify-between p-3 border rounded-lg text-center md:text-left"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-col md:flex-row items-center gap-3 mb-2 md:mb-0">
                     <CreditCard className="h-5 w-5" />
                     <div>
                       <p className="font-medium">
@@ -192,8 +195,8 @@ export default function UserPaymentPortal() {
           </div>
         </Card>
 
-        <Card className="p-6">
-          <div className="flex items-center gap-2 mb-4">
+        <Card className="p-4 md:p-6">
+          <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
             <Receipt className="h-5 w-5" />
             <h3 className="text-lg font-semibold">{t("invoices")}</h3>
           </div>
@@ -203,56 +206,67 @@ export default function UserPaymentPortal() {
             </p>
           ) : (
             <>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>{t("date")}</TableHead>
-                    <TableHead>{t("amount")}</TableHead>
-                    <TableHead>{t("status")}</TableHead>
-                    <TableHead className="text-right">{t("actions")}</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {paginatedInvoices.map((invoice) => (
-                    <TableRow key={invoice.id}>
-                      <TableCell>
-                        {format(new Date(invoice.created * 1000), "PPP")}
-                      </TableCell>
-                      <TableCell>
-                        {(invoice.amount_paid / 100).toFixed(2)}{" "}
-                        {invoice.currency.toUpperCase()}
-                      </TableCell>
-                      <TableCell>
-                        <span
-                          className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                            invoice.status === "paid"
-                              ? "bg-green-100 text-green-800"
-                              : "bg-yellow-100 text-yellow-800"
-                          }`}
-                        >
-                          {invoice.status}
-                        </span>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <DButton
-                          onClickBtn={() => openInvoice(invoice.id)}
-                          isDisabled={isOpeningInvoice}
-                          isLoading={isOpeningInvoice}
-                          variant="outline"
-                          size="sm"
-                        >
-                          <ArrowRight className="mr-2 h-4 w-4" />
-                          {t("viewInvoice")}
-                        </DButton>
-                      </TableCell>
+              <div>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="text-center md:text-left">
+                        {t("date")}
+                      </TableHead>
+                      <TableHead className="text-center md:text-left">
+                        {t("amount")}
+                      </TableHead>
+                      <TableHead className="text-center md:text-left">
+                        {t("status")}
+                      </TableHead>
+                      <TableHead className="text-center md:text-right">
+                        {t("actions")}
+                      </TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {paginatedInvoices.map((invoice) => (
+                      <TableRow key={invoice.id}>
+                        <TableCell className="text-center md:text-left">
+                          {format(new Date(invoice.created * 1000), "PPP")}
+                        </TableCell>
+                        <TableCell className="text-center md:text-left">
+                          {(invoice.amount_paid / 100).toFixed(2)}{" "}
+                          {invoice.currency.toUpperCase()}
+                        </TableCell>
+                        <TableCell className="text-center md:text-left">
+                          <span
+                            className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                              invoice.status === "paid"
+                                ? "bg-green-100 text-green-800"
+                                : "bg-yellow-100 text-yellow-800"
+                            }`}
+                          >
+                            {invoice.status}
+                          </span>
+                        </TableCell>
+                        <TableCell className="text-center md:text-right">
+                          <DButton
+                            onClickBtn={() => openInvoice(invoice.id)}
+                            isDisabled={isOpeningInvoice}
+                            isLoading={isOpeningInvoice}
+                            variant="outline"
+                            size="sm"
+                            className="w-full md:w-auto"
+                          >
+                            <ArrowRight className="mr-2 h-4 w-4" />
+                            {t("viewInvoice")}
+                          </DButton>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
 
               <div className="space-y-4">
                 {totalPages > 1 && (
-                  <div className="flex items-center justify-end space-x-2 py-4">
+                  <div className="flex items-center justify-center md:justify-end space-x-2 py-4">
                     <DButton
                       onClickBtn={() =>
                         setCurrentPage((prev) => Math.max(prev - 1, 1))
@@ -260,6 +274,7 @@ export default function UserPaymentPortal() {
                       isDisabled={currentPage === 1}
                       variant="outline"
                       size="sm"
+                      className="w-full md:w-auto"
                     >
                       {t("previous")}
                     </DButton>
@@ -270,6 +285,7 @@ export default function UserPaymentPortal() {
                       isDisabled={currentPage === totalPages}
                       variant="outline"
                       size="sm"
+                      className="w-full md:w-auto"
                     >
                       {t("next")}
                     </DButton>

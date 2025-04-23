@@ -205,7 +205,20 @@
           "subTitle": "Gestisci i dettagli, i ruoli e le autorizzazioni dell'utente"
         },
         "subTitle": "Gestisci il contenuto della home page, il carosello, gli avvisi e altro ancora",
-        "title": "Impostazioni della home page"
+        "title": "Impostazioni della home page",
+        "Banner": {
+          "active": "Attivo",
+          "description": "Descrizione",
+          "descriptionPlaceholder": "Descrizione del banner",
+          "error": "Errore",
+          "save": "Salvare",
+          "saved": "Salvato",
+          "saving": "Risparmio di allerta banner",
+          "style": "Stile",
+          "title": "Titolo",
+          "titlePlaceholder": "Il titolo del banner",
+          "titleSection": "Banner di allerta"
+        }
       },
       "Categories": {
         "Add": {
@@ -508,7 +521,8 @@
         "total": "Totale",
         "viewDetails": "Visualizza i dettagli",
         "customer": "Cliente",
-        "latestOrders": "Ultimi ordini"
+        "latestOrders": "Ultimi ordini",
+        "filters": "Filtri"
       },
       "Payments": {
         "title": "Pagamenti",
@@ -690,7 +704,8 @@
         "resetFilters": "Ripristina i filtri",
         "searchPlaceholder": "Cerca per ID, nome o e -mail ...",
         "subTitle": "Gestisci abbonamenti",
-        "subscriptionId": "ID abbonamento"
+        "subscriptionId": "ID abbonamento",
+        "filters": "Filtri"
       },
       "title": "Attività commerciale",
       "Categories": {
@@ -1077,7 +1092,8 @@
         "yes": "SÌ",
         "author": "Autore",
         "authorName": "Autore",
-        "latestLogs": "Ultimi registri"
+        "latestLogs": "Ultimi registri",
+        "filters": "Filtri"
       },
       "Users": {
         "User": {
@@ -1947,7 +1963,8 @@
       "SELECT_ORDER": "Per aiutarti, seleziona un ordine relativo alla tua domanda facendo clic sul pulsante seguente",
       "SELECT_SUBSCRIPTION": "Per aiutarti, selezionare un abbonamento relativo alla tua domanda facendo clic sul pulsante seguente",
       "ticketId": "Ticket ID",
-      "title": "Posta in arrivo dell'utente"
+      "title": "Posta in arrivo dell'utente",
+      "allOpenInbox": "Vedi altri biglietti"
     }
   },
   "pagesNames": {
@@ -2452,7 +2469,9 @@
     "allRightsReserved": "Tutti i diritti riservati",
     "contact": "Contatto",
     "legalNotice": "Avviso legale",
-    "termsOfUse": "Termini di utilizzo"
+    "termsOfUse": "Termini di utilizzo",
+    "aboutUs": "Chi siamo",
+    "products": "Prodotti"
   },
   "legals": {
     "applicableLaw": {
@@ -2525,5 +2544,18 @@
       "title": "4. Limitazioni contrattuali sui dati tecnici"
     },
     "title": "Avviso legale"
+  },
+  "Home": {
+    "Banner": {
+      "noTitle": "Nessun titolo"
+    }
+  },
+  "admin": {
+    "support": {
+      "inbox": {
+        "noMobileSupport": "Spiacenti, questa funzione non è disponibile sul cellulare.",
+        "noMobileSupportDescription": "Per accedere alla posta in arrivo e ai biglietti amministrativi, utilizzare un computer desktop."
+      }
+    }
   }
 }

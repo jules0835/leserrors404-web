@@ -40,7 +40,7 @@ export default function UserDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <Card
           className="cursor-pointer transition-all hover:scale-105 hover:shadow-lg"
           onClick={() => router.push("/user/dashboard/business/orders")}
@@ -123,19 +123,23 @@ export default function UserDashboard() {
         </Card>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>{t("recentOrders")}</CardTitle>
+            <CardTitle className="text-center md:text-left">
+              {t("recentOrders")}
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="rounded-md border">
+            <div className="rounded-md border overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>{t("orderId")}</TableHead>
+                    <TableHead className="hidden md:table-cell">
+                      {t("orderId")}
+                    </TableHead>
                     <TableHead>{t("status")}</TableHead>
-                    <TableHead>{t("total")}</TableHead>
+                    <TableHead className="">{t("total")}</TableHead>
                     <TableHead className="w-[100px]"></TableHead>
                   </TableRow>
                 </TableHeader>
@@ -157,7 +161,9 @@ export default function UserDashboard() {
                   {!isLoading &&
                     data?.orders?.map((order) => (
                       <TableRow key={order._id}>
-                        <TableCell>#{formatIdForDisplay(order)}</TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          #{formatIdForDisplay(order)}
+                        </TableCell>
                         <TableCell>
                           <Badge
                             variant="outline"
@@ -192,10 +198,12 @@ export default function UserDashboard() {
 
         <Card>
           <CardHeader>
-            <CardTitle>{t("recentSubscriptions")}</CardTitle>
+            <CardTitle className="text-center md:text-left">
+              {t("recentSubscriptions")}
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="rounded-md border">
+            <div className="rounded-md border overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -222,7 +230,7 @@ export default function UserDashboard() {
                   {!isLoading &&
                     data?.subscriptions?.map((subscription) => (
                       <TableRow key={subscription._id}>
-                        <TableCell>
+                        <TableCell className="">
                           {getLocalizedValue(
                             subscription.items[0]?.productId?.label,
                             locale
@@ -261,14 +269,18 @@ export default function UserDashboard() {
       </div>
       <Card>
         <CardHeader>
-          <CardTitle>{t("activeTickets")}</CardTitle>
+          <CardTitle className="text-center md:text-left">
+            {t("activeTickets")}
+          </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="rounded-md border">
+          <div className="rounded-md border overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>{t("ticketId")}</TableHead>
+                  <TableHead className="hidden md:table-cell">
+                    {t("ticketId")}
+                  </TableHead>
                   <TableHead>{t("lastMessage")}</TableHead>
                   <TableHead className="w-[100px]"></TableHead>
                 </TableRow>
@@ -291,7 +303,9 @@ export default function UserDashboard() {
                 {!isLoading &&
                   data?.tickets?.map((ticket) => (
                     <TableRow key={ticket._id}>
-                      <TableCell>#{formatIdForDisplay(ticket)}</TableCell>
+                      <TableCell className="hidden md:table-cell">
+                        #{formatIdForDisplay(ticket)}
+                      </TableCell>
                       <TableCell>
                         {new Date(
                           ticket.messages[ticket.messages.length - 1]?.sendDate

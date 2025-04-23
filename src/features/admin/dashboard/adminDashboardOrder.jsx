@@ -36,8 +36,8 @@ export default function AdminDashboardOrder() {
       <CardHeader>
         <CardTitle>{t("latestOrders")}</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="rounded-md border">
+      <CardContent className="grid">
+        <div className="rounded-md border overflow-auto">
           <Table>
             <TableHeader>
               <TableRow>

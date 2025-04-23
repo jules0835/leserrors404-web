@@ -25,7 +25,7 @@ export const StatCard = ({ title, value, icon, isLoading }) => {
         {icon}
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">{value}</div>
+        <div className="text-xl sm:text-2xl font-bold">{value}</div>
       </CardContent>
     </Card>
   )

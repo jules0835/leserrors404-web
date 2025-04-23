@@ -86,15 +86,23 @@ export default function ShopProductList() {
   return (
     <div>
       {searchQuery && (
-        <h1 className="text-2xl font-bold mb-4">
+        <h1 className="text-xl md:text-2xl font-bold mb-4 text-center md:text-left">
           {t("searchResultsFor")} "{searchQuery}"
         </h1>
       )}
       {!searchQuery && (
-        <h1 className="text-2xl font-bold mb-4">{t("title")}</h1>
+        <h1 className="text-xl md:text-2xl font-bold mb-4 text-center md:text-left">
+          {t("title")}
+        </h1>
       )}
       <div className="mt-4">
-        {isLoading && <GridProductsSkeleton cells={3} rows={2} />}
+        {isLoading && (
+          <GridProductsSkeleton
+            cells={3}
+            rows={2}
+            className="hidden md:block"
+          />
+        )}
         {error && (
           <div className="bg-orange-300 border border-orange-500 m-4 rounded-md">
             <p className="text-center m-2">{t("error")}</p>
@@ -118,6 +126,7 @@ export default function ShopProductList() {
               alt="not found"
               width={600}
               height={600}
+              className="w-full max-w-md"
             />
           </div>
         )}

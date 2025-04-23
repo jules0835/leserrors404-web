@@ -148,18 +148,18 @@ export default function CarouselEditor() {
   }
 
   return (
-    <div className="p-5 border border-gray-200 rounded-md">
+    <div className="p-4 md:p-5 border border-gray-200 rounded-md">
       {error && <div>Error: {error.message}</div>}
       {!isLoading && (
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-0 md:space-x-2">
           <SettingsToolbar
             addAction={addNewPart}
             desactivationAction={changeIsActive}
             activationAction={changeIsActive}
             isActive={carousel?.isActive || false}
           />
-          <h3>
-            - {t("Carousel.isActualState")}{" "}
+          <h3 className="text-center md:text-left">
+            {t("Carousel.isActualState")}{" "}
             <span
               className={`${
                 carousel?.isActive ? "text-green-500" : "text-orange-500"
@@ -173,7 +173,7 @@ export default function CarouselEditor() {
         </div>
       )}
       {carousel && !isLoading && (
-        <div className="grid grid-cols-1 gap-2 mt-5">
+        <div className="grid grid-cols-1 gap-4 mt-5">
           {carousel?.carouselParts?.map((part) => (
             <CarouselPartEditor
               key={part.partId}
@@ -191,7 +191,7 @@ export default function CarouselEditor() {
       {carousel &&
         !isLoading &&
         (carousel?.carouselParts?.length === 0 || !carousel?.carouselParts) && (
-          <div>
+          <div className="mt-5">
             <h3 className="text-center text-gray-500">{t("Carousel.empty")}</h3>
           </div>
         )}

@@ -107,49 +107,49 @@ export default function AdminSubscriptionDetails() {
 
   return (
     <div className="space-y-6">
-      <Card className="p-6">
-        <div className="grid grid-cols-3 gap-4">
-          <div>
+      <Card className="p-4 md:p-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="mb-4 md:mb-0">
             <Badge
               className={getSubscriptionStatusColor(subscription.stripe.status)}
             >
               {t(`Status.${subscription.stripe.status}`)}
             </Badge>
-            <h2 className="font-semibold mb-2">
+            <h2 className="font-semibold mb-2 mt-2">
               {t("subscriptionInformation")}
             </h2>
-            <p>
+            <p className="mb-1">
               {t("subscriptionId")}: #{formatIdForDisplay(subscription)}
             </p>
-            <p>
+            <p className="mb-1">
               {t("periodStart")}:{" "}
               {format(new Date(subscription.stripe.periodStart), "PPP")}
             </p>
-            <p>
+            <p className="mb-1">
               {t("periodEnd")}:{" "}
               {format(new Date(subscription.stripe.periodEnd), "PPP")}
             </p>
             {subscription.stripe.canceledAt && (
-              <p>
+              <p className="mb-1">
                 {t("canceledAt")}:{" "}
                 {format(new Date(subscription.stripe.canceledAt), "PPP")}
               </p>
             )}
           </div>
-          <div>
+          <div className="mb-4 md:mb-0">
             <h2 className="font-semibold mb-2">{t("customerInformation")}</h2>
-            <p>
+            <p className="mb-1">
               {t("name")}: {subscription.user.firstName}{" "}
               {subscription.user.lastName}
             </p>
-            <p>
+            <p className="mb-1">
               {t("email")}: {subscription.user.email}
             </p>
-            <p>
+            <p className="mb-1">
               {t("customerId")}: #{subscription.stripe.customerId}
             </p>
             {subscription.stripe.defaultPaymentMethod && (
-              <p>
+              <p className="mb-1">
                 {t("defaultPaymentMethod")}:{" "}
                 {subscription.stripe.defaultPaymentMethod}
               </p>
@@ -165,6 +165,7 @@ export default function AdminSubscriptionDetails() {
                   `/admin/business/orders/${subscription.orderId._id}`
                 )
               }}
+              className="w-full md:w-auto"
             >
               {t("viewOrder")}
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -177,11 +178,17 @@ export default function AdminSubscriptionDetails() {
                   `/admin/business/customers/${subscription.user._id}`
                 )
               }}
+              className="w-full md:w-auto"
             >
               {t("viewCustomer")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="outline" onClick={openInvoice} size="sm">
+            <Button
+              variant="outline"
+              onClick={openInvoice}
+              size="sm"
+              className="w-full md:w-auto"
+            >
               {t("openInvoice")}
               {isFetchingInvoice ? (
                 <AnimatedReload />
@@ -193,6 +200,7 @@ export default function AdminSubscriptionDetails() {
               variant="outline"
               onClick={openSubscriptionStripe}
               size="sm"
+              className="w-full md:w-auto"
             >
               {t("openSubscriptionStripe")}
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -202,6 +210,7 @@ export default function AdminSubscriptionDetails() {
                 variant="destructive"
                 onClick={() => setShowCancelDialog(true)}
                 size="sm"
+                className="w-full md:w-auto"
               >
                 {t("cancelSubscription")}
               </Button>
@@ -215,22 +224,22 @@ export default function AdminSubscriptionDetails() {
         )}
       </Card>
 
-      <Card className="p-6">
+      <Card className="p-4 md:p-6">
         <h2 className="font-semibold mb-4">{t("products")}</h2>
         <div className="space-y-4">
           {subscription.items.map((item, index) => (
             <div
               key={index}
-              className="flex justify-between items-center border-b pb-4"
+              className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b pb-4"
             >
-              <div>
+              <div className="mb-2 sm:mb-0">
                 <p className="font-medium">{item.productId.label.en}</p>
                 <p className="text-sm text-gray-500">
                   {t("quantity")}: {item.stripe.quantity} | {t("billingCycle")}:{" "}
                   {item.billingCycle}
                 </p>
               </div>
-              <div className="text-right">
+              <div className="text-left sm:text-right">
                 <p className="text-sm text-gray-500">
                   {t("stripePriceId")}: {item.stripe.priceId}
                 </p>
@@ -240,19 +249,22 @@ export default function AdminSubscriptionDetails() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card className="p-4 md:p-6">
         <h2 className="font-semibold mb-4">{t("statusHistory")}</h2>
         <div className="space-y-4">
           {subscription.statusHistory
             .slice()
             .reverse()
             .map((status, index) => (
-              <div key={index} className="flex items-center border-b pb-4">
-                <div className="border-r pr-4">
+              <div
+                key={index}
+                className="flex flex-col sm:flex-row sm:items-center border-b pb-4"
+              >
+                <div className="border-r pr-4 mb-2 sm:mb-0">
                   {subscription.statusHistory.length - index}
                 </div>
-                <div className="flex justify-between items-center w-full ml-4">
-                  <div>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full ml-0 sm:ml-4">
+                  <div className="mb-2 sm:mb-0">
                     <Badge
                       className={getSubscriptionStatusColor(status.status)}
                     >
@@ -262,7 +274,7 @@ export default function AdminSubscriptionDetails() {
                       {t("changedBy")}: {status.updatedBy}
                     </p>
                   </div>
-                  <div className="text-right">
+                  <div className="text-left sm:text-right">
                     <p className="text-sm">
                       {format(new Date(status.changedAt), "PPP p")}
                     </p>
@@ -277,7 +289,7 @@ export default function AdminSubscriptionDetails() {
       </Card>
 
       <Dialog open={showCancelDialog} onOpenChange={setShowCancelDialog}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="w-full max-w-md mx-auto">
           <DialogHeader>
             <DialogTitle>{t("cancelSubscriptionTitle")}</DialogTitle>
             <DialogDescription>
@@ -347,11 +359,12 @@ export default function AdminSubscriptionDetails() {
               {t("cancelNowWithoutRefundDescription")}
             </p>
           </div>
-          <DialogFooter>
+          <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0">
             <Button
               variant="secondary"
               onClick={() => setShowCancelDialog(false)}
               disabled={updateMutation.isPending}
+              className="w-full sm:w-auto"
             >
               {t("cancel")}
             </Button>

@@ -137,8 +137,8 @@ export default function UserSubscriptionList() {
   })
 
   return (
-    <div className="space-y-6">
-      <div className="rounded-md border">
+    <div className="space-y-6 grid">
+      <div className="rounded-md border overflow-auto">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

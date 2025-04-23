@@ -67,7 +67,7 @@ export default function ProductCard({ product }) {
     <Card
       className={`text-left flex flex-col h-full ${product.stock <= 0 ? "opacity-50" : ""}`}
     >
-      <CardHeader>
+      <CardHeader className="p-4 md:p-6">
         <CardTitle className="flex items-center h-7">
           <p>
             {trimString(
@@ -78,7 +78,7 @@ export default function ProductCard({ product }) {
           </p>
         </CardTitle>
       </CardHeader>
-      <CardContent className="flex-grow">
+      <CardContent className="flex-grow p-4 md:p-6">
         <div className="flex w-full h-24 justify-center">
           <Image
             src={product.picture || webAppSettings.images.pictureDefaultUrl}
@@ -96,13 +96,14 @@ export default function ProductCard({ product }) {
           )}
         </CardDescription>
       </CardContent>
-      <CardFooter className="flex flex-col justify-between mt-auto">
+      <CardFooter className="flex flex-col justify-between mt-auto p-4 md:p-6">
         <div>{getPriceDisplay(product)}</div>
-        <div className="flex w-full space-x-2">
+        <div className="flex w-full space-x-2 mt-4">
           <div className="flex-grow">
             <DButton
               isMain
               onClickBtn={() => router.push(`/shop/products/${product._id}`)}
+              className="w-full"
             >
               {t("seeMore")}
             </DButton>
@@ -111,6 +112,7 @@ export default function ProductCard({ product }) {
             <DButton
               onClickBtn={() => handleAddToCart(product._id)}
               isDisabled={product.stock <= 0}
+              className="h-full"
             >
               {isLoading ? <AnimatedReload /> : <SquarePlus size={20} />}
             </DButton>

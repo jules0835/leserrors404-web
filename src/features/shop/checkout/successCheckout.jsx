@@ -57,7 +57,7 @@ export default function SuccessCheckout() {
   const hasSubscription = order.stripe?.subscriptionId && order.subscription
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 py-8">
+    <div className="max-w-4xl mx-auto space-y-8 py-8 px-4">
       <div className="text-center space-y-4">
         <div className="flex items-center justify-center space-x-2">
           <CheckCircle2 className="w-12 h-12 text-green-500" />
@@ -68,16 +68,18 @@ export default function SuccessCheckout() {
         <p className="text-lg text-gray-600">{t("orderSuccessMessage")}</p>
       </div>
 
-      <Card className="p-6">
+      <Card className="p-4 md:p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
-            <div>
+            <div className="text-center md:text-left">
               <h2 className="font-semibold text-xl mb-2">
                 {t("orderInformation")}
               </h2>
-              <Badge className={`${getStatusColor(order.orderStatus)} mb-2`}>
-                {order.orderStatus}
-              </Badge>
+              <div className="flex justify-center md:justify-start mb-2">
+                <Badge className={`${getStatusColor(order.orderStatus)}`}>
+                  {order.orderStatus}
+                </Badge>
+              </div>
               <p className="text-gray-600">
                 {t("orderId")}: <span className="font-medium">{order._id}</span>
               </p>
@@ -88,7 +90,7 @@ export default function SuccessCheckout() {
                 </span>
               </p>
             </div>
-            <div>
+            <div className="text-center md:text-left">
               <h2 className="font-semibold text-xl mb-2">
                 {t("billingAddress")}
               </h2>
@@ -107,8 +109,12 @@ export default function SuccessCheckout() {
                 <p className="text-muted-foreground">{t("noBillingAddress")}</p>
               )}
             </div>
-            <div className="flex space-x-3">
-              <Button variant="outline" onClick={() => fetchInvoice()}>
+            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-3">
+              <Button
+                variant="outline"
+                onClick={() => fetchInvoice()}
+                className="w-full md:w-auto"
+              >
                 {isFetchingInvoice ? (
                   <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
                 ) : (
@@ -118,6 +124,7 @@ export default function SuccessCheckout() {
               </Button>
               <Button
                 onClick={() => router.push("/user/dashboard/business/orders")}
+                className="w-full md:w-auto"
               >
                 {t("viewAllOrders")}
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -126,17 +133,19 @@ export default function SuccessCheckout() {
           </div>
 
           {hasSubscription && (
-            <div className="space-y-4">
+            <div className="space-y-4 text-center md:text-left">
               <h2 className="font-semibold text-xl">
                 {t("subscriptionInformation")}
               </h2>
-              <Badge
-                className={getSubscriptionStatusColor(
-                  order.subscription.stripe.status
-                )}
-              >
-                {t(`subscriptionStatus.${order.subscription.stripe.status}`)}
-              </Badge>
+              <div className="flex justify-center md:justify-start">
+                <Badge
+                  className={getSubscriptionStatusColor(
+                    order.subscription.stripe.status
+                  )}
+                >
+                  {t(`subscriptionStatus.${order.subscription.stripe.status}`)}
+                </Badge>
+              </div>
               <p className="text-gray-600">
                 {t("billingPeriod")}:{" "}
                 <span className="font-medium">
@@ -155,6 +164,7 @@ export default function SuccessCheckout() {
                     `/user/dashboard/business/subscriptions/${order.subscription._id}`
                   )
                 }
+                className="w-full md:w-auto"
               >
                 {t("viewSubscription")}
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -164,15 +174,17 @@ export default function SuccessCheckout() {
         </div>
       </Card>
 
-      <Card className="p-6">
-        <h2 className="font-semibold text-xl mb-4">{t("products")}</h2>
+      <Card className="p-4 md:p-6">
+        <h2 className="font-semibold text-xl mb-4 text-center md:text-left">
+          {t("products")}
+        </h2>
         <div className="space-y-4">
           {order.products.map((item, index) => (
             <div
               key={index}
-              className="flex justify-between items-center border-b pb-4"
+              className="flex flex-col md:flex-row justify-between items-center border-b pb-4 text-center md:text-left"
             >
-              <div>
+              <div className="mb-2 md:mb-0">
                 <p className="font-medium">{item.productId.label.en}</p>
                 <p className="text-sm text-gray-500">
                   {t("quantity")}: {item.quantity} | {t("billingCycle")}:{" "}
@@ -215,6 +227,7 @@ export default function SuccessCheckout() {
           variant="outline"
           size="lg"
           onClick={() => router.push("/shop/products")}
+          className="w-full md:w-auto"
         >
           {t("continueShopping")}
           <ArrowRight className="ml-2 h-4 w-4" />

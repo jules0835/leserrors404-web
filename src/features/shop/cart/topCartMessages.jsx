@@ -20,10 +20,10 @@ export default function TopCartMessages({ cart, isLoading, session }) {
         cart?.checkout?.reason === "MIXED_PRODUCT_TYPES" && (
           <Alert variant="destructive" className="border-2">
             <Info className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold">
+            <AlertTitle className="text-lg font-semibold text-center md:text-left">
               {t("mixedProductTypes")}
             </AlertTitle>
-            <AlertDescription className="text-sm">
+            <AlertDescription className="text-sm text-center md:text-left">
               {t("mixedProductTypesSubtitle")}
             </AlertDescription>
           </Alert>
@@ -32,13 +32,13 @@ export default function TopCartMessages({ cart, isLoading, session }) {
         cart?.checkout?.reason === "USER_PROFILE_INCOMPLETE" && (
           <Alert variant="destructive" className="border-2">
             <UserRoundX className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold">
+            <AlertTitle className="text-lg font-semibold text-center md:text-left">
               {t("userProfileIncomplete")}
             </AlertTitle>
-            <AlertDescription className="text-sm">
+            <AlertDescription className="text-sm text-center md:text-left">
               {t("userProfileIncompleteSubtitle")}
             </AlertDescription>
-            <div className="mt-4">
+            <div className="mt-4 flex justify-center md:justify-start">
               <DButton isMain withLink="/user/dashboard/profile">
                 {t("completeProfile")}
               </DButton>
@@ -49,10 +49,10 @@ export default function TopCartMessages({ cart, isLoading, session }) {
         cart?.checkout?.reason === "VOUCHER_NOT_ACTIVE" && (
           <Alert variant="destructive" className="border-2">
             <TicketPercent className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold">
+            <AlertTitle className="text-lg font-semibold text-center md:text-left">
               {t("voucherNotActive")}
             </AlertTitle>
-            <AlertDescription className="text-sm">
+            <AlertDescription className="text-sm text-center md:text-left">
               {t("voucherNotActiveSubtitle")}
             </AlertDescription>
           </Alert>
@@ -61,10 +61,10 @@ export default function TopCartMessages({ cart, isLoading, session }) {
         cart?.checkout?.reason === "PRODUCT_NOT_ACTIVE" && (
           <Alert variant="destructive" className="border-2">
             <FileX2 className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold">
+            <AlertTitle className="text-lg font-semibold text-center md:text-left">
               {t("productNotActive")}
             </AlertTitle>
-            <AlertDescription className="text-sm">
+            <AlertDescription className="text-sm text-center md:text-left">
               {t("productNotActiveSubtitle")}
             </AlertDescription>
           </Alert>
@@ -73,10 +73,10 @@ export default function TopCartMessages({ cart, isLoading, session }) {
         cart?.checkout?.reason === "PRODUCT_OUT_OF_STOCK" && (
           <Alert variant="destructive" className="border-2">
             <AlertCircle className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold">
+            <AlertTitle className="text-lg font-semibold text-center md:text-left">
               {t("productOutOfStock")}
             </AlertTitle>
-            <AlertDescription className="text-sm">
+            <AlertDescription className="text-sm text-center md:text-left">
               {t("productOutOfStockSubtitle")}
             </AlertDescription>
           </Alert>
@@ -85,10 +85,10 @@ export default function TopCartMessages({ cart, isLoading, session }) {
         cart?.checkout?.reason === "PRODUCT_OUT_OF_STOCK_USER_QUANTITY" && (
           <Alert variant="destructive" className="border-2">
             <AlertCircle className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold">
+            <AlertTitle className="text-lg font-semibold text-center md:text-left">
               {t("productOutOfStockUserQuantity")}
             </AlertTitle>
-            <AlertDescription className="text-sm">
+            <AlertDescription className="text-sm text-center md:text-left">
               {t("productOutOfStockUserQuantitySubtitle")}
             </AlertDescription>
           </Alert>
@@ -97,10 +97,10 @@ export default function TopCartMessages({ cart, isLoading, session }) {
         cart?.checkout?.reason === "BILLING_ADDRESS_INCOMPLETE" && (
           <Alert variant="destructive" className="border-2">
             <AlertCircle className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold">
+            <AlertTitle className="text-lg font-semibold text-center md:text-left">
               {t("billingAddressIncomplete")}
             </AlertTitle>
-            <AlertDescription className="text-sm">
+            <AlertDescription className="text-sm text-center md:text-left">
               {t("billingAddressIncompleteSubtitle")}
             </AlertDescription>
           </Alert>
@@ -113,18 +113,18 @@ export default function TopCartMessages({ cart, isLoading, session }) {
           <h1 className="text-lg font-semibold text-center mb-2">
             {t("loginToProceed")}
           </h1>
-          <div className="flex space-x-2">
+          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
             <div className="w-full">
               <DButton
                 isMain
                 withLink="/auth/login"
-                styles={"flex-grow  w-full"}
+                styles={"flex-grow w-full"}
               >
                 {t("login")}
               </DButton>
             </div>
             <div className="w-full">
-              <DButton withLink="/auth/register" styles={"flex-grow  w-full"}>
+              <DButton withLink="/auth/register" styles={"flex-grow w-full"}>
                 {t("register")}
               </DButton>
             </div>

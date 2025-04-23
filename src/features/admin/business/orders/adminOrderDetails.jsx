@@ -106,7 +106,7 @@ export default function AdminOrderDetails() {
   return (
     <div className="space-y-6">
       <Card className="p-6">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <Badge className={getStatusColor(order.orderStatus)}>
               {order.orderStatus}
@@ -184,7 +184,7 @@ export default function AdminOrderDetails() {
           order.orderStatus !== "COMPLETED" &&
           order.orderStatus !== "CANCEL" &&
           order.orderStatus !== "REFUND"
-            ? "grid grid-cols-2 gap-4"
+            ? "grid grid-cols-1 md:grid-cols-2 gap-4"
             : ""
         }
       >
@@ -200,49 +200,49 @@ export default function AdminOrderDetails() {
         <Card className="p-6">
           <h2 className="font-semibold mb-4">{t("paymentInformation")}</h2>
           <div className="space-y-3">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
               <p>{t("subtotal")}</p>
               <p className="text-gray-600">{order.stripe.amountSubtotal}€</p>
             </div>
             {order.stripe.amountTax !== undefined &&
               order.stripe.amountTax !== null && (
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                   <p>{t("tax")}</p>
                   <p className="text-gray-600">{order.stripe.amountTax}€</p>
                 </div>
               )}
             {order.stripe.amountDiscount && (
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                 <p>{t("discount")}</p>
                 <p className="text-gray-600">-{order.stripe.amountDiscount}€</p>
               </div>
             )}
             {order.stripe.voucherCode && (
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                 <p>{t("voucher")}</p>
                 <p className="text-gray-600">{order.stripe.voucherCode}</p>
               </div>
             )}
             <div className="border-t pt-3 mt-3">
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                 <p className="font-semibold">{t("total")}</p>
                 <p className="font-semibold">{order.stripe.amountTotal}€</p>
               </div>
-              <div className="flex justify-between items-center text-sm text-gray-500">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm text-gray-500">
                 <p>{t("currency")}</p>
                 <p>{order.stripe.currency.toUpperCase()}</p>
               </div>
             </div>
 
             <div className="mt-4 pt-4 border-t">
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                 <p>{t("sessionId")}</p>
                 <p className="text-sm text-gray-600">
-                  {trimString(order.stripe.sessionId, 40)}
+                  {trimString(order.stripe.sessionId, 30)}
                 </p>
               </div>
               {order.stripe.paymentIntentId && (
-                <div className="flex justify-between items-center mt-2">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-2">
                   <p>{t("paymentIntentId")}</p>
                   <p className="text-sm text-gray-600">
                     {trimString(order.stripe.paymentIntentId, 40)}
@@ -255,7 +255,7 @@ export default function AdminOrderDetails() {
       </div>
       {hasSubscription && (
         <Card className="p-6">
-          <div className="flex justify-between items-start mb-4">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4">
             <h2 className="font-semibold">{t("subscriptionInformation")}</h2>
             <Button
               variant="outline"
@@ -265,17 +265,18 @@ export default function AdminOrderDetails() {
                   `/admin/business/subscriptions/${order.subscription._id}`
                 )
               }
+              className="mt-2 sm:mt-0"
             >
               {t("viewSubscription")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
           <div className="space-y-2">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
               <p>{t("subscriptionId")}</p>
               <p className="text-gray-600">{order.stripe.subscriptionId}</p>
             </div>
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
               <p>{t("subscriptionStatus")}</p>
               <Badge
                 className={getSubscriptionStatusColor(
@@ -285,7 +286,7 @@ export default function AdminOrderDetails() {
                 {t(`subscriptionStatus.${order.subscription.stripe.status}`)}
               </Badge>
             </div>
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
               <p>{t("billingPeriod")}</p>
               <p className="text-gray-600">
                 {format(new Date(order.subscription.stripe.periodStart), "PPP")}{" "}
@@ -302,7 +303,7 @@ export default function AdminOrderDetails() {
           {order.products.map((item, index) => (
             <div
               key={index}
-              className="flex justify-between items-center border-b pb-4"
+              className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b pb-4"
             >
               <div>
                 <p className="font-medium">{item.productId.label.en}</p>
@@ -311,7 +312,7 @@ export default function AdminOrderDetails() {
                   {item.billingCycle}
                 </p>
               </div>
-              <div className="text-right">
+              <div className="text-right mt-2 sm:mt-0">
                 <p className="font-medium">{item.price}€</p>
                 <p className="text-sm text-gray-500">
                   {t("stripePriceId")}: {item.stripePriceId}
@@ -324,16 +325,19 @@ export default function AdminOrderDetails() {
 
       <Card className="p-6">
         <h2 className="font-semibold mb-4">{t("statusHistory")}</h2>
-        <div className="space-y-4">
+        <div className="space-y-4 grid ">
           {order.statusHistory
             .slice()
             .reverse()
             .map((status, index) => (
-              <div key={index} className="flex items-center border-b pb-4">
-                <div className="border-r pr-4">
+              <div
+                key={index}
+                className="flex flex-col sm:flex-row sm:items-center border-b pb-4 overflow-auto"
+              >
+                <div className="border-r pr-4 mb-2 sm:mb-0">
                   {order.statusHistory.length - index}
                 </div>
-                <div className="flex justify-between items-center w-full ml-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full ml-0 sm:ml-4">
                   <div>
                     <Badge className={getStatusColor(status.status)}>
                       {status.status}
@@ -342,7 +346,7 @@ export default function AdminOrderDetails() {
                       {t("changedBy")}: {status.updatedBy}
                     </p>
                   </div>
-                  <div className="text-right">
+                  <div className="text-right mt-2 sm:mt-0">
                     <p className="text-sm">
                       {format(new Date(status.changedAt), "PPP p")}
                     </p>
