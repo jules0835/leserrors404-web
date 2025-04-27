@@ -76,7 +76,7 @@ export default function UserMessageList({
                     <h3 className="font-medium truncate">
                       {t("adminSupport")}
                     </h3>
-                    <span className="text-xs text-muted-foreground whitespace-nowrap ml-2">
+                    <span className="text-xs text-muted-foreground">
                       {lastMessage &&
                         formatDistanceToNow(new Date(lastMessage?.sendDate), {
                           addSuffix: true,
@@ -93,7 +93,7 @@ export default function UserMessageList({
                           !lastMessage?.isActionDone && (
                             <Badge
                               variant="outline"
-                              className="ml-2 border-orange-300 text-xs"
+                              className="ml-2 border-orange-300"
                             >
                               {t("waitingAction")}
                             </Badge>
@@ -101,7 +101,7 @@ export default function UserMessageList({
                         {lastMessage?.isAction && lastMessage?.isActionDone && (
                           <Badge
                             variant="outline"
-                            className="ml-2 border-green-300 text-xs"
+                            className="ml-2 border-green-300"
                           >
                             {t("actionDone")}
                           </Badge>
@@ -114,10 +114,8 @@ export default function UserMessageList({
                     </div>
                   )}
 
-                  <div className="mt-1 flex items-center gap-2 flex-wrap">
-                    <Badge variant="outline" className="text-xs">
-                      #{formatIdForDisplay(chat)}
-                    </Badge>
+                  <div className="mt-1 flex items-center gap-2">
+                    <Badge variant="outline">#{formatIdForDisplay(chat)}</Badge>
                     {!lastMessage && (
                       <Badge
                         variant="outline"

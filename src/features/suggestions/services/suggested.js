@@ -7,7 +7,10 @@ export const fetchProducts = async () => {
 
   const data = await response.json()
 
-  return data.products || []
+  return {
+    products: data.products || [],
+    subscriptionProducts: data.subscriptionProducts || [],
+  }
 }
 
 export const fetchCategories = async () => {

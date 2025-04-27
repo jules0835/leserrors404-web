@@ -48,19 +48,19 @@ export default function UserChatMessage({
     <div className="space-y-4">
       <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
         <div
-          className={`max-w-[85%] md:max-w-[80%] p-3 rounded-lg ${
+          className={`max-w-[80%] p-3 rounded-lg ${
             isUser
               ? "bg-primary text-primary-foreground rounded-br-none"
               : "bg-muted rounded-bl-none"
           } ${isOptimistic ? "opacity-70" : ""}`}
         >
-          <p className="break-words">{message.message}</p>
+          <p>{message.message}</p>
           {message.isAction && !message.isActionDone && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.2, delay: 0.2 }}
-              className="text-sm mt-2"
+              className="text-sm"
             >
               {t(message.action)}
               <ChatActionButton
@@ -81,7 +81,7 @@ export default function UserChatMessage({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.2, delay: 0.2 }}
-              className="text-sm mt-2"
+              className="text-sm"
             >
               {t(message.action)}
               <Button
@@ -100,7 +100,7 @@ export default function UserChatMessage({
               onClickBtn={() => {
                 window.open(`/${locale}${message.link}`, "_blank")
               }}
-              styles="gap-2 text-xs mt-2"
+              styles="gap-2 text-xs"
             >
               {t("seeLink")}
               <ExternalLink size={18} />
@@ -113,14 +113,14 @@ export default function UserChatMessage({
               onClickBtn={() => {
                 window.open(`${message.link}`, "_blank")
               }}
-              styles="gap-2 text-xs mt-2"
+              styles="gap-2 text-xs"
             >
               {t("seeLink")}
               <ExternalLink size={18} />
             </DButton>
           )}
 
-          <div className={`text-xs mt-2 flex items-center gap-1`}>
+          <div className={`text-xs mt-1 flex items-center gap-1`}>
             {formatDistanceToNow(new Date(message.sendDate), {
               addSuffix: true,
             })}{" "}
@@ -144,7 +144,7 @@ export default function UserChatMessage({
 
       {isTypingActive() && (
         <div className="flex justify-start">
-          <div className="bg-muted p-3 rounded-lg rounded-bl-none">
+          <div className="bg-muted p-3 rounded-lg">
             <div className="flex space-x-2">
               <div
                 className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"

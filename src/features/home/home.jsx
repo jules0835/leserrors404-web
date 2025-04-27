@@ -6,6 +6,7 @@ import HomeServices from "@/features/home/homeServices"
 import HomeWelcome from "@/features/home/homeWelcome"
 import HomeBanner from "@/features/home/homeBanner"
 import { useState, useEffect } from "react"
+import ProductCompare from "@/features/suggestions/productCompare"
 
 export default function Home({ carouselData, bannerData, isLoggedIn }) {
   const [showWelcome, setShowWelcome] = useState(true)
@@ -41,10 +42,13 @@ export default function Home({ carouselData, bannerData, isLoggedIn }) {
       <div className="md:flex md:items-center md:justify-center">
         <HomeClients />
       </div>
-      <div>
+      <div className="md:flex md:items-center md:justify-center">
+        <ProductCompare />
+      </div>
+      <div className="px-4 md:px-0">
         <HomeServices />
       </div>
-      <div>
+      <div className="px-4 md:px-0">
         <SuggestedProducts />
       </div>
     </div>

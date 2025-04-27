@@ -127,30 +127,10 @@ export default function NewVoucher({ onVoucherCreated }) {
                 />
               </div>
               <div className="space-y-2">
-                <Label>{t("minPurchaseAmount")}</Label>
-                <Field name="minPurchaseAmount" type="number" as={Input} />
-                <ErrorMessage
-                  name="minPurchaseAmount"
-                  component="div"
-                  className="text-red-600 text-sm mt-1"
-                />
-              </div>
-              <div className="space-y-2">
                 <Label>{t("description")}</Label>
                 <Field name="description" as={Input} />
                 <ErrorMessage
                   name="description"
-                  component="div"
-                  className="text-red-600 text-sm mt-1"
-                />
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <Field type="checkbox" name="isSingleUse" id="isSingleUse" />
-                  <Label htmlFor="isSingleUse">{t("singleUseVoucher")}</Label>
-                </div>
-                <ErrorMessage
-                  name="isSingleUse"
                   component="div"
                   className="text-red-600 text-sm mt-1"
                 />

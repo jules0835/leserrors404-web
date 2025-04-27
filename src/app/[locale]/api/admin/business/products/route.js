@@ -62,7 +62,7 @@ export async function POST(req) {
     const requestBody = {
       label,
       description,
-      characteristics,
+      characteristics: JSON.parse(characteristics),
       categorie,
       stock,
       price,

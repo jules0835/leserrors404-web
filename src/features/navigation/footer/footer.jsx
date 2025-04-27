@@ -11,14 +11,15 @@ export default function Footer() {
   const isUserDashboard = pathname.includes("/user")
   const isAdminDashboard = pathname.includes("/admin")
   const isAuth = pathname.includes("/auth")
+  const isCheckoutRedirect = pathname.includes("/shop/checkout/redirect")
   const { openChat } = useChat()
 
-  if (isUserDashboard || isAdminDashboard || isAuth) {
+  if (isUserDashboard || isAdminDashboard || isAuth || isCheckoutRedirect) {
     return null
   }
 
   return (
-    <footer className="hidden md:block bg-[#2F1F80] text-white py-8">
+    <footer className="hidden md:block bg-[#2F1F80] text-white py-2">
       <div className="max-w-[calc(100%-4px)] mx-auto">
         <div className="flex flex-col items-center space-y-6">
           <div className="flex space-x-6">

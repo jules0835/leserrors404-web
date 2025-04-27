@@ -95,53 +95,51 @@ export default function UserCart() {
   }
 
   return (
-    <div className="container mx-auto pb-20 pt-10 px-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2 order-2 md:order-1">
-          <h1 className="text-2xl font-bold mb-6 text-center md:text-left">
-            {t("yourCart")}
-          </h1>
-          <div className="space-y-4">
+    <div className="container mx-auto py-8 px-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <h1 className="text-2xl font-bold mb-6">{t("yourCart")}</h1>
+          <div className="space-y-6">
             {error && <ErrorFront />}
             {isLoading && <ListSkeleton rows={3} height={12} />}
             {!isLoading &&
               !error &&
               (cart?.products?.length === 0 || !cart) && (
-                <div className="container mx-auto p-4 mt-20">
-                  <div className="flex flex-col items-center justify-center space-y-4 p-8">
-                    <Image
-                      src={webAppSettings.images.emptyCartUrl}
-                      alt="Empty cart"
-                      width={200}
-                      height={200}
-                    />
-                    <h2 className="text-2xl font-bold">{t("emptyCart")}</h2>
-                    <p className="text-muted-foreground text-center">
-                      {t("emptyCartSubtitle")}
-                    </p>
-                    <DButton isMain withLink="/shop/products">
-                      {t("continueShopping")}
-                    </DButton>
-                  </div>
+                <div className="flex flex-col items-center justify-center space-y-4 py-12">
+                  <Image
+                    src={webAppSettings.images.emptyCartUrl}
+                    alt="Empty cart"
+                    width={200}
+                    height={200}
+                    className="opacity-75"
+                  />
+                  <h2 className="text-2xl font-bold">{t("emptyCart")}</h2>
+                  <p className="text-muted-foreground text-center max-w-md">
+                    {t("emptyCartSubtitle")}
+                  </p>
+                  <DButton isMain withLink="/shop/products">
+                    {t("continueShopping")}
+                  </DButton>
                 </div>
               )}
-            {!isLoading &&
-              !error &&
-              cart?.products?.length > 0 &&
-              cart.products.map((item) => (
-                <CartProduct
-                  key={item.product._id}
-                  item={item}
-                  handleQuantityChange={handleQuantityChange}
-                  handleRemoveProduct={handleRemoveProduct}
-                  handleBillingCycleChange={handleBillingCycleChange}
-                  isUpdating={isUpdating}
-                />
-              ))}
+            {!isLoading && !error && cart?.products?.length > 0 && (
+              <div className="space-y-6">
+                {cart.products.map((item) => (
+                  <CartProduct
+                    key={item.product._id}
+                    item={item}
+                    handleQuantityChange={handleQuantityChange}
+                    handleRemoveProduct={handleRemoveProduct}
+                    handleBillingCycleChange={handleBillingCycleChange}
+                    isUpdating={isUpdating}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="md:col-span-1 order-1 md:order-2">
+        <div>
           <CardCheckoutCart
             cart={cart}
             isLoading={isLoading}

@@ -12,6 +12,7 @@ import {
   endChat,
 } from "@/features/user/support/inbox/service/userInboxService"
 import { completeAction } from "@/features/contact/chatbot/service/chatActionService"
+import { usePathname } from "@/i18n/routing"
 
 const UserInboxContext = createContext()
 
@@ -24,6 +25,7 @@ export const UserInboxProvider = ({ children }) => {
   const [tempMessage, setTempMessage] = useState(null)
   const [error, setError] = useState("")
   const queryClient = useQueryClient()
+  const pathname = usePathname()
   const { data: inboxData, isLoading } = useQuery({
     queryKey: ["userInbox"],
     queryFn: getUserInbox,
@@ -160,6 +162,10 @@ export const UserInboxProvider = ({ children }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedChat])
+
+  useEffect(() => {
+    setSelectedChat(null)
+  }, [pathname])
 
   const value = {
     inboxData,

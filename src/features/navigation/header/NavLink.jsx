@@ -12,7 +12,7 @@ export default function NavLink() {
     },
     {
       name: "cart",
-      icon: <ShoppingCart className="text-white hover:scale-125 scale-110" />,
+      icon: <ShoppingCart />,
     },
     {
       name: "localeSwitcher",

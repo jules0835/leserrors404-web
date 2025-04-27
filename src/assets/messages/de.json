@@ -20,7 +20,19 @@
     "employees": "Mitarbeiter",
     "login": "Login",
     "privacy": "Privatsphäre",
-    "register": "Registrieren Sie sich jetzt"
+    "register": "Registrieren Sie sich jetzt",
+    "characteristics": "Eigenschaften",
+    "chooseThisOffer": "Wählen Sie dieses Angebot",
+    "compareSolutions": "Vergleichen Sie unsere Top -Produkte",
+    "month": "Monat",
+    "oneTime": "Einmal",
+    "or": "Oder",
+    "otherProducts": "Verwandte Produkte",
+    "perYear": "pro Jahr",
+    "startingFrom": "Ausgehend von",
+    "subscription": "Abonnement",
+    "topProducts": "Top -Produkte",
+    "viewAllProducts": "Alle Produkte anzeigen"
   },
   "Auth": {
     "LoginPage": {
@@ -883,7 +895,9 @@
           "taxe": "Steuern",
           "technicalCaracteristics": "Technische Karaccteristics",
           "priceAnnual": "Preis jährlich",
-          "priceMonthly": "Preis monatlich"
+          "priceMonthly": "Preis monatlich",
+          "addCharacteristic": "Merkmale hinzufügen",
+          "remove": "Entfernen"
         },
         "Delete": {
           "deletingProduct": "Produkt löschen",
@@ -1122,7 +1136,9 @@
         "voucherCreated": "Gutschein erstellt",
         "voucherCreationFailed": "Die Gutscheinkreation ist fehlgeschlagen",
         "voucherType": "Gutscheintyp",
-        "yes": "Ja"
+        "yes": "Ja",
+        "voucherStatusChangeFailed": "Der Gutscheinstatus geändert",
+        "voucherStatusChanged": "Gutscheinstatus geändert"
       },
       "Customers": {
         "CustomerDetails": {
@@ -1996,7 +2012,10 @@
   },
   "ProductCard": {
     "seeMore": "Sehen Sie mehr",
-    "month": "Monat"
+    "month": "Monat",
+    "addToCart": "In den Warenkorb legen",
+    "oneTime": "Einmal kaufen",
+    "subscription": "Abonnement"
   },
   "ProductPage": {
     "error": "Beim Abrufen von Produkten ist ein Fehler aufgetreten, bitte versuchen Sie Angain",
@@ -2017,7 +2036,9 @@
     "priceDesc": "Preis Desc",
     "priceRange": "Preisklasse",
     "reset": "Zurücksetzen",
-    "sortBy": "Sortieren"
+    "sortBy": "Sortieren",
+    "products": "Produkte",
+    "showing": "Zeigen"
   },
   "Error": {
     "Front": {
@@ -2110,7 +2131,13 @@
       "noBillingAddress": "Keine Abrechnungsadresse",
       "selectBillingAddress": "Wählen Sie Abrechnungsadresse",
       "yourProducts": "Ihre Produkte",
-      "zipCode": "PLZ"
+      "zipCode": "PLZ",
+      "deleteAddress": "Adresse löschen",
+      "deleteAddressConfirmation": "Sind Sie sicher, dass Sie diese Adresse löschen möchten?",
+      "deleteAddressError": "Die Adresse nicht löschen",
+      "deleteAddressSuccess": "Adresse erfolgreich gelöscht",
+      "remove": "Entfernen",
+      "selectBillingCycle": "Wählen Sie Abrechnungszyklus"
     },
     "Product": {
       "addToCart": {
@@ -2138,7 +2165,25 @@
       "subscription": "Abonnement",
       "total": "Gesamt",
       "year": "Jahr",
-      "title": "Produkt"
+      "title": "Produkt",
+      "benefitCard1": {
+        "description": "Wir priorisieren die Sicherheit auf jeder Ebene-von verschlüsselter Datenspeicherung in der EU bis 24/7 Überwachung durch unseren internen SOC. \nIhr Schutz ist unsere Mission.",
+        "title": "Sicherheit zuerst"
+      },
+      "benefitCard2": {
+        "description": "Kein komplexes Setup. \nUnsere SaaS -Plattform ist bereit, in wenigen Minuten bereitzustellen, und passt sich Ihren Anforderungen an, ohne Ihre vorhandene Infrastruktur zu stören.",
+        "title": "Einfachheit der Plug-and-Protect"
+      },
+      "benefitCard3": {
+        "description": "Cyna skaliert mit Ihrem Geschäft. \nEgal, ob Sie 5 oder 500 Endpunkte schützen, unser Preismodell und unsere Architektur wachsen neben Ihrem Unternehmen.",
+        "title": "Für Wachstum gebaut"
+      },
+      "benefits": "Vorteile",
+      "billingCycleHelp": "Wählen Sie zwischen Jahr und Monat Abrechnung für Ihren Plan",
+      "chooseBillingCycle": "Wählen Sie Abrechnungszyklus",
+      "keyFeatures": "Schlüsselmerkmale",
+      "oneTime": "Einmal",
+      "whyChooseUs": "Warum uns wählen?"
     },
     "Checkout": {
       "myOrders": "Meine Bestellungen",

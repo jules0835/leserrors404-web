@@ -132,9 +132,11 @@ export const CartProvider = ({ children }) => {
       const addedAddress = await response.json()
       await updateBillingAddress(addedAddress[addedAddress.length - 1])
       await queryClient.invalidateQueries({
-        queryKey: ["userBillingAddresses"],
+        queryKey: ["userBillingAddresses", "cart"],
       })
-      await queryClient.refetchQueries({ queryKey: ["userBillingAddresses"] })
+      await queryClient.refetchQueries({
+        queryKey: ["userBillingAddresses", "cart"],
+      })
 
       return addedAddress
     } catch (error) {

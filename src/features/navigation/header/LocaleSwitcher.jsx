@@ -6,10 +6,10 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
 } from "@/components/ui/dropdown-menu"
-import LanguageIcon from "@mui/icons-material/Language"
 import { useRouter, usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useLocale } from "next-intl"
+import { Languages } from "lucide-react"
 
 export default function LocaleSwitcher({ white }) {
   const [newPath, setNewPath] = useState("")
@@ -24,15 +24,13 @@ export default function LocaleSwitcher({ white }) {
   const locales = [
     { code: "en", name: "English" },
     { code: "fr", name: "Français" },
-    { code: "de", name: "Deutsch" },
-    { code: "ts", name: "TEST LANGUAGE" },
   ]
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <LanguageIcon
-          className={`text-${white ? "white" : "black"} text-3xl`}
+        <Languages
+          className={`text-${white ? "white" : "black"} text-3xl hover:scale-110 mt-1`}
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

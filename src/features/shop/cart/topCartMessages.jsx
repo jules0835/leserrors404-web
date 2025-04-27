@@ -18,27 +18,27 @@ export default function TopCartMessages({ cart, isLoading, session }) {
     <div className="space-y-4">
       {cart?.checkout?.reason &&
         cart?.checkout?.reason === "MIXED_PRODUCT_TYPES" && (
-          <Alert variant="destructive" className="border-2">
+          <Alert variant="destructive" className="border-2 bg-destructive/5">
             <Info className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold text-center md:text-left">
+            <AlertTitle className="font-semibold">
               {t("mixedProductTypes")}
             </AlertTitle>
-            <AlertDescription className="text-sm text-center md:text-left">
+            <AlertDescription>
               {t("mixedProductTypesSubtitle")}
             </AlertDescription>
           </Alert>
         )}
       {cart?.checkout?.reason &&
         cart?.checkout?.reason === "USER_PROFILE_INCOMPLETE" && (
-          <Alert variant="destructive" className="border-2">
+          <Alert variant="destructive" className="border-2 bg-destructive/5">
             <UserRoundX className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold text-center md:text-left">
+            <AlertTitle className="font-semibold">
               {t("userProfileIncomplete")}
             </AlertTitle>
-            <AlertDescription className="text-sm text-center md:text-left">
+            <AlertDescription>
               {t("userProfileIncompleteSubtitle")}
             </AlertDescription>
-            <div className="mt-4 flex justify-center md:justify-start">
+            <div className="mt-4">
               <DButton isMain withLink="/user/dashboard/profile">
                 {t("completeProfile")}
               </DButton>
@@ -47,84 +47,72 @@ export default function TopCartMessages({ cart, isLoading, session }) {
         )}
       {cart?.checkout?.reason &&
         cart?.checkout?.reason === "VOUCHER_NOT_ACTIVE" && (
-          <Alert variant="destructive" className="border-2">
+          <Alert variant="destructive" className="border-2 bg-destructive/5">
             <TicketPercent className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold text-center md:text-left">
+            <AlertTitle className="font-semibold">
               {t("voucherNotActive")}
             </AlertTitle>
-            <AlertDescription className="text-sm text-center md:text-left">
-              {t("voucherNotActiveSubtitle")}
-            </AlertDescription>
+            <AlertDescription>{t("voucherNotActiveSubtitle")}</AlertDescription>
           </Alert>
         )}
       {cart?.checkout?.reason &&
         cart?.checkout?.reason === "PRODUCT_NOT_ACTIVE" && (
-          <Alert variant="destructive" className="border-2">
+          <Alert variant="destructive" className="border-2 bg-destructive/5">
             <FileX2 className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold text-center md:text-left">
+            <AlertTitle className="font-semibold">
               {t("productNotActive")}
             </AlertTitle>
-            <AlertDescription className="text-sm text-center md:text-left">
-              {t("productNotActiveSubtitle")}
-            </AlertDescription>
+            <AlertDescription>{t("productNotActiveSubtitle")}</AlertDescription>
           </Alert>
         )}
       {cart?.checkout?.reason &&
         cart?.checkout?.reason === "PRODUCT_OUT_OF_STOCK" && (
-          <Alert variant="destructive" className="border-2">
+          <Alert variant="destructive" className="border-2 bg-destructive/5">
             <AlertCircle className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold text-center md:text-left">
+            <AlertTitle className="font-semibold">
               {t("productOutOfStock")}
             </AlertTitle>
-            <AlertDescription className="text-sm text-center md:text-left">
+            <AlertDescription>
               {t("productOutOfStockSubtitle")}
             </AlertDescription>
           </Alert>
         )}
       {cart?.checkout?.reason &&
         cart?.checkout?.reason === "PRODUCT_OUT_OF_STOCK_USER_QUANTITY" && (
-          <Alert variant="destructive" className="border-2">
+          <Alert variant="destructive" className="border-2 bg-destructive/5">
             <AlertCircle className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold text-center md:text-left">
+            <AlertTitle className="font-semibold">
               {t("productOutOfStockUserQuantity")}
             </AlertTitle>
-            <AlertDescription className="text-sm text-center md:text-left">
+            <AlertDescription>
               {t("productOutOfStockUserQuantitySubtitle")}
             </AlertDescription>
           </Alert>
         )}
       {cart?.checkout?.reason &&
         cart?.checkout?.reason === "BILLING_ADDRESS_INCOMPLETE" && (
-          <Alert variant="destructive" className="border-2">
+          <Alert variant="destructive" className="border-2 bg-destructive/5">
             <AlertCircle className="h-5 w-5" />
-            <AlertTitle className="text-lg font-semibold text-center md:text-left">
+            <AlertTitle className="font-semibold">
               {t("billingAddressIncomplete")}
             </AlertTitle>
-            <AlertDescription className="text-sm text-center md:text-left">
+            <AlertDescription>
               {t("billingAddressIncompleteSubtitle")}
             </AlertDescription>
           </Alert>
         )}
       {!isLoading && !session && (
         <div className="space-y-4">
-          <div className="flex justify-center flex-col items-center space-y-4">
-            <UserPlus size={48} className="text-primary" />
-          </div>
-          <h1 className="text-lg font-semibold text-center mb-2">
-            {t("loginToProceed")}
-          </h1>
-          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
-            <div className="w-full">
-              <DButton
-                isMain
-                withLink="/auth/login"
-                styles={"flex-grow w-full"}
-              >
+          <div className="flex flex-col items-center space-y-4 p-6 bg-primary/5 rounded-lg border-2 border-primary/10">
+            <UserPlus className="h-12 w-12 text-primary" />
+            <h2 className="text-xl font-semibold text-center">
+              {t("loginToProceed")}
+            </h2>
+            <div className="flex flex-col sm:flex-row gap-2 w-full max-w-sm">
+              <DButton isMain withLink="/auth/login" className="flex-1">
                 {t("login")}
               </DButton>
-            </div>
-            <div className="w-full">
-              <DButton withLink="/auth/register" styles={"flex-grow w-full"}>
+              <DButton withLink="/auth/register" className="flex-1">
                 {t("register")}
               </DButton>
             </div>

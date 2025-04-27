@@ -58,6 +58,7 @@ export const getProducts = async (size = 10, page = 1, query = "") => {
       : {}
     const total = await ProductModel.countDocuments(searchQuery)
     const Products = await ProductModel.find(searchQuery)
+      .populate("categorie")
       .limit(size)
       .skip(size * (page - 1))
 
@@ -69,7 +70,7 @@ export const getProducts = async (size = 10, page = 1, query = "") => {
 
 export const getShopProducts = async ({
   query = "",
-  size = 9,
+  size = 8,
   page = 1,
   minPrice,
   maxPrice,
@@ -79,6 +80,7 @@ export const getShopProducts = async ({
   keywords,
   dateFrom,
   dateTo,
+  subscription,
 }) => {
   try {
     await mwdb()
@@ -119,6 +121,10 @@ export const getShopProducts = async ({
       }
     }
 
+    if (subscription !== undefined) {
+      searchQuery.subscription = subscription
+    }
+
     if (query || keywords) {
       const searchText = query || keywords
       const searchRegex = new RegExp(searchText.split("").join(".*"), "i")
@@ -151,6 +157,11 @@ export const getShopProducts = async ({
 
       case "popular":
         sortOptions = { salesCount: -1 }
+
+        break
+
+      case "priority-desc":
+        sortOptions = { priority: -1 }
 
         break
 

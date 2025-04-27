@@ -332,6 +332,29 @@ export const findUserByStripeId = async (stripeId) => {
   return user
 }
 
+export const deleteUserAddress = async (userId, addressId) => {
+  await mwdb()
+
+  const user = await UserModel.findById(userId)
+
+  if (!user) {
+    throw new Error("User not found")
+  }
+
+  const addressIndex = user.billingAddresses.findIndex(
+    (address) => address._id.toString() === addressId
+  )
+
+  if (addressIndex === -1) {
+    throw new Error("Address not found")
+  }
+
+  user.billingAddresses.splice(addressIndex, 1)
+  await user.save()
+
+  return user.billingAddresses
+}
+
 export const getTodayRegistrationsCount = async () => {
   await mwdb()
 

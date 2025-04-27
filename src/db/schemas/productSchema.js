@@ -9,7 +9,7 @@ export const productSchema = new Schema({
   },
   label: { type: Object, required: true, unique: true },
   description: { type: Object, required: true, default: {} },
-  characteristics: { type: Object, required: true, default: {} },
+  characteristics: { type: Object, required: true, default: { en: [] } },
   categorie: { type: Schema.Types.ObjectId, ref: "Categorie" },
   stock: { type: Number, default: 0, required: true },
   price: {

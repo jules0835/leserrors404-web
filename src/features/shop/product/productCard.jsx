@@ -11,12 +11,13 @@ import Image from "next/image"
 import { useLocale, useTranslations } from "next-intl"
 import { webAppSettings } from "@/assets/options/config"
 import DButton from "@/components/ui/DButton"
-import { SquarePlus } from "lucide-react"
+import { SquarePlus, ShieldCheck } from "lucide-react"
 import { trimString } from "@/lib/utils"
 import { useRouter } from "@/i18n/routing"
 import { useCart } from "@/features/shop/cart/context/cartContext"
 import { useState } from "react"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
+import { Badge } from "@/components/ui/badge"
 
 export default function ProductCard({ product }) {
   const [isLoading, setIsLoading] = useState(false)
@@ -65,45 +66,72 @@ export default function ProductCard({ product }) {
 
   return (
     <Card
-      className={`text-left flex flex-col h-full ${product.stock <= 0 ? "opacity-50" : ""}`}
+      className={`h-full flex flex-col ${product.stock <= 0 ? "opacity-50" : ""}`}
     >
-      <CardHeader className="p-4 md:p-6">
-        <CardTitle className="flex items-center h-7">
-          <p>
-            {trimString(
+      <CardHeader className="pb-4">
+        <div className="relative h-48 w-full mb-4">
+          <Image
+            src={product.picture || webAppSettings.images.pictureDefaultUrl}
+            alt={trimString(
               product.label[locale] ||
                 product.label[webAppSettings.translation.defaultLocale],
               40
             )}
-          </p>
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="flex-grow p-4 md:p-6">
-        <div className="flex w-full h-24 justify-center">
-          <Image
-            src={product.picture || webAppSettings.images.pictureDefaultUrl}
-            alt="carousel"
-            className="rounded-xl object-cover"
-            width={200}
-            height={200}
+            fill
+            className="object-cover rounded-md"
           />
         </div>
-        <CardDescription className="mt-4">
-          {trimString(
-            product.description[locale] ||
-              product.description[webAppSettings.translation.defaultLocale],
-            60
-          )}
-        </CardDescription>
+        <div className="flex justify-between items-start">
+          <div>
+            <CardTitle className="text-xl">
+              {trimString(
+                product.label[locale] ||
+                  product.label[webAppSettings.translation.defaultLocale],
+                40
+              )}
+            </CardTitle>
+            <CardDescription className="mt-1">
+              {trimString(
+                product.description[locale] ||
+                  product.description[webAppSettings.translation.defaultLocale],
+                200
+              )}
+            </CardDescription>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-2 mt-2">
+          {product.categories &&
+            product.categories.map((category) => (
+              <Badge key={category} variant="outline">
+                {category}
+              </Badge>
+            ))}
+        </div>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <ul className="space-y-1">
+          {product.keyFeatures &&
+            product.keyFeatures.map((feature, index) => (
+              <li key={index} className="flex items-start">
+                <ShieldCheck className="h-4 w-4 mr-2 text-green-500 mt-1 shrink-0" />
+                <span className="text-sm">{feature}</span>
+              </li>
+            ))}
+        </ul>
       </CardContent>
-      <CardFooter className="flex flex-col justify-between mt-auto p-4 md:p-6">
-        <div>{getPriceDisplay(product)}</div>
-        <div className="flex w-full space-x-2 mt-4">
-          <div className="flex-grow">
+      <CardFooter className="flex flex-col items-start pt-4 border-t">
+        <div className="flex justify-between w-full items-center mb-3">
+          <div>{getPriceDisplay(product)}</div>
+          <Badge variant="secondary">
+            {product.subscription ? t("subscription") : t("oneTime")}
+          </Badge>
+        </div>
+        <div className="flex gap-2 w-full">
+          <div className="flex-1">
             <DButton
               isMain
               onClickBtn={() => router.push(`/shop/products/${product._id}`)}
-              className="w-full"
+              className="flex-1"
             >
               {t("seeMore")}
             </DButton>
@@ -115,6 +143,7 @@ export default function ProductCard({ product }) {
               className="h-full"
             >
               {isLoading ? <AnimatedReload /> : <SquarePlus size={20} />}
+              <span className="ml-2">{t("addToCart")}</span>
             </DButton>
           </div>
         </div>

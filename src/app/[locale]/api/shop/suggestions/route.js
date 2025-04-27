@@ -11,10 +11,17 @@ export async function GET() {
       page: 1,
       availability: "in-stock",
     })
+    const { Products: subscriptionProducts } = await getShopProducts({
+      size: 3,
+      page: 1,
+      subscription: true,
+      sort: "priority-desc",
+    })
     const { Categories: categories } = await getActiveCategories(3, 1)
 
     return NextResponse.json({
       products: products || [],
+      subscriptionProducts: subscriptionProducts || [],
       categories: categories || [],
     })
   } catch (error) {
