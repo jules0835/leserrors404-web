@@ -4,7 +4,6 @@ import { useRouter } from "@/i18n/routing"
 import { useTranslations, useLocale } from "next-intl"
 import { Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import {
   Select,
@@ -19,6 +18,13 @@ import { fetchCategories } from "@/features/shop/product/utils/product"
 import { useSearchParams } from "next/navigation"
 import DButton from "@/components/ui/DButton"
 import { ChevronDown, ChevronUp } from "lucide-react"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import { Slider } from "@/components/ui/slider"
 
 export default function SidebarProductList() {
   const router = useRouter()
@@ -87,7 +93,7 @@ export default function SidebarProductList() {
   }
 
   return (
-    <Card className="p-4">
+    <Card className="p-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <h2 className="text-lg font-semibold">{t("filters")}</h2>
@@ -109,58 +115,53 @@ export default function SidebarProductList() {
         <div
           className={`space-y-6 ${isExpanded ? "block" : "hidden md:block"}`}
         >
-          <div className="space-y-2">
-            <Label>{t("categories")}</Label>
-            <div className="h-[150px] md:h-[200px] border rounded-md p-2 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
-              {categoriesData?.categories?.map((category) => (
-                <div
-                  key={category._id}
-                  className="flex items-center space-x-2 py-1"
-                >
-                  <Checkbox
-                    id={category._id}
-                    checked={selectedCategory === category._id}
-                    onCheckedChange={(checked) => {
-                      setSelectedCategory(checked ? category._id : "")
-                    }}
-                  />
-                  <Label htmlFor={category._id}>
-                    {category.label[locale] ||
-                      category.label.en ||
-                      "Untitled Category"}
-                  </Label>
+          <Accordion type="multiple">
+            <AccordionItem value="category">
+              <AccordionTrigger>{t("categories")}</AccordionTrigger>
+              <AccordionContent>
+                <div className="space-y-2">
+                  {categoriesData?.categories?.map((category) => (
+                    <div
+                      key={category._id}
+                      className="flex items-center space-x-2"
+                    >
+                      <Checkbox
+                        id={category._id}
+                        checked={selectedCategory === category._id}
+                        onCheckedChange={(checked) => {
+                          setSelectedCategory(checked ? category._id : "")
+                        }}
+                      />
+                      <Label htmlFor={category._id}>
+                        {category.label[locale] ||
+                          category.label.en ||
+                          "Untitled Category"}
+                      </Label>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </AccordionContent>
+            </AccordionItem>
 
-          <div className="space-y-4">
-            <Label>{t("priceRange")}</Label>
-            <div className="flex items-center space-x-2">
-              <Input
-                type="number"
-                value={priceRange[0]}
-                onChange={(e) =>
-                  setPriceRange([Number(e.target.value), priceRange[1]])
-                }
-                className="w-20"
-                min="0"
-                max={priceRange[1]}
-              />
-              <span>-</span>
-              <Input
-                type="number"
-                value={priceRange[1]}
-                onChange={(e) =>
-                  setPriceRange([priceRange[0], Number(e.target.value)])
-                }
-                className="w-20"
-                min={priceRange[0]}
-                max="50000"
-              />
-              <span>€</span>
-            </div>
-          </div>
+            <AccordionItem value="price">
+              <AccordionTrigger>{t("priceRange")}</AccordionTrigger>
+              <AccordionContent>
+                <div className="space-y-4 mt-2">
+                  <Slider
+                    defaultValue={[0, 50000]}
+                    max={50000}
+                    step={100}
+                    value={priceRange}
+                    onValueChange={setPriceRange}
+                  />
+                  <div className="flex justify-between">
+                    <span>€{priceRange[0]}</span>
+                    <span>€{priceRange[1]}</span>
+                  </div>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
 
           <div className="space-y-2">
             <Label>{t("sortBy")}</Label>

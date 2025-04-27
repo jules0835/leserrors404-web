@@ -4,7 +4,7 @@ import stripe from "@/utils/stripe/stripe"
 import { createOrder } from "@/db/crud/orderCrud"
 import { findUserByStripeId } from "@/db/crud/userCrud"
 import { getProductByStripeId, updateProductStock } from "@/db/crud/productCrud"
-import { resetUserCart } from "@/db/crud/cartCrud"
+import { findCart, resetUserCart } from "@/db/crud/cartCrud"
 import { createSubscription } from "@/db/crud/subscriptionCrud"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
@@ -61,6 +61,7 @@ export const createPaymentOrder = async (sessionId, origin) => {
     const promotionCode = await getVoucherCodeByStripeId(
       session.discounts[0]?.promotion_code
     )
+    const cart = await findCart({ user: user._id })
     const orderData = {
       user: user._id,
       userEmail: user.email,
@@ -87,11 +88,18 @@ export const createPaymentOrder = async (sessionId, origin) => {
         },
       ],
       billingAddress: {
-        name: session.customer_details.name,
-        country: session.customer_details.address.country,
-        city: session.customer_details.address.city,
-        zipCode: session.customer_details.address.postal_code,
-        street: session.customer_details.address.line1,
+        name: cart?.billingAddress?.name || session.customer_details.name,
+        country:
+          cart?.billingAddress?.country ||
+          session.customer_details.address.country,
+        city:
+          cart?.billingAddress?.city || session.customer_details.address.city,
+        zipCode:
+          cart?.billingAddress?.zipCode ||
+          session.customer_details.address.postal_code,
+        street:
+          cart?.billingAddress?.street ||
+          session.customer_details.address.line1,
       },
     }
     order = await createOrder(orderData)

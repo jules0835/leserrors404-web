@@ -108,7 +108,7 @@ export default function UserInboxArea({ chat }) {
           <p className="text-red-500">{t("error")}</p>
         </div>
       )}
-      <div className="px-4 py-3 border-b flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+      <div className="px-4 h-16 border-b flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Avatar className="h-10 w-10">
             <AvatarFallback>
@@ -120,8 +120,8 @@ export default function UserInboxArea({ chat }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 flex-wrap justify-end">
-          <Badge variant="outline" className="text-xs">
+        <div className="mt-1 flex items-center gap-2">
+          <Badge variant="outline">
             {t("ticketId")}: #{formatIdForDisplay(chat)}
           </Badge>
           {chat.isActive ? (
@@ -173,7 +173,7 @@ export default function UserInboxArea({ chat }) {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 pb-20 md:pb-4">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {allMessages.map((message) => (
           <UserChatMessage
             key={message._id}
@@ -208,7 +208,7 @@ export default function UserInboxArea({ chat }) {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 md:static p-4 border-t bg-background">
+      <div className="p-4 h-16 border-t">
         {!chat.isActive && (
           <div className="text-center text-sm text-muted-foreground">
             {t("chatClosed")}

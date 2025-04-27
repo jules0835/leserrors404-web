@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 "use client"
 import { company, webAppSettings } from "@/assets/options/config"
 import { motion } from "motion/react"
@@ -7,10 +8,12 @@ import { useState, useEffect } from "react"
 import animation from "@/assets/images/lockAnnimation.gif"
 import { TypeAnimation } from "react-type-animation"
 import { Link } from "@/i18n/routing"
+import { useInView } from "react-intersection-observer"
 
 export default function HomeWelcome({ animationReverse, isLoggedIn }) {
   const t = useTranslations("HomePage")
   const [reverse, setReverse] = useState(false)
+  const { ref, inView } = useInView({ triggerOnce: true })
   const wordsToSecure = [
     t("business"),
     t("data"),
@@ -20,7 +23,7 @@ export default function HomeWelcome({ animationReverse, isLoggedIn }) {
   ]
 
   useEffect(() => {
-    if (!animationReverse || isLoggedIn) {
+    if (!animationReverse || isLoggedIn || !inView) {
       return undefined
     }
 
@@ -29,25 +32,49 @@ export default function HomeWelcome({ animationReverse, isLoggedIn }) {
     }, 2000)
 
     return () => clearTimeout(timer)
-  }, [animationReverse, isLoggedIn])
+  }, [animationReverse, isLoggedIn, inView])
+  const getAnimationState = (
+    inViewData,
+    reverseData,
+    initialState,
+    finalState
+  ) => {
+    if (!inViewData) {
+      return {}
+    }
+
+    return reverseData ? initialState : finalState
+  }
 
   return (
-    <div className="flex flex-col items-center justify-center md:w-1/2 md:pt-0 pb-10 pt-10">
+    <div
+      ref={ref}
+      className="flex flex-col items-center justify-center md:w-1/2 md:pt-0 pb-10 pt-10"
+    >
       {animationReverse && !isLoggedIn && (
-        <Image
-          src={animation}
-          alt="Cyna Animation"
-          width={430}
-          height={40}
-          className="rounded-full -mt-80"
-        />
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <Image
+            src={animation}
+            alt="Cyna Animation"
+            width={430}
+            height={40}
+            className="rounded-full -mt-80"
+          />
+        </motion.div>
       )}
       {!animationReverse && (
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={
-            reverse ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }
-          }
+          animate={getAnimationState(
+            inView,
+            reverse,
+            { opacity: 0, scale: 0.8 },
+            { opacity: 1, scale: 1 }
+          )}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <Image
@@ -62,8 +89,13 @@ export default function HomeWelcome({ animationReverse, isLoggedIn }) {
       <motion.h1
         className="text-5xl font-bold text-center text-white"
         initial={{ opacity: 0, y: -50 }}
-        animate={reverse ? { opacity: 0, y: -50 } : { opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        animate={getAnimationState(
+          inView,
+          reverse,
+          { opacity: 0, y: -50 },
+          { opacity: 1, y: 0 }
+        )}
+        transition={{ duration: 1, delay: 0.4 }}
       >
         {animationReverse
           ? t("welcome", { company: company.name })
@@ -73,7 +105,12 @@ export default function HomeWelcome({ animationReverse, isLoggedIn }) {
         <motion.p
           className="mt-4 text-xl text-center text-white font-semibold"
           initial={{ opacity: 0, y: 50 }}
-          animate={reverse ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
+          animate={getAnimationState(
+            inView,
+            reverse,
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0 }
+          )}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           {t("welcomeMessageAnimation")}
@@ -84,7 +121,12 @@ export default function HomeWelcome({ animationReverse, isLoggedIn }) {
           <motion.p
             className="mt-4 text-2xl text-center text-white"
             initial={{ opacity: 0, y: 50 }}
-            animate={reverse ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
+            animate={getAnimationState(
+              inView,
+              reverse,
+              { opacity: 0, y: 50 },
+              { opacity: 1, y: 0 }
+            )}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {t("welcomeMessage")}
@@ -92,7 +134,12 @@ export default function HomeWelcome({ animationReverse, isLoggedIn }) {
           <motion.p
             className="mt-1 text-xl text-center text-white md:mx-20 mx-5 h-16"
             initial={{ opacity: 0, y: 50 }}
-            animate={reverse ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
+            animate={getAnimationState(
+              inView,
+              reverse,
+              { opacity: 0, y: 50 },
+              { opacity: 1, y: 0 }
+            )}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
             {t("welcomeMessageDescription")}{" "}
@@ -108,7 +155,12 @@ export default function HomeWelcome({ animationReverse, isLoggedIn }) {
             <motion.div
               className="flex justify-center mt-8"
               initial={{ opacity: 0, y: 50 }}
-              animate={reverse ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
+              animate={getAnimationState(
+                inView,
+                reverse,
+                { opacity: 0, y: 50 },
+                { opacity: 1, y: 0 }
+              )}
               transition={{ duration: 0.8, delay: 1.2 }}
             >
               <Link

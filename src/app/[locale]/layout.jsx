@@ -31,7 +31,7 @@ export default async function RootLayout({ children }) {
               <CookieBanner />
               <Toaster position="top-right" />
               <Header />
-              <div className="bg-gray-100">{children}</div>
+              <div className="bg-white">{children}</div>
               <Footer />
             </CartProvider>
             <WidgetChatbot />

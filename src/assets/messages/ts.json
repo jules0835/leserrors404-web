@@ -20,7 +20,19 @@
     "welcome": "Mi amukeriwile eka {Khamphani}",
     "welcomeMessage": "Mutirhisani wa wena loyi a tshembekaka eka swintshuxo swa vuhlayiseki bya xiyenge xa ​​inthanete.",
     "welcomeMessageAnimation": "I nkarhi wo tiyisisa vumundzuku bya wena !",
-    "welcomeMessageDescription": "Joyina sweswi ku tlula 500 wa tikhamphani ta Wordwild leti hi tshembaka ku tiyisisa tona ."
+    "welcomeMessageDescription": "Joyina sweswi ku tlula 500 wa tikhamphani ta Wordwild leti hi tshembaka ku tiyisisa tona .",
+    "characteristics": "Swihlawulekisi",
+    "chooseThisOffer": "Hlawula nyiko leyi .",
+    "compareSolutions": "Pimanyisa switirhisiwa swa hina swa le henhla .",
+    "month": "N'hweti",
+    "oneTime": "Nkarhi wun’we .",
+    "or": "Kumbe",
+    "otherProducts": "Switirhisiwa leswi fambelanaka na swona .",
+    "perYear": "hi lembe .",
+    "startingFrom": "Ku sungula ku suka eka .",
+    "subscription": "Xikhokhelo .",
+    "topProducts": "Switirhisiwa swa le henhla .",
+    "viewAllProducts": "View all products ."
   },
   "Auth": {
     "LoginPage": {
@@ -574,7 +586,9 @@
           "taxe": "Taxe .",
           "technicalCaracteristics": "Swifaniso swa vutshila .",
           "priceAnnual": "Ntsengo wa lembe na lembe .",
-          "priceMonthly": "Ntsengo wa n’hweti na n’hweti ."
+          "priceMonthly": "Ntsengo wa n’hweti na n’hweti .",
+          "addCharacteristic": "Engetela swihlawulekisi .",
+          "remove": "Susa"
         },
         "Delete": {
           "deletingProduct": "Ku Susa Xiendliwa .",
@@ -813,7 +827,9 @@
         "voucherCreated": "Voucher yi endliwile .",
         "voucherCreationFailed": "Ku tumbuluxiwa ka tivhawuchara swi tsandzekile .",
         "voucherType": "Muxaka wa tivhawuchara .",
-        "yes": "Ina"
+        "yes": "Ina",
+        "voucherStatusChangeFailed": "Xiyimo xa tivhawuchara xi cinciwile xi tsandzekile .",
+        "voucherStatusChanged": "Xiyimo xa tivhawuchara xi cinciwile ."
       },
       "Customers": {
         "CustomerDetails": {
@@ -2002,7 +2018,10 @@
   },
   "ProductCard": {
     "seeMore": "Vona swin'wana",
-    "month": "N'hweti"
+    "month": "N'hweti",
+    "addToCart": "Ku engetela eka xigwitsirisi .",
+    "oneTime": "Nkarhi wun’we xava .",
+    "subscription": "Xikhokhelo ."
   },
   "ProductPage": {
     "error": "Xihoxo xi humelerile loko u ri karhi u teka switirhisiwa, hi kombela u ringeta Angain .",
@@ -2023,7 +2042,9 @@
     "priceDesc": "Price Desc .",
     "priceRange": "Nxaxamelo wa minxavo .",
     "reset": "Reset .",
-    "sortBy": "Hlela hi ."
+    "sortBy": "Hlela hi .",
+    "products": "Swihumelerisiwa .",
+    "showing": "Ku kombisa ."
   },
   "Shop": {
     "Cart": {
@@ -2110,7 +2131,13 @@
       "noBillingAddress": "Ku hava adirese ya ku hakela .",
       "selectBillingAddress": "Hlawula adirese ya ku hakela .",
       "yourProducts": "Switirhisiwa swa wena .",
-      "zipCode": "Khodi ya zip ."
+      "zipCode": "Khodi ya zip .",
+      "deleteAddress": "Susa adirese .",
+      "deleteAddressConfirmation": "Xana u tiyisile leswaku u lava ku susa adirese leyi?",
+      "deleteAddressError": "Ku tsandzeka ku susa adirese .",
+      "deleteAddressSuccess": "Adirese yi susiwile hi ndlela leyi humelelaka .",
+      "remove": "Susa",
+      "selectBillingCycle": "Hlawula Xirhendzevutana xa ku Hakela ."
     },
     "Product": {
       "addToCart": {
@@ -2138,7 +2165,25 @@
       "subscription": "Xikhokhelo .",
       "total": "Hinkwaswo",
       "year": "Lembe",
-      "title": "Ximakiwa"
+      "title": "Ximakiwa",
+      "benefitCard1": {
+        "description": "Hi rhangisa vuhlayiseki eka xiyimo xin’wana na xin’wana — ku suka eka vuhlayiselo bya datha lebyi pfaleriweke eEU ku ya eka ku vekiwa tihlo ka 24/7 hi SOC ya hina ya le ndzeni. \nNsirhelelo wa wena i vurhumiwa bya hina.",
+        "title": "Vuhlayiseki Xo sungula ."
+      },
+      "benefitCard2": {
+        "description": "Ku hava setup yo rharhangana. \nPulatifomo ya hina ya SaaS yi lulamerile ku tirhisa hi timinete naswona yi pfumelelana na swilaveko swa wena handle ko kavanyeta switirhisiwa swa wena leswi nga kona.",
+        "title": "Ku olova ka plug-and-protect ."
+      },
+      "benefitCard3": {
+        "description": "Cyna u ringanisa na bindzu ra wena. \nKunga khathariseki leswaku u sirhelela 5 kumbe 500 wa tindhawu to hetelela, modele wa hina wa nxavo na vumaki swi kula etlhelo ka khamphani ya wena.",
+        "title": "Yi akiwile ku kula ."
+      },
+      "benefits": "Mimbuyelo",
+      "billingCycleHelp": "Hlawula exikarhi ka lembe na n’hweti ku hakela mali ya pulani ya wena .",
+      "chooseBillingCycle": "Hlawula Xirhendzevutana xa ku Hakela .",
+      "keyFeatures": "Swihlawulekisi swa nkoka .",
+      "oneTime": "Nkarhi wun’we .",
+      "whyChooseUs": "Ha yini hi hlawula hina ?"
     },
     "Checkout": {
       "myOrders": "Tioda ta mina .",

@@ -146,7 +146,7 @@ export default function ShoppingCart() {
       <HoverCardTrigger>
         <div className="flex items-center relative">
           <ShoppingCartIcon
-            className="text-white hover:scale-125 scale-110"
+            className="text-white hover:scale-125 scale-105"
             onClick={() => router.push("/shop/cart")}
           />
           {cartCount > 0 && (

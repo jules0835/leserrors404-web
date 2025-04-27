@@ -30,7 +30,7 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
   const [formData, setFormData] = useState({
     label: { en: "" },
     description: { en: "" },
-    characteristics: { en: "" },
+    characteristics: { en: [] },
     categorie: "",
     stock: "",
     price: "",
@@ -165,7 +165,36 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
   const isLanguageFilled = (lang) =>
     formData.label[lang] &&
     formData.description[lang] &&
-    formData.characteristics[lang]
+    formData.characteristics[lang] &&
+    formData.characteristics[lang].length > 0
+  const handleAddCharacteristic = () => {
+    const newCharacteristic = document.getElementById("newCharacteristic").value
+
+    if (newCharacteristic.trim()) {
+      setFormData((prev) => ({
+        ...prev,
+        characteristics: {
+          ...prev.characteristics,
+          [selectedLanguage]: [
+            ...(prev.characteristics[selectedLanguage] || []),
+            newCharacteristic.trim(),
+          ],
+        },
+      }))
+      document.getElementById("newCharacteristic").value = ""
+    }
+  }
+  const handleRemoveCharacteristic = (index) => {
+    setFormData((prev) => ({
+      ...prev,
+      characteristics: {
+        ...prev.characteristics,
+        [selectedLanguage]: prev.characteristics[selectedLanguage].filter(
+          (_, i) => i !== index
+        ),
+      },
+    }))
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
@@ -231,26 +260,37 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
                 <Label htmlFor="characteristics">
                   {t("Add.characteristics")}
                 </Label>
-                <Textarea
-                  id="characteristics"
-                  name="characteristics"
-                  value={formData.characteristics[selectedLanguage] || ""}
-                  className="min-h-[100px] border-2 rounded-md p-2"
-                  onChange={handleTranslationChange}
-                  required
-                />
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor="isActive">{t("Add.isActive")}</Label>
-                <div>
-                  <Switch
-                    id="isActive"
-                    name="isActive"
-                    checked={formData.isActive}
-                    onCheckedChange={(checked) =>
-                      handleSwitchChange("isActive", checked)
-                    }
-                  />
+                <div className="space-y-2">
+                  <div className="flex gap-2">
+                    <Input
+                      id="newCharacteristic"
+                      placeholder={t("Add.addCharacteristic")}
+                      className="flex-1"
+                    />
+                    <Button type="button" onClick={handleAddCharacteristic}>
+                      {t("Add.add")}
+                    </Button>
+                  </div>
+                  <div className="space-y-1 max-h-[150px] overflow-y-auto border rounded-md p-2">
+                    {(formData.characteristics[selectedLanguage] || []).map(
+                      (char, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center gap-2 border rounded-md p-2"
+                        >
+                          <span className="flex-1">{char}</span>
+                          <Button
+                            type="button"
+                            variant="destructive"
+                            size="sm"
+                            onClick={() => handleRemoveCharacteristic(index)}
+                          >
+                            {t("Add.remove")}
+                          </Button>
+                        </div>
+                      )
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -405,7 +445,20 @@ const ProductEdit = ({ setProducts, editProduct, setEditProduct }) => {
               </div>
             </div>
           </div>
-          <DialogFooter className="mt-6">
+          <DialogFooter className="mt-6 flex justify-between items-center">
+            <div className="flex items-center gap-2 space-y-1 border rounded-md p-2">
+              <Label htmlFor="isActive">{t("Add.isActive")}</Label>
+              <div>
+                <Switch
+                  id="isActive"
+                  name="isActive"
+                  checked={formData.isActive}
+                  onCheckedChange={(checked) =>
+                    handleSwitchChange("isActive", checked)
+                  }
+                />
+              </div>
+            </div>
             <Button type="submit" disabled={isLoading}>
               {isLoading ? t("Edit.updating") : t("Edit.update")}
             </Button>

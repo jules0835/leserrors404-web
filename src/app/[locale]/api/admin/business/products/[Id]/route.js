@@ -6,6 +6,7 @@ import {
 import { NextResponse } from "next/server"
 import { getTranslations } from "next-intl/server"
 import {
+  createStripeProduct,
   getProductSchema,
   updateStripeProduct,
 } from "@/features/admin/business/products/utils/product"
@@ -55,7 +56,7 @@ export async function PUT(req, { params }) {
     const requestBody = {
       label,
       description,
-      characteristics,
+      characteristics: JSON.parse(characteristics),
       categorie,
       stock,
       price,
@@ -106,16 +107,31 @@ export async function PUT(req, { params }) {
       )
     }
 
-    const stripeData = await updateStripeProduct({
-      stripeProductId: currentProduct.stripeProductId,
-      name,
-      description: desc,
-      price: JSON.parse(price),
-      priceMonthly: JSON.parse(priceMonthly),
-      priceAnnual: JSON.parse(priceAnnual),
-      subscription: JSON.parse(subscription),
-      taxe: JSON.parse(taxe),
-    })
+    let stripeData = null
+
+    if (currentProduct.stripeProductId) {
+      stripeData = await updateStripeProduct({
+        stripeProductId: currentProduct.stripeProductId,
+        name,
+        description: desc,
+        price: JSON.parse(price),
+        priceMonthly: JSON.parse(priceMonthly),
+        priceAnnual: JSON.parse(priceAnnual),
+        subscription: JSON.parse(subscription),
+        taxe: JSON.parse(taxe),
+      })
+    } else {
+      stripeData = await createStripeProduct({
+        name,
+        description: desc,
+        price: JSON.parse(price),
+        priceMonthly: JSON.parse(priceMonthly),
+        priceAnnual: JSON.parse(priceAnnual),
+        subscription: JSON.parse(subscription),
+        taxe: JSON.parse(taxe),
+      })
+    }
+
     const updatedData = {
       label: JSON.parse(label),
       description: JSON.parse(description),

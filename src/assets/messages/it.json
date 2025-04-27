@@ -20,7 +20,19 @@
     "employees": "dipendenti",
     "login": "Login",
     "privacy": "Privacy",
-    "register": "Registrati ora"
+    "register": "Registrati ora",
+    "characteristics": "Caratteristiche",
+    "chooseThisOffer": "Scegli questa offerta",
+    "compareSolutions": "Confronta i nostri migliori prodotti",
+    "month": "Mese",
+    "oneTime": "Una volta",
+    "or": "O",
+    "otherProducts": "Prodotti correlati",
+    "perYear": "all'anno",
+    "startingFrom": "A partire da",
+    "subscription": "Sottoscrizione",
+    "topProducts": "Prodotti migliori",
+    "viewAllProducts": "Visualizza tutti i prodotti"
   },
   "Auth": {
     "LoginPage": {
@@ -574,7 +586,9 @@
           "taxe": "Taxe",
           "technicalCaracteristics": "Caracteristiche tecniche",
           "priceAnnual": "Prezzo annuale",
-          "priceMonthly": "Prezzo mensile"
+          "priceMonthly": "Prezzo mensile",
+          "addCharacteristic": "Aggiungi caratteristiche",
+          "remove": "Rimuovere"
         },
         "Delete": {
           "deletingProduct": "Eliminazione del prodotto",
@@ -813,7 +827,9 @@
         "voucherCreated": "Voucher creato",
         "voucherCreationFailed": "La creazione di voucher non è riuscita",
         "voucherType": "Tipo di voucher",
-        "yes": "SÌ"
+        "yes": "SÌ",
+        "voucherStatusChangeFailed": "Lo stato del voucher è cambiato",
+        "voucherStatusChanged": "Lo stato del voucher è cambiato"
       },
       "Customers": {
         "CustomerDetails": {
@@ -1996,7 +2012,10 @@
   },
   "ProductCard": {
     "seeMore": "Vedere di più",
-    "month": "Mese"
+    "month": "Mese",
+    "addToCart": "Aggiungi al carrello",
+    "oneTime": "Acquista una volta",
+    "subscription": "Sottoscrizione"
   },
   "ProductPage": {
     "error": "Si è verificato un errore durante il recupero di prodotti, prova ad Angain",
@@ -2017,7 +2036,9 @@
     "priceDesc": "Price Desc",
     "priceRange": "Fascia di prezzo",
     "reset": "Reset",
-    "sortBy": "Ordinare da"
+    "sortBy": "Ordinare da",
+    "products": "prodotti",
+    "showing": "Esibizione"
   },
   "Error": {
     "Front": {
@@ -2110,7 +2131,13 @@
       "noBillingAddress": "Nessun indirizzo di fatturazione",
       "selectBillingAddress": "Selezionare l'indirizzo di fatturazione",
       "yourProducts": "I tuoi prodotti",
-      "zipCode": "Cap"
+      "zipCode": "Cap",
+      "deleteAddress": "Elimina indirizzo",
+      "deleteAddressConfirmation": "Sei sicuro di voler eliminare questo indirizzo?",
+      "deleteAddressError": "Impossibile eliminare l'indirizzo",
+      "deleteAddressSuccess": "Indirizzo eliminato correttamente",
+      "remove": "Rimuovere",
+      "selectBillingCycle": "Seleziona il ciclo di fatturazione"
     },
     "Product": {
       "addToCart": {
@@ -2138,7 +2165,25 @@
       "subscription": "Sottoscrizione",
       "total": "Totale",
       "year": "Anno",
-      "title": "Prodotto"
+      "title": "Prodotto",
+      "benefitCard1": {
+        "description": "Diamo la priorità alla sicurezza a tutti i livelli-dall'archiviazione dei dati crittografati nell'UE a 24/7 di monitoraggio da parte del nostro SoC interno. \nLa tua protezione è la nostra missione.",
+        "title": "Sicurezza prima"
+      },
+      "benefitCard2": {
+        "description": "Nessuna configurazione complessa. \nLa nostra piattaforma SaaS è pronta a distribuire in pochi minuti e si adatta alle tue esigenze senza interrompere l'infrastruttura esistente.",
+        "title": "Semplicità plug-and-protetto"
+      },
+      "benefitCard3": {
+        "description": "Cyna si ridimensiona con la tua attività. \nChe tu stia proteggendo 5 o 500 endpoint, il nostro modello di prezzi e l'architettura crescono insieme alla tua azienda.",
+        "title": "Costruito per la crescita"
+      },
+      "benefits": "Benefici",
+      "billingCycleHelp": "Scegli tra la fatturazione di un anno e un mese per il tuo piano",
+      "chooseBillingCycle": "Scegli il ciclo di fatturazione",
+      "keyFeatures": "Caratteristiche chiave",
+      "oneTime": "Una volta",
+      "whyChooseUs": "Perché scegliere noi?"
     },
     "Checkout": {
       "myOrders": "I miei ordini",

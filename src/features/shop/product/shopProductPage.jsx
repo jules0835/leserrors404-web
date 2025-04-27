@@ -14,6 +14,11 @@ import {
   AlertCircle,
   Check,
   ArrowLeft,
+  ShieldCheck,
+  HelpCircle,
+  Server,
+  Zap,
+  Shield,
 } from "lucide-react"
 import { useState, useEffect } from "react"
 import { useCart } from "@/features/shop/cart/context/cartContext"
@@ -26,6 +31,20 @@ import { useRouter } from "@/i18n/routing"
 import { getLocalizedValue } from "@/lib/utils"
 import SuggestedProducts from "@/features/suggestions/suggestedProducts"
 import { useTitle } from "@/components/navigation/titleContext"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 export default function ShopProductPage() {
   const { addProdToCart } = useCart()
@@ -186,239 +205,360 @@ export default function ShopProductPage() {
 
     return null
   }
+  const getBenefitCards = () => [
+    {
+      title: t("benefitCard1.title"),
+      description: t("benefitCard1.description"),
+      icon: Shield,
+    },
+    {
+      title: t("benefitCard2.title"),
+      description: t("benefitCard2.description"),
+      icon: Zap,
+    },
+    {
+      title: t("benefitCard3.title"),
+      description: t("benefitCard3.description"),
+      icon: Server,
+    },
+  ]
+  const benefitCards = getBenefitCards()
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div
-        className="flex items-center gap-2 mb-8 cursor-pointer"
+      <button
         onClick={() => router.back()}
+        className="flex items-center gap-2 mb-8 text-muted-foreground hover:text-foreground transition-colors"
       >
-        <ArrowLeft />
-        <span className="text-sm text-muted-foreground">{t("goBack")}</span>
-      </div>
+        <ArrowLeft className="h-4 w-4" />
+        <span>{t("goBack")}</span>
+      </button>
+
       {isLoading && <ProductPageSkeleton />}
+
       {error && (
         <div className="min-h-[60vh] flex items-center justify-center">
           <ErrorFront />
         </div>
       )}
+
       {product && (
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/3">
-            <div className="lg:sticky lg:top-8">
-              <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg bg-white">
+        <div className="space-y-12">
+          {getStockStatus()}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="space-y-4">
+              <div className="relative aspect-square overflow-hidden rounded-lg border bg-background">
+                <div className="absolute top-4 right-4 z-10 rounded-full bg-background/80 p-2 backdrop-blur-sm">
+                  <ShieldCheck />
+                </div>
                 <Image
                   src={product.picture}
-                  alt={getLocalizedValue(product.label, locale)}
-                  className="object-cover transition-transform hover:scale-105 duration-500"
+                  alt={"Product image"}
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform hover:scale-105 duration-500"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
               </div>
-
-              {product.subscription && (
-                <div className="mt-4 flex justify-center">
-                  <Badge
-                    variant="outline"
-                    className="px-4 py-1.5 text-sm font-medium bg-primary/5 text-primary border-primary/20"
-                  >
-                    {t("subscription")}
-                  </Badge>
-                </div>
-              )}
             </div>
-          </div>
-
-          <div className="lg:w-1/3">
             <div className="space-y-6">
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-2 text-center lg:text-left">
-                  {getLocalizedValue(product.label, locale)}
-                </h1>
-                <p className="text-base md:text-lg text-muted-foreground text-center lg:text-left">
+                <div className="flex items-center gap-2">
+                  <h1 className="text-3xl font-bold">
+                    {getLocalizedValue(product.label, locale)}
+                  </h1>
+                </div>
+                <p className="text-xl text-muted-foreground mt-1">
                   {getLocalizedValue(product.description, locale)}
                 </p>
               </div>
 
-              <div className="flex items-baseline gap-2 justify-center lg:justify-start">
-                <span className="text-2xl md:text-3xl font-bold">
-                  {getPriceDisplay()}
-                </span>
+              <div className="flex flex-wrap gap-2">
+                {product.categories &&
+                  product.categories.map((category) => (
+                    <Badge key={category} variant="outline">
+                      {category}
+                    </Badge>
+                  ))}
+                <Badge variant="secondary">
+                  {product.subscription ? t("subscription") : t("oneTime")}
+                </Badge>
               </div>
-
-              <div className="flex items-center gap-2 text-sm text-muted-foreground justify-center lg:justify-start">
-                <div
-                  className={`w-3 h-3 rounded-full ${product.stock > 0 ? "bg-green-500" : "bg-red-500"}`}
-                ></div>
-                <span>
-                  {product.stock > 0
-                    ? t("inStock", { count: product.stock })
-                    : t("outOfStock")}
-                </span>
+              <div className="p-4 bg-muted/30 rounded-lg">
+                {getPriceDisplay()}
               </div>
-
-              {product.characteristics &&
-                Object.keys(product.characteristics).length > 0 && (
-                  <div className="space-y-3">
-                    <h2 className="text-xl font-semibold text-center lg:text-left">
-                      {t("characteristics")}
-                    </h2>
-                    <div className="grid grid-cols-1 gap-3">
-                      {Object.entries(product.characteristics).map(
-                        ([key, value]) => (
-                          <div key={key} className="flex items-start gap-2">
-                            <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                            <div>
-                              <span className="text-muted-foreground">
-                                {getLocalizedValue(value, locale)}
-                              </span>
+              <div className="mt-6">
+                <Tabs
+                  defaultValue={billingCycle}
+                  onValueChange={setBillingCycle}
+                  className="w-full"
+                >
+                  {product.subscription && (
+                    <>
+                      <div className="flex items-center justify-between">
+                        <div className="font-semibold">
+                          {t("chooseBillingCycle")}:
+                        </div>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                <HelpCircle className="h-4 w-4" />
+                              </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p className="max-w-xs">
+                                {t("billingCycleHelp")}
+                              </p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                      <TabsList className="grid w-full grid-cols-2 mt-2">
+                        <TabsTrigger value="month">{t("monthly")}</TabsTrigger>
+                        <TabsTrigger value="year">{t("annual")}</TabsTrigger>
+                      </TabsList>
+                    </>
+                  )}
+                  <TabsContent value="month">
+                    <Card>
+                      <CardContent className="pt-6 space-y-4">
+                        {product.subscription && (
+                          <>
+                            <div className="flex justify-between items-baseline">
+                              <h3 className="text-lg font-semibold">
+                                {t("monthly")}
+                              </h3>
+                              <div>
+                                <span className="text-3xl font-bold">
+                                  {product.priceMonthly?.toFixed(2)}€
+                                </span>
+                                <span className="text-sm text-muted-foreground">
+                                  /{t("month")}
+                                </span>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-4">
+                            <p className="font-medium">{t("quantity")}:</p>
+                            <div className="flex items-center border rounded-md overflow-hidden">
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleQuantityChange(false)}
+                                disabled={quantity <= 1}
+                                className="h-10 w-10 rounded-none"
+                              >
+                                <Minus className="h-4 w-4" />
+                              </Button>
+                              <Input
+                                type="number"
+                                min="1"
+                                max={product.stock}
+                                value={quantity}
+                                onChange={(e) =>
+                                  setQuantity(
+                                    Math.max(
+                                      1,
+                                      Math.min(
+                                        product.stock,
+                                        parseInt(e.target.value, 10) || 1
+                                      )
+                                    )
+                                  )
+                                }
+                                className="w-16 text-center border-0 h-10 rounded-none"
+                              />
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleQuantityChange(true)}
+                                disabled={quantity >= product.stock}
+                                className="h-10 w-10 rounded-none"
+                              >
+                                <Plus className="h-4 w-4" />
+                              </Button>
                             </div>
                           </div>
-                        )
-                      )}
-                    </div>
-                  </div>
-                )}
+                          <div className="p-4 bg-muted/30 rounded-lg">
+                            <p className="text-lg font-semibold flex justify-between">
+                              <span>{t("total")}:</span>
+                              <div className="text-right">
+                                <p className="text-sm text-muted-foreground">
+                                  {(getCurrentPrice() * quantity).toFixed(2)}€
+                                  HT
+                                </p>
+                                <p className="font-semibold">
+                                  {(
+                                    getCurrentPrice() *
+                                    quantity *
+                                    (1 + (product.taxe || 0) / 100)
+                                  ).toFixed(2)}
+                                  € TTC
+                                </p>
+                              </div>
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                      <CardFooter className="space-x-4">
+                        <div className="flex-1">
+                          <DButton
+                            onClickBtn={handleAddToCart}
+                            isDisabled={isAddingToCart || product.stock === 0}
+                            isMain
+                          >
+                            <ShoppingCart className="mr-2 h-5 w-5" />
+                            {product.stock === 0
+                              ? t("outOfStock")
+                              : t("addToCart.button")}
+                          </DButton>
+                        </div>
+                      </CardFooter>
+                    </Card>
+                  </TabsContent>
+                  <TabsContent value="year">
+                    <Card>
+                      <CardContent className="pt-6 space-y-4">
+                        <div className="flex justify-between items-baseline">
+                          <h3 className="text-lg font-semibold">
+                            {t("annual")}
+                          </h3>
+                          <div>
+                            <span className="text-3xl font-bold">
+                              {product.priceAnnual?.toFixed(2)}€
+                            </span>
+                            <span className="text-sm text-muted-foreground">
+                              /{t("year")}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-4">
+                            <p className="font-medium">{t("quantity")}:</p>
+                            <div className="flex items-center border rounded-md overflow-hidden">
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleQuantityChange(false)}
+                                disabled={quantity <= 1}
+                                className="h-10 w-10 rounded-none"
+                              >
+                                <Minus className="h-4 w-4" />
+                              </Button>
+                              <Input
+                                type="number"
+                                min="1"
+                                max={product.stock}
+                                value={quantity}
+                                onChange={(e) =>
+                                  setQuantity(
+                                    Math.max(
+                                      1,
+                                      Math.min(
+                                        product.stock,
+                                        parseInt(e.target.value, 10) || 1
+                                      )
+                                    )
+                                  )
+                                }
+                                className="w-16 text-center border-0 h-10 rounded-none"
+                              />
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleQuantityChange(true)}
+                                disabled={quantity >= product.stock}
+                                className="h-10 w-10 rounded-none"
+                              >
+                                <Plus className="h-4 w-4" />
+                              </Button>
+                            </div>
+                          </div>
+                          <div className="p-4 bg-muted/30 rounded-lg">
+                            <p className="text-lg font-semibold flex justify-between">
+                              <span>{t("total")}:</span>
+                              <div className="text-right">
+                                <p className="text-sm text-muted-foreground">
+                                  {(getCurrentPrice() * quantity).toFixed(2)}€
+                                  HT
+                                </p>
+                                <p className="font-semibold">
+                                  {(
+                                    getCurrentPrice() *
+                                    quantity *
+                                    (1 + (product.taxe || 0) / 100)
+                                  ).toFixed(2)}
+                                  € TTC
+                                </p>
+                              </div>
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                      <CardFooter className="space-x-4">
+                        <div className="flex-1">
+                          <DButton
+                            onClickBtn={handleAddToCart}
+                            isDisabled={isAddingToCart || product.stock === 0}
+                            isMain
+                          >
+                            <ShoppingCart className="mr-2 h-5 w-5" />
+                            {product.stock === 0
+                              ? t("outOfStock")
+                              : t("addToCart.button")}
+                          </DButton>
+                        </div>
+                      </CardFooter>
+                    </Card>
+                  </TabsContent>
+                </Tabs>
+              </div>
             </div>
           </div>
 
-          <div className="lg:w-1/3">
-            <div className="p-4 md:p-6 border rounded-xl shadow-sm bg-white">
-              <h2 className="text-xl font-semibold mb-6 text-center lg:text-left">
-                {t("addToCartTitle")}
-              </h2>
-              {getStockStatus()}
-
-              {product.subscription && (
-                <div className="mb-6">
-                  <Tabs
-                    defaultValue="month"
-                    value={billingCycle}
-                    onValueChange={setBillingCycle}
-                    className="w-full"
-                  >
-                    <TabsList className="grid w-full grid-cols-2 mb-4">
-                      <TabsTrigger
-                        value="month"
-                        className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
-                      >
-                        {t("monthly")}
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="year"
-                        className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
-                      >
-                        {t("annual")}
-                      </TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="month" className="mt-2">
-                      <div className="p-4 border rounded-lg bg-muted/30">
-                        <p className="font-medium text-lg">
-                          {product.priceMonthly}€/{t("month")}
-                        </p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {t("monthlyDescription")}
-                        </p>
-                      </div>
-                    </TabsContent>
-                    <TabsContent value="year" className="mt-2">
-                      <div className="p-4 border rounded-lg bg-muted/30">
-                        <p className="font-medium text-lg">
-                          {product.priceAnnual}€/{t("year")}
-                        </p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {t("save")}{" "}
-                          {(
-                            product.priceMonthly * 12 -
-                            product.priceAnnual
-                          ).toFixed(2)}
-                          € {t("comparedToMonthly")}
-                        </p>
-                      </div>
-                    </TabsContent>
-                  </Tabs>
-                </div>
-              )}
-
-              <div className="flex items-center gap-4 mb-6">
-                <p className="font-medium">{t("quantity")}:</p>
-                <div className="flex items-center border rounded-md overflow-hidden">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => handleQuantityChange(false)}
-                    disabled={quantity <= 1}
-                    className="h-10 w-10 rounded-none"
-                  >
-                    <Minus className="h-4 w-4" />
-                  </Button>
-                  <Input
-                    type="number"
-                    min="1"
-                    max={product.stock}
-                    value={quantity}
-                    onChange={(e) =>
-                      setQuantity(
-                        Math.max(
-                          1,
-                          Math.min(
-                            product.stock,
-                            parseInt(e.target.value, 10) || 1
-                          )
-                        )
-                      )
-                    }
-                    className="w-16 text-center border-0 h-10 rounded-none"
-                  />
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => handleQuantityChange(true)}
-                    disabled={quantity >= product.stock}
-                    className="h-10 w-10 rounded-none"
-                  >
-                    <Plus className="h-4 w-4" />
-                  </Button>
-                </div>
+          <div className="space-y-10">
+            <div>
+              <h2 className="text-2xl font-bold mb-6">{t("keyFeatures")}</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {product.characteristics &&
+                  product.characteristics[locale]?.map(
+                    (characteristic, index) => (
+                      <Card key={index} className="h-full">
+                        <CardContent className="p-4 flex items-center">
+                          <Check className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
+                          <p className="text-sm">{characteristic}</p>
+                        </CardContent>
+                      </Card>
+                    )
+                  )}
               </div>
-
-              <div className="mb-6 p-4 bg-muted/30 rounded-lg">
-                <p className="text-lg font-semibold flex justify-between">
-                  <span>{t("total")}:</span>
-                  <div className="text-right">
-                    <p className="text-sm text-muted-foreground">
-                      {(getCurrentPrice() * quantity).toFixed(2)}€ HT
-                    </p>
-                    <p className="font-semibold">
-                      {(
-                        getCurrentPrice() *
-                        quantity *
-                        (1 + (product.taxe || 0) / 100)
-                      ).toFixed(2)}
-                      € TTC
-                    </p>
-                  </div>
-                </p>
-              </div>
-
-              <DButton
-                onClickBtn={handleAddToCart}
-                isMain
-                isDisabled={isAddingToCart || product.stock === 0}
-                className="w-full h-12 text-base"
-                isLoading={isAddingToCart}
-              >
-                <ShoppingCart className="mr-2 h-5 w-5" />
-                {product.stock === 0 ? t("outOfStock") : t("addToCart.button")}
-              </DButton>
             </div>
+
+            <div>
+              <h2 className="text-2xl font-bold mb-6">{t("whyChooseUs")}</h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                {benefitCards.map((card, index) => (
+                  <Card key={index}>
+                    <CardHeader className="pb-2">
+                      <card.icon className="h-8 w-8 text-primary mb-2" />
+                      <CardTitle>{card.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>{card.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="mt-8">
+            <SuggestedProducts isProductPage />
           </div>
         </div>
       )}
-      <div className="mt-8">
-        <SuggestedProducts isProductPage />
-      </div>
     </div>
   )
 }

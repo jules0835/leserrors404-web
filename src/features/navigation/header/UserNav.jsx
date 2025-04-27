@@ -13,13 +13,15 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { signOut, useSession } from "next-auth/react"
 import { webAppSettings } from "@/assets/options/config"
-import { useRouter } from "@/i18n/routing"
+import { Link, useRouter } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export function UserNav() {
   const { data: session } = useSession()
   const router = useRouter()
   const t = useTranslations("Navigation")
+  const isMobile = useIsMobile()
 
   if (session) {
     return (
@@ -99,29 +101,53 @@ export function UserNav() {
   }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <Avatar className="h-8 w-8 border border-purple-900">
-            <AvatarImage src={"/user_default.png"} alt={"No user"} />
-          </Avatar>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
-        <DropdownMenuGroup>
-          <DropdownMenuItem
-            onClick={() => router.push(webAppSettings.urls.login)}
-          >
-            {t("login")}
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem
-            onClick={() => router.push(webAppSettings.urls.register)}
-          >
-            {t("register")}
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div>
+      {(session || isMobile) && (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+              <Avatar className="h-8 w-8 border border-purple-900">
+                <AvatarImage src={"/user_default.png"} alt={"No user"} />
+              </Avatar>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56" align="end" forceMount>
+            <DropdownMenuGroup>
+              <DropdownMenuItem
+                onClick={() => router.push(webAppSettings.urls.login)}
+              >
+                {t("login")}
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem
+                onClick={() => router.push(webAppSettings.urls.register)}
+              >
+                {t("register")}
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )}
+      {!session && !isMobile && (
+        <div className="flex gap-2">
+          <Link href={webAppSettings.urls.register}>
+            <Button
+              variant="outline"
+              className="rounded-sm hover:bg-gray-300 transition-colors"
+            >
+              {t("register")}
+            </Button>
+          </Link>
+          <Link href={webAppSettings.urls.login}>
+            <Button
+              variant="outline"
+              className="rounded-sm hover:bg-gray-300 transition-colors"
+            >
+              {t("login")}
+            </Button>
+          </Link>
+        </div>
+      )}
+    </div>
   )
 }

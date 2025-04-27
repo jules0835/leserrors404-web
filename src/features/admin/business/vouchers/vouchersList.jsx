@@ -135,18 +135,6 @@ export default function VouchersList() {
       cell: ({ row }) => <div>{row.getValue("amount")}</div>,
     },
     {
-      accessorKey: "minPurchaseAmount",
-      header: ({ column }) => (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          {t("minPurchaseAmount")} <ArrowUpDown />
-        </Button>
-      ),
-      cell: ({ row }) => <div>{row.getValue("minPurchaseAmount")}</div>,
-    },
-    {
       accessorKey: "description",
       header: ({ column }) => (
         <Button

@@ -84,7 +84,7 @@ export default function ShopProductList() {
   )
 
   return (
-    <div>
+    <div className="min-h-screen">
       {searchQuery && (
         <h1 className="text-xl md:text-2xl font-bold mb-4 text-center md:text-left">
           {t("searchResultsFor")} "{searchQuery}"
@@ -96,6 +96,12 @@ export default function ShopProductList() {
         </h1>
       )}
       <div className="mt-4">
+        <div className="flex justify-between items-center mb-6">
+          <p className="text-muted-foreground">
+            {t("showing")} {products.length} {t("products")}
+          </p>
+        </div>
+
         {isLoading && (
           <GridProductsSkeleton
             cells={3}
@@ -109,7 +115,7 @@ export default function ShopProductList() {
           </div>
         )}
         {products && products.length !== 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
             {products.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}

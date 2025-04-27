@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { Trash2, ShoppingBag, TicketPercent } from "lucide-react"
@@ -73,14 +72,14 @@ export default function CardCheckoutCart({
   }
 
   return (
-    <Card className="p-6 sticky top-24">
-      <div className="space-y-2">
+    <div className="bg-card rounded-lg border shadow-sm p-6 sticky top-20 mt-14">
+      <div className="space-y-6">
         <TopCartMessages cart={cart} isLoading={isLoading} session={session} />
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold mb-4 text-center md:text-left">
-            {t("orderSummary")}
-          </h2>
-          <div className="space-y-4">
+
+        <div>
+          <h2 className="text-xl font-semibold mb-4">{t("orderSummary")}</h2>
+
+          <div className="space-y-3">
             <div className="flex justify-between">
               <span className="text-muted-foreground">{t("subtotal")}</span>
               <span>
@@ -105,8 +104,6 @@ export default function CardCheckoutCart({
               </span>
             </div>
 
-            <Separator />
-
             {cart?.discount > 0 && (
               <div className="flex justify-between text-green-600">
                 <span>{t("discount")}</span>
@@ -121,7 +118,9 @@ export default function CardCheckoutCart({
               </div>
             )}
 
-            <div className="flex justify-between text-xl font-bold">
+            <Separator className="my-3" />
+
+            <div className="flex justify-between font-bold text-lg">
               <span>{t("total")}</span>
               <span>
                 {displayLoadingCalcul(
@@ -135,9 +134,9 @@ export default function CardCheckoutCart({
           </div>
         </div>
 
-        <div className="space-y-4 pt-2">
+        <div className="space-y-4">
           {!cart?.voucher && (
-            <div className="flex flex-col md:flex-row gap-2 items-center">
+            <div className="flex gap-2">
               <input
                 type="text"
                 placeholder={t("voucherCode")}
@@ -148,22 +147,29 @@ export default function CardCheckoutCart({
               <Button
                 onClick={handleApplyVoucher}
                 disabled={isApplyingVoucher || !voucherCode}
-                className="w-full md:w-auto"
+                variant="outline"
+                className="h-10 px-4"
               >
                 {t("apply")}
               </Button>
             </div>
           )}
+
           {cart?.voucher && isUpdating && <Skeleton className="w-full h-10" />}
           {cart?.voucher && !isUpdating && (
-            <div className="flex justify-between items-center border rounded-md py-1 px-5">
-              <TicketPercent />
-              <span>{`${cart.voucher.code} - ${cart.voucher.type === "percentage" ? `${cart.voucher.amount}%` : `${cart.voucher.amount}€`}`}</span>
-              <Button variant="ghost" size="icon" onClick={handleRemoveVoucher}>
-                <Trash2 className="h-4 w-4" />
+            <div className="flex justify-between items-center p-2 bg-muted rounded-lg">
+              <div className="flex items-center gap-2">
+                <TicketPercent className="h-4 w-4 text-green-600" />
+                <span className="text-sm">
+                  {`${cart.voucher.code} - ${cart.voucher.type === "percentage" ? `${cart.voucher.amount}%` : `${cart.voucher.amount}€`}`}
+                </span>
+              </div>
+              <Button variant="ghost" size="sm" onClick={handleRemoveVoucher}>
+                <Trash2 className="h-4 w-4 text-destructive" />
               </Button>
             </div>
           )}
+
           {!isLoading && session && (
             <TooltipProvider>
               {!cart?.checkout?.isEligible && (
@@ -193,7 +199,7 @@ export default function CardCheckoutCart({
               {cart?.checkout?.isEligible && (
                 <div className="space-y-4">
                   {!hasSubscriptions(cart) && (
-                    <div className="flex justify-center items-center space-x-2">
+                    <div className="flex items-center space-x-2">
                       <Checkbox
                         id="saveCard"
                         checked={saveCardForFuture}
@@ -213,6 +219,7 @@ export default function CardCheckoutCart({
                     isMain
                     isDisabled={cart?.products?.length === 0}
                     onClickBtn={handleCheckout}
+                    className="w-full"
                   >
                     <ShoppingBag className="mr-2 h-4 w-4" />
                     {t("checkout")}
@@ -236,6 +243,6 @@ export default function CardCheckoutCart({
         isOpen={isCheckoutSummaryOpen}
         onClose={() => setIsCheckoutSummaryOpen(false)}
       />
-    </Card>
+    </div>
   )
 }

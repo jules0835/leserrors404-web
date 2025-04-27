@@ -16,6 +16,7 @@ import { useState, useRef } from "react"
 import { useLocale, useTranslations } from "next-intl"
 import { motion } from "motion/react"
 import { useInView } from "react-intersection-observer"
+import { trimString } from "@/lib/utils"
 
 export default function HomeCarousel({ initialCarouselData }) {
   const [carouselData] = useState(JSON.parse(initialCarouselData))
@@ -67,22 +68,23 @@ export default function HomeCarousel({ initialCarouselData }) {
                     />
                   </div>
                   {part.titleTrans[locale] && (
-                    <div className="absolute right-0 top-1/2 transform -translate-y-1/2 m-4 p-6 bg-white rounded-lg shadow-lg">
+                    <div className="absolute right-0 top-1/2 transform -translate-y-1/2 m-4 p-6 bg-white rounded-sm shadow-lg md:w-4/12 w-1/2">
                       <div>
                         <h3 className="text-lg font-semibold">
                           {part.titleTrans[locale]}
                         </h3>
-                        {
-                          <p className="mt-2 text-sm">
-                            {part.descriptionTrans[locale]}
-                          </p>
-                        }
+                        <p className="mt-2 text-sm md:block hidden">
+                          {part.descriptionTrans[locale]}
+                        </p>
+                        <p className="mt-2 text-sm md:hidden">
+                          {trimString(part.descriptionTrans[locale], 50)}
+                        </p>
                       </div>
-                      <div className="mt-4">
+                      <div className="mt-4 flex justify-end">
                         {part.link && (
                           <Link
                             href={part.link}
-                            className="bg-indigo-500 rounded-lg p-2 text-white hover:bg-indigo-700"
+                            className="bg-indigo-500 rounded-sm p-2 text-white hover:bg-indigo-700 w-full text-center"
                           >
                             {t("HomePage.carouselButtonMoreInfos")}
                           </Link>

@@ -52,7 +52,7 @@ export async function POST(req) {
     const userId = getReqUserId(req)
     const chatId = req.cookies.get("chatId")?.value
 
-    if (chatId) {
+    if (chatId && !userId) {
       const chat = await findChatByIdForChatBot(chatId)
 
       if (chat) {

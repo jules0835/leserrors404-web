@@ -331,7 +331,9 @@
           "taxe": "Taxer",
           "technicalCaracteristics": "Caractéristiques techniques",
           "priceAnnual": "Prix ​​annuel",
-          "priceMonthly": "Prix ​​mensuellement"
+          "priceMonthly": "Prix ​​mensuellement",
+          "addCharacteristic": "Ajouter des caractéristiques",
+          "remove": "Retirer"
         },
         "Delete": {
           "deletingProduct": "Suppression du produit",
@@ -570,7 +572,9 @@
         "voucherCreated": "Bon créé",
         "voucherCreationFailed": "La création de bons a échoué",
         "voucherType": "Type de bon",
-        "yes": "Oui"
+        "yes": "Oui",
+        "voucherStatusChangeFailed": "Le statut de bon a changé d'échec",
+        "voucherStatusChanged": "Le statut de bon a changé"
       },
       "Customers": {
         "CustomerDetails": {
@@ -1514,7 +1518,19 @@
     "welcome": "Bienvenue chez {company}",
     "welcomeMessage": "Votre partenaire de confiance dans les solutions de cybersécurité.",
     "welcomeMessageAnimation": "Il est temps de sécuriser votre avenir!",
-    "welcomeMessageDescription": "Rejoignez maintenant plus de 500 sociétés Wordwild qui nous font confiance pour sécuriser leur"
+    "welcomeMessageDescription": "Rejoignez maintenant plus de 500 sociétés Wordwild qui nous font confiance pour sécuriser leur",
+    "characteristics": "Caractéristiques",
+    "chooseThisOffer": "Choisissez cette offre",
+    "compareSolutions": "Comparez nos meilleurs produits",
+    "month": "Mois",
+    "oneTime": "Une fois",
+    "or": "Ou",
+    "otherProducts": "Produits connexes",
+    "perYear": "par année",
+    "startingFrom": "À partir de",
+    "subscription": "Abonnement",
+    "topProducts": "Meilleurs produits",
+    "viewAllProducts": "Afficher tous les produits"
   },
   "Navigation": {
     "about": "À propos",
@@ -1988,7 +2004,10 @@
   "socialMedia": "Réseaux sociaux",
   "ProductCard": {
     "seeMore": "Voir plus",
-    "month": "Mois"
+    "month": "Mois",
+    "addToCart": "Ajouter au panier",
+    "oneTime": "Acheter une fois",
+    "subscription": "Abonnement"
   },
   "NavSearchBar": {
     "categories": "Catégories",
@@ -2017,7 +2036,9 @@
     "priceDesc": "Prix",
     "priceRange": "Fourchette",
     "reset": "Réinitialiser",
-    "sortBy": "Trier par"
+    "sortBy": "Trier par",
+    "products": "produits",
+    "showing": "Projection"
   },
   "Error": {
     "Front": {
@@ -2110,7 +2131,13 @@
       "noBillingAddress": "Aucune adresse de facturation",
       "selectBillingAddress": "Sélectionnez l'adresse de facturation",
       "yourProducts": "Vos produits",
-      "zipCode": "Code postal"
+      "zipCode": "Code postal",
+      "deleteAddress": "Supprimer l'adresse",
+      "deleteAddressConfirmation": "Êtes-vous sûr de vouloir supprimer cette adresse ?",
+      "deleteAddressSuccess": "Adresse supprimée avec succès",
+      "deleteAddressError": "Échec de la suppression de l'adresse",
+      "remove": "Retirer",
+      "selectBillingCycle": "Sélectionner le cycle de facturation"
     },
     "Product": {
       "addToCart": {
@@ -2138,7 +2165,25 @@
       "subscription": "Abonnement",
       "total": "Total",
       "year": "Année",
-      "title": "Produit"
+      "title": "Produit",
+      "benefitCard1": {
+        "description": "Nous priorisons la sécurité à tous les niveaux - du stockage crypté des données dans l'UE à la surveillance 24/7 par notre SOC interne. \nVotre protection est notre mission.",
+        "title": "Sécurité d'abord"
+      },
+      "benefitCard2": {
+        "description": "Aucune configuration complexe. \nNotre plateforme SaaS est prête à se déployer en quelques minutes et s'adapte à vos besoins sans perturber votre infrastructure existante.",
+        "title": "Simplicité du plug-and-protect"
+      },
+      "benefitCard3": {
+        "description": "CYNA évolue avec votre entreprise. \nQue vous protégeiez 5 ou 500 points de terminaison, notre modèle de tarification et notre architecture se développent aux côtés de votre entreprise.",
+        "title": "Construit pour la croissance"
+      },
+      "benefits": "Avantages",
+      "billingCycleHelp": "Choisissez la facturation entre l'année et le mois pour votre plan",
+      "chooseBillingCycle": "Choisissez le cycle de facturation",
+      "keyFeatures": "Caractéristiques clés",
+      "oneTime": "Une fois",
+      "whyChooseUs": "Pourquoi nous choisir?"
     },
     "Checkout": {
       "redirectingToCheckout": "Nous traitons votre paiement, veuillez patienter ...",

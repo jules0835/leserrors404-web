@@ -20,7 +20,19 @@
     "data": "datas",
     "privacy": "privacy",
     "customers": "customers",
-    "employees": "employees"
+    "employees": "employees",
+    "subscription": "Subscription",
+    "oneTime": "One Time",
+    "month": "Month",
+    "viewAllProducts": "View all products",
+    "topProducts": "Top Products",
+    "compareSolutions": "Compare our top products",
+    "startingFrom": "Starting from",
+    "or": "Or",
+    "perYear": "per year",
+    "characteristics": "Characteristics",
+    "chooseThisOffer": "Choose this offer",
+    "otherProducts": "Related products"
   },
   "Auth": {
     "LoginPage": {
@@ -792,7 +804,9 @@
         "VoucherDetails": {
           "title": "Voucher details",
           "subTitle": "View the details of the voucher"
-        }
+        },
+        "voucherStatusChanged": "Voucher status changed",
+        "voucherStatusChangeFailed": "Voucher status changed failed"
       },
       "Subscriptions": {
         "title": "Subscriptions",
@@ -1009,7 +1023,9 @@
           "add": "Add",
           "isActive": "Active",
           "priceMonthly": "Price Monthly",
-          "priceAnnual": "Price Annualy"
+          "priceAnnual": "Price Annualy",
+          "addCharacteristic": "Add characteristics",
+          "remove": "Remove"
         },
         "Edit": {
           "update": "Update",
@@ -1988,7 +2004,10 @@
   "resetPasswordEmailSubject": "Cyna - reset your password",
   "ProductCard": {
     "seeMore": "See more",
-    "month": "Month"
+    "month": "Month",
+    "subscription": "Subscription",
+    "oneTime": "One Time Buy",
+    "addToCart": "Add to cart"
   },
   "ProductPage": {
     "title": "Our products",
@@ -2009,7 +2028,9 @@
     "outOfStock": "Out of Stock",
     "categories": "Categories",
     "dateRange": "Date Range",
-    "applyFilters": "Apply Filters"
+    "applyFilters": "Apply Filters",
+    "showing": "Showing",
+    "products": "products"
   },
   "NavSearchBar": {
     "categories": "Categories",
@@ -2110,7 +2131,16 @@
       "checkoutSummary": "Checkout Summary",
       "yourProducts": "Your Products",
       "cancel": "Cancel",
-      "confirmCheckout": "Confirm Checkout"
+      "confirmCheckout": "Confirm Checkout",
+      "selectBillingCycle": "Select billing cycle",
+      "remove": "Remove",
+      "deleteAddress": "Delete address",
+      "deleteAddressConfirmation": "Are you sure you want to delete this address?",
+      "deleteAddressSuccess": "Address deleted successfully",
+      "deleteAddressError": "Failed to delete address",
+      "addressDeleted": "Address deleted",
+      "deleting": "Deleting",
+      "delete": "Delete"
     },
     "Product": {
       "outOfStock": "Out of stock",
@@ -2138,7 +2168,25 @@
       "bestValue": "Best value",
       "addToCartTitle": "Add to cart",
       "goBack": "Go back",
-      "title": "Product"
+      "title": "Product",
+      "benefits": "Benefits",
+      "keyFeatures": "Key Features",
+      "oneTime": "One Time",
+      "benefitCard1": {
+        "title": "Security First",
+        "description": "We prioritize security at every level — from encrypted data storage in the EU to 24/7 monitoring by our in-house SOC. Your protection is our mission."
+      },
+      "benefitCard2": {
+        "title": "Plug-and-Protect Simplicity",
+        "description": "No complex setup. Our SaaS platform is ready to deploy in minutes and adapts to your needs without disrupting your existing infrastructure."
+      },
+      "benefitCard3": {
+        "description": "Cyna scales with your business. Whether you're protecting 5 or 500 endpoints, our pricing model and architecture grow alongside your company.",
+        "title": "Built for Growth"
+      },
+      "chooseBillingCycle": "Choose Billing Cycle",
+      "billingCycleHelp": "Choose between year and month billing for your plan",
+      "whyChooseUs": "Why choose us ?"
     },
     "Checkout": {
       "redirectingToCheckout": "We are processing your payment, please wait...",

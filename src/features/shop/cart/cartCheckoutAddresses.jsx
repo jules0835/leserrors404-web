@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Edit2 } from "lucide-react"
+import { Edit2, Trash2 } from "lucide-react"
 import { useTranslations } from "next-intl"
 import {
   Dialog,
@@ -8,10 +8,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogDescription,
+  DialogFooter,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useCart } from "@/features/shop/cart/context/cartContext"
@@ -21,6 +23,8 @@ import DButton from "@/components/ui/DButton"
 export default function CartCheckoutAddresses({ cart, session, isLoading }) {
   const t = useTranslations("Shop.Cart")
   const [isAddressDialogOpen, setIsAddressDialogOpen] = useState(false)
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
+  const [addressToDelete, setAddressToDelete] = useState(null)
   const [selectedAddress, setSelectedAddress] = useState(null)
   const [newAddress, setNewAddress] = useState({
     name: "",
@@ -30,6 +34,7 @@ export default function CartCheckoutAddresses({ cart, session, isLoading }) {
     street: "",
   })
   const { updateBillingAddress, addNewAddress, isUpdating } = useCart()
+  const queryClient = useQueryClient()
   const { data: addresses, isLoading: isLoadingAddresses } = useQuery({
     queryKey: ["userBillingAddresses"],
     queryFn: async () => {
@@ -43,11 +48,34 @@ export default function CartCheckoutAddresses({ cart, session, isLoading }) {
     },
     enabled: Boolean(session),
   })
+  const deleteAddressMutation = useMutation({
+    mutationFn: async (addressId) => {
+      const response = await fetch(`/api/user/profile/addresses/${addressId}`, {
+        method: "DELETE",
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to delete address")
+      }
+
+      return response.json()
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["userBillingAddresses"] })
+      toast.success(t("addressDeleted"))
+      setIsDeleteDialogOpen(false)
+      setAddressToDelete(null)
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
   const handleAddressSelect = async (address) => {
     try {
       await updateBillingAddress(address)
       setSelectedAddress(address)
       setIsAddressDialogOpen(false)
+      queryClient.invalidateQueries({ queryKey: ["cart"] })
     } catch (error) {
       toast.error(error.message)
     }
@@ -66,6 +94,7 @@ export default function CartCheckoutAddresses({ cart, session, isLoading }) {
       })
       toast.success("Address added successfully")
       setIsAddressDialogOpen(false)
+      queryClient.invalidateQueries({ queryKey: ["cart"] })
     } catch (error) {
       toast.error(error.message)
     }
@@ -76,6 +105,15 @@ export default function CartCheckoutAddresses({ cart, session, isLoading }) {
       ...prev,
       [name]: value,
     }))
+  }
+  const handleDeleteAddress = (address) => {
+    setAddressToDelete(address)
+    setIsDeleteDialogOpen(true)
+  }
+  const confirmDeleteAddress = () => {
+    if (addressToDelete) {
+      deleteAddressMutation.mutate(addressToDelete._id)
+    }
   }
   const renderAddressContent = () => {
     if (isUpdating || isLoading) {
@@ -149,15 +187,27 @@ export default function CartCheckoutAddresses({ cart, session, isLoading }) {
                             ? "border-primary"
                             : ""
                         }`}
-                        onClick={() => handleAddressSelect(address)}
                       >
-                        <div className="space-y-1 text-center md:text-left">
-                          <h4 className="font-semibold">{address.name}</h4>
-                          <p>{address.street}</p>
-                          <p>
-                            {address.zipCode} {address.city}
-                          </p>
-                          <p>{address.country}</p>
+                        <div className="flex justify-between items-start">
+                          <div
+                            className="space-y-1 text-center md:text-left flex-1 cursor-pointer"
+                            onClick={() => handleAddressSelect(address)}
+                          >
+                            <h4 className="font-semibold">{address.name}</h4>
+                            <p>{address.street}</p>
+                            <p>
+                              {address.zipCode} {address.city}
+                            </p>
+                            <p>{address.country}</p>
+                          </div>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                            onClick={() => handleDeleteAddress(address)}
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
                         </div>
                       </Card>
                     ))
@@ -234,6 +284,44 @@ export default function CartCheckoutAddresses({ cart, session, isLoading }) {
         </Dialog>
       </div>
       {renderAddressContent()}
+
+      <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{t("deleteAddress")}</DialogTitle>
+            <DialogDescription>
+              {t("deleteAddressConfirmation")}
+            </DialogDescription>
+          </DialogHeader>
+          {addressToDelete && (
+            <div className="space-y-1 py-2">
+              <p className="font-medium">{addressToDelete.name}</p>
+              <p>{addressToDelete.street}</p>
+              <p>
+                {addressToDelete.zipCode} {addressToDelete.city}
+              </p>
+              <p>{addressToDelete.country}</p>
+            </div>
+          )}
+          <DialogFooter className="flex flex-col sm:flex-row gap-2">
+            <Button
+              variant="outline"
+              onClick={() => setIsDeleteDialogOpen(false)}
+              className="w-full sm:w-auto"
+            >
+              {t("cancel")}
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={confirmDeleteAddress}
+              className="w-full sm:w-auto"
+              disabled={deleteAddressMutation.isPending}
+            >
+              {deleteAddressMutation.isPending ? t("deleting") : t("delete")}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

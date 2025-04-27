@@ -3,6 +3,7 @@ import { createCart, findCart, mergeCart } from "@/db/crud/cartCrud"
 import { getReqUserId } from "@/features/auth/utils/getAuthParam"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
+import { findUserById } from "@/db/crud/userCrud"
 
 export async function GET(req) {
   try {
@@ -19,7 +20,18 @@ export async function GET(req) {
     let cart = await findCart(userId ? { user: userId } : { _id: cartId })
 
     if (!cart && userId) {
-      cart = await createCart({ user: userId, products: [] })
+      const user = await findUserById(userId)
+      cart = await createCart({
+        user: userId,
+        products: [],
+        billingAddress: {
+          name: `${user.firstName} ${user.lastName}`,
+          country: user.address.country,
+          city: user.address.city,
+          zipCode: user.address.zipCode,
+          street: user.address.street,
+        },
+      })
     }
 
     if (!cart) {
@@ -48,9 +60,23 @@ export async function GET(req) {
 export async function POST(req) {
   try {
     const userId = getReqUserId(req)
+    let billingAddress = null
+
+    if (userId) {
+      const user = await findUserById(userId)
+      billingAddress = {
+        name: `${user.firstName} ${user.lastName}`,
+        country: user.address.country,
+        city: user.address.city,
+        zipCode: user.address.zipCode,
+        street: user.address.street,
+      }
+    }
+
     const cart = await createCart({
       user: userId || null,
       products: [],
+      billingAddress,
     })
     const response = NextResponse.json(cart)
 

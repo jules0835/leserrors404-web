@@ -6,6 +6,11 @@ export const getProductSchema = (t) =>
   Yup.object().shape({
     label: Yup.string().required(t("labelRequired")),
     description: Yup.string().required(t("descriptionRequired")),
+    characteristics: Yup.object()
+      .shape({
+        en: Yup.array().of(Yup.string()).min(1, t("characteristicsRequired")),
+      })
+      .required(t("characteristicsRequired")),
     picture: Yup.string().required(t("pictureRequired")),
   })
 

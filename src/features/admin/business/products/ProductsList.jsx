@@ -114,12 +114,25 @@ export default function ProductsList() {
     }
   }
   const getCategoryName = (categoryId) => {
-    const category = categories.find((cat) => cat._id.$oid === categoryId.$oid)
+    if (!categoryId) {
+      return ""
+    }
+
+    if (typeof categoryId === "object" && categoryId.label) {
+      return getLocalizedValue(categoryId.label, locale) || ""
+    }
+
+    const id = categoryId.$oid || categoryId
+    const category = categories.find((cat) => {
+      const catId = cat._id.$oid || cat._id
+
+      return catId === id
+    })
 
     if (category) {
       const { label } = category
 
-      return label[locale] || label.en || ""
+      return getLocalizedValue(label, locale) || ""
     }
 
     return ""
