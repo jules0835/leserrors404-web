@@ -2137,7 +2137,10 @@
       "deleteAddressError": "Ku tsandzeka ku susa adirese .",
       "deleteAddressSuccess": "Adirese yi susiwile hi ndlela leyi humelelaka .",
       "remove": "Susa",
-      "selectBillingCycle": "Hlawula Xirhendzevutana xa ku Hakela ."
+      "selectBillingCycle": "Hlawula Xirhendzevutana xa ku Hakela .",
+      "addressDeleted": "Adirese yi susiwile .",
+      "delete": "Sula",
+      "deleting": "Ku susa ."
     },
     "Product": {
       "addToCart": {

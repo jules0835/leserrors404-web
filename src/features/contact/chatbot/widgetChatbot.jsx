@@ -14,41 +14,45 @@ export default function WidgetChatbot() {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const isAppMobileLogin = searchParams.get("appMobileLogin")
+  const isContactPage = pathname.includes("/contact")
 
   useEffect(() => {
     if (
       pathname.includes("/admin") ||
       isAppMobileLogin ||
       pathname.includes("/shop/checkout/redirect") ||
-      pathname.includes("/user/dashboard")
+      pathname.includes("/user/dashboard") ||
+      isContactPage
     ) {
       setCanDisplay(false)
     } else {
       setCanDisplay(true)
     }
-  }, [pathname, isAppMobileLogin])
+  }, [pathname, isAppMobileLogin, isContactPage])
 
   return (
-    <Dialog
-      open={isOpen}
-      onOpenChange={(open) => (open ? openChat() : closeChat())}
-    >
-      {canDisplay && (
-        <DialogTrigger asChild>
-          <button className="fixed bottom-6 right-6 bg-[#2F1F80] text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 hover:scale-105 transition-all duration-300 border border-white">
-            <MessagesSquare className="w-6 h-6" />
-            {unreadCount > 0 && (
-              <span className="absolute top-0 right-0 text-xs bg-red-500 text-white px-2 py-1 rounded-full">
-                {unreadCount}
-              </span>
-            )}
-            {t("widget.title")}
-          </button>
-        </DialogTrigger>
-      )}
-      <DialogContent className="w-full max-w-lg p-0">
-        <ChatBox />
-      </DialogContent>
-    </Dialog>
+    !isContactPage && (
+      <Dialog
+        open={isOpen}
+        onOpenChange={(open) => (open ? openChat() : closeChat())}
+      >
+        {canDisplay && (
+          <DialogTrigger asChild>
+            <button className="fixed bottom-6 right-6 bg-[#2F1F80] text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 hover:scale-105 transition-all duration-300 border border-white">
+              <MessagesSquare className="w-6 h-6" />
+              {unreadCount > 0 && (
+                <span className="absolute top-0 right-0 text-xs bg-red-500 text-white px-2 py-1 rounded-full">
+                  {unreadCount}
+                </span>
+              )}
+              {t("widget.title")}
+            </button>
+          </DialogTrigger>
+        )}
+        <DialogContent className="w-full max-w-lg p-0">
+          <ChatBox />
+        </DialogContent>
+      </Dialog>
+    )
   )
 }

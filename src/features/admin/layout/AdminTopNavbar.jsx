@@ -21,9 +21,7 @@ export default function AdminTopNavbar() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 px-4 ml-auto" id="right">
-          <div className="hidden md:flex">ICI RECHERCHEs ?</div>
-          <div>ICI NOTIFICATIONS ?</div>
+        <div className="flex items-center gap-4 px-4 ml-auto" id="right">
           <LocaleSwitcher />
           <UserNav />
         </div>
