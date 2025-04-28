@@ -23,6 +23,7 @@ import {
 import ErrorFront from "@/components/navigation/error"
 import { AnimatedReload } from "@/components/actions/AnimatedReload"
 import { company } from "@/assets/options/config"
+import { usePathname, useSearchParams } from "next/navigation"
 
 export default function ChatBox() {
   const {
@@ -36,6 +37,10 @@ export default function ChatBox() {
   } = useChat()
   const state = chatData?.chatState
   const t = useTranslations("chat")
+  const pathname = usePathname()
+  const isContactPage = pathname.includes("/contact")
+  const searchParams = useSearchParams()
+  const isMobileApp = searchParams.get("isAppMobile") === "true"
 
   if (shouldReset) {
     return <WelcomeMessage />
@@ -50,7 +55,11 @@ export default function ChatBox() {
   }
 
   return (
-    <div className="flex flex-col h-[80vh]">
+    <div
+      className={`flex flex-col h-[80vh] ${
+        isContactPage && isMobileApp ? "h-screen" : ""
+      }`}
+    >
       <div className="flex items-center justify-between p-4 border-b">
         <div className="flex items-center gap-2">
           {chatData?.chat?.state === "CHAT_BOT" ? (

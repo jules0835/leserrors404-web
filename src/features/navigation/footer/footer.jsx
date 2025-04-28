@@ -12,9 +12,16 @@ export default function Footer() {
   const isAdminDashboard = pathname.includes("/admin")
   const isAuth = pathname.includes("/auth")
   const isCheckoutRedirect = pathname.includes("/shop/checkout/redirect")
+  const isContactPage = pathname.includes("/contact")
   const { openChat } = useChat()
 
-  if (isUserDashboard || isAdminDashboard || isAuth || isCheckoutRedirect) {
+  if (
+    isUserDashboard ||
+    isAdminDashboard ||
+    isAuth ||
+    isCheckoutRedirect ||
+    isContactPage
+  ) {
     return null
   }
 

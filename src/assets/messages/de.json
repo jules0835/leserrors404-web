@@ -2137,7 +2137,10 @@
       "deleteAddressError": "Die Adresse nicht löschen",
       "deleteAddressSuccess": "Adresse erfolgreich gelöscht",
       "remove": "Entfernen",
-      "selectBillingCycle": "Wählen Sie Abrechnungszyklus"
+      "selectBillingCycle": "Wählen Sie Abrechnungszyklus",
+      "addressDeleted": "Adresse gelöscht",
+      "delete": "Löschen",
+      "deleting": "Löschen"
     },
     "Product": {
       "addToCart": {

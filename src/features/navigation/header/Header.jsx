@@ -16,6 +16,7 @@ export default function Header() {
   const reval = searchParams.get("reval")
   const router = useRouter()
   const t = useTranslations("header")
+  const isMobileApp = searchParams.get("isAppMobile") === "true"
 
   useEffect(() => {
     async function fetchData() {
@@ -33,7 +34,8 @@ export default function Header() {
   if (
     pathname.includes("/auth/") ||
     pathname.includes("/admin") ||
-    pathname.includes("/shop/checkout/redirect")
+    pathname.includes("/shop/checkout/redirect") ||
+    (pathname.includes("/contact") && isMobileApp)
   ) {
     return null
   }

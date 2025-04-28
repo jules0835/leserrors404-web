@@ -2137,7 +2137,10 @@
       "deleteAddressError": "Impossibile eliminare l'indirizzo",
       "deleteAddressSuccess": "Indirizzo eliminato correttamente",
       "remove": "Rimuovere",
-      "selectBillingCycle": "Seleziona il ciclo di fatturazione"
+      "selectBillingCycle": "Seleziona il ciclo di fatturazione",
+      "addressDeleted": "Indirizzo eliminato",
+      "delete": "Eliminare",
+      "deleting": "Eliminazione"
     },
     "Product": {
       "addToCart": {

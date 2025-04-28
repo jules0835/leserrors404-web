@@ -2137,7 +2137,10 @@
       "deleteAddressSuccess": "Adresse supprimée avec succès",
       "deleteAddressError": "Échec de la suppression de l'adresse",
       "remove": "Retirer",
-      "selectBillingCycle": "Sélectionner le cycle de facturation"
+      "selectBillingCycle": "Sélectionner le cycle de facturation",
+      "addressDeleted": "Adresse supprimée",
+      "delete": "Supprimer",
+      "deleting": "Supprimer"
     },
     "Product": {
       "addToCart": {

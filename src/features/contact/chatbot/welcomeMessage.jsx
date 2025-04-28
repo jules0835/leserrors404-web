@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { useSession } from "next-auth/react"
 import { motion } from "framer-motion"
+import { useSearchParams } from "next/navigation"
 
 export default function WelcomeMessage() {
   const t = useTranslations("Contact.Chatbot")
@@ -17,6 +18,8 @@ export default function WelcomeMessage() {
     email: "",
   })
   const [isLoading, setIsLoading] = useState(false)
+  const searchParams = useSearchParams()
+  const isMobileApp = searchParams.get("isAppMobile") === "true"
   const handleStartChat = async () => {
     try {
       setIsLoading(true)
@@ -48,7 +51,9 @@ export default function WelcomeMessage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col items-center justify-center h-full p-4 text-center"
+      className={`flex flex-col items-center justify-center h-full p-4 text-center ${
+        isMobileApp ? "h-screen" : ""
+      }`}
     >
       <div className="max-w-md flex flex-col items-center justify-center gap-4">
         <motion.div
