@@ -124,7 +124,7 @@ export const sendConfirmationEmail = async (userId) => {
       throw new Error("Failed to update confirmation token")
     }
 
-    const confirmationLink = `${process.env.SERVER_URL}/en/auth/confirm/email/${token}`
+    const confirmationLink = `${process.env.NEXT_PUBLIC_APP_URL}/en/auth/confirm/email/${token}`
     const subject = t("Confirmation.subject")
 
     try {
@@ -255,7 +255,7 @@ export const sendResetPasswordEmail = async (email) => {
           userName={user.firstName}
         >
           <ResetTemplate
-            resetUrl={`${process.env.SERVER_URL}/auth/password/${token}`}
+            resetUrl={`${process.env.NEXT_PUBLIC_APP_URL}/auth/password/${token}`}
           />
         </EmailTemplate>
       ),

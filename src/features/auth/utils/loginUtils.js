@@ -3,7 +3,7 @@ import { company } from "@/assets/options/config"
 
 export const handleAuthLoginFailure = async (userId) => {
   await fetch(
-    `${process.env.SERVER_URL}/en/api/services/account?action=handleLoginFailure`,
+    `${process.env.NEXT_PUBLIC_APP_URL}/en/api/services/account?action=handleLoginFailure`,
     {
       method: "POST",
       headers: {
@@ -16,7 +16,7 @@ export const handleAuthLoginFailure = async (userId) => {
 }
 export const handleAuthLoginSuccess = async (userId) => {
   await fetch(
-    `${process.env.SERVER_URL}/en/api/services/account?action=handleLoginSuccess`,
+    `${process.env.NEXT_PUBLIC_APP_URL}/en/api/services/account?action=handleLoginSuccess`,
     {
       method: "POST",
       headers: {
@@ -29,7 +29,7 @@ export const handleAuthLoginSuccess = async (userId) => {
 }
 export const sendAuthConfirmationEmail = async (userId) => {
   await fetch(
-    `${process.env.SERVER_URL}/en/api/services/account?action=sendConfirmationEmail`,
+    `${process.env.NEXT_PUBLIC_APP_URL}/en/api/services/account?action=sendConfirmationEmail`,
     {
       method: "POST",
       headers: {

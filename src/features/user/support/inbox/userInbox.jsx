@@ -32,6 +32,12 @@ export default function UserInbox() {
     }
   }, [selectedChatId, chats, setSelectedChat])
 
+  useEffect(() => {
+    if (selectedChatId) {
+      setSelectedChat(chats.find((_chat) => _chat._id === selectedChatId))
+    }
+  }, [selectedChatId, chats, setSelectedChat])
+
   const handleSelectChat = (chatId) => {
     router.push(`/user/dashboard/support/tickets/${chatId}`)
   }
