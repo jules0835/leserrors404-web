@@ -35,7 +35,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         })
 
         const userResponse = await fetch(
-          `${process.env.SERVER_URL}/en/api/authentification/user`,
+          `${process.env.NEXT_PUBLIC_APP_URL}/en/api/authentification/user`,
           {
             method: "POST",
             body: JSON.stringify({ credentials }),
