@@ -3,11 +3,11 @@ import {
   addLoginAttempt,
   changeActiveUserStatus,
   changeUserConfirmedStatus,
-  findUserById,
   updateConfirmationToken,
   findUserByConfirmationToken,
   findUserByEmail,
   updateUserResetToken,
+  findAllUserInfosById,
 } from "@/db/crud/userCrud"
 import log from "@/lib/log"
 import { logKeys, webAppSettings } from "@/assets/options/config"
@@ -51,7 +51,7 @@ export const handleLoginSuccess = async (userId) => {
 
 export const checkLoginAttempts = async (userId) => {
   try {
-    const user = await findUserById(userId)
+    const user = await findAllUserInfosById(userId)
 
     if (
       user.account.auth.loginAttempts >=
@@ -93,7 +93,7 @@ export const sendConfirmationEmail = async (userId) => {
   const t = await getTranslations({ locale: "en" }, "Email")
 
   try {
-    const user = await findUserById(userId)
+    const user = await findAllUserInfosById(userId)
     const now = new Date()
     const resendDelay = new Date(
       now.getTime() -

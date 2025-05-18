@@ -44,7 +44,7 @@ export default function Login() {
   const isResetSuccess = searchParams.get("resetSuccess")
   const isLogout = searchParams.get("logout")
   const { setTitle } = useTitle()
-  setTitle(t("title"))
+  setTitle(t("title", { company: company.name }))
 
   useEffect(() => {
     if (otpOpen && otpInputRef.current) {

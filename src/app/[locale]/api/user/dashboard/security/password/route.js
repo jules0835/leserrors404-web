@@ -1,5 +1,5 @@
 import { getReqUserId } from "@/features/auth/utils/getAuthParam"
-import { findUserById, updateUserPassword } from "@/db/crud/userCrud"
+import { findAllUserInfosById, updateUserPassword } from "@/db/crud/userCrud"
 import bcrypt from "bcryptjs"
 import log from "@/lib/log"
 import { logKeys } from "@/assets/options/config"
@@ -23,7 +23,7 @@ export async function POST(req) {
       return NextResponse.json({ error: 401 }, { status: 401 })
     }
 
-    const user = await findUserById(userId)
+    const user = await findAllUserInfosById(userId)
     const isMatch = await bcrypt.compare(currentPassword, user.password)
 
     if (!isMatch) {

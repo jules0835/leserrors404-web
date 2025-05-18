@@ -22,7 +22,16 @@ export const existingEmail = async (email) => {
 export const findUser = async (query) => {
   await mwdb()
 
-  const user = await UserModel.findOne(query)
+  const user = await UserModel.findOne(query).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
+
+  return user
+}
+
+export const findAllUserInfosById = async (id) => {
+  await mwdb()
+  const user = await UserModel.findById(id)
 
   return user
 }
@@ -30,7 +39,9 @@ export const findUser = async (query) => {
 export const findUserSignUp = async (email) => {
   await mwdb()
 
-  const user = await UserModel.findOne({ email })
+  const user = await UserModel.findOne({ email }).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
 
   return user
 }
@@ -45,7 +56,9 @@ export const findAuthUser = async (email) => {
 
 export const findUserByEmail = async (email) => {
   await mwdb()
-  const user = await UserModel.findOne({ email })
+  const user = await UserModel.findOne({ email }).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
 
   return user
 }
@@ -170,7 +183,9 @@ export const resetLoginAttempts = async (userId) => {
 
 export const findUserById = async (id) => {
   await mwdb()
-  const user = await UserModel.findById(id)
+  const user = await UserModel.findById(id).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
 
   return user
 }
@@ -327,7 +342,9 @@ export const findUserByStripeId = async (stripeId) => {
   await mwdb()
   const user = await UserModel.findOne({
     "account.stripe.customerId": stripeId,
-  })
+  }).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
 
   return user
 }

@@ -21,7 +21,7 @@ export const company = {
 }
 
 export const emailConfig = {
-  noReplySender: "Cyna B3 <contact@cyna-b3.machackhub.online>",
+  noReplySender: "Cyna B3 <contact@cyna-b3.fr>",
 }
 
 export const defaultProfile = {
@@ -42,11 +42,12 @@ export const webAppSettings = {
     successCheckoutMobileRedirect: "cynapp://checkout?success=true",
     cancelCheckoutMobileRedirect: "cynapp://checkout?userCancel=true",
   },
+  // For demo, we only use en, if you can add as many locales as you want
+  // View instructions in the DCT
   translation: {
-    locales: ["en", "fr"],
+    locales: ["en"],
     titles: {
       en: "English",
-      fr: "Français",
     },
     defaultLocale: "en",
   },
@@ -64,6 +65,7 @@ export const webAppSettings = {
   },
   images: {
     userDefault,
+    // For the demo, we use our temporary dev blob storage, he will need to be replaced by the production one
     logoNoTextUrl:
       "https://fimkppvxvt92ijit.public.blob.vercel-storage.com/public/pictures_1739652176726-JuJWTZdMoY5GaXGyjC8fmoYbP0r87H",
     logoUrl:

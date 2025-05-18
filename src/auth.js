@@ -1,15 +1,10 @@
+export const runtime = "nodejs"
+
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
-import bcrypt from "bcryptjs"
 import { logEvent } from "@/lib/logEvent"
 import { logKeys, tokenExpiration } from "@/assets/options/config"
-import {
-  handleAuthLoginFailure,
-  handleAuthLoginSuccess,
-  sendAuthConfirmationEmail,
-  verifyAuthUserOtp,
-} from "@/features/auth/utils/loginUtils"
-import jwt from "jsonwebtoken"
+import { SignJWT } from "jose"
 
 // eslint-disable-next-line new-cap
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -45,104 +40,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
           }
         )
+
+        if (!userResponse.ok) {
+          const error = await userResponse.json()
+          throw Error(error.error || "invalid_credentials")
+        }
+
         const user = await userResponse.json()
-
-        if (!user || !user.email) {
-          await logEvent({
-            level: "userError",
-            message: `User with email ${credentials.email} failed to log in`,
-            logKey: logKeys.loginFailed.key,
-            isError: true,
-            data: { email: credentials.email },
-          })
-
-          throw Error("invalid_credentials")
-        }
-
-        const isValid = await bcrypt.compare(
-          credentials.password,
-          user.password
-        )
-
-        if (!isValid) {
-          await logEvent({
-            level: "userError",
-            message: `User with email ${credentials.email} failed to log in because of invalid password`,
-            logKey: logKeys.loginFailed.key,
-            isError: true,
-            userId: user._id,
-            data: { email: credentials.email },
-          })
-
-          await handleAuthLoginFailure(user._id)
-
-          throw Error("invalid_credentials")
-        }
-
-        if (!user.account.activation.isActivated) {
-          await logEvent({
-            level: "userError",
-            message: `User with email ${credentials.email} failed to log in because account is not activated`,
-            logKey: logKeys.loginFailed.key,
-            isError: true,
-            userId: user._id,
-            data: { email: credentials.email },
-          })
-
-          throw new Error("account_inactive")
-        }
-
-        if (!user.account.confirmation.isConfirmed) {
-          await logEvent({
-            level: "userError",
-            message: `User with email ${credentials.email} failed to log in because account is not confirmed`,
-            logKey: logKeys.loginFailed.key,
-            isError: true,
-            userId: user._id,
-            data: { email: credentials.email },
-          })
-
-          await sendAuthConfirmationEmail(user._id)
-
-          throw new Error("account_not_confirmed")
-        }
-
-        if (user.account.auth.isOtpEnabled) {
-          if (!credentials.otp) {
-            throw Error("user_otp_required")
-          }
-
-          const isValidOtp = verifyAuthUserOtp(credentials.otp, user)
-
-          if (!isValidOtp) {
-            await logEvent({
-              level: "userError",
-              message: `User with email ${credentials.email} failed to log in because of invalid OTP`,
-              logKey: logKeys.loginFailed.key,
-              isError: true,
-              userId: user._id,
-              data: { email: credentials.email },
-            })
-
-            await handleAuthLoginFailure(user._id)
-
-            throw Error("invalid_credentials_otp")
-          }
-        }
-
-        await logEvent({
-          level: "userInfo",
-          message: `User with email ${credentials.email} successfully logged in`,
-          logKey: logKeys.loginSuccess.key,
-          userId: user._id,
-          data: { email: credentials.email },
-        })
-
-        await handleAuthLoginSuccess(user._id)
-
-        if (credentials.appMobileLogin) {
-          user.needsMobileToken = true
-        }
 
         return user
       },
@@ -192,9 +96,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           isAdmin: token.isAdmin,
           exp: token.exp,
         }
-        const mobileJwtSecret = process.env.MOBILE_JWT_SECRET
+        const mobileJwtSecret = new TextEncoder().encode(
+          process.env.MOBILE_JWT_SECRET
+        )
 
-        token.tokenMobile = jwt.sign(mobileTokenPayload, mobileJwtSecret)
+        token.tokenMobile = new SignJWT(mobileTokenPayload)
+          .setProtectedHeader({ alg: "HS256" })
+          .setExpirationTime(token.exp)
+          .sign(mobileJwtSecret)
       }
 
       return token
