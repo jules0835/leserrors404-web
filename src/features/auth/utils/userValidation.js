@@ -7,9 +7,10 @@ export const getRegisterSchema = (t) =>
     company: Yup.string().required(t("companyRequired")),
     email: Yup.string().email(t("invalidEmail")).required(t("emailRequired")),
     password: Yup.string()
-      .min(6, t("passwordMinLength"))
+      .min(12, t("passwordMinLength"))
       .required(t("passwordRequired")),
     confirmPassword: Yup.string()
+      .min(12, t("passwordMinLength"))
       .oneOf([Yup.ref("password"), null], t("passwordsMustMatch"))
       .required(t("confirmPasswordRequired")),
     terms: Yup.bool().oneOf([true], t("termsRequired")),
@@ -47,5 +48,20 @@ export const getEditUserSchema = (t) =>
       activation: Yup.object().shape({
         isActivated: Yup.bool().default(true),
       }),
+    }),
+  })
+
+export const getUserOrderEligibilitySchema = () =>
+  Yup.object().shape({
+    firstName: Yup.string().required(),
+    lastName: Yup.string().required(),
+    company: Yup.string().required(),
+    email: Yup.string().email().required(),
+    phone: Yup.number().required(),
+    address: Yup.object().shape({
+      country: Yup.string().required(),
+      city: Yup.string().required(),
+      zipCode: Yup.string().required(),
+      street: Yup.string().required(),
     }),
   })

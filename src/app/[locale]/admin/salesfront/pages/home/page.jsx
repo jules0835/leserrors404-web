@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import CarouselEditor from "@/features/admin/pages/home/CarouselEditor"
+import HomeBannerEditor from "@/features/admin/pages/homeBanner/homeBannerEditor"
 
 export default function HomePage() {
   const t = useTranslations("Admin.SalesFront.HomePage")
@@ -22,6 +23,19 @@ export default function HomePage() {
           <AccordionContent>
             <div className="my-5">
               <CarouselEditor />
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-2">
+          <AccordionTrigger>
+            <h2 className="text-lg font-semibold">
+              {t("Banner.titleSection")}
+            </h2>
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="my-5">
+              <HomeBannerEditor />
             </div>
           </AccordionContent>
         </AccordionItem>

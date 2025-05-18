@@ -1,10 +1,7 @@
 import { Loader2 } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
+import { AnimatedReload } from "@/components/actions/AnimatedReload"
 
-const mainStyles =
-  "w-full mt-5 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#2F1F80] hover:opacity-90 flex justify-center items-center"
-const secondaryStyles =
-  "w-full mt-5 text-primary-600 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center border border-primary-600 flex justify-center items-center"
 export default function DButton({
   children,
   onClickBtn,
@@ -16,6 +13,17 @@ export default function DButton({
   isSubmit,
   padding,
 }) {
+  const mainStyles = `w-full mt-5 text-white bg-[#2F1F80] focus:ring-0 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center flex justify-center items-center ${
+    isDisabled
+      ? ""
+      : "hover:bg-[#2F1F89] active:bg-[#401bc1] hover:opacity-90 hover:cursor-pointer"
+  }`
+  const secondaryStyles = `w-full mt-5 text-primary-600 bg-white focus:ring-0 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center border border-primary-600 flex justify-center items-center ${
+    isDisabled
+      ? ""
+      : "hover:bg-gray-100 active:bg-gray-300 hover:cursor-pointer"
+  }`
+
   return (
     <div>
       {withLink ? (
@@ -44,11 +52,7 @@ export default function DButton({
           }${styles} ${padding || "py-2 px-4"}`}
           disabled={isDisabled || isLoading}
         >
-          {isLoading ? (
-            <Loader2 className="animate-spin" size={25} />
-          ) : (
-            children
-          )}
+          {isLoading ? <AnimatedReload /> : children}
         </button>
       )}
     </div>

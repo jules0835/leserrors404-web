@@ -3,7 +3,6 @@ import createMiddleware from "next-intl/middleware"
 import { auth } from "@/auth"
 import { routing } from "./i18n/routing"
 
-// Middleware pour l'internationalisation
 const intlMiddleware = createMiddleware(routing)
 const protectedRoutes = ["/dashboard", "/api", "/admin", "/user"]
 const unprotectedApiRoutes = [
@@ -13,16 +12,104 @@ const unprotectedApiRoutes = [
   "/en/api/authentification/user",
   "/en/api/services/log",
   "/en/api/services/account",
-  "/api/test/email",
+  "/api/stripe/webhook/order",
+  "/api/stripe/webhook/subscription",
 ]
-// eslint-disable-next-line consistent-return
-const authMiddleware = auth((req) => {
+
+async function verifyMobileToken(token) {
+  try {
+    if (!token) {
+      return { isValid: false, error: "Missing token" }
+    }
+
+    const response = await fetch(
+      `${process.env.NEXTAUTH_URL}/api/auth/verify-token`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token }),
+      }
+    )
+
+    if (!response.ok) {
+      const errorData = await response.json()
+
+      return { isValid: false, error: errorData.error || "Invalid token" }
+    }
+
+    const data = await response.json()
+
+    return {
+      isValid: data.isValid,
+      userIdMobile: data.userId,
+      isAdminMobile: data.isAdmin || false,
+    }
+  } catch (error) {
+    return { isValid: false, error: error.message }
+  }
+}
+
+function extractBearerToken(req) {
+  const authHeader = req.headers.get("authorization")
+
+  if (!authHeader?.startsWith("Bearer ")) {
+    return null
+  }
+
+  return authHeader.split(" ")[1]
+}
+
+const authMiddleware = auth(async (req) => {
   const currentPath = req.nextUrl.pathname
   const locale = req.cookies.get("NEXT_LOCALE")?.value || "en"
+  const isShopApi = currentPath.includes("/api/shop/")
+  const isContactApi = currentPath.includes("/api/contact/chat")
+  const mobileToken = extractBearerToken(req)
 
-  if (!req.auth) {
+  if (currentPath.includes("/api/") && !currentPath.includes("/api/auth/")) {
+    if (mobileToken) {
+      const mobileAuth = await verifyMobileToken(mobileToken)
+
+      if (mobileAuth.isValid) {
+        req.auth = {
+          ...req.auth,
+          user: {
+            ...req.auth?.user,
+            userId: mobileAuth.userIdMobile,
+            isAdmin: mobileAuth.isAdminMobile,
+          },
+        }
+      } else {
+        return new NextResponse(
+          JSON.stringify({ error: "Invalid mobile token" }),
+          {
+            status: 401,
+            headers: { "Content-Type": "application/json" },
+          }
+        )
+      }
+    }
+  }
+
+  const { isAdmin, userId } = req?.auth?.user || {}
+
+  if (userId) {
+    req.headers.set("x-int-auth-userId", userId)
+    req.headers.set("x-int-auth-isAdmin", isAdmin)
+  }
+
+  if (isShopApi || isContactApi) {
+    return intlMiddleware(req)
+  }
+
+  if ((!req.auth || req.auth?.error === "JWTExpired") && !mobileToken) {
     if (currentPath.includes("/api/")) {
-      return new NextResponse(JSON.stringify({ error: "Access denied" }), {
+      const errorMessage =
+        req.auth?.error === "JWTExpired" ? "Token expired" : "Access denied"
+
+      return new NextResponse(JSON.stringify({ error: errorMessage }), {
         status: 401,
         headers: { "Content-Type": "application/json" },
       })
@@ -33,12 +120,8 @@ const authMiddleware = auth((req) => {
     )
   }
 
-  const { isAdmin, userId } = req.auth.user
-  req.headers.set("x-int-auth-userId", userId)
-  req.headers.set("x-int-auth-isAdmin", isAdmin)
-
   if (currentPath.includes("/admin")) {
-    if (!req.auth.user.isAdmin) {
+    if (!isAdmin) {
       return NextResponse.redirect(new URL(`/${locale}`, req.url))
     }
   }
@@ -55,13 +138,13 @@ export default function middleware(req) {
     currentPath.includes(route)
   )
   const isAuthApi = currentPath.startsWith("/api/auth/")
-  const isTestApi = currentPath.startsWith("/api/test/")
+  const isStripeWebhookApi = currentPath.startsWith("/api/stripe/webhook/")
 
   if (isProtected && !isUnprotectedApi) {
     return authMiddleware(req)
   }
 
-  if (isAuthApi || isTestApi) {
+  if (isAuthApi || isStripeWebhookApi) {
     return NextResponse.next()
   }
 
@@ -69,5 +152,11 @@ export default function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/", "/(fr|en|de|ts)/:path*", "/api/:path*"],
+  matcher: [
+    "/",
+    "/(fr|en|de|ts)/:path*",
+    "/api/:path*",
+    "/auth/:path*",
+    "/admin/:path*",
+  ],
 }

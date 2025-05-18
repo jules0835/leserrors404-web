@@ -3,17 +3,20 @@ import {
   addLoginAttempt,
   changeActiveUserStatus,
   changeUserConfirmedStatus,
-  findUserById,
   updateConfirmationToken,
   findUserByConfirmationToken,
+  findUserByEmail,
+  updateUserResetToken,
+  findAllUserInfosById,
 } from "@/db/crud/userCrud"
 import log from "@/lib/log"
 import { logKeys, webAppSettings } from "@/assets/options/config"
 import { sendEmail } from "@/features/email/utils/emailService"
-import { EmailTemplate } from "@/features/email/templates/emailTemplate"
+import { EmailTemplate } from "@/features/email/templates/main/emailTemplate"
 import ConfirmTemplate from "@/features/email/templates/confirmTemplate"
 import { getTranslations } from "next-intl/server"
 import crypto from "crypto"
+import ResetTemplate from "@/features/email/templates/resetTemplate"
 
 export const handleLoginFailure = async (userId) => {
   try {
@@ -48,7 +51,7 @@ export const handleLoginSuccess = async (userId) => {
 
 export const checkLoginAttempts = async (userId) => {
   try {
-    const user = await findUserById(userId)
+    const user = await findAllUserInfosById(userId)
 
     if (
       user.account.auth.loginAttempts >=
@@ -90,7 +93,7 @@ export const sendConfirmationEmail = async (userId) => {
   const t = await getTranslations({ locale: "en" }, "Email")
 
   try {
-    const user = await findUserById(userId)
+    const user = await findAllUserInfosById(userId)
     const now = new Date()
     const resendDelay = new Date(
       now.getTime() -
@@ -121,7 +124,7 @@ export const sendConfirmationEmail = async (userId) => {
       throw new Error("Failed to update confirmation token")
     }
 
-    const confirmationLink = `${process.env.SERVER_URL}/en/auth/confirm/email/${token}`
+    const confirmationLink = `${process.env.NEXT_PUBLIC_APP_URL}/en/auth/confirm/email/${token}`
     const subject = t("Confirmation.subject")
 
     try {
@@ -218,6 +221,62 @@ export const confirmEmailWithToken = async (token) => {
     })
 
     return false
+  }
+}
+
+export const sendResetPasswordEmail = async (email) => {
+  const t = await getTranslations({ locale: "en" }, "Auth.ResetPasswordPage")
+
+  try {
+    const user = await findUserByEmail(email)
+
+    if (!user) {
+      await log.userInfo({
+        logKey: logKeys.userResetPassword.key,
+        message: "Failed to send reset password email because user not found",
+        isError: true,
+        data: { email },
+      })
+
+      return { message: "If the email exists, a reset link has been sent." }
+    }
+
+    const token = crypto.randomBytes(32).toString("hex")
+    const expires = new Date(Date.now() + 3600000)
+
+    await updateUserResetToken(user._id, token, expires)
+
+    await sendEmail({
+      to: user.email,
+      subject: t("resetPasswordEmailSubject"),
+      messageBody: (
+        <EmailTemplate
+          subject={t("resetPasswordEmailSubject")}
+          userName={user.firstName}
+        >
+          <ResetTemplate
+            resetUrl={`${process.env.NEXT_PUBLIC_APP_URL}/auth/password/${token}`}
+          />
+        </EmailTemplate>
+      ),
+    })
+
+    await log.userInfo({
+      logKey: logKeys.userResetPassword.key,
+      message: "Reset password email sent",
+      data: { email },
+    })
+
+    return { message: "Reset password email sent" }
+  } catch (error) {
+    await log.systemError({
+      logKey: logKeys.internalError.key,
+      message: "Failed to send reset password email",
+      isError: true,
+      data: { email, error },
+    })
+
+    return { error: "Failed to send reset password email" }
   }
 }
 

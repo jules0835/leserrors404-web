@@ -1,6 +1,6 @@
 /* eslint-disable max-depth */
 /* eslint-disable max-params */
-import { LogModel } from "@/db/models/LogModel"
+import { LogModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 import { isValidObjectId, findUserById } from "@/db/utils/dbUtils"
 
@@ -78,6 +78,7 @@ export const getLogs = async (
             { data: { $regex: query, $options: "i" } },
             { oldData: { $regex: query, $options: "i" } },
             { newData: { $regex: query, $options: "i" } },
+            { shortId: { $regex: query, $options: "i" } },
           ],
         }
       : {}),

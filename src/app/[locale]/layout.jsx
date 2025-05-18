@@ -4,31 +4,40 @@ import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
 import { SessionProvider } from "next-auth/react"
 import { Toaster } from "react-hot-toast"
-
+import { CartProvider } from "@/features/shop/cart/context/cartContext"
+import WidgetChatbot from "@/features/contact/chatbot/widgetChatbot"
+import { ChatProvider } from "@/features/contact/chatbot/context/chatContext"
+import { TitleProvider } from "@/components/navigation/titleContext"
+import { company } from "@/assets/options/config"
+import Footer from "@/features/navigation/footer/footer"
+import CookieBanner from "@/components/navigation/cookieBanner"
 export const metadata = {
-  title: "Cyna",
-  description: "Web App For Cyna",
+  title: company.name,
+  description: `${company.name} | Web App`,
   icons: {
-    icon: "/public/favicon.ico",
+    icon: "/icon.png",
   },
 }
 
-export default async function RootLayout({ children, params: { locale } }) {
+export default async function RootLayout({ children }) {
   const messages = await getMessages()
 
   return (
-    <html lang={locale}>
-      <body className="antialiased overscroll-none bg-gray-100">
-        <SessionProvider>
-          <NextIntlClientProvider messages={messages}>
-            <div>
+    <SessionProvider>
+      <NextIntlClientProvider messages={messages}>
+        <TitleProvider>
+          <ChatProvider>
+            <CartProvider>
+              <CookieBanner />
               <Toaster position="top-right" />
-            </div>
-            <Header />
-            {children}
-          </NextIntlClientProvider>
-        </SessionProvider>
-      </body>
-    </html>
+              <Header />
+              <div className="bg-white">{children}</div>
+              <Footer />
+            </CartProvider>
+            <WidgetChatbot />
+          </ChatProvider>
+        </TitleProvider>
+      </NextIntlClientProvider>
+    </SessionProvider>
   )
 }

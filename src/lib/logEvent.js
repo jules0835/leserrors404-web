@@ -1,6 +1,6 @@
 export const logEvent = async ({ level, ...logData }) => {
   try {
-    await fetch(`${process.env.SERVER_URL}/en/api/services/log`, {
+    await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/en/api/services/log`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

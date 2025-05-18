@@ -1,7 +1,6 @@
 /* eslint-disable max-lines-per-function */
 "use client"
 import { ChevronRight } from "lucide-react"
-import Image from "next/image"
 import {
   Sidebar,
   SidebarContent,
@@ -16,7 +15,7 @@ import {
   SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
 import { Link } from "@/i18n/routing"
-import { webAppSettings, userNavItems } from "@/assets/options/config"
+import { userNavItems } from "@/assets/options/config"
 import {
   Collapsible,
   CollapsibleContent,
@@ -25,6 +24,7 @@ import {
 import { usePathname } from "next/navigation"
 import { useTranslations, useLocale } from "next-intl"
 import { useSession } from "next-auth/react"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
 export default function UserSidebar() {
   const { firstName, lastName } = useSession()?.data?.user || {}
@@ -39,15 +39,15 @@ export default function UserSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton className="py-7" asChild>
               <Link
-                href="/"
+                href="/user/dashboard"
                 className="p-2 rounded-md w-full flex items-center hover:bg-gray-100"
               >
-                <Image
-                  src={webAppSettings.images.logoNoTextUrl}
-                  alt="logo"
-                  width={40}
-                  height={40}
-                />
+                <Avatar className="h-11 w-11 border border-purple-900">
+                  <AvatarFallback>
+                    {firstName?.charAt(0)}
+                    {lastName?.charAt(0)}
+                  </AvatarFallback>
+                </Avatar>
                 <div className="px-2">
                   <h1 className="font-bold text-lg">{t("myAccount")}</h1>
                   {firstName && lastName && (

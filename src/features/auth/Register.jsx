@@ -14,16 +14,23 @@ import "react-phone-number-input/style.css"
 import { useEffect, useState } from "react"
 import { getRegisterSchema } from "@/features/auth/utils/userValidation"
 import { getHowDidYouHearOptions } from "@/features/auth/utils/register"
-import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead"
+import { useSearchParams } from "next/navigation"
+import { useTitle } from "@/components/navigation/titleContext"
+import { MailCheck } from "lucide-react"
 
 export default function Register() {
   const [countries, setCountries] = useState([{ name: "Loading", id: 1 }])
   const [ErrorRegisterMessage, setErrorRegisterMessage] = useState("")
   const [success, setSuccess] = useState(false)
+  const searchParams = useSearchParams()
   const t = useTranslations("Auth.RegisterPage")
   const currentLocale = useLocale()
   const validationSchema = getRegisterSchema(t)
   const howDidYouHearOptions = getHowDidYouHearOptions(t)
+  const redirectUrl = searchParams.get("next") || "/"
+  const isAppMobileLogin = searchParams.get("appMobileLogin") === "true"
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   useEffect(() => {
     axios.get("/api/public/countries").then((response) => {
@@ -34,10 +41,10 @@ export default function Register() {
   if (success) {
     return (
       <div>
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen lg:py-0 bg-[#2F1F80]">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen bg-[#2F1F80]">
           <Link
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
-            href="/"
+            href={isAppMobileLogin ? "#" : redirectUrl}
           >
             <div className="p-4 rounded-2xl">
               <Image src={logo} alt="logo" width={132} height={132} />
@@ -48,8 +55,8 @@ export default function Register() {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                 {t("title")}
               </h1>
-              <div className="flex flex-col space-y-5 items-center justify-center w-full h-96">
-                <MarkEmailReadIcon className="text-9xl text-primary-600" />
+              <div className="flex flex-col space-y-5 items-center justify-center text-center w-full h-96">
+                <MailCheck size={48} />
 
                 <h1 className="text-3xl font-bold text-gray-900">
                   {t("successMessage")}
@@ -70,17 +77,17 @@ export default function Register() {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen lg:py-0 bg-[#2F1F80]">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen bg-[#2F1F80]">
         <Link
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
-          href="/"
+          href={isAppMobileLogin ? "#" : redirectUrl}
         >
           <div className="p-4 rounded-2xl">
             <Image src={logo} alt="logo" width={132} height={132} />
           </div>
         </Link>
-        <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-3xl xl:max-w-4xl xl:p-0">
-          <div className=" sm:p-8">
+        <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-3xl xl:max-w-4xl">
+          <div className="md:p-8 p-4">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
               {t("title")}
             </h1>
@@ -468,7 +475,7 @@ export default function Register() {
                     <p className="text-sm font-light text-gray-500 mt-5">
                       {t("alreadyRegistered")}{" "}
                       <Link
-                        href="/auth/login"
+                        href={`/auth/login?next=${redirectUrl}&appMobileLogin=${isAppMobileLogin}`}
                         className="font-medium text-primary-600 hover:underline"
                       >
                         {t("login")}

@@ -1,3 +1,5 @@
-export default function Subscriptions() {
-  return <div>Subscriptions</div>
+import AdminSubscriptionList from "@/features/admin/business/subscriptions/adminSubscriptionList"
+
+export default function SubscriptionsPage() {
+  return <AdminSubscriptionList />
 }

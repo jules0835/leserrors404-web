@@ -1,5 +1,7 @@
-import { UserModel } from "@/db/models/UserModel"
+/* eslint-disable max-params */
+import { UserModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
+import { getUserOrderEligibilitySchema } from "@/features/auth/utils/userValidation"
 
 export const existingUsername = async (username) => {
   await mwdb()
@@ -20,7 +22,16 @@ export const existingEmail = async (email) => {
 export const findUser = async (query) => {
   await mwdb()
 
-  const user = await UserModel.findOne(query)
+  const user = await UserModel.findOne(query).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
+
+  return user
+}
+
+export const findAllUserInfosById = async (id) => {
+  await mwdb()
+  const user = await UserModel.findById(id)
 
   return user
 }
@@ -28,7 +39,9 @@ export const findUser = async (query) => {
 export const findUserSignUp = async (email) => {
   await mwdb()
 
-  const user = await UserModel.findOne({ email })
+  const user = await UserModel.findOne({ email }).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
 
   return user
 }
@@ -42,31 +55,44 @@ export const findAuthUser = async (email) => {
 }
 
 export const findUserByEmail = async (email) => {
-  const user = await UserModel.findOne({ email })
+  await mwdb()
+  const user = await UserModel.findOne({ email }).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
 
   return user
 }
 
 export const createUser = async (user) => await UserModel.create(user)
 
-export const getUsers = async (size = 10, page = 1, query = "") => {
+export const getUsers = async (
+  size = 10,
+  page = 1,
+  query = "",
+  sort = { createdAt: -1 }
+) => {
   try {
     await mwdb()
-    const searchQuery = query
-      ? {
-          $or: [
-            { firstName: { $regex: query, $options: "i" } },
-            { lastName: { $regex: query, $options: "i" } },
-            { country: { $regex: query, $options: "i" } },
-            { city: { $regex: query, $options: "i" } },
-            { zipCode: { $regex: query, $options: "i" } },
-            { phone: { $regex: query, $options: "i" } },
-            { email: { $regex: query, $options: "i" } },
-          ],
-        }
-      : {}
+    let searchQuery = {}
+
+    if (typeof query === "string" && query) {
+      searchQuery = {
+        $or: [
+          { firstName: { $regex: query, $options: "i" } },
+          { lastName: { $regex: query, $options: "i" } },
+          { country: { $regex: query, $options: "i" } },
+          { city: { $regex: query, $options: "i" } },
+          { zipCode: { $regex: query, $options: "i" } },
+          { phone: { $regex: query, $options: "i" } },
+          { email: { $regex: query, $options: "i" } },
+          { shortId: { $regex: query, $options: "i" } },
+        ],
+      }
+    }
+
     const total = await UserModel.countDocuments(searchQuery)
     const users = await UserModel.find(searchQuery)
+      .sort(sort)
       .limit(size)
       .skip(size * (page - 1))
       .select("-password")
@@ -157,7 +183,9 @@ export const resetLoginAttempts = async (userId) => {
 
 export const findUserById = async (id) => {
   await mwdb()
-  const user = await UserModel.findById(id)
+  const user = await UserModel.findById(id).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
 
   return user
 }
@@ -176,6 +204,24 @@ export const updateConfirmationToken = async (userId, token, expiresToken) => {
     )
   } catch (error) {
     throw new Error("Failed to update confirmation token")
+  }
+}
+
+export const updateUserResetToken = async (userId, token, expires) => {
+  await mwdb()
+
+  try {
+    await UserModel.findOneAndUpdate(
+      {
+        _id: userId,
+      },
+      {
+        "account.resetPassword.token": token,
+        "account.resetPassword.expires": expires,
+      }
+    )
+  } catch (error) {
+    throw new Error("Failed to update reset token")
   }
 }
 
@@ -242,4 +288,97 @@ export async function changeStatusUserOtp(userId, active) {
     { _id: userId },
     { "account.auth.isOtpEnabled": active }
   )
+}
+
+export async function updateUserPassword(userId, password) {
+  await mwdb()
+
+  await UserModel.updateOne({ _id: userId }, { password })
+}
+
+export async function checkResetToken(token) {
+  await mwdb()
+
+  const user = await UserModel.findOne({
+    "account.resetPassword.token": token,
+    "account.resetPassword.expires": { $gt: new Date() },
+  })
+
+  return Boolean(user)
+}
+
+export async function findUserByResetToken(token) {
+  await mwdb()
+
+  const user = await UserModel.findOne({
+    "account.resetPassword.token": token,
+  }).select("-password")
+
+  return user
+}
+
+export const checkUserOrderEligibility = async (userId) => {
+  await mwdb()
+
+  const user = await UserModel.findById(userId)
+
+  try {
+    await getUserOrderEligibilitySchema().validate(user)
+  } catch (error) {
+    return { isEligible: false }
+  }
+
+  return { isEligible: true }
+}
+
+export const getUserIdByEmail = async (email) => {
+  await mwdb()
+  const user = await UserModel.findOne({ email })
+
+  return user._id
+}
+
+export const findUserByStripeId = async (stripeId) => {
+  await mwdb()
+  const user = await UserModel.findOne({
+    "account.stripe.customerId": stripeId,
+  }).select(
+    "-password -account.auth -account.confirmation -account.resetPassword"
+  )
+
+  return user
+}
+
+export const deleteUserAddress = async (userId, addressId) => {
+  await mwdb()
+
+  const user = await UserModel.findById(userId)
+
+  if (!user) {
+    throw new Error("User not found")
+  }
+
+  const addressIndex = user.billingAddresses.findIndex(
+    (address) => address._id.toString() === addressId
+  )
+
+  if (addressIndex === -1) {
+    throw new Error("Address not found")
+  }
+
+  user.billingAddresses.splice(addressIndex, 1)
+  await user.save()
+
+  return user.billingAddresses
+}
+
+export const getTodayRegistrationsCount = async () => {
+  await mwdb()
+
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  return await UserModel.countDocuments({
+    createdAt: { $gte: today },
+  })
 }

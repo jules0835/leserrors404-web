@@ -27,7 +27,7 @@ export function returnPageSubTitleTranslation(pathname) {
     return regex.test(path)
   })
 
-  return pageSubTitle?.subTitleKey ?? "NoSubTitle"
+  return pageSubTitle?.subTitleKey ?? ""
 }
 
 export async function getHomeCarouselData() {
@@ -56,6 +56,50 @@ export async function getHomeCarouselData() {
   return null
 }
 
+export async function getHomeBannerData() {
+  try {
+    const salesfront = await findSalesfront({
+      name: webAppSettings.salesfront.homepage.alertBannerId,
+    })
+
+    return salesfront.alertBanner
+  } catch (error) {
+    log.systemError({
+      logKey: logKeys.settingsEdit.key,
+      message: "Failed to get home banner data",
+      technicalMessage: error.message,
+      isError: true,
+    })
+  }
+
+  return null
+}
+
 export function trimString(string, length) {
+  if (string === null || string === undefined) {
+    return string
+  }
+
   return string.length > length ? `${string.substring(0, length)}...` : string
+}
+
+export function getLocalizedValue(value, locale) {
+  if (typeof value === "object" && value !== null) {
+    return value[locale] || value.en || ""
+  }
+
+  return value
+}
+
+export function formatIdForDisplay(item) {
+  return item.shortId || item._id
+}
+
+export function generateUniqueShortId() {
+  const base = Date.now().toString(30).toUpperCase()
+  const extra = Math.floor(Math.random() * 30 * 30)
+    .toString(30)
+    .toUpperCase()
+
+  return (base + extra).padEnd(6, "X")
 }

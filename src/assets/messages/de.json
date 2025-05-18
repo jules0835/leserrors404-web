@@ -4,7 +4,35 @@
     "about": "OKOKOKOKOKOKOK",
     "HomePage": {
       "carouselButtonMoreInfos": "Weitere Informationen"
-    }
+    },
+    "clients": "Vertrauen von mehr als 500 Kunden rund um das Wort.",
+    "learnMore": "Produkt anzeigen",
+    "learnMoreCategory": "Alle Produkte anzeigen",
+    "ourProducts": "Unsere Produkte",
+    "ourServices": "Unsere Cyber ​​-Dienste",
+    "welcome": "Willkommen bei {company}",
+    "welcomeMessage": "Ihr vertrauenswürdiger Partner in Cybersicherheitslösungen.",
+    "welcomeMessageAnimation": "Es ist Zeit, Ihre Zukunft zu sichern!",
+    "welcomeMessageDescription": "Machen Sie jetzt mehr als 500 Unternehmen, die uns vertrauen, um ihr Unternehmen zu sichern und ein sicheres Umfeld für ihre Mitarbeiter und Kunden zu schaffen.",
+    "business": "Geschäft",
+    "customers": "Kunden",
+    "data": "Daten",
+    "employees": "Mitarbeiter",
+    "login": "Login",
+    "privacy": "Privatsphäre",
+    "register": "Registrieren Sie sich jetzt",
+    "characteristics": "Eigenschaften",
+    "chooseThisOffer": "Wählen Sie dieses Angebot",
+    "compareSolutions": "Vergleichen Sie unsere Top -Produkte",
+    "month": "Monat",
+    "oneTime": "Einmal",
+    "or": "Oder",
+    "otherProducts": "Verwandte Produkte",
+    "perYear": "pro Jahr",
+    "startingFrom": "Ausgehend von",
+    "subscription": "Abonnement",
+    "topProducts": "Top -Produkte",
+    "viewAllProducts": "Alle Produkte anzeigen"
   },
   "Auth": {
     "LoginPage": {
@@ -27,7 +55,10 @@
       "accountNotConfirmed": "Ihr Konto wird nicht bestätigt. Überprüfen Sie bitte Ihre E -Mails und bestätigen Sie Ihr Konto. \nWenn Sie keine E -Mail erhalten haben, überprüfen Sie bitte Ihren Spam -Ordner. \nWenn Sie die E -Mail immer noch nicht finden können, wenden Sie sich bitte an unser Support -Team unter {E -Mail}.",
       "invalidOtp": "Der von Ihnen eingegebene OTP ist ungültig. Bitte versuchen Sie es erneut",
       "otpRequired": "Ihr einmaliges Kennwort ist erforderlich, um sich in Ihrem Konto anzumelden. Geben Sie bitte den Code ein, den Ihre Authenticator -App zur Verfügung stellt",
-      "requiredOtp": "Der OTP -Code mit 6 Ziffern ist erforderlich"
+      "requiredOtp": "Der OTP -Code mit 6 Ziffern ist erforderlich",
+      "resetSuccess": "Ihr Passwort war erfolgreicher Reset, Sie können sich jetzt anmelden",
+      "logoutAutoSuccess": "Sie wurden automatisch angemeldet. \nBitte melden Sie sich erneut an.",
+      "titleMobile": "Melden Sie sich bei {Company} -Anwendung bei Ihrem {Company} -Konto an"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -82,7 +113,46 @@
     "confirmEmail": "E -Mail -Bestätigung",
     "confirmEmailFailed": "E -Mail -Bestätigung fehlgeschlagen. \nBitte versuchen Sie es erneut oder wenden Sie sich an unser Support -Team.",
     "confirmEmailSuccess": "Ihre E -Mail wurde erfolgreich bestätigt, Sie können sich jetzt anmelden.",
-    "login": "Kehren Sie zur Anmeldeseite zurück"
+    "login": "Kehren Sie zur Anmeldeseite zurück",
+    "ResetPasswordPage": {
+      "backToHome": "Nach Hause gehen",
+      "backToLogin": "Kehren Sie zur Anmeldeseite zurück",
+      "backToResetPassword": "Fragen Sie nach einem neuen",
+      "confirmPassword": "Bestätigen Sie Ihr neues Passwort",
+      "description": "Geben Sie Ihre E -Mail -Adresse ein und wir senden Ihnen einen Link, um Ihr Passwort zurückzusetzen.",
+      "email": "E-Mail",
+      "goToLogin": "Gehen Sie zur Anmeldeseite",
+      "invalidEmail": "Ungültige E -Mail",
+      "invalidOrExpiredToken": "Das Reset -Token ist ungültig oder ist abgelaufen",
+      "invalidToken": "Ungültiger Reset -Link",
+      "invalidTokenMessage": "Dieser Link ist ungültig oder läuft nach Ablauf nach einem neuen für Kontakte unseres Support -Teams.",
+      "password": "Geben Sie Ihr neues Passwort ein",
+      "passwordMinLength": "Ein Passwort mit 12 Buchstaben ist erforderlich",
+      "passwordResetSuccess": "Das Passwort wurde erfolgreich zurückgesetzt. Sie können sich jetzt anmelden",
+      "passwordsMustMatch": "Passwörter müssen übereinstimmen",
+      "register": "Zurück zur Anmeldeseite",
+      "rememberYourPassword": "Nach all dem, dass du dich daran erinnerst?",
+      "requiredConfirmPassword": "Mit Ihrem neuen Passwort ist es erforderlich",
+      "requiredEmail": "E -Mail ist erforderlich",
+      "requiredPassword": "Passwort ist erforderlich",
+      "resetPassword": "Passwort zurücksetzen",
+      "resetPasswordEmailSent": "Wenn die E -Mail vorhanden ist, wurde ein Reset -Link gesendet. \nBitte überprüfen Sie Ihren Posteingang oder Spamordner.",
+      "sendEmail": "Senden Sie einen Reset -Link",
+      "somethingWentWrong": "Bitte versuchen Sie es nicht erneut.",
+      "title": "Setzen Sie Ihr Passwort zurück",
+      "emailSent": "Wenn mit dieser E -Mail ein Konto vorhanden ist, wird eine Nachricht mit einem Link zum Zurücksetzen Ihres Passworts gesendet. \nSie können es verwenden, um Ihr Passwort zurückzusetzen."
+    },
+    "loggingYouOut": "Anmeldung dich raus",
+    "loggingYouOutMessage": "Wenn Sie nicht weitergeleitet werden, klicken Sie bitte hier",
+    "clickToOpenMobileApp": "Klicken Sie hier, wenn Sie nicht automatisch umgeleitet sind",
+    "redirectingToMobile": "Sie zur {Company} mobilen App umleiten",
+    "application": "App",
+    "mobile": "Mobile",
+    "phone": "Telefon",
+    "redirectingToMobileMessage": "Wenn Sie in 5 Sekunden nicht umgeleitet werden, klicken Sie bitte auf die Schaltfläche unten.",
+    "title": "E -Mail -Bestätigung",
+    "titleLogout": "Anmeldungsumleitung",
+    "titleMobile": "Mobiler Login"
   },
   "other": "Andere",
   "socialMedia": "Soziale Medien",
@@ -147,7 +217,201 @@
           "subTitle": "Verwalten Sie Benutzerdetails, Rollen und Berechtigungen"
         },
         "subTitle": "Verwalten Sie den Inhalt der Startseite, Karussell, Alarm und mehr",
-        "title": "Homepage -Einstellungen"
+        "title": "Homepage -Einstellungen",
+        "Banner": {
+          "active": "Aktiv",
+          "description": "Beschreibung",
+          "descriptionPlaceholder": "Beschreibung des Banners",
+          "error": "Fehler",
+          "save": "Speichern",
+          "saved": "Gerettet",
+          "saving": "Rettung von Alarmbanner",
+          "style": "Stil",
+          "title": "Titel",
+          "titlePlaceholder": "Der Titel des Banners",
+          "titleSection": "Alarmbanner"
+        }
+      },
+      "Categories": {
+        "Add": {
+          "Stock": "Aktie",
+          "add": "Hinzufügen",
+          "adding": "Hinzufügen",
+          "addingCategory": "Kategorie hinzufügen",
+          "categoryAdded": "Kategorie hinzugefügt",
+          "description": "Beschreibung",
+          "dialogDescription": "Füllen Sie das Formular aus, um eine neue Kategorie hinzuzufügen",
+          "dialogTitle": "Fügen Sie eine neue Kategorie hinzu",
+          "errorAddingCategory": "Fehler beim Hinzufügen von Kategorien",
+          "imagePlaceholder": "Wählen Sie eine Bilddatei",
+          "isActive": "Aktiv",
+          "label": "Name",
+          "language": "Sprache",
+          "picture": "Bild",
+          "selectLanguage": "Wählen Sie eine Sprache"
+        },
+        "Delete": {
+          "categoryDeleted": "Kategorie gelöscht",
+          "deletingCategory": "Kategorie löschen",
+          "errorDeletingCategory": "Fehler löschen Kategorie"
+        },
+        "Edit": {
+          "dialogDescription": "Füllen Sie das Formular aus, um die Kategorie zu bearbeiten",
+          "dialogTitle": "Kategorie bearbeiten",
+          "errorUpdatingCategory": "Fehleraktualisierungskategorie",
+          "language": "Sprache",
+          "selectLanguage": "Wählen Sie eine Sprache",
+          "update": "Aktualisieren",
+          "updated": "Aktualisiert",
+          "updating": "Aktualisierung"
+        },
+        "Errors": {
+          "descriptionRequired": "Beschreibung ist erforderlich",
+          "labelRequired": "Name ist erforderlich",
+          "pictureRequired": "Bild ist erforderlich"
+        },
+        "More": {
+          "deleteCategory": "Kategorie löschen",
+          "editCategory": "Kategorie bearbeiten",
+          "viewCategory": "Kategorie anzeigen"
+        },
+        "columns": "Spalten",
+        "errorLoadingData": "Fehler laden Daten.",
+        "isActive": "Aktiv",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse",
+        "previous": "Vorherige",
+        "searchPlaceholder": "Suchen...",
+        "subTitle": "Kategorien verwalten",
+        "title": "Kategorien",
+        "yes": "Ja"
+      },
+      "Coupons": {
+        "title": "Gutscheine"
+      },
+      "Payments": {
+        "title": "Zahlungen"
+      },
+      "Products": {
+        "Add": {
+          "Stock": "Aktie",
+          "add": "Hinzufügen",
+          "adding": "Hinzufügen",
+          "addingProduct": "Produkt hinzufügen",
+          "categorie": "Kategorie",
+          "characteristics": "Eigenschaften",
+          "description": "Beschreibung",
+          "dialogDescription": "Füllen Sie das Formular aus, um ein neues Produkt hinzuzufügen",
+          "dialogTitle": "Fügen Sie ein neues Produkt hinzu",
+          "errorAddingProduct": "Fehler beim Hinzufügen von Produkten",
+          "imagePlaceholder": "Wählen Sie eine Bilddatei",
+          "isActive": "Aktiv",
+          "label": "Name",
+          "language": "Sprache",
+          "picture": "Bild",
+          "price": "Preis",
+          "priority": "Priorität",
+          "productAdded": "Produkt hinzugefügt",
+          "selectCategorie": "Wählen Sie eine Kategorie aus",
+          "selectLanguage": "Wählen Sie eine Sprache",
+          "selectPriority": "Wählen Sie eine Priorität",
+          "stock": "Aktie",
+          "subscription": "Abonnement",
+          "taxe": "Steuern",
+          "technicalCaracteristics": "Technische Karaccteristics"
+        },
+        "Delete": {
+          "deletingProduct": "Produkt löschen",
+          "errorDeletingProduct": "Fehler löschen Produkt",
+          "productDeleted": "Produkt gelöscht"
+        },
+        "Edit": {
+          "dialogDescription": "Füllen Sie das Formular zum Bearbeiten des Produkts aus",
+          "dialogTitle": "Produkt bearbeiten",
+          "errorUpdatingProduct": "Fehler Aktualisieren von Produkten",
+          "language": "Sprache",
+          "selectLanguage": "Wählen Sie eine Sprache",
+          "update": "Aktualisieren",
+          "updated": "Aktualisiert",
+          "updating": "Aktualisierung"
+        },
+        "Errors": {
+          "descriptionRequired": "Beschreibung ist erforderlich",
+          "labelRequired": "Name ist erforderlich",
+          "pictureRequired": "Bild ist erforderlich"
+        },
+        "More": {
+          "deleteProduct": "Produkt löschen",
+          "editProduct": "Produkt bearbeiten",
+          "viewProduct": "Produkt anzeigen"
+        },
+        "columns": "Spalten",
+        "errorLoadingData": "Fehler laden Daten.",
+        "isActive": "Aktiv",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse",
+        "previous": "Vorherige",
+        "searchPlaceholder": "Suchen...",
+        "subTitle": "Produkte verwalten",
+        "title": "Produkte",
+        "yes": "Ja"
+      },
+      "Subscriptions": {
+        "title": "Abonnements"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Sehen Sie sich die Details des Gutscheins an",
+          "title": "Gutscheindetails"
+        },
+        "actions": "Aktionen",
+        "activateVoucher": "Gutschein aktivieren",
+        "addVoucher": "Gutschein hinzufügen",
+        "addVoucherDescription": "Füllen Sie die Details ein, um einen neuen Gutschein zu erstellen.",
+        "amount": "Menge",
+        "amountMin": "1 ist das Minimum",
+        "autoGenerateCodeMessage": "Wenn es leer ist, wird ein Code automatisch generiert.",
+        "category": "Kategorie",
+        "code": "Code",
+        "columns": "Spalten",
+        "createdAt": "Erstellen bei",
+        "deactivateVoucher": "Deaktivieren Sie den Gutschein",
+        "description": "Beschreibung",
+        "discount": "Rabatt",
+        "endDate": "Enddatum",
+        "errorLoadingData": "Fehler laden Daten.",
+        "expirationDate": "Verfallsdatum",
+        "fixed": "Behoben",
+        "isActive": "Aktiv",
+        "isCategorySpecific": "Spezifisch für Kategorien",
+        "isProductSpecific": "Spezifisch für Produkte",
+        "minPurchaseAmount": "Mindestkaufbetrag",
+        "minPurchaseAmountMin": "Mindestkaufsbetrag ist erforderlich",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse.",
+        "percentage": "Prozentsatz",
+        "previous": "Vorherige",
+        "product": "Produkt",
+        "requiredAmount": "Betrag erforderlich",
+        "requiredType": "Typ ist erforderlich",
+        "saveChanges": "Änderungen speichern",
+        "searchPlaceholder": "Suchen...",
+        "startDate": "Startdatum",
+        "subTitle": "Gutscheine verwalten",
+        "title": "Gutscheine",
+        "type": "Typ",
+        "updatedAt": "Update at",
+        "user": "Benutzer",
+        "viewVoucher": "Gutschein anzeigen",
+        "voucherAmount": "Menge",
+        "voucherCode": "Gutscheincode",
+        "voucherCreated": "Gutschein erstellt",
+        "voucherCreationFailed": "Die Gutscheinkreation ist fehlgeschlagen",
+        "voucherType": "Gutscheintyp",
+        "yes": "Ja"
       }
     },
     "Security": {
@@ -367,6 +631,50 @@
           "EmailServiceError": {
             "description": "Bei dem E -Mail -Dienst trat ein Fehler auf",
             "title": "E -Mail -Service -Fehler"
+          },
+          "ShopSettingsEdit": {
+            "description": "Ladeneinstellungen wurden bearbeitet",
+            "title": "Shop -Einstellungen bearbeiten"
+          },
+          "ShopSettingsError": {
+            "description": "Bei den Shop -Einstellungen trat ein Fehler auf",
+            "title": "Laden Sie Einstellungsfehler"
+          },
+          "ShopStripeWebhook": {
+            "description": "Stripe Webhook Event",
+            "title": "Laden Sie Stripe Webhook"
+          },
+          "ShopStripeWebhookError": {
+            "description": "Bei dem Stripe Webhook trat ein Fehler auf",
+            "title": "Laden Sie Stripe Webhook -Fehler ein"
+          },
+          "ShopUserCart": {
+            "description": "Benutzerwagenaktivität",
+            "title": "Einkaufen Benutzerwagen"
+          },
+          "ShopUserCartError": {
+            "description": "Bei dem Benutzerwagen trat ein Fehler auf",
+            "title": "Einkaufswarenmarks Fehler einladen"
+          },
+          "ShopStripeCustomer": {
+            "description": "Streifenkundenaktivität",
+            "title": "Kunde einkaufen"
+          },
+          "ShopStripeCustomerError": {
+            "description": "Bei dem Stripe -Kunden trat ein Fehler auf",
+            "title": "Kundenstreifen -Kundenfehler einladen"
+          },
+          "ChatbotError": {
+            "description": "Bei dem Chatbot trat ein Fehler auf",
+            "title": "Chatbot -Fehler"
+          },
+          "ChatbotInfo": {
+            "description": "Eine Informationen mit dem Chatbot ereignete sich",
+            "title": "Chatbot -Info"
+          },
+          "OrderUpdate": {
+            "description": "Eine Bestellung wurde aktualisiert",
+            "title": "Bestellaktualisierung"
           }
         },
         "LogDetails": {
@@ -410,7 +718,9 @@
         "userName": "Benutzer",
         "yes": "Ja",
         "author": "Autor",
-        "authorName": "Autor"
+        "authorName": "Autor",
+        "latestLogs": "Neueste Protokolle",
+        "filters": "Filter"
       }
     },
     "Business": {
@@ -418,18 +728,776 @@
         "title": "Gutscheine"
       },
       "Orders": {
-        "title": "Bestellungen"
+        "title": "Bestellungen",
+        "OrderDetails": {
+          "billingCycle": "Abrechnungszyklus",
+          "billingPeriod": "Rechnungszeitraum",
+          "changedBy": "Geändert von",
+          "currency": "Währung",
+          "customerInformation": "Kundeninformationen",
+          "date": "Datum",
+          "discount": "Rabatt",
+          "email": "E-Mail",
+          "error": "Fehlerladungsauftragsdetails",
+          "loading": "Laden...",
+          "name": "Name",
+          "notFound": "Nicht gefunden",
+          "openInvoice": "Offene Rechnung",
+          "orderId": "Bestellausweis",
+          "orderInformation": "Informationen bestellen",
+          "paymentInformation": "Zahlungsinformationen",
+          "paymentIntentId": "Zahlungsabsichten -ID",
+          "products": "Produkte",
+          "quantity": "Menge",
+          "sessionId": "Sitzungs -ID",
+          "status": "Status",
+          "statusHistory": "Statusgeschichte",
+          "stripePriceId": "Streifenpreis -ID",
+          "subTitle": "Sehen Sie sich die Details Ihrer Bestellung an",
+          "subscriptionId": "Abonnement -ID",
+          "subscriptionInformation": "Abonnementinformationen",
+          "subscriptionStatus": {
+            "active": "Aktiv",
+            "canceled": "Abgesagt",
+            "incomplete": "Unvollständig",
+            "incomplete_expired": "Unvollständig abgelaufen",
+            "past_due": "Vorbei fällig",
+            "paused": "Blättern",
+            "trialing": "Versuch",
+            "unpaid": "Unbezahlt"
+          },
+          "subtotal": "Zwischensumme",
+          "tax": "Steuer",
+          "title": "Bestelldetails",
+          "total": "Gesamt",
+          "totalAmount": "Gesamtbetrag",
+          "viewSubscription": "Abonnementdetails anzeigen",
+          "voucher": "Gutscheincode",
+          "cancel": "Stornieren",
+          "cancelError": "Bestellung versäumt, die Bestellung zu stornieren",
+          "cancelOrder": "Bestellung abbrechen",
+          "cancelOrderDescription": "Bitte wählen Sie, wie Sie diese Bestellung stornieren möchten:",
+          "cancelOrderSubscriptionDescription": "Diese Bestellung enthält ein Abonnement. \nSie können die Bestellung hier nur stornieren. \nUm das Abonnement und die Rückerstattungen zu verwalten, gehen Sie bitte zur Abonnementseite.",
+          "cancelOrderTitle": "Bestellung abbrechen",
+          "cancelSuccess": "Bestellung erfolgreich storniert",
+          "cancelWithRefund": "Bestellung abbrechen",
+          "cancelWithRefundDescription": "Die Bestellung wird storniert und der Kunde erhält eine vollständige Rückerstattung.",
+          "cancelWithoutRefund": "Bestellung ohne Rückerstattung abbrechen",
+          "cancelWithoutRefundDescription": "Die Bestellung wird ohne Rückerstattung storniert.",
+          "confirm": "Bestätigen",
+          "confirmOrder": "Bestätigen Sie diese Bestellung",
+          "goToOrderStripe": "Offen in Streifen",
+          "goToSubscriptionPage": "Gehen Sie zur Abonnementseite",
+          "goToSubscriptionPageDescription": "Verwalten Sie die Abonnement -Stornierung und -Tastrückerstattung auf der Abonnementseite.",
+          "markAsCompleted": "Markieren wie abgeschlossen",
+          "noRefundAvailable": "Diese Bestellung kann nicht erstattet werden. \nDies kann daran liegen, dass es mit einem Gutschein bezahlt wurde oder nicht für eine Rückerstattung berechtigt ist.",
+          "openUserInvoice": "Benutzerrechnung öffnen",
+          "orderActions": "Aktionen",
+          "orderAddComment": "Fügen Sie einen Kommentar hinzu",
+          "orderCompletionWarning": "Sobald sie als fertiggestellt sind, kann die Bestellung nicht geändert werden.",
+          "orderPaidDescription": "Die Zahlung wurde bezahlt. \nSie können jetzt die Bestellung überprüfen und bestätigen, bevor Sie fortfahren.",
+          "orderPendingDescription": "Nehmen Sie die Bestellverarbeitung wieder auf.",
+          "orderTreatment": "Auftragsbehandlung",
+          "orderWaitingCompletionDescription": "Überprüfen Sie die Bestellung und markieren Sie sie wie fertig, wenn Sie fertig sind.",
+          "resumeOrder": "Lebenslaufbestellung",
+          "statusUpdateError": "Bestellstatus nicht aktualisiert",
+          "statusUpdateSuccess": "Bestellstatus erfolgreich aktualisiert",
+          "suspendOrder": "Aufhebung der Bestellung",
+          "suspendOrderDescription": "Bitte geben Sie einen Grund für die Aussetzung dieser Bestellung an.",
+          "suspendOrderError": "Bestellung versäumt, die Bestellung auszusetzen",
+          "suspendOrderReasonPlaceholder": "Geben Sie den Grund für die Suspendierung ein ...",
+          "suspendOrderSuccess": "Bestellung erfolgreich ausgesetzt",
+          "suspendOrderTitle": "Aufhebung der Bestellung",
+          "viewCustomer": "Kunden anzeigen",
+          "billingAddress": "Abrechnungsadresse",
+          "noBillingAddress": "Keine Abrechnungsadresse"
+        },
+        "Status": {
+          "all": "All Status",
+          "cancel": "Abgesagt",
+          "completed": "Vollendet",
+          "failed": "Fehlgeschlagen",
+          "paid": "Bezahlt",
+          "pending": "Ausstehend",
+          "processing": "Verarbeitung",
+          "refund": "Erstattet"
+        },
+        "date": "Datum",
+        "errorLoadingOrders": "Fehlerladungsaufträge",
+        "next": "Nächste",
+        "noOrders": "Keine Bestellungen gefunden",
+        "orderId": "Bestellausweis",
+        "previous": "Vorherige",
+        "searchPlaceholder": "Suche nach einer Bestellung",
+        "status": {
+          "cancelled": "Abgesagt",
+          "completed": "Vollendet",
+          "failed": "Fehlgeschlagen",
+          "paid": "Bezahlt",
+          "pending": "Ausstehend",
+          "processing": "Verarbeitung",
+          "title": "Status"
+        },
+        "subTitle": "Verwalten Sie Ihre Bestellungen",
+        "total": "Gesamt",
+        "viewDetails": "Details anzeigen",
+        "customer": "Kunde",
+        "latestOrders": "Neueste Bestellungen",
+        "filters": "Filter"
       },
       "Payments": {
-        "title": "Zahlungen"
+        "title": "Zahlungen",
+        "actions": "Aktionen",
+        "amount": "Menge",
+        "date": "Datum",
+        "expires": "Läuft ab",
+        "invoices": "Rechnungen",
+        "loading": "Laden...",
+        "next": "Nächste",
+        "noInvoices": "Keine Rechnungen gefunden",
+        "noPaymentMethods": "Keine Zahlungsmethoden gespeichert",
+        "olderInvoicesMessage": "Auf der Suche nach älteren Rechnungen? \nGreifen Sie auf Ihre vollständige Abrechnungshistorie im Streifenportal zu.",
+        "openStripePortal": "Offenes Streifenportal",
+        "paymentPortal": "Zahlungsportal",
+        "paymentPortalDescription": "Sehen Sie sich Ihren Zahlungshistorie an und verwalten Sie Ihre Zahlungsmethoden. \nVerwenden Sie für fortschrittliches Management das Stripe -Kundenportal.",
+        "previous": "Vorherige",
+        "savedPaymentMethods": "Speicher Zahlungsmethoden",
+        "status": "Status",
+        "stripePortalInactive": "Ihr Stripe -Konto wird nach Ihrer ersten Bestellung aktiviert. \nSie haben dann Zugriff auf das Stripe -Kundenportal.",
+        "viewInvoice": "Rechnung anzeigen"
       },
       "Products": {
-        "title": "Produkte"
+        "title": "Produkte",
+        "Add": {
+          "Stock": "Aktie",
+          "add": "Hinzufügen",
+          "adding": "Hinzufügen",
+          "addingProduct": "Produkt hinzufügen",
+          "categorie": "Kategorie",
+          "characteristics": "Eigenschaften",
+          "description": "Beschreibung",
+          "dialogDescription": "Füllen Sie das Formular aus, um ein neues Produkt hinzuzufügen",
+          "dialogTitle": "Fügen Sie ein neues Produkt hinzu",
+          "errorAddingProduct": "Fehler beim Hinzufügen von Produkten",
+          "imagePlaceholder": "Wählen Sie eine Bilddatei",
+          "isActive": "Aktiv",
+          "label": "Name",
+          "language": "Sprache",
+          "picture": "Bild",
+          "price": "Preis",
+          "priority": "Priorität",
+          "productAdded": "Produkt hinzugefügt",
+          "selectCategorie": "Wählen Sie eine Kategorie aus",
+          "selectLanguage": "Wählen Sie eine Sprache",
+          "selectPriority": "Wählen Sie eine Priorität",
+          "stock": "Aktie",
+          "subscription": "Abonnement",
+          "taxe": "Steuern",
+          "technicalCaracteristics": "Technische Karaccteristics",
+          "priceAnnual": "Preis jährlich",
+          "priceMonthly": "Preis monatlich",
+          "addCharacteristic": "Merkmale hinzufügen",
+          "remove": "Entfernen"
+        },
+        "Delete": {
+          "deletingProduct": "Produkt löschen",
+          "errorDeletingProduct": "Fehler löschen Produkt",
+          "productDeleted": "Produkt gelöscht"
+        },
+        "Edit": {
+          "dialogDescription": "Füllen Sie das Formular zum Bearbeiten des Produkts aus",
+          "dialogTitle": "Produkt bearbeiten",
+          "errorUpdatingProduct": "Fehler Aktualisieren von Produkten",
+          "language": "Sprache",
+          "selectLanguage": "Wählen Sie eine Sprache",
+          "update": "Aktualisieren",
+          "updated": "Aktualisiert",
+          "updating": "Aktualisierung"
+        },
+        "Errors": {
+          "descriptionRequired": "Beschreibung ist erforderlich",
+          "labelRequired": "Name ist erforderlich",
+          "pictureRequired": "Bild ist erforderlich"
+        },
+        "More": {
+          "deleteProduct": "Produkt löschen",
+          "editProduct": "Produkt bearbeiten",
+          "viewProduct": "Produkt anzeigen"
+        },
+        "columns": "Spalten",
+        "errorLoadingData": "Fehler laden Daten.",
+        "isActive": "Aktiv",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse",
+        "previous": "Vorherige",
+        "searchPlaceholder": "Suchen...",
+        "subTitle": "Produkte verwalten",
+        "yes": "Ja"
       },
       "Subscriptions": {
-        "title": "Abonnements"
+        "title": "Abonnements",
+        "Status": {
+          "active": "Aktiv",
+          "all": "All Status",
+          "canceled": "Abgesagt",
+          "incomplete": "Unvollständig",
+          "incomplete_expired": "Unvollständig abgelaufen",
+          "past_due": "Vorbei fällig",
+          "paused": "Blättern",
+          "preCanceled": "Vorverkleidung",
+          "title": "Status",
+          "trialing": "Versuch",
+          "unpaid": "Unbezahlt"
+        },
+        "SubscriptionDetails": {
+          "Status": {
+            "active": "Aktiv",
+            "canceled": "Abgesagt",
+            "incomplete": "Unvollständig",
+            "incomplete_expired": "Unvollständig abgelaufen",
+            "past_due": "Vorbei fällig",
+            "paused": "Blättern",
+            "preCanceled": "Vorgezogen",
+            "trialing": "Versuch",
+            "unpaid": "Unbezahlt"
+          },
+          "billingCycle": "Abrechnungszyklus",
+          "cancel": "Stornieren",
+          "cancelAtPeriodEnd": "Absendern",
+          "cancelAtPeriodEndDescription": "Dieses Abonnement bleibt bis zum Ende des aktuellen Abrechnungszeitraums aktiv.",
+          "cancelAtPeriodEndDescription2": "Ihr Abonnement wird bereits am Ende des aktuellen Zeitraums storniert. \nWenn Sie sich darüber nicht sicher sind, wenden Sie sich bitte an unser Support -Team.",
+          "cancelError": "Das Abonnement versäumte es, Abonnement zu kündigen",
+          "cancelNowWithFullRefund": "Jetzt abbrechen",
+          "cancelNowWithFullRefundDescription": "Dieses Abonnement wird sofort storniert und der Kunde erhält eine vollständige Rückerstattung für den aktuellen Zeitraum.",
+          "cancelNowWithRemainingRefund": "Jetzt abbrechen",
+          "cancelNowWithRemainingRefundDescription": "Dieses Abonnement wird sofort storniert und der Kunde erhält eine Rückerstattung für die verbleibenden Tage des aktuellen Zeitraums.",
+          "cancelNowWithoutRefund": "Jetzt ohne Rückerstattung abbrechen",
+          "cancelNowWithoutRefundDescription": "Dieses Abonnement wird sofort ohne Rückerstattung storniert.",
+          "cancelSubscription": "Abonnement abbrechen",
+          "cancelSubscriptionDescription": "Bitte wählen Sie, wie Sie dieses Abonnement kündigen möchten:",
+          "cancelSubscriptionTitle": "Stornieren Sie Ihr Abonnement",
+          "cancelSuccess": "Abonnement erfolgreich storniert",
+          "canceledAt": "Abgesagt bei",
+          "canceling": "Abonnement stornieren ...",
+          "changedBy": "Geändert von",
+          "confirm": "Bestätigen",
+          "customerId": "Kundenausweis",
+          "customerInformation": "Kundeninformationen",
+          "defaultPaymentMethod": "Standardzahlungsmethode",
+          "email": "E-Mail",
+          "error": "Fehler laden Abonnementdetails",
+          "invoiceNotFound": "Ein Fehler trat beim Abrufen Ihrer Rechnung auf",
+          "loading": "Laden...",
+          "manageSubscription": "Abonnement verwalten",
+          "name": "Name",
+          "notFound": "Abonnement nicht gefunden",
+          "openInvoice": "Letzte Rechnung öffnen",
+          "openSubscriptionStripe": "Blick auf Streifen",
+          "paymentInformation": "Zahlungsinformationen",
+          "periodEnd": "Aktuelle Periode",
+          "periodStart": "Aktueller Zeitraum",
+          "preCanceled": "Vorgezogen",
+          "preCanceledDescription": "Dieses Abonnement wurde storniert und wird am Ende des aktuellen Zeitraums gestoppt.",
+          "products": "Produkte",
+          "quantity": "Menge",
+          "statusHistory": "Statusgeschichte",
+          "stripePriceId": "Streifenpreis -ID",
+          "subTitle": "Sehen Sie sich die Details des Abonnements an",
+          "subscriptionId": "Ausweis",
+          "subscriptionInformation": "Abonnementinformationen",
+          "title": "Abonnementdetails",
+          "updateError": "Bei der Aktualisierung Ihres Abonnements trat ein Fehler auf",
+          "updateSuccess": "Ihr Abonnement wurde erfolgreich aktualisiert",
+          "viewOrder": "Reihenfolge anzeigen",
+          "viewProduct": "Produkt anzeigen",
+          "viewCustomer": "Kunden anzeigen"
+        },
+        "all": "Alle",
+        "columns": "Spalten",
+        "date": "Datum",
+        "errorLoadingData": "Fehler laden Daten.",
+        "errorLoadingSubscriptions": "Fehler laden Abonnements",
+        "next": "Nächste",
+        "noResults": "Keine Ergebnisse.",
+        "noSubscriptions": "Keine Abonnements gefunden",
+        "pickDate": "Wählen Sie ein Date",
+        "previous": "Vorherige",
+        "products": "Produkte",
+        "resetFilters": "Filter zurücksetzen",
+        "searchPlaceholder": "Suche nach ID, Name oder E -Mail ...",
+        "subTitle": "Abonnements verwalten",
+        "subscriptionId": "Abonnement -ID",
+        "filters": "Filter"
       },
-      "title": "Geschäft"
+      "title": "Geschäft",
+      "Categories": {
+        "Add": {
+          "Stock": "Aktie",
+          "add": "Hinzufügen",
+          "adding": "Hinzufügen",
+          "addingCategory": "Kategorie hinzufügen",
+          "categoryAdded": "Kategorie hinzugefügt",
+          "description": "Beschreibung",
+          "dialogDescription": "Füllen Sie das Formular aus, um eine neue Kategorie hinzuzufügen",
+          "dialogTitle": "Fügen Sie eine neue Kategorie hinzu",
+          "errorAddingCategory": "Fehler beim Hinzufügen von Kategorien",
+          "imagePlaceholder": "Wählen Sie eine Bilddatei",
+          "isActive": "Aktiv",
+          "label": "Name",
+          "language": "Sprache",
+          "picture": "Bild",
+          "selectLanguage": "Wählen Sie eine Sprache"
+        },
+        "Delete": {
+          "categoryDeleted": "Kategorie gelöscht",
+          "deletingCategory": "Kategorie löschen",
+          "errorDeletingCategory": "Fehler löschen Kategorie"
+        },
+        "Edit": {
+          "dialogDescription": "Füllen Sie das Formular aus, um die Kategorie zu bearbeiten",
+          "dialogTitle": "Kategorie bearbeiten",
+          "errorUpdatingCategory": "Fehleraktualisierungskategorie",
+          "language": "Sprache",
+          "selectLanguage": "Wählen Sie eine Sprache",
+          "update": "Aktualisieren",
+          "updated": "Aktualisiert",
+          "updating": "Aktualisierung"
+        },
+        "Errors": {
+          "descriptionRequired": "Beschreibung ist erforderlich",
+          "labelRequired": "Name ist erforderlich",
+          "pictureRequired": "Bild ist erforderlich"
+        },
+        "More": {
+          "deleteCategory": "Kategorie löschen",
+          "editCategory": "Kategorie bearbeiten",
+          "viewCategory": "Kategorie anzeigen"
+        },
+        "columns": "Spalten",
+        "errorLoadingData": "Fehler laden Daten.",
+        "isActive": "Aktiv",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse",
+        "previous": "Vorherige",
+        "searchPlaceholder": "Suchen...",
+        "subTitle": "Kategorien verwalten",
+        "title": "Kategorien",
+        "yes": "Ja"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Sehen Sie sich die Details des Gutscheins an",
+          "title": "Gutscheindetails"
+        },
+        "actions": "Aktionen",
+        "activateVoucher": "Gutschein aktivieren",
+        "addVoucher": "Gutschein hinzufügen",
+        "addVoucherDescription": "Füllen Sie die Details ein, um einen neuen Gutschein zu erstellen.",
+        "amount": "Menge",
+        "amountMin": "1 ist das Minimum",
+        "autoGenerateCodeMessage": "Wenn es leer ist, wird ein Code automatisch generiert.",
+        "category": "Kategorie",
+        "code": "Code",
+        "columns": "Spalten",
+        "createdAt": "Erstellen bei",
+        "deactivateVoucher": "Deaktivieren Sie den Gutschein",
+        "description": "Beschreibung",
+        "discount": "Rabatt",
+        "endDate": "Enddatum",
+        "errorLoadingData": "Fehler laden Daten.",
+        "expirationDate": "Verfallsdatum",
+        "fixed": "Behoben",
+        "isActive": "Aktiv",
+        "isCategorySpecific": "Spezifisch für Kategorien",
+        "isProductSpecific": "Spezifisch für Produkte",
+        "minPurchaseAmount": "Mindestkaufbetrag",
+        "minPurchaseAmountMin": "Mindestkaufsbetrag ist erforderlich",
+        "next": "Nächste",
+        "no": "NEIN",
+        "noResults": "Keine Ergebnisse.",
+        "percentage": "Prozentsatz",
+        "previous": "Vorherige",
+        "product": "Produkt",
+        "requiredAmount": "Betrag erforderlich",
+        "requiredType": "Typ ist erforderlich",
+        "saveChanges": "Änderungen speichern",
+        "searchPlaceholder": "Suchen...",
+        "startDate": "Startdatum",
+        "subTitle": "Gutscheine verwalten",
+        "title": "Gutscheine",
+        "type": "Typ",
+        "updatedAt": "Update at",
+        "user": "Benutzer",
+        "viewVoucher": "Gutschein anzeigen",
+        "voucherAmount": "Menge",
+        "voucherCode": "Gutscheincode",
+        "voucherCreated": "Gutschein erstellt",
+        "voucherCreationFailed": "Die Gutscheinkreation ist fehlgeschlagen",
+        "voucherType": "Gutscheintyp",
+        "yes": "Ja",
+        "voucherStatusChangeFailed": "Der Gutscheinstatus geändert",
+        "voucherStatusChanged": "Gutscheinstatus geändert"
+      },
+      "Customers": {
+        "CustomerDetails": {
+          "subTitle": "Sehen Sie sich die Details Ihres Kunden an",
+          "title": "Kundendetails"
+        },
+        "Status": {
+          "active": "Aktiv",
+          "cancel": "Abgesagt",
+          "canceled": "Abgesagt",
+          "completed": "Vollendet",
+          "failed": "Fehlgeschlagen",
+          "incomplete": "Unvollständig",
+          "incomplete_expired": "Unvollständig abgelaufen",
+          "paid": "Bezahlt",
+          "past_due": "Vorbei fällig",
+          "paused": "Blättern",
+          "pending": "Ausstehend",
+          "preCanceled": "Vorgezogen",
+          "processing": "Verarbeitung",
+          "refund": "Erstattet",
+          "trialing": "Versuch",
+          "unpaid": "Unbezahlt"
+        },
+        "actions": "Aktionen",
+        "annual": "Jährlich",
+        "billingCycle": "Abrechnungszyklus",
+        "city": "Stadt",
+        "columns": "Spalten",
+        "company": "Unternehmen",
+        "countCustomerOrders": "Totale Bestellungen",
+        "countCustomerSubscriptions": "Totale -Abonnement",
+        "countCustomerTickets": "Totale Tickets",
+        "country": "Land",
+        "created": "Erstellt: {Datum}",
+        "createdAt": "Erstellt at",
+        "customerDetails": "Kundendetails",
+        "date": "Datum",
+        "editCustomer": "Kunden bearbeiten",
+        "email": "E-Mail",
+        "endDate": "Enddatum",
+        "errorLoadingData": "Fehler laden Kundendaten",
+        "firstName": "Vorname",
+        "invoiceNotFound": "Rechnung nicht gefunden",
+        "lastName": "Nachname",
+        "monthly": "Monatlich",
+        "next": "Nächste",
+        "noOrders": "Keine Bestellungen gefunden",
+        "noResults": "Keine Kunden gefunden",
+        "noStripeCustomerId": "Dieser Kunde ist noch nicht auf Stripe registriert, er wird sich automatisch in seiner ersten Bestellung/seinem Abonnement registrieren",
+        "noSubscriptions": "Keine Abonnements gefunden",
+        "openClientStripePortal": "Öffnen Sie das Client -Streifenportal",
+        "orderId": "Bestellausweis",
+        "orders": "Bestellungen",
+        "phone": "Telefon",
+        "portalNotFound": "Ein Fehler beim Erhalten des Benutzerportals",
+        "previous": "Vorherige",
+        "profilePictureAlt": "Profilbild von {FirstName} {LastName}",
+        "searchPlaceholder": "Suchkunden ...",
+        "startDate": "Startdatum",
+        "status": {
+          "title": "Status"
+        },
+        "street": "Straße",
+        "subTitle": "Verwalten Sie Ihre Kunden",
+        "subscriptionId": "Abonnement -ID",
+        "subscriptions": "Abonnements",
+        "title": "Kunden",
+        "total": "Gesamt",
+        "viewDetails": "Details anzeigen",
+        "viewOnStripe": "Blick auf Streifen",
+        "zipCode": "PLZ"
+      }
+    },
+    "Chat": {
+      "SELECT_ORDER": "Wählen Sie Bestellung",
+      "SELECT_PRODUCT": "Produkt auswählen",
+      "SELECT_SUBSCRIPTION": "Wählen Sie Abonnement",
+      "actionRequired": "Aktion angefordert",
+      "active": "Aktiv",
+      "adminSummary": "Admin -Zusammenfassung",
+      "all": "Alle",
+      "chatAdmin": "Chat",
+      "chatClosed": "Dieses Gespräch war geschlossen, Sie können keine neue Nachricht senden",
+      "chatInbox": "Posteingang",
+      "closed": "Geschlossen",
+      "company": "Unternehmen",
+      "completed": "Vollendet",
+      "conversationDetails": "Gesprächsdetails",
+      "conversationStats": "Gesprächsstatistiken",
+      "email": "E-Mail",
+      "endChat": {
+        "cancel": "Stornieren",
+        "confirm": "Bestätigen",
+        "description": "Sind Sie sicher, dass Sie dieses Gespräch beenden möchten? \nAdmin oder Client kann danach keine Nachrichten senden.",
+        "ending": "Ende Chat",
+        "title": "Dieses Gespräch beenden?",
+        "titleBtn": "Ende des Gesprächs"
+      },
+      "ended": "Beendet",
+      "enterLink": "Geben Sie die Link -URL ein",
+      "enterLinkMessage": "Geben Sie eine Nachricht für den Link ein",
+      "error": "Bei einem Fehler treten Sie auf, bitte versuchen Sie, die Seite neu zu laden oder später erneut zu versuchen.",
+      "externalLink": "Externer Link",
+      "internalLink": "Interne Verbindung",
+      "location": "Standort",
+      "loginRequired": "Anmeldung erforderlich",
+      "noConversations": "Keine Gespräche",
+      "noEmail": "Keine E -Mail",
+      "notProvided": "Nicht bereitgestellt",
+      "order": "Befehl",
+      "orders": "Bestellungen",
+      "pending": "Ausstehend",
+      "phone": "Telefon",
+      "product": "Produkt",
+      "products": "Produkte",
+      "relatedItems": "Verwandte Elemente",
+      "reload": "Neu laden",
+      "requireLogin": "Benötigen Anmeldung zum Zugriff",
+      "searchPlaceholder": "Suche nach einem Chat",
+      "selectAction": "Wählen Sie eine Aktion aus",
+      "selectConversation": "Wählen Sie eine Konversation",
+      "selectOrder": "Auswahl der Bestellauswahl anfordern",
+      "selectProduct": "Produktauswahl anfordern",
+      "selectSubscription": "Abonnementauswahl anfordern",
+      "send": "Schicken",
+      "sendLink": "Senden Sie einen Link",
+      "sendingMessage": "[? \n] - Senden Ihrer Nachricht ...",
+      "started": "Begonnen",
+      "status": "Status",
+      "subscription": "Abonnement",
+      "subscriptions": "Abonnements",
+      "totalMessages": "Gesamtnachrichten",
+      "typeMessage": "Geben Sie eine Nachricht ein",
+      "unread": "Ungelesen",
+      "userActions": "Benutzeraktionen",
+      "userNotLoggedIn": "Benutzer nicht angemeldet",
+      "userOrders": "Benutzerbestellungen",
+      "userProfile": "Benutzerprofil",
+      "userSubscriptions": "Benutzerabonnements",
+      "actionDone": "Aktion durchgeführt",
+      "adminSummaryPlaceholder": "Zusammenfassung des Chats für Administrator",
+      "closedBy": "Geschlossen von",
+      "loginRequiredActions": "Der Benutzer ist nicht angemeldet, einige Aktionen sind möglicherweise nicht verfügbar.",
+      "noStripeCustomerId": "Koraner ist noch nicht auf Streifen registriert",
+      "saveAdminSummary": "Zusammenfassung speichern",
+      "viewOnStripe": "Blick auf Streifen",
+      "waitingAction": "Warten auf Aktion",
+      "you": "Du",
+      "sendAsEmail": "Diese Nachricht wird auch als E -Mail an die Benutzer -E -Mail gesendet.",
+      "createNewChat": "Beginnen Sie ein Gespräch mit",
+      "errorLoadingUsers": "Fehler beim Laden des Benutzers",
+      "new": "NEU",
+      "next": "Nächste",
+      "noMessage": "Keine Nachricht",
+      "noUsersFound": "Kein Benutzer gefunden",
+      "previous": "Vorherige",
+      "searchUser": "Benutzer suchen",
+      "selectUser": "Wählen Sie einen Benutzer aus",
+      "supportInbox": "Posteingang unterstützen",
+      "ticketId": "Ticket/Chat -ID",
+      "title": "Posteingangsnachrichten"
+    },
+    "Stats": {
+      "Carts": {
+        "avgPostOrderValue": "Durchschnittliche Reihenfolge",
+        "avgPreOrderValue": "Durchschnittliche Karren",
+        "cartDistribution": "Karrenverteilung",
+        "guestCarts": "Gästewagen",
+        "postOrderStats": "Bestellstatistiken",
+        "preOrderStats": "Karren Statistiken",
+        "realTime": "Echtzeit",
+        "table": {
+          "cartCount": "Wagen zählen",
+          "product": "Produkt",
+          "totalQuantity": "Menge"
+        },
+        "topProducts": "Top -Produkte",
+        "totalActiveCarts": "Gesamt aktive Karren",
+        "totalConvertedCarts": "Total konvertierte Karren",
+        "totalDiscount": "Rabatt",
+        "totalSubtotal": "Zwischensumme",
+        "totalTax": "Steuer",
+        "totalValue": "Gesamt",
+        "userCarts": "Benutzerwagen",
+        "subTitle": "Sehen Sie sich die CARTS -Statistiken nach Zeitraum an",
+        "title": "Karren Statistiken"
+      },
+      "Categories": {
+        "averageStockPerCategory": "Durchschnittliche Aktien pro Kategorie",
+        "salesByCategory": "Verkäufe nach Kategorie",
+        "stockByCategory": "Aktien nach Kategorie",
+        "subTitle": "Sehen Sie sich die Kategorienstatistiken nach Aktien und Verkäufen an",
+        "table": {
+          "category": "Kategorie",
+          "revenue": "Einnahmen",
+          "sales": "Verkäufe",
+          "stock": "Aktie",
+          "value": "Wert"
+        },
+        "title": "Kategorien Statistiken",
+        "totalCategories": "Gesamtkategorien"
+      },
+      "GroupByOptions": {
+        "day": "Tag",
+        "month": "Monat",
+        "week": "Woche"
+      },
+      "Periods": {
+        "30d": "30 letzte Tage",
+        "7d": "7 Letzte Tage",
+        "90d": "90 Letzte Tage"
+      },
+      "Products": {
+        "subTitle": "Sehen Sie sich die Produktstatistiken nach Aktien und Verkäufen an",
+        "table": {
+          "product": "Produkt",
+          "revenue": "Einnahmen",
+          "sales": "Verkäufe",
+          "stock": "Aktie",
+          "value": "Wert"
+        },
+        "title": "Produktstatistiken",
+        "topSellingProducts": "Mast -Selling -Produkte",
+        "topStockedProducts": "Erstklassiges Produkt",
+        "totalRevenue": "Gesamtumsatz",
+        "totalSales": "Gesamtumsatz",
+        "totalStock": "Gesamtbestand",
+        "totalValue": "Gesamtwert"
+      },
+      "Sales": {
+        "averageOrderValue": "Durchschnittlicher Bestellwert",
+        "ordersOverTime": "Bestellungen im Laufe der Zeit",
+        "productsSold": "Produkte verkauft",
+        "realTime": "Echtzeit",
+        "salesOverTime": "Umsatz im Laufe der Zeit",
+        "subTitle": "Sehen Sie sich die Verkaufsstatistiken nach Zeitraum an",
+        "title": "Verkaufsstatistik",
+        "totalOrders": "Gesamtbestellungen",
+        "totalSales": "Gesamtumsatz"
+      },
+      "Subscriptions": {
+        "activeSubscriptions": "Aktive Abonnements",
+        "billingCycle": {
+          "annual": "Jährlich",
+          "monthly": "Monatlich",
+          "unknown": "Unbekannt"
+        },
+        "billingCycleDistribution": "Abrechnungszyklusverteilung",
+        "canceledSubscriptions": "Stornierte Abonnements",
+        "realTime": "Echtzeit",
+        "status": {
+          "active": "Aktiv",
+          "canceled": "Abgesagt",
+          "pending": "Ausstehend",
+          "preCanceled": "Vorgezogen",
+          "unknown": "Unbekannt"
+        },
+        "statusDistribution": "Statusverteilung",
+        "subTitle": "Sehen Sie sich die Abonnementstatistiken nach Zeitraum an",
+        "table": {
+          "product": "Produkt",
+          "subscriptionCount": "Abonnementzahl",
+          "totalQuantity": "Gesamtmenge"
+        },
+        "title": "Abonnementstatistiken",
+        "topProducts": "Top -Produkte",
+        "totalSubscriptions": "Gesamtabonnements"
+      },
+      "Tickets": {
+        "activeBotChats": "Aktiver Bot -Chat",
+        "activeTickets": "Aktive Tickets",
+        "averageResponseTime": "Durchschnittliche Reaktionszeit",
+        "botOnlyChats": "Bot nur Chat",
+        "closedTickets": "Geschlossene Tickets",
+        "closureBy": {
+          "ADMIN": "Administrator",
+          "USER": "Benutzer",
+          "unknown": "Unbekannt"
+        },
+        "closureDistribution": "Schließverteilung",
+        "maxResolutionTime": "Maximale Auflösungszeit",
+        "minResolutionTime": "Min Auflösungszeit",
+        "realTime": "Echtzeit",
+        "responseTime": "Ansprechzeit",
+        "states": {
+          "CHAT_ADMIN": "Chat Admin",
+          "CHAT_BOT": "Chat -Bot",
+          "INBOX": "Posteingang",
+          "UNKNOWN": "Unbekannt"
+        },
+        "subTitle": "Sehen Sie sich die Tickets -Statistiken nach Zeitraum an",
+        "table": {
+          "closedTickets": "Geschlossene Tickets",
+          "email": "E-Mail",
+          "openTickets": "Tickets öffnen",
+          "totalTickets": "Gesamtkarten",
+          "user": "Benutzer"
+        },
+        "ticketDistribution": "Ticketverteilung",
+        "title": "Tickets Statistiken",
+        "topUsers": "Top -Benutzer"
+      },
+      "groupBy": "Gruppe von",
+      "groupByOptions": {
+        "day": "Tag",
+        "month": "Monat",
+        "week": "Woche"
+      },
+      "period": "Zeitraum",
+      "periods": {
+        "30d": "30 Tage",
+        "7d": "7 Tage",
+        "90d": "90 Tage"
+      },
+      "stats": {
+        "groupByOptions": {
+          "week": "Woche"
+        }
+      },
+      "title": "Statistiken"
+    },
+    "Dashboard": {
+      "activeSubscriptions": "Aktive Abonnements",
+      "errorDescription": "Fehler beim Laden von Daten",
+      "errorTitle": "Fehler",
+      "todayOpenTickets": "Heute offene Tickets",
+      "todayOrders": "Heute Bestellungen",
+      "todayRegistrations": "Heute Registrierungen",
+      "welcome": "Hallo {Benutzername}",
+      "welcomeMessage": "Hier ist eine Zusammenfassung der Geschäftstätigkeit",
+      "title": "Admin -Dashboard"
+    },
+    "Support": {
+      "Tickets": {
+        "actionDone": "Aktion durchgeführt",
+        "admin": "Administrator",
+        "bot": "Bot",
+        "closed": "Geschlossen",
+        "columns": "Spalten",
+        "createdAt": "Erstellt at",
+        "errorLoadingData": "Fehler beim Laden von Tickets",
+        "lastMessageType": "Letzte Nachricht",
+        "latestTickets": "Neueste Tickets",
+        "next": "Nächste",
+        "noResults": "Keine Ergebnisse",
+        "open": "Offen",
+        "previous": "Vorherige",
+        "responseTime": "Ansprechzeit",
+        "searchPlaceholder": "Suche nach einem Ticket",
+        "status": "Status",
+        "subTitle": "Alle Tickets anzeigen",
+        "title": "Tickets",
+        "user": "Benutzer",
+        "viewDetails": "Details anzeigen",
+        "waitingAction": "Warteaktion",
+        "activeTickets": "Aktive Tickets",
+        "ticketId": "Ticket -ID"
+      }
     }
   },
   "DefaultNotFound": "FEHLER: Übersetzung nicht gefunden",
@@ -464,7 +1532,19 @@
     "security": "Sicherheit",
     "subscriptions": "Abonnements",
     "users": "Benutzer",
-    "myAccount": "Mein Konto"
+    "myAccount": "Mein Konto",
+    "mySupport": "Meine Tickets",
+    "myTickets": "Meine Tickets",
+    "needHelp": "Benötigen Sie Hilfe?",
+    "openNewTicket": "Offenes Ticket",
+    "paymentMethods": "Zahlungsmethoden",
+    "support": "Unterstützung",
+    "vouchers": "Gutscheine",
+    "inbox": "Posteingang",
+    "tickets": "Tickets",
+    "carts": "Karren",
+    "sales": "Verkäufe",
+    "stats": "Statistiken"
   },
   "navigation": {
     "admin": "Admin",
@@ -495,7 +1575,14 @@
     "otpMessage3": "Bitte teilen Sie diesen Code mit niemandem. \nWir werden nie danach fragen. \nWenn Sie diesen Code nicht angefordert haben, ignorieren Sie diese E -Mail.",
     "otpMessageTiming": "Dieser Code läuft in 5 Minuten ab.",
     "otpWarningMessage": "Bitte teilen Sie diesen Code mit niemandem. \nWir werden nie danach fragen. \nWenn Sie diesen Code nicht angefordert haben, ignorieren Sie diese E -Mail.",
-    "userMessage": "Ich wünsche Ihnen einen ausgezeichneten Tag!"
+    "userMessage": "Ich wünsche Ihnen einen ausgezeichneten Tag!",
+    "resetButton": "Setzen Sie mein Passwort zurück",
+    "resetEmailMessage": "Um Ihr Passwort zurückzusetzen, klicken Sie auf die Schaltfläche unten und befolgen Sie die Anweisungen. \nDieser Link läuft in 1 Stunde ab. \nWenn Sie keinen Hinweis für ein Passwort zurückgesetzt haben, können Sie diese E -Mail sicher ignorieren oder unser Support -Team kontaktieren.",
+    "Support": {
+      "newMessage": "Sie haben eine neue Nachricht in einem Ihrer Gespräche mit unserem Kundendienstteam erhalten. \nHier ist eine Zusammenfassung:",
+      "newMessageSubject": "{Company} - Neue Nachricht vom Support -Team",
+      "openChatButton": "Offenes Gespräch"
+    }
   },
   "isSuperAdminRequired": "Ist Super Admin erforderlich, ist erforderlich",
   "Confirmation": {
@@ -527,7 +1614,995 @@
         "reconfigureOtpTitle": "Rekonfigurieren Sie OTP",
         "scanQrCodeOrEnterCode": "Scannen Sie den QRCode mit Ihrer Authenticator -App oder geben Sie diesen Code ein",
         "title": "OTP -Konfiguration",
-        "verifyOtp": "Überprüfen Sie OTP"
+        "verifyOtp": "Überprüfen Sie OTP",
+        "activateOtp": "Aktivieren Sie OTP"
+      },
+      "Password": {
+        "changePassword": "Kennwort ändern",
+        "confirmPassword": "Neues Passwort bestätigen",
+        "confirmPasswordRequired": "Bestätigen Sie das Passwort erforderlich",
+        "currentPassword": "Aktuelles Passwort",
+        "currentPasswordIncorrect": "Ihr aktuelles Passwort stimmt nicht überein.",
+        "currentPasswordRequired": "Aktuelles Passwort ist erforderlich",
+        "loading": "Ändern Sie Ihr Passwort",
+        "newPassword": "Neues Passwort",
+        "newPasswordRequired": "Neues Passwort ist erforderlich",
+        "passwordChangeError": "Das Passwort nicht ändern",
+        "passwordChangeSuccess": "Passwort erfolgreich geändert",
+        "passwordMinLength": "Das Passwort muss mindestens 12 Zeichen lang sein",
+        "passwordsMustMatch": "Passwörter müssen übereinstimmen",
+        "title": "Kennwort ändern"
+      },
+      "password": "Passwort",
+      "passwordContent": "Passwort",
+      "subTitle": "Verwalten Sie Ihre Sicherheitseinstellungen",
+      "title": "Sicherheit",
+      "twoFactorAuth": "Zwei -Faktor -Authentifizierung"
+    },
+    "Business": {
+      "Orders": {
+        "title": "Bestellungen",
+        "OrderDetails": {
+          "billingCycle": "Abrechnungszyklus",
+          "changedBy": "Geändert von",
+          "currency": "Währung",
+          "customerInformation": "Kundeninformationen",
+          "date": "Datum",
+          "email": "E-Mail",
+          "error": "Fehlerladungsauftragsdetails",
+          "loading": "Laden...",
+          "name": "Name",
+          "notFound": "Nicht gefunden",
+          "orderId": "Bestellausweis",
+          "orderInformation": "Informationen bestellen",
+          "paymentInformation": "Zahlungsinformationen",
+          "paymentIntentId": "Zahlungsabsichten -ID",
+          "products": "Produkte",
+          "quantity": "Menge",
+          "sessionId": "Sitzungs -ID",
+          "statusHistory": "Statusgeschichte",
+          "stripePriceId": "Streifenpreis -ID",
+          "subTitle": "Sehen Sie sich die Details Ihrer Bestellung an",
+          "subscriptionId": "Abonnement -ID",
+          "title": "Bestelldetails",
+          "totalAmount": "Gesamtbetrag",
+          "billingPeriod": "Rechnungszeitraum",
+          "cancelOrder": "Bestellung abbrechen",
+          "discount": "Rabatt",
+          "goToOrderStripe": "Offen in Streifen",
+          "openInvoice": "Offene Rechnung",
+          "openUserInvoice": "Benutzerrechnung öffnen",
+          "orderActions": "Aktionen",
+          "status": "Status",
+          "subscriptionInformation": "Abonnementinformationen",
+          "subscriptionStatus": {
+            "active": "Aktiv",
+            "canceled": "Abgesagt",
+            "incomplete": "Unvollständig",
+            "incomplete_expired": "Unvollständig abgelaufen",
+            "past_due": "Vorbei fällig",
+            "paused": "Blättern",
+            "trialing": "Versuch",
+            "unpaid": "Unbezahlt"
+          },
+          "subtotal": "Zwischensumme",
+          "tax": "Steuer",
+          "total": "Gesamt",
+          "viewSubscription": "Abonnementdetails anzeigen",
+          "voucher": "Gutscheincode",
+          "cancel": "Stornieren",
+          "confirm": "Bestätigen",
+          "confirmOrder": "Bestätigen Sie diese Bestellung",
+          "markAsCompleted": "Markieren wie abgeschlossen",
+          "orderAddComment": "Fügen Sie einen Kommentar hinzu",
+          "orderCompletionWarning": "WARNUNG: Sobald er als abgeschlossen gekennzeichnet ist, kann die Bestellung nicht geändert werden.",
+          "orderPaidDescription": "Die Zahlung wurde bestätigt. \nSie können jetzt die Bestellung überprüfen und bestätigen, bevor Sie fortfahren.",
+          "orderPendingDescription": "Nehmen Sie die Bestellverarbeitung wieder auf.",
+          "orderTreatment": "Auftragsbehandlung",
+          "orderWaitingCompletionDescription": "Überprüfen Sie die Bestellung und markieren Sie sie wie fertig, wenn Sie fertig sind.",
+          "resumeOrder": "Lebenslaufbestellung",
+          "suspendOrder": "Aufhebung der Bestellung",
+          "suspendOrderDescription": "Bitte geben Sie einen Grund für die Aussetzung dieser Bestellung an.",
+          "suspendOrderReasonPlaceholder": "Geben Sie den Grund für die Suspendierung ein ...",
+          "suspendOrderTitle": "Aufhebung der Bestellung",
+          "billingAddress": "Abrechnungsadresse",
+          "noBillingAddress": "Keine Abrechnungsadresse"
+        },
+        "date": "Datum",
+        "errorLoadingOrders": "Fehlerladungsaufträge",
+        "noOrders": "Keine Bestellungen gefunden",
+        "orderId": "Bestellausweis",
+        "status": {
+          "cancelled": "Abgesagt",
+          "completed": "Vollendet",
+          "failed": "Fehlgeschlagen",
+          "paid": "Bezahlt",
+          "pending": "Ausstehend",
+          "processing": "Verarbeitung",
+          "title": "Status"
+        },
+        "subTitle": "Verwalten Sie Ihre Bestellungen",
+        "total": "Gesamt",
+        "viewDetails": "Details anzeigen",
+        "next": "Nächste",
+        "previous": "Vorherige",
+        "searchPlaceholder": "Suche nach einer Bestellung",
+        "Status": {
+          "cancel": "Abgesagt",
+          "completed": "Vollendet",
+          "failed": "Fehlgeschlagen",
+          "paid": "Bezahlt",
+          "pending": "Ausstehend",
+          "processing": "Verarbeitung",
+          "refund": "Erstattet",
+          "title": "Status"
+        }
+      },
+      "Payments": {
+        "title": "Zahlungen",
+        "actions": "Aktionen",
+        "amount": "Menge",
+        "date": "Datum",
+        "expires": "Läuft ab",
+        "invoices": "Rechnungen",
+        "loading": "Laden...",
+        "next": "Nächste",
+        "noInvoices": "Keine Rechnungen gefunden",
+        "noPaymentMethods": "Keine Zahlungsmethoden gespeichert",
+        "olderInvoicesMessage": "Auf der Suche nach älteren Rechnungen? \nGreifen Sie auf Ihre vollständige Abrechnungshistorie im Streifenportal zu.",
+        "openStripePortal": "Offenes Streifenportal",
+        "paymentPortal": "Zahlungsportal",
+        "paymentPortalDescription": "Sehen Sie sich Ihren Zahlungshistorie an und verwalten Sie Ihre Zahlungsmethoden. \nVerwenden Sie für fortschrittliches Management das Stripe -Kundenportal.",
+        "previous": "Vorherige",
+        "savedPaymentMethods": "Speicher Zahlungsmethoden",
+        "status": "Status",
+        "stripePortalInactive": "Ihr Stripe -Konto wird nach Ihrer ersten Bestellung aktiviert. \nSie haben dann Zugriff auf das Stripe -Kundenportal.",
+        "viewInvoice": "Rechnung anzeigen"
+      },
+      "Subscriptions": {
+        "title": "Abonnements",
+        "SubscriptionDetails": {
+          "Status": {
+            "active": "Aktiv",
+            "canceled": "Abgesagt",
+            "incomplete": "Unvollständig",
+            "incomplete_expired": "Unvollständig abgelaufen",
+            "past_due": "Vorbei fällig",
+            "paused": "Blättern",
+            "trialing": "Versuch",
+            "unpaid": "Unbezahlt",
+            "preCanceled": "Vorgezogen"
+          },
+          "billingCycle": "Abrechnungszyklus",
+          "cancel": "Stornieren",
+          "cancelAtPeriodEnd": "Absendern",
+          "cancelAtPeriodEndDescription": "Ihr Abonnement bleibt bis zum Ende des aktuellen Abrechnungszeitraums aktiv.",
+          "cancelAtPeriodEndDescription2": "Ihr Abonnement wird bereits am Ende des aktuellen Zeitraums storniert. \nWenn Sie sich darüber nicht sicher sind, wenden Sie sich bitte an unser Support -Team.",
+          "cancelError": "Das Abonnement versäumte es, Abonnement zu kündigen",
+          "cancelNow": "Jetzt abbrechen",
+          "cancelNowDescription": "Ihr Abonnement wird sofort storniert und Sie erhalten für die verbleibenden Tage eine anteilige Rückerstattung.",
+          "cancelSubscription": "Abonnement abbrechen",
+          "cancelSubscriptionDescription": "Bitte wählen Sie, wie Sie Ihr Abonnement kündigen möchten:",
+          "cancelSubscriptionTitle": "Stornieren Sie Ihr Abonnement",
+          "cancelSuccess": "Abonnement erfolgreich storniert",
+          "canceledAt": "Abgesagt bei",
+          "canceling": "Abonnement stornieren ...",
+          "changedBy": "Geändert von",
+          "confirm": "Bestätigen",
+          "customerId": "Kundenausweis",
+          "customerInformation": "Kundeninformationen",
+          "defaultPaymentMethod": "Standardzahlungsmethode",
+          "email": "E-Mail",
+          "error": "Fehler laden Abonnementdetails",
+          "invoiceNotFound": "Ein Fehler trat beim Abrufen Ihrer Rechnung auf",
+          "loading": "Laden...",
+          "manageSubscription": "Abonnement verwalten",
+          "name": "Name",
+          "notFound": "Abonnement nicht gefunden",
+          "openInvoice": "Letzte Rechnung öffnen",
+          "paymentInformation": "Zahlungsinformationen",
+          "periodEnd": "Aktuelle Periode",
+          "periodStart": "Aktueller Zeitraum",
+          "products": "Produkte",
+          "quantity": "Menge",
+          "statusHistory": "Statusgeschichte",
+          "stripePriceId": "Streifenpreis -ID",
+          "subTitle": "Zeigen und verwalten Sie Ihr Abonnement und verwalten Sie Ihr Abonnement",
+          "subscriptionId": "Ausweis",
+          "subscriptionInformation": "Abonnementinformationen",
+          "title": "Abonnementdetails",
+          "updateError": "Bei der Aktualisierung Ihres Abonnements trat ein Fehler auf",
+          "updateSuccess": "Ihr Abonnement wurde erfolgreich aktualisiert",
+          "cancelNowWithFullRefund": "Jetzt abbrechen",
+          "cancelNowWithFullRefundDescription": "Ihr Abonnement wird sofort storniert und Sie erhalten eine vollständige Rückerstattung für den aktuellen Zeitraum.",
+          "cancelNowWithRemainingRefund": "Jetzt abbrechen",
+          "cancelNowWithRemainingRefundDescription": "Ihr Abonnement wird sofort storniert und Sie erhalten eine Rückerstattung für die verbleibenden Tage des aktuellen Zeitraums.",
+          "cancelNowWithoutRefund": "Jetzt ohne Rückerstattung abbrechen",
+          "cancelNowWithoutRefundDescription": "Ihr Abonnement wird sofort ohne Rückerstattung storniert.",
+          "preCanceled": "Vorgezogen",
+          "preCanceledDescription": "Ihr Abonnement wurde storniert und wird am Ende des aktuellen Zeitraums gestoppt. \nWenn Sie sich darüber nicht sicher sind, wenden Sie sich bitte an unser Support -Team.",
+          "viewProduct": "Produkt anzeigen"
+        },
+        "date": "Datum",
+        "errorLoadingSubscriptions": "Fehler laden Abonnements",
+        "noSubscriptions": "Keine Abonnements gefunden",
+        "products": "Produkte",
+        "status": {
+          "active": "Aktiv",
+          "canceled": "Abgesagt",
+          "incomplete": "Unvollständig",
+          "incomplete_expired": "Unvollständig abgelaufen",
+          "past_due": "Vorbei fällig",
+          "paused": "Blättern",
+          "title": "Status",
+          "trialing": "Versuch",
+          "unpaid": "Unbezahlt"
+        },
+        "subTitle": "Verwalten Sie Ihre Abonnements",
+        "subscriptionId": "Abonnement -ID",
+        "all": "Alle",
+        "columns": "Spalten",
+        "errorLoadingData": "Fehler laden Daten.",
+        "next": "Nächste",
+        "noResults": "Keine Ergebnisse.",
+        "pickDate": "Wählen Sie ein Date",
+        "previous": "Vorherige",
+        "resetFilters": "Filter zurücksetzen",
+        "searchPlaceholder": "Suche nach ID, Name oder E -Mail ..."
+      },
+      "title": "Geschäft"
+    },
+    "Dashboard": {
+      "subTitle": "Verwalten Sie Ihr Konto, Ihre Einstellungen, Abonnements und mehr",
+      "title": "Dein Dashboard",
+      "activeSubscriptions": "Aktive Abonnements",
+      "activeTickets": "Aktive Tickets",
+      "lastMessage": "Letzte Nachricht",
+      "nextBilling": "Nächste Abrechnung",
+      "noActiveTickets": "Keine aktiven Tickets",
+      "noOrders": "Keine Bestellungen",
+      "noSubscriptions": "Kein Abonnement",
+      "orderId": "Bestellausweis",
+      "product": "Produkte",
+      "recentOrders": "Jüngste Bestellungen",
+      "recentSubscriptions": "Neuere Abonnements",
+      "status": "Status",
+      "subject": "Thema",
+      "ticketId": "Ticket -ID",
+      "total": "Gesamt",
+      "totalOrders": "Gesamtbestellungen",
+      "totalSpent": "Total ausgegeben"
+    },
+    "MyAccount": {
+      "PaymentMethods": {
+        "title": "Zahlungsmethoden"
+      },
+      "Profile": {
+        "advertisement": "Aus einer Anzeige",
+        "friend": "Ein Freund",
+        "other": "Eine andere Option",
+        "socialMedia": "Aus sozialen Medien",
+        "title": "Profil"
+      },
+      "Security": {
+        "title": "Sicherheit"
+      },
+      "Settings": {
+        "title": "Einstellungen"
+      },
+      "title": "Mein Konto"
+    },
+    "Profile": {
+      "cancel": "Stornieren",
+      "changesSavedSuccessfully": "Änderungen erfolgreich gespeichert",
+      "city": "Stadt",
+      "company": "Unternehmen",
+      "country": "Land",
+      "created": "Erstellt: {Datum}",
+      "edit": "Bearbeiten",
+      "email": "E-Mail",
+      "emailExists": "E -Mail gibt es bereits.",
+      "error": "Fehler beim Speichern von Profilen",
+      "failedToSaveChanges": "Änderungen nicht speichern",
+      "firstName": "Vorname",
+      "howDidYouHear": "Wie hast du gehört",
+      "lastName": "Nachname",
+      "nothingSelected": "Nichts ausgewählt",
+      "phone": "Telefon",
+      "saveChanges": "Änderungen speichern",
+      "saved": "Profil gespeichert",
+      "saving": "Speichern Sie Ihren Profil",
+      "savingChanges": "Veränderungen sparen ...",
+      "street": "Straße",
+      "twoFactorAuth": "Zwei -Faktor -Authentifizierung",
+      "zipCode": "PLZ",
+      "advertisement": "Werbung",
+      "friend": "Freund",
+      "other": "Andere",
+      "socialMedia": "Social Media",
+      "title": "Aktualisieren Sie Ihr Profil",
+      "BillingAddresses": {
+        "save": "Speichern"
+      }
+    },
+    "Support": {
+      "MyTickets": {
+        "title": "Meine Tickets"
+      },
+      "NeedHelp": {
+        "title": "Unterstützungszentrum"
+      },
+      "OpenNewTicket": {
+        "title": "Offenes Ticket"
+      },
+      "title": "Unterstützung"
+    },
+    "Chat": {
+      "actionCompleted": "Aktion abgeschlossen",
+      "actionDone": "Aktion durchgeführt",
+      "active": "Aktiv",
+      "adminSupport": "Support -Team",
+      "chatClosed": "Chat geschlossen",
+      "closed": "Geschlossen",
+      "endChat": {
+        "cancel": "Stornieren",
+        "confirm": "Bestätigen",
+        "description": "Sie und das Support -Team können keine neue Nachricht erneut senden. \nBist du sicher ?",
+        "title": "Beende dieses Gespräch"
+      },
+      "error": "Ein Fehler trat auf, bitte versuchen Sie es später erneut!",
+      "new": "Neu",
+      "noConversations": "Keine Gespräche",
+      "open": "Offen",
+      "seeLink": "Siehe Link",
+      "selectConversation": "Wählen Sie Konversation",
+      "sending": "Senden",
+      "supportInbox": "Ihre Tickets",
+      "typeMessage": "Geben Sie eine Nachricht ein",
+      "unread": "Ungelesen",
+      "waitingAction": "Aktion zu tun",
+      "you": "Du",
+      "cancel": "Stornieren",
+      "chatNow": "Chatten mit uns",
+      "chatNowBtn": "Chatten Sie jetzt",
+      "chatNowDesc": "Chatten Sie mit unserem Support -Team für sofortige Hilfe.",
+      "errorSendingMessage": "Beim Senden dieser Nachricht treten ein Fehler auf. Bitte versuchen Sie es erneut.",
+      "getNeedHelp": "Sie haben eine Frage, einen Vorschlag oder ein Problem? \nWir sind hier, um zu helfen!",
+      "getNeedHelpDesc": "Sie können Antworten auf Ihre Fragen in unserem FAQ -Abschnitt finden. \nWenn Sie nicht finden, wonach Sie suchen, können Sie uns direkt durch den Chat oder durch Senden einer Nachricht an uns wenden.",
+      "messageToSupportPlaceholder": "Erläutern Sie hier Ihr Problem, Ihre Frage oder Ihr Vorschlag ...",
+      "send": "Schicken",
+      "sendMessage": "Senden Sie eine Nachricht",
+      "sendMessageBtn": "Senden Sie eine Nachricht",
+      "sendMessageDesc": "Senden Sie eine Nachricht an unser Support -Team und wir werden uns so schnell wie möglich bei Ihnen melden.",
+      "sendMessageToSupport": "Senden Sie eine Nachricht an unser Support -Team",
+      "sendMessageToSupportDesc": "Hier können Sie eine Nachricht an unser Support -Team senden. \nWir werden uns so schnell wie möglich bei Ihnen melden. \nBitte geben Sie so viel Detail wie möglich an, um Ihnen zu helfen, Ihnen besser zu helfen.",
+      "SELECT_ORDER": "Um Ihnen zu helfen, wählen Sie bitte eine Bestellung zu Ihrer Frage aus, indem Sie auf die Schaltfläche unten klicken",
+      "SELECT_SUBSCRIPTION": "Um Ihnen zu helfen, wählen Sie bitte ein Abonnement für Ihre Frage aus, indem Sie auf die Schaltfläche unten klicken",
+      "ticketId": "Ticket -ID",
+      "title": "Benutzereingang",
+      "allOpenInbox": "Siehe andere Tickets"
+    }
+  },
+  "pagesNames": {
+    "businessOrders": "Geschäftsbestellungen",
+    "businessPayments": "Geschäftszahlungen",
+    "businessSubscriptions": "Geschäftsabonnements",
+    "homePage": "Startseite",
+    "logDetailsAdmin": "Protokolldetails Admin",
+    "logsAdmin": "Protokolliert Admin",
+    "myTickets": "Meine Tickets",
+    "needHelp": "Brauche Hilfe",
+    "openTicket": "Offenes Ticket",
+    "paymentMethods": "Zahlungsmethoden",
+    "profile": "Profil",
+    "security": "Sicherheit",
+    "settings": "Einstellungen",
+    "userDetailsAdmin": "Benutzerdetails Admin",
+    "usersAdmin": "Benutzer admin",
+    "yourDashboard": "Dein Dashboard"
+  },
+  "resetPasswordEmailSubject": "Cyna - ruhen Sie Ihr Passwort aus",
+  "NavSearchBar": {
+    "categories": "Kategorien",
+    "error": "Fehler bei der Suche nach Produkten",
+    "noCategoriesFound": "Keine Kategorien",
+    "noResults": "Kein Produkt für {Suchterm} gefunden",
+    "products": "Produkte",
+    "searchPlaceholder": "Suche nach einem Produkt oder einer Kategorie"
+  },
+  "ProductCard": {
+    "seeMore": "Sehen Sie mehr",
+    "month": "Monat",
+    "addToCart": "In den Warenkorb legen",
+    "oneTime": "Einmal kaufen",
+    "subscription": "Abonnement"
+  },
+  "ProductPage": {
+    "error": "Beim Abrufen von Produkten ist ein Fehler aufgetreten, bitte versuchen Sie Angain",
+    "searchResultsFor": "Ergebnisse für",
+    "title": "Unsere Produkte",
+    "noResults": "Oh nein! \nWir können keine Produkte für Ihre Suche finden. \nVersuchen Sie es erneut mit einem anderen Schlüsselwort.",
+    "all": "Alle",
+    "applyFilters": "Filter anwenden",
+    "availability": "Verfügbarkeit",
+    "categories": "Kategorien",
+    "dateRange": "Datumsbereich",
+    "filters": "Filter",
+    "inStock": "Auf Lager",
+    "mostPopular": "Am beliebtesten",
+    "newest": "Neueste",
+    "outOfStock": "Aus dem Bestand",
+    "priceAsc": "Preis ASC",
+    "priceDesc": "Preis Desc",
+    "priceRange": "Preisklasse",
+    "reset": "Zurücksetzen",
+    "sortBy": "Sortieren",
+    "products": "Produkte",
+    "showing": "Zeigen"
+  },
+  "Error": {
+    "Front": {
+      "backHome": "Kehre nach Hause zurück",
+      "errorFrontTitle": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder wenden Sie sich an Support -Team"
+    }
+  },
+  "Shop": {
+    "Cart": {
+      "emptyCart": "Ihr Wagen ist leer",
+      "emptyCartSubtitle": "Es ist Zeit zum Einkaufen!",
+      "miniCart": {
+        "subtitle": "Produkte",
+        "title": "Dein Wagen"
+      },
+      "productAddedToCart": "Produkt zur Karte hinzugefügt!",
+      "total": "Gesamt",
+      "viewCart": "Wagen anzeigen",
+      "checkout": "Kasse",
+      "continueShopping": "Versand fort",
+      "items": "Produkte",
+      "login": "Login",
+      "orderSummary": "Ihre Bestellung",
+      "register": "Registrieren",
+      "subtotal": "Sub Total",
+      "yourCart": "Dein Wagen",
+      "apply": "Anwenden",
+      "discount": "Rabatt",
+      "loginToProceed": "Melden Sie sich in Ihrem Konto an, um auf Ihren Personenwagen zuzugreifen",
+      "taxes": "Steuern",
+      "voucherCode": "Gutscheincode",
+      "MixedProductTypes": "Bitte trennen Sie Ihre Bestellungen für verschiedene Arten von Produkten.",
+      "MixedProductTypesSubtitle": "Sie können nicht mit gemischten Produkttypen auschecken. \nBitte trennen Sie verschiedene Abonnements und kaufen Sie pünktlich Produkt.",
+      "cantCheckout": "Sie können für den Moment nicht auschecken, bitte überprüfen Sie Ihren Warenkorb oder Ihr Konto.",
+      "failToCheckout": "Während des Auscheckens gab es einen Fehler, bitte versuchen Sie es erneut.",
+      "CompleteProfile": "Vervollständige mein Profil",
+      "UserProfileIncomplete": "Ihr Profil ist unvollständig, einige Felder fehlen.",
+      "UserProfileIncompleteSubtitle": "Bitte vervollständigen Sie Ihr Profil auf Ihrer Kontoseite, um zur Kaufabteilung fortzufahren.",
+      "VoucherNotActive": "Gutschein nicht gültig",
+      "VoucherNotActiveSubtitle": "Der auf Ihren Wagen angewandte Gutschein ist abgelaufen oder für Ihre Bestellung nicht verfügbar. Bitte entfernen Sie, um zur Kasse zu fahren.",
+      "completeProfile": "Vervollständige mein Profil",
+      "mixedProductTypes": "Bitte trennen Sie Ihre Bestellungen für verschiedene Produkte.",
+      "mixedProductTypesSubtitle": "Sie können nicht mit gemischten Produkttypen auschecken. \nBitte trennen Sie verschiedene Abonnements und kaufen Sie pünktlich Produkt.",
+      "userProfileIncomplete": "Ihr Profil ist unvollständig, einige Felder fehlen.",
+      "userProfileIncompleteSubtitle": "Bitte vervollständigen Sie Ihr Profil auf Ihrer Kontoseite, um zur Kaufabteilung fortzufahren.",
+      "voucherApplied": "Gutschein angewendet",
+      "voucherError": "Fehler mit diesem Gutschein",
+      "voucherNotActive": "Gutschein nicht gültig",
+      "voucherNotActiveSubtitle": "Der auf Ihren Wagen angewandte Gutschein ist abgelaufen oder für Ihre Bestellung nicht verfügbar. Bitte entfernen Sie, um zur Kasse zu fahren.",
+      "saveCardForFuture": "Karte für zukünftige Zahlungen sparen",
+      "oneTimePurchase": "Einmaliger Kauf",
+      "productNotActive": "Einige Produkte sind nicht verfügbar",
+      "productNotActiveSubtitle": "Bitte entfernen Sie das Produkt, das nicht zur Verfügung steht, um zum Checkout fortzufahren.",
+      "subscription": "Abonnement",
+      "checkoutDescription": "Beim Klicken auf die Kasse akzeptieren Sie OU -Allgemeinen Geschäftsbedingungen. \nDie Preise werden nur als Informationen bereitgestellt und der endgültige Preis wird am Ende des Kasseprozesses bestätigt.",
+      "PRODUCT_OUT_OF_STOCK": "Eines der Produkte in Ihrem Karren ist nicht vorhanden. Bitte aktualisieren Sie die Menge oder entfernen Sie das Produkt",
+      "PRODUCT_OUT_OF_STOCK_USER_QUANTITY": "Die Menge eines Produkts in Ihrem Warenkorb ist zu sehr verglichen mit unserer Aktie. Bitte aktualisieren Sie die Menge oder entfernen Sie das Produkt",
+      "annual": "Jährlich",
+      "month": "Monat",
+      "monthly": "Monatlich",
+      "outOfStock": "Aus dem Bestand",
+      "productOutOfStock": "Produkt aus dem Vorrat",
+      "productOutOfStockSubtitle": "Eines der Produkte in Ihrem Carte ist nicht vorrätig.",
+      "productOutOfStockUserQuantity": "Produktmenge auch Hight",
+      "productOutOfStockUserQuantitySubtitle": "Die Menge eines Produkts in Ihrem Warenkorb ist zu sehr verglichen mit unserer Aktie. Bitte aktualisieren Sie die Menge oder entfernen Sie das Produkt",
+      "year": "Jahr",
+      "MIXED_PRODUCT_TYPES": "Die Produkte in Ihrem Karren haben unterschiedliche Abrechnungszeiten. Bitte trennen Sie sie, um zum Checkout fortzufahren",
+      "PRODUCT_NOT_ACTIVE": "Eines der Produkte in Ihrem Karren ist nicht verfügbar. Bitte entfernen Sie es, um zum Checkout fortzufahren",
+      "ProductNotActive": "Eines der Produkte ist nicht verfügbar",
+      "ProductOutOfStock": "Produkt aus dem Vorrat",
+      "ProductOutOfStockUserQuantity": "Eines der Produkte ist nicht mit der ausgewählten Menge verfügbar",
+      "USER_PROFILE_INCOMPLETE": "Ihr Profil ist unvollständig. Führen Sie es bitte aus, um zum Checkout fortzufahren",
+      "VOUCHER_NOT_ACTIVE": "Gutschein nicht gültig, bitte entfernen Sie es, um zum Checkout fortzufahren",
+      "title": "Wagen",
+      "BillingAddressIncomplete": "Die Abrechnungsadresse ist unvollständig",
+      "BillingAddressIncompleteShop": "Bitte vervollständigen Sie Ihre Abrechnungsadresse, um zum Checkout fortzufahren",
+      "addAddress": "Adresse hinzufügen",
+      "addNewAddress": "Neue Adresse hinzufügen",
+      "addressName": "Adressname",
+      "addressStreet": "Straße",
+      "billingAddress": "Abrechnungsadresse",
+      "billingAddressIncomplete": "Die Abrechnungsadresse ist unvollständig",
+      "billingAddressIncompleteSubtitle": "Bitte vervollständigen Sie Ihre Abrechnungsadresse, um zum Checkout fortzufahren",
+      "cancel": "Stornieren",
+      "changeAddress": "Adresse ändern",
+      "checkoutSummary": "Überprüfungszusammenfassung",
+      "city": "Stadt",
+      "confirmCheckout": "Checkout bestätigen",
+      "country": "Land",
+      "noBillingAddress": "Keine Abrechnungsadresse",
+      "selectBillingAddress": "Wählen Sie Abrechnungsadresse",
+      "yourProducts": "Ihre Produkte",
+      "zipCode": "PLZ",
+      "deleteAddress": "Adresse löschen",
+      "deleteAddressConfirmation": "Sind Sie sicher, dass Sie diese Adresse löschen möchten?",
+      "deleteAddressError": "Die Adresse nicht löschen",
+      "deleteAddressSuccess": "Adresse erfolgreich gelöscht",
+      "remove": "Entfernen",
+      "selectBillingCycle": "Wählen Sie Abrechnungszyklus",
+      "addressDeleted": "Adresse gelöscht",
+      "delete": "Löschen",
+      "deleting": "Löschen"
+    },
+    "Product": {
+      "addToCart": {
+        "button": "In den Warenkorb legen"
+      },
+      "outOfStock": "Aus dem Bestand",
+      "price": "Preis",
+      "quantity": "Menge",
+      "addToCartTitle": "In den Warenkorb legen",
+      "annual": "Jährlich",
+      "bestValue": "Bester Wert",
+      "billingCycle": "Abrechnungszyklus",
+      "characteristics": "Eigenschaften",
+      "comparedToMonthly": "Im Vergleich zu monatlich",
+      "goBack": "Geh zurück",
+      "inStock": "Auf Lager",
+      "lowStock": "Niedriger Bestand",
+      "lowStockDescription": "Es gibt nicht viel Produkt auf Lager, es ist Zeit, zu bestellen!",
+      "month": "Monat",
+      "monthly": "Monatlich",
+      "monthlyDescription": "Monatlich",
+      "outOfStockDescription": "Dieses Produkt ist momentan nicht auf Lager, bitte kommen Sie später zurück",
+      "save": "Speichern",
+      "stock": "Aktie",
+      "subscription": "Abonnement",
+      "total": "Gesamt",
+      "year": "Jahr",
+      "title": "Produkt",
+      "benefitCard1": {
+        "description": "Wir priorisieren die Sicherheit auf jeder Ebene-von verschlüsselter Datenspeicherung in der EU bis 24/7 Überwachung durch unseren internen SOC. \nIhr Schutz ist unsere Mission.",
+        "title": "Sicherheit zuerst"
+      },
+      "benefitCard2": {
+        "description": "Kein komplexes Setup. \nUnsere SaaS -Plattform ist bereit, in wenigen Minuten bereitzustellen, und passt sich Ihren Anforderungen an, ohne Ihre vorhandene Infrastruktur zu stören.",
+        "title": "Einfachheit der Plug-and-Protect"
+      },
+      "benefitCard3": {
+        "description": "Cyna skaliert mit Ihrem Geschäft. \nEgal, ob Sie 5 oder 500 Endpunkte schützen, unser Preismodell und unsere Architektur wachsen neben Ihrem Unternehmen.",
+        "title": "Für Wachstum gebaut"
+      },
+      "benefits": "Vorteile",
+      "billingCycleHelp": "Wählen Sie zwischen Jahr und Monat Abrechnung für Ihren Plan",
+      "chooseBillingCycle": "Wählen Sie Abrechnungszyklus",
+      "keyFeatures": "Schlüsselmerkmale",
+      "oneTime": "Einmal",
+      "whyChooseUs": "Warum uns wählen?"
+    },
+    "Checkout": {
+      "myOrders": "Meine Bestellungen",
+      "redirectingMessage": "Wenn der Vorgang abgeschlossen ist, werden Sie automatisch auf Ihre Bestellinformationen umgeleitet.",
+      "redirectingToCheckout": "Wir bearbeiten Ihre Zahlung, bitte warten ...",
+      "redirectingToCheckoutMessage": "Mmm, es scheint, dass der Prozess länger als erwartet dauert. \nBitte warten Sie ein paar Sekunden und klicken Sie dann auf die Schaltfläche unten, um zu Ihren Bestellungen zu gelangen",
+      "billingCycle": "Abrechnungszyklus",
+      "billingPeriod": "Rechnungszeitraum",
+      "continueShopping": "Weiter einkaufen",
+      "date": "Datum",
+      "discount": "Rabatt",
+      "downloadInvoice": "Rechnung herunterladen",
+      "orderId": "Bestellausweis",
+      "orderInformation": "Informationen bestellen",
+      "orderSuccess": "Vielen Dank für Ihre Bestellung!",
+      "orderSuccessMessage": "Wir freuen uns, zu bestätigen, dass Ihre Bestellung erfolgreich aufgegeben wurde. \nSie erhalten in Kürze eine Bestätigungs -E -Mail.",
+      "processingOrder": "Bearbeiten Sie Ihre Bestellung ...",
+      "products": "Produkte",
+      "quantity": "Menge",
+      "subscriptionInformation": "Abonnementinformationen",
+      "subscriptionStatus": {
+        "active": "Aktiv",
+        "canceled": "Abgesagt",
+        "incomplete": "Unvollständig",
+        "incomplete_expired": "Unvollständig abgelaufen",
+        "past_due": "Vorbei fällig",
+        "paused": "Blättern",
+        "preCanceled": "Vorgezogen",
+        "trialing": "Versuch",
+        "unpaid": "Unbezahlt"
+      },
+      "subtotal": "Zwischensumme",
+      "tax": "Steuer",
+      "total": "Gesamt",
+      "viewAllOrders": "Alle Bestellungen anzeigen",
+      "viewSubscription": "Abonnement anzeigen",
+      "yourBank": "Ihre Bank",
+      "redirectingToCheckoutMessageMobile": "Sie werden nach Abschluss der Zahlung automatisch in die {Company} Mobile App umgeleitet.",
+      "yourPayment": "Bank",
+      "application": "Mobile",
+      "returnToApp": "Kehren Sie zur mobilen App zurück",
+      "transactionFailed": "Transaktion fehlgeschlagen",
+      "transactionFailedMessage": "Diese Transaktion ist fehlgeschlagen, da Sie sie abgebrochen haben oder beim Auschecken ein Fehler vorliegt. \nBitte warten Sie, dass wir Sie zur mobilen App umleiten.",
+      "title": "Überprüfen Sie Ihre Zahlung",
+      "titleSuccess": "Erfolg",
+      "billingAddress": "Abrechnungsadresse",
+      "noBillingAddress": "Keine Abrechnungsadresse"
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "description": "Kritisches Sicherheitsereignis",
+      "title": "Kritische Sicherheit"
+    },
+    "Criticality": {
+      "SystemError": {
+        "description": "Fehlerereignis im Zusammenhang mit dem System",
+        "title": "Systemfehler"
+      },
+      "SystemInfo": {
+        "description": "Informationsereignis im Zusammenhang mit dem System",
+        "title": "Systeminformationen"
+      },
+      "SystemSecurity": {
+        "description": "Sicherheitsereignis im Zusammenhang mit dem System",
+        "title": "Systemsicherheit"
+      },
+      "UserError": {
+        "description": "Fehlerereignis im Zusammenhang mit einem Benutzer",
+        "title": "Benutzerfehler"
+      },
+      "UserInfo": {
+        "description": "Informationsereignis im Zusammenhang mit einem Benutzer",
+        "title": "Benutzerinformationen"
+      },
+      "UserSecurity": {
+        "description": "Sicherheitsereignis im Zusammenhang mit einem Benutzer",
+        "title": "Benutzersicherheit"
+      }
+    },
+    "InternalError": {
+      "description": "Es ist ein interner Fehler aufgetreten",
+      "title": "Interner Fehler"
+    },
+    "UserChangePassword": {
+      "description": "Das Benutzerkennwort wurde geändert",
+      "title": "Benutzer ändern das Passwort"
+    }
+  },
+  "Contact": {
+    "Chatbot": {
+      "Bot": {
+        "Account": {
+          "Questions": {
+            "blocked": "Mein Konto wurde blockiert, was soll ich tun?",
+            "confirm": "Wie bestätige ich meine E -Mail -Adresse?",
+            "create": "Wie erstelle ich ein Konto?",
+            "reset": "Ich habe mein Passwort vergessen, wie kann ich es zurücksetzen?"
+          },
+          "Responses": {
+            "blocked": "Bitte wenden Sie sich an Support, um Probleme mit Ihrem Konto zu lösen.",
+            "confirm": "Wir haben Ihnen eine Bestätigungs -E -Mail geschickt. \nKlicken Sie auf den Link darin, um Ihre Adresse zu überprüfen.",
+            "create": "Klicken Sie auf \"Anmeldung\" und geben Sie Ihre Details ein, um ein Konto zu erstellen.",
+            "reset": "Klicken Sie auf \"Passwort vergessen?\" \nAuf der Anmeldeseite, um Ihre Anmeldeinformationen zurückzusetzen."
+          },
+          "question": "Was möchten Sie über Ihr Konto wissen?",
+          "title": "Ich habe eine Frage zu meinem Konto"
+        },
+        "CustomerService": {
+          "Questions": {
+            "contact": "Wie kontaktiere ich den Kundendienst?",
+            "human": "Ich möchte mit einem menschlichen Agenten sprechen.",
+            "legal": "Wo kann ich die rechtlichen Geschäftsbedingungen lesen?",
+            "tickets": "Wie kann ich meine Support -Tickets anzeigen?"
+          },
+          "Responses": {
+            "contact": "Sie können den Kundensupport über das Kontaktformular oder das Live -Chat erreichen.",
+            "human": "Sicher! \nEin menschlicher Agent wird sich in Kürze dem Gespräch anschließen.",
+            "legal": "Sie finden alle unsere rechtlichen und politischen Dokumente im Fußzeile der Website.",
+            "tickets": "Ihre Support -Tickets sind in Ihrem Benutzer -Dashboard erhältlich."
+          },
+          "question": "Was möchten Sie über unseren Kundenservice und/oder Ihren Support wissen?",
+          "title": "Ich habe eine Frage zum Kundenservice"
+        },
+        "MyOrder": {
+          "Questions": {
+            "cancel": "Ich möchte meine Bestellung stornieren.",
+            "delay": "Wann wird meine Bestellung bearbeitet?",
+            "missing": "Ich kann meine Bestellung nicht in meinem Konto finden.",
+            "question": "Ich habe eine Frage zu meiner letzten Bestellung.",
+            "refund": "Wie kann ich eine Rückerstattung für meine Bestellung bekommen?"
+          },
+          "Responses": {
+            "cancel": "Sie können Ihre Bestellung in Ihrem Dashboard stornieren, wenn sie noch in der Verarbeitung befindet.",
+            "delay": "Bestellungen werden normalerweise innerhalb von 24 bis 48 Stunden bearbeitet.",
+            "missing": "Bitte stellen Sie sicher, dass Sie sich angemeldet haben, und überprüfen Sie die Registerkarte Bestellhistorie.",
+            "question": "Sicher! \nKönnten Sie bitte Ihre Frage zu Ihrer Bestellung angeben?",
+            "refund": "Rückerstattungen werden innerhalb von 5 bis 7 Tagen nach der Genehmigung ausgestellt."
+          },
+          "question": "Was möchten Sie über Ihre Bestellungen wissen?",
+          "title": "Ich habe eine Frage zu meinen Bestellungen"
+        },
+        "Shop": {
+          "Questions": {
+            "difference": "Was ist der Unterschied zwischen einmaligem Kauf und Abonnement?",
+            "methods": "Welche Zahlungsmethoden stehen verfügbar?",
+            "negociate": "Kann ich den Preis eines Produkts verhandeln?",
+            "pay": "Wie mache ich eine Zahlung?",
+            "product": "Ich habe eine Frage zu einem Produkt.",
+            "voucher": "Wie kann ich einen Rabatt- oder Gutscheincode verwenden?"
+          },
+          "Responses": {
+            "difference": "Einmalige Einkäufe werden einmal berechnet, Abonnements erneuern automatisch.",
+            "methods": "Wir akzeptieren Kreditkarten, PayPal und mehr je nach Ihrer Region.",
+            "negociate": "Für Massen- oder B2B -Bestellungen können Sie sich gerne an unser Verkaufsteam wenden.",
+            "pay": "Sie können mit Ihrer bevorzugten Methode an der Kasse bezahlen.",
+            "product": "Sicher! \nLassen Sie mich wissen, an welchem ​​Produkt Sie interessiert sind.",
+            "voucher": "Sie können Ihren Gutscheincode während der Kasse eingeben, um einen Rabatt anzuwenden."
+          },
+          "question": "Was möchten Sie über unseren Laden wissen?",
+          "title": "Ich habe eine Frage zum Laden"
+        },
+        "Subscriptions": {
+          "Questions": {
+            "cancel": "Ich möchte mein Abonnement kündigen.",
+            "how": "Wie funktioniert das Abonnementsystem?",
+            "question": "Ich habe eine Frage zu meinem Abonnement.",
+            "refund": "Wie kann ich eine Rückerstattung für mein Abonnement anfordern?",
+            "where": "Wo finde ich mein Abonnement?"
+          },
+          "Responses": {
+            "cancel": "Sie können Ihr Abonnement jederzeit in Ihren Kontoeinstellungen kündigen.",
+            "how": "Abonnements erneuern je nach Plan automatisch monatlich oder jährlich.",
+            "question": "Sicher, lassen Sie mich wissen, was Sie über Ihr Abonnement wissen möchten.",
+            "refund": "Rückerstattungen für Abonnements hängen von den Bedingungen und der Zeit der Stornierung ab.",
+            "where": "Ihre Abonnementdetails sind in Ihrem Konto auf der Registerkarte Abonnements verfügbar."
+          },
+          "question": "Was möchten Sie über Ihre Abonnements wissen?",
+          "title": "Ich habe eine Frage zu meinen Abonnements"
+        }
+      },
+      "bot": {
+        "message": {
+          "error": "Ich konnte keine Antwort finden. Können Sie bitte eine andere Option auswählen?",
+          "hello": "Hallo {Benutzername}, wie kann ich dir heute helfen?"
+        },
+        "selector": {
+          "cancel": "Stornieren",
+          "selectOption": "Wählen Sie eine Option aus"
+        }
+      },
+      "error": {
+        "userNameAndEmailRequired": "Benutzername und E -Mail sind erforderlich."
+      },
+      "welcome": {
+        "description": "Hallo Mathys hier, ich bin hier, um Ihnen bei Ihren Fragen zu helfen. \nWenn ich Ihre Frage nicht beantworten kann, werde ich Sie zu einem Menschen übertragen. \nEs ist in Ordnung für dich? \nKlicken Sie auf die Schaltfläche unten, um einen neuen Chat zu starten.",
+        "disclaimer": "Durch die Angabe eines neuen Chats stimmen Sie unseren Bedingungen und Datenschutzrichtlinien zu",
+        "emailPlaceholder": "Ihre E -Mail",
+        "error": {
+          "needNameAndEmail": "Ihr Name und Ihre E -Mail sind erforderlich"
+        },
+        "namePlaceholder": "Ihr Name",
+        "startButton": "Starten Sie Chat",
+        "title": "Beginnen Sie jetzt einen neuen Chat"
+      },
+      "widget": {
+        "title": "Chatten mit uns"
+      },
+      "Actions": {
+        "SELECT_ORDER": {
+          "buttonText": "Wählen Sie eine Bestellung",
+          "noResults": "Keine Bestellungen gefunden",
+          "orderNumber": "Befehl",
+          "searchPlaceholder": "Suchbestellungen ...",
+          "title": "Wählen Sie eine Bestellung",
+          "error": "Fehler bei der Auswahl der Reihenfolge",
+          "loading": "Laden",
+          "next": "Nächste",
+          "noOrders": "Keine Bestellungen",
+          "previous": "Vorherige"
+        },
+        "SELECT_PRODUCT": {
+          "annual": "Jahr",
+          "buttonText": "Wählen Sie ein Produkt aus",
+          "monthly": "Monat",
+          "noResults": "Keine Produkte gefunden",
+          "searchPlaceholder": "Suchprodukte ...",
+          "title": "Wählen Sie ein Produkt aus"
+        },
+        "SELECT_SUBSCRIPTION": {
+          "buttonText": "Wählen Sie ein Abonnement",
+          "noResults": "Keine Abonnements gefunden",
+          "searchPlaceholder": "Suchen Sie Abonnements ...",
+          "subscriptionNumber": "Abonnement",
+          "title": "Wählen Sie ein Abonnement",
+          "error": "Erreur lors du Ladegeräte des Abonnements",
+          "loading": "Lessel des Abonnements ...",
+          "next": "Suivant",
+          "noSubscriptions": "Aucun Abonnement Trouvé",
+          "previous": "Präzedenzfall"
+        },
+        "status": {
+          "active": "Aktiv",
+          "canceled": "Abgesagt",
+          "cancelled": "Abgesagt",
+          "completed": "Vollendet",
+          "expired": "Abgelaufen",
+          "failed": "Fehlgeschlagen",
+          "inactive": "Inaktiv",
+          "pending": "Ausstehend",
+          "refunded": "Erstattet",
+          "paid": "BEZAHLT",
+          "unpaid": "Unbezahlt"
+        }
+      },
+      "Messages": {
+        "SELECT_ORDER": "Um Ihnen zu helfen, wählen Sie bitte eine Bestellung zu Ihrer Frage aus, indem Sie auf die Schaltfläche unten klicken",
+        "SELECT_PRODUCT": "Um Ihnen zu helfen, wählen Sie bitte ein Produkt aus, das sich auf Ihre Frage bezieht, indem Sie auf die Schaltfläche unten klicken",
+        "SELECT_SUBSCRIPTION": "Um Ihnen zu helfen, wählen Sie bitte ein Abonnement für Ihre Frage aus, indem Sie auf die Schaltfläche unten klicken",
+        "actionCompleted": "Aktion abgeschlossen",
+        "actionRequired": "Bitte klicken Sie auf die Schaltfläche unten, um eine Option auszuwählen",
+        "contactHuman": "Chatten Sie mit unserem Support -Team",
+        "error": "Bei einem Fehler laden Sie die Seite neu oder versuchen Sie es später erneut.",
+        "seeLink": "Open Link",
+        "seeLinkLogin": "Sie müssen sich anmelden, um auf diese Seite zuzugreifen"
+      },
+      "actionCompleted": "Aktion abgeschlossen",
+      "adminModeEnabled": "Nachricht empfangen. \nIch werde Sie zu meinen Kollegen übertragen. \nSie werden so schnell wie möglich antworten. \nIn der Zwischenzeit geben Sie bitte so viele Informationen wie möglich an."
+    }
+  },
+  "chat": {
+    "admin": "ein Membre unseres Support -Teams",
+    "bot": "Unser Unterstützungsbot",
+    "chatEnded": {
+      "closeButton": "Fermer",
+      "description": "Cette Conversation a été Terminée. \nVous Pouvez Fermer Cette Fenêtre.",
+      "title": "Gesprächsterminée"
+    },
+    "chatWith": "Sie chatten mit",
+    "chatWithHuman": "Chatten Sie mit einem Menschen",
+    "endChat": {
+      "cancel": "Ringer",
+      "confirm": "Terminer la Gespräch",
+      "description": "Êtes-vous sûr de vouloir terminer cette Gespräch? \nVous Ne Pourrez plus Gesandte de Nachrichten une fois la Conversation Terminée.",
+      "title": "Terminer la Gespräch"
+    }
+  },
+  "error": "Bei einem Fehler treten Sie auf, bitte versuchen Sie, die Seite neu zu laden oder später erneut zu versuchen.",
+  "aboutUs": "Über uns",
+  "categories": "Kategorien",
+  "header": {
+    "aboutUs": "Über uns",
+    "categories": "Kategorien",
+    "products": "Produkte"
+  },
+  "products": "Produkte",
+  "CompanyPage": {
+    "title": "Über uns",
+    "farewellButton": "Kontaktieren Sie uns",
+    "farewellMessage": "Kontaktieren Sie uns, indem Sie auf die Schaltfläche unten klicken, und wir beantworten alle Ihre Fragen.",
+    "farewellTitle": "Sie sind nicht überzeugt?",
+    "heroDescription": "Cyna wurde 2021 gegründet und wurde dank der anerkannten Fachkenntnisse der Gründer nach zahlreichen Vorfällen in Frankreich und Europa geboren.",
+    "history": {
+      "description": "Die verschiedenen Vorfälleantworten ermöglichten es uns, die Angriffsvektoren und Szenarien zu verstehen, die von Angreifern verwendet wurden. \nAnschließend wurde Cyna geschaffen, mit dem Ziel, einen umfassenden und pragmatischen Schutz gegen Cyberangriffe für KMU und mittelgroße Unternehmen zu bieten.",
+      "title": "Unsere Geschichte"
+    },
+    "mission": {
+      "description": "Nous Plaçons Vos Prioritäten der Mission von Notre. \nNous Comprenons Les Défis Uniques Auxquels",
+      "title": "Unsere Verpflichtungen bei Cyna"
+    },
+    "values": {
+      "description": "Um unsere täglichen Herausforderungen effektiv zu begegnen, hat sich Cyna mit Experten umgeben, die sich in engagierte Teams organisiert haben, um Ihre Bedürfnisse am besten zu erfüllen.",
+      "title": "Entdecken Sie unsere Teams"
+    }
+  },
+  "pageTitle": {
+    "admin": "Administrator",
+    "default": "Reiner Spieler im Cyber"
+  },
+  "title": "Benutzerliste",
+  "cookieBanner": {
+    "accept": "Akzeptieren",
+    "acceptAll": "Akzeptiere alle",
+    "message": "Diese Website verwendet Cookies, um Ihre Erfahrung und für technische Zwecke zu verbessern. \nDurch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu. \nSie können mehr in unserem lesen",
+    "privacyPolicy": "Bedingungen und Zustand"
+  },
+  "footer": {
+    "allRightsReserved": "Alle Rechte vorbehalten",
+    "contact": "Kontakt",
+    "legalNotice": "Rechtliche Bekanntmachung",
+    "termsOfUse": "Nutzungsbedingungen",
+    "aboutUs": "Über uns",
+    "products": "Produkte"
+  },
+  "legals": {
+    "applicableLaw": {
+      "description": "Jeder Streit im Zusammenhang mit der Verwendung der Cyna -Site unterliegt dem französischen Recht. \nAußer in Fällen, in denen das Gesetz es nicht zulässt, wird der zuständigen Gerichte von Paris ausschließlich zuständig.",
+      "title": "10. anwendbares Recht und Gerichtsstand"
+    },
+    "conditions": {
+      "acceptance": "Die Verwendung der Cyna -Stelle impliziert die volle und vollständige Akzeptanz der nachstehend beschriebenen allgemeinen Verwendungsbedingungen. \nDiese Verwendungsbedingungen können jederzeit modifiziert oder ergänzt werden.",
+      "accessibility": "Diese Website ist normalerweise jederzeit für Benutzer zugänglich. \nEine Unterbrechung aufgrund technischer Wartung kann jedoch von CYNA entschieden werden.",
+      "intellectualProperty": "Der Standort stellt eine Arbeit des Geistes dar, die durch die Bestimmungen des Code des geistigen Eigentums und den geltenden internationalen Vorschriften geschützt sind. \nDer Kunde darf in keiner Weise für sein eigenes Konto alle oder einen Teil der Elemente oder Arbeiten der Website wiederverwenden, übertragen oder ausgenutzt werden.",
+      "title": "2. Allgemeine Nutzungsbedingungen der angebotenen Website und Dienstleistungen"
+    },
+    "cookies": {
+      "definition": "Ein \"Cookie\" ist eine kleine Informationsdatei, die an den Browser des Benutzers gesendet und im Terminal des Benutzers gespeichert ist.",
+      "management": "Der Benutzer kann seinen Browser so konfigurieren, dass er entscheiden kann, ob sie akzeptiert werden oder nicht.",
+      "purpose": "Cookies erleichtern die Navigation und/oder die Bereitstellung von Dienstleistungen, die von der Website angeboten werden.",
+      "title": "9. Hypertext -Links, Cookies und Internet -Tags"
+    },
+    "definitions": {
+      "client": "Kunde: Jede professionelle oder natürliche Person, die im Sinne der Artikel 1123 und der Befolgung des Zivilgesetzbuchs oder der juristischen Person in der Lage ist, die die Website unter diesen allgemeinen Bedingungen besucht.",
+      "clientInfo": "Kundeninformationen: im Folgenden als \"Informationen) bezeichnet, die allen personenbezogenen Daten entspricht, die von Cyna für die Verwaltung Ihres Kontos, Ihr Kundenbeziehungsmanagement sowie für analytische und statistische Zwecke erhalten werden können.",
+      "content": "Inhalt: Alle Elemente, die die auf der Website vorhandenen Informationen ausmachen, in bestimmten Texten, Bildern, Videos.",
+      "personalInfo": "Persönliche Informationen: „Informationen, die in jeder Form direkt oder indirekt die Identifizierung der natürlichen Personen ermöglichen, auf die sie sich bewerben“ (Artikel 4 des Gesetzes Nr. 78-17 vom 6. Januar 1978).",
+      "services": "Dienstleistungen: Cyna bietet Kunden mit:",
+      "title": "Definitionen",
+      "user": "Benutzer: Internetbenutzer verbinden sich mit der oben genannten Site."
+    },
+    "intellectualProperty": {
+      "consequences": "Jede nicht autorisierte Nutzung des Standorts oder eines der enthält Elemente wird als Verstoß angesehen und gemäß den Bestimmungen der Artikel L.335-2 und der Befolgung des Kodex für geistiges Eigentum verfolgt.",
+      "rights": "Cyna besitzt die Rechte an geistigem Eigentum und hält die Nutzungsrechte für alle auf der Website zugänglichen Elemente.",
+      "title": "5. geistiges Eigentum und Fälschung"
+    },
+    "liability": {
+      "damages": "Cyna kann nicht für direkte und indirekte Schäden für die Geräte des Benutzers verantwortlich gemacht werden.",
+      "interactiveSpaces": "Interaktive Räume stehen den Benutzern zur Verfügung. \nCyna behält sich das Recht vor, ohne vorherige Ankündigung alle in diesem Bereich veröffentlichten Inhalte zu entfernen, die gegen das geltende Gesetz in Frankreich verstoßen.",
+      "publisher": "Cyna fungiert als Herausgeber der Website. \nCyna ist verantwortlich für die Qualität und Richtigkeit der von ihm veröffentlichten Inhalte.",
+      "title": "6. Haftungsbeschränkungen"
+    },
+    "presentation": {
+      "dpo": "Datenschutzbeauftragter: Nathan Bramli - nathan.bramli@cyna-it.fr",
+      "host": "Gastgeber: Ovh - 2 Rue Kellermann 59100 Roubaix 1007",
+      "owner": "Eigentümer: SAS CYNA -IT - Aktienkapital von 1000 Euro - Mehrwertsteuer: FR20913711032 - 10 Rue de Penthièvre 75008 Paris",
+      "publisher": "Publikationsmanager: Alexandre Elbaz - Alexandre.elbaz@cyna-it.fr",
+      "title": "1. Website -Präsentation"
+    },
+    "privacy": {
+      "dataController": {
+        "description": "Für personenbezogene Daten, die im Kontext der Erstellung des persönlichen Kontos des Benutzers und ihrer Navigation auf der Website erstellt wurden, ist die für die Verarbeitung personenbezogene Daten verantwortliche Person: Cyna-it.",
+        "title": "7.1 Manager für personenbezogene Datenerfassungen"
+      },
+      "purpose": {
+        "communication": "Kommunikationskampagnen durchführen",
+        "fraud": "Um den Computerbetrug zu verhindern und gegen Computerbetrug zu kämpfen",
+        "improvement": "Verbesserung der Navigation auf der Website",
+        "navigation": "Um die Navigation auf der Website sowie die Verwaltung und Rückverfolgbarkeit der vom Benutzer bestellten Dienste zu ermöglichen",
+        "title": "7.2 Zweck gesammelter Daten"
+      },
+      "rights": {
+        "description": "In Übereinstimmung mit den aktuellen europäischen Vorschriften haben Benutzer von CYNA die folgenden Rechte: Zugriffsrecht, Berichtigung, Aktualisierung, Vollständigkeit von Daten, Recht, Daten zu blockieren oder zu löschen.",
+        "title": "7.3 Recht auf Zugang, Berichtigung und Opposition"
+      },
+      "title": "7. Personal Datenverwaltung"
+    },
+    "services": {
+      "description": "Die Cyna -Website zielt darauf ab, Informationen über alle Aktivitäten des Unternehmens bereitzustellen. \nCyna ist bestrebt, auf der Website so genau wie möglich zu Informationen bereitzustellen.",
+      "title": "3. Beschreibung der erbrachten Dienstleistungen"
+    },
+    "technicalLimitations": {
+      "description": "Die Website verwendet die JavaScript -Technologie. \nDie Website kann nicht für materielle Schäden im Zusammenhang mit der Nutzung der Website verantwortlich gemacht werden.",
+      "title": "4. Vertragliche Einschränkungen für technische Daten"
+    },
+    "title": "Rechtliche Bekanntmachung"
+  },
+  "Home": {
+    "Banner": {
+      "noTitle": "Kein Titel"
+    }
+  },
+  "admin": {
+    "support": {
+      "inbox": {
+        "noMobileSupport": "Entschuldigung, diese Funktion ist auf Mobilgeräten nicht verfügbar.",
+        "noMobileSupportDescription": "Um auf den Administratoreingang und Tickets zuzugreifen, verwenden Sie bitte einen Desktop -Computer."
       }
     }
   }

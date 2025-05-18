@@ -3,17 +3,45 @@
     "title": "Hello world!",
     "about": "Go to the about page",
     "HomePage": {
-      "carouselButtonMoreInfos": "More informations"
-    }
+      "carouselButtonMoreInfos": "More information"
+    },
+    "welcome": "Welcome to {company}",
+    "welcomeMessage": "Your trusted partner in cybersecurity solutions.",
+    "clients": "Trusted by more than 500 clients around the world.",
+    "ourServices": "Our cyber services",
+    "ourProducts": "Our products",
+    "learnMore": "View product",
+    "learnMoreCategory": "View all products",
+    "welcomeMessageDescription": "Join now more than 500 worldwide companies that trust us to secure their ",
+    "welcomeMessageAnimation": "It's time to secure your future !",
+    "register": "Register now",
+    "login": "Login",
+    "business": "business",
+    "data": "datas",
+    "privacy": "privacy",
+    "customers": "customers",
+    "employees": "employees",
+    "subscription": "Subscription",
+    "oneTime": "One Time",
+    "month": "Month",
+    "viewAllProducts": "View all products",
+    "topProducts": "Top Products",
+    "compareSolutions": "Compare our top products",
+    "startingFrom": "Starting from",
+    "or": "Or",
+    "perYear": "per year",
+    "characteristics": "Characteristics",
+    "chooseThisOffer": "Choose this offer",
+    "otherProducts": "Related products"
   },
   "Auth": {
     "LoginPage": {
-      "title": "Sign in to your Cyna account",
+      "title": "Sign in to your {company} account",
       "email": "Your email",
       "password": "Your password",
       "login": "Sign in",
       "forgotPassword": "Forgot password?",
-      "noAccount": "Don’t have an account yet?",
+      "noAccount": "Don't have an account yet?",
       "register": "Register here",
       "rememberMe": "Remember me",
       "invalidEmail": "Please enter a valid email address",
@@ -27,7 +55,10 @@
       "accountNotConfirmed": "Your account is not confirmed, please check your email and confirm your account. If you did not receive an email, please check your spam folder. If you still cannot find the email, please contact our support team at {email}.",
       "invalidOtp": "The OTP you entered is invalid, please try again",
       "requiredOtp": "The OTP code with 6 digits is required",
-      "otpRequired": "Your one time password is required to log into your account, please enter the code provide by your authenticator app"
+      "otpRequired": "Your one time password is required to log into your account, please enter the code provide by your authenticator app",
+      "resetSuccess": "Your password was successfully reset, you can now login",
+      "logoutAutoSuccess": "You have been automatically logged out. Please log in again.",
+      "titleMobile": "Sign in to {company} Application with your {company} account"
     },
     "RegisterPage": {
       "title": "Register",
@@ -51,7 +82,7 @@
       "cityRequired": "City is required",
       "street": "Street",
       "emailRequired": "Email is required",
-      "passwordMinLength": "Password must be at least 6 characters long",
+      "passwordMinLength": "Password must be at least 12 characters long",
       "passwordRequired": "Password is required",
       "passwordsMustMatch": "Passwords must match",
       "confirmPasswordRequired": "Confirm password is required",
@@ -77,12 +108,51 @@
       "successMessage2": "You will receive an email to confirm your registration, please check your inbox and spam folder.",
       "successMessage3": "Once you have confirmed your registration, you will be able to log in.",
       "successMessage4": "If you don't receive the email, please contact us.",
-      "errorRegister": "An error occured while register, please verify your information or try again later."
+      "errorRegister": "An error occurred while registering, please verify your information or try again later."
     },
     "confirmEmail": "Email confirmation",
     "confirmEmailFailed": "Email confirmation failed. Please try again or contact our support team.",
     "login": "Return to login page",
-    "confirmEmailSuccess": "Your email has been confirmed successfully, you can now login."
+    "confirmEmailSuccess": "Your email has been confirmed successfully, you can now login.",
+    "ResetPasswordPage": {
+      "title": "Reset your password",
+      "invalidEmail": "Invalid email",
+      "requiredEmail": "Email is required",
+      "email": "Email",
+      "sendEmail": "Send a reset link",
+      "description": "Enter your email address and we will send you a link to reset your password.",
+      "backToLogin": "Return to login page",
+      "rememberYourPassword": "After all you remember it ?",
+      "register": "Back to login page",
+      "resetPasswordEmailSent": "If the email exists, a reset link has been sent. Please check your inbox or spam folder.",
+      "somethingWentWrong": "Unable to send the reset email, please try again.",
+      "goToLogin": "Go to login page",
+      "invalidToken": "Invalid reset link",
+      "invalidTokenMessage": "This link is invalid or expire try to ask for a new one on contact our support team.",
+      "backToResetPassword": "Ask for a new one",
+      "backToHome": "Go home",
+      "resetPassword": "Reset password",
+      "confirmPassword": "Confirm your new password",
+      "password": "Enter your new password",
+      "requiredConfirmPassword": "Coonfirm your new password is required",
+      "passwordsMustMatch": "Passwords must match",
+      "requiredPassword": "Password is required",
+      "passwordMinLength": "A password with 12 letters is required",
+      "invalidOrExpiredToken": "The reset token is invalid or has expired",
+      "passwordResetSuccess": "Password has been reset successfully, you can now login",
+      "emailSent": "If an account existed with this email, a message with a link to reset your password will be sent. You can use it to reset your password."
+    },
+    "loggingYouOut": "Logging you out",
+    "loggingYouOutMessage": "If you are not redirected, please click here",
+    "redirectingToMobile": "Redirecting you to {company} Mobile App",
+    "clickToOpenMobileApp": "Click here if you are not automaticly redirect",
+    "redirectingToMobileMessage": "If you are not redirected in 5 seconds, please click the button below.",
+    "phone": "Phone",
+    "mobile": "Mobile",
+    "application": "App",
+    "title": "Email Confirmation",
+    "titleMobile": "Mobile Login",
+    "titleLogout": "Logout Redirection"
   },
   "Navigation": {
     "home": "Home",
@@ -105,15 +175,275 @@
     "business": "Business",
     "products": "Products",
     "orders": "Orders",
-    "coupons": "Coupons",
+    "vouchers": "Vouchers",
     "subscriptions": "Subscriptions",
     "payments": "Payments",
     "categories": "Categories",
     "customers": "Customers",
     "logs": "Logs",
-    "myAccount": "My Account"
+    "myAccount": "My Account",
+    "paymentMethods": "Payment Methods",
+    "support": "Support",
+    "openNewTicket": "Open Ticket",
+    "myTickets": "My Tickets",
+    "needHelp": "Need help ?",
+    "mySupport": "My tickets",
+    "coupons": "Vouchers",
+    "inbox": "Inbox",
+    "tickets": "Tickets",
+    "stats": "Statistics",
+    "sales": "Sales",
+    "carts": "Carts"
   },
   "Admin": {
+    "Stats": {
+      "title": "Statistics",
+      "period": "Period",
+      "groupBy": "Group by",
+      "Periods": {
+        "7d": "7 last days",
+        "30d": "30 last days",
+        "90d": "90 last days"
+      },
+      "GroupByOptions": {
+        "day": "Day",
+        "week": "Week",
+        "month": "Month"
+      },
+      "Sales": {
+        "title": "Sales statistics",
+        "subTitle": "View the sales statistics by period",
+        "totalSales": "Total sales",
+        "totalOrders": "Total orders",
+        "averageOrderValue": "Average order value",
+        "productsSold": "Products sold",
+        "salesOverTime": "Sales over time",
+        "ordersOverTime": "Orders over time",
+        "realTime": "Real Time"
+      },
+      "periods": {
+        "7d": "7 days",
+        "30d": "30 days",
+        "90d": "90 days"
+      },
+      "groupByOptions": {
+        "day": "Day",
+        "month": "Month",
+        "week": "Week"
+      },
+      "stats": {
+        "groupByOptions": {
+          "week": "Week"
+        }
+      },
+      "Products": {
+        "title": "Products statistics",
+        "subTitle": "View the products statistics by stock and sales",
+        "totalStock": "Total Stock",
+        "totalValue": "Total Value",
+        "totalSales": "Total Sales",
+        "totalRevenue": "Total Revenue",
+        "topStockedProducts": "Top Stocked Product",
+        "topSellingProducts": "Top Selling Products",
+        "table": {
+          "product": "Product",
+          "stock": "Stock",
+          "value": "Value",
+          "sales": "Sales",
+          "revenue": "Revenue"
+        }
+      },
+      "Categories": {
+        "title": "Categories statistics",
+        "subTitle": "View the categories statistics by stock and sales",
+        "totalCategories": "Total Categories",
+        "averageStockPerCategory": "Average Stock Per Category",
+        "stockByCategory": "Stock By Category",
+        "salesByCategory": "Sales By Category",
+        "table": {
+          "category": "Category",
+          "stock": "Stock",
+          "value": "Value",
+          "sales": "Sales",
+          "revenue": "Revenue"
+        }
+      },
+      "Tickets": {
+        "title": "Tickets statistics",
+        "subTitle": "View the tickets statistics by period",
+        "activeTickets": "Active Tickets",
+        "closedTickets": "Closed Tickets",
+        "botOnlyChats": "Bot Only Chat",
+        "activeBotChats": "Active Bot Chat",
+        "responseTime": "Response Time",
+        "averageResponseTime": "Average Response Time",
+        "minResolutionTime": "Min Resolution Time",
+        "maxResolutionTime": "Max Resolution Time",
+        "ticketDistribution": "Ticket Distribution",
+        "closureDistribution": "Closure Distribution",
+        "topUsers": "Top Users",
+        "table": {
+          "user": "User",
+          "email": "Email",
+          "totalTickets": "Total Tickets",
+          "openTickets": "Open Tickets",
+          "closedTickets": "Closed Tickets"
+        },
+        "realTime": "Real Time",
+        "closureBy": {
+          "ADMIN": "Admin",
+          "USER": "User",
+          "unknown": "Unknown"
+        },
+        "states": {
+          "INBOX": "Inbox",
+          "CHAT_ADMIN": "Chat Admin",
+          "CHAT_BOT": "Chat Bot",
+          "UNKNOWN": "Unknown"
+        }
+      },
+      "Subscriptions": {
+        "title": "Subscriptions statistics",
+        "subTitle": "View the subscriptions statistics by period",
+        "realTime": "Real Time",
+        "totalSubscriptions": "Total Subscriptions",
+        "activeSubscriptions": "Active Subscriptions",
+        "canceledSubscriptions": "Canceled Subscriptions",
+        "statusDistribution": "Status Distribution",
+        "billingCycleDistribution": "Billing Cycle Distribution",
+        "topProducts": "Top Products",
+        "table": {
+          "product": "Product",
+          "subscriptionCount": "Subscription Count",
+          "totalQuantity": "Total Quantity"
+        },
+        "status": {
+          "active": "ACTIVE",
+          "canceled": "CANCELED",
+          "pending": "PENDING",
+          "preCanceled": "PRE-CANCELED",
+          "unknown": "UNKNOWN"
+        },
+        "billingCycle": {
+          "monthly": "Monthly",
+          "annual": "Annual",
+          "unknown": "Unknown"
+        }
+      },
+      "Carts": {
+        "title": "Carts statistics",
+        "subTitle": "View the carts statistics by period",
+        "realTime": "Real Time",
+        "totalActiveCarts": "Total Active Carts",
+        "totalConvertedCarts": "Total Converted Carts",
+        "avgPreOrderValue": "Average Carts",
+        "avgPostOrderValue": "Average Order",
+        "userCarts": "User Carts",
+        "guestCarts": "Guest Carts",
+        "cartDistribution": "Cart Distribution",
+        "topProducts": "Top Products",
+        "table": {
+          "product": "Product",
+          "cartCount": "Cart Count",
+          "totalQuantity": "Quantity"
+        },
+        "preOrderStats": "Carts Stats",
+        "totalValue": "Total",
+        "totalSubtotal": "Sub-Total",
+        "totalTax": "Tax",
+        "totalDiscount": "Discount",
+        "postOrderStats": "Orders Stats"
+      }
+    },
+    "Chat": {
+      "selectAction": "Select an action",
+      "sendLink": "Send a link",
+      "selectOrder": "Request order selection",
+      "selectSubscription": "Request subscription selection",
+      "selectProduct": "Request product selection",
+      "enterLink": "Enter link URL",
+      "enterLinkMessage": "Enter message for the link",
+      "internalLink": "Internal link",
+      "externalLink": "External link",
+      "requireLogin": "Require login to access",
+      "send": "Send",
+      "adminSummary": "Admin Summary",
+      "product": "Product",
+      "products": "Products",
+      "subscription": "Subscription",
+      "subscriptions": "Subscriptions",
+      "order": "Order",
+      "orders": "Orders",
+      "relatedItems": "Related Items",
+      "ended": "Ended",
+      "status": "Status",
+      "active": "Active",
+      "closed": "Closed",
+      "totalMessages": "Total Messages",
+      "started": "Started",
+      "conversationStats": "Conversation Stats",
+      "notProvided": "Not provided",
+      "company": "Company",
+      "location": "Location",
+      "phone": "Phone",
+      "email": "Email",
+      "userNotLoggedIn": "User not logged-in",
+      "noEmail": "No email",
+      "conversationDetails": "Conversation Details",
+      "noConversations": "No conversations",
+      "chatAdmin": "CHAT",
+      "chatInbox": "INBOX",
+      "reload": "Reload",
+      "searchPlaceholder": "Search for a chat",
+      "all": "All",
+      "unread": "Unread",
+      "selectConversation": "Select a conversation",
+      "actionRequired": "Action requested",
+      "pending": "Pending",
+      "SELECT_ORDER": "Select order",
+      "SELECT_SUBSCRIPTION": "Select subscription",
+      "SELECT_PRODUCT": "Select product",
+      "completed": "Completed",
+      "sendingMessage": "[ ? ] - Sending your message...",
+      "typeMessage": "Type a message",
+      "loginRequired": "Login required",
+      "endChat": {
+        "ending": "Ending chat",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "title": "End this conversation ?",
+        "description": "Are you sure you want to end this conversation ? Admin or client will not be able to send messages after this.",
+        "titleBtn": "End conversation"
+      },
+      "chatClosed": "This conversation was closed, you can't send new message",
+      "error": "An error occured, please try to reload the page or try again later.",
+      "userActions": "User Actions",
+      "userOrders": "User Orders",
+      "userSubscriptions": "User Subscriptions",
+      "userProfile": "User Profil",
+      "loginRequiredActions": "User is not logged-in, some action may be not available.",
+      "viewOnStripe": "View on Stripe",
+      "noStripeCustomerId": "Custromer is not yet register on Stripe",
+      "closedBy": "Closed by",
+      "saveAdminSummary": "Save summary",
+      "adminSummaryPlaceholder": "Summary of the chat for admin",
+      "you": "You",
+      "waitingAction": "Waiting for action",
+      "actionDone": "Action done",
+      "sendAsEmail": "This message will also be send as email to the user email.",
+      "supportInbox": "Support inbox",
+      "createNewChat": "Start a conversation with",
+      "selectUser": "Select a user",
+      "searchUser": "Search user",
+      "errorLoadingUsers": "Error while loading user",
+      "noUsersFound": "No user found",
+      "previous": "Previous",
+      "next": "Next",
+      "noMessage": "No message",
+      "new": "NEW",
+      "ticketId": "Ticket/Chat Id",
+      "title": "Inbox Messages"
+    },
     "Security": {
       "Users": {
         "title": "Users",
@@ -133,13 +463,13 @@
         "saving": "We are saving the change...",
         "saveSuccess": "Success",
         "saved": "User's change saved",
-        "error": "An error occured while saving the change",
+        "error": "An error occurred while saving the change",
         "cancel": "Cancel",
         "save": "Save",
         "deleteConfirmation": "Are you sure you want to delete this user?",
         "deleteSuccess": "Success",
         "deleted": "User deleted",
-        "deleteError": "An error occured while deleting the user",
+        "deleteError": "An error occurred while deleting the user",
         "country": "Country",
         "city": "City",
         "zipCode": "Zip Code",
@@ -159,13 +489,13 @@
         "no": "No",
         "unconfirmUser": "Force unconfirm",
         "confirmUser": "Force confirmation",
-        "desactivateUser": "Desactivate user",
+        "desactivateUser": "Deactivate user",
         "activateUser": "Activate User",
         "changingUserStatus": "Changing user status to {status}",
         "active": "active",
         "inactive": "inactive",
-        "userStatusChanged": "Successfuly changed user status to {status}",
-        "failedToChangeUserStatus": "Failed to change user status !",
+        "userStatusChanged": "Successfully changed user status to {status}",
+        "failedToChangeUserStatus": "Failed to change user status!",
         "account_activation_isActivated": "Account is activated",
         "account_confirmation_isConfirmed": "Account is confirmed",
         "UserDetails": {
@@ -244,6 +574,38 @@
         "yes": "Yes",
         "no": "No",
         "Log": {
+          "ShopSettingsEdit": {
+            "title": "Shop Settings Edit",
+            "description": "Shop settings were edited"
+          },
+          "ShopSettingsError": {
+            "title": "Shop Settings Error",
+            "description": "An error occurred with the shop settings"
+          },
+          "ShopUserCart": {
+            "title": "Shop User Cart",
+            "description": "User cart activity"
+          },
+          "ShopUserCartError": {
+            "title": "Shop User Cart Error",
+            "description": "An error occurred with the user cart"
+          },
+          "ShopStripeWebhook": {
+            "title": "Shop Stripe Webhook",
+            "description": "Stripe webhook event"
+          },
+          "ShopStripeWebhookError": {
+            "title": "Shop Stripe Webhook Error",
+            "description": "An error occurred with the Stripe webhook"
+          },
+          "ShopStripeCustomer": {
+            "title": "Shop Stripe Customer",
+            "description": "Stripe customer activity"
+          },
+          "ShopStripeCustomerError": {
+            "title": "Shop Stripe Customer Error",
+            "description": "An error occurred with the Stripe customer"
+          },
           "CriticalSecurity": {
             "title": "Critical Security",
             "description": "Critical security event"
@@ -299,6 +661,18 @@
           "UserCreate": {
             "title": "User Create",
             "description": "A new user was created"
+          },
+          "ChatbotError": {
+            "title": "Chatbot Error",
+            "description": "An error occurred with the chatbot"
+          },
+          "ChatbotInfo": {
+            "title": "Chatbot Info",
+            "description": "An info occurred with the chatbot"
+          },
+          "OrderUpdate": {
+            "title": "Order Update",
+            "description": "An order was updated"
           },
           "Criticality": {
             "UserInfo": {
@@ -374,8 +748,500 @@
         "userLogs": "User Logs",
         "userLogsDescription": "View the logs for the selected user.",
         "authorName": "Author",
-        "author": "Author"
+        "author": "Author",
+        "latestLogs": "Latest Logs",
+        "filters": "Filters"
       }
+    },
+    "Business": {
+      "Vouchers": {
+        "title": "Vouchers",
+        "subTitle": "Manage vouchers",
+        "code": "Code",
+        "discount": "Discount",
+        "expirationDate": "Expiration Date",
+        "isActive": "Active",
+        "actions": "Actions",
+        "viewVoucher": "View Voucher",
+        "deactivateVoucher": "Deactivate Voucher",
+        "activateVoucher": "Activate Voucher",
+        "searchPlaceholder": "Search...",
+        "columns": "Columns",
+        "errorLoadingData": "Error loading data.",
+        "noResults": "No results.",
+        "previous": "Previous",
+        "next": "Next",
+        "yes": "Yes",
+        "no": "No",
+        "type": "Type",
+        "percentage": "Percentage",
+        "fixed": "Fixed",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "minPurchaseAmount": "Minimum Purchase Amount",
+        "description": "Description",
+        "isProductSpecific": "Specific to Product",
+        "isCategorySpecific": "Specific to Category",
+        "product": "Product",
+        "category": "Category",
+        "user": "User",
+        "addVoucher": "Add Voucher",
+        "addVoucherDescription": "Fill in the details to create a new voucher.",
+        "saveChanges": "Save Changes",
+        "autoGenerateCodeMessage": "If left empty, a code will be automatically generated.",
+        "voucherType": "Voucher Type",
+        "voucherCode": "Voucher Code",
+        "voucherAmount": "Amount",
+        "requiredType": "Type is required",
+        "amountMin": "1 is the minimum",
+        "requiredAmount": "Amount required",
+        "minPurchaseAmountMin": "Minimum purchase amount is required",
+        "voucherCreated": "Voucher created",
+        "voucherCreationFailed": "Voucher creation failed",
+        "amount": "Amount",
+        "createdAt": "Create at",
+        "updatedAt": "Update at",
+        "VoucherDetails": {
+          "title": "Voucher details",
+          "subTitle": "View the details of the voucher"
+        },
+        "voucherStatusChanged": "Voucher status changed",
+        "voucherStatusChangeFailed": "Voucher status changed failed"
+      },
+      "Subscriptions": {
+        "title": "Subscriptions",
+        "subTitle": "Manage subscriptions",
+        "subscriptionId": "Subscription ID",
+        "date": "Date",
+        "Status": {
+          "title": "Status",
+          "all": "All Status",
+          "incomplete": "INCOMPLETE",
+          "incomplete_expired": "INCOMPLETE EXPIRED",
+          "trialing": "TRIAL",
+          "active": "ACTIVE",
+          "past_due": "PAST DUE",
+          "canceled": "CANCELED",
+          "unpaid": "UNPAID",
+          "paused": "PAUSED",
+          "preCanceled": "PRE-CANCELED"
+        },
+        "products": "Products",
+        "searchPlaceholder": "Search by ID, name or email...",
+        "columns": "Columns",
+        "errorLoadingData": "Error loading data.",
+        "noResults": "No results.",
+        "previous": "Previous",
+        "next": "Next",
+        "resetFilters": "Reset filters",
+        "pickDate": "Pick a date",
+        "all": "All",
+        "errorLoadingSubscriptions": "Error loading subscriptions",
+        "noSubscriptions": "No subscriptions found",
+        "SubscriptionDetails": {
+          "title": "Subscription Details",
+          "subTitle": "View the details of the subscription",
+          "subscriptionInformation": "Subscription Information",
+          "customerInformation": "Customer Information",
+          "products": "Products",
+          "paymentInformation": "Payment Information",
+          "statusHistory": "Status History",
+          "email": "Email",
+          "name": "Name",
+          "quantity": "Quantity",
+          "billingCycle": "Billing Cycle",
+          "stripePriceId": "Stripe Price ID",
+          "customerId": "Customer ID",
+          "defaultPaymentMethod": "Default Payment Method",
+          "periodStart": "Current Period Start",
+          "periodEnd": "Current Period End",
+          "canceledAt": "Canceled At",
+          "changedBy": "Changed by",
+          "loading": "Loading...",
+          "error": "Error loading subscription details",
+          "notFound": "Subscription not found",
+          "manageSubscription": "Manage Subscription",
+          "cancelSubscription": "Cancel Subscription",
+          "cancelSubscriptionTitle": "Cancel Your Subscription",
+          "cancelSubscriptionDescription": "Please choose how you would like to cancel this subscription:",
+          "cancelAtPeriodEnd": "Cancel at Period End",
+          "cancelAtPeriodEndDescription": "This subscription will remain active until the end of the current billing period.",
+          "cancelNowWithRemainingRefund": "Cancel Now & Get Remaining Period Refund",
+          "cancelNowWithRemainingRefundDescription": "This subscription will be canceled immediately and the customer will receive a refund for the remaining days of the current period.",
+          "cancelNowWithFullRefund": "Cancel Now & Give Full Refund",
+          "cancelNowWithFullRefundDescription": "This subscription will be canceled immediately and the customer will receive a full refund for the current period.",
+          "cancelNowWithoutRefund": "Cancel Now Without Refund",
+          "cancelNowWithoutRefundDescription": "This subscription will be canceled immediately without any refund.",
+          "confirm": "Confirm",
+          "cancel": "Cancel",
+          "canceling": "Canceling subscription...",
+          "cancelSuccess": "Subscription canceled successfully",
+          "cancelError": "Failed to cancel subscription",
+          "subscriptionId": "Id",
+          "Status": {
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED",
+            "preCanceled": "PRE-CANCELED"
+          },
+          "cancelAtPeriodEndDescription2": "Your subscription will already be canceled at the end of the current period. If you are not sure about this, please contact our support team.",
+          "updateSuccess": "Your subscription was successfuly updated",
+          "updateError": "An error occured while updating your subscription",
+          "openInvoice": "Open last invoice",
+          "invoiceNotFound": "An error occured while fetching your invoice",
+          "preCanceled": "Pre-Canceled",
+          "viewProduct": "View Product",
+          "preCanceledDescription": "This subscription was canceled and will be stop at the end of the current period.",
+          "openSubscriptionStripe": "View on stripe",
+          "viewOrder": "View order",
+          "viewCustomer": "View Customer"
+        },
+        "filters": "Filters"
+      },
+      "Payments": {
+        "title": "Payments",
+        "paymentPortal": "Payment Portal",
+        "paymentPortalDescription": "View your payment history and manage your payment methods. For advanced management, use the Stripe Customer Portal.",
+        "openStripePortal": "Open Stripe Portal",
+        "savedPaymentMethods": "Saved Payment Methods",
+        "invoices": "Invoices",
+        "date": "Date",
+        "amount": "Amount",
+        "status": "Status",
+        "actions": "Actions",
+        "viewInvoice": "View Invoice",
+        "previous": "Previous",
+        "next": "Next",
+        "expires": "Expires",
+        "noPaymentMethods": "No payment methods saved",
+        "noInvoices": "No invoices found",
+        "loading": "Loading...",
+        "stripePortalInactive": "Your Stripe account will be activated after your first order. You will then have access to the Stripe Customer Portal.",
+        "olderInvoicesMessage": "Looking for older invoices? Access your complete billing history in the Stripe Portal."
+      },
+      "Categories": {
+        "title": "Categories",
+        "noResults": "No results",
+        "errorLoadingData": "Error loading data.",
+        "subTitle": "Manage categories",
+        "searchPlaceholder": "Search...",
+        "columns": "Columns",
+        "isActive": "Active",
+        "yes": "Yes",
+        "no": "No",
+        "previous": "Previous",
+        "next": "Next",
+        "Delete": {
+          "categoryDeleted": "Category deleted",
+          "deletingCategory": "Deleting category",
+          "errorDeletingCategory": "Error deleting category"
+        },
+        "Add": {
+          "adding": "Adding",
+          "selectLanguage": "Select a language",
+          "language": "Language",
+          "dialogDescription": "Fill the form to add a new category",
+          "addingCategory": "Adding category",
+          "dialogTitle": "Add a new category",
+          "label": "Name",
+          "description": "Description",
+          "Stock": "Stock",
+          "picture": "Picture",
+          "imagePlaceholder": "Choose an image file",
+          "categoryAdded": "Category added",
+          "errorAddingCategory": "Error adding category",
+          "add": "Add",
+          "isActive": "Active"
+        },
+        "Edit": {
+          "update": "Update",
+          "selectLanguage": "Select a language",
+          "language": "Language",
+          "updated": "Updated",
+          "updating": "Updating",
+          "errorUpdatingCategory": "Error updating category",
+          "dialogTitle": "Edit category",
+          "dialogDescription": "Fill the form to edit the category"
+        },
+        "Errors": {
+          "labelRequired": "Name is required",
+          "descriptionRequired": "Description is required",
+          "pictureRequired": "Picture is required"
+        },
+        "More": {
+          "deleteCategory": "Delete category",
+          "editCategory": "Edit category",
+          "viewCategory": "View category"
+        }
+      },
+      "Products": {
+        "title": "Products",
+        "noResults": "No results",
+        "errorLoadingData": "Error loading data.",
+        "subTitle": "Manage products",
+        "searchPlaceholder": "Search...",
+        "columns": "Columns",
+        "isActive": "Active",
+        "yes": "Yes",
+        "no": "No",
+        "previous": "Previous",
+        "next": "Next",
+        "Delete": {
+          "productDeleted": "Product deleted",
+          "deletingProduct": "Deleting product",
+          "errorDeletingProduct": "Error deleting product"
+        },
+        "Add": {
+          "taxe": "Taxe",
+          "subscription": "Subscription",
+          "language": "Language",
+          "selectLanguage": "Select a language",
+          "adding": "Adding",
+          "dialogDescription": "Fill the form to add a new product",
+          "addingProduct": "Adding product",
+          "characteristics": "Characteristics",
+          "stock": "Stock",
+          "selectPriority": "Select a priority",
+          "selectCategorie": "Select a category",
+          "dialogTitle": "Add a new product",
+          "label": "Name",
+          "description": "Description",
+          "categorie": "Categorie",
+          "Stock": "Stock",
+          "picture": "Picture",
+          "price": "Price",
+          "priority": "Priority",
+          "technicalCaracteristics": "Technical Caracteristics",
+          "imagePlaceholder": "Choose an image file",
+          "productAdded": "Product added",
+          "errorAddingProduct": "Error adding product",
+          "add": "Add",
+          "isActive": "Active",
+          "priceMonthly": "Price Monthly",
+          "priceAnnual": "Price Annualy",
+          "addCharacteristic": "Add characteristics",
+          "remove": "Remove"
+        },
+        "Edit": {
+          "update": "Update",
+          "language": "Language",
+          "selectLanguage": "Select a language",
+          "updated": "Updated",
+          "updating": "Updating",
+          "errorUpdatingProduct": "Error updating product",
+          "dialogTitle": "Edit product",
+          "dialogDescription": "Fill the form to edit the product"
+        },
+        "Errors": {
+          "labelRequired": "Name is required",
+          "descriptionRequired": "Description is required",
+          "pictureRequired": "Picture is required"
+        },
+        "More": {
+          "deleteProduct": "Delete product",
+          "editProduct": "Edit product",
+          "viewProduct": "View product"
+        }
+      },
+      "Coupons": {
+        "title": "Vouchers"
+      },
+      "Orders": {
+        "title": "Orders",
+        "subTitle": "Manage your orders",
+        "orderId": "Order ID",
+        "date": "Date",
+        "total": "Total",
+        "viewDetails": "View Details",
+        "errorLoadingOrders": "Error loading orders",
+        "noOrders": "No orders found",
+        "status": {
+          "title": "Status",
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancelled": "CANCELLED",
+          "failed": "FAILED"
+        },
+        "OrderDetails": {
+          "title": "Order Details",
+          "subTitle": "View the details of your order",
+          "orderInformation": "Order Information",
+          "customerInformation": "Customer Information",
+          "products": "Products",
+          "paymentInformation": "Payment Information",
+          "statusHistory": "Status History",
+          "email": "Email",
+          "name": "Name",
+          "quantity": "Quantity",
+          "billingCycle": "Billing Cycle",
+          "stripePriceId": "Stripe Price ID",
+          "totalAmount": "Total Amount",
+          "currency": "Currency",
+          "sessionId": "Session ID",
+          "paymentIntentId": "Payment Intent ID",
+          "changedBy": "Changed by",
+          "error": "Error loading order details",
+          "notFound": "Order not found",
+          "orderId": "Order Id",
+          "date": "Date",
+          "subscriptionInformation": "Subscription Information",
+          "subscriptionId": "Subscription ID",
+          "subscriptionStatus": {
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED"
+          },
+          "orderActions": "Actions",
+          "openUserInvoice": "Open user invoice",
+          "goToOrderStripe": "Open in Stripe",
+          "cancelOrder": "Cancel Order",
+          "billingPeriod": "Billing Period",
+          "viewSubscription": "View Subscription Details",
+          "status": "Status",
+          "tax": "Tax",
+          "subtotal": "Subtotal",
+          "discount": "Discount",
+          "voucher": "Voucher code",
+          "total": "Total",
+          "openInvoice": "Open invoice",
+          "orderTreatment": "Order Treatment",
+          "orderPaidDescription": "The payment has been paid. You can now review and confirm the order before proceeding.",
+          "orderWaitingCompletionDescription": "Review the order and mark it as completed when ready.",
+          "orderPendingDescription": "Resume the order processing.",
+          "orderAddComment": "Add a comment",
+          "confirmOrder": "Confirm this order",
+          "markAsCompleted": "Mark as Completed",
+          "resumeOrder": "Resume Order",
+          "suspendOrder": "Suspend Order",
+          "suspendOrderTitle": "Suspend Order",
+          "suspendOrderDescription": "Please provide a reason for suspending this order.",
+          "suspendOrderReasonPlaceholder": "Enter the reason for suspension...",
+          "orderCompletionWarning": "Once marked as completed, the order cannot be modified.",
+          "loading": "Loading...",
+          "cancel": "Cancel",
+          "confirm": "Confirm",
+          "statusUpdateSuccess": "Order status updated successfully",
+          "statusUpdateError": "Failed to update order status",
+          "suspendOrderSuccess": "Order suspended successfully",
+          "suspendOrderError": "Failed to suspend order",
+          "cancelOrderTitle": "Cancel Order",
+          "cancelOrderDescription": "Please choose how you would like to cancel this order:",
+          "cancelOrderSubscriptionDescription": "This order contains a subscription. You can only cancel the order here. To manage the subscription and refunds, please go to the subscription page.",
+          "cancelWithRefund": "Cancel Order & Full Refund",
+          "cancelWithRefundDescription": "The order will be canceled and the customer will receive a full refund.",
+          "cancelWithoutRefund": "Cancel Order Without Refund",
+          "cancelWithoutRefundDescription": "The order will be canceled without any refund.",
+          "goToSubscriptionPage": "Go to Subscription Page",
+          "goToSubscriptionPageDescription": "Manage subscription cancellation and refunds on the subscription page.",
+          "cancelSuccess": "Order canceled successfully",
+          "cancelError": "Failed to cancel order",
+          "noRefundAvailable": "This order cannot be refunded. This may be because it was paid with a voucher or is not eligible for a refund.",
+          "viewCustomer": "View Customer",
+          "billingAddress": "Billing Address",
+          "noBillingAddress": "No Billing Address"
+        },
+        "searchPlaceholder": "Search for an order",
+        "previous": "Previous",
+        "next": "Next",
+        "Status": {
+          "all": "All Status",
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancel": "CANCELLED",
+          "failed": "FAILED",
+          "refund": "REFUNDED"
+        },
+        "customer": "Customer",
+        "latestOrders": "Latest Orders",
+        "filters": "Filters"
+      },
+      "Customers": {
+        "CustomerDetails": {
+          "title": "Customer Details",
+          "subTitle": "View the details of your customer"
+        },
+        "title": "Customers",
+        "subTitle": "Manage your customers",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "country": "Country",
+        "city": "City",
+        "zipCode": "Zip Code",
+        "phone": "Phone",
+        "email": "Email",
+        "createdAt": "Created At",
+        "orders": "Orders",
+        "subscriptions": "Subscriptions",
+        "viewDetails": "View Details",
+        "searchPlaceholder": "Search customers...",
+        "columns": "Columns",
+        "previous": "Previous",
+        "next": "Next",
+        "errorLoadingData": "Error loading customers data",
+        "noResults": "No customers found",
+        "customerDetails": "Customer Details",
+        "profilePictureAlt": "Profile picture of {firstName} {lastName}",
+        "created": "Created: {date}",
+        "orderId": "Order ID",
+        "date": "Date",
+        "status": {
+          "title": "Status"
+        },
+        "Status": {
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancel": "CANCELLED",
+          "failed": "FAILED",
+          "refund": "REFUNDED",
+          "active": "ACTIVE",
+          "canceled": "CANCELED",
+          "past_due": "PAST DUE",
+          "unpaid": "UNPAID",
+          "incomplete": "INCOMPLETE",
+          "incomplete_expired": "INCOMPLETE EXPIRED",
+          "trialing": "Trial",
+          "paused": "PAUSED",
+          "preCanceled": "PRE-CANCELED"
+        },
+        "total": "Total",
+        "actions": "Actions",
+        "noOrders": "No orders found",
+        "noSubscriptions": "No subscriptions found",
+        "subscriptionId": "Subscription ID",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "billingCycle": "Billing Cycle",
+        "monthly": "Monthly",
+        "annual": "Annual",
+        "street": "Street",
+        "company": "Company",
+        "countCustomerOrders": "Totale Orders",
+        "countCustomerSubscriptions": "Totale Subscription",
+        "countCustomerTickets": "Totale Tickets",
+        "viewOnStripe": "View on Stripe",
+        "editCustomer": "Edit Customer",
+        "noStripeCustomerId": "This customer is not yet register on stripe, he will be automaticly register on his first order/subscription",
+        "openClientStripePortal": "Open Client Stripe Portal",
+        "invoiceNotFound": "Invoice not found",
+        "portalNotFound": "An error occurd while getting the user portal"
+      },
+      "title": "Business"
     },
     "SalesFront": {
       "HomePage": {
@@ -434,30 +1300,267 @@
           "socialMedia": "Form social media",
           "other": "An other option",
           "nothingSelected": "Nothing selected"
+        },
+        "Banner": {
+          "saving": "Saving alert banner",
+          "saved": "Saved",
+          "error": "Error",
+          "active": "Active",
+          "style": "Style",
+          "title": "Title",
+          "titlePlaceholder": "The title of the banner",
+          "description": "Description",
+          "descriptionPlaceholder": "Description of the banner",
+          "save": "Save",
+          "titleSection": "Alert Banner"
         }
-      }
-    },
-    "Business": {
-      "title": "Business",
-      "Products": {
-        "title": "Products"
       },
-      "Orders": {
-        "title": "Orders"
+      "Categories": {
+        "Add": {
+          "Stock": "Stock",
+          "add": "Add",
+          "adding": "Addition",
+          "addingCategory": "Addition of category",
+          "categoryAdded": "Added category",
+          "description": "Description",
+          "dialogDescription": "Fill out the form to add a new category",
+          "dialogTitle": "Add a new category",
+          "errorAddingCategory": "Category addition error",
+          "imagePlaceholder": "Choose an image file",
+          "isActive": "Active",
+          "label": "Name",
+          "language": "Language",
+          "picture": "Picture",
+          "selectLanguage": "Select a language"
+        },
+        "Delete": {
+          "categoryDeleted": "Deleted category",
+          "deletingCategory": "Category removal",
+          "errorDeletingCategory": "Error deletion category"
+        },
+        "Edit": {
+          "dialogDescription": "Fill out the form to modify the category",
+          "dialogTitle": "Change the category",
+          "errorUpdatingCategory": "Error update category",
+          "language": "Language",
+          "selectLanguage": "Select a language",
+          "update": "Update",
+          "updated": "Updated",
+          "updating": "Update"
+        },
+        "Errors": {
+          "descriptionRequired": "Description is required",
+          "labelRequired": "The name is required",
+          "pictureRequired": "An image is required"
+        },
+        "More": {
+          "deleteCategory": "Delete category",
+          "editCategory": "Change the category",
+          "viewCategory": "View category"
+        },
+        "columns": "Columns",
+        "errorLoadingData": "Data loading error.",
+        "isActive": "Active",
+        "next": "Following",
+        "no": "No",
+        "noResults": "No results",
+        "previous": "Previous",
+        "searchPlaceholder": "Research...",
+        "subTitle": "Manage categories",
+        "title": "Categories",
+        "yes": "Yes"
       },
       "Coupons": {
-        "title": "Coupons"
+        "title": "Doors"
+      },
+      "Payments": {
+        "title": "Payments"
+      },
+      "Products": {
+        "Add": {
+          "Stock": "Action",
+          "add": "Add",
+          "adding": "Addition",
+          "addingProduct": "Adding product",
+          "categorie": "Categorize",
+          "characteristics": "Features",
+          "description": "Description",
+          "dialogDescription": "Fill out the form to add a new product",
+          "dialogTitle": "Add a new product",
+          "errorAddingProduct": "Product adding error",
+          "imagePlaceholder": "Choose an image file",
+          "isActive": "Active",
+          "label": "Name",
+          "language": "Language",
+          "picture": "Picture",
+          "price": "Price",
+          "priority": "Priority",
+          "productAdded": "Product added",
+          "selectCategorie": "Select a category",
+          "selectLanguage": "Select a language",
+          "selectPriority": "Select a priority",
+          "stock": "Action",
+          "subscription": "Subscription",
+          "taxe": "Tax",
+          "technicalCaracteristics": "Technical characteristics"
+        },
+        "Delete": {
+          "deletingProduct": "Deletion of the product",
+          "errorDeletingProduct": "Product deletion error",
+          "productDeleted": "Deleted product"
+        },
+        "Edit": {
+          "dialogDescription": "Fill out the form to modify the product",
+          "dialogTitle": "Change the product",
+          "errorUpdatingProduct": "Error update",
+          "language": "Language",
+          "selectLanguage": "Select a language",
+          "update": "Update",
+          "updated": "Updated",
+          "updating": "Update"
+        },
+        "Errors": {
+          "descriptionRequired": "Description is required",
+          "labelRequired": "The name is required",
+          "pictureRequired": "An image is required"
+        },
+        "More": {
+          "deleteProduct": "Delete the product",
+          "editProduct": "Change the product",
+          "viewProduct": "Display the product"
+        },
+        "columns": "Columns",
+        "errorLoadingData": "Data loading error.",
+        "isActive": "Active",
+        "next": "Following",
+        "no": "No",
+        "noResults": "No results",
+        "previous": "Previous",
+        "searchPlaceholder": "Research...",
+        "subTitle": "Manage products",
+        "title": "Products",
+        "yes": "Yes"
       },
       "Subscriptions": {
         "title": "Subscriptions"
       },
-      "Payments": {
-        "title": "Payments"
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Show the details of the right",
+          "title": "Details of good"
+        },
+        "actions": "Acts",
+        "activateVoucher": "Activate the right",
+        "addVoucher": "Add the right",
+        "addVoucherDescription": "Fill the details to create a new good.",
+        "amount": "Amount",
+        "amountMin": "1 is the minimum",
+        "autoGenerateCodeMessage": "If it is left empty, a code will be automatically generated.",
+        "category": "Category",
+        "code": "Code",
+        "columns": "Columns",
+        "createdAt": "Create",
+        "deactivateVoucher": "Deactivation",
+        "description": "Description",
+        "discount": "Discount",
+        "endDate": "End date",
+        "errorLoadingData": "Data loading error.",
+        "expirationDate": "Expiration date",
+        "fixed": "Fixed",
+        "isActive": "Active",
+        "isCategorySpecific": "Specific to the category",
+        "isProductSpecific": "Product specific",
+        "minPurchaseAmount": "Minimum purchase amount",
+        "minPurchaseAmountMin": "The minimum purchase amount is required",
+        "next": "Following",
+        "no": "No",
+        "noResults": "No results.",
+        "percentage": "Percentage",
+        "previous": "Previous",
+        "product": "Product",
+        "requiredAmount": "Amount required",
+        "requiredType": "The guy is required",
+        "saveChanges": "Save changes",
+        "searchPlaceholder": "Research...",
+        "startDate": "Start date",
+        "subTitle": "Manage good",
+        "title": "Doors",
+        "type": "Type",
+        "updatedAt": "To update",
+        "user": "User",
+        "viewVoucher": "See the right",
+        "voucherAmount": "Amount",
+        "voucherCode": "Good code",
+        "voucherCreated": "Good created",
+        "voucherCreationFailed": "The creation of good failed",
+        "voucherType": "Type of good",
+        "yes": "Yes"
       }
+    },
+    "Support": {
+      "Tickets": {
+        "title": "Tickets",
+        "subTitle": "View all tickets",
+        "user": "User",
+        "status": "Status",
+        "open": "Open",
+        "closed": "Closed",
+        "responseTime": "Response Time",
+        "createdAt": "Created At",
+        "lastMessageType": "Last Message",
+        "actionDone": "Action Done",
+        "waitingAction": "Waiting Action",
+        "viewDetails": "View Details",
+        "searchPlaceholder": "Search for a ticket",
+        "columns": "Columns",
+        "errorLoadingData": "Error while loading tickets",
+        "noResults": "No Results",
+        "previous": "Previous",
+        "next": "Next",
+        "bot": "Bot",
+        "admin": "Admin",
+        "latestTickets": "Latest Tickets",
+        "ticketId": "Ticket Id",
+        "activeTickets": "Active Tickets"
+      }
+    },
+    "Dashboard": {
+      "welcome": "Hi {userName}",
+      "welcomeMessage": "Here is a summary of the business activity",
+      "errorTitle": "Error",
+      "errorDescription": "Error while loading datas",
+      "todayOrders": "Today Orders",
+      "todayRegistrations": "Today Registrations",
+      "todayOpenTickets": "Today Open Tickets",
+      "activeSubscriptions": "Active Subscriptions",
+      "title": "Admin Dashboard"
     }
   },
   "User": {
+    "Dashboard": {
+      "title": "Your dashboard",
+      "subTitle": "Manage your account, settings, subscriptions and more",
+      "totalOrders": "Total Orders",
+      "activeSubscriptions": "Active Subscriptions",
+      "activeTickets": "Active Tickets",
+      "totalSpent": "Total Spent",
+      "recentOrders": "Recent Orders",
+      "orderId": "Order Id",
+      "status": "Status",
+      "total": "Total",
+      "noOrders": "No Orders",
+      "product": "Products",
+      "nextBilling": "Next Billing",
+      "noSubscriptions": "No Subscription",
+      "subject": "Subject",
+      "lastMessage": "Last Message",
+      "noActiveTickets": "No Active Tickets",
+      "recentSubscriptions": "Recent Subscriptions",
+      "ticketId": "Ticket Id"
+    },
     "Security": {
+      "title": "Security",
+      "subTitle": "Manage your security settings",
       "OtpConfig": {
         "title": "OTP Configuration",
         "otpEnabled": "OTP is enabled",
@@ -482,8 +1585,350 @@
         "cancel": "Cancel",
         "otpKeyGenerated": "Download the free Google Authenticator app on your phone, then scan this barcode, and enter the code.",
         "scanQrCodeOrEnterCode": "Scan the QrCode with your authenticator app or enter this code",
-        "invalidOtp": "This code is invalid, please check or try again"
+        "invalidOtp": "This code is invalid, please check or try again",
+        "activateOtp": "Activate OTP"
+      },
+      "password": "Password",
+      "passwordContent": "Password",
+      "twoFactorAuth": "Two Factor Authentication",
+      "Password": {
+        "title": "Change Password",
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm New Password",
+        "changePassword": "Change Password",
+        "currentPasswordRequired": "Current password is required",
+        "newPasswordRequired": "New password is required",
+        "confirmPasswordRequired": "Confirm password is required",
+        "passwordMinLength": "Password must be at least 12 characters long",
+        "passwordsMustMatch": "Passwords must match",
+        "passwordChangeSuccess": "Password changed successfully",
+        "passwordChangeError": "Failed to change password",
+        "loading": "Changing your password",
+        "currentPasswordIncorrect": "Your current password does not match."
       }
+    },
+    "Business": {
+      "title": "Business",
+      "Subscriptions": {
+        "title": "Subscriptions",
+        "subTitle": "Manage subscriptions",
+        "subscriptionId": "Subscription ID",
+        "date": "Date",
+        "status": {
+          "title": "Status",
+          "active": "ACTIVE",
+          "canceled": "CANCELED",
+          "past_due": "PAST DUE",
+          "unpaid": "UNPAID",
+          "incomplete": "INCOMPLETE",
+          "incomplete_expired": "INCOMPLETE EXPIRED",
+          "trialing": "TRIAL",
+          "paused": "PAUSED"
+        },
+        "products": "Products",
+        "errorLoadingSubscriptions": "Error loading subscriptions",
+        "noSubscriptions": "No subscriptions found",
+        "SubscriptionDetails": {
+          "title": "Subscription Details",
+          "subTitle": "View and manage your subscription",
+          "subscriptionInformation": "Subscription Information",
+          "customerInformation": "Customer Information",
+          "products": "Products",
+          "paymentInformation": "Payment Information",
+          "statusHistory": "Status History",
+          "email": "Email",
+          "name": "Name",
+          "quantity": "Quantity",
+          "billingCycle": "Billing Cycle",
+          "stripePriceId": "Stripe Price ID",
+          "customerId": "Customer ID",
+          "defaultPaymentMethod": "Default Payment Method",
+          "periodStart": "Current Period Start",
+          "periodEnd": "Current Period End",
+          "canceledAt": "Canceled At",
+          "changedBy": "Changed by",
+          "loading": "Loading...",
+          "error": "Error loading subscription details",
+          "notFound": "Subscription not found",
+          "manageSubscription": "Manage Subscription",
+          "cancelSubscription": "Cancel Subscription",
+          "cancelSubscriptionTitle": "Cancel Your Subscription",
+          "cancelSubscriptionDescription": "Please choose how you would like to cancel your subscription:",
+          "cancelAtPeriodEnd": "Cancel at Period End",
+          "cancelAtPeriodEndDescription": "Your subscription will remain active until the end of the current billing period.",
+          "cancelNowWithRemainingRefund": "Cancel Now & Get Remaining Period Refund",
+          "cancelNowWithRemainingRefundDescription": "Your subscription will be canceled immediately and you will receive a refund for the remaining days of the current period.",
+          "cancelNowWithFullRefund": "Cancel Now & Get Full Refund",
+          "cancelNowWithFullRefundDescription": "Your subscription will be canceled immediately and you will receive a full refund for the current period.",
+          "cancelNowWithoutRefund": "Cancel Now Without Refund",
+          "cancelNowWithoutRefundDescription": "Your subscription will be canceled immediately without any refund.",
+          "confirm": "Confirm",
+          "cancel": "Cancel",
+          "canceling": "Canceling subscription...",
+          "cancelSuccess": "Subscription canceled successfully",
+          "cancelError": "Failed to cancel subscription",
+          "subscriptionId": "Id",
+          "Status": {
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED",
+            "preCanceled": "PRE-CANCELED"
+          },
+          "cancelAtPeriodEndDescription2": "Your subscription will already be canceled at the end of the current period. If you are not sure about this, please contact our support team.",
+          "updateSuccess": "Your subscription was successfuly updated",
+          "updateError": "An error occured while updating your subscription",
+          "openInvoice": "Open last invoice",
+          "invoiceNotFound": "An error occured while fetching your invoice",
+          "preCanceled": "Pre-Canceled",
+          "preCanceledDescription": "Your subscription was canceled and will be stop at the end of the current period. If you are not sure about this, please contact our support team.",
+          "viewProduct": "View Product",
+          "cancelNowDescription": "Cancel now",
+          "cancelNow": "Cancel now"
+        },
+        "searchPlaceholder": "Search by ID, name or email...",
+        "columns": "Columns",
+        "errorLoadingData": "Error loading data.",
+        "noResults": "No results.",
+        "previous": "Previous",
+        "next": "Next",
+        "resetFilters": "Reset filters",
+        "pickDate": "Pick a date",
+        "all": "All"
+      },
+      "Payments": {
+        "title": "Payments",
+        "paymentPortal": "Payment Portal",
+        "paymentPortalDescription": "View your payment history and manage your payment methods. For advanced management, use the Stripe Customer Portal.",
+        "openStripePortal": "Open Stripe Portal",
+        "savedPaymentMethods": "Saved Payment Methods",
+        "invoices": "Invoices",
+        "date": "Date",
+        "amount": "Amount",
+        "status": "Status",
+        "actions": "Actions",
+        "viewInvoice": "View Invoice",
+        "previous": "Previous",
+        "next": "Next",
+        "expires": "Expires",
+        "noPaymentMethods": "No payment methods saved",
+        "noInvoices": "No invoices found",
+        "loading": "Loading...",
+        "stripePortalInactive": "Your Stripe account will be activated after your first order. You will then have access to the Stripe Customer Portal.",
+        "olderInvoicesMessage": "Looking for older invoices? Access your complete billing history in the Stripe Portal."
+      },
+      "Orders": {
+        "title": "Orders",
+        "subTitle": "Manage your orders",
+        "orderId": "Order ID",
+        "date": "Date",
+        "total": "Total",
+        "viewDetails": "View Details",
+        "errorLoadingOrders": "Error loading orders",
+        "noOrders": "No orders found",
+        "Status": {
+          "title": "Status",
+          "paid": "PAID",
+          "pending": "PENDING",
+          "processing": "PROCESSING",
+          "completed": "COMPLETED",
+          "cancel": "CANCELLED",
+          "failed": "FAILED",
+          "refund": "REFUNDED"
+        },
+        "OrderDetails": {
+          "title": "Order Details",
+          "subTitle": "View the details of your order",
+          "orderInformation": "Order Information",
+          "customerInformation": "Customer Information",
+          "products": "Products",
+          "paymentInformation": "Payment Information",
+          "statusHistory": "Status History",
+          "email": "Email",
+          "name": "Name",
+          "quantity": "Quantity",
+          "billingCycle": "Billing Cycle",
+          "stripePriceId": "Stripe Price ID",
+          "totalAmount": "Total Amount",
+          "currency": "Currency",
+          "sessionId": "Session ID",
+          "paymentIntentId": "Payment Intent ID",
+          "changedBy": "Changed by",
+          "loading": "Loading...",
+          "error": "Error loading order details",
+          "notFound": "Order not found",
+          "orderId": "Order Id",
+          "date": "Date",
+          "subscriptionInformation": "Subscription Information",
+          "subscriptionId": "Subscription ID",
+          "subscriptionStatus": {
+            "incomplete": "INCOMPLETE",
+            "incomplete_expired": "INCOMPLETE EXPIRED",
+            "trialing": "TRIAL",
+            "active": "ACTIVE",
+            "past_due": "PAST DUE",
+            "canceled": "CANCELED",
+            "unpaid": "UNPAID",
+            "paused": "PAUSED"
+          },
+          "billingPeriod": "Billing Period",
+          "viewSubscription": "View Subscription Details",
+          "status": "Status",
+          "tax": "Tax",
+          "subtotal": "Subtotal",
+          "discount": "Discount",
+          "voucher": "Voucher code",
+          "total": "Total",
+          "openInvoice": "Open invoice",
+          "orderTreatment": "Order Treatment",
+          "orderPaidDescription": "The payment has been confirmed. You can now review and confirm the order before proceeding.",
+          "orderWaitingCompletionDescription": "Review the order and mark it as completed when ready.",
+          "orderPendingDescription": "Resume the order processing.",
+          "orderAddComment": "Add a comment",
+          "confirmOrder": "Confirm this order",
+          "markAsCompleted": "Mark as Completed",
+          "resumeOrder": "Resume Order",
+          "suspendOrder": "Suspend Order",
+          "suspendOrderTitle": "Suspend Order",
+          "suspendOrderDescription": "Please provide a reason for suspending this order.",
+          "suspendOrderReasonPlaceholder": "Enter the reason for suspension...",
+          "orderCompletionWarning": "Warning: Once marked as completed, the order cannot be modified.",
+          "cancel": "Cancel",
+          "confirm": "Confirm",
+          "cancelOrder": "Cancel order",
+          "openUserInvoice": "Open user invoice",
+          "goToOrderStripe": "Go to stripe order",
+          "orderActions": "Order Actions\n",
+          "billingAddress": "Billing Address",
+          "noBillingAddress": "No Billing Address"
+        },
+        "searchPlaceholder": "Search for an order",
+        "previous": "Previous",
+        "next": "Next",
+        "status": {
+          "cancelled": "Cancelled",
+          "failed": "FAILED",
+          "pending": "PENDING",
+          "paid": "PAID",
+          "title": "Title",
+          "completed": "COMPLETED",
+          "processing": "PROCESSING"
+        }
+      }
+    },
+    "MyAccount": {
+      "title": "My Account",
+      "Profile": {
+        "title": "Profile",
+        "friend": "A friend",
+        "advertisement": "From an ad",
+        "socialMedia": "From social media",
+        "other": "Another option"
+      },
+      "Security": {
+        "title": "Security"
+      },
+      "PaymentMethods": {
+        "title": "Payment Methods"
+      },
+      "Settings": {
+        "title": "Settings"
+      }
+    },
+    "Support": {
+      "OpenNewTicket": {
+        "title": "Open Ticket"
+      },
+      "MyTickets": {
+        "title": "My Tickets"
+      },
+      "NeedHelp": {
+        "title": "Support Center"
+      },
+      "title": "Support"
+    },
+    "Profile": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "howDidYouHear": "How Did You Hear",
+      "country": "Country",
+      "city": "City",
+      "zipCode": "Zip Code",
+      "street": "Street",
+      "company": "Company",
+      "saveChanges": "Save Changes",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "savingChanges": "Saving changes...",
+      "changesSavedSuccessfully": "Changes saved successfully",
+      "failedToSaveChanges": "Failed to save changes",
+      "nothingSelected": "Nothing selected",
+      "created": "Created: {date}",
+      "twoFactorAuth": "Two Factor Authentication",
+      "emailExists": "Email already exist.",
+      "saving": "Saving your profil",
+      "error": "Error while saving profile",
+      "saved": "Profile saved",
+      "socialMedia": "Social Media",
+      "friend": "Friend",
+      "advertisement": "Advertisement",
+      "other": "Other",
+      "title": "Update Your Profile",
+      "BillingAddresses": {
+        "save": "Save"
+      }
+    },
+    "Chat": {
+      "noConversations": "No conversations",
+      "adminSupport": "Support Team",
+      "you": "You",
+      "waitingAction": "Action to do",
+      "actionDone": "Action done",
+      "new": "New",
+      "unread": "Unread",
+      "closed": "Closed",
+      "error": "An error occured, please try again later !",
+      "active": "Active",
+      "chatClosed": "Chat closed",
+      "typeMessage": "Type a message",
+      "supportInbox": "Your Tickets",
+      "selectConversation": "Select conversation",
+      "open": "Open",
+      "actionCompleted": "Action completed",
+      "seeLink": "See link",
+      "sending": "Sending",
+      "endChat": {
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "description": "You and the Support Team will not be able to send a new message again. Are you sure ?",
+        "title": "End this conversation"
+      },
+      "errorSendingMessage": "An error occured while sending this message, please try again.",
+      "send": "Send",
+      "cancel": "Cancel",
+      "messageToSupportPlaceholder": "Explain your probleme, question or suggestion here...",
+      "sendMessageToSupport": "Send a message to our Support Team",
+      "sendMessageToSupportDesc": "Here you can send a message to our support team. We will get back to you as soon as possible. Please provide as much detail as possible to help us assist you better. ",
+      "sendMessageBtn": "Send a message",
+      "chatNowBtn": "Chat now",
+      "sendMessage": "Send a message",
+      "chatNow": "Chat with us",
+      "chatNowDesc": "Chat with our support team for immediate assistance.",
+      "sendMessageDesc": "Send a message to our support team and we will get back to you as soon as possible.",
+      "getNeedHelp": "You have a question, suggestion, or issue? We are here to help!",
+      "getNeedHelpDesc": "You can find answers to your questions in our FAQ section. If you don't find what you're looking for, feel free to reach out to us directly through the chat or by sending us a message.",
+      "SELECT_ORDER": "In order to help you, please select an order related to your question by clicking on the button below",
+      "SELECT_SUBSCRIPTION": "In order to help you, please select a subscription related to your question by clicking on the button below",
+      "ticketId": "Ticket Id",
+      "title": "User Inbox",
+      "allOpenInbox": "See Other Tickets"
     }
   },
   "DefaultNotFound": "ERROR: Translation not found",
@@ -492,7 +1937,7 @@
     "about": "Go to the about page",
     "title": "Home Admin"
   },
-  "advertisement": "Avertissement",
+  "advertisement": "Advertisement",
   "friend": "By a friend",
   "navigation": {
     "about": "About",
@@ -503,8 +1948,8 @@
     "register": "Register",
     "logout": "Log out"
   },
-  "other": "Other",
-  "socialMedia": "Social Media",
+  "other": "Another option",
+  "socialMedia": "From social media",
   "isSuperAdminRequired": "Is super admin is required",
   "Email": {
     "greetingWithName": "Hello {userName},",
@@ -526,9 +1971,639 @@
     "confirmButton": "Confirm Email",
     "Confirmation": {
       "subject": "Cyna - Confirm your email"
+    },
+    "resetEmailMessage": "To reset your password, click the button below and follow the instructions. This link will expire in 1 hour. If you did not request a password reset, you can safely ignore this email or contact our support team.",
+    "resetButton": "Reset my password",
+    "Support": {
+      "newMessage": "You've received a new message in one of your conversations with our customer support team. Here is a summary:",
+      "openChatButton": "Open Conversation",
+      "newMessageSubject": "{company}  - New message from Support Team"
     }
   },
   "Confirmation": {
     "subject": "Cyna - Confirm your email"
+  },
+  "pagesNames": {
+    "homePage": "Home Page",
+    "usersAdmin": "Users Admin",
+    "userDetailsAdmin": "User details Admin",
+    "logsAdmin": "Logs admin",
+    "logDetailsAdmin": "Log details admin",
+    "yourDashboard": "Your dashboard",
+    "security": "Security",
+    "paymentMethods": "Payment Methods",
+    "settings": "Settings",
+    "openTicket": "Open Ticket",
+    "myTickets": "My Tickets",
+    "businessOrders": "Business Orders",
+    "businessSubscriptions": "Business Subscriptions",
+    "businessPayments": "Business Payments",
+    "profile": "Profile",
+    "needHelp": "Need Help"
+  },
+  "resetPasswordEmailSubject": "Cyna - reset your password",
+  "ProductCard": {
+    "seeMore": "See more",
+    "month": "Month",
+    "subscription": "Subscription",
+    "oneTime": "One Time Buy",
+    "addToCart": "Add to cart"
+  },
+  "ProductPage": {
+    "title": "Our products",
+    "error": "An error occurred while fetching products, please try again",
+    "searchResultsFor": "Results for",
+    "noResults": "Oh no! We can't find any products for your search. Try again with another keyword.",
+    "filters": "Filters",
+    "reset": "Reset",
+    "priceRange": "Price range",
+    "sortBy": "Sort by",
+    "newest": "Newest",
+    "priceAsc": "Price Asc",
+    "priceDesc": "Price Desc",
+    "mostPopular": "Most Popular",
+    "availability": "Availability",
+    "all": "All",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "categories": "Categories",
+    "dateRange": "Date Range",
+    "applyFilters": "Apply Filters",
+    "showing": "Showing",
+    "products": "products"
+  },
+  "NavSearchBar": {
+    "categories": "Categories",
+    "products": "Products",
+    "noCategoriesFound": "No categories",
+    "noResults": "No product found for {searchTerm}",
+    "error": "Error while searching for products",
+    "searchPlaceholder": "Search for a product or category"
+  },
+  "Error": {
+    "Front": {
+      "errorFrontTitle": "An error occurred, please try again later or contact support team",
+      "backHome": "Return to home"
+    }
+  },
+  "Shop": {
+    "Cart": {
+      "miniCart": {
+        "title": "Your cart",
+        "subtitle": "Products"
+      },
+      "emptyCart": "Your cart is empty",
+      "total": "Total",
+      "viewCart": "View cart",
+      "emptyCartSubtitle": "It's time to start shopping !",
+      "productAddedToCart": "Product added to cart!",
+      "yourCart": "Your cart",
+      "login": "Login",
+      "register": "Register",
+      "checkout": "Checkout",
+      "subtotal": "Sub total",
+      "items": "Products",
+      "orderSummary": "Your order",
+      "continueShopping": "Continue shopping",
+      "loginToProceed": "Login to your account to access your personal cart",
+      "taxes": "Taxes",
+      "voucherCode": "Voucher code",
+      "apply": "Apply",
+      "discount": "Discount",
+      "saveCardForFuture": "Save card for future payments",
+      "MixedProductTypes": "Please separate your orders for different products.",
+      "MixedProductTypesSubtitle": "                  You can't checkout with mixed product types. Please separate different subscription and on time buy product.",
+      "failToCheckout": "There was an error while checking out, please try again.",
+      "cantCheckout": "You can't checkout for the moment, please review your cart or account.",
+      "UserProfileIncompleteSubtitle": "Please complete your profile on your account page to proceed to checkout.",
+      "UserProfileIncomplete": "Your profile is incomplete, some fields are missing.",
+      "CompleteProfile": "Complete my profile",
+      "voucherApplied": "Voucher applied",
+      "voucherError": "Error with this voucher",
+      "VoucherNotActive": "Voucher not valid",
+      "VoucherNotActiveSubtitle": "The voucher applied to your cart is expired or not available for your order, please remove to proceed to checkout.",
+      "mixedProductTypes": "Please separate your orders for different products.",
+      "mixedProductTypesSubtitle": "You cannot proceed to checkout with mixed product types or billing periods. Please separate subscriptions and one-time purchases, and ensure all products share the same billing cycle (monthly or yearly).",
+      "userProfileIncomplete": "Your profile is incomplete, some fields are missing.",
+      "productNotActive": "Some products are not available",
+      "productNotActiveSubtitle": "Please remove the product that is not available to proceed to checkout.",
+      "userProfileIncompleteSubtitle": "Please complete your profile on your account page to proceed to checkout.",
+      "completeProfile": "Complete my profile",
+      "voucherNotActiveSubtitle": "The voucher applied to your cart is expired or not available for your order, please remove to proceed to checkout.",
+      "voucherNotActive": "Voucher not valid",
+      "subscription": "Subscription",
+      "oneTimePurchase": "One-time purchase",
+      "checkoutDescription": "When clicking on checkout, you accept ou terms and conditions. Prices are provided as information only and the final price will be confirmed at the end of the checkout process.",
+      "year": "Year",
+      "month": "Month",
+      "annual": "Annual",
+      "monthly": "Monthly",
+      "productOutOfStockUserQuantity": "Product quantity too hight",
+      "billingAddressIncomplete": "Billing address is incomplete",
+      "billingAddressIncompleteSubtitle": "Please complete your billing address to proceed to checkout",
+      "BillingAddressIncomplete": "Billing address is incomplete",
+      "BillingAddressIncompleteShop": "Please complete your billing address to proceed to checkout",
+      "productOutOfStockUserQuantitySubtitle": "The quantity of a product in your cart is too hight compare to our stock, please update the quantity or remove the product",
+      "productOutOfStock": "Product Out Of Stock",
+      "productOutOfStockSubtitle": "One of the product in your carte is Out Of Stock, remove it ton procced to the payment",
+      "PRODUCT_OUT_OF_STOCK": "One of the product in your cart is Out Of Stock, please update the quantity or remove the product",
+      "PRODUCT_OUT_OF_STOCK_USER_QUANTITY": "The quantity of a product in your cart is too hight compare to our stock, please update the quantity or remove the product",
+      "outOfStock": "Out Of Stock",
+      "VOUCHER_NOT_ACTIVE": "Voucher not valid, please remove it to proceed to checkout",
+      "MIXED_PRODUCT_TYPES": "The products in your cart have different billing periods, please separate them to proceed to checkout",
+      "USER_PROFILE_INCOMPLETE": "Your profile is incomplete, please complete it to proceed to checkout",
+      "PRODUCT_NOT_ACTIVE": "One of the product in your cart is not available, please remove it to proceed to checkout",
+      "ProductOutOfStock": "Product Out Of Stock",
+      "ProductNotActive": "One of the product is not available",
+      "ProductOutOfStockUserQuantity": "One of the product is not available with the quantity selected",
+      "title": "Cart",
+      "noBillingAddress": "No billing address",
+      "billingAddress": "Billing address",
+      "changeAddress": "Change address",
+      "selectBillingAddress": "Select billing address",
+      "addNewAddress": "Add new address",
+      "addressName": "Address name",
+      "country": "Country",
+      "city": "City",
+      "zipCode": "Zip Code",
+      "addressStreet": "Street",
+      "addAddress": "Add address",
+      "checkoutSummary": "Checkout Summary",
+      "yourProducts": "Your Products",
+      "cancel": "Cancel",
+      "confirmCheckout": "Confirm Checkout",
+      "selectBillingCycle": "Select billing cycle",
+      "remove": "Remove",
+      "deleteAddress": "Delete address",
+      "deleteAddressConfirmation": "Are you sure you want to delete this address?",
+      "deleteAddressSuccess": "Address deleted successfully",
+      "deleteAddressError": "Failed to delete address",
+      "addressDeleted": "Address deleted",
+      "deleting": "Deleting",
+      "delete": "Delete"
+    },
+    "Product": {
+      "outOfStock": "Out of stock",
+      "addToCart": {
+        "button": "Add to cart"
+      },
+      "quantity": "Quantity",
+      "price": "Price",
+      "total": "Total",
+      "comparedToMonthly": "Compared to monthly",
+      "save": "Save",
+      "year": "Year",
+      "monthlyDescription": "Monthly",
+      "month": "Month",
+      "annual": "Annual",
+      "monthly": "Monthly",
+      "billingCycle": "Billing cycle",
+      "characteristics": "Characteristics",
+      "inStock": "In stock",
+      "stock": "Stock",
+      "subscription": "Subscription",
+      "outOfStockDescription": "This product is not in stock for the moment, please come back later",
+      "lowStock": "Low Stock",
+      "lowStockDescription": "There is not much product in stock, it's time to order !",
+      "bestValue": "Best value",
+      "addToCartTitle": "Add to cart",
+      "goBack": "Go back",
+      "title": "Product",
+      "benefits": "Benefits",
+      "keyFeatures": "Key Features",
+      "oneTime": "One Time",
+      "benefitCard1": {
+        "title": "Security First",
+        "description": "We prioritize security at every level — from encrypted data storage in the EU to 24/7 monitoring by our in-house SOC. Your protection is our mission."
+      },
+      "benefitCard2": {
+        "title": "Plug-and-Protect Simplicity",
+        "description": "No complex setup. Our SaaS platform is ready to deploy in minutes and adapts to your needs without disrupting your existing infrastructure."
+      },
+      "benefitCard3": {
+        "description": "Cyna scales with your business. Whether you're protecting 5 or 500 endpoints, our pricing model and architecture grow alongside your company.",
+        "title": "Built for Growth"
+      },
+      "chooseBillingCycle": "Choose Billing Cycle",
+      "billingCycleHelp": "Choose between year and month billing for your plan",
+      "whyChooseUs": "Why choose us ?"
+    },
+    "Checkout": {
+      "redirectingToCheckout": "We are processing your payment, please wait...",
+      "redirectingToCheckoutMessage": "Mmm, it seems like the process is taking longer than expected. Please wait a few seconds and then click the button below to go to your orders page",
+      "myOrders": "My orders",
+      "redirectingMessage": "When the process is finished, you will be automatically redirected to your order information.",
+      "processingOrder": "Processing your order...",
+      "orderSuccess": "Thank you for your order!",
+      "orderSuccessMessage": "We're excited to confirm that your order has been successfully placed. You'll receive a confirmation email shortly.",
+      "orderInformation": "Order Information",
+      "orderId": "Order ID",
+      "date": "Date",
+      "downloadInvoice": "Download Invoice",
+      "viewAllOrders": "View All Orders",
+      "subscriptionInformation": "Subscription Information",
+      "subscriptionStatus": {
+        "incomplete": "INCOMPLETE",
+        "incomplete_expired": "INCOMPLETE EXPIRED",
+        "trialing": "TRIAL",
+        "active": "ACTIVE",
+        "past_due": "PAST DUE",
+        "canceled": "CANCELED",
+        "unpaid": "UNPAID",
+        "paused": "PAUSED",
+        "preCanceled": "PRE-CANCELED"
+      },
+      "billingPeriod": "Billing Period",
+      "viewSubscription": "View Subscription",
+      "products": "Products",
+      "quantity": "Quantity",
+      "billingCycle": "Billing Cycle",
+      "subtotal": "Subtotal",
+      "tax": "Tax",
+      "discount": "Discount",
+      "total": "Total",
+      "continueShopping": "Continue Shopping",
+      "yourBank": "Your bank",
+      "redirectingToCheckoutMessageMobile": "You will be automaticly redirect to the {company} mobile app once the payment is completed.",
+      "yourPayment": "Bank",
+      "application": "Mobile",
+      "returnToApp": "Return to Mobile App",
+      "transactionFailedMessage": "This transaction failed because you canceled it or there was an error while checking out. Please wait we are redirection you to the Mobile App.",
+      "transactionFailed": "Transaction Failed",
+      "title": "Checking your payment",
+      "titleSuccess": "Order Success",
+      "billingAddress": "Billing Address",
+      "noBillingAddress": "No Billing Address"
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "description": "log",
+      "title": "log"
+    },
+    "Criticality": {
+      "SystemError": {
+        "description": "log",
+        "title": "log"
+      },
+      "SystemInfo": {
+        "description": "log",
+        "title": "log"
+      },
+      "SystemSecurity": {
+        "description": "log",
+        "title": "log"
+      },
+      "UserError": {
+        "description": "log",
+        "title": "log"
+      },
+      "UserInfo": {
+        "description": "log",
+        "title": "log"
+      },
+      "UserSecurity": {
+        "description": "log",
+        "title": "log"
+      }
+    },
+    "InternalError": {
+      "description": "log",
+      "title": "log"
+    },
+    "UserChangePassword": {
+      "description": "log",
+      "title": "log"
+    }
+  },
+  "Contact": {
+    "Chatbot": {
+      "Bot": {
+        "MyOrder": {
+          "title": "I have a question about my orders",
+          "question": "What do you want to know about your orders ?",
+          "Questions": {
+            "missing": "I can't find my order in my account.",
+            "delay": "When will my order be processed?",
+            "question": "I have a question about my recent order.",
+            "cancel": "I would like to cancel my order.",
+            "refund": "How can I get a refund for my order?"
+          },
+          "Responses": {
+            "missing": "Please make sure you're logged in and check the order history tab.",
+            "delay": "Orders are usually processed within 24 to 48 hours.",
+            "question": "Sure! Could you please specify your question about your order?",
+            "cancel": "You can cancel your order from your dashboard if it's still in processing.",
+            "refund": "Refunds are issued within 5-7 days after approval."
+          }
+        },
+        "Subscriptions": {
+          "title": "I have a question about my subscriptions",
+          "question": "What do you want to know about your subscriptions ?",
+          "Questions": {
+            "where": "Where can I find my subscription?",
+            "how": "How does the subscription system work?",
+            "question": "I have a question about my subscription.",
+            "cancel": "I would like to cancel my subscription.",
+            "refund": "How can I request a refund for my subscription?"
+          },
+          "Responses": {
+            "where": "Your subscription details are available in your account under the Subscriptions tab.",
+            "how": "Subscriptions renew automatically monthly or annually, depending on your plan.",
+            "question": "Sure, let me know what you'd like to know about your subscription.",
+            "cancel": "You can cancel your subscription anytime in your account settings.",
+            "refund": "Refunds for subscriptions depend on the terms and time of cancellation."
+          }
+        },
+        "Shop": {
+          "title": "I have a question about the shop",
+          "question": "What do you want to know about our shop ?",
+          "Questions": {
+            "difference": "What's the difference between one-time purchase and subscription?",
+            "pay": "How do I make a payment?",
+            "methods": "What payment methods are available?",
+            "product": "I have a question about a product.",
+            "negociate": "Can I negotiate the price of a product?",
+            "voucher": "How can I use a discount or voucher code?"
+          },
+          "Responses": {
+            "difference": "One-time purchases are charged once, subscriptions renew automatically.",
+            "pay": "You can pay using your preferred method at checkout.",
+            "methods": "We accept credit cards, PayPal, and more depending on your region.",
+            "product": "Sure! Let me know which product you're interested in.",
+            "negociate": "For bulk or B2B orders, feel free to contact our sales team.",
+            "voucher": "You can enter your voucher code during checkout to apply a discount."
+          }
+        },
+        "CustomerService": {
+          "title": "I have a question about customer service",
+          "question": "What do you want to know about our customer service and/or your support ?",
+          "Questions": {
+            "legal": "Where can I read the legal terms and conditions?",
+            "contact": "How do I contact customer service?",
+            "tickets": "How can I view my support tickets?",
+            "human": "I want to speak to a human agent."
+          },
+          "Responses": {
+            "legal": "You can find all our legal and policy documents in the footer of the website.",
+            "contact": "You can reach customer support through the contact form or live chat.",
+            "tickets": "Your support tickets are available in your user dashboard.",
+            "human": "Sure! A human agent will join the conversation shortly."
+          }
+        },
+        "Account": {
+          "title": "I have a question about my account",
+          "question": "What do you want to know about your account ?",
+          "Questions": {
+            "create": "How do I create an account?",
+            "confirm": "How do I confirm my email address?",
+            "reset": "I forgot my password, how can I reset it?",
+            "blocked": "My account has been blocked, what should I do?"
+          },
+          "Responses": {
+            "create": "Click on 'Sign Up' and fill in your details to create an account.",
+            "confirm": "We sent you a confirmation email. Click the link inside to verify your address.",
+            "reset": "Click 'Forgot password?' on the login page to reset your credentials.",
+            "blocked": "Please contact support to resolve issues with your account."
+          }
+        }
+      },
+      "error": {
+        "userNameAndEmailRequired": "Username and Email are required."
+      },
+      "bot": {
+        "message": {
+          "hello": "Hi {userName}, how may I help you today ?",
+          "error": "I could not find an answer, can you select an other option please ?"
+        },
+        "selector": {
+          "selectOption": "Select an option",
+          "cancel": "Cancel"
+        }
+      },
+      "welcome": {
+        "startButton": "Start chat",
+        "description": " Hi, Mathys here, I'm here to help you with your questions. If I can't answer your question, I'll transfer you to a human. It's ok for you ? Click the button below to start a new chat.",
+        "title": "Start now a new chat",
+        "disclaimer": "By stating a new chat, you agree to our Terms and Condition and privacy Policy",
+        "namePlaceholder": "Your name",
+        "emailPlaceholder": "Your email",
+        "error": {
+          "needNameAndEmail": "Your Name and Email are required"
+        }
+      },
+      "widget": {
+        "title": "Chat with us"
+      },
+      "Messages": {
+        "seeLink": "Open Link",
+        "seeLinkLogin": "You need to login to access to this page",
+        "contactHuman": "Chat with our Support Team",
+        "actionRequired": "Please click the button below to select an option",
+        "actionCompleted": "Action completed",
+        "SELECT_ORDER": "In order to help you, please select an order related to your question by clicking on the button below",
+        "SELECT_SUBSCRIPTION": "In order to help you, please select a subscription related to your question by clicking on the button below",
+        "SELECT_PRODUCT": "In order to help you, please select a product related to your question by clicking on the button below",
+        "error": "An error occured, please reload the page or try again later."
+      },
+      "Actions": {
+        "status": {
+          "cancelled": "CANCELLED",
+          "canceled": "CANCELED",
+          "pending": "PENDING",
+          "completed": "COMPLETED",
+          "refunded": "REFUNDED",
+          "failed": "FAILED",
+          "expired": "EXPIRED",
+          "active": "ACTIVE",
+          "inactive": "INACTIVE",
+          "paid": "PAID",
+          "unpaid": "UNPAID"
+        },
+        "SELECT_ORDER": {
+          "buttonText": "Select an order",
+          "title": "Select an order",
+          "searchPlaceholder": "Search orders...",
+          "noResults": "No orders found",
+          "orderNumber": "Order #{number}",
+          "previous": "Previous",
+          "next": "Next",
+          "loading": "Loading",
+          "error": "Error while selecting order",
+          "noOrders": "No orders"
+        },
+        "SELECT_SUBSCRIPTION": {
+          "buttonText": "Select a subscription",
+          "title": "Select a subscription",
+          "searchPlaceholder": "Search subscriptions...",
+          "noResults": "No subscriptions found",
+          "loading": "Chargement des abonnements...",
+          "error": "Erreur lors du chargement des abonnements",
+          "noSubscriptions": "Aucun abonnement trouvé",
+          "subscriptionNumber": "Abonnement #{number}",
+          "previous": "Précédent",
+          "next": "Suivant"
+        },
+        "SELECT_PRODUCT": {
+          "buttonText": "Select a product",
+          "title": "Select a product",
+          "searchPlaceholder": "Search products...",
+          "noResults": "No products found",
+          "monthly": "month",
+          "annual": "year"
+        }
+      },
+      "actionCompleted": "Action completed",
+      "adminModeEnabled": "Message received. I will transfer you to my colleagues. They will reply as soon as possible. In the meantime, please provide as much information as possible."
+    }
+  },
+  "chat": {
+    "chatWith": "You are chatting with",
+    "bot": "Matthys Support Bot",
+    "admin": "Support Team",
+    "endChat": {
+      "title": "Terminer la conversation",
+      "description": "Êtes-vous sûr de vouloir terminer cette conversation ? Vous ne pourrez plus envoyer de messages une fois la conversation terminée.",
+      "cancel": "Annuler",
+      "confirm": "Terminer la conversation"
+    },
+    "chatEnded": {
+      "title": "Conversation terminée",
+      "description": "Cette conversation a été terminée. Vous pouvez fermer cette fenêtre.",
+      "closeButton": "Fermer"
+    },
+    "chatWithHuman": "Chat with a human"
+  },
+  "error": "An error occured, please try to reload the page or try again later.",
+  "aboutUs": "About Us",
+  "categories": "Categories",
+  "products": "Products",
+  "header": {
+    "aboutUs": "About Us",
+    "categories": "Categories",
+    "products": "Products"
+  },
+  "CompanyPage": {
+    "title": "About Us",
+    "heroDescription": "Founded in 2021, Cyna was born after carrying out numerous incident responses in France and Europe thanks to the recognized expertise of the founders.",
+    "history": {
+      "description": "The various incident responses allowed us to understand the attack vectors and scenarios used by attackers. Cyna was then created, with the goal of providing comprehensive and pragmatic protection against cyberattacks for SMEs and mid-sized businesses.",
+      "title": "Our Story"
+    },
+    "mission": {
+      "title": "Our commitments at Cyna",
+      "description": "Nous plaçons vos priorités au cœur de notre mission. Nous comprenons les défis uniques auxquels sont confrontés les PME et MSP face aux menaces toujours plus sophistiquées."
+    },
+    "values": {
+      "title": "Discover our teams",
+      "description": "To effectively meet our daily challenges, Cyna has surrounded itself with experts, organized into dedicated teams to best meet your needs."
+    },
+    "farewellTitle": "You are not convinced ?",
+    "farewellMessage": "Contact us by clicking on the button below and we will answer all your questions.",
+    "farewellButton": "Contact Us"
+  },
+  "pageTitle": {
+    "default": "Pure player in Cyber",
+    "admin": "Admin"
+  },
+  "title": "Users List",
+  "footer": {
+    "termsOfUse": "Terms Of Use",
+    "legalNotice": "Legal Notice",
+    "contact": "Contact",
+    "allRightsReserved": "All Rights Reserved",
+    "products": "Products",
+    "aboutUs": "About Us"
+  },
+  "legals": {
+    "title": "Legal Notice",
+    "definitions": {
+      "title": "Definitions",
+      "client": "Client: any professional or natural person capable within the meaning of Articles 1123 and following of the Civil Code, or legal entity, who visits the website subject to these general conditions.",
+      "services": "Services: Cyna provides clients with:",
+      "content": "Content: all elements constituting the information present on the site, in particular texts, images, videos.",
+      "clientInfo": "Client Information: hereinafter referred to as 'Information(s)' which corresponds to all personal data that may be held by Cyna for the management of your account, customer relationship management and for analytical and statistical purposes.",
+      "user": "User: Internet user connecting, using the aforementioned site.",
+      "personalInfo": "Personal Information: 'information that allows, in any form whatsoever, directly or indirectly, the identification of the natural persons to whom they apply' (Article 4 of Law No. 78-17 of January 6, 1978)."
+    },
+    "presentation": {
+      "title": "1. Website Presentation",
+      "owner": "Owner: SAS Cyna-IT - Share capital of 1000 euros - VAT number: FR20913711032 - 10 rue de Penthièvre 75008 Paris",
+      "publisher": "Publication Manager: Alexandre Elbaz - alexandre.elbaz@cyna-it.fr",
+      "host": "Host: OVH - 2 rue Kellermann 59100 Roubaix 1007",
+      "dpo": "Data Protection Officer: Nathan Bramli - nathan.bramli@cyna-it.fr"
+    },
+    "conditions": {
+      "title": "2. General Conditions of Use of the Site and Services Offered",
+      "intellectualProperty": "The site constitutes a work of the mind protected by the provisions of the Intellectual Property Code and applicable international regulations. The Client may not in any way reuse, transfer or exploit for his own account all or part of the elements or works of the site.",
+      "acceptance": "The use of the Cyna site implies full and complete acceptance of the general conditions of use described below. These conditions of use may be modified or supplemented at any time.",
+      "accessibility": "This website is normally accessible to users at any time. An interruption due to technical maintenance may however be decided by Cyna."
+    },
+    "services": {
+      "title": "3. Description of Services Provided",
+      "description": "The Cyna website aims to provide information about all of the company's activities. Cyna strives to provide as accurate information as possible on the site."
+    },
+    "technicalLimitations": {
+      "title": "4. Contractual Limitations on Technical Data",
+      "description": "The site uses JavaScript technology. The website cannot be held responsible for material damage related to the use of the site."
+    },
+    "intellectualProperty": {
+      "title": "5. Intellectual Property and Counterfeiting",
+      "rights": "Cyna owns the intellectual property rights and holds the usage rights on all elements accessible on the website.",
+      "consequences": "Any unauthorized use of the site or any of the elements it contains will be considered as constituting an infringement and prosecuted in accordance with the provisions of Articles L.335-2 and following of the Intellectual Property Code."
+    },
+    "liability": {
+      "title": "6. Limitations of Liability",
+      "publisher": "Cyna acts as the publisher of the site. Cyna is responsible for the quality and veracity of the content it publishes.",
+      "damages": "Cyna cannot be held responsible for direct and indirect damage caused to the user's equipment.",
+      "interactiveSpaces": "Interactive spaces are available to users. Cyna reserves the right to remove, without prior notice, any content posted in this space that would violate the applicable law in France."
+    },
+    "privacy": {
+      "title": "7. Personal Data Management",
+      "dataController": {
+        "title": "7.1 Personal Data Collection Managers",
+        "description": "For personal data collected in the context of the creation of the user's personal account and their navigation on the site, the person responsible for processing personal data is: Cyna-IT."
+      },
+      "purpose": {
+        "title": "7.2 Purpose of Collected Data",
+        "navigation": "To allow navigation on the site and the management and traceability of services ordered by the user",
+        "fraud": "To prevent and fight against computer fraud",
+        "improvement": "To improve navigation on the site",
+        "communication": "To conduct communication campaigns"
+      },
+      "rights": {
+        "title": "7.3 Right of Access, Rectification and Opposition",
+        "description": "In accordance with current European regulations, users of Cyna have the following rights: right of access, rectification, updating, completeness of data, right to block or erase data."
+      }
+    },
+    "cookies": {
+      "title": "9. Hypertext Links, Cookies and Internet Tags",
+      "definition": "A 'cookie' is a small information file sent to the User's browser and stored in the User's terminal.",
+      "purpose": "Cookies facilitate navigation and/or the provision of services offered by the site.",
+      "management": "The User can configure their browser to allow them to decide whether or not to accept them."
+    },
+    "applicableLaw": {
+      "title": "10. Applicable Law and Jurisdiction",
+      "description": "Any dispute in connection with the use of the Cyna site is subject to French law. Except in cases where the law does not allow it, exclusive jurisdiction is given to the competent courts of Paris."
+    }
+  },
+  "cookieBanner": {
+    "message": "This website uses cookies to enhance your experience and for technical purposes. By using our website, you consent to the use of cookies. You can read more in our",
+    "privacyPolicy": "Terms And Condition",
+    "acceptAll": "Accept All",
+    "accept": "Accept"
+  },
+  "admin": {
+    "support": {
+      "inbox": {
+        "noMobileSupport": " Sorry, this feature is not available on mobile.",
+        "noMobileSupportDescription": "To access Admin Inbox and Tickets, please use a desktop computer."
+      }
+    }
+  },
+  "Home": {
+    "Banner": {
+      "noTitle": "No Title"
+    }
   }
 }

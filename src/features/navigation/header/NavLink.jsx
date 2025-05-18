@@ -1,14 +1,18 @@
 import { Link } from "@/i18n/routing"
-import { ShoppingCart } from "@mui/icons-material"
 import LocaleSwitcher from "@/features/navigation/header/LocaleSwitcher"
 import { UserNav } from "@/features/navigation/header/UserNav"
+import ShoppingCart from "@/features/navigation/header/ShoppingCart"
+import MobileMenu from "@/features/navigation/header/MobileMenu"
 
 export default function NavLink() {
   const links = [
     {
+      name: "mobileMenu",
+      icon: <MobileMenu />,
+    },
+    {
       name: "cart",
-      href: "/user/order/cart",
-      icon: <ShoppingCart className="text-white hover:scale-125 scale-110" />,
+      icon: <ShoppingCart />,
     },
     {
       name: "localeSwitcher",
@@ -23,7 +27,7 @@ export default function NavLink() {
   return (
     <>
       {links.map((link) => (
-        <div key={link.name} className="mx-1">
+        <div key={link.name} className="mx-4">
           {link.href ? (
             <Link href={link.href}>
               <div className="flex hover:cursor-pointer transition-all text-3xl items-center">

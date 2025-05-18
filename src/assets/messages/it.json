@@ -4,7 +4,35 @@
     "about": "OKOKOKOKOKOKOK",
     "HomePage": {
       "carouselButtonMoreInfos": "Più informazioni"
-    }
+    },
+    "clients": "Affidati di oltre 500 clienti attorno alla parola.",
+    "learnMore": "Visualizza il prodotto",
+    "learnMoreCategory": "Visualizza tutti i prodotti",
+    "ourProducts": "I nostri prodotti",
+    "ourServices": "I nostri servizi informatici",
+    "welcome": "Benvenuti in {company}",
+    "welcomeMessage": "Il tuo partner di fiducia nelle soluzioni di sicurezza informatica.",
+    "welcomeMessageAnimation": "È ora di proteggere il tuo futuro!",
+    "welcomeMessageDescription": "Unisciti ora a più di 500 aziende che si fidano di noi per proteggere la propria azienda e costruire un ambiente sicuro per i propri dipendenti e clienti.",
+    "business": "Attività commerciale",
+    "customers": "clienti",
+    "data": "dati",
+    "employees": "dipendenti",
+    "login": "Login",
+    "privacy": "Privacy",
+    "register": "Registrati ora",
+    "characteristics": "Caratteristiche",
+    "chooseThisOffer": "Scegli questa offerta",
+    "compareSolutions": "Confronta i nostri migliori prodotti",
+    "month": "Mese",
+    "oneTime": "Una volta",
+    "or": "O",
+    "otherProducts": "Prodotti correlati",
+    "perYear": "all'anno",
+    "startingFrom": "A partire da",
+    "subscription": "Sottoscrizione",
+    "topProducts": "Prodotti migliori",
+    "viewAllProducts": "Visualizza tutti i prodotti"
   },
   "Auth": {
     "LoginPage": {
@@ -27,7 +55,10 @@
       "accountNotConfirmed": "Il tuo account non è confermato, controlla la tua email e conferma il tuo account. \nSe non hai ricevuto un'e -mail, controlla la cartella SPAM. \nSe non riesci ancora a trovare l'e -mail, contatta il nostro team di supporto in {email}.",
       "invalidOtp": "L'OTP che hai inserito non è valido, riprova",
       "otpRequired": "La tua password a un tempo è richiesta per accedere al tuo account, inserisci il codice fornito dalla tua app di autenticazione",
-      "requiredOtp": "È richiesto il codice OTP con 6 cifre"
+      "requiredOtp": "È richiesto il codice OTP con 6 cifre",
+      "resetSuccess": "La tua password è stata ripristinata di successo, ora puoi accedere",
+      "logoutAutoSuccess": "Sei stato automaticamente disconnesso. \nAccedi di nuovo.",
+      "titleMobile": "Accedi all'applicazione {Company} con il tuo account {Company}"
     },
     "RegisterPage": {
       "title": "OKOKOKOKOKOKOK",
@@ -82,7 +113,46 @@
     "confirmEmail": "Conferma e -mail",
     "confirmEmailFailed": "Conferma e -mail non riuscita. \nRiprova o contatta il nostro team di supporto.",
     "confirmEmailSuccess": "La tua e -mail è stata confermata correttamente, ora puoi accedere.",
-    "login": "Torna alla pagina di accesso"
+    "login": "Torna alla pagina di accesso",
+    "ResetPasswordPage": {
+      "backToHome": "Vai a casa",
+      "backToLogin": "Torna alla pagina di accesso",
+      "backToResetPassword": "Chiedi uno nuovo",
+      "confirmPassword": "Coonfirm la tua nuova password",
+      "description": "Inserisci il tuo indirizzo email e ti invieremo un link per reimpostare la password.",
+      "email": "E-mail",
+      "goToLogin": "Vai alla pagina di accesso",
+      "invalidEmail": "Email non valida",
+      "invalidOrExpiredToken": "Il token di ripristino non è valido o è scaduto",
+      "invalidToken": "Link di ripristino non valido",
+      "invalidTokenMessage": "Questo link non è valido o scadenza, prova a chiederne uno nuovo a contattare il nostro team di supporto.",
+      "password": "Inserisci la tua nuova password",
+      "passwordMinLength": "È richiesta una password con 12 lettere",
+      "passwordResetSuccess": "La password è stata ripristinata correttamente, ora puoi accedere",
+      "passwordsMustMatch": "Le password devono essere identiche",
+      "register": "Torna alla pagina di accesso",
+      "rememberYourPassword": "Dopo tutto lo ricordi?",
+      "requiredConfirmPassword": "Coonfirm è richiesta la tua nuova password",
+      "requiredEmail": "È richiesta l'e -mail",
+      "requiredPassword": "È richiesta la password",
+      "resetPassword": "Reimpostare la password",
+      "resetPasswordEmailSent": "Se l'e -mail esiste, è stato inviato un collegamento di ripristino. \nControlla la cartella della posta in arrivo o dello spam.",
+      "sendEmail": "Invia un collegamento di ripristino",
+      "somethingWentWrong": "Impossibile inviare l'e -mail di ripristino, riprova.",
+      "title": "Reimpostare la password",
+      "emailSent": "Se esisteva un account con questa e -mail, verrà inviato un messaggio con un link per reimpostare la password. \nPuoi usarlo per reimpostare la password."
+    },
+    "loggingYouOut": "Disconnettendoti",
+    "loggingYouOutMessage": "Se non sei reindirizzato, fai clic qui",
+    "clickToOpenMobileApp": "Clicca qui se non sei reindirizzato automatico",
+    "redirectingToMobile": "Reindirizzandoti all'app mobile {Company}",
+    "application": "App",
+    "mobile": "Mobile",
+    "phone": "Telefono",
+    "redirectingToMobileMessage": "Se non sei reindirizzato in 5 secondi, fai clic sul pulsante in basso.",
+    "title": "Conferma e -mail",
+    "titleLogout": "Reindirizzamento logout",
+    "titleMobile": "Accesso mobile"
   },
   "other": "Altro",
   "socialMedia": "Mezzi sociali",
@@ -147,7 +217,201 @@
           "subTitle": "Gestisci i dettagli, i ruoli e le autorizzazioni dell'utente"
         },
         "subTitle": "Gestisci il contenuto della home page, il carosello, gli avvisi e altro ancora",
-        "title": "Impostazioni della home page"
+        "title": "Impostazioni della home page",
+        "Banner": {
+          "active": "Attivo",
+          "description": "Descrizione",
+          "descriptionPlaceholder": "Descrizione del banner",
+          "error": "Errore",
+          "save": "Salvare",
+          "saved": "Salvato",
+          "saving": "Risparmio di allerta banner",
+          "style": "Stile",
+          "title": "Titolo",
+          "titlePlaceholder": "Il titolo del banner",
+          "titleSection": "Banner di allerta"
+        }
+      },
+      "Categories": {
+        "Add": {
+          "Stock": "Azione",
+          "add": "Aggiungere",
+          "adding": "Aggiunta",
+          "addingCategory": "Aggiunta di categoria",
+          "categoryAdded": "Categoria aggiunta",
+          "description": "Descrizione",
+          "dialogDescription": "Compila il modulo per aggiungere una nuova categoria",
+          "dialogTitle": "Aggiungi una nuova categoria",
+          "errorAddingCategory": "Errore di aggiunta di categoria",
+          "imagePlaceholder": "Scegli un file di immagine",
+          "isActive": "Attivo",
+          "label": "Nome",
+          "language": "Lingua",
+          "picture": "Immagine",
+          "selectLanguage": "Seleziona una lingua"
+        },
+        "Delete": {
+          "categoryDeleted": "Categoria cancellata",
+          "deletingCategory": "Categoria di eliminazione",
+          "errorDeletingCategory": "Categoria di eliminazione degli errori"
+        },
+        "Edit": {
+          "dialogDescription": "Compilare il modulo per modificare la categoria",
+          "dialogTitle": "Modifica categoria",
+          "errorUpdatingCategory": "Errore di aggiornamento della categoria",
+          "language": "Lingua",
+          "selectLanguage": "Seleziona una lingua",
+          "update": "Aggiornamento",
+          "updated": "Aggiornato",
+          "updating": "Aggiornamento"
+        },
+        "Errors": {
+          "descriptionRequired": "È richiesta una descrizione",
+          "labelRequired": "È richiesto il nome",
+          "pictureRequired": "È richiesta l'immagine"
+        },
+        "More": {
+          "deleteCategory": "Elimina categoria",
+          "editCategory": "Modifica categoria",
+          "viewCategory": "Visualizza categoria"
+        },
+        "columns": "Colonne",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "isActive": "Attivo",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato",
+        "previous": "Precedente",
+        "searchPlaceholder": "Ricerca...",
+        "subTitle": "Gestisci categorie",
+        "title": "Categorie",
+        "yes": "SÌ"
+      },
+      "Coupons": {
+        "title": "Voucher"
+      },
+      "Payments": {
+        "title": "Pagamenti"
+      },
+      "Products": {
+        "Add": {
+          "Stock": "Azione",
+          "add": "Aggiungere",
+          "adding": "Aggiunta",
+          "addingProduct": "Aggiunta di prodotto",
+          "categorie": "Categorie",
+          "characteristics": "Caratteristiche",
+          "description": "Descrizione",
+          "dialogDescription": "Compilare il modulo per aggiungere un nuovo prodotto",
+          "dialogTitle": "Aggiungi un nuovo prodotto",
+          "errorAddingProduct": "Errore che aggiunge il prodotto",
+          "imagePlaceholder": "Scegli un file di immagine",
+          "isActive": "Attivo",
+          "label": "Nome",
+          "language": "Lingua",
+          "picture": "Immagine",
+          "price": "Prezzo",
+          "priority": "Priorità",
+          "productAdded": "Prodotto aggiunto",
+          "selectCategorie": "Seleziona una categoria",
+          "selectLanguage": "Seleziona una lingua",
+          "selectPriority": "Seleziona una priorità",
+          "stock": "Azione",
+          "subscription": "Sottoscrizione",
+          "taxe": "Taxe",
+          "technicalCaracteristics": "Caracteristiche tecniche"
+        },
+        "Delete": {
+          "deletingProduct": "Eliminazione del prodotto",
+          "errorDeletingProduct": "Errore eliminazione del prodotto",
+          "productDeleted": "Prodotto eliminato"
+        },
+        "Edit": {
+          "dialogDescription": "Compilare il modulo per modificare il prodotto",
+          "dialogTitle": "Modifica il prodotto",
+          "errorUpdatingProduct": "Errore di aggiornamento del prodotto",
+          "language": "Lingua",
+          "selectLanguage": "Seleziona una lingua",
+          "update": "Aggiornamento",
+          "updated": "Aggiornato",
+          "updating": "Aggiornamento"
+        },
+        "Errors": {
+          "descriptionRequired": "È richiesta una descrizione",
+          "labelRequired": "È richiesto il nome",
+          "pictureRequired": "È richiesta l'immagine"
+        },
+        "More": {
+          "deleteProduct": "Elimina il prodotto",
+          "editProduct": "Modifica il prodotto",
+          "viewProduct": "Visualizza il prodotto"
+        },
+        "columns": "Colonne",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "isActive": "Attivo",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato",
+        "previous": "Precedente",
+        "searchPlaceholder": "Ricerca...",
+        "subTitle": "Gestire i prodotti",
+        "title": "Prodotti",
+        "yes": "SÌ"
+      },
+      "Subscriptions": {
+        "title": "Abbonamenti"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Visualizza i dettagli del voucher",
+          "title": "Dettagli del voucher"
+        },
+        "actions": "Azioni",
+        "activateVoucher": "Attiva voucher",
+        "addVoucher": "Aggiungi voucher",
+        "addVoucherDescription": "Compila i dettagli per creare un nuovo voucher.",
+        "amount": "Quantità",
+        "amountMin": "1 è il minimo",
+        "autoGenerateCodeMessage": "Se lasciato vuoto, un codice verrà generato automaticamente.",
+        "category": "Categoria",
+        "code": "Codice",
+        "columns": "Colonne",
+        "createdAt": "Creare a",
+        "deactivateVoucher": "DEACTIVATE VOUCHER",
+        "description": "Descrizione",
+        "discount": "Sconto",
+        "endDate": "Data di fine",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "expirationDate": "Data di scadenza",
+        "fixed": "Fisso",
+        "isActive": "Attivo",
+        "isCategorySpecific": "Specifico per la categoria",
+        "isProductSpecific": "Specifico per il prodotto",
+        "minPurchaseAmount": "Importo minimo di acquisto",
+        "minPurchaseAmountMin": "È richiesto l'importo minimo dell'acquisto",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato.",
+        "percentage": "Percentuale",
+        "previous": "Precedente",
+        "product": "Prodotto",
+        "requiredAmount": "Importo richiesto",
+        "requiredType": "È richiesto il tipo",
+        "saveChanges": "Salva le modifiche",
+        "searchPlaceholder": "Ricerca...",
+        "startDate": "Data di inizio",
+        "subTitle": "Gestisci i buoni",
+        "title": "Voucher",
+        "type": "Tipo",
+        "updatedAt": "Aggiornamento a",
+        "user": "Utente",
+        "viewVoucher": "Visualizza voucher",
+        "voucherAmount": "Quantità",
+        "voucherCode": "Codice voucher",
+        "voucherCreated": "Voucher creato",
+        "voucherCreationFailed": "La creazione di voucher non è riuscita",
+        "voucherType": "Tipo di voucher",
+        "yes": "SÌ"
       }
     },
     "Business": {
@@ -155,18 +419,490 @@
         "title": "Coupon"
       },
       "Orders": {
-        "title": "Ordini"
+        "title": "Ordini",
+        "OrderDetails": {
+          "billingCycle": "Ciclo di fatturazione",
+          "billingPeriod": "Periodo di fatturazione",
+          "changedBy": "Cambiato da",
+          "currency": "Valuta",
+          "customerInformation": "Informazioni sui clienti",
+          "date": "Data",
+          "discount": "Sconto",
+          "email": "E-mail",
+          "error": "Errore di caricamento dei dettagli dell'ordine",
+          "loading": "Caricamento...",
+          "name": "Nome",
+          "notFound": "Ordine non trovato",
+          "openInvoice": "Fattura aperta",
+          "orderId": "Ordine ID",
+          "orderInformation": "Informazioni sull'ordine",
+          "paymentInformation": "Informazioni di pagamento",
+          "paymentIntentId": "ID intenzione di pagamento",
+          "products": "Prodotti",
+          "quantity": "Quantità",
+          "sessionId": "ID sessione",
+          "status": "Stato",
+          "statusHistory": "Cronologia dello stato",
+          "stripePriceId": "Stripe Price ID",
+          "subTitle": "Visualizza i dettagli del tuo ordine",
+          "subscriptionId": "ID abbonamento",
+          "subscriptionInformation": "Informazioni sull'abbonamento",
+          "subscriptionStatus": {
+            "active": "Attivo",
+            "canceled": "Annullato",
+            "incomplete": "Incompleto",
+            "incomplete_expired": "Scaduto incompleto",
+            "past_due": "Passato",
+            "paused": "In pausa",
+            "trialing": "Prova",
+            "unpaid": "Non pagato"
+          },
+          "subtotal": "Subtotale",
+          "tax": "Tassare",
+          "title": "Dettagli dell'ordine",
+          "total": "Totale",
+          "totalAmount": "Importo totale",
+          "viewSubscription": "Visualizza i dettagli dell'abbonamento",
+          "voucher": "Codice voucher",
+          "cancel": "Cancellare",
+          "cancelError": "Impossibile annullare l'ordine",
+          "cancelOrder": "Annullare l'ordine",
+          "cancelOrderDescription": "Scegli come desideri annullare questo ordine:",
+          "cancelOrderSubscriptionDescription": "Questo ordine contiene un abbonamento. \nPuoi solo annullare l'ordine qui. \nPer gestire l'abbonamento e i rimborsi, vai alla pagina di abbonamento.",
+          "cancelOrderTitle": "Annullare l'ordine",
+          "cancelSuccess": "Ordine annullato correttamente",
+          "cancelWithRefund": "Annullare l'ordine",
+          "cancelWithRefundDescription": "L'ordine verrà annullato e il cliente riceverà un rimborso completo.",
+          "cancelWithoutRefund": "Annulla l'ordine senza rimborso",
+          "cancelWithoutRefundDescription": "L'ordine verrà annullato senza alcun rimborso.",
+          "confirm": "Confermare",
+          "confirmOrder": "Conferma questo ordine",
+          "goToOrderStripe": "Aperto in striscia",
+          "goToSubscriptionPage": "Vai alla pagina di abbonamento",
+          "goToSubscriptionPageDescription": "Gestire l'annullamento dell'abbonamento e i rimborsi nella pagina di abbonamento.",
+          "markAsCompleted": "Segna come completato",
+          "noRefundAvailable": "Questo ordine non può essere rimborsato. \nCiò può essere dovuto al fatto che è stato pagato con un voucher o non è idoneo per un rimborso.",
+          "openUserInvoice": "Apri la fattura utente",
+          "orderActions": "Azioni",
+          "orderAddComment": "Aggiungi un commento",
+          "orderCompletionWarning": "Una volta contrassegnato come completato, l'ordine non può essere modificato.",
+          "orderPaidDescription": "Il pagamento è stato pagato. \nOra puoi rivedere e confermare l'ordine prima di procedere.",
+          "orderPendingDescription": "Riprendi l'elaborazione dell'ordine.",
+          "orderTreatment": "TRATTAMENTO ORDINA",
+          "orderWaitingCompletionDescription": "Rivedi l'ordine e contrassegnalo come completato quando è pronto.",
+          "resumeOrder": "Riprendi l'ordine",
+          "statusUpdateError": "Impossibile aggiornare lo stato dell'ordine",
+          "statusUpdateSuccess": "Stato dell'ordine aggiornato correttamente",
+          "suspendOrder": "Sospendere l'ordine",
+          "suspendOrderDescription": "Si prega di fornire un motivo per sospendere questo ordine.",
+          "suspendOrderError": "Impossibile sospendere l'ordine",
+          "suspendOrderReasonPlaceholder": "Inserisci il motivo della sospensione ...",
+          "suspendOrderSuccess": "Ordine sospeso con successo",
+          "suspendOrderTitle": "Sospendere l'ordine",
+          "viewCustomer": "Visualizza il cliente",
+          "billingAddress": "Indirizzo di fatturazione",
+          "noBillingAddress": "Nessun indirizzo di fatturazione"
+        },
+        "Status": {
+          "all": "Tutto lo stato",
+          "cancel": "Annullato",
+          "completed": "Completato",
+          "failed": "Fallito",
+          "paid": "Pagato",
+          "pending": "In attesa di",
+          "processing": "Elaborazione",
+          "refund": "Rimborsato"
+        },
+        "date": "Data",
+        "errorLoadingOrders": "Ordini di caricamento degli errori",
+        "next": "Prossimo",
+        "noOrders": "Nessun ordine trovato",
+        "orderId": "Ordine ID",
+        "previous": "Precedente",
+        "searchPlaceholder": "Cerca un ordine",
+        "status": {
+          "cancelled": "Annullato",
+          "completed": "Completato",
+          "failed": "Fallito",
+          "paid": "Pagato",
+          "pending": "In attesa di",
+          "processing": "Elaborazione",
+          "title": "Stato"
+        },
+        "subTitle": "Gestisci i tuoi ordini",
+        "total": "Totale",
+        "viewDetails": "Visualizza i dettagli",
+        "customer": "Cliente",
+        "latestOrders": "Ultimi ordini",
+        "filters": "Filtri"
       },
       "Payments": {
-        "title": "Pagamenti"
+        "title": "Pagamenti",
+        "actions": "Azioni",
+        "amount": "Quantità",
+        "date": "Data",
+        "expires": "Scade",
+        "invoices": "Fatture",
+        "loading": "Caricamento...",
+        "next": "Prossimo",
+        "noInvoices": "Nessuna fattura trovata",
+        "noPaymentMethods": "Nessun metodo di pagamento salvato",
+        "olderInvoicesMessage": "Cerchi fatture più vecchie? \nAccedi alla cronologia di fatturazione completa nel portale Stripe.",
+        "openStripePortal": "Portale a strisce aperte",
+        "paymentPortal": "Portale di pagamento",
+        "paymentPortalDescription": "Visualizza la cronologia dei pagamenti e gestisci i tuoi metodi di pagamento. \nPer una gestione avanzata, utilizzare il portale dei clienti Stripe.",
+        "previous": "Precedente",
+        "savedPaymentMethods": "Metodi di pagamento salvati",
+        "status": "Stato",
+        "stripePortalInactive": "Il tuo account Stripe verrà attivato dopo il tuo primo ordine. \nAvrai quindi accesso al portale dei clienti Stripe.",
+        "viewInvoice": "Visualizza la fattura"
       },
       "Products": {
-        "title": "Prodotti"
+        "title": "Prodotti",
+        "Add": {
+          "Stock": "Azione",
+          "add": "Aggiungere",
+          "adding": "Aggiunta",
+          "addingProduct": "Aggiunta di prodotto",
+          "categorie": "Categorie",
+          "characteristics": "Caratteristiche",
+          "description": "Descrizione",
+          "dialogDescription": "Compilare il modulo per aggiungere un nuovo prodotto",
+          "dialogTitle": "Aggiungi un nuovo prodotto",
+          "errorAddingProduct": "Errore che aggiunge il prodotto",
+          "imagePlaceholder": "Scegli un file di immagine",
+          "isActive": "Attivo",
+          "label": "Nome",
+          "language": "Lingua",
+          "picture": "Immagine",
+          "price": "Prezzo",
+          "priority": "Priorità",
+          "productAdded": "Prodotto aggiunto",
+          "selectCategorie": "Seleziona una categoria",
+          "selectLanguage": "Seleziona una lingua",
+          "selectPriority": "Seleziona una priorità",
+          "stock": "Azione",
+          "subscription": "Sottoscrizione",
+          "taxe": "Taxe",
+          "technicalCaracteristics": "Caracteristiche tecniche",
+          "priceAnnual": "Prezzo annuale",
+          "priceMonthly": "Prezzo mensile",
+          "addCharacteristic": "Aggiungi caratteristiche",
+          "remove": "Rimuovere"
+        },
+        "Delete": {
+          "deletingProduct": "Eliminazione del prodotto",
+          "errorDeletingProduct": "Errore eliminazione del prodotto",
+          "productDeleted": "Prodotto eliminato"
+        },
+        "Edit": {
+          "dialogDescription": "Compilare il modulo per modificare il prodotto",
+          "dialogTitle": "Modifica il prodotto",
+          "errorUpdatingProduct": "Errore di aggiornamento del prodotto",
+          "language": "Lingua",
+          "selectLanguage": "Seleziona una lingua",
+          "update": "Aggiornamento",
+          "updated": "Aggiornato",
+          "updating": "Aggiornamento"
+        },
+        "Errors": {
+          "descriptionRequired": "È richiesta una descrizione",
+          "labelRequired": "È richiesto il nome",
+          "pictureRequired": "È richiesta l'immagine"
+        },
+        "More": {
+          "deleteProduct": "Elimina il prodotto",
+          "editProduct": "Modifica il prodotto",
+          "viewProduct": "Visualizza il prodotto"
+        },
+        "columns": "Colonne",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "isActive": "Attivo",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato",
+        "previous": "Precedente",
+        "searchPlaceholder": "Ricerca...",
+        "subTitle": "Gestire i prodotti",
+        "yes": "SÌ"
       },
       "Subscriptions": {
-        "title": "Abbonamenti"
+        "title": "Abbonamenti",
+        "Status": {
+          "active": "Attivo",
+          "all": "Tutto lo stato",
+          "canceled": "Annullato",
+          "incomplete": "Incompleto",
+          "incomplete_expired": "Scaduto incompleto",
+          "past_due": "Passato",
+          "paused": "In pausa",
+          "preCanceled": "Pre-cancello",
+          "title": "Stato",
+          "trialing": "Prova",
+          "unpaid": "Non pagato"
+        },
+        "SubscriptionDetails": {
+          "Status": {
+            "active": "Attivo",
+            "canceled": "Annullato",
+            "incomplete": "Incompleto",
+            "incomplete_expired": "Scaduto incompleto",
+            "past_due": "Passato",
+            "paused": "In pausa",
+            "preCanceled": "Pre-cancellato",
+            "trialing": "Prova",
+            "unpaid": "Non pagato"
+          },
+          "billingCycle": "Ciclo di fatturazione",
+          "cancel": "Cancellare",
+          "cancelAtPeriodEnd": "Annulla alla fine del periodo",
+          "cancelAtPeriodEndDescription": "Questo abbonamento rimarrà attivo fino alla fine dell'attuale periodo di fatturazione.",
+          "cancelAtPeriodEndDescription2": "L'abbonamento verrà già annullato alla fine del periodo corrente. \nSe non ne sei sicuro, contatta il nostro team di supporto.",
+          "cancelError": "Impossibile annullare l'abbonamento",
+          "cancelNowWithFullRefund": "Annulla ora",
+          "cancelNowWithFullRefundDescription": "Questo abbonamento verrà annullato immediatamente e il cliente riceverà un rimborso completo per il periodo corrente.",
+          "cancelNowWithRemainingRefund": "Annulla ora",
+          "cancelNowWithRemainingRefundDescription": "Questo abbonamento verrà annullato immediatamente e il cliente riceverà un rimborso per i restanti giorni del periodo corrente.",
+          "cancelNowWithoutRefund": "Annulla ora senza rimborso",
+          "cancelNowWithoutRefundDescription": "Questo abbonamento verrà annullato immediatamente senza alcun rimborso.",
+          "cancelSubscription": "Annulla l'abbonamento",
+          "cancelSubscriptionDescription": "Scegli come desideri annullare questo abbonamento:",
+          "cancelSubscriptionTitle": "Annulla l'abbonamento",
+          "cancelSuccess": "Abbonamento annullato correttamente",
+          "canceledAt": "Cancellato a",
+          "canceling": "Annullamento dell'abbonamento ...",
+          "changedBy": "Cambiato da",
+          "confirm": "Confermare",
+          "customerId": "ID cliente",
+          "customerInformation": "Informazioni sui clienti",
+          "defaultPaymentMethod": "Metodo di pagamento predefinito",
+          "email": "E-mail",
+          "error": "Errore Caricamento dei dettagli dell'abbonamento",
+          "invoiceNotFound": "Si è verificato un errore durante il recupero della fattura",
+          "loading": "Caricamento...",
+          "manageSubscription": "Gestisci l'abbonamento",
+          "name": "Nome",
+          "notFound": "Abbonamento non trovato",
+          "openInvoice": "Apri l'ultima fattura",
+          "openSubscriptionStripe": "Visualizza su Stripe",
+          "paymentInformation": "Informazioni di pagamento",
+          "periodEnd": "Fine del periodo corrente",
+          "periodStart": "Periodo corrente inizia",
+          "preCanceled": "Pre-cancellato",
+          "preCanceledDescription": "Questo abbonamento è stato annullato e si fermerà alla fine del periodo corrente.",
+          "products": "Prodotti",
+          "quantity": "Quantità",
+          "statusHistory": "Cronologia dello stato",
+          "stripePriceId": "Stripe Price ID",
+          "subTitle": "Visualizza i dettagli dell'abbonamento",
+          "subscriptionId": "Id",
+          "subscriptionInformation": "Informazioni sull'abbonamento",
+          "title": "Dettagli di abbonamento",
+          "updateError": "Si è verificato un errore durante l'aggiornamento dell'abbonamento",
+          "updateSuccess": "Il tuo abbonamento ha avuto successo aggiornato",
+          "viewOrder": "Visualizza l'ordine",
+          "viewProduct": "Visualizza il prodotto",
+          "viewCustomer": "Visualizza il cliente"
+        },
+        "all": "Tutto",
+        "columns": "Colonne",
+        "date": "Data",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "errorLoadingSubscriptions": "Abbonamenti di caricamento degli errori",
+        "next": "Prossimo",
+        "noResults": "Nessun risultato.",
+        "noSubscriptions": "Nessun abbonamento trovato",
+        "pickDate": "Scegli un appuntamento",
+        "previous": "Precedente",
+        "products": "Prodotti",
+        "resetFilters": "Ripristina i filtri",
+        "searchPlaceholder": "Cerca per ID, nome o e -mail ...",
+        "subTitle": "Gestisci abbonamenti",
+        "subscriptionId": "ID abbonamento",
+        "filters": "Filtri"
       },
-      "title": "Attività commerciale"
+      "title": "Attività commerciale",
+      "Categories": {
+        "Add": {
+          "Stock": "Azione",
+          "add": "Aggiungere",
+          "adding": "Aggiunta",
+          "addingCategory": "Aggiunta di categoria",
+          "categoryAdded": "Categoria aggiunta",
+          "description": "Descrizione",
+          "dialogDescription": "Compila il modulo per aggiungere una nuova categoria",
+          "dialogTitle": "Aggiungi una nuova categoria",
+          "errorAddingCategory": "Errore di aggiunta di categoria",
+          "imagePlaceholder": "Scegli un file di immagine",
+          "isActive": "Attivo",
+          "label": "Nome",
+          "language": "Lingua",
+          "picture": "Immagine",
+          "selectLanguage": "Seleziona una lingua"
+        },
+        "Delete": {
+          "categoryDeleted": "Categoria cancellata",
+          "deletingCategory": "Categoria di eliminazione",
+          "errorDeletingCategory": "Categoria di eliminazione degli errori"
+        },
+        "Edit": {
+          "dialogDescription": "Compilare il modulo per modificare la categoria",
+          "dialogTitle": "Modifica categoria",
+          "errorUpdatingCategory": "Errore di aggiornamento della categoria",
+          "language": "Lingua",
+          "selectLanguage": "Seleziona una lingua",
+          "update": "Aggiornamento",
+          "updated": "Aggiornato",
+          "updating": "Aggiornamento"
+        },
+        "Errors": {
+          "descriptionRequired": "È richiesta una descrizione",
+          "labelRequired": "È richiesto il nome",
+          "pictureRequired": "È richiesta l'immagine"
+        },
+        "More": {
+          "deleteCategory": "Elimina categoria",
+          "editCategory": "Modifica categoria",
+          "viewCategory": "Visualizza categoria"
+        },
+        "columns": "Colonne",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "isActive": "Attivo",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato",
+        "previous": "Precedente",
+        "searchPlaceholder": "Ricerca...",
+        "subTitle": "Gestisci categorie",
+        "title": "Categorie",
+        "yes": "SÌ"
+      },
+      "Vouchers": {
+        "VoucherDetails": {
+          "subTitle": "Visualizza i dettagli del voucher",
+          "title": "Dettagli del voucher"
+        },
+        "actions": "Azioni",
+        "activateVoucher": "Attiva voucher",
+        "addVoucher": "Aggiungi voucher",
+        "addVoucherDescription": "Compila i dettagli per creare un nuovo voucher.",
+        "amount": "Quantità",
+        "amountMin": "1 è il minimo",
+        "autoGenerateCodeMessage": "Se lasciato vuoto, un codice verrà generato automaticamente.",
+        "category": "Categoria",
+        "code": "Codice",
+        "columns": "Colonne",
+        "createdAt": "Creare a",
+        "deactivateVoucher": "DEACTIVATE VOUCHER",
+        "description": "Descrizione",
+        "discount": "Sconto",
+        "endDate": "Data di fine",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "expirationDate": "Data di scadenza",
+        "fixed": "Fisso",
+        "isActive": "Attivo",
+        "isCategorySpecific": "Specifico per la categoria",
+        "isProductSpecific": "Specifico per il prodotto",
+        "minPurchaseAmount": "Importo minimo di acquisto",
+        "minPurchaseAmountMin": "È richiesto l'importo minimo dell'acquisto",
+        "next": "Prossimo",
+        "no": "NO",
+        "noResults": "Nessun risultato.",
+        "percentage": "Percentuale",
+        "previous": "Precedente",
+        "product": "Prodotto",
+        "requiredAmount": "Importo richiesto",
+        "requiredType": "È richiesto il tipo",
+        "saveChanges": "Salva le modifiche",
+        "searchPlaceholder": "Ricerca...",
+        "startDate": "Data di inizio",
+        "subTitle": "Gestisci i buoni",
+        "title": "Voucher",
+        "type": "Tipo",
+        "updatedAt": "Aggiornamento a",
+        "user": "Utente",
+        "viewVoucher": "Visualizza voucher",
+        "voucherAmount": "Quantità",
+        "voucherCode": "Codice voucher",
+        "voucherCreated": "Voucher creato",
+        "voucherCreationFailed": "La creazione di voucher non è riuscita",
+        "voucherType": "Tipo di voucher",
+        "yes": "SÌ",
+        "voucherStatusChangeFailed": "Lo stato del voucher è cambiato",
+        "voucherStatusChanged": "Lo stato del voucher è cambiato"
+      },
+      "Customers": {
+        "CustomerDetails": {
+          "subTitle": "Visualizza i dettagli del tuo cliente",
+          "title": "Dettagli del cliente"
+        },
+        "Status": {
+          "active": "Attivo",
+          "cancel": "Annullato",
+          "canceled": "Annullato",
+          "completed": "Completato",
+          "failed": "Fallito",
+          "incomplete": "Incompleto",
+          "incomplete_expired": "Scaduto incompleto",
+          "paid": "Pagato",
+          "past_due": "Passato",
+          "paused": "In pausa",
+          "pending": "In attesa di",
+          "preCanceled": "Pre-cancellato",
+          "processing": "Elaborazione",
+          "refund": "Rimborsato",
+          "trialing": "Prova",
+          "unpaid": "Non pagato"
+        },
+        "actions": "Azioni",
+        "annual": "Annuale",
+        "billingCycle": "Ciclo di fatturazione",
+        "city": "Città",
+        "columns": "Colonne",
+        "company": "Azienda",
+        "countCustomerOrders": "Ordini totali",
+        "countCustomerSubscriptions": "Abbonamento totale",
+        "countCustomerTickets": "Biglietti totali",
+        "country": "Paese",
+        "created": "Creato: {data}",
+        "createdAt": "Creato a",
+        "customerDetails": "Dettagli del cliente",
+        "date": "Data",
+        "editCustomer": "Modifica il cliente",
+        "email": "E-mail",
+        "endDate": "Data di fine",
+        "errorLoadingData": "Errore Caricamento dei dati dei clienti",
+        "firstName": "Nome di battesimo",
+        "invoiceNotFound": "Fattura non trovata",
+        "lastName": "Cognome",
+        "monthly": "Mensile",
+        "next": "Prossimo",
+        "noOrders": "Nessun ordine trovato",
+        "noResults": "Nessun cliente trovato",
+        "noStripeCustomerId": "Questo cliente non è ancora registrato su Stripe, verrà registrato automaticamente al suo primo ordine/abbonamento",
+        "noSubscriptions": "Nessun abbonamento trovato",
+        "openClientStripePortal": "Portale a strisce client aperte",
+        "orderId": "Ordine ID",
+        "orders": "Ordini",
+        "phone": "Telefono",
+        "portalNotFound": "Si verifica un errore mentre si ottiene il portale dell'utente",
+        "previous": "Precedente",
+        "profilePictureAlt": "Immagine del profilo di {FirstName} {LastName}",
+        "searchPlaceholder": "Cerca clienti ...",
+        "startDate": "Data di inizio",
+        "status": {
+          "title": "Stato"
+        },
+        "street": "Strada",
+        "subTitle": "Gestisci i tuoi clienti",
+        "subscriptionId": "ID abbonamento",
+        "subscriptions": "Abbonamenti",
+        "title": "Clienti",
+        "total": "Totale",
+        "viewDetails": "Visualizza i dettagli",
+        "viewOnStripe": "Visualizza su Stripe",
+        "zipCode": "Cap"
+      }
     },
     "Security": {
       "Logs": {
@@ -284,6 +1020,50 @@
           "EmailServiceError": {
             "description": "Si è verificato un errore con il servizio di posta elettronica",
             "title": "Errore di servizio e -mail"
+          },
+          "ShopSettingsEdit": {
+            "description": "Le impostazioni del negozio sono state modificate",
+            "title": "Modifica delle impostazioni del negozio"
+          },
+          "ShopSettingsError": {
+            "description": "Si è verificato un errore con le impostazioni del negozio",
+            "title": "Errore delle impostazioni del negozio"
+          },
+          "ShopStripeWebhook": {
+            "description": "Evento Webhook Stripe",
+            "title": "Shop Stripe Webhook"
+          },
+          "ShopStripeWebhookError": {
+            "description": "Si è verificato un errore con il webhook a strisce",
+            "title": "Shop Stripe Webhook Errore"
+          },
+          "ShopUserCart": {
+            "description": "Attività del carrello utente",
+            "title": "Carrello utente del negozio"
+          },
+          "ShopUserCartError": {
+            "description": "Si è verificato un errore con il carrello utente",
+            "title": "Errore del carrello utente del negozio"
+          },
+          "ShopStripeCustomer": {
+            "description": "Stripe Attività del cliente",
+            "title": "Shop Stripe Customer"
+          },
+          "ShopStripeCustomerError": {
+            "description": "Si è verificato un errore con il cliente Stripe",
+            "title": "Shop Stripe Errore del cliente"
+          },
+          "ChatbotError": {
+            "description": "Si è verificato un errore con il chatbot",
+            "title": "Errore di chatbot"
+          },
+          "ChatbotInfo": {
+            "description": "Si sono verificate informazioni con il chatbot",
+            "title": "Informazioni di chatbot"
+          },
+          "OrderUpdate": {
+            "description": "Un ordine è stato aggiornato",
+            "title": "Aggiornamento dell'ordine"
           }
         },
         "LogDetails": {
@@ -327,11 +1107,13 @@
         "userName": "Utente",
         "yes": "SÌ",
         "author": "Autore",
-        "authorName": "Autore"
+        "authorName": "Autore",
+        "latestLogs": "Ultimi registri",
+        "filters": "Filtri"
       },
       "Users": {
         "User": {
-          "nothingSelected": ""
+          "nothingSelected": "Nothing selected"
         },
         "UserDetails": {
           "active": "Attivo",
@@ -430,6 +1212,292 @@
         "account_activation_isActivated": "L'account è attivato",
         "account_confirmation_isConfirmed": "L'account è confermato"
       }
+    },
+    "Chat": {
+      "SELECT_ORDER": "Seleziona l'ordine",
+      "SELECT_PRODUCT": "Seleziona il prodotto",
+      "SELECT_SUBSCRIPTION": "Seleziona l'abbonamento",
+      "actionRequired": "Azione richiesta",
+      "active": "Attivo",
+      "adminSummary": "Riepilogo dell'amministratore",
+      "all": "Tutto",
+      "chatAdmin": "CHIACCHIERATA",
+      "chatClosed": "Questa conversazione è stata chiusa, non puoi inviare un nuovo messaggio",
+      "chatInbox": "Inbox",
+      "closed": "Chiuso",
+      "company": "Azienda",
+      "completed": "Completato",
+      "conversationDetails": "Dettagli di conversazione",
+      "conversationStats": "Statistiche di conversazione",
+      "email": "E-mail",
+      "endChat": {
+        "cancel": "Cancellare",
+        "confirm": "Confermare",
+        "description": "Sei sicuro di voler terminare questa conversazione? \nL'amministratore o il cliente non saranno in grado di inviare messaggi dopo questo.",
+        "ending": "Fine chat",
+        "title": "Termina questa conversazione?",
+        "titleBtn": "Termina la conversazione"
+      },
+      "ended": "Concluso",
+      "enterLink": "Immettere l'URL del collegamento",
+      "enterLinkMessage": "Immettere il messaggio per il collegamento",
+      "error": "Si è verificato un errore, prova a ricaricare la pagina o riprovare più tardi.",
+      "externalLink": "Collegamento esterno",
+      "internalLink": "Collegamento interno",
+      "location": "Posizione",
+      "loginRequired": "Accesso richiesto",
+      "noConversations": "Nessuna conversazione",
+      "noEmail": "Nessuna e -mail",
+      "notProvided": "Non fornito",
+      "order": "Ordine",
+      "orders": "Ordini",
+      "pending": "In attesa di",
+      "phone": "Telefono",
+      "product": "Prodotto",
+      "products": "Prodotti",
+      "relatedItems": "Articoli correlati",
+      "reload": "Ricaricare",
+      "requireLogin": "Richiedere l'accesso per accedere",
+      "searchPlaceholder": "Cerca una chat",
+      "selectAction": "Seleziona un'azione",
+      "selectConversation": "Seleziona una conversazione",
+      "selectOrder": "Selezione dell'ordine di richiesta",
+      "selectProduct": "Richiedi la selezione del prodotto",
+      "selectSubscription": "Richiedi selezione dell'abbonamento",
+      "send": "Inviare",
+      "sendLink": "Invia un link",
+      "sendingMessage": "[? \n] - Invio del tuo messaggio ...",
+      "started": "Iniziato",
+      "status": "Stato",
+      "subscription": "Sottoscrizione",
+      "subscriptions": "Abbonamenti",
+      "totalMessages": "Messaggi totali",
+      "typeMessage": "Digita un messaggio",
+      "unread": "Non letto",
+      "userActions": "Azioni dell'utente",
+      "userNotLoggedIn": "L'utente non ha effettuato l'accesso",
+      "userOrders": "Ordini utente",
+      "userProfile": "Profilo utente",
+      "userSubscriptions": "Abbonamenti utente",
+      "actionDone": "Azione fatta",
+      "adminSummaryPlaceholder": "Riepilogo della chat per l'amministratore",
+      "closedBy": "Chiuso da",
+      "loginRequiredActions": "L'utente non è effettuato l'accesso, alcune azioni potrebbero non essere disponibili.",
+      "noStripeCustomerId": "Custromer non è ancora registrato su Stripe",
+      "saveAdminSummary": "Salva riassunto",
+      "viewOnStripe": "Visualizza su Stripe",
+      "waitingAction": "In attesa di azione",
+      "you": "Voi",
+      "sendAsEmail": "Questo messaggio verrà inoltre inviato come e -mail all'e -mail utente.",
+      "createNewChat": "Inizia una conversazione con",
+      "errorLoadingUsers": "Errore durante il caricamento dell'utente",
+      "new": "NUOVO",
+      "next": "Prossimo",
+      "noMessage": "Nessun messaggio",
+      "noUsersFound": "Nessun utente trovato",
+      "previous": "Precedente",
+      "searchUser": "Cerca l'utente",
+      "selectUser": "Seleziona un utente",
+      "supportInbox": "Supporto Posta in arrivo",
+      "ticketId": "Ticket/Chat ID",
+      "title": "Messaggi della posta in arrivo"
+    },
+    "Stats": {
+      "Carts": {
+        "avgPostOrderValue": "Ordine medio",
+        "avgPreOrderValue": "Carrelli medi",
+        "cartDistribution": "Distribuzione del carrello",
+        "guestCarts": "Carrelli ospiti",
+        "postOrderStats": "Statistiche degli ordini",
+        "preOrderStats": "Statistiche dei cart",
+        "realTime": "Tempo reale",
+        "table": {
+          "cartCount": "Conteggio del carrello",
+          "product": "Prodotto",
+          "totalQuantity": "Quantità"
+        },
+        "topProducts": "Prodotti migliori",
+        "totalActiveCarts": "Carrelli attivi totali",
+        "totalConvertedCarts": "Carrelli convertiti totali",
+        "totalDiscount": "Sconto",
+        "totalSubtotal": "Sub-totale",
+        "totalTax": "Tassare",
+        "totalValue": "Totale",
+        "userCarts": "Carrelli utente",
+        "subTitle": "Visualizza le statistiche dei carrelli per periodo",
+        "title": "Statistiche dei carrelli"
+      },
+      "Categories": {
+        "averageStockPerCategory": "Stock medio per categoria",
+        "salesByCategory": "Vendite per categoria",
+        "stockByCategory": "Stock per categoria",
+        "subTitle": "Visualizza le statistiche delle categorie per stock e vendite",
+        "table": {
+          "category": "Categoria",
+          "revenue": "Reddito",
+          "sales": "Saldi",
+          "stock": "Azione",
+          "value": "Valore"
+        },
+        "title": "Statistiche delle categorie",
+        "totalCategories": "Categorie totali"
+      },
+      "GroupByOptions": {
+        "day": "Giorno",
+        "month": "Mese",
+        "week": "Settimana"
+      },
+      "Periods": {
+        "30d": "30 ultimi giorni",
+        "7d": "7 ultimi giorni",
+        "90d": "90 ultimi giorni"
+      },
+      "Products": {
+        "subTitle": "Visualizza le statistiche dei prodotti per stock e vendite",
+        "table": {
+          "product": "Prodotto",
+          "revenue": "Reddito",
+          "sales": "Saldi",
+          "stock": "Azione",
+          "value": "Valore"
+        },
+        "title": "Statistiche dei prodotti",
+        "topSellingProducts": "Prodotti più venduti",
+        "topStockedProducts": "Prodotto top",
+        "totalRevenue": "Entrate totali",
+        "totalSales": "Vendite totali",
+        "totalStock": "Stock totale",
+        "totalValue": "Valore totale"
+      },
+      "Sales": {
+        "averageOrderValue": "Valore dell'ordine medio",
+        "ordersOverTime": "Ordini nel tempo",
+        "productsSold": "Prodotti venduti",
+        "realTime": "Tempo reale",
+        "salesOverTime": "Vendite nel tempo",
+        "subTitle": "Visualizza le statistiche di vendita per periodo",
+        "title": "Statistiche di vendita",
+        "totalOrders": "Ordini totali",
+        "totalSales": "Vendite totali"
+      },
+      "Subscriptions": {
+        "activeSubscriptions": "Abbonamenti attivi",
+        "billingCycle": {
+          "annual": "Annuale",
+          "monthly": "Mensile",
+          "unknown": "Sconosciuto"
+        },
+        "billingCycleDistribution": "Distribuzione del ciclo di fatturazione",
+        "canceledSubscriptions": "Abbonamenti annullati",
+        "realTime": "Tempo reale",
+        "status": {
+          "active": "Attivo",
+          "canceled": "Annullato",
+          "pending": "In attesa di",
+          "preCanceled": "Pre-cancellato",
+          "unknown": "Sconosciuto"
+        },
+        "statusDistribution": "Distribuzione dello stato",
+        "subTitle": "Visualizza le statistiche degli abbonamenti per periodo",
+        "table": {
+          "product": "Prodotto",
+          "subscriptionCount": "Conteggio di abbonamenti",
+          "totalQuantity": "Quantità totale"
+        },
+        "title": "Statistiche degli abbonamenti",
+        "topProducts": "Prodotti migliori",
+        "totalSubscriptions": "Abbonamenti totali"
+      },
+      "Tickets": {
+        "activeBotChats": "Chat di bot attiva",
+        "activeTickets": "Biglietti attivi",
+        "averageResponseTime": "Tempo di risposta medio",
+        "botOnlyChats": "Bot solo chat",
+        "closedTickets": "Biglietti chiusi",
+        "closureBy": {
+          "ADMIN": "Amministratore",
+          "USER": "Utente",
+          "unknown": "Sconosciuto"
+        },
+        "closureDistribution": "Distribuzione di chiusura",
+        "maxResolutionTime": "Tempo di risoluzione massima",
+        "minResolutionTime": "Tempo di risoluzione min",
+        "realTime": "Tempo reale",
+        "responseTime": "Tempo di risposta",
+        "states": {
+          "CHAT_ADMIN": "Chat Admin",
+          "CHAT_BOT": "Chat bot",
+          "INBOX": "Inbox",
+          "UNKNOWN": "Sconosciuto"
+        },
+        "subTitle": "Visualizza le statistiche sui biglietti per periodo",
+        "table": {
+          "closedTickets": "Biglietti chiusi",
+          "email": "E-mail",
+          "openTickets": "Biglietti aperti",
+          "totalTickets": "Biglietti totali",
+          "user": "Utente"
+        },
+        "ticketDistribution": "Distribuzione dei biglietti",
+        "title": "Statistiche dei biglietti",
+        "topUsers": "I migliori utenti"
+      },
+      "groupBy": "Gruppo di",
+      "groupByOptions": {
+        "day": "Giorno",
+        "month": "Mese",
+        "week": "Settimana"
+      },
+      "period": "Periodo",
+      "periods": {
+        "30d": "30 giorni",
+        "7d": "7 giorni",
+        "90d": "90 giorni"
+      },
+      "stats": {
+        "groupByOptions": {
+          "week": "Settimana"
+        }
+      },
+      "title": "Statistiche"
+    },
+    "Dashboard": {
+      "activeSubscriptions": "Abbonamenti attivi",
+      "errorDescription": "Errore durante il caricamento di dati",
+      "errorTitle": "Errore",
+      "todayOpenTickets": "Oggi i biglietti aperti",
+      "todayOrders": "Oggi ordini",
+      "todayRegistrations": "Oggi registrazioni",
+      "welcome": "Ciao {nome utente}",
+      "welcomeMessage": "Ecco un riepilogo dell'attività commerciale",
+      "title": "Dashboard di amministrazione"
+    },
+    "Support": {
+      "Tickets": {
+        "actionDone": "Azione fatta",
+        "admin": "Amministratore",
+        "bot": "Bot",
+        "closed": "Chiuso",
+        "columns": "Colonne",
+        "createdAt": "Creato a",
+        "errorLoadingData": "Errore durante il caricamento dei biglietti",
+        "lastMessageType": "Ultimo messaggio",
+        "latestTickets": "Ultimi biglietti",
+        "next": "Prossimo",
+        "noResults": "Nessun risultato",
+        "open": "Aprire",
+        "previous": "Precedente",
+        "responseTime": "Tempo di risposta",
+        "searchPlaceholder": "Cerca un biglietto",
+        "status": "Stato",
+        "subTitle": "Visualizza tutti i biglietti",
+        "title": "Biglietti",
+        "user": "Utente",
+        "viewDetails": "Visualizza i dettagli",
+        "waitingAction": "Azione in attesa",
+        "activeTickets": "Biglietti attivi",
+        "ticketId": "Ticket ID"
+      }
     }
   },
   "DefaultNotFound": "Errore: traduzione non trovata",
@@ -464,7 +1532,19 @@
     "security": "Sicurezza",
     "subscriptions": "Abbonamenti",
     "users": "Utenti",
-    "myAccount": "Il mio conto"
+    "myAccount": "Il mio conto",
+    "mySupport": "I miei biglietti",
+    "myTickets": "I miei biglietti",
+    "needHelp": "Hai bisogno di aiuto?",
+    "openNewTicket": "Biglietto aperto",
+    "paymentMethods": "Metodi di pagamento",
+    "support": "Supporto",
+    "vouchers": "Voucher",
+    "inbox": "Inbox",
+    "tickets": "Biglietti",
+    "carts": "Carri",
+    "sales": "Saldi",
+    "stats": "Statistiche"
   },
   "navigation": {
     "about": "Di",
@@ -495,7 +1575,14 @@
     "otpMessage3": "Si prega di non condividere questo codice con nessuno. \nNon lo chiederemo mai. \nSe non hai richiesto questo codice, ignora questa e -mail.",
     "otpMessageTiming": "Questo codice scadrà tra 5 minuti.",
     "otpWarningMessage": "Si prega di non condividere questo codice con nessuno. \nNon lo chiederemo mai. \nSe non hai richiesto questo codice, ignora questa e -mail.",
-    "userMessage": "Ti auguro una giornata eccellente!"
+    "userMessage": "Ti auguro una giornata eccellente!",
+    "resetButton": "Reimpostare la mia password",
+    "resetEmailMessage": "Per reimpostare la password, fare clic sul pulsante in basso e seguire le istruzioni. \nQuesto link scadrà tra 1 ora. \nSe non hai richiesto un reimpostazione della password, è possibile ignorare in sicurezza questa e -mail o contattare il nostro team di supporto.",
+    "Support": {
+      "newMessage": "Hai ricevuto un nuovo messaggio in una delle tue conversazioni con il nostro team di assistenza clienti. \nEcco un riepilogo:",
+      "newMessageSubject": "{Company} - Nuovo messaggio dal team di supporto",
+      "openChatButton": "Conversazione aperta"
+    }
   },
   "isSuperAdminRequired": "È richiesto Super Admin",
   "Confirmation": {
@@ -527,7 +1614,995 @@
         "reconfigureOtpTitle": "Riconfigurare OTP",
         "scanQrCodeOrEnterCode": "Scansiona QRCode con la tua app di autenticatore o immettere questo codice",
         "title": "Configurazione OTP",
-        "verifyOtp": "Verificare OTP"
+        "verifyOtp": "Verificare OTP",
+        "activateOtp": "Attivare OTP"
+      },
+      "Password": {
+        "changePassword": "Cambiare la password",
+        "confirmPassword": "Conferma nuova password",
+        "confirmPasswordRequired": "Conferma che è richiesta la password",
+        "currentPassword": "password attuale",
+        "currentPasswordIncorrect": "La tua password corrente non corrisponde.",
+        "currentPasswordRequired": "È richiesta la password corrente",
+        "loading": "Modifica della tua password",
+        "newPassword": "Nuova password",
+        "newPasswordRequired": "È richiesta una nuova password",
+        "passwordChangeError": "Impossibile modificare la password",
+        "passwordChangeSuccess": "Password modificata correttamente",
+        "passwordMinLength": "La password deve essere lunga almeno 12 caratteri",
+        "passwordsMustMatch": "Le password devono essere identiche",
+        "title": "Cambiare la password"
+      },
+      "password": "Password",
+      "passwordContent": "Password",
+      "subTitle": "Gestisci le tue impostazioni di sicurezza",
+      "title": "Sicurezza",
+      "twoFactorAuth": "Autenticazione a due fattori"
+    },
+    "Business": {
+      "Orders": {
+        "title": "Ordini",
+        "OrderDetails": {
+          "billingCycle": "Ciclo di fatturazione",
+          "changedBy": "Cambiato da",
+          "currency": "Valuta",
+          "customerInformation": "Informazioni sui clienti",
+          "date": "Data",
+          "email": "E-mail",
+          "error": "Errore di caricamento dei dettagli dell'ordine",
+          "loading": "Caricamento...",
+          "name": "Nome",
+          "notFound": "Ordine non trovato",
+          "orderId": "Ordine ID",
+          "orderInformation": "Informazioni sull'ordine",
+          "paymentInformation": "Informazioni di pagamento",
+          "paymentIntentId": "ID intenzione di pagamento",
+          "products": "Prodotti",
+          "quantity": "Quantità",
+          "sessionId": "ID sessione",
+          "statusHistory": "Cronologia dello stato",
+          "stripePriceId": "Stripe Price ID",
+          "subTitle": "Visualizza i dettagli del tuo ordine",
+          "subscriptionId": "ID abbonamento",
+          "title": "Dettagli dell'ordine",
+          "totalAmount": "Importo totale",
+          "billingPeriod": "Periodo di fatturazione",
+          "cancelOrder": "Annullare l'ordine",
+          "discount": "Sconto",
+          "goToOrderStripe": "Aperto in striscia",
+          "openInvoice": "Fattura aperta",
+          "openUserInvoice": "Apri la fattura utente",
+          "orderActions": "Azioni",
+          "status": "Stato",
+          "subscriptionInformation": "Informazioni sull'abbonamento",
+          "subscriptionStatus": {
+            "active": "Attivo",
+            "canceled": "Annullato",
+            "incomplete": "Incompleto",
+            "incomplete_expired": "Scaduto incompleto",
+            "past_due": "Passato",
+            "paused": "In pausa",
+            "trialing": "Prova",
+            "unpaid": "Non pagato"
+          },
+          "subtotal": "Subtotale",
+          "tax": "Tassare",
+          "total": "Totale",
+          "viewSubscription": "Visualizza i dettagli dell'abbonamento",
+          "voucher": "Codice voucher",
+          "cancel": "Cancellare",
+          "confirm": "Confermare",
+          "confirmOrder": "Conferma questo ordine",
+          "markAsCompleted": "Segna come completato",
+          "orderAddComment": "Aggiungi un commento",
+          "orderCompletionWarning": "ATTENZIONE: una volta contrassegnato come completato, l'ordine non può essere modificato.",
+          "orderPaidDescription": "Il pagamento è stato confermato. \nOra puoi rivedere e confermare l'ordine prima di procedere.",
+          "orderPendingDescription": "Riprendi l'elaborazione dell'ordine.",
+          "orderTreatment": "TRATTAMENTO ORDINA",
+          "orderWaitingCompletionDescription": "Rivedi l'ordine e contrassegnalo come completato quando è pronto.",
+          "resumeOrder": "Riprendi l'ordine",
+          "suspendOrder": "Sospendere l'ordine",
+          "suspendOrderDescription": "Si prega di fornire un motivo per sospendere questo ordine.",
+          "suspendOrderReasonPlaceholder": "Inserisci il motivo della sospensione ...",
+          "suspendOrderTitle": "Sospendere l'ordine",
+          "billingAddress": "Indirizzo di fatturazione",
+          "noBillingAddress": "Nessun indirizzo di fatturazione"
+        },
+        "date": "Data",
+        "errorLoadingOrders": "Ordini di caricamento degli errori",
+        "noOrders": "Nessun ordine trovato",
+        "orderId": "Ordine ID",
+        "status": {
+          "cancelled": "Annullato",
+          "completed": "Completato",
+          "failed": "Fallito",
+          "paid": "Pagato",
+          "pending": "In attesa di",
+          "processing": "Elaborazione",
+          "title": "Stato"
+        },
+        "subTitle": "Gestisci i tuoi ordini",
+        "total": "Totale",
+        "viewDetails": "Visualizza i dettagli",
+        "next": "Prossimo",
+        "previous": "Precedente",
+        "searchPlaceholder": "Cerca un ordine",
+        "Status": {
+          "cancel": "Annullato",
+          "completed": "Completato",
+          "failed": "Fallito",
+          "paid": "Pagato",
+          "pending": "In attesa di",
+          "processing": "Elaborazione",
+          "refund": "Rimborsato",
+          "title": "Stato"
+        }
+      },
+      "Payments": {
+        "title": "Pagamenti",
+        "actions": "Azioni",
+        "amount": "Quantità",
+        "date": "Data",
+        "expires": "Scade",
+        "invoices": "Fatture",
+        "loading": "Caricamento...",
+        "next": "Prossimo",
+        "noInvoices": "Nessuna fattura trovata",
+        "noPaymentMethods": "Nessun metodo di pagamento salvato",
+        "olderInvoicesMessage": "Cerchi fatture più vecchie? \nAccedi alla cronologia di fatturazione completa nel portale Stripe.",
+        "openStripePortal": "Portale a strisce aperte",
+        "paymentPortal": "Portale di pagamento",
+        "paymentPortalDescription": "Visualizza la cronologia dei pagamenti e gestisci i tuoi metodi di pagamento. \nPer una gestione avanzata, utilizzare il portale dei clienti Stripe.",
+        "previous": "Precedente",
+        "savedPaymentMethods": "Metodi di pagamento salvati",
+        "status": "Stato",
+        "stripePortalInactive": "Il tuo account Stripe verrà attivato dopo il tuo primo ordine. \nAvrai quindi accesso al portale dei clienti Stripe.",
+        "viewInvoice": "Visualizza la fattura"
+      },
+      "Subscriptions": {
+        "title": "Abbonamenti",
+        "SubscriptionDetails": {
+          "Status": {
+            "active": "Attivo",
+            "canceled": "Annullato",
+            "incomplete": "Incompleto",
+            "incomplete_expired": "Scaduto incompleto",
+            "past_due": "Passato",
+            "paused": "In pausa",
+            "trialing": "Prova",
+            "unpaid": "Non pagato",
+            "preCanceled": "Pre-cancellato"
+          },
+          "billingCycle": "Ciclo di fatturazione",
+          "cancel": "Cancellare",
+          "cancelAtPeriodEnd": "Annulla alla fine del periodo",
+          "cancelAtPeriodEndDescription": "L'abbonamento rimarrà attivo fino alla fine dell'attuale periodo di fatturazione.",
+          "cancelAtPeriodEndDescription2": "L'abbonamento verrà già annullato alla fine del periodo corrente. \nSe non ne sei sicuro, contatta il nostro team di supporto.",
+          "cancelError": "Impossibile annullare l'abbonamento",
+          "cancelNow": "Annulla ora",
+          "cancelNowDescription": "L'abbonamento verrà annullato immediatamente e riceverai un rimborso protazionato per i giorni rimanenti.",
+          "cancelSubscription": "Annulla l'abbonamento",
+          "cancelSubscriptionDescription": "Scegli come desideri annullare l'abbonamento:",
+          "cancelSubscriptionTitle": "Annulla l'abbonamento",
+          "cancelSuccess": "Abbonamento annullato correttamente",
+          "canceledAt": "Cancellato a",
+          "canceling": "Annullamento dell'abbonamento ...",
+          "changedBy": "Cambiato da",
+          "confirm": "Confermare",
+          "customerId": "ID cliente",
+          "customerInformation": "Informazioni sui clienti",
+          "defaultPaymentMethod": "Metodo di pagamento predefinito",
+          "email": "E-mail",
+          "error": "Errore Caricamento dei dettagli dell'abbonamento",
+          "invoiceNotFound": "Si è verificato un errore durante il recupero della fattura",
+          "loading": "Caricamento...",
+          "manageSubscription": "Gestisci l'abbonamento",
+          "name": "Nome",
+          "notFound": "Abbonamento non trovato",
+          "openInvoice": "Apri l'ultima fattura",
+          "paymentInformation": "Informazioni di pagamento",
+          "periodEnd": "Fine del periodo corrente",
+          "periodStart": "Periodo corrente inizia",
+          "products": "Prodotti",
+          "quantity": "Quantità",
+          "statusHistory": "Cronologia dello stato",
+          "stripePriceId": "Stripe Price ID",
+          "subTitle": "Visualizza e gestisci l'abbonamento",
+          "subscriptionId": "Id",
+          "subscriptionInformation": "Informazioni sull'abbonamento",
+          "title": "Dettagli di abbonamento",
+          "updateError": "Si è verificato un errore durante l'aggiornamento dell'abbonamento",
+          "updateSuccess": "Il tuo abbonamento ha avuto successo aggiornato",
+          "cancelNowWithFullRefund": "Annulla ora",
+          "cancelNowWithFullRefundDescription": "L'abbonamento verrà annullato immediatamente e riceverai un rimborso completo per il periodo corrente.",
+          "cancelNowWithRemainingRefund": "Annulla ora",
+          "cancelNowWithRemainingRefundDescription": "L'abbonamento verrà annullato immediatamente e riceverai un rimborso per i restanti giorni del periodo corrente.",
+          "cancelNowWithoutRefund": "Annulla ora senza rimborso",
+          "cancelNowWithoutRefundDescription": "L'abbonamento verrà annullato immediatamente senza alcun rimborso.",
+          "preCanceled": "Pre-cancellato",
+          "preCanceledDescription": "L'abbonamento è stato annullato e si fermerà alla fine del periodo corrente. \nSe non ne sei sicuro, contatta il nostro team di supporto.",
+          "viewProduct": "Visualizza il prodotto"
+        },
+        "date": "Data",
+        "errorLoadingSubscriptions": "Abbonamenti di caricamento degli errori",
+        "noSubscriptions": "Nessun abbonamento trovato",
+        "products": "Prodotti",
+        "status": {
+          "active": "Attivo",
+          "canceled": "Annullato",
+          "incomplete": "Incompleto",
+          "incomplete_expired": "Scaduto incompleto",
+          "past_due": "Passato",
+          "paused": "In pausa",
+          "title": "Stato",
+          "trialing": "Prova",
+          "unpaid": "Non pagato"
+        },
+        "subTitle": "Gestisci i tuoi abbonamenti",
+        "subscriptionId": "ID abbonamento",
+        "all": "Tutto",
+        "columns": "Colonne",
+        "errorLoadingData": "Errore di caricamento dei dati.",
+        "next": "Prossimo",
+        "noResults": "Nessun risultato.",
+        "pickDate": "Scegli un appuntamento",
+        "previous": "Precedente",
+        "resetFilters": "Ripristina i filtri",
+        "searchPlaceholder": "Cerca per ID, nome o e -mail ..."
+      },
+      "title": "Attività commerciale"
+    },
+    "Dashboard": {
+      "subTitle": "Gestisci il tuo account, impostazioni, abbonamenti e altro ancora",
+      "title": "La tua dashboard",
+      "activeSubscriptions": "Abbonamenti attivi",
+      "activeTickets": "Biglietti attivi",
+      "lastMessage": "Ultimo messaggio",
+      "nextBilling": "Prossima fatturazione",
+      "noActiveTickets": "Nessun biglietto attivo",
+      "noOrders": "Nessun ordine",
+      "noSubscriptions": "Nessun abbonamento",
+      "orderId": "Ordine ID",
+      "product": "Prodotti",
+      "recentOrders": "Ordini recenti",
+      "recentSubscriptions": "Abbonamenti recenti",
+      "status": "Stato",
+      "subject": "Soggetto",
+      "ticketId": "Ticket ID",
+      "total": "Totale",
+      "totalOrders": "Ordini totali",
+      "totalSpent": "Totale speso"
+    },
+    "MyAccount": {
+      "PaymentMethods": {
+        "title": "Metodi di pagamento"
+      },
+      "Profile": {
+        "advertisement": "Da un annuncio",
+        "friend": "Un amico",
+        "other": "Un'altra opzione",
+        "socialMedia": "Dai social media",
+        "title": "Profilo"
+      },
+      "Security": {
+        "title": "Sicurezza"
+      },
+      "Settings": {
+        "title": "Impostazioni"
+      },
+      "title": "Il mio conto"
+    },
+    "Profile": {
+      "cancel": "Cancellare",
+      "changesSavedSuccessfully": "Cambiamenti salvati con successo",
+      "city": "Città",
+      "company": "Azienda",
+      "country": "Paese",
+      "created": "Creato: {data}",
+      "edit": "Modificare",
+      "email": "E-mail",
+      "emailExists": "Email esistono già.",
+      "error": "Errore durante il salvataggio del profilo",
+      "failedToSaveChanges": "Impossibile salvare le modifiche",
+      "firstName": "Nome di battesimo",
+      "howDidYouHear": "Come hai sentito",
+      "lastName": "Cognome",
+      "nothingSelected": "Niente selezionato",
+      "phone": "Telefono",
+      "saveChanges": "Salva le modifiche",
+      "saved": "Profilo salvato",
+      "saving": "Salvando il tuo profilo",
+      "savingChanges": "Salvare le modifiche ...",
+      "street": "Strada",
+      "twoFactorAuth": "Autenticazione a due fattori",
+      "zipCode": "Cap",
+      "advertisement": "Annuncio",
+      "friend": "Amico",
+      "other": "Altro",
+      "socialMedia": "Social media",
+      "title": "Aggiorna il tuo profilo",
+      "BillingAddresses": {
+        "save": "Salva"
+      }
+    },
+    "Support": {
+      "MyTickets": {
+        "title": "I miei biglietti"
+      },
+      "NeedHelp": {
+        "title": "Centro di supporto"
+      },
+      "OpenNewTicket": {
+        "title": "Biglietto aperto"
+      },
+      "title": "Supporto"
+    },
+    "Chat": {
+      "actionCompleted": "Azione completata",
+      "actionDone": "Azione fatta",
+      "active": "Attivo",
+      "adminSupport": "Team di supporto",
+      "chatClosed": "Chat chiusa",
+      "closed": "Chiuso",
+      "endChat": {
+        "cancel": "Cancellare",
+        "confirm": "Confermare",
+        "description": "Tu e il team di supporto non sarete di nuovo in grado di inviare un nuovo messaggio. \nSei sicuro ?",
+        "title": "Termina questa conversazione"
+      },
+      "error": "Si è verificato un errore, riprova più tardi!",
+      "new": "Nuovo",
+      "noConversations": "Nessuna conversazione",
+      "open": "Aprire",
+      "seeLink": "Vedi link",
+      "selectConversation": "Seleziona la conversazione",
+      "sending": "Invio",
+      "supportInbox": "I tuoi biglietti",
+      "typeMessage": "Digita un messaggio",
+      "unread": "Non letto",
+      "waitingAction": "Azione da fare",
+      "you": "Voi",
+      "cancel": "Cancellare",
+      "chatNow": "Chatta con noi",
+      "chatNowBtn": "Chatta ora",
+      "chatNowDesc": "Chatta con il nostro team di supporto per assistenza immediata.",
+      "errorSendingMessage": "Si è verificato un errore durante l'invio di questo messaggio, riprova.",
+      "getNeedHelp": "Hai una domanda, un suggerimento o un problema? \nSiamo qui per aiutarti!",
+      "getNeedHelpDesc": "Puoi trovare risposte alle tue domande nella nostra sezione FAQ. \nSe non trovi quello che stai cercando, sentiti libero di contattarci direttamente attraverso la chat o inviandoci un messaggio.",
+      "messageToSupportPlaceholder": "Spiega il tuo problema, domanda o suggerimento qui ...",
+      "send": "Inviare",
+      "sendMessage": "Invia un messaggio",
+      "sendMessageBtn": "Invia un messaggio",
+      "sendMessageDesc": "Invia un messaggio al nostro team di supporto e ti ricontatteremo il prima possibile.",
+      "sendMessageToSupport": "Invia un messaggio al nostro team di supporto",
+      "sendMessageToSupportDesc": "Qui puoi inviare un messaggio al nostro team di supporto. \nTi torneremo il prima possibile. \nFornire il maggior numero possibile di dettagli per aiutarci ad aiutarti meglio.",
+      "SELECT_ORDER": "Per aiutarti, seleziona un ordine relativo alla tua domanda facendo clic sul pulsante seguente",
+      "SELECT_SUBSCRIPTION": "Per aiutarti, selezionare un abbonamento relativo alla tua domanda facendo clic sul pulsante seguente",
+      "ticketId": "Ticket ID",
+      "title": "Posta in arrivo dell'utente",
+      "allOpenInbox": "Vedi altri biglietti"
+    }
+  },
+  "pagesNames": {
+    "businessOrders": "Ordini commerciali",
+    "businessPayments": "Pagamenti aziendali",
+    "businessSubscriptions": "Abbonamenti aziendali",
+    "homePage": "Home page",
+    "logDetailsAdmin": "DETTAGLI DI LEGGI AMMIN",
+    "logsAdmin": "Registri amministratore",
+    "myTickets": "I miei biglietti",
+    "needHelp": "Hai bisogno di aiuto",
+    "openTicket": "Biglietto aperto",
+    "paymentMethods": "Metodi di pagamento",
+    "profile": "Profilo",
+    "security": "Sicurezza",
+    "settings": "Impostazioni",
+    "userDetailsAdmin": "Dettagli dell'utente amministratore",
+    "usersAdmin": "Amministratore degli utenti",
+    "yourDashboard": "La tua dashboard"
+  },
+  "resetPasswordEmailSubject": "Cyna - riposa la password",
+  "NavSearchBar": {
+    "categories": "Categorie",
+    "error": "Errore durante la ricerca di prodotti",
+    "noCategoriesFound": "Nessuna categorie",
+    "noResults": "Nessun prodotto trovato per {SearchTerm}",
+    "products": "Prodotti",
+    "searchPlaceholder": "Cerca un prodotto o una categoria"
+  },
+  "ProductCard": {
+    "seeMore": "Vedere di più",
+    "month": "Mese",
+    "addToCart": "Aggiungi al carrello",
+    "oneTime": "Acquista una volta",
+    "subscription": "Sottoscrizione"
+  },
+  "ProductPage": {
+    "error": "Si è verificato un errore durante il recupero di prodotti, prova ad Angain",
+    "searchResultsFor": "Risultati per",
+    "title": "I nostri prodotti",
+    "noResults": "Oh no! \nNon possiamo trovare prodotti per la tua ricerca. \nRiprova con un'altra parola chiave.",
+    "all": "Tutto",
+    "applyFilters": "Applicare i filtri",
+    "availability": "Disponibilità",
+    "categories": "Categorie",
+    "dateRange": "Intervallo di date",
+    "filters": "Filtri",
+    "inStock": "In magazzino",
+    "mostPopular": "Più popolare",
+    "newest": "Più recente",
+    "outOfStock": "Esaurito",
+    "priceAsc": "Price Asc",
+    "priceDesc": "Price Desc",
+    "priceRange": "Fascia di prezzo",
+    "reset": "Reset",
+    "sortBy": "Ordinare da",
+    "products": "prodotti",
+    "showing": "Esibizione"
+  },
+  "Error": {
+    "Front": {
+      "backHome": "Tornare a casa",
+      "errorFrontTitle": "Si è verificato un errore, riprovare più tardi o contattare il team di supporto"
+    }
+  },
+  "Shop": {
+    "Cart": {
+      "emptyCart": "Il tuo carrello è vuoto",
+      "emptyCartSubtitle": "È ora di iniziare a fare shopping!",
+      "miniCart": {
+        "subtitle": "Prodotti",
+        "title": "Il tuo carrello"
+      },
+      "productAddedToCart": "Prodotto aggiunto alla carta!",
+      "total": "Totale",
+      "viewCart": "Visualizza il carrello",
+      "checkout": "Guardare",
+      "continueShopping": "Continua a spedire",
+      "items": "Prodotti",
+      "login": "Login",
+      "orderSummary": "Il tuo ordine",
+      "register": "Registro",
+      "subtotal": "Sub totale",
+      "yourCart": "Il tuo carrello",
+      "apply": "Fare domanda a",
+      "discount": "Sconto",
+      "loginToProceed": "Accedi al tuo account per accedere al tuo carrello personale",
+      "taxes": "Tasse",
+      "voucherCode": "Codice voucher",
+      "MixedProductTypes": "Si prega di separare i tuoi ordini per diversi tipi di prodotti.",
+      "MixedProductTypesSubtitle": "Non puoi controllare con tipi di prodotti misti. \nSi prega di separare il prodotto di acquisto diverso e puntuale.",
+      "cantCheckout": "Non puoi fare il checkout per il momento, per favore rivedi il tuo carrello o account.",
+      "failToCheckout": "Si è verificato un errore durante il check -out, riprova.",
+      "CompleteProfile": "Completa il mio profilo",
+      "UserProfileIncomplete": "Il tuo profilo è incompleto, mancano alcuni campi.",
+      "UserProfileIncompleteSubtitle": "Completa il tuo profilo nella pagina del tuo account per procedere al checkout.",
+      "VoucherNotActive": "Voucher non valido",
+      "VoucherNotActiveSubtitle": "Il voucher applicato al carrello è scaduto o non disponibile per l'ordine, rimuovi per procedere al checkout.",
+      "completeProfile": "Completa il mio profilo",
+      "mixedProductTypes": "Si prega di separare i tuoi ordini per diversi prodotti.",
+      "mixedProductTypesSubtitle": "Non puoi controllare con tipi di prodotti misti. \nSi prega di separare il prodotto di acquisto diverso e puntuale.",
+      "userProfileIncomplete": "Il tuo profilo è incompleto, mancano alcuni campi.",
+      "userProfileIncompleteSubtitle": "Completa il tuo profilo nella pagina del tuo account per procedere al checkout.",
+      "voucherApplied": "Voucher applicato",
+      "voucherError": "Errore con questo voucher",
+      "voucherNotActive": "Voucher non valido",
+      "voucherNotActiveSubtitle": "Il voucher applicato al carrello è scaduto o non disponibile per l'ordine, rimuovi per procedere al checkout.",
+      "saveCardForFuture": "Salva carta per i pagamenti futuri",
+      "oneTimePurchase": "Acquisto una tantum",
+      "productNotActive": "Alcuni prodotti non sono disponibili",
+      "productNotActiveSubtitle": "Rimuovere il prodotto che non è disponibile per procedere al checkout.",
+      "subscription": "Sottoscrizione",
+      "checkoutDescription": "Quando fai clic su Checkout, accetti termini e condizioni OU. \nI prezzi sono forniti solo come informazioni e il prezzo finale sarà confermato alla fine del processo di pagamento.",
+      "PRODUCT_OUT_OF_STOCK": "Uno dei prodotti nel carrello è esaurito, aggiorna la quantità o rimuovi il prodotto",
+      "PRODUCT_OUT_OF_STOCK_USER_QUANTITY": "La quantità di un prodotto nel carrello è troppo al passo rispetto al nostro stock, aggiorna la quantità o rimuovi il prodotto",
+      "annual": "Annuale",
+      "month": "Mese",
+      "monthly": "Mensile",
+      "outOfStock": "Esaurito",
+      "productOutOfStock": "Prodotto fuori stock",
+      "productOutOfStockSubtitle": "Uno dei prodotti nella tua carte è esaurito, rimuovilo tonnellata al pagamento",
+      "productOutOfStockUserQuantity": "Anche la quantità del prodotto",
+      "productOutOfStockUserQuantitySubtitle": "La quantità di un prodotto nel carrello è troppo al passo rispetto al nostro stock, aggiorna la quantità o rimuovi il prodotto",
+      "year": "Anno",
+      "MIXED_PRODUCT_TYPES": "I prodotti nel carrello hanno diversi periodi di fatturazione, si prega di separarli per procedere al checkout",
+      "PRODUCT_NOT_ACTIVE": "Uno dei prodotti nel carrello non è disponibile, rimuovilo per procedere al checkout",
+      "ProductNotActive": "Uno dei prodotti non è disponibile",
+      "ProductOutOfStock": "Prodotto fuori stock",
+      "ProductOutOfStockUserQuantity": "Uno dei prodotti non è disponibile con la quantità selezionata",
+      "USER_PROFILE_INCOMPLETE": "Il tuo profilo è incompleto, completalo per procedere al checkout",
+      "VOUCHER_NOT_ACTIVE": "Voucher non valido, rimuoverlo per procedere al checkout",
+      "title": "Carrello",
+      "BillingAddressIncomplete": "L'indirizzo di fatturazione è incompleto",
+      "BillingAddressIncompleteShop": "Completa il tuo indirizzo di fatturazione per procedere al checkout",
+      "addAddress": "Aggiungi indirizzo",
+      "addNewAddress": "Aggiungi nuovo indirizzo",
+      "addressName": "Nome indirizzo",
+      "addressStreet": "Strada",
+      "billingAddress": "Indirizzo di fatturazione",
+      "billingAddressIncomplete": "L'indirizzo di fatturazione è incompleto",
+      "billingAddressIncompleteSubtitle": "Completa il tuo indirizzo di fatturazione per procedere al checkout",
+      "cancel": "Cancellare",
+      "changeAddress": "Indirizzo di modifica",
+      "checkoutSummary": "Riepilogo checkout",
+      "city": "Città",
+      "confirmCheckout": "Conferma il checkout",
+      "country": "Paese",
+      "noBillingAddress": "Nessun indirizzo di fatturazione",
+      "selectBillingAddress": "Selezionare l'indirizzo di fatturazione",
+      "yourProducts": "I tuoi prodotti",
+      "zipCode": "Cap",
+      "deleteAddress": "Elimina indirizzo",
+      "deleteAddressConfirmation": "Sei sicuro di voler eliminare questo indirizzo?",
+      "deleteAddressError": "Impossibile eliminare l'indirizzo",
+      "deleteAddressSuccess": "Indirizzo eliminato correttamente",
+      "remove": "Rimuovere",
+      "selectBillingCycle": "Seleziona il ciclo di fatturazione",
+      "addressDeleted": "Indirizzo eliminato",
+      "delete": "Eliminare",
+      "deleting": "Eliminazione"
+    },
+    "Product": {
+      "addToCart": {
+        "button": "Aggiungi al carrello"
+      },
+      "outOfStock": "Esaurito",
+      "price": "Prezzo",
+      "quantity": "Quantità",
+      "addToCartTitle": "Aggiungi al carrello",
+      "annual": "Annuale",
+      "bestValue": "Miglior valore",
+      "billingCycle": "Ciclo di fatturazione",
+      "characteristics": "Caratteristiche",
+      "comparedToMonthly": "Rispetto a mensile",
+      "goBack": "Torna indietro",
+      "inStock": "In magazzino",
+      "lowStock": "Stock basso",
+      "lowStockDescription": "Non c'è molto prodotto in stock, è tempo di ordinare!",
+      "month": "Mese",
+      "monthly": "Mensile",
+      "monthlyDescription": "Mensile",
+      "outOfStockDescription": "Questo prodotto non è disponibile per il momento, per favore torna più tardi",
+      "save": "Salva",
+      "stock": "Azione",
+      "subscription": "Sottoscrizione",
+      "total": "Totale",
+      "year": "Anno",
+      "title": "Prodotto",
+      "benefitCard1": {
+        "description": "Diamo la priorità alla sicurezza a tutti i livelli-dall'archiviazione dei dati crittografati nell'UE a 24/7 di monitoraggio da parte del nostro SoC interno. \nLa tua protezione è la nostra missione.",
+        "title": "Sicurezza prima"
+      },
+      "benefitCard2": {
+        "description": "Nessuna configurazione complessa. \nLa nostra piattaforma SaaS è pronta a distribuire in pochi minuti e si adatta alle tue esigenze senza interrompere l'infrastruttura esistente.",
+        "title": "Semplicità plug-and-protetto"
+      },
+      "benefitCard3": {
+        "description": "Cyna si ridimensiona con la tua attività. \nChe tu stia proteggendo 5 o 500 endpoint, il nostro modello di prezzi e l'architettura crescono insieme alla tua azienda.",
+        "title": "Costruito per la crescita"
+      },
+      "benefits": "Benefici",
+      "billingCycleHelp": "Scegli tra la fatturazione di un anno e un mese per il tuo piano",
+      "chooseBillingCycle": "Scegli il ciclo di fatturazione",
+      "keyFeatures": "Caratteristiche chiave",
+      "oneTime": "Una volta",
+      "whyChooseUs": "Perché scegliere noi?"
+    },
+    "Checkout": {
+      "myOrders": "I miei ordini",
+      "redirectingMessage": "Al termine del processo, verrai automaticamente reindirizzato alle informazioni sull'ordine.",
+      "redirectingToCheckout": "Stiamo elaborando il tuo pagamento, per favore aspetta ...",
+      "redirectingToCheckoutMessage": "MMM, sembra che il processo stia richiedendo più tempo del previsto. \nSi prega di attendere qualche secondo e quindi fare clic sul pulsante in basso per andare alla pagina degli ordini",
+      "billingCycle": "Ciclo di fatturazione",
+      "billingPeriod": "Periodo di fatturazione",
+      "continueShopping": "Continua a fare shopping",
+      "date": "Data",
+      "discount": "Sconto",
+      "downloadInvoice": "Scarica fattura",
+      "orderId": "Ordine ID",
+      "orderInformation": "Informazioni sull'ordine",
+      "orderSuccess": "Grazie per il tuo ordine!",
+      "orderSuccessMessage": "Siamo entusiasti di confermare che il tuo ordine è stato effettuato con successo. \nRiceverai un'e -mail di conferma a breve.",
+      "processingOrder": "Elaborazione del tuo ordine ...",
+      "products": "Prodotti",
+      "quantity": "Quantità",
+      "subscriptionInformation": "Informazioni sull'abbonamento",
+      "subscriptionStatus": {
+        "active": "Attivo",
+        "canceled": "Annullato",
+        "incomplete": "Incompleto",
+        "incomplete_expired": "Scaduto incompleto",
+        "past_due": "Passato",
+        "paused": "In pausa",
+        "preCanceled": "Pre-cancellato",
+        "trialing": "Prova",
+        "unpaid": "Non pagato"
+      },
+      "subtotal": "Subtotale",
+      "tax": "Tassare",
+      "total": "Totale",
+      "viewAllOrders": "Visualizza tutti gli ordini",
+      "viewSubscription": "Visualizza l'abbonamento",
+      "yourBank": "La tua banca",
+      "redirectingToCheckoutMessageMobile": "Verrai automatico reindirizzarsi all'app mobile {Company} una volta completato il pagamento.",
+      "yourPayment": "Banca",
+      "application": "Mobile",
+      "returnToApp": "Torna all'app mobile",
+      "transactionFailed": "Transazione non riuscita",
+      "transactionFailedMessage": "Questa transazione non è riuscita perché l'hai annullata o si è verificato un errore durante il check -out. \nPer favore, aspetta che ti stiamo reindirizzando all'app mobile.",
+      "title": "Controllando il pagamento",
+      "titleSuccess": "Ordina successo",
+      "billingAddress": "Indirizzo di fatturazione",
+      "noBillingAddress": "Nessun indirizzo di fatturazione"
+    }
+  },
+  "Log": {
+    "CriticalSecurity": {
+      "description": "Evento di sicurezza critico",
+      "title": "Sicurezza critica"
+    },
+    "Criticality": {
+      "SystemError": {
+        "description": "Evento di errore relativo al sistema",
+        "title": "Errore di sistema"
+      },
+      "SystemInfo": {
+        "description": "Evento informativo relativo al sistema",
+        "title": "Informazioni di sistema"
+      },
+      "SystemSecurity": {
+        "description": "Evento di sicurezza relativo al sistema",
+        "title": "Sicurezza del sistema"
+      },
+      "UserError": {
+        "description": "Evento di errore relativo a un utente",
+        "title": "Errore dell'utente"
+      },
+      "UserInfo": {
+        "description": "Evento informativo relativo a un utente",
+        "title": "Informazioni dell'utente"
+      },
+      "UserSecurity": {
+        "description": "Evento di sicurezza relativo a un utente",
+        "title": "Sicurezza dell'utente"
+      }
+    },
+    "InternalError": {
+      "description": "Si è verificato un errore interno",
+      "title": "Errore interno"
+    },
+    "UserChangePassword": {
+      "description": "La password dell'utente è stata modificata",
+      "title": "La password di modifica dell'utente"
+    }
+  },
+  "Contact": {
+    "Chatbot": {
+      "Bot": {
+        "Account": {
+          "Questions": {
+            "blocked": "Il mio account è stato bloccato, cosa dovrei fare?",
+            "confirm": "Come confermo il mio indirizzo email?",
+            "create": "Come creo un account?",
+            "reset": "Ho dimenticato la mia password, come posso ripristinarlo?"
+          },
+          "Responses": {
+            "blocked": "Si prega di contattare il supporto per risolvere i problemi con il tuo account.",
+            "confirm": "Ti abbiamo inviato un'e -mail di conferma. \nFai clic sul collegamento all'interno per verificare il tuo indirizzo.",
+            "create": "Fai clic su \"Iscriviti\" e compila i tuoi dati per creare un account.",
+            "reset": "Fare clic su \"Password dimenticata?\" \nNella pagina di accesso per ripristinare le credenziali."
+          },
+          "question": "Cosa vuoi sapere sul tuo account?",
+          "title": "Ho una domanda sul mio account"
+        },
+        "CustomerService": {
+          "Questions": {
+            "contact": "Come contatto il servizio clienti?",
+            "human": "Voglio parlare con un agente umano.",
+            "legal": "Dove posso leggere i termini e le condizioni legali?",
+            "tickets": "Come posso visualizzare i miei biglietti di supporto?"
+          },
+          "Responses": {
+            "contact": "Puoi raggiungere l'assistenza clienti tramite il modulo di contatto o la chat in diretta.",
+            "human": "Sicuro! \nUn agente umano si unirà alla conversazione a breve.",
+            "legal": "Puoi trovare tutti i nostri documenti legali e politici nel piè di pagina del sito Web.",
+            "tickets": "I tuoi biglietti di supporto sono disponibili nella dashboard utente."
+          },
+          "question": "Cosa vuoi sapere del nostro servizio clienti e/o del tuo supporto?",
+          "title": "Ho una domanda sul servizio clienti"
+        },
+        "MyOrder": {
+          "Questions": {
+            "cancel": "Vorrei annullare il mio ordine.",
+            "delay": "Quando verrà elaborato il mio ordine?",
+            "missing": "Non riesco a trovare il mio ordine nel mio account.",
+            "question": "Ho una domanda sul mio recente ordine.",
+            "refund": "Come posso ottenere un rimborso per il mio ordine?"
+          },
+          "Responses": {
+            "cancel": "Puoi annullare il tuo ordine dalla dashboard se è ancora in elaborazione.",
+            "delay": "Gli ordini vengono generalmente elaborati entro 24-48 ore.",
+            "missing": "Assicurati di essere effettuato l'accesso e controlla la scheda Cronologia ordini.",
+            "question": "Sicuro! \nPotresti specificare la tua domanda sul tuo ordine?",
+            "refund": "I rimborsi vengono emessi entro 5-7 giorni dall'approvazione."
+          },
+          "question": "Cosa vuoi sapere sui tuoi ordini?",
+          "title": "Ho una domanda sui miei ordini"
+        },
+        "Shop": {
+          "Questions": {
+            "difference": "Qual è la differenza tra l'acquisto una tantum e l'abbonamento?",
+            "methods": "Quali metodi di pagamento sono disponibili?",
+            "negociate": "Posso negoziare il prezzo di un prodotto?",
+            "pay": "Come faccio un pagamento?",
+            "product": "Ho una domanda su un prodotto.",
+            "voucher": "Come posso usare uno sconto o un codice voucher?"
+          },
+          "Responses": {
+            "difference": "Gli acquisti una tantum vengono addebitati una volta, gli abbonamenti si rinnovano automaticamente.",
+            "methods": "Accettiamo carte di credito, PayPal e altro a seconda della tua regione.",
+            "negociate": "Per gli ordini di massa o B2B, non esitare a contattare il nostro team di vendita.",
+            "pay": "Puoi pagare utilizzando il tuo metodo preferito al momento del pagamento.",
+            "product": "Sicuro! \nFammi sapere a quale prodotto ti interessa.",
+            "voucher": "È possibile inserire il codice del voucher durante il checkout per applicare uno sconto."
+          },
+          "question": "Cosa vuoi sapere del nostro negozio?",
+          "title": "Ho una domanda sul negozio"
+        },
+        "Subscriptions": {
+          "Questions": {
+            "cancel": "Vorrei annullare il mio abbonamento.",
+            "how": "Come funziona il sistema di abbonamento?",
+            "question": "Ho una domanda sul mio abbonamento.",
+            "refund": "Come posso richiedere un rimborso per il mio abbonamento?",
+            "where": "Dove posso trovare il mio abbonamento?"
+          },
+          "Responses": {
+            "cancel": "Puoi annullare l'abbonamento in qualsiasi momento nelle impostazioni dell'account.",
+            "how": "Gli abbonamenti si rinnovano automaticamente mensilmente o ogni anno, a seconda del piano.",
+            "question": "Certo, fammi sapere cosa vorresti sapere sul tuo abbonamento.",
+            "refund": "I rimborsi per gli abbonamenti dipendono dai termini e dal tempo della cancellazione.",
+            "where": "I dettagli dell'abbonamento sono disponibili nel tuo account nella scheda Abbonamenti."
+          },
+          "question": "Cosa vuoi sapere sui tuoi abbonamenti?",
+          "title": "Ho una domanda sui miei abbonamenti"
+        }
+      },
+      "bot": {
+        "message": {
+          "error": "Non sono riuscito a trovare una risposta, puoi selezionare un'altra opzione per favore?",
+          "hello": "Ciao {nome utente}, come posso aiutarti oggi?"
+        },
+        "selector": {
+          "cancel": "Cancellare",
+          "selectOption": "Seleziona un'opzione"
+        }
+      },
+      "error": {
+        "userNameAndEmailRequired": "Sono richiesti nome utente ed e -mail."
+      },
+      "welcome": {
+        "description": "Ciao, Mathys qui, sono qui per aiutarti con le tue domande. \nSe non riesco a rispondere alla tua domanda, ti trasferirò a un essere umano. \nVa bene per te? \nFai clic sul pulsante in basso per avviare una nuova chat.",
+        "disclaimer": "Dichiarando una nuova chat, accetti i nostri termini, condizioni e politica sulla privacy",
+        "emailPlaceholder": "La tua email",
+        "error": {
+          "needNameAndEmail": "Sono richiesti il ​​tuo nome ed e -mail"
+        },
+        "namePlaceholder": "Il tuo nome",
+        "startButton": "Inizia a chattare",
+        "title": "Inizia ora una nuova chat"
+      },
+      "widget": {
+        "title": "Chatta con noi"
+      },
+      "Actions": {
+        "SELECT_ORDER": {
+          "buttonText": "Seleziona un ordine",
+          "noResults": "Nessun ordine trovato",
+          "orderNumber": "Ordine",
+          "searchPlaceholder": "Ordini di ricerca ...",
+          "title": "Seleziona un ordine",
+          "error": "Errore durante la selezione dell'ordine",
+          "loading": "Caricamento",
+          "next": "Prossimo",
+          "noOrders": "Nessun ordine",
+          "previous": "Precedente"
+        },
+        "SELECT_PRODUCT": {
+          "annual": "anno",
+          "buttonText": "Seleziona un prodotto",
+          "monthly": "mese",
+          "noResults": "Nessun prodotto trovato",
+          "searchPlaceholder": "Cerca prodotti ...",
+          "title": "Seleziona un prodotto"
+        },
+        "SELECT_SUBSCRIPTION": {
+          "buttonText": "Seleziona un abbonamento",
+          "noResults": "Nessun abbonamento trovato",
+          "searchPlaceholder": "Abbonamenti di ricerca ...",
+          "subscriptionNumber": "Sottoscrizione",
+          "title": "Seleziona un abbonamento",
+          "error": "Erreur Lors du Chargement des Abonnements",
+          "loading": "Chargement des Abonnements ...",
+          "next": "SUIVANT",
+          "noSubscriptions": "Aucun Abonnement Trouvé",
+          "previous": "Precedente"
+        },
+        "status": {
+          "active": "Attivo",
+          "canceled": "Annullato",
+          "cancelled": "Annullato",
+          "completed": "Completato",
+          "expired": "Scaduto",
+          "failed": "Fallito",
+          "inactive": "Inattivo",
+          "pending": "In attesa di",
+          "refunded": "Rimborsato",
+          "paid": "PAGATO",
+          "unpaid": "Non pagato"
+        }
+      },
+      "Messages": {
+        "SELECT_ORDER": "Per aiutarti, seleziona un ordine relativo alla tua domanda facendo clic sul pulsante seguente",
+        "SELECT_PRODUCT": "Per aiutarti, seleziona un prodotto relativo alla tua domanda facendo clic sul pulsante seguente",
+        "SELECT_SUBSCRIPTION": "Per aiutarti, selezionare un abbonamento relativo alla tua domanda facendo clic sul pulsante seguente",
+        "actionCompleted": "Azione completata",
+        "actionRequired": "Fare clic sul pulsante in basso per selezionare un'opzione",
+        "contactHuman": "Chatta con il nostro team di supporto",
+        "error": "Si è verificato un errore, ricarica la pagina o riprova più tardi.",
+        "seeLink": "Link aperto",
+        "seeLinkLogin": "È necessario accedere per accedere a questa pagina"
+      },
+      "actionCompleted": "Azione completata",
+      "adminModeEnabled": "Messaggio ricevuto. \nTi trasferirò ai miei colleghi. \nRisponderanno il prima possibile. \nNel frattempo, si prega di fornire quante più informazioni possibili."
+    }
+  },
+  "chat": {
+    "admin": "un membro del nostro team di supporto",
+    "bot": "Il nostro bot di supporto",
+    "chatEnded": {
+      "closeButton": "Fermer",
+      "description": "Cette Conversation a été Terminée. \nVous Pouvez Fermer Cette Fenêtre.",
+      "title": "Conversazione terminale"
+    },
+    "chatWith": "Stai chattando con",
+    "chatWithHuman": "Chatta con un essere umano",
+    "endChat": {
+      "cancel": "Annuleratore",
+      "confirm": "Conversazione Terminer LA",
+      "description": "Êtes-vous sûr de vouloir Terminer Cette Conversation? \nVous ne piorrez plus inviyer de messaggi une fois la conversation terminée.",
+      "title": "Conversazione Terminer LA"
+    }
+  },
+  "error": "Si è verificato un errore, prova a ricaricare la pagina o riprovare più tardi.",
+  "aboutUs": "Chi siamo",
+  "categories": "Categorie",
+  "header": {
+    "aboutUs": "Chi siamo",
+    "categories": "Categorie",
+    "products": "Prodotti"
+  },
+  "products": "Prodotti",
+  "CompanyPage": {
+    "title": "Chi siamo",
+    "farewellButton": "Contattaci",
+    "farewellMessage": "Contattaci facendo clic sul pulsante in basso e risponderemo a tutte le tue domande.",
+    "farewellTitle": "Non sei convinto?",
+    "heroDescription": "Fondata nel 2021, Cyna è nato dopo aver effettuato numerose risposte incidenti in Francia e in Europa grazie alla competenza riconosciuta dei fondatori.",
+    "history": {
+      "description": "Le varie risposte agli incidenti ci hanno permesso di comprendere i vettori di attacco e gli scenari usati dagli aggressori. \nCyna è stato quindi creato, con l'obiettivo di fornire una protezione completa e pragmatica contro gli attacchi informatici per le PMI e le imprese di medie dimensioni.",
+      "title": "La nostra storia"
+    },
+    "mission": {
+      "description": "Nous Plaçons Vos priorités au cœur de Notre Mission. \nNous Comprenons les défis uniques auxquels sont confrontés les pme et msp faccia aux minaces toujours più sofistiquées.",
+      "title": "I nostri impegni a Cyna"
+    },
+    "values": {
+      "description": "Per affrontare efficacemente le nostre sfide quotidiane, Cyna si è circondata da esperti, organizzata in team dedicati per soddisfare al meglio le tue esigenze.",
+      "title": "Scopri i nostri team"
+    }
+  },
+  "pageTitle": {
+    "admin": "Amministratore",
+    "default": "Parente puro nel cyber"
+  },
+  "title": "Elenco degli utenti",
+  "cookieBanner": {
+    "accept": "Accettare",
+    "acceptAll": "Accetta tutto",
+    "message": "Questo sito Web utilizza i cookie per migliorare la tua esperienza e per scopi tecnici. \nUtilizzando il nostro sito Web, acconsenti all'uso dei cookie. \nPuoi leggere di più nel nostro",
+    "privacyPolicy": "Termini e condizioni"
+  },
+  "footer": {
+    "allRightsReserved": "Tutti i diritti riservati",
+    "contact": "Contatto",
+    "legalNotice": "Avviso legale",
+    "termsOfUse": "Termini di utilizzo",
+    "aboutUs": "Chi siamo",
+    "products": "Prodotti"
+  },
+  "legals": {
+    "applicableLaw": {
+      "description": "Qualsiasi controversia in relazione all'uso del sito Cyna è soggetta alla legge francese. \nTranne nei casi in cui la legge non lo consente, viene data una giurisdizione esclusiva ai tribunali competenti di Parigi.",
+      "title": "10. Legge e giurisdizione applicabili"
+    },
+    "conditions": {
+      "acceptance": "L'uso del sito Cyna implica l'accettazione completa e completa delle condizioni generali di utilizzo descritte di seguito. \nQueste condizioni d'uso possono essere modificate o integrate in qualsiasi momento.",
+      "accessibility": "Questo sito Web è normalmente accessibile agli utenti in qualsiasi momento. \nUn'interruzione dovuta alla manutenzione tecnica può tuttavia essere decisa da Cyna.",
+      "intellectualProperty": "Il sito costituisce un'opera della mente protetta dalle disposizioni del codice di proprietà intellettuale e dalle normative internazionali applicabili. \nIl cliente non può in alcun modo riutilizzare, trasferire o sfruttare per il proprio account o parte degli elementi o delle opere del sito.",
+      "title": "2. Condizioni generali di utilizzo del sito e servizi offerti"
+    },
+    "cookies": {
+      "definition": "Un \"cookie\" è un piccolo file di informazioni inviato al browser dell'utente e memorizzato nel terminale dell'utente.",
+      "management": "L'utente può configurare il proprio browser per consentire loro di decidere se accettarli o meno.",
+      "purpose": "I cookie facilitano la navigazione e/o la fornitura di servizi offerti dal sito.",
+      "title": "9. Collegamenti ipertestuali, cookie e tag Internet"
+    },
+    "definitions": {
+      "client": "Cliente: qualsiasi persona professionale o naturale capace ai sensi degli articoli 1123 e seguendo il codice civile, o entità giuridica, che visita il sito Web soggetto a queste condizioni generali.",
+      "clientInfo": "Informazioni sul cliente: di seguito indicati come \"informazioni (s)\" che corrisponde a tutti i dati personali che possono essere detenuti da Cyna per la gestione del tuo account, la gestione delle relazioni con i clienti e per scopi analitici e statistici.",
+      "content": "Contenuto: tutti gli elementi che costituiscono le informazioni presenti sul sito, in particolare testi, immagini, video.",
+      "personalInfo": "Informazioni personali: \"Informazioni che consentono, in qualsiasi forma, direttamente o indirettamente, l'identificazione delle persone naturali a cui si applicano\" (articolo 4 della legge n. 78-17 del 6 gennaio 1978).",
+      "services": "Servizi: Cyna fornisce ai clienti:",
+      "title": "Definizioni",
+      "user": "Utente: connessione utente Internet, utilizzando il sito di cui sopra."
+    },
+    "intellectualProperty": {
+      "consequences": "Qualsiasi uso non autorizzato del sito o di uno qualsiasi degli elementi che contiene sarà considerato come una violazione e perseguito in conformità con le disposizioni degli articoli L.335-2 e in seguito al codice di proprietà intellettuale.",
+      "rights": "Cyna possiede i diritti di proprietà intellettuale e detiene i diritti di utilizzo su tutti gli elementi accessibili sul sito Web.",
+      "title": "5. Proprietà intellettuale e contraffazione"
+    },
+    "liability": {
+      "damages": "Cyna non può essere ritenuto responsabile per danni diretti e indiretti causati all'apparecchiatura dell'utente.",
+      "interactiveSpaces": "Gli spazi interattivi sono disponibili per gli utenti. \nCyna si riserva il diritto di rimuovere, senza preavviso, qualsiasi contenuto pubblicato in questo spazio che violi la legge applicabile in Francia.",
+      "publisher": "Cyna funge da editore del sito. \nCyna è responsabile della qualità e della veridicità del contenuto che pubblica.",
+      "title": "6. Limitazioni di responsabilità"
+    },
+    "presentation": {
+      "dpo": "Ufficiale di protezione dei dati: Nathan Bramli - nathan.bramli@cyna-it.fr",
+      "host": "Host: OVH - 2 Rue Kellermann 59100 ROUBAIX 1007",
+      "owner": "Proprietario: SAS Cyna -it - Capitale azionario di 1000 euro - Numero IVA: FR20913711032 - 10 Rue de Penthièvre 75008 Parigi",
+      "publisher": "Responsabile della pubblicazione: Alexandre Elbaz - Alexandre.elbaz@cyna-it.fr",
+      "title": "1. Presentazione del sito web"
+    },
+    "privacy": {
+      "dataController": {
+        "description": "Per i dati personali raccolti nel contesto della creazione dell'account personale dell'utente e della loro navigazione sul sito, la persona responsabile dell'elaborazione dei dati personali è: cyna-it.",
+        "title": "7.1 gestori di raccolta di dati personali"
+      },
+      "purpose": {
+        "communication": "Per condurre campagne di comunicazione",
+        "fraud": "Per prevenire e combattere contro la frode informatica",
+        "improvement": "Per migliorare la navigazione sul sito",
+        "navigation": "Per consentire la navigazione sul sito e la gestione e la tracciabilità dei servizi ordinati dall'utente",
+        "title": "7.2 Scopo dei dati raccolti"
+      },
+      "rights": {
+        "description": "In conformità con gli attuali regolamenti europei, gli utenti di Cyna hanno i seguenti diritti: diritto di accesso, rettifica, aggiornamento, completezza dei dati, diritto di bloccare o cancellare i dati.",
+        "title": "7.3 diritto di accesso, rettifica e opposizione"
+      },
+      "title": "7. Gestione dei dati personali"
+    },
+    "services": {
+      "description": "Il sito Web Cyna mira a fornire informazioni su tutte le attività dell'azienda. \nCyna si impegna a fornire informazioni il più accurate possibile sul sito.",
+      "title": "3. Descrizione dei servizi forniti"
+    },
+    "technicalLimitations": {
+      "description": "Il sito utilizza la tecnologia JavaScript. \nIl sito Web non può essere ritenuto responsabile per danni ai materiali relativi all'uso del sito.",
+      "title": "4. Limitazioni contrattuali sui dati tecnici"
+    },
+    "title": "Avviso legale"
+  },
+  "Home": {
+    "Banner": {
+      "noTitle": "Nessun titolo"
+    }
+  },
+  "admin": {
+    "support": {
+      "inbox": {
+        "noMobileSupport": "Spiacenti, questa funzione non è disponibile sul cellulare.",
+        "noMobileSupportDescription": "Per accedere alla posta in arrivo e ai biglietti amministrativi, utilizzare un computer desktop."
       }
     }
   }

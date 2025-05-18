@@ -39,7 +39,7 @@ import {
   useChangeConfirmedUserStatus,
 } from "@/features/admin/security/users/utils/users"
 import { useRouter } from "@/i18n/routing"
-
+import { useTitle } from "@/components/navigation/titleContext"
 export default function UsersList() {
   const [page, setPage] = useState(1)
   const [limit] = useState(10)
@@ -52,6 +52,9 @@ export default function UsersList() {
     useChangeActiveUserStatus()
   const { mutate: changeConfirmedUserStatus, data: updatedConfirmedUser } =
     useChangeConfirmedUserStatus()
+  const t = useTranslations("Admin.Security.Users")
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   useEffect(() => {
     if (updatedActiveUser) {
@@ -88,7 +91,6 @@ export default function UsersList() {
   })
   const [rowSelection, setRowSelection] = useState({})
   const [users, setUsers] = useState([])
-  const t = useTranslations("Admin.Security.Users")
   const { isLoading, error } = useQuery({
     queryKey: ["users", page, limit, query],
     queryFn: async () => {
@@ -308,8 +310,8 @@ export default function UsersList() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border">
-        <Table>
+      <div className="rounded-md border grid">
+        <Table className="overflow-auto">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

@@ -8,33 +8,42 @@ import {
   returnPageSubTitleTranslation,
 } from "@/lib/utils"
 import { usePathname } from "next/navigation"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 export default function AdminLayout({ children }) {
   const t = useTranslations("")
   const pathname = usePathname()
+  const isAdminInbox = pathname.includes("/admin/support/inbox")
+  const isHomeAdmin = pathname.endsWith("/admin")
 
   return (
-    <div className=" overflow-y-scroll">
-      <QueryClientProvider client={new QueryClient()}>
-        <SidebarProvider>
-          <AdminSideNavbar />
-          <SidebarInset>
-            <AdminTopNavbar />
-            <div className="mx-7 my-2">
-              <div>
-                <h1 className="text-2xl font-semibold">
-                  {t(returnPageTitleTranslation(pathname))}
-                </h1>
-                <p className="text-sm text-muted-foreground">
-                  {t(returnPageSubTitleTranslation(pathname))}
-                </p>
+    <div className="flex flex-col">
+      <SidebarProvider>
+        <AdminSideNavbar />
+        <SidebarInset className="flex flex-col flex-1">
+          <AdminTopNavbar />
+          <div
+            className={isAdminInbox ? "flex-1 overflow-hidden" : "min-h-screen"}
+          >
+            <div className={`${isAdminInbox ? "" : "mx-7 my-2"}`}>
+              {!isAdminInbox && !isHomeAdmin && (
+                <div>
+                  <h1 className="text-2xl font-semibold">
+                    {t(returnPageTitleTranslation(pathname))}
+                  </h1>
+                  <p className="text-sm text-muted-foreground">
+                    {t(returnPageSubTitleTranslation(pathname))}
+                  </p>
+                </div>
+              )}
+              <div
+                className={`${isAdminInbox ? "h-[calc(100vh-56px)]" : "mt-5"}`}
+              >
+                {children}
               </div>
-              <div className="mt-5">{children}</div>
             </div>
-          </SidebarInset>
-        </SidebarProvider>
-      </QueryClientProvider>
+          </div>
+        </SidebarInset>
+      </SidebarProvider>
     </div>
   )
 }

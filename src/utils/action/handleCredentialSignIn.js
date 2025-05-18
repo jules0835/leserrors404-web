@@ -10,19 +10,30 @@ export async function handleCredentialsSignin({
   password,
   otp,
   redirect,
+  keepLogin,
+  appMobileLogin,
 }) {
   const t = await getTranslations("Auth.LoginPage")
+  const separator = redirect?.includes("?") ? "&" : "?"
 
   try {
-    await signIn("credentials", {
+    const result = await signIn("credentials", {
       email,
       password,
       otp,
-      redirectTo: redirect ? `${redirect}?reval=1` : "/?reval=1",
-      callbackUrl: redirect ? `${redirect}?reval=1` : "/?reval=1",
+      redirectTo: redirect ? `${redirect}${separator}reval=1` : "/?reval=1",
+      callbackUrl: redirect ? `${redirect}${separator}reval=1` : "/?reval=1",
+      keepLogin,
+      appMobileLogin,
     })
 
-    return { message: "Sign in successful" }
+    if (result?.error) {
+      throw new AuthError("SignInError", {
+        cause: { err: { message: result.error } },
+      })
+    }
+
+    return { success: true }
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.cause.err.message) {
@@ -67,10 +78,6 @@ export async function handleCredentialsSignin({
 
     throw error
   }
-}
-
-export async function handleGithubSignin() {
-  await signIn("github", { redirectTo: "/" })
 }
 
 export async function handleSignOut() {

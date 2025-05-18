@@ -8,10 +8,14 @@ import {
 import { ExternalLink } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useRouter } from "@/i18n/routing"
+import { formatIdForDisplay } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export default function LogDetails({ log }) {
   const t = useTranslations("Admin.Security.Logs")
   const router = useRouter()
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
 
   return (
     <div>
@@ -21,7 +25,7 @@ export default function LogDetails({ log }) {
             <CardTitle>{t("logId")}</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{log._id}</p>
+            <p>#{formatIdForDisplay(log)}</p>
           </CardContent>
         </Card>
         <Card className="flex flex-col items-center">

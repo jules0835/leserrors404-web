@@ -1,4 +1,4 @@
-import { SalesfrontModel } from "@/db/models/SalesfrontModel"
+import { SalesfrontModel } from "@/db/models/indexModels"
 import { mwdb } from "@/api/mwdb"
 
 export const createSalesfront = async (salesfront) => {

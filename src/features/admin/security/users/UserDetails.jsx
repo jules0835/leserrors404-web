@@ -16,6 +16,8 @@ import axios from "axios"
 import toast from "react-hot-toast"
 import { Logs, TriangleAlert } from "lucide-react"
 import UserLogsDialog from "@/features/admin/security/logs/UserLogsDialog"
+import { formatIdForDisplay } from "@/lib/utils"
+import { useTitle } from "@/components/navigation/titleContext"
 
 export function UserDetailsForm({ user }) {
   const [isEditing, setIsEditing] = useState(false)
@@ -26,6 +28,8 @@ export function UserDetailsForm({ user }) {
   const validationSchema = getEditUserSchema(t)
   const formikRef = useRef()
   const [countries, setCountries] = useState([])
+  const { setTitle } = useTitle()
+  setTitle(t("title"))
   const onSubmit = async (data, { setSubmitting }) => {
     const response = await toast.promise(
       axios.put(`/api/admin/security/users/${data._id}`, data),
@@ -106,7 +110,9 @@ export function UserDetailsForm({ user }) {
                 />
                 <div>
                   <h2 className="text-xl font-semibold">{`${user.firstName} ${user.lastName}`}</h2>
-                  <p className="text-sm text-gray-500">{user._id}</p>
+                  <p className="text-sm text-gray-500">
+                    #{formatIdForDisplay(user)}
+                  </p>
                   <p className="text-sm text-gray-500">
                     {t("created", {
                       date: new Date(user.createdAt).toLocaleString("fr-FR"),

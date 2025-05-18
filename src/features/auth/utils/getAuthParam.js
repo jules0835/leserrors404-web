@@ -1,10 +1,7 @@
-import { headers } from "next/headers"
+export function getReqUserId(req) {
+  const intAuth = req.headers.get("x-int-auth-userId")
 
-export function getReqUserId() {
-  const headersList = headers()
-  const intAuth = headersList.get("x-int-auth-userId")
-
-  if (!intAuth) {
+  if (!intAuth || intAuth === "undefined" || intAuth === "null") {
     return null
   }
 
@@ -13,11 +10,10 @@ export function getReqUserId() {
   return userId
 }
 
-export function getReqIsAdmin() {
-  const headersList = headers()
-  const intAuth = headersList.get("x-int-auth-isAdmin")
+export function getReqIsAdmin(req) {
+  const intAuth = req.headers.get("x-int-auth-isAdmin")
 
-  if (!intAuth) {
+  if (!intAuth || intAuth === "undefined" || intAuth === "null") {
     return false
   }
 

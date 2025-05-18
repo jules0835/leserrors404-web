@@ -1,6 +1,12 @@
-import { Schema } from "mongoose"
+import mongoose, { Schema } from "mongoose"
+import { generateUniqueShortId } from "@/lib/utils"
 
 export const userSchema = new Schema({
+  shortId: {
+    type: String,
+    index: true,
+    unique: true,
+  },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   phone: { type: String, required: true },
@@ -19,6 +25,9 @@ export const userSchema = new Schema({
     street: { type: String, required: true },
   },
   account: {
+    stripe: {
+      customerId: { type: String },
+    },
     auth: {
       loginAttempts: { type: Number, default: 0 },
       isOtpEnabled: { type: Boolean, default: false },
@@ -41,4 +50,33 @@ export const userSchema = new Schema({
       expires: { type: Date },
     },
   },
+  billingAddresses: [
+    {
+      name: { type: String, required: true },
+      country: { type: String, required: true },
+      city: { type: String, required: true },
+      zipCode: { type: String, required: true },
+      street: { type: String, required: true },
+      isDefault: { type: Boolean, default: false },
+    },
+  ],
+})
+
+userSchema.pre("save", async function ValidateShortId(next) {
+  if (!this.shortId) {
+    const generateAndCheckId = async () => {
+      const newId = generateUniqueShortId()
+      const exists = await mongoose.models.User.exists({ shortId: newId })
+
+      if (exists) {
+        return generateAndCheckId()
+      }
+
+      return newId
+    }
+
+    this.shortId = await generateAndCheckId()
+  }
+
+  next()
 })
