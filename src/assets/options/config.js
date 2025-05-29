@@ -45,9 +45,10 @@ export const webAppSettings = {
   // For demo, we only use en, if you can add as many locales as you want
   // View instructions in the DCT
   translation: {
-    locales: ["en"],
+    locales: ["en", "fr"],
     titles: {
       en: "English",
+      fr: "Français",
     },
     defaultLocale: "en",
   },
