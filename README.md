@@ -1,5 +1,12 @@
 # Projet Bachelor 3 - CYNA
 
+## Online Version
+
+[Consulter la version en ligne :](https://b3-cyna-web.vercel.app)
+https://b3-cyna-web.vercel.app/
+
+## Description
+
 Ce projet est une application web moderne développée avec [Next.js](https://nextjs.org/), un framework React qui offre des fonctionnalités avancées pour le développement web.
 
 ## 🚀 Technologies Utilisées
