@@ -2,8 +2,8 @@
 
 ## Online Version
 
-[Consulter la version en ligne :](https://b3-cyna-web.vercel.app)
-https://b3-cyna-web.vercel.app/
+[Consulter la version en ligne :](https://b3-cyna-web.vercel.app/en)
+https://b3-cyna-web.vercel.app/en
 
 ## Description
 
